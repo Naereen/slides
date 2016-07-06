@@ -1,0 +1,80 @@
+{
+    "__comment__": "Display controls in the bottom right corner",
+    "controls": true,
+
+    "__comment__": "Display a presentation progress bar",
+    "progress": true,
+
+    "__comment__": "Display the page number of the current slide",
+    "slideNumber": true,
+
+    "__comment__": "Push each slide change to the browser history",
+    "history": false,
+
+    "__comment__": "Enable keyboard shortcuts for navigation",
+    "keyboard": true,
+
+    "__comment__": "Enable the slide overview mode",
+    "overview": true,
+
+    "__comment__": "Vertical centering of slides XXX",
+    "center": false,
+
+    "__comment__": "Enables touch navigation on devices with touch input",
+    "touch": true,
+
+    "__comment__": "Loop the presentation",
+    "loop": false,
+
+    "__comment__": "Change the presentation direction to be RTL",
+    "rtl": false,
+
+    "__comment__": "Randomizes the order of slides each time the presentation loads",
+    "shuffle": false,
+
+    "__comment__": "Turns fragments on and off globally",
+    "fragments": true,
+
+    "__comment__": "Flags if the presentation is running in an embedded mode,",
+    "__comment__": "i.e. contained within a limited portion of the screen",
+    "embedded": false,
+
+    "__comment__": "Flags if we should show a help overlay when the questionmark",
+    "__comment__": "key is pressed",
+    "help": true,
+
+    "__comment__": "Flags if speaker notes should be visible to all viewers",
+    "showNotes": false,
+
+    "__comment__": "Number of milliseconds between automatically proceeding to the",
+    "__comment__": "next slide, disabled when set to 0, this value can be overwritten",
+    "__comment__": "by using a data-autoslide attribute on your slides",
+    "autoSlide": 0,
+
+    "__comment__": "Stop auto-sliding after user input",
+    "autoSlideStoppable": true,
+
+    "__comment__": "Enable slide navigation via mouse wheel",
+    "mouseWheel": true,
+
+    "__comment__": "Hides the address bar on mobile devices",
+    "hideAddressBar": true,
+
+    "__comment__": "Opens links in an iframe preview overlay",
+    "previewLinks": false,
+
+    "__comment__": "Transition style",
+    "__comment__": "none/fade/slide/convex/concave/zoom",
+    "transition": "none",
+
+    "__comment__": "Transition speed",
+    "__comment__": "default/fast/slow",
+    "transitionSpeed": "default",
+
+    "__comment__": "Transition style for full page slide backgrounds",
+    "__comment__": "none/fade/slide/convex/concave/zoom",
+    "backgroundTransition": "default",
+
+    "__comment__": "Number of slides away from the current that are visible",
+    "viewDistance": 3
+}
