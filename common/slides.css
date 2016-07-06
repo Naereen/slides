@@ -1,0 +1,176 @@
+/*
+ * slides.css for HTML slideshows powered by remarkjs (http://remarkjs.com/).
+ * Original author: Arthur Mensch
+ * https://github.com/arthurmensch/decks/tree/master/common/
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:400,500,500italic,400italic,300italic,300,700,700italic&subset=latin,greek-ext,greek,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700italic,700&subset=latin,greek,greek-ext,latin-ext);
+
+body {
+  font-family: 'Ubuntu';
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  margin-top: 0;
+}
+h1 {
+  margin-top: 0.5em;
+}
+h2 {
+  font-size: 140%;
+  line-height: 130%;
+}
+h3 {
+  font-size: 120%;
+  line-height: 130%;
+}
+
+li {
+  font-size: 120%;
+  line-height: 160%;
+}
+
+li p {
+    font-size: 100%;
+    line-height: 160%;
+}
+
+li ul li {
+    font-size: 90%;
+    line-height: 180%;
+}
+
+p {
+font-size: 120%;
+line-height: 160%;
+}
+
+.singleimg img {
+  max-width: 100%;
+  max-height: 600px;
+  /*border: 1px solid #ddd;*/
+}
+
+.big img {
+    display: block;
+    margin-left: -10%;
+    max-width: 120%;
+}
+table {
+  margin: 0 auto 0.8em;
+  border-collapse: collapse;
+}
+td, th {
+  border: 1px solid #ddd;
+  padding: 0.3em 0.5em;
+}
+
+.bgheader h1 {
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 50%;
+  padding: 0.5em;
+  color: white;
+  border-radius: .5em;
+}
+.middlebelowheader {
+  /* This fixed size height was found to work well with the slide
+     scaling mechanism of remark.js:
+   */
+  height: 500px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.widespace h2 {
+  line-height: 200%;
+}
+.big .remark-code  {
+  font-size: 200%;
+}
+.remark-code, .remark-inline-code {
+   font-family: 'Ubuntu Mono';
+}
+
+.medium .remark-code  {
+  font-size: 160%;
+}
+
+.mmedium .remark-code  {
+  font-size: 99%;
+}
+
+.affiliations img {
+  height: 100px;
+  margin: 2em;
+  /*margin-top: 1em;*/
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.credits {
+  font-style: italic;
+  font-size: 70%;
+}
+
+.bunchoflogos img {
+  max-height: 100px;
+  padding: 1em;
+}
+
+.bunchoflogos p {
+  text-align: center;
+  width: 750px;
+}
+
+.center {
+    text-align: center;
+}
+
+.column:first-of-type {float:left}
+.column:nth-of-type(2) {float:right}
+
+.split-30 .column:first-of-type {width: 30%}
+.split-30 .column:nth-of-type(2) {width: 70%}
+
+.split-40 .column:first-of-type {width: 35%}
+.split-40 .column:nth-of-type(2) {width: 65%}
+
+.split-50 .column:first-of-type {width: 50%}
+.split-50 .column:nth-of-type(2) {width: 50%}
+
+.split-60 .column:first-of-type {width: 60%}
+.split-60 .column:nth-of-type(2) {width: 40%}
+
+.split-70 .column:first-of-type {width: 70%}
+.split-70 .column:nth-of-type(2) {width: 30%}
+
+.small p {
+    font-size: 100%;
+    line-height: 110%;
+}
+
+.small li {
+    font-size: 100%;
+    line-height: 110%;
+}
+
+.small li p {
+    font-size: 100%;
+    line-height: 110%;
+}
+
+.important {
+    background-color: rgba(0, 0, 0, 0.9);
+    opacity: 50%;
+    padding: 0.5em;
+    color: white;
+    display: block;
+    border-radius: .5em;
+    }
+
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
