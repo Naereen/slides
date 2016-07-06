@@ -22,7 +22,7 @@ We will try to discover together what Daniel asked me yesterday.
 # 1. Installing Python 3
 > *Try to do this on your laptop, during the tutorial*
 
-1. Download [Anaconda (Python 3.5)](http://repo.continuum.io/archive/Anaconda3-4.1.0-MacOSX-x86_64.pkg) from [continuum.io/downloads](https://www.continuum.io/downloads) (~ 346 Mo)
+1. Download [Anaconda (Python 3.5)](https://repo.continuum.io/archive/Anaconda3-4.1.0-MacOSX-x86_64.pkg) from [continuum.io/downloads](https://www.continuum.io/downloads) (~ 346 Mo)
 2. Install it: double-click the downloaded ``.pkg`` file and follow the instructions
 3. Check that Python (``python3``) has been installed:
 
