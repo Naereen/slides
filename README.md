@@ -9,11 +9,19 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 
 ## *How to read these documents*?
 
-### :arrow_forward: View the slides statically ?
-- TODO: From rawgit.com ?
+### On [naereen.github.io/slides](naereen.github.io/slides/)
+- TODO
 
-### :arrows_counterclockwise: View the slides ?
-- TODO: from http://remarkjs.com/remarkise ?
+### :arrow_forward: 1. View the slides on-line ?
+> Thanks to [rawgit.com](https://rawgit.com/).
+
+- Example: [template](https://cdn.rawgit.com/Naereen/slides/master/template/)
+- Use this URL: ``https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/``
+
+### :arrows_counterclockwise: 2. View the slides locally ?
+- You can also clone this repository, and browse locally the slides.
+
+- TODO: using [remarkise](http://remarkjs.com/remarkise) ?
 
 ----
 
