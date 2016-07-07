@@ -35,14 +35,13 @@ $ python3
 # 2. Basic introduction to Python
 - .red[**Not covered today**]
 - Start with [introtopython.org](http://introtopython.org/)
+- More in-depth tutorial: [scipy-lectures.org](http://www.scipy-lectures.org/) (very good quality)
 - Example: [Hello World!](http://introtopython.org/hello_world.html)
 
 ```python
 >>> print("Hello Python world!")
 Hello Python world!
 ```
-
-- More in-depth tutorial: [scipy-lectures.org](http://www.scipy-lectures.org/) (very good quality)
 
 ---
 # 3. Using the Spyder IDE
@@ -108,8 +107,14 @@ plt.show()
 from scipy import ndimage  # module for n-d images
 import matplotlib.pyplot as plt  # module for plotting
 
-from scipy import misc  # some toy data are here
+from scipy import misc  # some toy data are in this module
 face = misc.face(gray=True)
+# Or
+face = plt.imread('face.png')
+# Or
+from skimage.io import imread  # import a function
+face = imread('face.jpg')
+
 print(face[0, 0])  # first pixel: 114
 # display the image
 plt.imshow(face, cmap='gray')
@@ -151,7 +156,7 @@ plt.imshow(crop_face, cmap='gray')
 
 ---
 # 7. Deep Learning in Python with ``caffe``, ``lasagne`` or ``tensorflow``
-- .red[**I don't do deep learning myself!**] So I don't know which library is the best
+- .red[**I don't do deep learning myself!**] So I don't know which library is the best...
 - .orange[**NOT shipped with Anaconda !**]
 
 - ``caffe``: Python interface to a C++ engine, by Berkeley's Vision lab, [caffe.berkeleyvision.org](http://caffe.berkeleyvision.org/), [example](http://nbviewer.jupyter.org/github/BVLC/caffe/blob/master/examples/01-learning-lenet.ipynb#2.-Creating-the-net)
@@ -166,6 +171,7 @@ plt.imshow(crop_face, cmap='gray')
 count: false
 class: bgheader middlebelowheader
 # Questions ?
+> Please ask if any!
 
 ---
 # References for Python 3 and basic tools
@@ -196,8 +202,11 @@ class: bgheader middlebelowheader
 - ``theano`` documentation: [deeplearning.net/software/theano](http://deeplearning.net/software/theano)
 - ``lasagne`` documentation: [lasagne.readthedocs.org](http://lasagne.readthedocs.org/)
 - ``tensorflow`` documentation: [www.tensorflow.org/versions/r0.9/get_started/index.html](https://www.tensorflow.org/versions/r0.9/get_started/index.html)
+- ``tflearn.org`` tutorial: [tflearn.org/#quick-overview](http://tflearn.org/#quick-overview)
+- ``keras`` tutorial: [keras.io/#getting-started-30-seconds-to-keras](http://keras.io/#getting-started-30-seconds-to-keras)
 
 ---
 count: false
 class: bgheader middlebelowheader
 # Questions ?
+> Please ask if any!

@@ -33,14 +33,13 @@ $ python3
 ## 2. Basic introduction to Python
 - **Not covered today**
 - Start with [introtopython.org](http://introtopython.org/)
+- More in-depth tutorial: [scipy-lectures.org](http://www.scipy-lectures.org/) (very good quality)
 - Example: [Hello World!](http://introtopython.org/hello_world.html)
 
 ```python
 >>> print("Hello Python world!")
 Hello Python world!
 ```
-
-- More in-depth tutorial: [scipy-lectures.org](http://www.scipy-lectures.org/) (very good quality)
 
 ---
 
@@ -112,10 +111,16 @@ plt.show()
 from scipy import ndimage  # module for n-d images
 import matplotlib.pyplot as plt  # module for plotting
 
-from scipy import misc  # some toy data are here
+from scipy import misc  # some toy data are in this module
 face = misc.face(gray=True)
+# Or
+face = plt.imread('face.png')
+# Or
+from skimage.io import imread  # import a function
+face = imread('face.jpg')
+
 print(face[0, 0])  # first pixel: 114
-## display the image
+# display the image
 plt.imshow(face, cmap='gray')
 plt.show()
 ```
@@ -128,11 +133,11 @@ plt.show()
 
 ```python
 lx, ly = face.shape
-## cropping, by slicing the ndarray (matrix)
+# cropping, by slicing the ndarray (matrix)
 crop_face = face[lx / 4: - lx / 4, ly / 4: - ly / 4]
-## up <-> down flip
+# up <-> down flip
 flip_ud_face = np.flipud(face)
-## rotation
+# rotation
 rotate_face = ndimage.rotate(face, 45)
 rotate_face_noreshape = ndimage.rotate(face, 45, reshape=False)
 
@@ -141,7 +146,7 @@ plt.subplot(2, 3, 1)
 plt.imshow(face, cmap='gray')
 plt.subplot(2, 3, 2)
 plt.imshow(crop_face, cmap='gray')
-## etc...
+# etc...
 ```
 
 [![Figure #4](figures/figure_4.png)](figures/figure_4.png)
@@ -158,7 +163,7 @@ plt.imshow(crop_face, cmap='gray')
 ---
 
 ## 7. Deep Learning in Python with ``caffe``, ``lasagne`` or ``tensorflow``
-- **I don't do deep learning myself!** So I don't know which library is the best
+- **I don't do deep learning myself!** So I don't know which library is the best...
 - **NOT shipped with Anaconda !**
 
 - ``caffe``: Python interface to a C++ engine, by Berkeley's Vision lab, [caffe.berkeleyvision.org](http://caffe.berkeleyvision.org/), [example](http://nbviewer.jupyter.org/github/BVLC/caffe/blob/master/examples/01-learning-lenet.ipynb#2.-Creating-the-net)
@@ -172,6 +177,7 @@ plt.imshow(crop_face, cmap='gray')
 ---
 
 ## Questions ?
+> Please ask if any!
 
 ---
 
@@ -206,7 +212,10 @@ plt.imshow(crop_face, cmap='gray')
 - ``theano`` documentation: [deeplearning.net/software/theano](http://deeplearning.net/software/theano)
 - ``lasagne`` documentation: [lasagne.readthedocs.org](http://lasagne.readthedocs.org/)
 - ``tensorflow`` documentation: [www.tensorflow.org/versions/r0.9/get_started/index.html](https://www.tensorflow.org/versions/r0.9/get_started/index.html)
+- ``tflearn`` tutorial: [tflearn.org/#quick-overview](http://tflearn.org/#quick-overview)
+- ``keras`` tutorial: [keras.io/#getting-started-30-seconds-to-keras](http://keras.io/#getting-started-30-seconds-to-keras)
 
 ---
 
 ## Questions ?
+> Please ask if any!

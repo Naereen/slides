@@ -9,7 +9,7 @@
     "slideNumber": true,
 
     "__comment__": "Push each slide change to the browser history",
-    "history": false,
+    "history": true,
 
     "__comment__": "Enable keyboard shortcuts for navigation",
     "keyboard": true,
@@ -17,7 +17,7 @@
     "__comment__": "Enable the slide overview mode",
     "overview": true,
 
-    "__comment__": "Vertical centering of slides XXX",
+    "__comment__": "Vertical centering of slides",
     "center": false,
 
     "__comment__": "Enables touch navigation on devices with touch input",
