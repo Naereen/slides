@@ -11,22 +11,22 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 
 ### 1. On [naereen.github.io/slides](http://naereen.github.io/slides/)
 - [template](http://naereen.github.io/slides/template/)
-- [2016_07__Python_demo_at_EPFL](http://naereen.github.io/slides/2016_07__Python_demo_at_EPFL/) WARNING this slides were using [remark.js](https://github.com/gnab/remark/), but are broken, [for an understandable reason](https://github.com/gnab/remark/issues/351). For this slides, you can [read the Markdown file here on GitHub](2016_07__Python_demo_at_EPFL/), and [this list of links](2016_07__Python_demo_at_EPFL/links.md)...
-- More will come.
+- [2016_07__Python_demo_at_EPFL](http://naereen.github.io/slides/2016_07__Python_demo_at_EPFL/). For these slides, you can also [read this list of links](2016_07__Python_demo_at_EPFL/links.md).
+- More will come soon!
 
 ### :arrow_forward: 2. View the slides on-line ?
 > Thanks to [rawgit.com](https://rawgit.com/):
 
 - Example: [template](https://cdn.rawgit.com/Naereen/slides/master/template/)
-- Use this URL: ``https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/``
+- Use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/`
 
 > Thanks to [remarkjs.com/remarkise](http://remarkjs.com/remarkise):
 
-- Example: [2016_07__Python_demo_at_EPFL/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2016_07__Python_demo_at_EPFL%2Fslides.md#3) WARNING this slides were using [remark.js](https://github.com/gnab/remark/), but are broken, [for an understandable reason](https://github.com/gnab/remark/issues/351)
+- Example: [2016_07__Python_demo_at_EPFL/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2016_07__Python_demo_at_EPFL%2Fslides.md#3)
 
 ### :arrows_counterclockwise: 3. View the slides locally ?
 - You can also clone this repository, and browse locally the slides.
-- For some slides, they are not working as independant HTML files, so I switched to [reveal-md](https://github.com/webpro/reveal-md): simply use ``make`` in the sub-folder and it will open the slides in a browser (the [npm](https://www.npmjs.com/package/reveal-md) package ``reveal-md`` is required, though...)
+- For some slides, they are not working as independant HTML files, so I switched to [reveal-md](https://github.com/webpro/reveal-md): simply use `make` in the sub-folder and it will open the slides in a browser (the [npm](https://www.npmjs.com/package/reveal-md) package `reveal-md` is required, though...)
 
 ----
 
