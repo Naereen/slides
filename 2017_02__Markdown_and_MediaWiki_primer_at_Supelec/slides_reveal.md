@@ -1,7 +1,3 @@
----
-title: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdown & MediaWiki
----
-
 # GouTP @ SCEE
 
 - *About:*

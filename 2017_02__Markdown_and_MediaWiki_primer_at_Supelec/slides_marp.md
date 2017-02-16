@@ -1,16 +1,20 @@
----
-title: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdown & MediaWiki
----
+<!--
+page_number: true
+footer: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdown & MediaWiki
+-->
 
 # GouTP @ SCEE
 
 - *About:*
-  - Markdown: concept, syntax, tools
-  - Wiki & MediaWiki
+  Markdown: concept, syntax, tools
+  Wiki & MediaWiki
 
-- *Date:* 23 Feb 2017
+- *Date:*
+  23 Feb 2017
 
-- *Who:* Lilian Besson, `lilian.besson@supelec`
+- *Who:*
+  Lilian Besson
+  ==`lilian.besson@supelec`==
 
 ---
 # TODO
@@ -47,6 +51,8 @@ title: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdow
 
 ---
 # 1. Markdown
+<br>
+
 > Close to the "natural" syntax we use in emails :e-mail:
 
 - Emphasis: `*italic*`, `**bold**`, `~~striked~~`
@@ -95,6 +101,8 @@ title: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdow
 ---
 
 # *Marp:* Features
+![bg](images/marp.png)
+
 - Free and open-source
 - **Slides are written in pure Markdown.**
 - *Cross-platform*. Supports Windows, Mac, and Linux
