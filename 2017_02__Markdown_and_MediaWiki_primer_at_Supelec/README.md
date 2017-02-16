@@ -71,7 +71,7 @@
 - Markup reference: [`CommonMark.org/help`](http://commonmark.org/help/) :information_desk_person:
 
 - 5 minutes tutorial: [`CommonMark.org/help/tutorial`](http://commonmark.org/help/)
-   :computer: :keyboard: $\longrightarrow$ **Let's do it now!**
+   :computer: :keyboard: → **Let's do it now!**
 
 > There is plenty of syntax extensions: for tables, footnotes, etc
 
@@ -104,14 +104,14 @@
 ---
 # MediaWiki
 - A Wiki tool, free and open-source, powering Wikipedia :earth_americas:
-  $\longrightarrow$ [mediawiki.org](https://www.mediawiki.org/)
+  → [mediawiki.org](https://www.mediawiki.org/)
 - Syntax very close to Markdown, only small differences
 
 Used internally @ SCEE for our MediaWiki: *demo time*
 [MediaWiki on WS1](http://172.16.3.26) (→ `T581001`, IP: `172.16.3.26`)
 
 - Log in, edit a page, save it
-  :computer: :keyboard: $\longrightarrow$ **Let's try it now!**
+  :computer: :keyboard: → **Let's try it now!**
 
 ---
 # Conclusion :candy:
