@@ -115,7 +115,7 @@ Used internally @ SCEE for our MediaWiki: *demo time*
 [MediaWiki on WS1](http://172.16.3.26) (→ `T581001`, IP: `172.16.3.26`)
 
 - Log in, edit a page, save it
-  :computer: :keyboard: $\longrightarrow$ **Let's try it now!**
+  ​:computer:​ $\longrightarrow$ **Let's try it now!**
 
 ---
 # Conclusion :candy:
