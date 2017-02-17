@@ -102,7 +102,7 @@
 - Export your slides to PDF
 
 ---
-# MediaWiki
+# 2. MediaWiki
 - A Wiki tool, free and open-source, powering Wikipedia :earth_americas:
   $\longrightarrow$ [mediawiki.org](https://www.mediawiki.org/)
 - Syntax very close to Markdown, only small differences

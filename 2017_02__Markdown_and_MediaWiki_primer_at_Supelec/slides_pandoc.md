@@ -2,17 +2,18 @@
 title: GouTP @ SCEE
 subtitle: About Markdown and MediaWiki
 author: Lilian Besson
-institute: SCEE Team, CentraleSupélec, Rennes
+institute: SCEE Team, IETR, CentraleSupélec, Rennes
+smallinstitute: IETR
 date: February 23th, 2017
 lang: english
 babel-lang: english
 handout: true
 numbersections: true
-section-titles: true
+section-titles: false
 fontsize: 12pt
 include-before:
-  \phantom{\section*{GouTP}}
-  \phantom{\subsection*{About Markdown and MediaWiki}}
+  \section*{\hfill{}GouTP\hfill{}}
+  \subsection*{\hfill{}Markdown\hfill{}}
 ---
 
 # GouTP @ SCEE
@@ -128,7 +129,7 @@ include-before:
 
 ---
 
-# MediaWiki
+# 2. MediaWiki
 - A Wiki tool, free and open-source, powering Wikipedia\newline
   $\longrightarrow$ [mediawiki.org](https://www.mediawiki.org/)
 - Syntax very close to Markdown, only small differences

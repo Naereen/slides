@@ -331,7 +331,11 @@ $if(author)$
 \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 $if(institute)$
+$if(smallinstitute)$
+\institute[$for(smallinstitute)$$smallinstitute$$sep$ \and $endfor$]{$for(institute)$$institute$$sep$ \and $endfor$}
+$else$
 \institute{$for(institute)$$institute$$sep$ \and $endfor$}
+$endif$
 $endif$
 \date{$date$}
 $if(titlegraphic)$
