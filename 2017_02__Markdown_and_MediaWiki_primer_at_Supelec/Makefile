@@ -1,3 +1,7 @@
+# Quick Makefile to easily compile the slides (make pdf) and run the slide (make showtime)
+default: showtime
+
+
 theme = sky
 theme = league
 
@@ -7,3 +11,10 @@ reveal-md:
 pandocpdf:
 	pandoc -N -s --template=../my.beamer -t beamer slides_pandoc.md -o slides_pandoc.pdf
 	xdg-open slides_pandoc.pdf &
+
+showtime:	slides
+slides:
+	#-gmusicbrowser -cmd Pause  # Just to make sure your music player is NOT playing when you start your talk
+	@echo "Using Impressive.py (from http://impressive.sourceforge.net/)"
+	impressive.py --fullscreen --page-progress --mousedelay 500 --tracking --transtime 0 --duration 25m slides_pandoc.pdf | tee timestats`date +"__%d-%m__%H:%M"`.txt
+	# http://impressive.sourceforge.net/manual.php

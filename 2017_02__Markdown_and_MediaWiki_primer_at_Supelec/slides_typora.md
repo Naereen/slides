@@ -106,7 +106,7 @@ title: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdow
 - Export your slides to PDF
 
 ---
-# MediaWiki
+# 2. MediaWiki
 - A Wiki tool, free and open-source, powering Wikipedia :earth_americas:
   $\longrightarrow$ [mediawiki.org](https://www.mediawiki.org/)
 - Syntax very close to Markdown, only small differences
