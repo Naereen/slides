@@ -65,7 +65,7 @@
 
     "__comment__": "Transition style",
     "__comment__": "none/fade/slide/convex/concave/zoom",
-    "transition": "none",
+    "transition": "slide",
 
     "__comment__": "Transition speed",
     "__comment__": "default/fast/slow",
@@ -76,5 +76,17 @@
     "backgroundTransition": "default",
 
     "__comment__": "Number of slides away from the current that are visible",
-    "viewDistance": 3
+    "viewDistance": 5,
+
+    "__comment__": "Parallax background image",
+    "parallaxBackgroundImage": "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'",
+
+    "__comment__": "Parallax background size",
+    "parallaxBackgroundSize": "2100px 900px",
+
+    "__comment__": "Number of pixels to move the parallax background per slide",
+    "__comment__": "- Calculated automatically unless specified",
+    "__comment__": "- Set to 0 to disable movement along an axis",
+    "parallaxBackgroundHorizontal": null,
+    "parallaxBackgroundVertical": null
 }
