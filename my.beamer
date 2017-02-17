@@ -61,11 +61,11 @@
 %% Change Beamer fonts
 % \usefonttheme{default}
 % \usefonttheme[onlymath]{serif}
-% \usefonttheme{serif}
+\usefonttheme{serif}
 
-% \setbeamerfont{title}{family=\rm}
-% \setbeamerfont{titlelike}{family=\rm}
-% \setbeamerfont{frametitle}{family=\rm}
+\setbeamerfont{title}{family=\rm}
+\setbeamerfont{titlelike}{family=\rm}
+\setbeamerfont{frametitle}{family=\rm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% innertheme
@@ -104,6 +104,7 @@ $endif$
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \usepackage{lmodern}
+\usepackage{palatino}              % Use the Palatino font % XXX remove if it is ugly ?
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
@@ -169,6 +170,10 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
+
+% Cf. https://github.com/jgm/pandoc/pull/1571#issuecomment-106298268
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % XXX Experimental from http://stackoverflow.com/a/13020592/5889533
 \makeatletter

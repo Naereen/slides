@@ -1,22 +1,32 @@
-% GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdown & MediaWiki
 ---
+title: GouTP @ SCEE
+subtitle: About Markdown and MediaWiki
+author: Lilian Besson
+institute: SCEE Team, CentraleSupélec, Rennes
+date: February 23th, 2017
 lang: english
 babel-lang: english
 handout: true
-institute: CentraleSupélec
+numbersections: true
+section-titles: true
+fontsize: 12pt
+include-before:
+  \phantom{\section*{GouTP}}
+  \phantom{\subsection*{About Markdown and MediaWiki}}
 ---
 
 # GouTP @ SCEE
 
 - *About:*
-  - Markdown: concept, syntax, tools
-  - Wiki & MediaWiki
+   + Markdown: concept, syntax, tools
+   + Wiki & MediaWiki
 
 - *Date:* 23 Feb 2017
 
 - *Who:* Lilian Besson, `lilian.besson@supelec`
 
 ---
+
 # TODO
 - Envoyer un mail avant, un rappel le matin même ?
 - Créer des comptes pour le wiki pour tout le monde ?
@@ -24,6 +34,7 @@ institute: CentraleSupélec
 - Mettre ressource sur le Wiki !
 
 ---
+
 # Outline
 0. Intro: markup languages
 
@@ -37,19 +48,21 @@ institute: CentraleSupélec
    - For Wikipedia, and our internal SCEE Wiki
 
 ---
+
 # Intro: why using markup languages?
 #### Facts
-- $\LaTeX{}$ and HTML can be painful to write manually
+- LaTeX and HTML can be painful to write manually
 - Hard to read and parse for a human, and need a learning time
 
 #### Solution ?
 - Use a **markup language as simple as possible**
 - For many use, a lightweight markup language is enough:
   1. write *simple text* with light markup
-  2. *convert* the text to PDF, $\LaTeX{}$, HTML etc.
+  2. *convert* the text to PDF, LaTeX, HTML etc.
 - Example: *Wikipedia* pages are not written in HTML ...
 
 ---
+
 # 1. Markdown
 > Close to the "natural" syntax we use in emails
 
@@ -60,19 +73,22 @@ institute: CentraleSupélec
 - Quote: like emails, `> quote ...`
 
 ---
+
 # Example of Markdown output
 ## Heading 2
 - Emphasis: *italic*, **bold**,
-- Lists, one item by line,:
-  1. unnumbered with `- item`
-  2. numbered with `1. item`
+- Lists, one item by line:
+   1. unnumbered with `- item`
+   2. numbered with `1. item`
 
 ### Heading 3
 - Links: [commonmark.org](http://commonmark.org)
 - and image: ![logo](https://raw.githubusercontent.com/dcurtis/markdown-mark/master/png/66x40-solid.png)
+
 > Quote: like emails, `> quote ...`
 
 ---
+
 # Markdown tutorial
 > No official reference for the syntax, but the best reference is [CommonMark (`CommonMark.org`)](http://commonmark.org/)
 
@@ -84,12 +100,14 @@ institute: CentraleSupélec
 > There is plenty of syntax extensions: for tables, footnotes, etc
 
 ---
+
 # *Demo time:* Typora for *notes*
 - Markdown *document* writer:
   [`typora.io`](https://typora.io)
   ![](images/typora_screenshot.png)
 
 ---
+
 # *Demo time:* Marp for *slides*
 
 - Markdown *presentation* writer, free and open-source:
@@ -105,23 +123,25 @@ institute: CentraleSupélec
 - *Live Preview* with 3 modes
 - Slide themes and custom background images
 - Supports emoji
-- Render maths in your slides:
-  $$\mathrm{e}^{i \pi} = -1$$
+- Render maths in your slides: $$\mathrm{e}^{i \pi} = -1$$
 - Export your slides to PDF
 
 ---
+
 # MediaWiki
-- A Wiki tool, free and open-source, powering Wikipedia
+- A Wiki tool, free and open-source, powering Wikipedia\newline
   $\longrightarrow$ [mediawiki.org](https://www.mediawiki.org/)
 - Syntax very close to Markdown, only small differences
 
-Used internally @ SCEE for our MediaWiki: *demo time*
-[MediaWiki on WS1](http://172.16.3.26) (→ `T581001`, IP: `172.16.3.26`)
+Used internally @ SCEE for our MediaWiki: *demo time* !
 
-- Log in, edit a page, save it
+[MediaWiki on WS1](http://172.16.3.26) ($\rightarrow$ `T581001`, IP: `172.16.3.26`)
+
+- Log in, edit a page, save it \newline
   $\longrightarrow$ **Let's try it now!**
 
 ---
+
 # Conclusion
 - I hope you learned how to use **Markdown** & **MediaWiki**
 - Now... use it !
@@ -129,5 +149,6 @@ Used internally @ SCEE for our MediaWiki: *demo time*
 
 - If you are curious about a more complete use of Markdown, try to practice with it, and wait for next GouTP on **Advanced Markdown with `pandoc`** !
 
+\vfill{}
 
 > *Thanks for coming!*
