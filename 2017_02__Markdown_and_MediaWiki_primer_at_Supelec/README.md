@@ -9,13 +9,6 @@
 - *Who:* Lilian Besson, `lilian.besson@supelec`
 
 ---
-# TODO
-- Envoyer un mail avant, un rappel le matin même ?
-- Créer des comptes pour le wiki pour tout le monde ?
-- Envoyer slides et liens après !
-- Mettre ressource sur le Wiki !
-
----
 # Outline
 0. Intro: markup languages
 
