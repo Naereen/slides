@@ -128,7 +128,7 @@ include-before:
 
 Used internally @ SCEE for our MediaWiki: *demo time* !
 
-[MediaWiki on WS1](http://172.16.3.26) ($\rightarrow$ `T581001`, IP: `172.16.3.26`)
+[MediaWiki on WS4](http://172.16.3.80) (→ `HP-SCEE-1`, IP: `172.16.3.80`)
 
 - Log in, edit a page, save it \newline
   $\longrightarrow$ **Let's try it now!**

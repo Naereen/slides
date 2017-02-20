@@ -113,7 +113,7 @@ footer: GouTP @ SCEE |  Date: 23 Feb 2017  |  By: Lilian Besson  | About: Markdo
 - Syntax very close to Markdown, only small differences
 
 Used internally @ SCEE for our MediaWiki: *demo time*
-[MediaWiki on WS1](http://172.16.3.26) (→ `T581001`, IP: `172.16.3.26`)
+[MediaWiki on WS4](http://172.16.3.80) (→ `HP-SCEE-1`, IP: `172.16.3.80`)
 
 - Log in, edit a page, save it
   :computer: :keyboard: $\longrightarrow$ **Let's try it now!**
