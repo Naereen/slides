@@ -12,6 +12,12 @@ pandocpdf:
 	pandoc -N -s --template=../my.beamer -t beamer slides_pandoc.md -o slides_pandoc.pdf
 	xdg-open slides_pandoc.pdf &
 
+Marp:
+	Marp slides_marp.md
+
+typora:
+	typora document_typora.md
+
 showtime:	slides
 slides:
 	#-gmusicbrowser -cmd Pause  # Just to make sure your music player is NOT playing when you start your talk
