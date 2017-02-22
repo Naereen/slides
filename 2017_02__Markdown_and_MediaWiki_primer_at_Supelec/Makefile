@@ -18,6 +18,9 @@ Marp:
 typora:
 	typora document_typora.md
 
+jupyter:
+	jupyter-notebook slides.ipynb
+
 showtime:	slides
 slides:
 	#-gmusicbrowser -cmd Pause  # Just to make sure your music player is NOT playing when you start your talk
