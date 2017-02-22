@@ -19,8 +19,8 @@ include-before:
 # GouTP @ SCEE
 
 - *About:*
-   + Markdown: concept, syntax, tools
-   + Wiki & MediaWiki
+    + Markdown: concept, syntax, tools
+    + Wiki & MediaWiki
 
 - *Date:* 23 Feb 2017
 
@@ -32,10 +32,10 @@ include-before:
 0. Intro: markup languages
 
 1. Markdown
-   - Syntax, examples
-   - Experiment with *Markdown* !
-   - 2 tools: demo of *Typora* and *Marp*
-   - Pro tool : `pandoc` (another GouTP)
+    - Syntax, examples
+    - Experiment with *Markdown* !
+    - 2 tools: demo of *Typora* and *Marp*
+    - Pro tool : `pandoc` (another GouTP)
 
 2. MediaWiki
    - For Wikipedia, and our internal SCEE Wiki
@@ -50,8 +50,8 @@ include-before:
 #### Solution ?
 - Use a **markup language as simple as possible**
 - For many use, a lightweight markup language is enough:
-  1. write *simple text* with light markup
-  2. *convert* the text to PDF, LaTeX, HTML etc.
+    1. write *simple text* with light markup
+    2. *convert* the text to PDF, LaTeX, HTML etc.
 - Example: *Wikipedia* pages are not written in HTML ...
 
 ---
@@ -71,8 +71,8 @@ include-before:
 ## Heading 2
 - Emphasis: *italic*, **bold**,
 - Lists, one item by line:
-   1. unnumbered with `- item`
-   2. numbered with `1. item`
+    1. unnumbered with `- item`
+    2. numbered with `1. item`
 
 ### Heading 3
 - Links: [commonmark.org](http://commonmark.org)
@@ -88,7 +88,7 @@ include-before:
 - Markup reference: [`CommonMark.org/help`](http://commonmark.org/help/)
 
 - 5 minutes tutorial: [`CommonMark.org/help/tutorial`](http://commonmark.org/help/)
-   $\longrightarrow$ **Let's do it now!**
+  $\longrightarrow$ **Let's do it now!**
 
 > There is plenty of syntax extensions: for tables, footnotes, etc
 
@@ -139,6 +139,8 @@ Used internally @ SCEE for our MediaWiki: *demo time* !
 - I hope you learned how to use **Markdown** & **MediaWiki**
 - Now... use it !
 - Try to edit our [SCEE MediaWiki](http://172.16.3.26), if you want to add content
+
+<br>
 
 - If you are curious about a more complete use of Markdown, try to practice with it, and wait for next GouTP on **Advanced Markdown with `pandoc`** !
 
