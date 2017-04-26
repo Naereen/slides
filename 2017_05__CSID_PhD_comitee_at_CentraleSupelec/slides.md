@@ -63,7 +63,7 @@ include-before:
 - $\implies$ suite des thèses de Wassim et Navikkumar.
 
 ## Contexte thématique
-- Télécommunications radio et *radio intelligente* (*"cognitive radio"*),
+- Télécom radio et *radio intelligente* (*"cognitive radio"*),
 - Réseaux plus efficaces, plus écologiques etc,
 - Réseaux avec beaucoup d'objets connectés (*"Internet of Things"*, IoT),
 - Apprentissage statistique séquentiel et par renforcement, problèmes et algorithmes de *bandit*, pour résoudre les problèmes d'optimisation combinatoire dans des contextes discrets en temps et fréquence.
@@ -106,9 +106,9 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
     + $X_k(t) =$ nombre de fois que le canal $k$ a été détecté disponible $=$ somme de $T_k(t)$ échantillons venant de $B(\mu_k)$.
 - L'utilisateur secondaire (SU) commence par essayer une fois chaque canal ($T_k(T) = 1$), dans un ordre arbitraire.
 - Pour $t \geq K$, à chaque étape, un *indice* numérique est calculé :
-  $$ g_k(t) = \underbrace{\frac{X_k(t)}{N_k(t)}}_{\text{Moyenne}\; \widehat{\mu_k}} + \underbrace{\sqrt{\alpha \frac{\log(t)}{N_k(t)}}}_{\text{"Upper Confidence Bound"}\;}$$
+  $$ g_k(t) := \underbrace{\frac{X_k(t)}{N_k(t)}}_{\text{Moyenne empirique}\; \widehat{\mu_k}} + \underbrace{\sqrt{\alpha \frac{\log(t)}{N_k(t)}}}_{\text{"Upper Confidence Bound"}\;}$$
 - Le canal maximisant cet indice est choisi ($A(t) = \arg\max g_k(t)$), et s'il est libre, le SU transmet,
-- $T_k(t)$, $X_k(t)$ et $t$ sont mis à jour,
+- $T_k(t)$, $X_k(t)$ et $t$ sont mis à jour.
 
 > $\alpha > 0$ est un paramètre, contrôlant le compromis entre *exploration* et *exploitation*. $\alpha \geq \frac{1}{2}$ apporte des garanties théorique sur l'efficacité de $\mathrm{UCB}_1$.
 
@@ -128,7 +128,7 @@ Avec Émilie Kaufmann, CR au CNRS travaillant à Inria Lille (équipe SequeL, la
 
 - $4$ *visites* de Émilie à Rennes en $2016$, $2$ en mai $2017$,
 
-- $4$ *visites* de Lilian à Lille depuis octobre (de $3$ à $15$ jours), de $3$ semaines en juin,
+- $4$ *visites* de Lilian à Lille depuis octobre (de $3$ à $15$ jours), et $3$ semaines en juin,
 
 - *Projets en commun* : Christophe et Émilie publient un *tutorial* à la conférence ICC'17 (Paris, fin mai), et Émilie siège dans le jury de thèse de Navikkumar Modi (mai),
 
@@ -150,7 +150,7 @@ Notamment afin de :
 
 ----
 
-# Regret d'un algorithme de bandit {.plain}
+# Exemple : regret d'un algorithme de bandit {.plain}
 
 Le *regret* $R_T^{\mathcal{A}}$ sert à quantifier la perte en *récompense*, après $T$ étapes, entre la meilleure solution et l'algorithme $\mathcal{A}$.
 
@@ -168,8 +168,7 @@ On veut montrer des bornes de ce genre :
     $$\lim\inf_{T} \frac{R_T^{\mathcal{A}}}{\log T} \geq C_{\inf}(K, \mu, \dots).$$
 > - *supérieure* : pour n'importe quel problème $\mu$ d'un certain type, et pour tel algorithme, il existe une constante telle que
     $$\lim\sup_{T} \frac{R_T^{\mathcal{A}}}{\log T} \leq C_{\sup}(K, \mu, \dots).$$
-
-\only<4>{$\mathcal{A}$ est \emph{optimal} pour cette famille de problème si $C_{\inf}(K, \mu, \dots) = C_{\sup}(K, \mu, \dots)$.}
+> - $\mathcal{A}$ est *optimal* pour cette famille de problème si $C_{\inf}(K, \mu, \dots) = C_{\sup}(K, \mu, \dots)$.
 
 ----
 
@@ -197,10 +196,9 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 ----
 
-# Autres pistes de recherche ? {.plain}
+# Exemple : Agrégation d'algorithmes {.plain}
 
-## Exemple
-![aggregating_bandits.png](aggregating_bandits.png)
+![Regret $R_T$ pour différents algorithmes "état de l'art", pour $T = 100000$ et $1000$ répétitions. La courbe noire est une borne inférieure *asymptotique*. *Aggr* correspond à l'agrégation des $14$ autres algorithmes.](aggregating_bandits.png)
 
 ----
 
@@ -225,13 +223,14 @@ Pour la thèse, il faut suivre des formations :
 
 - Scientifiques :
     + Cours de "Radio Logicielle" par Jacques Palicot, à CentraleSupélec en mai-juin $2017$ ($12$h),
+    + Organisation et présentation à la Journée des Doctorants de l'IETR en juin,
     + (normalement) Présentation à la conférence CrownCom en septembre $2017$.
 
 - Générales ou professionnelles :
-    + À l'Université de Rennes 1, $9$h en février $2017$,
+    + À l'Université de Rennes 1, $9$h en janvier et février $2017$,
     + À l'Université de Lille 1, $2$h en mars $2017$.
 
-> Encore beaucoup à suivre, l'an prochain.
+> Encore beaucoup à suivre, l'an prochain...
 
 ----
 
@@ -281,7 +280,7 @@ J'aide quelques élèves pour des projets étudiants, à CentraleSupélec, surto
 
 > - Administration système pour nos machines de calcul dans l'équipe SCEE (3 *workstations*, 15 utilisateurs).
 >
-> - Membre du bureau de l'*Association des Doctorants et Docteurs de l'IETR*\only<2,3>{\footnote{Cf. \urlb{addi.asso.insa-rennes.fr/}}} (**ADDI**) depuis février. Une douzaine d'activités prévues dans l'année (dont la Journée des Doctorants en juillet, la galette des rois de l'IETR en janvier etc).
+> - Membre du bureau de l'*Association des Doctorants et Docteurs de l'IETR*\only<2,3>{\footnote{Cf. \urlb{ADDI.Asso.INSA-Rennes.fr/}}} (**ADDI**) depuis février. Une douzaine d'activités prévues dans l'année (dont la Journée des Doctorants en juillet, la galette des rois de l'IETR en janvier etc).
 >
 > - Programmeur passionné, j'essaie de contribuer régulièrement à des projets personnels\only<3>{\footnote{Cf. \urlb{Bitbucket.org/lbesson} et \urlb{GitHub.com/Naereen}}} et des grands projets *open-source*, surtout en Bash, OCaml et Python (*e.g.*, bibliothèques `matplotlib`, `jupyter`, `ipython` etc).
 
