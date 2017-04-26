@@ -8,7 +8,7 @@ reveal-md:
 	reveal-md --theme $(theme) --title "CSID  |  Date: 02 May 2017  |  Lilian Besson  |  CentraleSupélec" slides.md
 
 pandocpdf:
-	pandoc -i -N -s --template=../my.beamer -t beamer slides.md -o slides.pdf
+	pandoc -N -s --template=../my.beamer -t beamer slides.md -o slides.pdf
 	xdg-open slides.pdf &
 
 Marp:
