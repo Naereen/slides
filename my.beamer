@@ -100,6 +100,8 @@ $if(fontfamily)$
 $else$
 \usepackage{lmodern}
 $endif$
+\usepackage{color}
+  \newcommand{\urlb}[1]{\textcolor{blue}{\url{#1}}}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
