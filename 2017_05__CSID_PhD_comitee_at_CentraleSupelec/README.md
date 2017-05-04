@@ -1,14 +1,14 @@
 ---
-author: Lilian Besson
-title: CSID - 1ère année de thèse
-subtitle: Comité de Suivi Individuel du Doctorant
-institute:
+auteur: Lilian Besson
+titre: CSID - 1ère année de thèse
+contexte: Comité de Suivi Individuel du Doctorant
+institut:
   Équipe SCEE, IETR, CentraleSupélec, Rennes
   & Équipe SequeL, CRIStAL, Inria, Lille
-  30-40 minutes
-smallinstitute: E.-D. MATISSE
+durée: 30-40 minutes
+école doctorale: MATISSE (Rennes)
 date: 2 mai 2017
-lang: french
+langue: french
 ---
 
 # Comité de Suivi Individuel du Doctorant
