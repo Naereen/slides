@@ -27,12 +27,12 @@ lang: french
 
 # Présentation personnelle
 
-## Rapidement, je suis...
+## Rapidement, je suis…
 - Français, 23 ans, je viens des Hautes-Alpes (Briançon),
 - Normalien de l'ENS Cachan (2011-2016), diplômé en *mathématiques* et *informatique*
   (agrégation en 2014, master MVA en 2016).
 
-## Avant et maintenant...
+## Avant et maintenant…
 - *Avant* : stages de recherche en 2012, 2013, et 2016, un an d'enseignement en 2014-2015,
 - *En thèse* depuis octobre, basé à Rennes, avec un financement ministériel ("contrat doctoral spécifique normalien"),
 - Passionné par l'enseignement, je souhaite *enseigner* en France en classes préparatoires après ma thèse plutôt que de rester en recherche.
@@ -85,11 +85,11 @@ Avec Émilie Kaufmann, CR au CNRS travaillant à Inria Lille (équipe SequeL, la
 
 L'*Accès Opportuniste au Spectre* (*OSA*) consiste en :
 
-- Il y a K >= 1 canaux radio (bandes de fréquence) dans un domaine licencié, avec un temps discret synchronisé (temps et fréquence *discrets*),
+- Il y a K ≥ 1 canaux radio (bandes de fréquence) dans un domaine licencié, avec un temps discret synchronisé (temps et fréquence *discrets*),
 - des utilisateurs, dits *primaires* (PU), paient pour utiliser les canaux, mais n'occupent pas densément le spectre,
 - un autre utilisateur, dit *secondaire* (SU) veut communiquer, en accédant au canal le moins occupé,
 - mais il ne doit pas déranger les PU, et il peut écouter sur *un seul* canal au début de chaque temps discret, et ne fait rien si le canal est occupé.
-- Ce trafic ambiant est modélisé par des distributions, par exemple de Bernoulli B(µ_1),...,B(µ_K) (µ_k moyenne d'occupation du canal k), en supposant les canaux *i.i.d.*,
+- Ce trafic ambiant est modélisé par des distributions, par exemple de Bernoulli B(µ_1),…,B(µ_K) (µ_k moyenne d'occupation du canal k), en supposant les canaux *i.i.d.*,
   (Les PUs sont supposés *stochastiques* et *stationnaires*)
 - Bien-sûr, le SU ne connaît pas la répartition des PU a priori,
 - ==> le SU doit trouver le canal le moins occupé, *i.e.* *apprendre* les paramètres µ_k sous-jacents, en utilisant les échantillons aléatoires qu'il observe (= *récompense*).
@@ -102,19 +102,20 @@ L'*Accès Opportuniste au Spectre* (*OSA*) consiste en :
 
 L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version (UCB1, [Auer et al. 2002]) fonctionne comme ça :
 
-- Le SU garde en mémoire le nombre de communications t, et X_k(t) et T_k(t) deux variables, pour chaque canal 1 <= k <= K,
+- Le SU garde en mémoire le nombre de communications t, et X_k(t) et T_k(t) deux variables, pour chaque canal 1 ≤ k ≤ K,
     + T_k(t) = nombre d'écoute au canal (tentative d'accès),
     + X_k(t) = nombre de fois que le canal k a été détecté disponible = somme de T_k(t) échantillons venant de B(µ_k).
 
 - L'utilisateur secondaire (SU) commence par essayer une fois chaque canal (T_k(T) = 1), dans un ordre arbitraire.
-- Pour t >= K, à chaque étape, un *indice* numérique est calculé :
-   $$ g_k(t) := \underbrace{\frac{X_k(t)}{N_k(t)}}_{\text{Moyenne empirique}\; \widehat{µ_k}(t)} + \underbrace{\sqrt{\alpha \frac{\log(t)}{N_k(t)}}}_{\text{"Upper Confidence Bound"}\;}$$
-- Le canal maximisant cet indice est choisi (A(t) = argmax_k g_k(t)), et s'il est libre, le SU transmet,
+- Pour t ≥ K, à chaque étape, un *indice* numérique est calculé :
+   \widehat{µ_k}(t) := X_k(t) / N_k(t)
+   g_k(t) := \widehat{µ_k}(t) + sqrt(alpha log(t) / N_k(t))
+- Le canal maximisant cet indice est choisi (A(t) = arg max_k g_k(t)), et s'il est libre, le SU transmet,
 - T_k(t), X_k(t) et t sont mis à jour.
 
 - alpha > 0 est un paramètre, contrôlant le compromis entre *exploration* et *exploitation*.
 - alpha > 1/2 apporte des garanties théorique sur l'efficacité
-  (regret $R_T^{UCB1} = O(log T)$ asymptotiquement).
+  (regret R_T^{UCB1} = O(log T) asymptotiquement).
 
 ----
 
@@ -122,12 +123,12 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version (UCB1,
 
 "*Thompson Sampling*" est une approche Bayésienne :
 
-- Le SU suppose que les µ_1,...,µ_k ont été tiré selon un processus aléatoire, modélisé par un a posteriori ("*posterior*"), e.g., une distribution Binomiale Bin(a_k(t),b_k(t)) qui évolue à chaque étape.
+- Le SU suppose que les µ_1,…,µ_k ont été tiré selon un processus aléatoire, modélisé par un a posteriori ("*posterior*"), e.g., une distribution Binomiale Bin(a_k(t),b_k(t)) qui évolue à chaque étape.
 
 - D'abord un a priori uniforme : a_k(0),b_k(0) = 1 ("*flat prior*"),
 
 - Ensuite, à chaque étape t, le SU tire *un* échantillon de chaque distribution a posteriori, et le canal A(t) ayant l'échantillon le plus grand est utilisé (= le plus probable d'être libre pour communiquer) :
-     A(t) = argmax_k i_k(t) avec i_k(t) ~ Bin(a_k(t), b_k(t)).
+     A(t) = arg max_k i_k(t) avec i_k(t) ~ Bin(a_k(t), b_k(t)).
 - Selon la détection des PU sur le canal k = A(t), l'a posteriori est mis à jour :
     + a_k(t) = 1 + X_k(t) : nombre de transmissions réussies,
     + et b_k(t) = 1 + N_k(t) - X_k(t) : nombre de transmissions échouées.
@@ -170,32 +171,32 @@ Notamment afin de :
 
 # Regret d'un algorithme de bandit
 
-Le *regret* $R_T^A$ sert à quantifier la perte en *récompense*, après T étapes, entre la meilleure solution et l'algorithme A.
+Le *regret* R_T^A sert à quantifier la perte en *récompense*, après T étapes, entre la meilleure solution et l'algorithme A.
 
 ## Exemple de regret
-Par exemple, en \emph{OSA} classique, si les bras sont ordonnés par leur disponibilité, µ_1 > µ_2 >= ... >= µ_K, on se compare au meilleur bras µ_1, et alors :
-  R_T^{UCB1} := µ_1 × T - \sum_{t=1}^T r_{A(t)}(t),
+Par exemple, en OSA classique, si les bras sont ordonnés par leur disponibilité, µ_1 > µ_2 ≥ … ≥ µ_K, on se compare au meilleur bras µ_1, et alors :
+  R_T^{UCB1} := µ_1 × T - ∑_{t=1}^T r_{A(t)}(t),
 où la récompense du canal k est tirée selon sa loi : r_k(t) ~ B(µ_k).
 
 On veut montrer des bornes :
 
 - *inférieure* : pour n'importe quel problème µ d'un certain type, il existe une constante telle que **pour tout algorithme** A
-  lim inf_{T \to +oo} R_T^A / log(T) >= C_{inf}^A(K, µ, ...).
+  lim inf_{T \to +oo} R_T^A / log(T) ≥ C_{inf}^A(K, µ, …).
 - *supérieure* : pour n'importe quel problème µ d'un certain type, et pour **cet algorithme**, il existe une constante telle que
-  lim sup_{T \to +oo} R_T^A / log(T) <= C_{sup}^A(K, µ, ...).
-- A est dit *optimal* pour cette famille de problème si $C_{inf}^A(K, µ, ...) = C_{sup}^A(K, µ, ...)$.
+  lim sup_{T \to +oo} R_T^A / log(T) ≤ C_{sup}^A(K, µ, …).
+- A est dit *optimal* pour cette famille de problème si C_{inf}^A(K, µ, …) = C_{sup}^A(K, µ, …).
 
 ----
 
 # *OSA* multi-joueurs
 
-- Il y a K canaux et maintenant 1 <= M <= K utilisateurs dynamiques (*SU*),
-  et toujours de *PU* (µ_1,...,µ_K),
+- Il y a K canaux et maintenant 1 ≤ M ≤ K utilisateurs dynamiques (*SU*),
+  et toujours de *PU* (µ_1,…,µ_K),
 - Chaque SU cherche à exploiter les canaux les plus libres,
 - Mais ils doivent chercher une configuration *orthogonale* : si deux (ou plus) utilisateurs communiquent sur un même canal à un même instant, il y a *collision* (aucun ne communique).
 
 ## Protocole
-À chaque t, chaque SU 1 <= j <= M doit :
+À chaque t, chaque SU 1 ≤ j ≤ M doit :
 
 - Choisir quel canal écouter, et si k est libre, transmettre,
 - Si seul sur k, il reçoit un *Ack*, sinon, il sait qu'il y a collision.
@@ -206,20 +207,20 @@ Sans contrôle centralisé, ni communication entre eux :
 - Les M SU doivent apprendre les M meilleurs canaux,
 - Et s'orthogonaliser le plus vite possible (plus de collision).
 
-## Exemple : l'algorithme rho^{Rand}[UCB1]
+## Exemple : l'algorithme ρ^Rand[UCB1]
 1. Utiliser UCB1 pour apprendre les M meilleurs canaux.
-2. Le SU j vise le r_j ième meilleur canal (*rang* 1 <= r_j <= M)
+2. Le SU j vise le r_j ième meilleur canal (*rang* 1 ≤ r_j ≤ M)
    et plus le meilleur canal. Au début, r_j = 1.
-3. Après collision, les SU tirent un nouveau rang aléatoire r_j ~ U(1,...,M).
+3. Après collision, les SU tirent un nouveau rang aléatoire r_j ~ U(1,…,M).
 
 ----
 
 # Regret pour l'*OSA* multi-joueurs ?
 - On généralise le regret aux problèmes multi-joueurs (décentralisés ou non).
 - Avec quelques hypothèses, le regret de n'importe quel algorithme décentralisé est au moins (en "lim inf")
-  M × ( \sum_{M + 1 <= k <= K} (µ_M - µ_k) / KL(µ_k, µ_M) ) × log(T).
-- On arrive à montrer ici que rho^{Rand} avec un algorithme de bandit classique optimal, a un regret en O(log T) ("lim sup").
-- Mais pas encore la bonne constante...
+  M × ( ∑_{M + 1 ≤ k ≤ K} (µ_M - µ_k) / KL(µ_k, µ_M) ) × log(T).
+- On arrive à montrer ici que ρ^Rand avec un algorithme de bandit classique optimal, a un regret en O(log T) ("lim sup").
+- Mais pas encore la bonne constante…
   ("*order optimal*" mais pas encore optimal)
 - Difficile de bien contrôler le nombre de collisions.
 
@@ -240,7 +241,7 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 # Apprentissage dans un réseau *IoT*
 
-- Il y a toujours K canaux et 1 <= M objets,
+- Il y a toujours K canaux et 1 ≤ M objets,
 - Ils cherchent tous à accéder au réseau selon les canaux les plus libres (==> remplir le réseau au maximum),
 - Mais ils ne communiquent pas à chaque instant : chaque objet envoie peu de messages ("*sparse in time*"),
 - Ils émettent selon un processus discret de Bernoulli :
@@ -266,7 +267,7 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 - Déjà étudié par quelques chercheurs, des algorithmes existent (**Exp4** en 2002, Exp3M et ComBand à NIPS 2015 et 2016, variantes de *"Online Gradient Mirror Descent"*),
 - j'ai redécouvert l'algorithme Exp4 (et une autre variante) en décembre,
-- mais je ne pense pas continuer longtemps dans cette direction : le problème semble (quasiment) résolu par les derniers travaux publié en décembre 2016...
+- mais je ne pense pas continuer longtemps dans cette direction : le problème semble (quasiment) résolu par les derniers travaux publié en décembre 2016…
 
 ----
 
@@ -283,7 +284,7 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 2. Un *article* envoyé à la conférence européenne **CrownCom** 2017 (septembre, Lisbonne, Portugal) avec Rémi Bonnefoi, suivi d'une version journal étendue (déjà terminée !).
 
-3. Un *article* "maths et théorie" avec Émilie Kaufmann, sur des résultats déjà obtenus et d'autres à terminer, avec de nouvelles bornes inférieures et de meilleures bornes supérieures pour l'algorithme rho^{Rand} (OSA multi-joueur décentralisé). *Objectif* : **ICML** ou **COLT** 2018.
+3. Un *article* "maths et théorie" avec Émilie Kaufmann, sur des résultats déjà obtenus et d'autres à terminer, avec de nouvelles bornes inférieures et de meilleures bornes supérieures pour l'algorithme ρ^Rand (OSA multi-joueur décentralisé). *Objectif* : **ICML** ou **COLT** 2018.
 
 4. Un *article* "télécomslides" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive. *Objectif* : fin 2017.
 
@@ -293,7 +294,7 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 # Autres activités
 
-Mais aussi...
+Mais aussi…
 
 ----
 
@@ -310,7 +311,7 @@ Pour la thèse, il faut suivre des formations :
     + À l'Université de Rennes 1, 9h en janvier et février 2017,
     + À l'Université de Lille 1, 2h en mars 2017.
 
-> Encore beaucoup à suivre, l'an prochain...
+> Encore beaucoup à suivre, l'an prochain…
 
 ----
 
@@ -392,7 +393,7 @@ J'aide quelques élèves pour des projets étudiants, à CentraleSupélec, surto
 
 À peine 7 mois de thèse.
 
-Et beaucoup de choses à faire pour la suite...
+Et beaucoup de choses à faire pour la suite…
 
 > *Merci !*
 
