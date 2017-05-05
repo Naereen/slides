@@ -149,7 +149,7 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
 - $\implies$ moyenne empirique estimée :
   $$\widetilde{\mu_k}(t) = \frac{a_k(t)}{a_k(t) + b_k(t)} = \frac{1 + X_k(t)}{2 + N_k(t)} \simeq \frac{X_k(t)}{N_k(t)} = \widehat{\mu_k}(t).$$
 
-> Un algorithme historique (\textcolor{gray}{[Thompson, 1935]}), très simple, mais qui marche très bien (prouvé optimal pour différent types de problème).
+> Un algorithme historique (\textcolor{gray}{[Thompson, 1935]}), très simple, mais qui marche très bien (prouvé optimal pour différents types de problème).
 
 ----
 

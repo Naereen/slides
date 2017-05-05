@@ -44,7 +44,7 @@ Good luck
 
 ---
 
-## Présentation personnelle (1/2)
+## Présentation personnelle ($1/2$)
 
 ### Rapidement, je suis...
 - Français, $23$ ans, je viens des Hautes-Alpes (Briançon),
@@ -52,7 +52,7 @@ Good luck
 
 ---
 
-## Présentation personnelle (2/2)
+## Présentation personnelle ($2/2$)
 
 ### Avant et maintenant...
 - *Avant* : stages de recherche en $2012$, $2013$, et $2016$, un an d'enseignement en $2014$-$2015$,
@@ -61,7 +61,7 @@ Good luck
 
 ---
 
-## Contexte et sujet (1/2)
+## Contexte et sujet ($1/2$)
 
 ### Historique de l'équipe SCEE sur ce sujet
 - Thèse de Wassim Jouini ($2008$-$2012$), *"Contribution to learning and decision making under uncertainty for Cognitive Radio"*,
@@ -71,7 +71,7 @@ Good luck
 
 ---
 
-## Contexte et sujet (2/2)
+## Contexte et sujet ($2/2$)
 
 ### Contexte thématique
 - Télécom radio et *radio intelligente* (*"cognitive radio"*),
@@ -108,7 +108,7 @@ Avec Émilie Kaufmann, CR au CNRS travaillant à Inria Lille (équipe SequeL, la
 ---
 
 ## Un problème
-### *Accès Opportuniste au Spectre* (1/2)
+### *Accès Opportuniste au Spectre* ($1/2$)
 
 L'*Accès Opportuniste au Spectre* (*OSA*) consiste en :
 
@@ -118,7 +118,7 @@ L'*Accès Opportuniste au Spectre* (*OSA*) consiste en :
 - mais il ne doit pas déranger les PU, et il peut écouter sur *un seul* canal au début de chaque temps discret, et ne fait rien si le canal est occupé.
 
 ---
-### *Accès Opportuniste au Spectre* (2/2)
+### *Accès Opportuniste au Spectre* ($2/2$)
 
 - Ce trafic ambiant est modélisé par des distributions, par exemple de Bernoulli $B(\mu_1),\dots,B(\mu_K)$ ($\mu_k$ moyenne d'occupation du canal $k$), en supposant les canaux *i.i.d.*,
   (Les PUs sont supposés *stochastiques* et *stationnaires*)
@@ -130,7 +130,7 @@ C'est un problème de **décision discrète**, séquentiel (une décision après
 
 ---
 
-## Premier algorithme pour l'OSA : $\mathrm{UCB}_1$ (1/2)
+## Premier algorithme pour l'OSA : $\mathrm{UCB}_1$ ($1/2$)
 
 L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mathrm{UCB}_1$, [Auer et al., 2002]) fonctionne comme ça :
 
@@ -142,7 +142,7 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
 
 ---
 
-## $\mathrm{UCB}_1$ (2/2)
+## $\mathrm{UCB}_1$ ($2/2$)
 - Pour $t \geq K$, à chaque étape, un *indice* numérique est calculé :
 
   $$ g_k(t) := \frac{X_k(t)}{N_k(t)} + \sqrt{\alpha \frac{\log(t)}{N_k(t)}}$$
@@ -156,9 +156,7 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
 
 ---
 
-## Second algorithme : Thompson Sampling (1/2)
-
-"*Thompson Sampling*" est une approche Bayésienne :
+## Second algorithme : Thompson Sampling ($1/2$) (approche Bayésienne)
 
 - Le SU suppose que les $\mu_1,\dots,\mu_k$ ont été tiré selon un processus aléatoire, modélisé par un a posteriori ("*posterior*"), e.g., une distribution Binomiale $\mathrm{Bin}(a_k(t),b_k(t))$ qui évolue à chaque étape.
 
@@ -169,18 +167,18 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
 
 ---
 
-## Thompson Sampling (2/2)
+## Thompson Sampling ($2/2$)
 - Selon la détection des PU sur le canal $k = A(t)$, l'a posteriori est mis à jour :
     + $a_k(t) = 1 + X_k(t)$ : nombre de transmissions réussies,
     + et $b_k(t) = 1 + N_k(t) - X_k(t)$ : nombre de transmissions échouées.
 - $\implies$ moyenne empirique estimée :
   $$\widetilde{\mu_k}(t) = \frac{a_k(t)}{a_k(t) + b_k(t)} = \frac{1 + X_k(t)}{2 + N_k(t)} \simeq \frac{X_k(t)}{N_k(t)} = \widehat{\mu_k}(t).$$
 
-> Un algorithme historique ([Thompson, 1935]), très simple, mais qui marche très bien (prouvé optimal pour différent types de problème).
+> Un algorithme historique ([Thompson, 1935]), très simple, mais qui marche très bien (prouvé optimal pour différents types de problème).
 
 ---
 
-## Quelques objectifs futurs (1/2)
+## Quelques objectifs futurs ($1/2$)
 
 ### Passer au cas "*multi-joueurs*" :
 - Des *objets* "intelligents" accèdent au *même* réseau, en *même* temps (discret ou non),
@@ -190,7 +188,7 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
 
 ---
 
-## Quelques objectifs futurs (2/2)
+## Quelques objectifs futurs ($2/2$)
 
 ### Passer à des réseaux de type "*IoT*" :
 - Des protocoles plus complexes (en temps continu, avec des récompenses différentes à chaque utilisateur etc),
@@ -200,7 +198,7 @@ L'algorithme UCB (*Upper Confidence Bounds*), dans sa plus simple version ($\mat
 
 ---
 
-## Recherches en cours et collaborations (1/3)
+## Recherches en cours et collaborations ($1/3$)
 
 ### Avec Christophe Moy (aspects radio intelligente)
 Notamment afin de :
@@ -210,7 +208,7 @@ Notamment afin de :
 
 ---
 
-## Recherches en cours et collaborations (2/3)
+## Recherches en cours et collaborations ($2/3$)
 
 ### Avec Émilie Kaufmann (aspects théoriques)
 - Analyser les performances de différents algorithmes mono- et multi-joueurs dans différents modèles (*e.g.*, preuves de bornes supérieures sur le *regret*),
@@ -243,7 +241,7 @@ On veut montrer des bornes :
 
 ---
 
-## *OSA* multi-joueurs (1/2)
+## *OSA* multi-joueurs ($1/2$)
 
 - Il y a $K$ canaux et maintenant $1 \leq M \leq K$ utilisateurs dynamiques (*SU*),
   et toujours de *PU* ($\mu_1,\dots,\mu_K$),
@@ -259,7 +257,7 @@ On veut montrer des bornes :
 
 ---
 
-## *OSA* multi-joueurs (2/2)
+## *OSA* multi-joueurs ($2/2$)
 ### Objectifs
 Sans contrôle centralisé, ni communication entre eux :
 
@@ -285,7 +283,7 @@ Sans contrôle centralisé, ni communication entre eux :
 
 ---
 
-## Recherches en cours et collaborations (2/3)
+## Recherches en cours et collaborations ($2/3$)
 
 ### Avec Rémi Bonnefoi (autre doctorant dans l'équipe SCEE)
 Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de bandits utilisés par de nombreux objets "intelligents" dans un réseau de type IoT.
@@ -320,14 +318,14 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 ## Autres pistes de recherche ?
 
-### Agrégation d'algorithmes de bandit (1/2)
+### Agrégation d'algorithmes de bandit ($1/2$)
 
 - Idée : exécuter plusieurs algorithmes similaires en *parallèle*, sur le même problème, et *les faire voter* à chaque décision dans l'espoir d'être plus efficace (et plus robuste),
 - But : être *plus efficace* face à des problèmes différents, pour être *plus robuste* en situation réelle (*e.g.*, où on ne sait pas un modèle de Bernoulli ou Gaussien est approprié).
 
 ---
 
-### Agrégation d'algorithmes de bandit (2/2)
+### Agrégation d'algorithmes de bandit ($2/2$)
 
 - Déjà étudié par quelques chercheurs, des algorithmes existent (**Exp4** en $2002$, Exp3M et ComBand à NIPS $2015$ et $2016$, variantes de *"Online Gradient Mirror Descent"*),
 - j'ai redécouvert l'algorithme Exp4 (et une autre variante) en décembre,
@@ -342,10 +340,9 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 ---
 
-## Objectifs de publication (1/2)
+## Objectifs de publication ($1/2$)
 
-1. Un *rapport de recherche* (arXiv/HAL) résumant le travail de bibliographie, d'implémentation et d'expérimentation réalisé pour mon environnement de simulation (presque terminé) et la publication en libre accès du code (pour l'instant, la documentation est déjà disponible).
-  http://banditslilian.gforge.inria.fr/
+1. Un *rapport de recherche* (arXiv/HAL) résumant le travail de bibliographie, d'implémentation et d'expérimentation réalisé pour mon environnement de simulation (presque terminé) et la publication en libre accès du code (documentation déjà disponible http://banditslilian.gforge.inria.fr/)
 
 2. Un *article* envoyé à la conférence européenne **CrownCom** $2017$ (septembre, Lisbonne, Portugal) avec Rémi Bonnefoi, suivi d'une version journal étendue (déjà terminée !).
 
@@ -353,7 +350,7 @@ Nous étudions l'efficacité et la robustesse de l'utilisation d'algorithmes de 
 
 ---
 
-## Objectifs de publication (2/2)
+## Objectifs de publication ($2/2$)
 
 4. Un *article* "télécom" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive. *Objectif* : fin $2017$.
 
@@ -390,7 +387,7 @@ Par passion et pour valider mon stage d'agrégation, j'enseigne :
 
 - $40$h/an de TD/oraux à l'*ENS de Rennes*, en informatique théorique, pour la classe de préparation à l'agrégation de maths (http://perso.crans.org/besson/agreg-2016/) (option info), au niveau M2 (3ème année d'ENS). $15$ séances d'entraînement aux oraux d'informatique (leçons et modélisation) et oraux blancs.
 
-> Même mission pour les deux prochaines années !
+> $\implies$ Même mission pour les deux prochaines années !
 
 ???
 *Note :* je souhaite enseigner en prépa' après ma thèse.
@@ -409,18 +406,18 @@ J'aide quelques élèves pour des projets étudiants, à CentraleSupélec, surto
 > J'espère en faire autant l'an prochain, selon ce qu'on propose.
 
 ---
-### Un projet long, depuis octobre
+### ($1/3$) Un projet long, depuis octobre
 
 - Clément & Théo : afin de produire un générateur "maison" de "trafic ambiant" aléatoire, de type IoT, avec des cartes USRP et GNU Radio (programmation en Python et `C++`). Émission et réception réaliste en temps réel, avec une modulation *QPSK*.
 
 ---
-### Des projets courts, en janvier et février ($8$ semaines)
+### ($2/3$) Des projets courts, en janvier et février ($8$ semaines)
 
 - Bruno & Jérôme & Qingsong : sur le standard IoT *HomeEasy* (pour des "ampoules connectées"), programmation en Python et GNU Radio pour l'émission et la réception,
 - Pierre, Matthieu : un Raspberry Pi avec une webcam permet de suivre le niveau de café d'une cafetière, et de réagir lorsqu'elle est vide, pleine etc (programmation Python, traitement d'image embarqué et efficace, communication web).
 
 ---
-### Nouveaux projets courts en mai/juin
+### ($3/3$) Nouveaux projets courts en mai/juin
 
 - Antoine & Pierre-Jean : implémentation d'algorithmes de bandit (UCB1, Thompson Sampling etc) en Python dans GNU Radio, pour ajouter un utilisateur secondaire s'insérant dynamiquement dans le trafic généré par un projet précédent,
 - Flora & Matthias & Quentin : implémentation des mêmes algorithmes en `C++` sur des cartes LoRa programmables, pour s'insérer dans un réseau implémentant le standard *LoRa* (modulation/démodulation et trafic ambiant déjà réalisés par un autre projet).
@@ -437,7 +434,7 @@ J'aide quelques élèves pour des projets étudiants, à CentraleSupélec, surto
 
 ---
 
-## Conclusion & Perspectives (1/2)
+## Conclusion & Perspectives ($1/2$)
 
 ### Une première année de thèse déjà bien avancée, avec :
 
@@ -448,7 +445,7 @@ J'aide quelques élèves pour des projets étudiants, à CentraleSupélec, surto
 
 ---
 
-## Conclusion & Perspectives (2/2)
+## Conclusion & Perspectives ($2/2$)
 
 ### Mais aussi :
 
