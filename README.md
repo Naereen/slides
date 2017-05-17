@@ -21,10 +21,10 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 ### 2. PDF on [my website](http://perso.crans.org/besson/publis/slides/)
 PDF versions are not available on the Git repository, but on [my website, there are](http://perso.crans.org/besson/publis/slides/).
 
-- [2016_07__Python_demo_at_EPFL.pdf](http://perso.crans.org/besson/slides/2016_07__Python_demo_at_EPFL/slides.pdf).
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec.pdf](http://perso.crans.org/besson/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.pdf).
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec.pdf](http://perso.crans.org/besson/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.pdf).
-- [2017_06__Presentation_of_ADDI_Association.pdf](http://perso.crans.org/besson/slides/2017_06__Presentation_of_ADDI_Association/slides.pdf).
+- [2016_07__Python_demo_at_EPFL.pdf](http://perso.crans.org/besson/publis/slides/2016_07__Python_demo_at_EPFL/slides.pdf).
+- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec.pdf](http://perso.crans.org/besson/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides/publis.pdf).
+- [2017_05__CSID_PhD_comitee_at_CentraleSupelec.pdf](http://perso.crans.org/besson/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides/publis.pdf).
+- [2017_06__Presentation_of_ADDI_Association.pdf](http://perso.crans.org/besson/slides/2017_06__Presentation_of_ADDI_Association/slides/publis.pdf).
 
 ### :arrow_forward: 2. View the slides on-line ?
 #### *rawgit*
