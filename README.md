@@ -4,7 +4,11 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 
 - At first, this repository was only here to host some small experiments, for me to learn how to use [the remark.js slideshow tools](http://remarkjs.com/) correctly;
 - But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:!
-- And I am passionate about opensource and Markdown, I am trying to publish here all the slides of the talks I gave recently.
+- And I am passionate about open-source and Markdown, I am trying to publish here all the slides of the talks I gave recently (from July 2017).
+
+## Past slides
+- For my previous research internships : [« Méthodes de volumes finis sur carte graphique nVidia pour Euler compressible » (in French, fluid mechanics, PDE, and C/CUDA programming) L3 (2012)](http://perso.crans.org/besson/slidesL3Maths12.pdf), [« Modularité pour les programmes de robots » (in French, formal logic), M1 (2013)](http://perso.crans.org/besson/slidesM1Info13.pdf), [« Theoretical study of steerable homogeneous operators » (in English), M2 (2016)](http://perso.crans.org/besson/slidesM2MVA16.pdf).
+- And for [my M.Sc. (MVA) in 2015-16](http://perso.crans.org/besson/publis/mva-2016/), for some research projects : [Graphs in Machine-Learning (2015)](http://perso.crans.org/besson/publis/mva-2016/MVA_2015-16__GML_and_RL__Project__Lilian_Besson__Basile_Clement__Slides_19-01-16.en.pdf), [Sparsity and Compressed Sensing (2015)](http://perso.crans.org/besson/publis/mva-2016/MVA_2015-16__Compressed_Sensing__Project__Lilian_Besson__Slides.en.pdf), [Reinforcement Learning (2015)](http://perso.crans.org/besson/publis/mva-2016/MVA_2015-16__GML_and_RL__Project__Lilian_Besson__Basile_Clement__Slides_19-01-16.en.pdf), [Modeling in Neuro-Science](http://perso.crans.org/besson/publis/mva-2016/MVA_2015-16__Neuro-Sciences__Project__Lilian_Besson__Slides.en.pdf).
 
 ----
 
@@ -37,18 +41,9 @@ PDF versions are not available on the Git repository, but on [my website, there 
 - [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association/)
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/`
 
-#### *remarkise*
-> Thanks to [remarkjs.com/remarkise](http://remarkjs.com/remarkise):
-
-- Example: [template/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2Ftemplate%2Fslides.md#3)
-- [2016_07__Python_demo_at_EPFL/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2016_07__Python_demo_at_EPFL%2Fslides.md)
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_02__Markdown_and_MediaWiki_primer_at_Supelec%2Fslides.md)
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_05__CSID_PhD_comitee_at_CentraleSupelec%2Fslides.md)
-- [2017_06__Presentation_of_ADDI_Association/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_06__Presentation_of_ADDI_Association%2Fslides.md)
-
 ### :arrows_counterclockwise: 3. View the slides locally ?
 - You can also clone this repository, and browse locally the slides.
-- For some slides, they are not working as independant HTML files, so I switched to [reveal-md](https://github.com/webpro/reveal-md): simply use `make` in the sub-folder and it will open the slides in a browser (the [npm](https://www.npmjs.com/package/reveal-md) package `reveal-md` is required, though...)
+- For some slides, they are not working as independent HTML files, so I switched to [reveal-md](https://github.com/webpro/reveal-md): simply use `make` in the sub-folder and it will open the slides in a browser (the [npm](https://www.npmjs.com/package/reveal-md) package `reveal-md` is required, though...)
 
 ----
 
