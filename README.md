@@ -31,20 +31,20 @@ PDF versions are not available on the Git repository, but on [my website, there 
 > Thanks to [rawgit.com](https://rawgit.com/):
 
 - Example: [template](https://cdn.rawgit.com/Naereen/slides/master/template/)
-- [2016_07__Python_demo_at_EPFL](https://cdn.rawgit.com/Naereen/slides/master/2016_07__Python_demo_at_EPFL)
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_02__Markdown_and_MediaWiki_primer_at_Supelec)
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2017_05__CSID_PhD_comitee_at_CentraleSupelec)
-- [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association)
+- [2016_07__Python_demo_at_EPFL](https://cdn.rawgit.com/Naereen/slides/master/2016_07__Python_demo_at_EPFL/)
+- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/)
+- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2017_05__CSID_PhD_comitee_at_CentraleSupelec/)
+- [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association/)
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/`
 
 #### *remarkise*
 > Thanks to [remarkjs.com/remarkise](http://remarkjs.com/remarkise):
 
 - Example: [template/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2Ftemplate%2Fslides.md#3)
-- [2016_07__Python_demo_at_EPFL/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2016_07__Python_demo_at_EPFL%2Fslides.md#3)
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_02__Markdown_and_MediaWiki_primer_at_Supelec%2Fslides.md#3)
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_05__CSID_PhD_comitee_at_CentraleSupelec%2Fslides.md#3)
-- [2017_06__Presentation_of_ADDI_Association/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_06__Presentation_of_ADDI_Association%2Fslides.md#3)
+- [2016_07__Python_demo_at_EPFL/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2016_07__Python_demo_at_EPFL%2Fslides.md)
+- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_02__Markdown_and_MediaWiki_primer_at_Supelec%2Fslides.md)
+- [2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_05__CSID_PhD_comitee_at_CentraleSupelec%2Fslides.md)
+- [2017_06__Presentation_of_ADDI_Association/slides.md](http://remarkjs.com/remarkise?url=https%3A%2F%2Fraw.githubusercontent.com%2FNaereen%2Fslides%2Fmaster%2F2017_06__Presentation_of_ADDI_Association%2Fslides.md)
 
 ### :arrows_counterclockwise: 3. View the slides locally ?
 - You can also clone this repository, and browse locally the slides.
