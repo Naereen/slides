@@ -84,6 +84,11 @@
 \setbeamertemplate{navigation symbols}{}
 \beamertemplatenavigationsymbolsempty
 
+% XXX Add a background image to the slides
+\usepackage{tikz}
+% \setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{IETR.jpg}}
+% \setbeamertemplate{background}{{\centering\begin{tikzpicture}\node[opacity=0.15]{\includegraphics[width=0.98\paperwidth]{IETR_et_partenaires_IETR.png}};\end{tikzpicture}}}
+
 % Other options
 %\setbeamertemplate{footline}[page number]
 
@@ -386,7 +391,14 @@ $endif$
 
 \begin{document}
 $if(title)$
-\frame[plain]{\titlepage}
+\begin{frame}[plain]
+\titlepage
+
+% \begin{center}
+% \includegraphics[width=0.2\textwidth]{IETR.jpg}
+% \includegraphics[width=0.8\textwidth]{partenaires_IETR.png}
+% \end{center}
+\end{frame}
 $endif$
 
 $for(include-before)$
