@@ -5,4 +5,4 @@ all:	send
 
 send:	send_zamok
 send_zamok:
-	CP ./ ${Szam}publis/slides/
+	CP --exclude=.git ./ ${Szam}publis/slides/
