@@ -1,4 +1,4 @@
-\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(handout)$handout,$endif$$if(colorlinks)$dvipsnames,$endif$$if(beamer)$ignorenonframetext,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(handout)$handout,$endif$$if(colorlinks)$dvipsnames,$endif$$if(beamer)$ignorenonframetext,$endif$$for(classoption)$$classoption$$sep$,$endfor$$if(aspectratio)$aspectratio=$aspectratio$,$endif$]{$documentclass$}
 
 
 %%%%%%%%%%%%%%%
@@ -389,7 +389,26 @@ $if(logo)$
 \logo{\includegraphics{$logo$}}
 $endif$
 
+% For \justifying command, see https://tex.stackexchange.com/a/148696/
+\usepackage{ragged2e}
+\addtobeamertemplate{frame begin}{}{\justifying}
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+\addtobeamertemplate{itemize body begin}{}{\justifying}
+\addtobeamertemplate{itemize item}{}{\justifying}
+\addtobeamertemplate{itemize subitem}{}{\justifying}
+\addtobeamertemplate{itemize subsubitem}{}{\justifying}
+\addtobeamertemplate{enumerate body begin}{}{\justifying}
+\addtobeamertemplate{enumerate item}{}{\justifying}
+\addtobeamertemplate{enumerate subitem}{}{\justifying}
+\addtobeamertemplate{enumerate subsubitem}{}{\justifying}
+\addtobeamertemplate{description body begin}{}{\justifying}
+\addtobeamertemplate{description item}{}{\justifying}
+
 \begin{document}
+\justifying
+
 $if(title)$
 \begin{frame}[plain]
 \titlepage
