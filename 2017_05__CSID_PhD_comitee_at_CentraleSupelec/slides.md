@@ -42,7 +42,7 @@ include-before:
 # Présentation personnelle
 
 ## Rapidement, je suis...
-- Français, $23$ ans, je viens des Hautes-Alpes (Briançon),
+- Français, $24$ ans, je viens des Hautes-Alpes (Briançon),
 - Normalien de l'ENS Cachan ($2011-2016$), diplômé en *mathématiques* et *informatique* (agrégation en $2014$, master MVA en $2016$).
 
 . . .
