@@ -308,16 +308,16 @@ $if(section-titles)$
     \frame{\sectionpage}
   \fi
 }
-% % Si on veut faire apparaître le sommaire courant à chaque nouvelle section.
-% \AtBeginSection{
-%   \begin{frame}<beamer>%[t]
-%   %\frametitle{Local outline}  % Translate the name of the slide
-%   \frametitle{\hspace{0pt}}  % Translate the name of the slide
-%     \begin{LARGE}  % XXX LARGE font for this slide?
-%     \tableofcontents[currentsection, sectionstyle=show/hide, subsectionstyle=hide/hide]
-%     \end{LARGE}  % XXX LARGE font for this slide?
-%   \end{frame}
-% }
+% Si on veut faire apparaître le sommaire courant à chaque nouvelle section.
+\AtBeginSection{
+  \begin{frame}<beamer>%[t]
+  %\frametitle{Local outline}  % Translate the name of the slide
+  \frametitle{\hspace{0pt}}  % Translate the name of the slide
+    \begin{LARGE}  % XXX LARGE font for this slide?
+    \tableofcontents[currentsection, sectionstyle=show/hide, subsectionstyle=hide/hide]
+    \end{LARGE}  % XXX LARGE font for this slide?
+  \end{frame}
+}
 \AtBeginSubsection{
   \let\insertsubsectionnumber\relax
   \let\subsectionname\relax
@@ -413,17 +413,17 @@ $if(title)$
 \begin{frame}[plain]
 \titlepage
 
-% \begin{center}
-% \includegraphics[width=0.2\textwidth]{IETR.jpg}
-% \includegraphics[width=0.8\textwidth]{partenaires_IETR.png}
-% \end{center}
+\begin{center}
+\includegraphics[width=0.2\textwidth]{IETR.jpg}
+\includegraphics[width=0.8\textwidth]{partenaires_IETR.png}
+\end{center}
 \end{frame}
 $endif$
 
 $for(include-before)$
 $include-before$
-
 $endfor$
+
 $if(toc)$
 \begin{frame}
 \tableofcontents[hideallsubsections]
