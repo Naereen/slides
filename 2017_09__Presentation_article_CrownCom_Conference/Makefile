@@ -13,11 +13,17 @@ show169:
 	pdfpc -d 15 slides_169.pdf
 
 pandocpdf:
-	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides.md -o slides.pdf
+	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
+	./preprocess_tex.sh slides.tex
+	pdflatex slides.tex
+	pdflatex slides.tex
 	xdg-open slides.pdf &
 
 pandocpdf169:
-	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides.md -o slides_169.pdf
+	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides.md -o slides_169.tex
+	./preprocess_tex.sh slides_169.tex
+	pdflatex slides_169.tex
+	pdflatex slides_169.tex
 	xdg-open slides_169.pdf &
 
 Marp:

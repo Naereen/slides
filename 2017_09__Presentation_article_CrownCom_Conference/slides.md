@@ -15,15 +15,15 @@ handout: false
 numbersections: true
 section-titles: false
 fontsize: 12pt
-toc: true
+toc: false
 include-before:
   \section*{\hfill{}CentraleSupélec Rennes \& Inria Lille\hfill{}}
   \subsection*{\hfill{}Team {:} SCEE @ IETR \& SequeL @ CRIStAL\hfill{}}
 ---
 
-\section{Introduction}
+\section{\hfill{}1. Introduction and motivation\hfill{}}
 
-\subsection{Objective}
+\subsection{\hfill{}Objective\hfill{}}
 # We want
 - Insert *lots* of IoT objects in a **crowded wireless network**
 - With a protocol **slotted in time and frequency**
@@ -44,7 +44,7 @@ include-before:
 
 ---
 
-\subsection{Outline}
+\subsection{\hfill{}Outline\hfill{}}
 # Outline
 1. Introduction and motivation
 2. Model and hypotheses
@@ -56,9 +56,9 @@ include-before:
 
 ---
 
-\section{Model and hypotheses}
+\section{\hfill{}2. Model and hypotheses\hfill{}}
 
-\subsection{Model}
+\subsection{\hfill{}Model\hfill{}}
 # Model
 - Blabla
 - Blabla
@@ -68,7 +68,7 @@ include-before:
 
 ---
 
-\subsection{Hypotheses}
+\subsection{\hfill{}Hypotheses\hfill{}}
 # Hypotheses
 - Blabla
 - Blabla
@@ -76,9 +76,9 @@ include-before:
 
 ---
 
-\section{Baseline algorithms}
+\section{\hfill{}3. Baseline algorithms\hfill{}}
 
-\subsection{Uniformly random access: naive strategy}
+\subsection{\hfill{}Uniformly random access: naive strategy\hfill{}}
 # Naive strategy
 - Uniformly random access
 - Natural strategy, dead simple to implement
@@ -86,14 +86,14 @@ include-before:
 
 ---
 
-\subsection{Optimal centralized strategy}
+\subsection{\hfill{}Optimal centralized strategy\hfill{}}
 # Optimal centralized strategy
 - Very efficient
 - But not achievable in practice
 
 ---
 
-\subsection{Greedy approximation of the centralized strategy}
+\subsection{\hfill{}Greedy approximation of the centralized strategy\hfill{}}
 # Greedy approximation
 - Still very efficient
 - More reasonable
@@ -101,23 +101,23 @@ include-before:
 
 ---
 
-\section{Two learning algorithms : UCB, TS}
+\section{\hfill{}4. Two learning algorithms : UCB, TS\hfill{}}
 
-\subsection{Upper Confidence Bound algorithm : UCB}
+\subsection{\hfill{}Upper Confidence Bound algorithm : UCB\hfill{}}
 # Upper Confidence Bound algorithm
 - Smart
 
 ---
 
-\subsection{Thompson Sampling : Bayesian index policy}
+\subsection{\hfill{}Thompson Sampling : Bayesian index policy\hfill{}}
 # Thompson Sampling
 - Smart
 
 ---
 
-\section{Experimental results}
+\section{\hfill{}5. Experimental results\hfill{}}
 
-\subsection{Experiment setting}
+\subsection{\hfill{}Experiment setting\hfill{}}
 # Experimental setting
 - What do we want to show
 - Wnat we implemented
@@ -125,44 +125,44 @@ include-before:
 
 ---
 
-\subsection{First result: $10\%$}
+\subsection{\hfill{}First result: $10\%$\hfill{}}
 # First result: $10\%$ of dynamic devices
 
 ![$10\%$ of dynamic devices](src/10intelligent.eps)
 
 ---
 
-\subsection{First result: $20\%$}
+\subsection{\hfill{}First result: $20\%$\hfill{}}
 # $30\%$ of dynamic devices
 
 ![$30\%$ of dynamic devices](src/30intelligent.eps)
 
 ---
 
-\subsection{First result: $50\%$}
+\subsection{\hfill{}First result: $50\%$\hfill{}}
 # $50\%$ of dynamic devices
 
 ![$50\%$ of dynamic devices](src/50intelligent.eps)
 
 ---
 
-\subsection{First result: $100\%$}
+\subsection{\hfill{}First result: $100\%$\hfill{}}
 # $100\%$ of dynamic devices
 
 ![$100\%$ of dynamic devices](src/100intelligent.eps)
 
 ---
 
-\subsection{More and more dynamic devices}
+\subsection{\hfill{}More and more dynamic devices\hfill{}}
 # More and more dynamic devices
 
 ![More and more dynamic devices](src/perf_learning.eps)
 
 ---
 
-\section{Perspectives and future work}
+\section{\hfill{}6. Perspectives and future work\hfill{}}
 
-\subsection{Perspectives}
+\subsection{\hfill{}Perspectives\hfill{}}
 # Perspectives
 ## Theoretical results
 - This
@@ -174,7 +174,7 @@ include-before:
 
 ---
 
-\subsection{Future work}
+\subsection{\hfill{}Future work\hfill{}}
 # Future work
 - We need to do this
 - and that
@@ -182,8 +182,8 @@ include-before:
 
 ---
 
-\section{Conclusion}
-\subsection{Thanks!}
+\section{\hfill{}7. Conclusion\hfill{}}
+\subsection{\hfill{}Thanks!\hfill{}}
 # Conclusion
 - We proved this...
 

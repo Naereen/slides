@@ -414,9 +414,11 @@ $if(title)$
 \titlepage
 
 \begin{center}
-\includegraphics[width=0.2\textwidth]{IETR.jpg}
-\includegraphics[width=0.8\textwidth]{partenaires_IETR.png}
+\includegraphics[width=0.25\textwidth]{LogoIETR.png}
+\includegraphics[width=0.25\textwidth]{LogoCS.png}
+\includegraphics[width=0.25\textwidth]{LogoInria.jpg}
 \end{center}
+
 \end{frame}
 $endif$
 
@@ -428,8 +430,8 @@ $if(toc)$
 \begin{frame}
 \tableofcontents[hideallsubsections]
 \end{frame}
-
 $endif$
+
 $body$
 
 $if(natbib)$
