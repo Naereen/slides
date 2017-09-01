@@ -176,7 +176,7 @@ Maximize transmission rate $\equiv$ **maximize cumulated rewards**
 $$\sum_{\tau=1}^{\dots} r_{A(\tau)}.$$
 
 \subsection{\hfill{}4.2. Upper Confidence Bound algorithm : UCB\hfill{}}
-# Upper Confidence Bound algorithm ($\mathrm{UCB}_1$) {.allowframebreaks}
+# Upper Confidence Bound algorithm ($\mathrm{UCB}_1$)
 A dynamic device keeps $\tau$ number of sent packets, $T_k(t)$ selections of channel $k$, $X_k(t)$ successful transmission in channel $k$.
 
 1. For the first $N_c$ steps ($\tau=1,\dots,N_c$), try each channel *once*.
@@ -192,25 +192,25 @@ A dynamic device keeps $\tau$ number of sent packets, $T_k(t)$ selections of cha
 ----
 
 \subsection{\hfill{}4.3. Thompson Sampling : Bayesian index policy\hfill{}}
-# Thompson Sampling {.allowframebreaks}
+# Thompson Sampling : Bayesian approach
+A dynamic device assumes a stochastic hypothesis on the background traffic, modeled as Bernoulli distributions.
 
-"*Thompson Sampling*" est une approche Bayésienne :
+- Rewards $r_k(\tau)$ are assumed to be *i.i.d.* samples from a Bernoulli distribution $\mathrm{Bern}(\mu_k)$.
 
-- Le SU suppose que les $\mu_1,\dots,\mu_k$ ont été tiré selon un processus aléatoire, modélisé par un a posteriori ("*posterior*"), e.g., une distribution Binomiale $\mathrm{Bin}(a_k(t),b_k(t))$ qui évolue à chaque étape.
+- A **binomial Bayesian posterior** is kept on the mean availability $\mu_k$ : $\mathrm{Bin}(1 + X_k(\tau), 1 + N_k(\tau) - X_k(\tau))$.
+- Starts with a *uniform prior*
+  <!-- : $a_k(0),b_k(0) = 1$ -->
 
-- D'abord un a priori uniforme : $a_k(0),b_k(0) = 1$ ("*flat prior*"),
+1. Each step $\tau \geq 1$, a sample is drawn from each posterior
+  $i_k(t) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))$
+2. Choose channel $A(\tau) = \mathop{\arg\max}\limits_k i_k(\tau)$
+3. Update the posterior after receiving `Ack` or if collision
+     <!-- + $a_k(\tau) = 1 + X_k(\tau)$ : number of successful transmissions (`Ack`), -->
+     <!-- + $b_k(\tau) = 1 + N_k(\tau) - X_k(\tau)$ : number of failed transmissions (collision). -->
+<!-- - $\implies$ estimated empirical average :
+  $$\widetilde{\mu_k}(\tau) = \frac{a_k(\tau)}{a_k(\tau) + b_k(\tau)} = \frac{1 + X_k(\tau)}{2 + N_k(\tau)} \simeq \frac{X_k(\tau)}{N_k(\tau)} = \widehat{\mu_k}(\tau).$$ -->
 
-- Ensuite, à chaque étape $t$, le SU tire *un* échantillon de chaque distribution a posteriori, et le canal $A(t)$ ayant l'échantillon le plus grand est utilisé ($=$ le plus probable d'être libre pour communiquer) :
-    $$ A(t) = \mathop{\arg\max}\limits_k i_k(t) \;\;\text{avec}\; i_k(t) \sim \mathrm{Bin}(a_k(t), b_k(t)).$$
-- Selon la détection des PU sur le canal $k = A(t)$, l'a posteriori est mis à jour :
-    + $a_k(t) = 1 + X_k(t)$ : nombre de transmissions réussies,
-    + et $b_k(t) = 1 + N_k(t) - X_k(t)$ : nombre de transmissions échouées.
-- $\implies$ moyenne empirique estimée :
-  $$\widetilde{\mu_k}(t) = \frac{a_k(t)}{a_k(t) + b_k(t)} = \frac{1 + X_k(t)}{2 + N_k(t)} \simeq \frac{X_k(t)}{N_k(t)} = \widehat{\mu_k}(t).$$
-
-> Un algorithme historique (\textcolor{gray}{[Thompson, 1935]}), très simple, mais qui marche très bien (prouvé optimal pour différents types de problème).
-
-\hfill{}\small{\textcolor{gray}{[Thompson, 1935]}}
+\hfill{}\tiny{\textcolor{gray}{[Thompson, 1935]}}
 
 ----
 
@@ -227,35 +227,62 @@ A dynamic device keeps $\tau$ number of sent packets, $T_k(t)$ selections of cha
 \subsection{\hfill{}5.2. First result: $10\%$\hfill{}}
 # First result: $10\%$ of dynamic devices
 
-![$10\%$ of dynamic devices](src/10intelligent.eps)
+<!-- ![$10\%$ of dynamic devices](src/10intelligent.eps) -->
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.70\linewidth]{src/10intelligent.eps}
+\caption{$10\%$ of dynamic devices}
+\end{figure}
 
 ----
 
 \subsection{\hfill{}5.2. First result: $20\%$\hfill{}}
 # $30\%$ of dynamic devices
 
-![$30\%$ of dynamic devices](src/30intelligent.eps)
+<!-- ![$30\%$ of dynamic devices](src/30intelligent.eps) -->
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.70\linewidth]{src/30intelligent.eps}
+\caption{$30\%$ of dynamic devices}
+\end{figure}
 
 ----
 
 \subsection{\hfill{}5.2. First result: $50\%$\hfill{}}
 # $50\%$ of dynamic devices
 
-![$50\%$ of dynamic devices](src/50intelligent.eps)
+<!-- ![$50\%$ of dynamic devices](src/50intelligent.eps) -->
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.70\linewidth]{src/50intelligent.eps}
+\caption{$50\%$ of dynamic devices}
+\end{figure}
 
 ----
 
 \subsection{\hfill{}5.2. First result: $100\%$\hfill{}}
-# $100\%$ of dynamic devices \hfill{} Extreme case
+# $100\%$ of dynamic devices (extreme case)
 
-![$100\%$ of dynamic devices](src/100intelligent.eps)
+<!-- ![$100\%$ of dynamic devices](src/100intelligent.eps) -->
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.70\linewidth]{src/100intelligent.eps}
+\caption{$100\%$ of dynamic devices}
+\end{figure}
 
 ----
 
 \subsection{\hfill{}5.3. Growing proportion of devices dynamic devices\hfill{}}
-# Growing proportion of devices dynamic devices
+# Dependence on $D/(S+D)$
 
-![Growing proportion of devices dynamic devices](src/perf_learning.eps)
+<!-- ![Growing proportion of devices dynamic devices](src/perf_learning.eps) -->
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.60\linewidth]{src/perf_learning.eps}
+\caption{Growing proportion of devices dynamic devices}
+\end{figure}
+
+$\implies$ almost optimal, for any proportion of dynamic devices, after a short learning time !
 
 ----
 
