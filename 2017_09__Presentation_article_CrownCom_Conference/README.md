@@ -67,7 +67,7 @@ include-before:
 <!-- ![Protocolsrc/protocol.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.40\textwidth]{src/protocol.eps}
+\includegraphics[height=0.35\textheight]{src/protocol.eps}
 \caption{Protocol in time and frequency, with an \emph{Acknowledgement}.}
 \end{figure}
 
@@ -230,7 +230,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$10\%$ of dynamic devices](src/10intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.70\linewidth]{src/10intelligent.eps}
+\includegraphics[height=0.70\textheight]{src/10intelligent.eps}
 \caption{$10\%$ of dynamic devices}
 \end{figure}
 
@@ -242,7 +242,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$30\%$ of dynamic devices](src/30intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.70\linewidth]{src/30intelligent.eps}
+\includegraphics[height=0.70\textheight]{src/30intelligent.eps}
 \caption{$30\%$ of dynamic devices}
 \end{figure}
 
@@ -254,7 +254,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$50\%$ of dynamic devices](src/50intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.70\linewidth]{src/50intelligent.eps}
+\includegraphics[height=0.70\textheight]{src/50intelligent.eps}
 \caption{$50\%$ of dynamic devices}
 \end{figure}
 
@@ -266,7 +266,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$100\%$ of dynamic devices](src/100intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.70\linewidth]{src/100intelligent.eps}
+\includegraphics[height=0.70\textheight]{src/100intelligent.eps}
 \caption{$100\%$ of dynamic devices}
 \end{figure}
 
@@ -278,7 +278,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![Growing proportion of devices dynamic devices](src/perf_learning.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.60\linewidth]{src/perf_learning.eps}
+\includegraphics[width=0.60\textwidth]{src/perf_learning.eps}
 \caption{Growing proportion of devices dynamic devices}
 \end{figure}
 

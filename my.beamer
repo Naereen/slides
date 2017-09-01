@@ -414,9 +414,9 @@ $if(title)$
 \titlepage
 
 \begin{center}
-\includegraphics[width=0.25\textwidth]{LogoIETR.png}
-\includegraphics[width=0.25\textwidth]{LogoCS.png}
-\includegraphics[width=0.25\textwidth]{LogoInria.jpg}
+\includegraphics[height=0.15\textheight]{LogoIETR.png}
+\includegraphics[height=0.15\textheight]{LogoCS.png}
+\includegraphics[height=0.15\textheight]{LogoInria.jpg}
 \end{center}
 
 \end{frame}
