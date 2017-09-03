@@ -24,15 +24,15 @@ include-before:
 
 \subsection{\hfill{}1.a. Objective\hfill{}}
 # We want
-- Insert *lots* of IoT objects in a **crowded wireless network**
-- With a protocol **slotted in time and frequency**
+- Insert *lots* of IoT objects in a **crowded wireless network**.
+- With a protocol **slotted in time and frequency**.
 - Each object has a **low duty cycle**
-  (a few message per day)
+  (a few message per day).
 
 . . .
 
 ## Goal
-- Maintain a **good Quality of Service**
+- Maintain a **good Quality of Service**.
 - **Without** centralized supervision!
 
 . . .
@@ -68,11 +68,11 @@ include-before:
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.35\textheight]{src/protocol.eps}
-\caption{Protocol in time and frequency, with an \emph{Acknowledgement}.}
+\caption{\small{Protocol in time and frequency, with an \emph{Acknowledgement}.}}
 \end{figure}
 
-- $D$ *dynamic* devices try to access the network independently
-- $S=S_1+\dots+S_{N_c}$ *static* devices also use the network :
+- $D$ **dynamic** devices try to access the network *independently*
+- $S=S_1+\dots+S_{N_c}$ **static** devices occupy the network : \newline
   $S_1,\dots,S_{N_c}$ in each channel
   \hfill{} (*unknown*).
 
@@ -83,7 +83,7 @@ include-before:
 ## Emission model
 - Each device has the same *low* emission probability: \newline
   each step, each device sends a packet with probability $p$. \newline
-  \small{(this gives a duty cycle proportional to $1/p$)}
+  \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
 
 ## Background traffic
 - Each static device use only one channel.
@@ -92,7 +92,7 @@ include-before:
 > $\implies$ Background traffic, bothering the dynamic devices!
 
 ## Dynamic radio reconfiguration
-- Each dynamic device decides the channel it uses to send every packet.
+- Each **dynamic device decides the channel it uses to send every packet**.
 - It has memory and computational capacity to implement basic decision algorithm.
 
 ## Problem
@@ -107,13 +107,13 @@ include-before:
 
 \subsection{\hfill{}3.a. A naive strategy : uniformly random access\hfill{}}
 # A naive strategy : uniformly random access
-- Uniformly random access:
+- **Uniformly random access**:
   dynamic devices choose uniformly their channel in the pull of $N_c$ channels.
 - Natural strategy, dead simple to implement.
 
 . . .
 
-- Simple analysis, in term of **successful transmission probability**:
+- Simple analysis, in term of **successful transmission probability** (for every message from dynamic devices) :
 
 \begin{small} \begin{align*}
 \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{N_c} \underbrace{(1 - p / N_c)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_i}}_{\text{No static device}} \times\; \frac{1}{N_c}.
@@ -122,7 +122,7 @@ include-before:
 . . .
 
 - Works fine only if all channels are similarly occupied,\newline
-  but **it cannot learn** to exploit the best channels (more free).
+  but **it cannot learn** to exploit the best (more free) channels.
 
 ----
 
@@ -130,22 +130,28 @@ include-before:
 # Optimal centralized strategy {.allowframebreaks}
 - If an oracle can decide to affect $D_i$ dynamic devices to channel $i$,
   the **successful transmission probability** is:
+\vspace*{-10pt}
 \begin{small} \begin{align*}
 \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{N_c} \underbrace{(1 - p)^{D_i - 1}}_{\;\;D_i - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_i}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_i / D }_{\;\;\text{Sent in channel}\; i}.
 \end{align*} \end{small}
 
-- The oracle wishes to solve this **optimization problem**:
-\vspace*{-10pt}
-\begin{small} \begin{subequations} \begin{align*}
-\underset{D_1,\dots,D_{N_c}}{\arg\max}\; & \sum_{i=1}^{N_c} D_i (1 - p)^{S_i + D_i -1}\\
-\text{such that}\;\; & \sum_{i=1}^{N_c} D_i = D \; \text{and} \; & D_i \geq 0 \qquad \forall 1 \leq i \leq N_c .
-\end{align*} \end{subequations} \end{small}
+- The oracle has to solve this **optimization problem**:
+\vspace*{-5pt}
+\begin{small} \begin{equation*} \begin{cases}
+\underset{D_1,\dots,D_{N_c}}{\arg\max}\;\;\; & \sum_{i=1}^{N_c} D_i (1 - p)^{S_i + D_i -1}\\
+\text{such that}\;\;\; & \sum_{i=1}^{N_c} D_i = D \; \text{and} \; D_i \geq 0, \; \; \forall 1 \leq i \leq N_c .
+\end{cases} \end{equation*} \end{small}
 
-- We solved this quasi-convex optimization problem with *Lagrange multipliers*
+- We solved this quasi-convex optimization problem with *Lagrange multipliers*, only numerically.
 - $\implies$ Very good performance, maximizing the transmission rate of all the $D$ dynamic devices
 
 ## But unrealistic
 But **not achievable in practice**: no centralized oracle!
+
+## Let see *realistic decentralized approaches*
+$\hookrightarrow$ Machine Learning \newline
+\hspace*{15pt}$\hookrightarrow$ Reinforcement Learning \newline
+\hspace*{30pt} $\hookrightarrow$ *Multi-Armed Bandit* !
 
 <!-- ---
 
@@ -161,19 +167,21 @@ But **not achievable in practice**: no centralized oracle!
 
 \subsection{\hfill{}4.1. Multi-Armed Bandit formulation\hfill{}}
 # Multi-Armed Bandit formulation
-For a dynamic device, it collects *rewards* :
+A dynamic device tries to collect *rewards* when transmitting :
 
-- at each time step $\tau$ when it needs to communicate
-- chooses a channel $A(\tau) \in \{1,\dots,N_c\}$
+- at each time step $\tau$ when its Bernoulli emission process tells it to communicate,
+- chooses a channel $A(\tau) \in \{1,\dots,N_c\}$,
 <!-- - if the message is successfully sent (no collision), it receives an `Ack` -->
 - if `Ack` (no collision)
-  \hfill{} $\implies$ reward $r_{A(\tau)} = 1$
+  \hspace*{10pt} $\implies$ reward $r_{A(\tau)} = 1$,
 - if collision (no `Ack`)
-  \hfill{} $\implies$ reward $r_{A(\tau)} = 0$
+  \hspace*{10pt} $\implies$ reward $r_{A(\tau)} = 0$.
 
-## Goal
+. . .
+
+## Reinforcement Learning interpretation
 Maximize transmission rate $\equiv$ **maximize cumulated rewards**
-$$\sum_{\tau=1}^{\dots} r_{A(\tau)}.$$
+$$\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.$$
 
 \subsection{\hfill{}4.2. Upper Confidence Bound algorithm : UCB\hfill{}}
 # Upper Confidence Bound algorithm ($\mathrm{UCB}_1$)
@@ -181,13 +189,11 @@ A dynamic device keeps $\tau$ number of sent packets, $T_k(t)$ selections of cha
 
 1. For the first $N_c$ steps ($\tau=1,\dots,N_c$), try each channel *once*.
 2. Then for the next steps $t \geq N_c$ :
-    \begin{small}
-    $$ g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}}}_{\text{Upper Confidence Bound}\;} $$
-    \end{small}
-    - Choose channel $A(\tau) = \mathop{\arg\max}\limits_{k} g_k(\tau)$,
-    - Update $T_k(\tau+1)$, $X_k(\tau+1)$.
+    - Compute the index $g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}}.}_{\text{Upper Confidence Bound}}$
+    - Choose channel $A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)$,
+    - Update $T_k(\tau+1)$ and $X_k(\tau+1)$.
 
-\hfill{}\tiny{\textcolor{gray}{[Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}}
+\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}}
 
 ----
 
@@ -198,19 +204,20 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - Rewards $r_k(\tau)$ are assumed to be *i.i.d.* samples from a Bernoulli distribution $\mathrm{Bern}(\mu_k)$.
 
 - A **binomial Bayesian posterior** is kept on the mean availability $\mu_k$ : $\mathrm{Bin}(1 + X_k(\tau), 1 + N_k(\tau) - X_k(\tau))$.
-- Starts with a *uniform prior*
+- Starts with a *uniform prior* : $\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])$.
   <!-- : $a_k(0),b_k(0) = 1$ -->
 
 1. Each step $\tau \geq 1$, a sample is drawn from each posterior
-  $i_k(t) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))$
-2. Choose channel $A(\tau) = \mathop{\arg\max}\limits_k i_k(\tau)$
-3. Update the posterior after receiving `Ack` or if collision
-     <!-- + $a_k(\tau) = 1 + X_k(\tau)$ : number of successful transmissions (`Ack`), -->
-     <!-- + $b_k(\tau) = 1 + N_k(\tau) - X_k(\tau)$ : number of failed transmissions (collision). -->
+  $i_k(t) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))$,
+2. Choose channel $A(\tau) = \mathop{\arg\max}\limits_k \; i_k(\tau)$,
+3. Update the posterior after receiving `Ack` or if collision.
+
+<!-- + $a_k(\tau) = 1 + X_k(\tau)$ : number of successful transmissions (`Ack`), -->
+<!-- + $b_k(\tau) = 1 + N_k(\tau) - X_k(\tau)$ : number of failed transmissions (collision). -->
 <!-- - $\implies$ estimated empirical average :
   $$\widetilde{\mu_k}(\tau) = \frac{a_k(\tau)}{a_k(\tau) + b_k(\tau)} = \frac{1 + X_k(\tau)}{2 + N_k(\tau)} \simeq \frac{X_k(\tau)}{N_k(\tau)} = \widehat{\mu_k}(\tau).$$ -->
 
-\hfill{}\tiny{\textcolor{gray}{[Thompson, 1935]}}
+\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Thompson, 1935], [Kaufmann et al, 2012]}}
 
 ----
 
@@ -218,20 +225,30 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 \subsection{\hfill{}5.1. Experiment setting\hfill{}}
 # Experimental setting
-- What do we want to show
-- Wnat we implemented
-- Simulation parameters
+
+## Simulation parameters
+- $N_c = 10$ channels,
+- $S + D = 10000$ objects in total,
+- $p = 10^{-3}$ probability of emission,
+- $\text{horizon} = 10^5$ time slots ($\simeq 100$ messages $/$ object),
+- The proportion of dynamic devices $D/(S+D)$ varies,
+- Various settings for $(S_1,\dots,S_{N_c})$ static devices repartition.
+
+## What do we show
+- After a short learning time, MAB algorithm are almost as efficient as the oracle solution.
+- Never worse than the naive solution.
+- Thompson sampling is even more efficient than UCB.
 
 ----
 
 \subsection{\hfill{}5.2. First result: $10\%$\hfill{}}
-# First result: $10\%$ of dynamic devices
+# $10\%$ of dynamic devices
 
 <!-- ![$10\%$ of dynamic devices](src/10intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.70\textheight]{src/10intelligent.eps}
-\caption{$10\%$ of dynamic devices}
+\includegraphics[height=0.74\textheight]{src/10intelligent.eps}
+\caption{\small{$10\%$ of dynamic devices.}}
 \end{figure}
 
 ----
@@ -242,8 +259,8 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$30\%$ of dynamic devices](src/30intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.70\textheight]{src/30intelligent.eps}
-\caption{$30\%$ of dynamic devices}
+\includegraphics[height=0.74\textheight]{src/30intelligent.eps}
+\caption{\small{$30\%$ of dynamic devices.}}
 \end{figure}
 
 ----
@@ -254,8 +271,8 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$50\%$ of dynamic devices](src/50intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.70\textheight]{src/50intelligent.eps}
-\caption{$50\%$ of dynamic devices}
+\includegraphics[height=0.74\textheight]{src/50intelligent.eps}
+\caption{\small{$50\%$ of dynamic devices.}}
 \end{figure}
 
 ----
@@ -266,8 +283,8 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![$100\%$ of dynamic devices](src/100intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.70\textheight]{src/100intelligent.eps}
-\caption{$100\%$ of dynamic devices}
+\includegraphics[height=0.74\textheight]{src/100intelligent.eps}
+\caption{\small{$100\%$ of dynamic devices.}}
 \end{figure}
 
 ----
@@ -278,11 +295,9 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- ![Growing proportion of devices dynamic devices](src/perf_learning.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.60\textwidth]{src/perf_learning.eps}
-\caption{Growing proportion of devices dynamic devices}
+\includegraphics[height=0.65\textheight]{src/perf_learning.eps}
+\caption{\small{\emph{Almost optimal}, for any proportion of dynamic devices, \emph{after a short learning time}.}}
 \end{figure}
-
-$\implies$ almost optimal, for any proportion of dynamic devices, after a short learning time !
 
 ----
 
@@ -291,36 +306,41 @@ $\implies$ almost optimal, for any proportion of dynamic devices, after a short 
 \subsection{\hfill{}6.1. Perspectives\hfill{}}
 # Perspectives
 ## Theoretical results
-- This
-- and this
-- and this
+- MAB algorithms have performance guarantees for *stochastic settings*,
+- But here the collisions cancel the *i.i.d.* hypothesis,
+- Not easy to obtain guarantees in this mixed setting \newline
+  (*i.i.d.* emission process, game theoretic collisions).
 
-## Real-world experimental validation
-- In progress
+. . .
+
+## Real-world experimental validation ?
+- Real-world radio experiments will help to validate this. \newline
+  \hspace*{40pt}\hfill{}\textcolor{gray}{In progress\dots}
 
 ----
 
 \subsection{\hfill{}6.2. Future work\hfill{}}
-# Future work
-- We need to do this
-- and that
-- and it will be awesome
+# Other direction of future work
+- *More realistic emission model*:
+  maybe driven by number of packets in a whole day,
+  instead of emission probability.
+- Validate this on a *larger experimental scale*.
+- ??
 
 ----
 
 \section{\hfill{}7. Conclusion\hfill{}}
 \subsection{\hfill{}Thanks!\hfill{}}
 # Conclusion
-- We proved this...
+## We showed numerically...
+- After a learning period, MAB algorithms are almost as efficient as the oracle solution,
+- Never worse than the naive solution.
+- Thompson sampling is even more efficient than UCB.
+- Simple algorithms are up-to $16\%$ more efficient than the naive approach.
 
-## Success story
-- It works very well
-- Simple algorithms gives up-to $16\%$ gain compared to naive approach
-- And almost optimal efficiency after a short learning time
-
-## More work is needed
-- Theoretical guarantees are still missing
-- And also real-world validation
-
+## But more work is still needed...
+- **Theoretical guarantees** are still missing.
+- Maybe study **other emission models**.
+- And also implement this on **real-world radio devices**.
 
 \hfill{} **Thanks!** *Question?*
