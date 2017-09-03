@@ -43,7 +43,7 @@ lang: english
 - Discrete time $t\geq1$ and $N_c$ radio channels (*e.g.*, 10)
   (*known*)
 
-![Protocol in time and frequency, with an Acknowledgement.](protocol.eps)
+![Protocol in time and frequency, with an Acknowledgement.](protocol.png)
 
 - $D$ **dynamic** devices try to access the network *independently*
 - $S=S_1+\dots+S_{N_c}$ **static** devices occupy the network :
@@ -174,31 +174,31 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 # $10\%$ of dynamic devices
 
-![$10\%$ of dynamic devices.](10intelligent.eps)
+![$10\%$ of dynamic devices.](10intelligent.png)
 
 ----
 
 # $30\%$ of dynamic devices
 
-![$30\%$ of dynamic devices.](30intelligent.eps)
+![$30\%$ of dynamic devices.](30intelligent.png)
 
 ----
 
 # $50\%$ of dynamic devices
 
-![$50\%$ of dynamic devices.](50intelligent.eps)
+![$50\%$ of dynamic devices.](50intelligent.png)
 
 ----
 
 # $100\%$ of dynamic devices (extreme case)
 
-![$100\%$ of dynamic devices.](100intelligent.eps)
+![$100\%$ of dynamic devices.](100intelligent.png)
 
 ----
 
 # Dependence on $D/(S+D)$
 
-![Almost optimal, for any proportion of dynamic devices, after a short learning time.](perf_learning.eps)
+![Almost optimal, for any proportion of dynamic devices, after a short learning time.](perf_learning.png)
 
 ----
 
