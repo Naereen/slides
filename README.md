@@ -3,7 +3,7 @@
 This repository hosts some [remark.js slideshows](https://github.com/gnab/remark), covering various subjects.
 
 - At first, this repository was only here to host some small experiments, for me to learn how to use [the remark.js slideshow tools](http://remarkjs.com/) correctly;
-- But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:!
+- But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:! [My pandoc/beamer template](my.beamer) is working well, I love it.
 - And I am passionate about open-source and Markdown, I am trying to publish here all the slides of the talks I gave recently (from July 2017).
 
 > See also [my SpeakerDesk profile](https://speakerdeck.com/naereen), where I also shared all my previous slides, and I will keep sharing the new ones.
@@ -22,6 +22,7 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 - [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://naereen.github.io/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/).
 - [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://naereen.github.io/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/).
 - [2017_06__Presentation_of_ADDI_Association](https://naereen.github.io/slides/2017_06__Presentation_of_ADDI_Association/).
+- [2017_09__Presentation_article_CrownCom_Conference](https://naereen.github.io/slides/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
 - More will come soon!
 
 ### 2. PDF on [my website](http://perso.crans.org/besson/publis/slides/)
@@ -31,17 +32,19 @@ PDF versions are not available on the Git repository, but on [my website, there 
 - [2017_02__Markdown_and_MediaWiki_primer_at_Supelec.pdf](http://perso.crans.org/besson/publis/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.pdf).
 - [2017_05__CSID_PhD_comitee_at_CentraleSupelec.pdf](http://perso.crans.org/besson/publis/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.pdf).
 - [2017_06__Presentation_of_ADDI_Association.pdf](http://perso.crans.org/besson/publis/slides/2017_06__Presentation_of_ADDI_Association/slides.pdf).
+- [2017_09__Presentation_article_CrownCom_Conference.pdf](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf).
 
 ### :arrow_forward: 2. View the slides on-line ?
 #### *rawgit*
 > Thanks to [rawgit.com](https://rawgit.com/):
 
-- Example: [template](https://cdn.rawgit.com/Naereen/slides/master/template/)
-- [2016_07__Python_demo_at_EPFL](https://cdn.rawgit.com/Naereen/slides/master/2016_07__Python_demo_at_EPFL/)
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/)
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2017_05__CSID_PhD_comitee_at_CentraleSupelec/)
-- [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association/)
-- For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/`
+- Example: [template](https://cdn.rawgit.com/Naereen/slides/master/template/).
+- [2016_07__Python_demo_at_EPFL](https://cdn.rawgit.com/Naereen/slides/master/2016_07__Python_demo_at_EPFL/).
+- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/).
+- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2017_05__CSID_PhD_comitee_at_CentraleSupelec/).
+- [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association/).
+- [2017_09__Presentation_article_CrownCom_Conference](https://cdn.rawgit.com/Naereen/slides/master/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
+- For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/`.
 
 ### :arrows_counterclockwise: 3. View the slides locally ?
 - You can also clone this repository, and browse locally the slides.
