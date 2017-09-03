@@ -12,6 +12,8 @@ pandocpdf:	pandoctex
 	pdflatex slides.tex
 	pdflatex slides.tex
 	rm slides.toc slides.snm slides.out slides.nav slides.aux slides.log slides.vrb
+
+open:
 	xdg-open slides.pdf &
 
 show:
@@ -25,6 +27,8 @@ pandocpdf169:	pandoctex169
 	pdflatex slides_169.tex
 	pdflatex slides_169.tex
 	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
+
+open169:
 	xdg-open slides_169.pdf &
 
 show169:

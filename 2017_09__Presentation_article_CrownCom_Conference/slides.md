@@ -5,7 +5,7 @@ subtitle: Learning helps even in non-stationary settings!
 institute:
   PhD Students in France \newline
   Team SCEE, IETR, CentraleSupélec, Rennes \newline
-  \& Team SequeL, CRIStAL, Inria, Lille \newline
+  \& Team SequeL, CRIStAL, Inria, Lille
 smallinstitute: CROWNCOM 2017
 date: 20-21 sept 2017
 lang: english
@@ -64,10 +64,10 @@ include-before:
 - Discrete time $t\geq1$ and $N_c$ radio channels (\emph{e.g.}, 10)
   \hfill{} (*known*)
 
-<!-- ![Protocolsrc/protocol.eps) -->
+<!-- ![Protocolprotocol.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.35\textheight]{src/protocol.eps}
+\includegraphics[height=0.35\textheight]{protocol.eps}
 \caption{\small{Protocol in time and frequency, with an \emph{Acknowledgement}.}}
 \end{figure}
 
@@ -244,10 +244,10 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \subsection{\hfill{}5.2. First result: $10\%$\hfill{}}
 # $10\%$ of dynamic devices
 
-<!-- ![$10\%$ of dynamic devices](src/10intelligent.eps) -->
+<!-- ![$10\%$ of dynamic devices](10intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.74\textheight]{src/10intelligent.eps}
+\includegraphics[height=0.74\textheight]{10intelligent.eps}
 \caption{\small{$10\%$ of dynamic devices.}}
 \end{figure}
 
@@ -256,10 +256,10 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \subsection{\hfill{}5.2. First result: $20\%$\hfill{}}
 # $30\%$ of dynamic devices
 
-<!-- ![$30\%$ of dynamic devices](src/30intelligent.eps) -->
+<!-- ![$30\%$ of dynamic devices](30intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.74\textheight]{src/30intelligent.eps}
+\includegraphics[height=0.74\textheight]{30intelligent.eps}
 \caption{\small{$30\%$ of dynamic devices.}}
 \end{figure}
 
@@ -268,10 +268,10 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \subsection{\hfill{}5.2. First result: $50\%$\hfill{}}
 # $50\%$ of dynamic devices
 
-<!-- ![$50\%$ of dynamic devices](src/50intelligent.eps) -->
+<!-- ![$50\%$ of dynamic devices](50intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.74\textheight]{src/50intelligent.eps}
+\includegraphics[height=0.74\textheight]{50intelligent.eps}
 \caption{\small{$50\%$ of dynamic devices.}}
 \end{figure}
 
@@ -280,10 +280,10 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \subsection{\hfill{}5.2. First result: $100\%$\hfill{}}
 # $100\%$ of dynamic devices (extreme case)
 
-<!-- ![$100\%$ of dynamic devices](src/100intelligent.eps) -->
+<!-- ![$100\%$ of dynamic devices](100intelligent.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.74\textheight]{src/100intelligent.eps}
+\includegraphics[height=0.74\textheight]{100intelligent.eps}
 \caption{\small{$100\%$ of dynamic devices.}}
 \end{figure}
 
@@ -292,10 +292,10 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \subsection{\hfill{}5.3. Growing proportion of devices dynamic devices\hfill{}}
 # Dependence on $D/(S+D)$
 
-<!-- ![Growing proportion of devices dynamic devices](src/perf_learning.eps) -->
+<!-- ![Growing proportion of devices dynamic devices](perf_learning.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.65\textheight]{src/perf_learning.eps}
+\includegraphics[height=0.65\textheight]{perf_learning.eps}
 \caption{\small{\emph{Almost optimal}, for any proportion of dynamic devices, \emph{after a short learning time}.}}
 \end{figure}
 
@@ -324,8 +324,8 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - *More realistic emission model*:
   maybe driven by number of packets in a whole day,
   instead of emission probability.
+
 - Validate this on a *larger experimental scale*.
-- ??
 
 ----
 

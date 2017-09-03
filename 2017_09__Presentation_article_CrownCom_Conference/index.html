@@ -1,14 +1,15 @@
----
-author: Lilian Besson
-title: MAB Learning in IoT Networks. Learning helps even in non-stationary settings!
-institute:
-  PhD Students in France
-  Team SCEE, IETR, CentraleSupélec, Rennes
-  \& Team SequeL, CRIStAL, Inria, Lille
-smallinstitute: CROWNCOM 2017
-date: 20-21 sept 2017
-lang: english
----
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MAB Learning in IoT Networks. Learning helps even in non-stationary settings!  |  20 Sept 2017  |  Lilian Besson</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../common/slides.css">
+    </head>
+    <body>
+    <!-- Done for the header, now the content -->
+<textarea id="source">
+count: true
+class: center, middle
 
 # We want
 - Insert *lots* of IoT objects in a **crowded wireless network**.
@@ -236,3 +237,30 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - And also implement this on **real-world radio devices**.
 
 > **Thanks!** *Question?*
+
+</textarea>
+        <!-- Done for the content, now the footer -->
+        <script type="text/javascript" src="../common/remark.min.js"></script>
+        <!-- If needed, the latest version can be downloaded raw from GitHub : -->
+        <!-- <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script> -->
+        <script type="text/javascript">
+            var slideshow = remark.create({
+                    highlightLanguage: 'python',
+                    highlightStyle: 'monokai'
+                });
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                extensions: ["tex2jax.js"],
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                    inlineMath: [ ["$", "$"] ],
+                    displayMath: [ ["$$", "$$"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { availableFonts: ["TeX"] }
+            });
+        </script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
+    </body>
+</html>
