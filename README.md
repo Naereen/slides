@@ -16,16 +16,7 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 
 ## *How to read these documents*?
 
-### 1. On [naereen.github.io/slides](https://naereen.github.io/slides/)
-- [template](https://naereen.github.io/slides/template/)
-- [2016_07__Python_demo_at_EPFL](https://naereen.github.io/slides/2016_07__Python_demo_at_EPFL/). For these slides, you can also [read this list of links](2016_07__Python_demo_at_EPFL/links.md).
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://naereen.github.io/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/).
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://naereen.github.io/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/).
-- [2017_06__Presentation_of_ADDI_Association](https://naereen.github.io/slides/2017_06__Presentation_of_ADDI_Association/).
-- [2017_09__Presentation_article_CrownCom_Conference](https://naereen.github.io/slides/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
-- More will come soon!
-
-### 2. PDF on [my website](http://perso.crans.org/besson/publis/slides/)
+### 1. PDF on [my website](http://perso.crans.org/besson/publis/slides/)
 PDF versions are not available on the Git repository, but on [my website, there are](http://perso.crans.org/besson/publis/slides/).
 
 - [2016_07__Python_demo_at_EPFL.pdf](http://perso.crans.org/besson/publis/slides/2016_07__Python_demo_at_EPFL/slides.pdf).
