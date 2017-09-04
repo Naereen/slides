@@ -176,7 +176,7 @@ $\hookrightarrow$ Machine Learning ? \newline
 # Multi-Armed Bandit formulation
 A dynamic device tries to collect *rewards* when transmitting :
 
-- ir transmits following a Bernoulli process \newline
+- it transmits following a Bernoulli process \newline
   (probability $p$ of transmitting at each time step $\tau$),
 - chooses a channel $A(\tau) \in \{1,\dots,N_c\}$,
 <!-- - if the message is successfully sent (no collision), it receives an `Ack` -->
