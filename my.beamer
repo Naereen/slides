@@ -366,27 +366,37 @@ $header-includes$
 $endfor$
 
 $if(title)$
-\title{$title$}
+  \title{$title$}
 $endif$
 $if(subtitle)$
-\subtitle{$subtitle$}
+  \subtitle{$subtitle$}
 $endif$
 $if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+  $if(smallauthor)$
+  \author[$for(smallauthor)$$smallauthor$$sep$ \and $endfor$]{$for(author)$$author$$sep$ \and $endfor$}
+  $else$
+  \author{$for(author)$$author$$sep$ \and $endfor$}
+  $endif$
 $endif$
 $if(institute)$
-$if(smallinstitute)$
-\institute[$for(smallinstitute)$$smallinstitute$$sep$ \and $endfor$]{$for(institute)$$institute$$sep$ \and $endfor$}
-$else$
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
+  $if(smallinstitute)$
+    \institute[$for(smallinstitute)$$smallinstitute$$sep$ \and $endfor$]{$for(institute)$$institute$$sep$ \and $endfor$}
+  $else$
+    \institute{$for(institute)$$institute$$sep$ \and $endfor$}
+  $endif$
 $endif$
+$if(date)$
+  $if(smalldate)$
+    \date[$smalldate$]{$date$}
+  $else$
+    \date{$date$}
+  $endif$
 $endif$
-\date{$date$}
 $if(titlegraphic)$
-\titlegraphic{\includegraphics{$titlegraphic$}}
+  \titlegraphic{\includegraphics{$titlegraphic$}}
 $endif$
 $if(logo)$
-\logo{\includegraphics{$logo$}}
+  \logo{\includegraphics{$logo$}}
 $endif$
 
 % For \justifying command, see https://tex.stackexchange.com/a/148696/
@@ -413,6 +423,7 @@ $if(title)$
 \begin{frame}[plain]
 \titlepage
 
+% XXX manual inclusion of logos
 \begin{center}
 \includegraphics[height=0.16\textheight]{LogoIETR.png}
 \includegraphics[height=0.16\textheight]{LogoCS.png}
