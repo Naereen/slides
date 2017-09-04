@@ -1,19 +1,23 @@
 ---
-author: Lilian Besson
+author:
+  __Lilian Besson__ and Rémi Bonnefoi
+  and Christophe Moy and Émilie Kaufmann and Jacques Palicot
 title: MAB Learning in IoT Networks. Learning helps even in non-stationary settings!
 institute:
-  PhD Students in France
+  PhD Student in France
   Team SCEE, IETR, CentraleSupélec, Rennes
   \& Team SequeL, CRIStAL, Inria, Lille
-smallinstitute: CROWNCOM 2017
+conference: CROWNCOM 2017
 date: 20-21 sept 2017
 lang: english
 ---
 
 # We want
-- Insert *lots* of IoT objects in a **crowded wireless network**.
+A *lot* of IoT devices want to access to a gateway of base station.
+
+- Insert them in a **crowded wireless network**.
 - With a protocol **slotted in time and frequency**.
-- Each object has a **low duty cycle**
+- Each device has a **low duty cycle**
   (a few message per day).
 
 ## Goal
@@ -22,7 +26,7 @@ lang: english
 
 ## How?
 - Use **learning algorithms**:
-  objects will learn on which frequency they should talk!
+  devices will learn on which frequency they should talk!
 
 ----
 
@@ -59,7 +63,7 @@ lang: english
   (this gives a duty cycle proportional to $1/p$)
 
 ## Background traffic
-- Each static device use only one channel.
+- Each static device uses only one channel.
 - Their repartition is fixed in time.
 
 > $\implies$ Background traffic, bothering the dynamic devices!
@@ -69,7 +73,7 @@ lang: english
 - It has memory and computational capacity to implement basic decision algorithm.
 
 ## Problem
-- *Goal* : *maximize communication* ($=$ number of received `Ack`)
+- *Goal* : *maximize packet loss ratio ($=$ number of received `Ack`)
   in a *finite-space discrete-time Decision Making Problem*.
 - *Solution ?* **Multi-Armed Bandit algorithms**,
   **decentralized** and used **independently** by each device.
@@ -105,8 +109,8 @@ lang: english
 But **not achievable in practice**: no centralized oracle!
 
 ## Let see *realistic decentralized approaches*
-- $\hookrightarrow$ Machine Learning
-- $\hookrightarrow$ Reinforcement Learning
+- $\hookrightarrow$ Machine Learning ?
+- $\hookrightarrow$ Reinforcement Learning ?
 - $\hookrightarrow$ *Multi-Armed Bandit* !
 
 ----
@@ -159,9 +163,9 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 ## Simulation parameters
 - $N_c = 10$ channels,
-- $S + D = 10000$ objects in total,
+- $S + D = 10000$ devices in total,
 - $p = 10^{-3}$ probability of emission,
-- $\text{horizon} = 10^5$ time slots ($\simeq 100$ messages $/$ object),
+- $\text{horizon} = 10^5$ time slots ($\simeq 100$ messages $/$ device),
 - The proportion of dynamic devices $D/(S+D)$ varies,
 - Various settings for $(S_1,\dots,S_{N_c})$ static devices repartition.
 
@@ -174,13 +178,13 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 # $10\%$ of dynamic devices
 
-![$10\%$ of dynamic devices.](10intelligent.png)
+![$10\%$ of dynamic devices. $7\%$ of gain.](10intelligent.png)
 
 ----
 
 # $30\%$ of dynamic devices
 
-![$30\%$ of dynamic devices.](30intelligent.png)
+![$30\%$ of dynamic devices. $3\%$ of gain but not much is possible.](30intelligent.png)
 
 ----
 
@@ -198,7 +202,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 # Dependence on $D/(S+D)$
 
-![Almost optimal, for any proportion of dynamic devices, after a short learning time.](perf_learning.png)
+![Almost optimal, for any proportion of dynamic devices, after a short learning time. Up-to $16\%$ gain over the naive approach!](perf_learning.png)
 
 ----
 

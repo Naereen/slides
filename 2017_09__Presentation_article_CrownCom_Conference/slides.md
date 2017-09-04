@@ -1,13 +1,17 @@
 ---
-author: Lilian Besson
+author:
+  \textbf{Lilian Besson} \and Rémi Bonnefoi \newline
+  \and Christophe Moy \and Émilie Kaufmann \and Jacques Palicot
+smallauthor: Lilian Besson
 title: MAB Learning in IoT Networks
 subtitle: Learning helps even in non-stationary settings!
 institute:
-  PhD Students in France \newline
+  PhD Student in France \newline
   Team SCEE, IETR, CentraleSupélec, Rennes \newline
   \& Team SequeL, CRIStAL, Inria, Lille
-smallinstitute: CROWNCOM 2017
-date: 20-21 sept 2017
+smallinstitute: CentraleSupélec \& Inria
+date: 20-21 Sept - CROWNCOM 2017
+smalldate: CROWNCOM 2017
 lang: english
 babel-lang: english
 handout: false
@@ -23,10 +27,12 @@ include-before:
 \section{\hfill{}1. Introduction and motivation\hfill{}}
 
 \subsection{\hfill{}1.a. Objective\hfill{}}
+
+A *lot* of IoT devices want to access to a gateway of base station.
 # We want
-- Insert *lots* of IoT objects in a **crowded wireless network**.
+- Insert them in a possibly **crowded wireless network**.
 - With a protocol **slotted in time and frequency**.
-- Each object has a **low duty cycle**
+- Each device has a **low duty cycle**
   (a few message per day).
 
 . . .
@@ -39,7 +45,7 @@ include-before:
 
 ## How?
 - Use **learning algorithms**:
-  objects will learn on which frequency they should talk!
+  devices will learn on which frequency they should talk!
 
 ----
 
@@ -86,7 +92,7 @@ include-before:
   \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
 
 ## Background traffic
-- Each static device use only one channel.
+- Each static device uses only one channel.
 - Their repartition is fixed in time.
 
 > $\implies$ Background traffic, bothering the dynamic devices!
@@ -96,7 +102,7 @@ include-before:
 - It has memory and computational capacity to implement basic decision algorithm.
 
 ## Problem
-- *Goal* : *maximize communication* ($=$ number of received `Ack`)
+- *Goal* : *maximize packet loss ratio* ($=$ number of received `Ack`)
   in a *finite-space discrete-time Decision Making Problem*.
 - *Solution ?* **Multi-Armed Bandit algorithms**,
   **decentralized** and used **independently** by each device.
@@ -149,8 +155,8 @@ include-before:
 But **not achievable in practice**: no centralized oracle!
 
 ## Let see *realistic decentralized approaches*
-$\hookrightarrow$ Machine Learning \newline
-\hspace*{15pt}$\hookrightarrow$ Reinforcement Learning \newline
+$\hookrightarrow$ Machine Learning ? \newline
+\hspace*{15pt}$\hookrightarrow$ Reinforcement Learning ? \newline
 \hspace*{30pt} $\hookrightarrow$ *Multi-Armed Bandit* !
 
 <!-- ---
@@ -169,7 +175,8 @@ $\hookrightarrow$ Machine Learning \newline
 # Multi-Armed Bandit formulation
 A dynamic device tries to collect *rewards* when transmitting :
 
-- at each time step $\tau$ when its Bernoulli emission process tells it to communicate,
+- ir transmits following a Bernoulli process \newline
+  (probability $p$ of transmitting at each time step $\tau$),
 - chooses a channel $A(\tau) \in \{1,\dots,N_c\}$,
 <!-- - if the message is successfully sent (no collision), it receives an `Ack` -->
 - if `Ack` (no collision)
@@ -228,9 +235,9 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 ## Simulation parameters
 - $N_c = 10$ channels,
-- $S + D = 10000$ objects in total,
+- $S + D = 10000$ devices in total,
 - $p = 10^{-3}$ probability of emission,
-- $\text{horizon} = 10^5$ time slots ($\simeq 100$ messages $/$ object),
+- $\text{horizon} = 10^5$ time slots ($\simeq 100$ messages $/$ device),
 - The proportion of dynamic devices $D/(S+D)$ varies,
 - Various settings for $(S_1,\dots,S_{N_c})$ static devices repartition.
 
@@ -248,7 +255,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.74\textheight]{10intelligent.eps}
-\caption{\small{$10\%$ of dynamic devices.}}
+\caption{\small{$10\%$ of dynamic devices. $7\%$ of gain.}}
 \end{figure}
 
 ----
@@ -260,15 +267,14 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.74\textheight]{30intelligent.eps}
-\caption{\small{$30\%$ of dynamic devices.}}
+\caption{\small{$30\%$ of dynamic devices.} $3\%$ of gain but not much is possible.}
 \end{figure}
 
-----
+<!-- ----
 
 \subsection{\hfill{}5.2. First result: $50\%$\hfill{}}
 # $50\%$ of dynamic devices
 
-<!-- ![$50\%$ of dynamic devices](50intelligent.eps) -->
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.74\textheight]{50intelligent.eps}
@@ -280,12 +286,11 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \subsection{\hfill{}5.2. First result: $100\%$\hfill{}}
 # $100\%$ of dynamic devices (extreme case)
 
-<!-- ![$100\%$ of dynamic devices](100intelligent.eps) -->
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.74\textheight]{100intelligent.eps}
 \caption{\small{$100\%$ of dynamic devices.}}
-\end{figure}
+\end{figure} -->
 
 ----
 
@@ -296,7 +301,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.65\textheight]{perf_learning.eps}
-\caption{\small{\emph{Almost optimal}, for any proportion of dynamic devices, \emph{after a short learning time}.}}
+\caption{\small{\emph{Almost optimal}, for any proportion of dynamic devices, \emph{after a short learning time}. Up-to $16\%$ gain over the naive approach!.}}
 \end{figure}
 
 ----
@@ -336,7 +341,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - After a learning period, MAB algorithms are almost as efficient as the oracle solution,
 - Never worse than the naive solution.
 - Thompson sampling is even more efficient than UCB.
-- Simple algorithms are up-to $16\%$ more efficient than the naive approach.
+- Simple algorithms are up-to $16\%$ more efficient than the naive approach, and straightforward to apply.
 
 ## But more work is still needed...
 - **Theoretical guarantees** are still missing.

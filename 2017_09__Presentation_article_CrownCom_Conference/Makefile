@@ -5,7 +5,7 @@ all:	pandocpdf clean show
 all169:	pandocpdf169 clean show169
 
 pandoctex:
-	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
+	pandoc -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
 	./preprocess_tex.sh slides.tex
 
 pandocpdf:	pandoctex
