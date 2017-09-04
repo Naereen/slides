@@ -28,8 +28,9 @@ include-before:
 
 \subsection{\hfill{}1.a. Objective\hfill{}}
 
-A *lot* of IoT devices want to access to a gateway of base station.
 # We want
+A *lot* of IoT devices want to access to a gateway of base station.
+
 - Insert them in a possibly **crowded wireless network**.
 - With a protocol **slotted in time and frequency**.
 - Each device has a **low duty cycle**
@@ -214,7 +215,8 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - Starts with a *uniform prior* : $\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])$.
   <!-- : $a_k(0),b_k(0) = 1$ -->
 
-1. Each step $\tau \geq 1$, a sample is drawn from each posterior
+\setlength{\itemindent}{1em}  % https://stackoverflow.com/a/2612825/
+1. Each step $\tau \geq 1$, draw a sample from each posterior
   $i_k(t) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))$,
 2. Choose channel $A(\tau) = \mathop{\arg\max}\limits_k \; i_k(\tau)$,
 3. Update the posterior after receiving `Ack` or if collision.

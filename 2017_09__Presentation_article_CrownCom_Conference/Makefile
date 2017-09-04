@@ -1,14 +1,14 @@
 # Quick Makefile to easily compile the slides (make pdf) and run the slide (make showtime)
 default: all
 
-all:	pandocpdf clean show
-all169:	pandocpdf169 clean show169
+all:	pandoctex pandocpdf clean show
+all169:	pandoctex169 pandocpdf169 clean show169
 
 pandoctex:
 	pandoc -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
 	./preprocess_tex.sh slides.tex
 
-pandocpdf:	pandoctex
+pandocpdf:
 	pdflatex slides.tex
 	pdflatex slides.tex
 	rm slides.toc slides.snm slides.out slides.nav slides.aux slides.log slides.vrb
@@ -23,7 +23,7 @@ pandoctex169:
 	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides.md -o slides_169.tex
 	./preprocess_tex.sh slides_169.tex
 
-pandocpdf169:	pandoctex169
+pandocpdf169:
 	pdflatex slides_169.tex
 	pdflatex slides_169.tex
 	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
