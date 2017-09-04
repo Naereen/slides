@@ -1,2 +1,2 @@
-theme: jekyll-theme-cayman
-strict_front_matter: false
+theme:   jekyll-theme-cayman
+source:  ./doc/
