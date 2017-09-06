@@ -250,8 +250,6 @@ A \emph{lot} of IoT devices want to access to a gateway of base station.
 
 \subsection{\hfill{}1.b. Outline\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Outline}
 
 \begin{enumerate}
@@ -265,7 +263,8 @@ A \emph{lot} of IoT devices want to access to a gateway of base station.
   Baseline algorithms : to compare against naive and efficient
   centralized approaches
 \item
-  Two Multi-Armed Bandit algorithms : UCB, Thompson sampling
+  Multi-Armed Bandit algorithms : UCB
+  % , Thompson sampling
 \item
   Experimental results
 \item
@@ -281,8 +280,6 @@ A \emph{lot} of IoT devices want to access to a gateway of base station.
 \section{\hfill{}2. Model and hypotheses\hfill{}}
 
 \subsection{\hfill{}2.a. Model\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Model}
 
@@ -315,8 +312,6 @@ A \emph{lot} of IoT devices want to access to a gateway of base station.
 
 
 \subsection{\hfill{}2.b. Hypotheses\hfill{}}
-
-\end{frame}
 
 \begin{frame}[fragile,allowframebreaks]{Hypotheses}
 
@@ -386,8 +381,6 @@ A \emph{lot} of IoT devices want to access to a gateway of base station.
 
 \subsection{\hfill{}3.a. A naive strategy : uniformly random access\hfill{}}
 
-\end{frame}
-
 \begin{frame}{A naive strategy : uniformly random access}
 
 \begin{itemize}
@@ -427,8 +420,6 @@ A \emph{lot} of IoT devices want to access to a gateway of base station.
 
 
 \subsection{\hfill{}3.b. Optimal centralized strategy\hfill{}}
-
-\end{frame}
 
 \begin{frame}[allowframebreaks]{Optimal centralized strategy}
 
@@ -476,11 +467,9 @@ But \textbf{not achievable in practice}: no centralized oracle!
 
 
 
-\section{\hfill{}4. Two Multi-Armed Bandit algorithms : UCB, TS\hfill{}}
+\section{\hfill{}4. Multi-Armed Bandit algorithms : UCB\hfill{}}
 
 \subsection{\hfill{}4.1. Multi-Armed Bandit formulation\hfill{}}
-
-\end{frame}
 
 \begin{frame}[fragile]{Multi-Armed Bandit formulation}
 
@@ -492,7 +481,7 @@ A dynamic device tries to collect \emph{rewards} when transmitting :
   it transmits following a Bernoulli process \newline
    (probability \(p\) of transmitting at each time step \(\tau\)),
 \item
-  chooses a channel \(A(\tau) \in \{1,\dots,N_c\}\), 
+  chooses a channel \(A(\tau) \in \{1,\dots,N_c\}\),
 \item
   if \texttt{Ack} (no collision) \hspace*{10pt} \(\implies\) reward
   \(r_{A(\tau)} = 1\),
@@ -509,11 +498,11 @@ Maximize transmission rate \(\equiv\) \textbf{maximize cumulated
 rewards}
 \[\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.\]
 
-\subsection{\hfill{}4.2. Upper Confidence Bound algorithm : UCB\hfill{}}
-
 \end{block}
 
 \end{frame}
+
+\subsection{\hfill{}4.2. Upper Confidence Bound algorithm : UCB\hfill{}}
 
 \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
@@ -549,52 +538,9 @@ channel \(k\).
 
 
 
-\subsection{\hfill{}4.3. Thompson Sampling : Bayesian index policy\hfill{}}
-
-\end{frame}
-
-\begin{frame}[fragile]{Thompson Sampling : Bayesian approach}
-
-A dynamic device assumes a stochastic hypothesis on the background
-traffic, modeled as Bernoulli distributions.
-
-\begin{itemize}
-\item
-  Rewards \(r_k(\tau)\) are assumed to be \emph{i.i.d.} samples from a
-  Bernoulli distribution \(\mathrm{Bern}(\mu_k)\).
-\item
-  A \textbf{binomial Bayesian posterior} is kept on the mean
-  availability \(\mu_k\) :
-  \(\mathrm{Bin}(1 + X_k(\tau), 1 + N_k(\tau) - X_k(\tau))\).
-\item
-  Starts with a \emph{uniform prior} :
-  \(\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])\). 
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\setlength{\itemindent}{1em}  % https://stackoverflow.com/a/2612825/
-\item
-  Each step \(\tau \geq 1\), a sample is drawn from each posterior
-  \(i_k(t) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))\),
-\item
-  Choose channel \(A(\tau) = \mathop{\arg\max}\limits_k \; i_k(\tau)\),
-\item
-  Update the posterior after receiving \texttt{Ack} or if collision.
-\end{enumerate}
-
-\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Thompson, 1935], [Kaufmann et al, 2012]}}
-
-\end{frame}
-
-
-
 \section{\hfill{}5. Experimental results\hfill{}}
 
 \subsection{\hfill{}5.1. Experiment setting\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Experimental setting}
 
@@ -641,8 +587,6 @@ traffic, modeled as Bernoulli distributions.
 
 \subsection{\hfill{}5.2. First result: $10\%$\hfill{}}
 
-\end{frame}
-
 \begin{frame}{\(10\%\) of dynamic devices}
 
 \begin{figure}[h!]
@@ -657,8 +601,6 @@ traffic, modeled as Bernoulli distributions.
 
 \subsection{\hfill{}5.2. First result: $20\%$\hfill{}}
 
-\end{frame}
-
 \begin{frame}{\(30\%\) of dynamic devices}
 
 \begin{figure}[h!]
@@ -672,8 +614,6 @@ traffic, modeled as Bernoulli distributions.
 
 
 \subsection{\hfill{}5.3. Growing proportion of devices dynamic devices\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Dependence on \(D/(S+D)\)}
 
@@ -690,8 +630,6 @@ traffic, modeled as Bernoulli distributions.
 \section{\hfill{}6. Perspectives and future work\hfill{}}
 
 \subsection{\hfill{}6.1. Perspectives\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Perspectives}
 
@@ -730,8 +668,6 @@ traffic, modeled as Bernoulli distributions.
 
 \subsection{\hfill{}6.2. Future work\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Other direction of future work}
 
 \begin{itemize}
@@ -747,8 +683,6 @@ traffic, modeled as Bernoulli distributions.
 
 
 \section{\hfill{}7. Conclusion\hfill{}}\subsection{\hfill{}Thanks!\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Conclusion}
 
@@ -786,5 +720,49 @@ traffic, modeled as Bernoulli distributions.
 \hfill{} \textbf{Thanks!} \emph{Question?}
 
 \end{frame}
+
+\appendix
+\backupbegin
+
+\section{\hfill{}Appendix\hfill{}}
+
+\subsection{\hfill{}A.1. Thompson Sampling : Bayesian index policy\hfill{}}
+
+\begin{frame}[noframenumbering]{Thompson Sampling : Bayesian approach}
+
+A dynamic device assumes a stochastic hypothesis on the background
+traffic, modeled as Bernoulli distributions.
+
+\begin{itemize}
+\item
+  Rewards \(r_k(\tau)\) are assumed to be \emph{i.i.d.} samples from a
+  Bernoulli distribution \(\mathrm{Bern}(\mu_k)\).
+\item
+  A \textbf{binomial Bayesian posterior} is kept on the mean
+  availability \(\mu_k\) :
+  \(\mathrm{Bin}(1 + X_k(\tau), 1 + N_k(\tau) - X_k(\tau))\).
+\item
+  Starts with a \emph{uniform prior} :
+  \(\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])\).
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\setlength{\itemindent}{1em}  % https://stackoverflow.com/a/2612825/
+\item
+  Each step \(\tau \geq 1\), a sample is drawn from each posterior
+  \(i_k(t) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))\),
+\item
+  Choose channel \(A(\tau) = \mathop{\arg\max}\limits_k \; i_k(\tau)\),
+\item
+  Update the posterior after receiving \texttt{Ack} or if collision.
+\end{enumerate}
+
+\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Thompson, 1935], [Kaufmann et al, 2012]}}
+
+\end{frame}
+
+\backupend
 
 \end{document}

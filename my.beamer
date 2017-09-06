@@ -365,6 +365,16 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+% https://tex.stackexchange.com/a/2559/
+\newcommand{\backupbegin}{
+  \newcounter{framenumberappendix}
+  \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberappendix}}
+}
+
 $if(title)$
   \title{$title$}
 $endif$
