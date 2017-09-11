@@ -31,10 +31,10 @@ include-before:
 # We want
 A *lot* of IoT devices want to access to a gateway of base station.
 
-- Insert them in a possibly **crowded wireless network**.
+- Insert them in a **crowded wireless network**.
 - With a protocol **slotted in time and frequency**.
 - Each device has a **low duty cycle**
-  (a few message per day).
+  (a few messages per day).
 
 . . .
 
