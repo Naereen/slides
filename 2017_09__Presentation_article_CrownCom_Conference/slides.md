@@ -226,7 +226,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 <!-- - $\implies$ estimated empirical average :
   $$\widetilde{\mu_k}(\tau) = \frac{a_k(\tau)}{a_k(\tau) + b_k(\tau)} = \frac{1 + X_k(\tau)}{2 + N_k(\tau)} \simeq \frac{X_k(\tau)}{N_k(\tau)} = \widehat{\mu_k}(\tau).$$ -->
 
-\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Thompson, 1935], [Kaufmann et al, 2012]}}
+\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Thompson, 1933], [Kaufmann et al, 2012]}}
 
 ----
 
