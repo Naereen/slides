@@ -244,7 +244,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - Various settings for $(S_1,\dots,S_{N_c})$ static devices repartition.
 
 ## What do we show
-- After a short learning time, MAB algorithm are almost as efficient as the oracle solution.
+- After a short learning time, MAB algorithms are almost as efficient as the oracle solution.
 - Never worse than the naive solution.
 - Thompson sampling is even more efficient than UCB.
 
