@@ -197,7 +197,7 @@ A dynamic device keeps $\tau$ number of sent packets, $T_k(t)$ selections of cha
 
 1. For the first $N_c$ steps ($\tau=1,\dots,N_c$), try each channel *once*.
 2. Then for the next steps $t \geq N_c$ :
-    - Compute the index $g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}}.}_{\text{Upper Confidence Bound}}$
+    - Compute the index $g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}_{\text{Upper Confidence Bound}}$
     - Choose channel $A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)$,
     - Update $T_k(\tau+1)$ and $X_k(\tau+1)$.
 
