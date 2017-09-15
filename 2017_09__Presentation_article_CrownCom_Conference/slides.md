@@ -1,7 +1,7 @@
 ---
 author:
   \textbf{Lilian Besson} \and Rémi Bonnefoi \newline
-  \and Christophe Moy \and Émilie Kaufmann \and Jacques Palicot
+  \and Émilie Kaufmann \and Christophe Moy \and Jacques Palicot
 smallauthor: Lilian Besson
 title: MAB Learning in IoT Networks
 subtitle: Learning helps even in non-stationary settings!
