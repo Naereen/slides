@@ -12,6 +12,10 @@ date: 20-21 sept 2017
 lang: english
 ---
 
+> Hey, we got the **Best Paper Award** during the [CrownCom 2017](http://crowncom.org/2017/) conference for [this article](https://hal.inria.fr/hal-01575419).
+> This document is a raw version of the slides [I (Lilian Besson)](http://perso.crans.org/besson/) used to present our article.
+> Please see the [PDF (4:3)](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf) or [PDF (16:9)](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides_169.pdf) for a nice version of these slides.
+
 # We want
 A *lot* of IoT devices want to access to a gateway of base station.
 
