@@ -24,6 +24,7 @@ PDF versions are not available on the Git repository, but on [my website, there 
 - [2017_05__CSID_PhD_comitee_at_CentraleSupelec.pdf](http://perso.crans.org/besson/publis/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.pdf).
 - [2017_06__Presentation_of_ADDI_Association.pdf](http://perso.crans.org/besson/publis/slides/2017_06__Presentation_of_ADDI_Association/slides.pdf).
 - [2017_09__Presentation_article_CrownCom_Conference.pdf](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf).
+- [2017_11__Git_and_open-source_your_simulation_code__at_Supelec/.pdf](http://perso.crans.org/besson/publis/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec//slides.pdf).
 
 ### :arrow_forward: 2. View the slides on-line ?
 #### *rawgit*
@@ -35,6 +36,8 @@ PDF versions are not available on the Git repository, but on [my website, there 
 - [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2017_05__CSID_PhD_comitee_at_CentraleSupelec/).
 - [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association/).
 - [2017_09__Presentation_article_CrownCom_Conference](https://cdn.rawgit.com/Naereen/slides/master/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
+- [2017_11__Git_and_open-source_your_simulation_code__at_Supelec/](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Git_and_open-source_your_simulation_code__at_Supelec//).
+
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/`.
 
 ### :arrows_counterclockwise: 3. View the slides locally ?
