@@ -212,7 +212,7 @@ $$\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.$$
 Dynamic device keep $\tau$ number of sent packets, $T_k(\tau)$ selections of channel $k$, $X_k(\tau)$ successful transmission in channel $k$.
 
 1. For the first $K$ steps ($\tau=1,\dots,K$), try each channel *once*.
-2. Then for the next steps $t \geq K$ :
+2. Then for the next steps $t > K$ :
     - Compute the index $g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}_{\text{Upper Confidence Bound}}$
     - Choose channel $A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)$,
     - Update $T_k(\tau+1)$ and $X_k(\tau+1)$.
@@ -284,7 +284,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.74\textheight]{crowncom/30intelligent.eps}
-\caption{\small{$30\%$ of dynamic devices.} $3\%$ of gain but not much is possible.}
+\caption{\small{$30\%$ of dynamic devices. $3\%$ of gain but not much is possible.}}
 \end{figure}
 
 ----
