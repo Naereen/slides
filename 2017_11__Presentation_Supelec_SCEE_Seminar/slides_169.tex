@@ -180,7 +180,7 @@
         \institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
 \newline \& Team SequeL, CRIStAL, Inria, Lille}
         \date[SCEE Seminar - 23/11/17]{SCEE Seminar - 23 November 2017}
-  
+
 % For \justifying command, see https://tex.stackexchange.com/a/148696/
 \usepackage{ragged2e}
 \addtobeamertemplate{frame begin}{}{\justifying}
@@ -261,8 +261,7 @@ A \emph{lot} of IoT devices want to access to a single base station.
 \begin{itemize}
 \tightlist
 \item
-  Use \textbf{learning algorithms}: devices will learn on which
-  frequency they should talk!
+  Use \textbf{learning algorithms}: devices will learn frequencies they should talk on!
 \end{itemize}
 
 \end{block}
@@ -434,6 +433,7 @@ Main references are my recent articles (on HAL):
   probability} (for every message from dynamic devices) :
 \end{itemize}
 
+\vspace*{-10pt}
 \begin{small} \begin{align*}
 \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{K} \underbrace{(1 - p / K)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_i}}_{\text{No static device}} \times\; \frac{1}{K}.
 \end{align*} \end{small}
@@ -641,8 +641,7 @@ traffic, modeled as Bernoulli distributions.
 \item
   \(K = 10\) channels,
 \item
-  \(S + D = 10000\) devices \textbf{in total}. Proportion of dynamic
-  devices \(D/(S+D)\) varies,
+  \(S + D = 10000\) devices \textbf{in total}. Change proportion of dynamic \(D/(S+D)\),
 \item
   \(p = 10^{-3}\) probability of emission, for all devices,
 \item
@@ -884,13 +883,14 @@ optimization!}
 
 \begin{frame}[allowframebreaks]{Asymptotic Lower Bound on regret}
 
-For any algorithm, decentralized or not, we have \vspace*{-20pt}
-
+\vspace*{-3pt}
+For any algorithm, decentralized or not, we have
+\vspace*{-5pt}
 \begin{small}\begin{align*}
-R_T(\boldsymbol{\mu}, M, \rho) &= \sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[T_k(T)] \\
-&+ \sum_{k \in \Mbest} (\mu_k -  \mu_M^*) (T - \E_{\mu}[T_k(T)]) + \sum_{k=1}^{K} \mu_k \E_{\mu}[\mathcal{C}_k(T)].
+  R_T(\boldsymbol{\mu}, M, \rho) &= \sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[T_k(T)] \\
+  &+ \sum_{k \in \Mbest} (\mu_k -  \mu_M^*) (T - \E_{\mu}[T_k(T)]) + \sum_{k=1}^{K} \mu_k \E_{\mu}[\mathcal{C}_k(T)].
 \end{align*}\end{small}
-
+\vspace*{-5pt}
 \begin{block}{Small regret can be attained if\ldots{}}
 
 \begin{enumerate}
@@ -908,12 +908,13 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\m
 
 \end{block}
 
+\vspace*{-5pt}
 \begin{block}{Lower-bounds}
 
 \begin{itemize}
 \tightlist
 \item
-  The first term \(\E_{\mu}[T_k(T)]\), for sub-optimal arms selections,
+  The first term \(\E_{\mu}[T_k(T)]\), for sub-optimal arms,
   is lower-bounded, using technical information theory tools
   (Kullback-Leibler divergence, entropy),
 \item
@@ -1009,7 +1010,7 @@ policies}
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{alt/figures/MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
 \end{figure}
 
 \end{frame}
@@ -1028,8 +1029,8 @@ policies}
 \begin{itemize}
 \tightlist
 \item
-  If all \(M\) players use \MCTopM-\klUCB, then for any non-degenerated
-  problem \(\boldsymbol{\mu}\), \[
+  If all \(M\) players use \MCTopM-\klUCB,
+  for any non-degenerated problem \(\boldsymbol{\mu}\), \[
     R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
   \]
 \end{itemize}
@@ -1042,7 +1043,7 @@ policies}
 \tightlist
 \item
   Hard to prove, we had to carefully design the \MCTopM{} algorithm to
-  conclude the proof, 
+  conclude,
 \item
   For the suboptimal selections, we \emph{match our lower-bound} !
 \item
@@ -1090,8 +1091,8 @@ learn on the receive acknowledgement,
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.60\textheight]{alt/figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17$ cases of $R_T \geq T$, out of $1000$). The regret for the three other algorithms is very small for this ``easy'' problem.}}
+\includegraphics[height=0.70\textheight]{alt/figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
+\caption{\footnotesize{Histograms of regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$ (different scales). \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17$ cases of $R_T \geq T$, out of $1000$). The regret for the other algorithms is very small for such ``easy'' problem.}}
 \end{figure}
 
 \end{frame}
