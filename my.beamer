@@ -107,7 +107,15 @@ $else$
 $endif$
 \usepackage{color}
   \newcommand{\urlb}[1]{\textcolor{blue}{\url{#1}}}
+%% Color definition
+\usepackage{xcolor}
+\definecolor{bleu}{RGB}{0,0,204}  % rgb(0,0,204)
+\definecolor{violet}{RGB}{102,0,204}  % rgb(102,0,204)
+\definecolor{darkgreen}{RGB}{0,100,0}  % rgb(0,100,0)
+\definecolor{gold}{RGB}{255,184,0}  % rgb(255,184,0)
+\definecolor{rouge}{RGB}{204,0,0}  % rgb(204,0,0)
 \usepackage{amssymb,amsmath}
+\usepackage{bbm,bm}  % bold maths symbols
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 
