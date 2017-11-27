@@ -114,7 +114,7 @@ Main references are my recent articles (on HAL):
 - It has memory and computational capacity to implement simple **decision algorithm**.
 
 ## Problem
-- *Goal* : *maximize packet loss ratio* ($=$ number of received `Ack`)
+- *Goal* : *minimize packet loss ratio* ($=$ maximize number of received `Ack`)
   in a *finite-space discrete-time Decision Making Problem*.
 - *Solution ?* **Multi-Armed Bandit algorithms**,
   **decentralized** and used **independently** by each device.
@@ -213,7 +213,7 @@ Dynamic device keep $\tau$ number of sent packets, $T_k(\tau)$ selections of cha
 
 1. For the first $K$ steps ($\tau=1,\dots,K$), try each channel *once*.
 2. Then for the next steps $t > K$ :
-    - Compute the index $g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}_{\text{Upper Confidence Bound}}$
+    - Compute the index $g_k(\tau) := \underbrace{\frac{X_k(\tau)}{T_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 T_k(\tau)}},}_{\text{Upper Confidence Bound}}$
     - Choose channel $A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)$,
     - Update $T_k(\tau+1)$ and $X_k(\tau+1)$.
 
@@ -228,7 +228,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 
 - Rewards $r_k(\tau)$ are assumed to be *i.i.d.* samples from a Bernoulli distribution $\mathrm{Bern}(\mu_k)$.
 
-- A **binomial Bayesian posterior** is kept on the mean availability $\mu_k$ : $\mathrm{Bin}(1 + X_k(\tau), 1 + N_k(\tau) - X_k(\tau))$.
+- A **binomial Bayesian posterior** is kept on the mean availability $\mu_k$ : $\mathrm{Bin}(1 + X_k(\tau), 1 + T_k(\tau) - X_k(\tau))$.
 - Starts with a *uniform prior* : $\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])$.
 
 1. Each step $\tau \geq 1$, draw a sample from each posterior
@@ -252,7 +252,7 @@ A dynamic device assumes a stochastic hypothesis on the background traffic, mode
 - $S + D = 10000$ devices **in total**.
   Proportion of dynamic devices $D/(S+D)$ varies,
 - $p = 10^{-3}$ probability of emission, for all devices,
-- Horizon $= 10^6$ time slots, \hfill{} ($\simeq 100$ messages $/$ device)
+- Horizon $= 10^6$ time slots, \hfill{} ($\simeq 1000$ messages $/$ device)
 - Various settings for $(S_1,\dots,S_{K})$ static devices repartition.
 
 ## What do we show \hfill{} (for static $S_i$)

@@ -401,9 +401,9 @@ Main references are my recent articles (on HAL):
 \begin{itemize}
 \tightlist
 \item
-  \emph{Goal} : \emph{maximize packet loss ratio} (\(=\) number of
-  received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
-  Making Problem}.
+  \emph{Goal} : \emph{minimize packet loss ratio} (\(=\) maximize number
+  of received \texttt{Ack}) in a \emph{finite-space discrete-time
+  Decision Making Problem}.
 \item
   \emph{Solution ?} \textbf{Multi-Armed Bandit algorithms},
   \textbf{decentralized} and used \textbf{independently} by each device.
@@ -571,7 +571,7 @@ channel \(k\).
   \tightlist
   \item
     Compute the index
-    \(g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}_{\text{Upper Confidence Bound}}\)
+    \(g_k(\tau) := \underbrace{\frac{X_k(\tau)}{T_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 T_k(\tau)}},}_{\text{Upper Confidence Bound}}\)
   \item
     Choose channel
     \(A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)\),
@@ -602,7 +602,7 @@ traffic, modeled as Bernoulli distributions.
 \item
   A \textbf{binomial Bayesian posterior} is kept on the mean
   availability \(\mu_k\) :
-  \(\mathrm{Bin}(1 + X_k(\tau), 1 + N_k(\tau) - X_k(\tau))\).
+  \(\mathrm{Bin}(1 + X_k(\tau), 1 + T_k(\tau) - X_k(\tau))\).
 \item
   Starts with a \emph{uniform prior} :
   \(\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])\).
@@ -646,8 +646,8 @@ traffic, modeled as Bernoulli distributions.
 \item
   \(p = 10^{-3}\) probability of emission, for all devices,
 \item
-  Horizon \(= 10^6\) time slots, \hfill{} (\(\simeq 100\) messages \(/\)
-  device)
+  Horizon \(= 10^6\) time slots, \hfill{} (\(\simeq 1000\) messages
+  \(/\) device)
 \item
   Various settings for \((S_1,\dots,S_{K})\) static devices repartition.
 \end{itemize}
