@@ -256,8 +256,8 @@ base station.
 \begin{itemize}
 \tightlist
 \item
-  Devices can choose a different radio channel at each time
-  \(\hookrightarrow\) learn the best one with sequential algorithm!
+  Devices can choose a different radio channel at each time \newline
+   \(\hookrightarrow\) learn the best one with sequential algorithm!
 \end{itemize}
 
 \end{block}
@@ -284,9 +284,9 @@ base station.
 \item
   Decomposition and lower-bound on regret
 \item
-  Quick reminder on single-player MAB algorithms: \UCB, \klUCB, TS
+  Quick reminder on single-player MAB algorithms
 \item
-  Two new multi-player decentralized algorithms: \MCTopM, \RandTopM
+  Two new multi-player decentralized algorithms
 \item
   Upper-bounds on regret for \MCTopM
 \item
@@ -294,7 +294,7 @@ base station.
 \item
   An heuristic \Selfish, and disappointing results
 \item
-  Perspectives
+  Conclusion
 \end{enumerate}
 
 \pause
@@ -304,7 +304,7 @@ base station.
 \begin{footnotesize}
 This is based on my latest article:
 \begin{itemize}
-\item \emph{Multi-Player Bandits Models Revisited}, Besson \& Kaufmann. \texttt{arXiv:1711.02317}
+\item \emph{Multi-Player Bandits Models Revisited}, Besson \& Kaufmann. \hfill{}\texttt{arXiv:1711.02317}
 \end{itemize}
 \end{footnotesize}
 
@@ -394,7 +394,7 @@ This is based on my latest article:
 
 
 
-\subsection{\hfill{}2.c. Notations\hfill{}}
+\subsection{\hfill{}2.c. Notations for rewards\hfill{}}
 
 \end{frame}
 
@@ -426,7 +426,8 @@ This is based on my latest article:
   \(Y_{k,t} \overset{\text{iid}}{\sim} \mathrm{Bern}(\mu_k)\),
 \item
   collision for device \(j\) :
-  \(C^j(t) = \mathbbm{1}(\)\emph{alone on arm $A^j(t)$}\()\).
+  \(C^j(t) = \mathbbm{1}(\)\emph{alone on arm $A^j(t)$}\()\). \newline
+   \(\hookrightarrow\) joint binary reward but not from two Bernoulli!
 \end{itemize}
 
 \end{block}
@@ -435,7 +436,41 @@ This is based on my latest article:
 
 
 
-\subsection{\hfill{}2.d. Goal\hfill{}}
+\subsection{\hfill{}2.d. Different feedback levels\hfill{}}
+
+\end{frame}
+
+\begin{frame}{3 feedback levels}
+
+\[r^j(t) := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)}) = \mathbbm{1}(\text{uplink \& Ack})\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  ``Full feedback'': observe separately \(Y_{k,t}\) and \(C^j(t)\),
+  \newline
+  \(\hookrightarrow\) Not realistic enough, we don't study it.
+  \vspace*{10pt}\pause
+\item
+  ``With sensing'': first observe \(Y_{k,t}\) and if non-zero, observe
+  \(C^j(t)\), \newline
+  \(\hookrightarrow\) Models licensed protocols like ZigBee, our main
+  focus. \vspace*{10pt}\pause
+\item
+  ``Full feedback'': observe only
+  \(Y_{k,t} \times \mathbbm{1}(\overline{C^j(t)})\), \newline
+  \(\hookrightarrow\) Models unlicensed protocols like LoRaWAN, harder
+  to analyze!
+\end{enumerate}
+
+But all consider the same instantaneous reward \(r^j(t)\).
+
+\end{frame}
+
+
+
+\subsection{\hfill{}2.e. Goal\hfill{}}
 
 \end{frame}
 
@@ -455,6 +490,8 @@ This is based on my latest article:
   device.
 \end{itemize}
 
+\pause
+
 \end{block}
 
 \begin{block}{\emph{Decentralized} reinforcement learning optimization!}
@@ -463,7 +500,8 @@ This is based on my latest article:
 \tightlist
 \item
   Max transmission rate \(\equiv\) \textbf{max cumulated rewards}
-  \hfill{}\(\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{\tau=1}^{\text{horizon}} \sum\limits_{j=1}^M r^j_{A(\tau)}\)\hfill{}.
+  \hspace*{60pt}
+  \(\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{t=1}^{\text{horizon}} \sum\limits_{j=1}^M r^j_{A(t)}\).
 \item
   Each player wants to \textbf{maximize its cumulated reward},
 \item
@@ -479,7 +517,7 @@ This is based on my latest article:
 
 
 
-\subsection{\hfill{}2.e. Centralized regret\hfill{}}
+\subsection{\hfill{}2.f. Centralized regret\hfill{}}
 
 \end{frame}
 
@@ -493,7 +531,12 @@ This is based on my latest article:
   Not the network throughput or collision probability,
 \item
   We study the \textbf{centralized regret} \vspace*{-5pt}
-  \[ R_T(\boldsymbol{\mu}, M, \rho) := \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right]. \]
+
+  \begin{align*}
+    R_T(\boldsymbol{\mu}, M, \rho)
+    &:= \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \mu_j^* -  r^j(t)\right] \\
+    &:= \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right].
+    \end{align*}
 \end{itemize}
 
 \pause
@@ -508,13 +551,14 @@ This is based on my latest article:
   Clearly \(R_T = \mathcal{O}(T)\), but we want a sub-linear regret, as
   small as possible!
 \item
-  \emph{What is the best possible performance of a decentralized
-  algorithm in this setting?} \newline
-   \hfill{} \(\hookrightarrow\) \textbf{Lower Bound} on regret for
+  \emph{How good a decentralized algorithm can be in this setting?}
+  \newline
+   \hfill{} \(\hookrightarrow\) \textbf{Lower Bound} on regret, for
   \textbf{any} algorithm !
 \item
-  \emph{Is this algorithm efficient in this setting?} \newline
-   \hfill{} \(\hookrightarrow\) \textbf{Upper Bound} on regret for
+  \emph{How good is my decentralized algorithm in this setting?}
+  \newline
+   \hfill{} \(\hookrightarrow\) \textbf{Upper Bound} on regret, for
   \textbf{one} algorithm !
 \end{itemize}
 
@@ -621,23 +665,22 @@ FIXME
 
 
 
-\section{\hfill{}4. Single-player MAB algorithms : UCB, KL-UCB, TS\hfill{}}
+\section{\hfill{}4. Single-player MAB algorithms : \UCB, \klUCB\hfill{}}
 
-\subsection{\hfill{}4.a. Upper Confidence Bound algorithm : UCB\hfill{}}
+\subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
 
 \end{frame}
 
 \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
-Dynamic device keep \(\tau\) number of sent packets, \(T_k(\tau)\)
-selections of channel \(k\), \(X_k(\tau)\) successful transmission in
-channel \(k\).
+Dynamic device keep \(t\) number of sent packets, \(T_k(t)\) selections
+of channel \(k\), \(X_k(t)\) successful transmission in channel \(k\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  For the first \(K\) steps (\(\tau=1,\dots,K\)), try each channel
+  For the first \(K\) steps (\(t=1,\dots,K\)), try each channel
   \emph{once}.
 \item
   Then for the next steps \(t > K\) :
@@ -646,12 +689,11 @@ channel \(k\).
   \tightlist
   \item
     Compute the index
-    \(g_k(\tau) := \underbrace{\frac{X_k(\tau)}{T_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 T_k(\tau)}},}_{\text{Upper Confidence Bound}}\)
+    \(g_k(t) := \underbrace{\frac{X_k(t)}{T_k(t)}}_{\text{Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k(t)}},}_{\text{Upper Confidence Bound}}\)
   \item
-    Choose channel
-    \(A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)\),
+    Choose channel \(A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)\),
   \item
-    Update \(T_k(\tau+1)\) and \(X_k(\tau+1)\).
+    Update \(T_k(t+1)\) and \(X_k(t+1)\).
   \end{itemize}
 \end{enumerate}
 
@@ -661,24 +703,21 @@ channel \(k\).
 
 
 
-\subsection{\hfill{}4.b. Kullback-Leibler UCB algorithm : KL-UCB\hfill{}}
-
-FIXME update
+\subsection{\hfill{}4.b. Kullback-Leibler UCB algorithm : \klUCB\hfill{}}
 
 \end{frame}
 
 \begin{frame}{Kullback-Leibler UCB algorithm
-(\(\mathrm{KL}\)-\(\mathrm{UCB}\))}
+(\(\mathrm{kl}\)-\(\mathrm{UCB}\))}
 
-Dynamic device keep \(\tau\) number of sent packets, \(T_k(\tau)\)
-selections of channel \(k\), \(X_k(\tau)\) successful transmission in
-channel \(k\).
+Dynamic device keep \(t\) number of sent packets, \(T_k(t)\) selections
+of channel \(k\), \(X_k(t)\) successful transmission in channel \(k\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  For the first \(K\) steps (\(\tau=1,\dots,K\)), try each channel
+  For the first \(K\) steps (\(t=1,\dots,K\)), try each channel
   \emph{once}.
 \item
   Then for the next steps \(t > K\) :
@@ -687,58 +726,18 @@ channel \(k\).
   \tightlist
   \item
     Compute the index
-    \(g_k(\tau) := \underbrace{\frac{X_k(\tau)}{T_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 T_k(\tau)}},}_{\text{Upper Confidence Bound}}\)
+    \(g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}(\frac{X_k(t)}{N_k(t)}, q) \leq \frac{\log(t)}{N_k(t)} \right\}\)
   \item
-    Choose channel
-    \(A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)\),
+    Choose channel \(A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)\),
   \item
-    Update \(T_k(\tau+1)\) and \(X_k(\tau+1)\).
+    Update \(T_k(t+1)\) and \(X_k(t+1)\).
   \end{itemize}
 \end{enumerate}
 
-\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}}
+\(\hookrightarrow\) proved to be more efficient than \UCB, and
+asymptotically optimal for single-player stochastic bandit.
 
-\end{frame}
-
-
-
-\subsection{\hfill{}4.c. Thompson Sampling : Bayesian index policy\hfill{}}
-
-FIXME remove this
-
-\end{frame}
-
-\begin{frame}[fragile]{Thompson Sampling : Bayesian approach}
-
-A dynamic device assumes a stochastic hypothesis on the background
-traffic, modeled as Bernoulli distributions.
-
-\begin{itemize}
-\item
-  Rewards \(r_k(\tau)\) are assumed to be \emph{i.i.d.} samples from a
-  Bernoulli distribution \(\mathrm{Bern}(\mu_k)\).
-\item
-  A \textbf{binomial Bayesian posterior} is kept on the mean
-  availability \(\mu_k\) :
-  \(\mathrm{Bin}(1 + X_k(\tau), 1 + T_k(\tau) - X_k(\tau))\).
-\item
-  Starts with a \emph{uniform prior} :
-  \(\mathrm{Bin}(1, 1) \sim \mathcal{U}([0,1])\).
-\end{itemize}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Each step \(\tau \geq 1\), draw a sample from each posterior
-  \(i_k(\tau) \sim \mathrm{Bin}(a_k(\tau), b_k(\tau))\),
-\item
-  Choose channel \(A(\tau) = \mathop{\arg\max}\limits_k \; i_k(\tau)\),
-\item
-  Update the posterior after receiving \texttt{Ack} or if collision.
-\end{enumerate}
-
-\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Thompson, 1933], [Kaufmann et al, 2012]}}
+\vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}}
 
 \end{frame}
 
@@ -806,7 +805,7 @@ policies}
 
 \begin{frame}{The \RandTopM{} algorithm}
 
-FIXME include code, explain
+FIXME include code, explain??
 
 \end{frame}
 
@@ -852,7 +851,10 @@ FIXME include code, explain FIXME include figure, explain
 \tightlist
 \item
   Hard to prove, we had to carefully design the \MCTopM{} algorithm to
-  conclude the proof, 
+  conclude the proof,
+\item
+  We have doubts regarding the proofs and results of all the previously
+  proposed algorithms,
 \item
   For the suboptimal selections, we \emph{match our lower-bound} !
 \item
@@ -885,6 +887,16 @@ FIXME
 
 \end{frame}
 
+\begin{frame}[plain]{Constant collisions if \(M=K\)}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
+\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{gold}{\MCTopM{}} achieve constant regret in this saturated case.}}
+\end{figure}
+
+\end{frame}
+
 \begin{frame}[plain]{Illustration of regret of different algorithms}
 
 \begin{figure}[h!]
@@ -893,31 +905,29 @@ FIXME
 \caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
 \end{figure}
 
-FIXME include graph!
-
-\subsection{\hfill{}7.b. Best arm selection\hfill{}}
-
-\end{frame}
-
-\begin{frame}[plain]{Best arm selection}
-
-FIXME include graph!
-
 \subsection{\hfill{}7.c. Number of collisions\hfill{}}
 
 \end{frame}
 
 \begin{frame}[plain]{Number of collisions}
 
-FIXME include graph!
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbCollisions____env1-1_8318947830261751207.pdf}
+\caption{\footnotesize{Cumulated number of collisions, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Also \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\end{figure}
 
 \subsection{\hfill{}7.d. Number of arm switches\hfill{}}
 
 \end{frame}
 
-\begin{frame}[plain]{Number of arm switches}
+\begin{frame}[plain]{Logarithmic number of arm switches}
 
-FIXME include graph!
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbSwitchs____env1-1_8318947830261751207.pdf}
+\caption{\footnotesize{Cumulated number of arm switches, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
+\end{figure}
 
 \subsection{\hfill{}7.e. Fairness\hfill{}}
 
@@ -925,22 +935,26 @@ FIXME include graph!
 
 \begin{frame}[plain]{Fairness}
 
-FIXME include graph!
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
+\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. It's quite hard to achieve both effiency and single-run fairness!}}
+\end{figure}
 
 \end{frame}
 
 
 
-\section{\hfill{}8. Disappointing results for \Selfish\hfill{}}\subsection{\hfill{}8.a. Problems with \Selfish\hfill{}}
-
-FIXME
+\section{\hfill{}8. An heuristic \Selfish\hfill{}}\subsection{\hfill{}8.a. Problems with \Selfish\hfill{}}
 
 \end{frame}
 
-\begin{frame}{In this model}
+\begin{frame}[allowframebreaks]{The \Selfish{} heuristic}
 
 The \Selfish{} decentralized approach = device don't use sensing, just
-learn on the receive acknowledgement,
+learn on the receive acknowledgement.
+
+\begin{block}{Works fine\ldots{}}
 
 \begin{itemize}
 \tightlist
@@ -951,6 +965,32 @@ learn on the receive acknowledgement,
   \Selfish{} to not have stronger guarantees.
 \item
   It works fine in practice!
+\end{itemize}
+
+\end{block}
+
+\begin{block}{\emph{But why would it work?}}
+
+\begin{itemize}
+\tightlist
+\item
+  Sensing was \emph{i.i.d.} so using \UCB{} to learn the \(\mu_k\) makes
+  sense,
+\item
+  But collisions are not \emph{i.i.d.},
+\item
+  Adversarial algorithms are more appropriate here,
+\item
+  But empirically, \Selfish{} with \UCB{} or \klUCB{} works much better
+  than, \emph{e.g.}, \ExpThree\ldots{}
+\end{itemize}
+
+\end{block}
+
+\begin{block}{Works fine\ldots{}}
+
+\begin{itemize}
+\tightlist
 \item
   Except\ldots{} when it fails drastically!
 \item
@@ -959,6 +999,8 @@ learn on the receive acknowledgement,
   prevents from having a generic upper-bound on regret for \Selfish.
   Sadly\ldots{}
 \end{itemize}
+
+\end{block}
 
 \end{frame}
 
@@ -973,21 +1015,21 @@ learn on the receive acknowledgement,
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.60\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17$ cases of $R_T \geq T$, out of $1000$). The regret for the three other algorithms is very small for this "easy" problem.}}
+\includegraphics[height=0.65\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
+\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
 \end{figure}
 
 \end{frame}
 
 
 
-\section{\hfill{}9. Perspectives\hfill{}}\subsection{\hfill{}9.a. Perspectives\hfill{}}
+\section{\hfill{}9. Conclusion\hfill{}}\subsection{\hfill{}9.a. Perspectives\hfill{}}
 
 \end{frame}
 
 \begin{frame}{Perspectives}
 
-\begin{block}{What is the problem ?}
+\begin{block}{\emph{Wait, what was the problem ?}}
 
 \begin{itemize}
 \tightlist
@@ -1098,10 +1140,10 @@ learn on the receive acknowledgement,
   model (without sensing), and can be improved (slightly) for the
   ``OSA'' model (with sensing).
 \item
-  Maybe study \textbf{other emission models}.
+  Maybe study \textbf{other emission models}\ldots{}
 \item
   Implement and test this on \textbf{real-world radio devices} \newline
-   \hspace*{20pt} \(\hookrightarrow\) in progress demo, for the ICT
+   \hspace*{20pt} \(\hookrightarrow\) demo (in progress) for the ICT
   \(2018\) conference!
 \end{itemize}
 
@@ -1110,7 +1152,7 @@ learn on the receive acknowledgement,
 \begin{block}{\textbf{Thanks!}}
 
 \begin{center}\begin{Large}
-\emph{Any question?}
+\emph{Any question or idea ?}
 \end{Large}\end{center}
 
 \end{block}
