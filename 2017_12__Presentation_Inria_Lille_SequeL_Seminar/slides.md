@@ -66,7 +66,7 @@ they want to access to a single base station.
 \begin{footnotesize}
 This is based on my latest article:
 \begin{itemize}
-\item \emph{Multi-Player Bandits Models Revisited}, Besson \& Kaufmann. \hfill{}\texttt{arXiv:1711.02317}
+\item \emph{Multi-Player Bandits Models Revisited}, Besson \& Kaufmann. \hspace*{60pt}\texttt{arXiv:1711.02317}
 \end{itemize}
 \end{footnotesize}
 
@@ -137,18 +137,21 @@ $$r^j(t) := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)}) = \mathbbm{1}(\te
 \subsection{\hfill{}2.d. Different feedback levels\hfill{}}
 
 # 3 feedback levels
-$$r^j(t) := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)}) = \mathbbm{1}(\text{uplink \& Ack})$$
+\only<1>{$$r^j(t) := \textcolor{red}{Y_{A^j(t),t}} \times \textcolor{blue}{\mathbbm{1}(\overline{C^j(t)})}$$}
+\only<2>{$$r^j(t) := \textcolor{RougeFort}{Y_{A^j(t),t}} \times \textcolor{Rouge}{\mathbbm{1}(\overline{C^j(t)})}$$}
+\only<3>{$$r^j(t) := \textcolor{Violet}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$$}
+\only<4>{$$\alert{r^j(t)} := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})$$}
 
-1. "Full feedback": observe separately $Y_{k,t}$ and $C^j(t)$, \newline
+1. "Full \textcolor<1>{red}{feed}\textcolor<1>{blue}{back}": observe separately \textcolor<1>{red}{$Y_{A^j(t),t}$} \emph{and} \textcolor<1>{blue}{$C^j(t)$}, \newline
     $\hookrightarrow$ Not realistic enough, we don't study it.
     \vspace*{10pt}\pause
-2. "With sensing": first observe $Y_{k,t}$ and if non-zero, observe $C^j(t)$, \newline
-    $\hookrightarrow$ Models licensed protocols like ZigBee, our main focus.
+2. \textcolor<2>{RougeFort}{"Sensing"}: first observe $\textcolor<2>{RougeFort}{Y_{A^j(t),t}}$, \emph{then} $\textcolor<2>{Rouge}{C^j(t)}$ only if $\textcolor<2>{RougeFort}{Y_{A^j(t),t}} \neq 0$, \newline
+    $\hookrightarrow$ Models licensed protocols (ex. ZigBee), our main focus.
     \vspace*{10pt}\pause
-3. "Full feedback": observe only $Y_{k,t} \times \mathbbm{1}(\overline{C^j(t)})$, \newline
-    $\hookrightarrow$ Models unlicensed protocols like LoRaWAN, harder to analyze!
+3. \textcolor<3>{Violet}{"No sensing"}: observe only the joint $\textcolor<3>{Violet}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$, \newline
+    $\hookrightarrow$ Unlicensed protocols (ex. LoRaWAN), harder to analyze!
 
-But all consider the same instantaneous reward $r^j(t)$.
+\uncover<4>{But all consider the same instantaneous \alert{reward $r^j(t)$}.}
 
 ----
 
@@ -179,12 +182,10 @@ But all consider the same instantaneous reward $r^j(t)$.
 ## A measure of success
 - Not the network throughput or collision probability,
 - We study the **centralized regret**
-  \vspace*{-5pt}
-  \begin{align*}
-  R_T(\boldsymbol{\mu}, M, \rho)
-  &:= \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \mu_j^* -  r^j(t)\right] \\
-  &:= \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right].
-  \end{align*}
+  \vspace*{-15pt}
+  $$R_T(\boldsymbol{\mu}, M, \rho)
+  := \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \mu_j^* -  r^j(t)\right]
+  = \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right].$$
 
 . . .
 
@@ -201,7 +202,7 @@ But all consider the same instantaneous reward $r^j(t)$.
 
 \subsection{\hfill{}3.a. Lower-bound on regret\hfill{}}
 
-# Asymptotic Lower Bound on regret {.allowframebreaks}
+# Decomposition on regret
 
 ## Decomposition
 For any algorithm, decentralized or not, we have
@@ -210,6 +211,7 @@ For any algorithm, decentralized or not, we have
 R_T(\boldsymbol{\mu}, M, \rho) &= \sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[T_k(T)] \\
 &+ \sum_{k \in \Mbest} (\mu_k -  \mu_M^*) (T - \E_{\mu}[T_k(T)]) + \sum_{k=1}^{K} \mu_k \E_{\mu}[\mathcal{C}_k(T)].
 \end{align*}\end{small}
+\vspace*{-10pt}
 
 ## Small regret can be attained if...
 1. Devices can quickly identify the bad arms $\Mworst$, and not play them too much
@@ -219,6 +221,8 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\m
 3. Devices can use orthogonal channels
    (*number of collisions*).
 
+# Asymptotic Lower Bound on regret I
+
 ## Lower-bounds
 - The first term $\E_{\mu}[T_k(T)]$,
   for sub-optimal arms selections, is lower-bounded,
@@ -226,11 +230,20 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\m
   (Kullback-Leibler divergence, entropy),
 - And we lower-bound the rest (including collisions) by... $0$ : we should be able to do better!
 
+# Asymptotic Lower Bound on regret II
+
 ## Theorem 1  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}
 - For any uniformly efficient decentralized policy, and any non-degenerated problem  $\boldsymbol{\mu}$,
 \vspace*{-10pt}
 $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)}{\log(T)} \geq M \times \left( \sum_{k \in \Mworst} \frac{(\mu_M^* -  \mu_k)}{\kl(\mu_k, \mu_M^*)} \right) . $$
-\footnotetext{\tiny Where $\kl(x,y) := x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the binary Kullback-Leibler divergence.}
+\footnotetext{\tiny Where $\kl(x,y) := x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} Kullback-Leibler divergence.}
+
+. . .
+
+## Remarks
+- Centralized \emph{multiple-play} lower-bound is the same without the $M$ multiplicative factor...\newline
+  $\hookrightarrow$ "price of non-coordination" $= M =$ nb of player?
+- Improved state-of-the-art lower-bound, but still not perfect: collisions should also be controlled!
 
 ----
 
@@ -248,9 +261,9 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 
 \subsection{\hfill{}3.c. Sketch of the proof\hfill{}}
 
-# Sketch of the proof {.allowframebreaks}
+# Sketch of the proof
 
-FIXME
+- Like for single-player bandit, focus on $\E_{\mu}[T_k^j(T)]$ nb of selections of any sub-optimal arm $k$.
 
 ----
 
@@ -289,7 +302,7 @@ and asymptotically optimal for single-player stochastic bandit.
 
 ----
 
-\section{\hfill{}5. Multi-player decentralized algorithms: \MCTopM, \RandTopM, \Selfish{} \hfill{}}
+\section{\hfill{}5. Multi-player decentralized algorithms\hfill{}}
 \subsection{\hfill{}5.a. State-of-the-art MP algorithms\hfill{}}
 
 # Algorithms for this easier model
@@ -304,8 +317,8 @@ and asymptotically optimal for single-player stochastic bandit.
 - Recent: \MEGA{} and \MusicalChair{}, \hfill{}{\tiny \textcolor{gray}{[Avner \& Mannor, 2015], [Shamir et al, 2016]}}
 - State-of-the-art: **RhoRand policy** and variants, \hfill{}{\tiny \textcolor{gray}{[Anandkumar et al, 2011]}}
 - **Our proposals**: \hfill{}{\tiny \textcolor{gray}{[Besson \& Kaufmann, 2017]}}
-    + With sensing: \RandTopM{} and \MCTopM{} are sort of mixes between RhoRand and \MusicalChair{}, using UCB indexes or more efficient index policy (\klUCB),
-    + Without sensing: \Selfish{} use a UCB index directly on the reward $r^j(t)$ : like the first IoT model !
+    + *With sensing*: \RandTopM{} and \MCTopM{} are sort of mixes between RhoRand and \MusicalChair{}, using UCB indexes or more efficient index policy (\klUCB),
+    + *Without sensing*: \Selfish{} use a UCB index directly on the reward $r^j(t)$.
 
 ----
 
@@ -321,6 +334,30 @@ FIXME include code, explain??
 
 FIXME include code, explain
 FIXME include figure, explain
+
+----
+
+# The \MCTopM{} algorithm {.plain}
+
+\begin{figure}[h!]
+  \begin{tikzpicture}[>=latex',line join=bevel,scale=3.8]
+      %
+      \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+      \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+      \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+      %
+      \draw [black,->] (start) -> (notfixed.20);
+      \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+      \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+      \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+      \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+      \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+      %
+  \end{tikzpicture}
+  \caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
+  Taking one of the five transitions means playing one round of the Algorithm~\ref{algo:MCTopM}, to decide $A^j(t+1)$ using information of previous steps.}
+  \label{fig:StateMachineAlgorithm_MCTopM}
+\end{figure}
 
 ----
 
