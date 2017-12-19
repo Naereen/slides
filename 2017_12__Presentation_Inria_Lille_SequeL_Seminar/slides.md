@@ -1,9 +1,9 @@
 ---
 author:
   \textbf{Lilian Besson} \newline
-   \emph{Advised by} \and Christophe Moy \and Émilie Kaufmann
+  \emph{Advised by} \and Christophe Moy \and Émilie Kaufmann
 smallauthor: Lilian Besson
-title: Multi-Player Bandits Models Revisited
+title: Multi-Player Bandits Revisited
 subtitle: Decentralized Multi-Player Multi-Arm Bandits
 institute:
   PhD Student \newline
@@ -29,7 +29,8 @@ include-before:
 \subsection{\hfill{}1.a. Objective\hfill{}}
 
 # Motivation
-A *lot* of communicating devices want to access to a single base station.
+We control some communicating devices,
+they want to access to a single base station.
 
 - Insert them in a **crowded wireless network**.
 - With a protocol **slotted in both time and frequency**.
@@ -39,53 +40,59 @@ A *lot* of communicating devices want to access to a single base station.
 - **Without centralized supervision** as it costs network overhead.
 
 ## How?
-- Use **learning algorithms**: devices will learn on which frequency they should talk!
+- Devices can choose a different radio channel at each time
+  $\hookrightarrow$ learn the best one with sequential algorithm!
 
 ----
 
 \subsection{\hfill{}1.b. Outline and references\hfill{}}
 
-# Outline and references
-1. Introduction and motivation
-2. Model and hypotheses
-3. Lower-bound on regret
-4. Quick reminder on single-player MAB algorithms
-5. Three new multi-player decentralized algorithms: \MCTopM, \RandTopM, \Selfish
-6. Upper-bound on regret for \MCTopM
+# Outline and reference
+\vspace*{-15pt}
+
+1. \invisible{Introduction}
+2. Model: 3 different feedback levels
+3. Decomposition and lower-bound on regret
+4. Quick reminder on single-player MAB algorithms: \UCB, \klUCB, TS
+5. Two new multi-player decentralized algorithms: \MCTopM, \RandTopM
+6. Upper-bounds on regret for \MCTopM
 7. Experimental results
-8. Disappointing results for \Selfish
-9. Perspectives and future works
+8. An heuristic \Selfish, and disappointing results
+9. Perspectives
+
+. . .
 
 \vfill{}
 \begin{footnotesize}
-Main references are my recent articles (on HAL):
+This is based on my latest article:
 \begin{itemize}
-\item \emph{Multi-Player Bandits Models Revisited}, Besson, Kaufmann. \texttt{arXiv:1711.02317},
-\item \emph{Multi-Armed Bandit Learning in IoT Networks and non-stationary settings}, Bonnefoi, Besson, Moy, Kaufmann, Palicot. CrownCom 2017,
+\item \emph{Multi-Player Bandits Models Revisited}, Besson \& Kaufmann. \texttt{arXiv:1711.02317}
 \end{itemize}
 \end{footnotesize}
 
+<!-- \item \emph{Multi-Armed Bandit Learning in IoT Networks and non-stationary settings}, Bonnefoi, Besson, Moy, Kaufmann, Palicot. CrownCom 2017, -->
+
 ----
 
-\section{\hfill{}2. Model and hypotheses\hfill{}}
+\section{\hfill{}2. Model: 3 different feedback level\hfill{}}
 
 \subsection{\hfill{}2.a. Our model\hfill{}}
 
 # Our model
-- Discrete time $t\geq1$ and $K$ radio channels (\emph{e.g.}, 10)
+- $K$ radio channels (\emph{e.g.}, 10)
   \hfill{} (*known*)
-- Every time frame:
+- Discrete and synchronized time $t\geq1$. Every time frame $t$ is:
 
 <!-- ![Protocol](figures/protocol.eps) -->
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.35\textheight]{figures/protocol.eps}
+\includegraphics[height=0.31\textheight]{figures/protocol.eps}
 \caption{\small{Protocol in time and frequency, with an \textcolor{darkgreen}{\emph{Acknowledgement}}.}}
 \end{figure}
 
-## Dynamic radio reconfiguration
-- A **dynamic device decides the channel it uses to send every packet**.
-- It has memory and computational capacity to implement simple **decision algorithm**.
+## Dynamic device $=$ dynamic radio reconfiguration
+- It decides **each time** the channel it uses to send **each packet**.
+- It can implement simple **decision algorithm**.
 
 ----
 
@@ -93,34 +100,36 @@ Main references are my recent articles (on HAL):
 
 # Our model
 ## "Easy" case
-- $M \leq K$ dynamic devices **always communicating**, try to access the network, *independently*:
-  without any centralized supervision!
-- Background is *i.i.d.*.
+- $M \leq K$ devices **always communicate** and try to access the network,
+  *independently* without centralized supervision,
+- Background traffic is *i.i.d.*.
 
 ## Two variants
 1. *With sensing*:
     Device first senses for presence of Primary Users (background traffic), then use `Ack` to detect collisions.
     \small{Model the "classical" Opportunistic Spectrum Access problem.
-    Not exactly suited for *Internet of Things* networks like LoRa or SigFox, can model ZigBee, and can be analyzed mathematically...}
-
-2. *Without sensing*: same background traffic, but cannot sense, so `Ack` is used to know if the message was successfully received by the Base Station.
+    Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
+    \pause
+2. *Without sensing*: same background traffic, but cannot sense, so only `Ack` is used.
+    \small{More suited for "IoT" networks like LoRa or SigFox}
     (Harder to analyze mathematically.)
 
 ----
 
 \subsection{\hfill{}2.c. Notations\hfill{}}
 
-# Notations
+# Notations for rewards
 ## *i.i.d.* background traffic
 - $K$ channels, modeled as Bernoulli ($0/1$) distributions of mean $\mu_k$
-  $=$ background traffic from *Primary Users*, bothering the dynamic devices!
-- $M$ devices use channel $A^j(t) \in \{1,\dots,K\}$ at each time step,
+  $=$ background traffic from *Primary Users*, bothering the dynamic devices,
+- $M$ devices, each uses channel $A^j(t) \in \{1,\dots,K\}$ at time $t$.
 
 ## Rewards
-- Reward: $r^j(t) := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)}) = \mathbbm{1}($uplink \& `Ack`$)$
-    + with sensing information $Y_{k,t} \sim \mathrm{Bern}(\mu_k)$,
-    + collision for device $j$
-      $C^j(t) = \mathbbm{1}($\emph{alone on arm $A^j(t)$}$)$.
+$$r^j(t) := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)}) = \mathbbm{1}(\text{uplink \& Ack})$$
+
+- with sensing information $Y_{k,t} \overset{\text{iid}}{\sim} \mathrm{Bern}(\mu_k)$,
+- collision for device $j$ :
+  $C^j(t) = \mathbbm{1}($\emph{alone on arm $A^j(t)$}$)$.
 
 ----
 
@@ -128,18 +137,18 @@ Main references are my recent articles (on HAL):
 
 # Goal
 ## Problem
-- *Goal* : *minimize packet loss ratio* ($=$ maximize number of received `Ack`)
+- *Goal* : *minimize packet loss ratio* ($=$ maximize nb of received `Ack`)
   in a *finite-space discrete-time Decision Making Problem*.
 - *Solution ?* **Multi-Armed Bandit algorithms**,
-  **decentralized** and used **independently** by each device.
+  **decentralized** and used **independently** by each dynamic device.
 
-## Goal : *decentralized* reinforcement learning optimization!
-- Maximize transmission rate $\equiv$ **maximize cumulated rewards**
-  $$\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.$$
+## *Decentralized* reinforcement learning optimization!
+- Max transmission rate $\equiv$ **max cumulated rewards**
+  \hfill{}$\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{\tau=1}^{\text{horizon}} \sum\limits_{j=1}^M r^j_{A(\tau)}$\hfill{}.
 - Each player wants to **maximize its cumulated reward**,
 - With no central control, and no exchange of information,
 - Only possible if : each player converges to one of the $M$ best arms,
-  orthogonally (without collisions)
+  orthogonally (without collisions).
 
 ----
 
@@ -403,59 +412,64 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.60\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17$ cases of $R_T \geq T$, out of $1000$). The regret for the three other algorithms is very small for this ``easy'' problem.}}
+\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17$ cases of $R_T \geq T$, out of $1000$). The regret for the three other algorithms is very small for this "easy" problem.}}
 \end{figure}
 
 ----
 
-\section{\hfill{}9. Perspectives and future work\hfill{}}
+\section{\hfill{}9. Perspectives\hfill{}}
 \subsection{\hfill{}9.a. Perspectives\hfill{}}
 
 # Perspectives
-## Theoretical results
+## What is the problem ?
 - MAB algorithms have guarantees for *i.i.d. settings*,
-- But here the collisions cancel the *i.i.d.* hypothesis,
+- But here the collisions cancel the *i.i.d.* hypothesis...
 - Not easy to obtain guarantees in this mixed setting \newline
-  (*i.i.d.* emissions process, ``game theoretic'' collisions).
-- For OSA devices (always emitting), we obtained strong theoretical results,
-- But harder for IoT devices with low duty-cycle...
+  (*i.i.d.* emissions process, "game theoretic" collisions).
 
-## Real-world experimental validation ?
-- Radio experiments will help to validate this.
-  \hspace*{40pt}\hfill{}\textcolor{red}{Hard !}
+## Theoretical results
+- With sensing ("OSA"), we obtained strong results: a lower-bound, and an order-optimal algorithm,
+- But without sensing ("IoT"), it is harder... our heuristic \Selfish{} usually works but can fail!
 
 ----
 
 \subsection{\hfill{}9.b. Future work\hfill{}}
 
 # Other directions of future work
+
+## Conclude the Multi-Player OSA analysis
+- Remove hypothesis that objects know $M$,
+- Allow arrival/departure of objects,
+- Non-stationarity of background traffic etc
+
 - *More realistic emission model*:
   maybe driven by number of packets in a whole day,
   instead of emission probability.
 
-- Validate this on a *larger experimental scale*.
-
+## Extend to more objects $M > K$
 - Extend the theoretical analysis to the large-scale IoT model,
   first with sensing (*e.g.*, models ZigBee networks),
   then without sensing (*e.g.*, LoRaWAN networks).
 
-- And also conclude the Multi-Player OSA analysis (remove hypothesis that objects know $M$, allow arrival/departure of objects, non-stationarity of background traffic etc)
-
 ----
 
-\section{\hfill{}9. Conclusion\hfill{}}
 \subsection{\hfill{}9.c. Thanks!\hfill{}}
 
 # Conclusion {.allowframebreaks}
+
+- In a wireless network with an *i.i.d.* background traffic in $K$ channels,
+- $M$ devices can use both sensing and acknowledgement feedback, to learn the most free channels and to find orthogonal configurations.
+
 ## We showed
-- Simple Multi-Armed Bandit algorithms, used in a Selfish approach by IoT devices in a crowded network, help to quickly learn the best possible repartition of dynamic devices in a fully decentralized and automatic way,
-- For devices with sensing, smarter algorithms can be designed, and analyze carefully.
-- Empirically, even if the collisions break the *i.i.d* hypothesis, stationary MAB algorithms (UCB, TS, \klUCB) outperform more generic algorithms (adversarial, like Exp3).
+- Decentralized bandit algorithms can solve this problem,
+- We have a lower-bound for any decentralized algorithm,
+- And we proposed an order-optimal algorithm, based on \klUCB{} and an improved Musical Chair scheme, \MCTopM
 
 ## But more work is still needed...
-- **Theoretical guarantees** are still missing for the IoT model, and can be improved (slightly) for the OSA model.
+- **Theoretical guarantees** are still missing for the "IoT" model (without sensing), and can be improved (slightly) for the "OSA" model (with sensing).
 - Maybe study **other emission models**.
-- Implement and test this on **real-world radio devices** (almost done).
+- Implement and test this on **real-world radio devices** \newline
+  \hspace*{20pt} $\hookrightarrow$ in progress demo, for the ICT $2018$ conference!
 
 ## **Thanks!**
 \begin{center}\begin{Large}
