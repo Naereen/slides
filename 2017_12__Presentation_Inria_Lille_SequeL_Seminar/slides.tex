@@ -106,10 +106,14 @@
 %% Color definition
 \usepackage{xcolor}
 \definecolor{bleu}{RGB}{0,0,204}  % rgb(0,0,204)
-\definecolor{violet}{RGB}{102,0,204}  % rgb(102,0,204)
+\definecolor{deeppurple}{RGB}{102,0,204}  % rgb(102,0,204)
 \definecolor{darkgreen}{RGB}{0,100,0}  % rgb(0,100,0)
 \definecolor{gold}{RGB}{255,184,0}  % rgb(255,184,0)
-\definecolor{rouge}{RGB}{204,0,0}  % rgb(204,0,0)
+\definecolor{strongred}{RGB}{255,0,0}  % rgb(255,0,0)
+\definecolor{normalred}{RGB}{204,0,0}  % rgb(204,0,0)
+\definecolor{lightred}{RGB}{174,0,0}  % rgb(174,0,0)
+\definecolor{highlight}{RGB}{251,0,0}  % rgb(251,0,0)
+
 \usepackage{amssymb,amsmath}
 \usepackage{bbm,bm}  % bold maths symbols
 \usepackage{ifxetex,ifluatex}
@@ -128,20 +132,6 @@
 \usepackage{macrosText}  % FIXME remove
 \usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
 
-%% https://tex.stackexchange.com/a/401409/
-\usepackage{environ}
-% Custom font for a frame.
-\newcommand{\customframefont}[1]{
-\setbeamertemplate{itemize/enumerate body begin}{#1}
-\setbeamertemplate{itemize/enumerate subbody begin}{#1}
-}
-\NewEnviron{framefont}[1]{
-\customframefont{#1} % for itemize/enumerate
-{#1 % For the text outside itemize/enumerate
-\BODY
-}
-\customframefont{\normalsize}
-}
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
@@ -473,8 +463,8 @@ This is based on our latest article:
 \begin{frame}{3 feedback levels}
 
 \only<1>{$$r^j(t) := \textcolor{red}{Y_{A^j(t),t}} \times \textcolor{blue}{\mathbbm{1}(\overline{C^j(t)})}$$}
-\only<2>{$$r^j(t) := \textcolor{RougeFort}{Y_{A^j(t),t}} \times \textcolor{Rouge}{\mathbbm{1}(\overline{C^j(t)})}$$}
-\only<3>{$$r^j(t) := \textcolor{Violet}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$$}
+\only<2>{$$r^j(t) := \textcolor{strongred}{Y_{A^j(t),t}} \times \textcolor{normalred}{\mathbbm{1}(\overline{C^j(t)})}$$}
+\only<3>{$$r^j(t) := \textcolor{deeppurple}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$$}
 \only<4>{$$\alert{r^j(t)} := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})$$}
 
 \begin{enumerate}
@@ -486,14 +476,14 @@ This is based on our latest article:
   \textcolor<1>{blue}{$C^j(t)$} separately, \hook Not realistic enough,
   we don't focus on it. \vspace*{10pt}\pause
 \item
-  \textcolor<2>{RougeFort}{"Sensing"}: first observe
-  \(\textcolor<2>{RougeFort}{Y_{A^j(t),t}}\), \emph{then}
-  \(\textcolor<2>{Rouge}{C^j(t)}\) only if
-  \(\textcolor<2>{RougeFort}{Y_{A^j(t),t}} \neq 0\), \hook Models
+  \textcolor<2>{strongred}{"Sensing"}: first observe
+  \(\textcolor<2>{strongred}{Y_{A^j(t),t}}\), \emph{then}
+  \(\textcolor<2>{normalred}{C^j(t)}\) only if
+  \(\textcolor<2>{strongred}{Y_{A^j(t),t}} \neq 0\), \hook Models
   licensed protocols (ex. ZigBee), our main focus. \vspace*{10pt}\pause
 \item
-  \textcolor<3>{Violet}{"No sensing"}: observe only the joint
-  \(\textcolor<3>{Violet}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}\),
+  \textcolor<3>{deeppurple}{"No sensing"}: observe only the joint
+  \(\textcolor<3>{deeppurple}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}\),
   \hook Unlicensed protocols (ex. LoRaWAN), harder to analyze !
 \end{enumerate}
 
@@ -950,8 +940,7 @@ policies}
 
 \begin{frame}[plain]{The \RandTopM{} algorithm}
 
-\customframefont{\small} \vspace*{-5pt}
-
+\centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
 \centering
 % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
@@ -984,8 +973,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 \label{algo:RandTopM}
 \end{algorithm}
 \end{figure}
-
-\vspace*{-5pt}
+\end{minipage}}}
 
 \end{frame}
 
@@ -997,8 +985,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 \begin{frame}[plain]{The \MCTopM{} algorithm}
 
-\customframefont{\small} \vspace*{-5pt}
-
+\centerline{\scalebox{0.78}{\begin{minipage}{1.33\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
 \centering
 % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
@@ -1039,31 +1026,32 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \label{algo:MCTopM}
 \end{algorithm}
 \end{figure}
-
-\vspace*{-5pt}
+\end{minipage}}}
 
 \end{frame}
 
-\begin{frame}[plain]{The \MCTopM{} algorithm}
+\begin{frame}{The \MCTopM{} algorithm}
 
 \begin{figure}[h!]
-  \begin{tikzpicture}[>=latex',line join=bevel,scale=2.5]
-      %
-      \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
-      \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
-      \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
-      %
-      \draw [black,->] (start) -> (notfixed.20);
-      \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-      \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-      \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-      \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-      \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
-      %
-  \end{tikzpicture}
-  \caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
-  Taking one of the five transitions means playing one round of the Algorithm~\ref{algo:MCTopM}, to decide $A^j(t+1)$ using information of previous steps.}
-  \label{fig:StateMachineAlgorithm_MCTopM}
+\centerline{\scalebox{0.70}{\begin{minipage}{1.35\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
+    %
+    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    %
+    \draw [black,->] (start) -> (notfixed.20);
+    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    %
+\end{tikzpicture}
+\end{minipage}}}
+\caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
+Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
+\label{fig:StateMachineAlgorithm_MCTopM}
 \end{figure}
 
 \end{frame}

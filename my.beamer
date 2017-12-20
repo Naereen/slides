@@ -85,7 +85,7 @@
 \beamertemplatenavigationsymbolsempty
 
 % XXX Add a background image to the slides
-\usepackage{tikz}
+% \usepackage{tikz}
 % \setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{IETR.jpg}}
 % \setbeamertemplate{background}{{\centering\begin{tikzpicture}\node[opacity=0.15]{\includegraphics[width=0.98\paperwidth]{IETR_et_partenaires_IETR.png}};\end{tikzpicture}}}
 
@@ -110,14 +110,32 @@ $endif$
 %% Color definition
 \usepackage{xcolor}
 \definecolor{bleu}{RGB}{0,0,204}  % rgb(0,0,204)
-\definecolor{violet}{RGB}{102,0,204}  % rgb(102,0,204)
+\definecolor{deeppurple}{RGB}{102,0,204}  % rgb(102,0,204)
 \definecolor{darkgreen}{RGB}{0,100,0}  % rgb(0,100,0)
 \definecolor{gold}{RGB}{255,184,0}  % rgb(255,184,0)
-\definecolor{rouge}{RGB}{204,0,0}  % rgb(204,0,0)
+\definecolor{strongred}{RGB}{255,0,0}  % rgb(255,0,0)
+\definecolor{normalred}{RGB}{204,0,0}  % rgb(204,0,0)
+\definecolor{lightred}{RGB}{174,0,0}  % rgb(174,0,0)
+\definecolor{highlight}{RGB}{251,0,0}  % rgb(251,0,0)
+
 \usepackage{amssymb,amsmath}
 \usepackage{bbm,bm}  % bold maths symbols
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+
+% FIXME remove as soon as possible, it slows down compilation to import TikZ
+%% TikZ
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+% https://tex.stackexchange.com/a/226974/
+\tikzset{
+  font={\fontsize{10pt}{10}\selectfont}
+}
+\usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
+
+\usepackage{macrosText}  % FIXME remove
+\usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
+
 
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
@@ -240,7 +258,7 @@ $if(listings)$
 \definecolor{darkgreen}{rgb}{0.00,0.70,0.00}  % Define a new color rgb(0,178,0)
 \lstset{%
   backgroundcolor=\color{white},  % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\ttfamily, % \texttt\small,              % the size of the fonts that are used for the code, FIXME \ttfamily
+  basicstyle=\ttfamily, % \texttt\small,              % the size of the fonts that are used for the code,
   breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
   breaklines=true,                % sets automatic line breaking
   captionpos=b,                   % sets the caption-position to bottom
@@ -268,7 +286,6 @@ $if(listings)$
   aboveskip={1.5\baselineskip},
   %title=\lstname                  % show the filename of files included with \lstinputlisting; also try caption instead of title
   %  title=\tiny{File \textcolor{blue}{\url{\lstname}}}          % show the filename of files included with \lstinputlisting; also try caption instead of title
-  %% FIXME title !
 }
 $endif$
 $if(lhs)$

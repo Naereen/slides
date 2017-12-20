@@ -140,17 +140,17 @@ $$r^j(t) := Y_{A^j(t),t} \alert{\times} \mathbbm{1}(\overline{C^j(t)}) = \mathbb
 
 # 3 feedback levels
 \only<1>{$$r^j(t) := \textcolor{red}{Y_{A^j(t),t}} \times \textcolor{blue}{\mathbbm{1}(\overline{C^j(t)})}$$}
-\only<2>{$$r^j(t) := \textcolor{RougeFort}{Y_{A^j(t),t}} \times \textcolor{Rouge}{\mathbbm{1}(\overline{C^j(t)})}$$}
-\only<3>{$$r^j(t) := \textcolor{Violet}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$$}
+\only<2>{$$r^j(t) := \textcolor{strongred}{Y_{A^j(t),t}} \times \textcolor{normalred}{\mathbbm{1}(\overline{C^j(t)})}$$}
+\only<3>{$$r^j(t) := \textcolor{deeppurple}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$$}
 \only<4>{$$\alert{r^j(t)} := Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})$$}
 
 1. "Full \textcolor<1>{red}{feed}\textcolor<1>{blue}{back}": observe both \textcolor<1>{red}{$Y_{A^j(t),t}$} \emph{and} \textcolor<1>{blue}{$C^j(t)$} separately,
     \hook Not realistic enough, we don't focus on it.
     \vspace*{10pt}\pause
-2. \textcolor<2>{RougeFort}{"Sensing"}: first observe $\textcolor<2>{RougeFort}{Y_{A^j(t),t}}$, \emph{then} $\textcolor<2>{Rouge}{C^j(t)}$ only if $\textcolor<2>{RougeFort}{Y_{A^j(t),t}} \neq 0$,
+2. \textcolor<2>{strongred}{"Sensing"}: first observe $\textcolor<2>{strongred}{Y_{A^j(t),t}}$, \emph{then} $\textcolor<2>{normalred}{C^j(t)}$ only if $\textcolor<2>{strongred}{Y_{A^j(t),t}} \neq 0$,
     \hook Models licensed protocols (ex. ZigBee), our main focus.
     \vspace*{10pt}\pause
-3. \textcolor<3>{Violet}{"No sensing"}: observe only the joint $\textcolor<3>{Violet}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$,
+3. \textcolor<3>{deeppurple}{"No sensing"}: observe only the joint $\textcolor<3>{deeppurple}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}$,
     \hook Unlicensed protocols (ex. LoRaWAN), harder to analyze !
 
 \uncover<4>{\begin{quote}But all consider the same instantaneous \alert{reward $r^j(t)$}.\end{quote}}
@@ -367,8 +367,7 @@ and asymptotically optimal for single-player stochastic bandit.
 
 # The \RandTopM{} algorithm {.plain}
 
-\customframefont{\small}
-\vspace*{-5pt}
+\centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
 \centering
 % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
@@ -401,7 +400,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 \label{algo:RandTopM}
 \end{algorithm}
 \end{figure}
-\vspace*{-5pt}
+\end{minipage}}}
 
 ----
 
@@ -409,8 +408,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 # The \MCTopM{} algorithm {.plain}
 
-\customframefont{\small}
-\vspace*{-5pt}
+\centerline{\scalebox{0.78}{\begin{minipage}{1.33\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
 \centering
 % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
@@ -451,30 +449,32 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \label{algo:MCTopM}
 \end{algorithm}
 \end{figure}
-\vspace*{-5pt}
+\end{minipage}}}
 
 ----
 
-# The \MCTopM{} algorithm {.plain}
+# The \MCTopM{} algorithm
 
 \begin{figure}[h!]
-  \begin{tikzpicture}[>=latex',line join=bevel,scale=2.5]
-      %
-      \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
-      \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
-      \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
-      %
-      \draw [black,->] (start) -> (notfixed.20);
-      \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-      \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-      \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-      \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-      \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
-      %
-  \end{tikzpicture}
-  \caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
-  Taking one of the five transitions means playing one round of the Algorithm~\ref{algo:MCTopM}, to decide $A^j(t+1)$ using information of previous steps.}
-  \label{fig:StateMachineAlgorithm_MCTopM}
+\centerline{\scalebox{0.70}{\begin{minipage}{1.35\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
+    %
+    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    %
+    \draw [black,->] (start) -> (notfixed.20);
+    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    %
+\end{tikzpicture}
+\end{minipage}}}
+\caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
+Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
+\label{fig:StateMachineAlgorithm_MCTopM}
 \end{figure}
 
 ----
