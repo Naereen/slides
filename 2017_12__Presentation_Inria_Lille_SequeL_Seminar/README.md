@@ -27,6 +27,7 @@ they want to access to a single base station.
   → learn the best one with sequential algorithm!
 
 ----
+
 # Outline and reference
 
 1. Introduction
@@ -56,6 +57,7 @@ This is based on our latest article:
 - It can implement a simple **decision algorithm**.
 
 ----
+
 # Our model
 ## "Easy" case
 - M <= K devices **always communicate** and try to access the network,
@@ -73,6 +75,7 @@ This is based on our latest article:
     (Harder to analyze mathematically.)
 
 ----
+
 # Background traffic, and rewards
 ## *i.i.d.* background traffic
 - K channels, modeled as Bernoulli (0/1) distributions of mean µ_k
@@ -88,6 +91,7 @@ r^j(t) := Y_{A^j(t),t} × 1(not C^j(t)) = 1(uplink & Ack).
   → joint binary reward **but not** from two Bernoulli!
 
 ----
+
 # 3 feedback levels
 r^j(t)} := Y_{A^j(t),t} × 1(not C^j(t))
 
@@ -103,6 +107,7 @@ r^j(t)} := Y_{A^j(t),t} × 1(not C^j(t))
 But all consider the same instantaneous reward r^j(t).
 
 ----
+
 # Goal
 ## Problem
 - *Goal* : *minimize packet loss ratio* (= maximize nb of received `Ack`)
@@ -119,6 +124,7 @@ But all consider the same instantaneous reward r^j(t).
   orthogonally (without collisions).
 
 ----
+
 # Centralized regret
 ## A measure of success
 - Not the network throughput or collision probability,
@@ -136,6 +142,7 @@ But all consider the same instantaneous reward r^j(t).
   → **Upper Bound** on regret, for **one** algorithm !
 
 ----
+
 # Lower bound
 
 1. Decomposition of regret in 3 terms,
@@ -145,6 +152,7 @@ But all consider the same instantaneous reward r^j(t).
 5. Illustration.
 
 ----
+
 # Decomposition on regret
 
 ## Decomposition
@@ -192,11 +200,13 @@ Where kl(x,y) := x log(x / y) + (1 - x) log(1-x / 1-y) is the *binary* Kullback-
 - Improved state-of-the-art lower bound, but still not perfect: collisions should also be controlled!
 
 ----
+
 # Illustration of the Lower Bound on regret
 
 [Any such lower bound is very asymptotic, usually not satisfied for small horizons. We can see the importance of the collisions!](figures/main_RegretCentralized____env3-4_2092905764868974160.png)
 
 ----
+
 # Sketch of the proof
 
 - Like for single-player bandit, focus on E_µ[T_k^j(T)] expected number of selections of any sub-optimal arm k.
@@ -206,6 +216,7 @@ Where kl(x,y) := x log(x / y) + (1 - x) log(1-x / 1-y) is the *binary* Kullback-
 > → See our paper for details!
 
 ----
+
 # Single-player MAB algorithms
 
 1. Index-based MAB deterministic policies,
@@ -213,6 +224,7 @@ Where kl(x,y) := x log(x / y) + (1 - x) log(1-x / 1-y) is the *binary* Kullback-
 3. Kullback-Leibler UCB algorithm : klUCB.
 
 ----
+
 # Upper Confidence Bound algorithm UCB1
 The device keep t number of sent packets, T_k(t) selections of channel k, X_k(t) successful transmissions in channel k.
 
@@ -225,6 +237,7 @@ The device keep t number of sent packets, T_k(t) selections of channel k, X_k(t)
 References: [Lai & Robbins, 1985], [Auer et al, 2002], [Bubeck & Cesa-Bianchi, 2012]
 
 ----
+
 # Kullback-Leibler UCB algorithm klUCB
 The device keep t number of sent packets, T_k(t) selections of channel k, X_k(t) successful transmissions in channel k.
 
@@ -240,6 +253,7 @@ and asymptotically optimal for single-player stochastic bandit.
 References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & Stoltz, 2013]
 
 ----
+
 # Multi-player decentralized algorithms
 
 1. Common building blocks of previous algorithms,
@@ -248,6 +262,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 4. Algorithm and illustration.
 
 ----
+
 # Algorithms for this easier model
 
 ## Building blocks : separate the two aspects
@@ -263,6 +278,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 - *Without sensing*: Selfish use a UCB index directly on the reward r^j(t).
 
 ----
+
 # A first decentralized algorithm
 
 ![The MCTopM algorithm](figures/algo1.png)
@@ -274,6 +290,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 ![The MCTopM algorithm](figures/algo2.png)
 
 ----
+
 # The MCTopM algorithm
 
 ![The MCTopM algorithm](figures/algo3.png)
@@ -285,6 +302,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 ![The MCTopM algorithm](figures/algo4.png)
 
 ----
+
 # Regret upper bound
 
 1. Theorem,
@@ -292,6 +310,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 3. Idea of the proof.
 
 ----
+
 # Regret upper bound for MCTopM
 
 ## Theorem 2  [Besson & Kaufmann, 2017]
@@ -321,6 +340,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 - Not yet possible to know what is the best possible control of collisions...
 
 ----
+
 # Sketch of the proof
 
 1. Bound the expected number of collisions by M times the number of collisions for non-sitted players,
@@ -333,6 +353,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 > → See our paper for details!
 
 ----
+
 # Experimental results
 
 > Experiments on Bernoulli problems µ in [0,1]^K.
@@ -344,6 +365,7 @@ References: [Garivier & Cappé, 2011], [Cappé & Garivier & Maillard & Munos & S
 5. Fairness?
 
 ----
+
 # Constant regret if M = K
 
 Regret, M=9 players, K=9 arms, horizon T=10000, 200 repetitions. Only RandTopM and MCTopM achieve constant regret in this saturated case (proved).
@@ -376,6 +398,7 @@ Measure of fairness among player. All 4 algorithms seem fair in average, but non
 
 
 ----
+
 # An heuristic, Selfish
 
 For the harder feedback model, without sensing.
@@ -385,6 +408,7 @@ For the harder feedback model, without sensing.
 5. Illustration of failure cases.
 
 ----
+
 # The Selfish heuristic
 The Selfish decentralized approach = device don't use sensing, just learn on the reward (acknowledgement or not, r^j(t)).
 
@@ -412,6 +436,7 @@ Reference: [Bonnefoi & Besson et al, 2017]
 ![Regret for M=2, K=3, T=5000, 1000 repetitions and µ = [0.1, 0.5, 0.9]. Axis x is for regret (different scale for each), and Selfish have a small probability of failure (17/1000 cases of R_T \gg \log T). The regret for the three other algorithms is very small for this "easy" problem.](figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.png)
 
 ----
+
 # Sum-up
 ## *Wait, what was the problem ?*
 - MAB algorithms have guarantees for *i.i.d. settings*,
@@ -424,6 +449,7 @@ Reference: [Bonnefoi & Besson et al, 2017]
 - But without sensing ("IoT"), it is harder... our heuristic Selfish usually works but can fail!
 
 ----
+
 # Other directions of future work
 
 ## Conclude the Multi-Player OSA analysis
@@ -441,6 +467,7 @@ Reference: [Bonnefoi & Besson et al, 2017]
   then without sensing (*e.g.*, LoRaWAN networks).
 
 ----
+
 # Conclusion
 
 - In a wireless network with an *i.i.d.* background traffic in K channels,
