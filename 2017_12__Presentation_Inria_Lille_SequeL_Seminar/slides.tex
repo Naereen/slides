@@ -964,7 +964,7 @@ policies}
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 \For{$t = 0, \dots, T - 1$}{
     %
-    \eIf{$A^j(t) \notin \TopM(t)$}{
+    \eIf{$A^j(t) \notin \TopM(t)$ or $C^j(t)$}{
       $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
       \tcp*[f]{randomly switch}
       }{
@@ -975,7 +975,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
 \caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). The set $\TopM(t)$ is the $M$ best arms according to indexes $g^j(t)$.}
-\label{algo:RandTopM}
+\label{algo:firstAlgo}
 \end{algorithm}
 \end{figure}
 \end{minipage}}}
