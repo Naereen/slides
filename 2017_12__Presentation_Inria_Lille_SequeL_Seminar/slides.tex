@@ -109,7 +109,7 @@
 \definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
 \definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
 \definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
-\definecolor{yellowgreen}{RGB}{200,235,0}  % rgb(200,235,0)
+\definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
 \definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
 \definecolor{gold}{RGB}{255,180,0}         % rgb(255,180,0)
 \definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
@@ -322,7 +322,7 @@ base station.
 \begin{footnotesize}
 This is based on our latest article:
 \begin{itemize}
-\item \emph{"Multi-Player Bandits Models Revisited"}, Besson \& Kaufmann. \hspace*{90pt}\texttt{\textcolor{blue}{\href{https://arXiv.org/abs/1711.02317}{arXiv:1711.02317}}}
+\item \emph{``Multi-Player Bandits Models Revisited''}, Besson \& Kaufmann. \hspace*{90pt}\texttt{\textcolor{blue}{\href{https://arXiv.org/abs/1711.02317}{arXiv:1711.02317}}}
 \end{itemize}
 \end{footnotesize}
 
@@ -398,7 +398,7 @@ This is based on our latest article:
   (background traffic), then use \texttt{Ack} to detect collisions.
 
   \begin{quote}
-  \small{Model the "classical" Opportunistic Spectrum Access problem.
+  \small{Model the ``classical'' Opportunistic Spectrum Access problem.
   Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
   \end{quote}
 
@@ -406,7 +406,7 @@ This is based on our latest article:
 \item
   \emph{Without sensing}: same background traffic, but cannot sense, so
   only \texttt{Ack} is used.
-  \small{More suited for "IoT" networks like LoRa or SigFox} (Harder to
+  \small{More suited for ``IoT'' networks like LoRa or SigFox} (Harder to
   analyze mathematically.)
 \end{enumerate}
 
@@ -478,13 +478,13 @@ This is based on our latest article:
   \textcolor<1>{blue}{$C^j(t)$} separately, \hook Not realistic enough,
   we don't focus on it. \vspace*{10pt}\pause
 \item
-  \textcolor<2>{strongred}{"Sensing"}: first observe
+  \textcolor<2>{strongred}{``Sensing''}: first observe
   \(\textcolor<2>{strongred}{Y_{A^j(t),t}}\), \emph{then}
   \(\textcolor<2>{normalred}{C^j(t)}\) only if
   \(\textcolor<2>{strongred}{Y_{A^j(t),t}} \neq 0\), \hook Models
   licensed protocols (ex. ZigBee), our main focus. \vspace*{10pt}\pause
 \item
-  \textcolor<3>{deeppurple}{"No sensing"}: observe only the joint
+  \textcolor<3>{deeppurple}{``No sensing''}: observe only the joint
   \(\textcolor<3>{deeppurple}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}\),
   \hook Unlicensed protocols (ex. LoRaWAN), harder to analyze !
 \end{enumerate}
@@ -575,13 +575,13 @@ This is based on our latest article:
 \tightlist
 \item
   Clearly \(R_T = \mathcal{O}(T)\), but we want a sub-linear regret, as
-  small as possible!
+  small as possible!\pause
 \item
   \emph{How good a decentralized algorithm can be in this setting?}
   \hook{} \textbf{Lower Bound} on regret, for \textbf{any} algorithm !
 \item
-  \emph{How good is my decentralized algorithm in this setting?} \hook{}
-  \textbf{Upper Bound} on regret, for \textbf{one} algorithm !
+  \emph{How good is my decentralized algorithm in this setting?}\pause
+   \hook{} \textbf{Upper Bound} on regret, for \textbf{one} algorithm !
 \end{itemize}
 
 \end{block}
@@ -657,9 +657,9 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 \end{frame}
 
-\begin{frame}{Asymptotic Lower Bound on regret I}
+\begin{frame}{Asymptotic Lower Bound on regret}
 
-\begin{block}{Lower bounds}
+\begin{block}{\(3\) terms to lower bound\ldots{}}
 
 \begin{itemize}
 \tightlist
@@ -679,7 +679,7 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 \end{frame}
 
-\begin{frame}{Asymptotic Lower Bound on regret II}
+\begin{frame}{Asymptotic Lower Bound on regret}
 
 \begin{block}{Theorem 1
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
@@ -705,7 +705,7 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
   The centralized \emph{multiple-play} lower bound is the same without
   the \(M\) multiplicative factor\ldots{}
   \citationright{Ref: [Anantharam et al, 1987]}
-  \hook \alert{"price of non-coordination"} \(= M =\) nb of player?
+  \hook \alert{``price of non-coordination''} \(= M =\) nb of player?
 \item
   Improved state-of-the-art lower bound, but still not perfect:
   collisions should also be controlled!
@@ -789,8 +789,8 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
-Dynamic device keep \(t\) number of sent packets, \(T_k(t)\) selections
-of channel \(k\), \(X_k(t)\) successful transmission in channel \(k\).
+The device keep \(t\) number of sent packets, \(T_k(t)\) selections of
+channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -826,8 +826,8 @@ of channel \(k\), \(X_k(t)\) successful transmission in channel \(k\).
 \begin{frame}{Kullback-Leibler UCB algorithm
 (\(\mathrm{kl}\)-\(\mathrm{UCB}\))}
 
-Dynamic device keep \(t\) number of sent packets, \(T_k(t)\) selections
-of channel \(k\), \(X_k(t)\) successful transmission in channel \(k\).
+The device keep \(t\) number of sent packets, \(T_k(t)\) selections of
+channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -947,7 +947,7 @@ policies}
 
 \end{frame}
 
-\begin{frame}[plain]{A first decentralized algorithm}
+\begin{frame}{A first decentralized algorithm}
 
 \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -982,7 +982,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 \end{frame}
 
-\begin{frame}[plain]{The \RandTopM{} algorithm}
+\begin{frame}{The \RandTopM{} algorithm}
 
 \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -1003,7 +1003,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
-        }(\tcp*[f]{aim at an arm with smaller UCB at $t-1$}){
+        }(\tcp*[f]{aim arm with smaller UCB at $t-1$}){
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         }
       }{
@@ -1013,7 +1013,6 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
-\caption{The \RandTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
 \label{algo:RandTopM}
 \end{algorithm}
 \end{figure}
@@ -1091,7 +1090,6 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
-\caption{The \MCTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
 \label{algo:MCTopM}
 \end{algorithm}
 \end{figure}
@@ -1122,11 +1120,11 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 
 
-\subsection{\hfill{}6.a. Theorem for \MCTopM-\klUCB\hfill{}}
+\subsection{\hfill{}6.a. Theorem for \MCTopM{} with \klUCB\hfill{}}
 
 \end{frame}
 
-\begin{frame}{Regret upper bound for \MCTopM-\klUCB{} I}
+\begin{frame}{Regret upper bound for \MCTopM{}}
 
 \begin{block}{Theorem 2
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
@@ -1134,10 +1132,10 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{itemize}
 \tightlist
 \item
-  If all \(M\) players use \MCTopM-\klUCB, then for any non-degenerated
-  problem \(\boldsymbol{\mu}\), there exists a problem dependent
-  constant \(G_{M,\boldsymbol{\mu}}\) , such that the regret satisfies:
-  \[
+  If all \(M\) players use \MCTopM{} with \klUCB, then for any
+  non-degenerated problem \(\boldsymbol{\mu}\), there exists a problem
+  dependent constant \(G_{M,\boldsymbol{\mu}}\) , such that the regret
+  satisfies: \[
   R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
     \]
 \end{itemize}
@@ -1169,7 +1167,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \end{frame}
 
-\begin{frame}{Regret upper bound for \MCTopM-\klUCB{} II}
+\begin{frame}{Regret upper bound for \MCTopM{}}
 
 \begin{block}{Remarks}
 
@@ -1338,7 +1336,7 @@ For the harder feedback model, without sensing.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Explaining the heuristic,\vspace*{15pt}
+  Just an heuristic,\vspace*{15pt}
 \item
   Problems with \Selfish,\vspace*{15pt}
 \item
@@ -1390,6 +1388,8 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
   than, \eg, \ExpThree\ldots{}
 \end{itemize}
 
+\pause
+
 \end{block}
 
 \begin{block}{Works fine\ldots{}}
@@ -1401,7 +1401,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 \item
   In small problems with \(M\) and \(K = 2\) or \(3\), we found small
   probability of failures (\ie, linear regret), and this prevents from
-  having a generic upper bound on regret for \Selfish. Sadly\ldots{}
+  having a generic upper bound on regret for \Selfish.
 \end{itemize}
 
 \end{block}
@@ -1419,18 +1419,18 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \begin{figure}[h!]
 \includegraphics[height=0.70\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{bluegreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
+\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{bluegreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this ``easy'' problem.}}
 \end{figure}
 
 \end{frame}
 
 
 
-\section{\hfill{}9. Conclusion\hfill{}}\subsection{\hfill{}9.a. Perspectives\hfill{}}
+\section{\hfill{}9. Conclusion\hfill{}}\subsection{\hfill{}9.a. Sum-up\hfill{}}
 
 \end{frame}
 
-\begin{frame}{Perspectives}
+\begin{frame}{Sum-up}
 
 \begin{block}{\emph{Wait, what was the problem ?}}
 
@@ -1523,7 +1523,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
   learn the most free channels and to find orthogonal configurations.
 \end{itemize}
 
-\begin{block}{We showed \Smiley[1.4]}
+\begin{block}{We showed \Smiley[1.2]}
 
 \begin{itemize}
 \tightlist
@@ -1538,7 +1538,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \end{block}
 
-\begin{block}{But more work is still needed\ldots{} \Sey[1.4]}
+\begin{block}{But more work is still needed\ldots{} \Sey[1.2]}
 
 \begin{itemize}
 \tightlist
@@ -1555,7 +1555,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \end{block}
 
-\begin{block}{\textbf{Thanks!} \Smiley[1.4]}
+\begin{block}{\textbf{Thanks!} \Smiley[1.2]}
 
 \begin{center}\begin{Large}
 \emph{Any question or idea ?}

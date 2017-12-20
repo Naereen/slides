@@ -194,9 +194,9 @@ $$r^j(t) := Y_{A^j(t),t} \alert{\times} \mathbbm{1}(\overline{C^j(t)}) = \mathbb
 . . .
 
 ## Two directions of analysis
-- Clearly $R_T = \mathcal{O}(T)$, but we want a sub-linear regret, as small as possible!
+- Clearly $R_T = \mathcal{O}(T)$, but we want a sub-linear regret, as small as possible!\pause
 - *How good a decentralized algorithm can be in this setting?*
-  \hook{} **Lower Bound** on regret, for **any** algorithm !
+  \hook{} **Lower Bound** on regret, for **any** algorithm !\pause
 - *How good is my decentralized algorithm in this setting?*
   \hook{} **Upper Bound** on regret, for **one** algorithm !
 
@@ -237,9 +237,9 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 3. Devices can use orthogonal channels
    (\alert<4>{\emph{number of collisions}}).
 
-# Asymptotic Lower Bound on regret I
+# Asymptotic Lower Bound on regret
 
-## Lower bounds
+## $3$ terms to lower bound...
 - The first term for sub-optimal arms selections
   is lower bounded asymptotically,
   $$\forall\, \text{player}\, j, \text{bad arm}\,k,\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},$$
@@ -249,7 +249,7 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
   $$T - \E_{\mu}[T_k(T)] \geq 0 \;\;\text{and}\;\;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,$$
   \Sadey[1.4] we should be able to do better!
 
-# Asymptotic Lower Bound on regret II
+# Asymptotic Lower Bound on regret
 
 ## Theorem 1  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}
 - For any uniformly efficient decentralized policy, and any non-degenerated problem  $\boldsymbol{\mu}$,
@@ -303,7 +303,7 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 \subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
 
 # Upper Confidence Bound algorithm ($\mathrm{UCB}_1$)
-Dynamic device keep $t$ number of sent packets, $T_k(t)$ selections of channel $k$, $X_k(t)$ successful transmission in channel $k$.
+The device keep $t$ number of sent packets, $T_k(t)$ selections of channel $k$, $X_k(t)$ successful transmissions in channel $k$.
 
 1. For the first $K$ steps ($t=1,\dots,K$), try each channel *once*.
 2. Then for the next steps $t > K$ :
@@ -318,7 +318,7 @@ Dynamic device keep $t$ number of sent packets, $T_k(t)$ selections of channel $
 \subsection{\hfill{}4.b. Kullback-Leibler UCB algorithm : \klUCB\hfill{}}
 
 # Kullback-Leibler UCB algorithm ($\mathrm{kl}$-$\mathrm{UCB}$)
-Dynamic device keep $t$ number of sent packets, $T_k(t)$ selections of channel $k$, $X_k(t)$ successful transmission in channel $k$.
+The device keep $t$ number of sent packets, $T_k(t)$ selections of channel $k$, $X_k(t)$ successful transmissions in channel $k$.
 
 1. For the first $K$ steps ($t=1,\dots,K$), try each channel *once*.
 2. Then for the next steps $t > K$ :
@@ -368,7 +368,7 @@ and asymptotically optimal for single-player stochastic bandit.
 
 \subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
 
-# A first decentralized algorithm {.plain}
+# A first decentralized algorithm
 
 \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -401,7 +401,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 \end{figure}
 \end{minipage}}}
 
-# The \RandTopM{} algorithm {.plain}
+# The \RandTopM{} algorithm
 
 \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -422,7 +422,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
-        }(\tcp*[f]{aim at an arm with smaller UCB at $t-1$}){
+        }(\tcp*[f]{aim arm with smaller UCB at $t-1$}){
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         }
       }{
@@ -432,7 +432,6 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
-\caption{The \RandTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
 \label{algo:RandTopM}
 \end{algorithm}
 \end{figure}
@@ -506,7 +505,6 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
-\caption{The \MCTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
 \label{algo:MCTopM}
 \end{algorithm}
 \end{figure}
@@ -524,12 +522,12 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 ----
 
-\subsection{\hfill{}6.a. Theorem for \MCTopM-\klUCB\hfill{}}
+\subsection{\hfill{}6.a. Theorem for \MCTopM{} with \klUCB\hfill{}}
 
-# Regret upper bound for \MCTopM-\klUCB{} I
+# Regret upper bound for \MCTopM{}
 
 ## Theorem 2  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}
-- If all $M$ players use \MCTopM-\klUCB,
+- If all $M$ players use \MCTopM{} with \klUCB,
   then for any non-degenerated problem $\boldsymbol{\mu}$,
   there exists a problem dependent constant $G_{M,\boldsymbol{\mu}}$
   , such that the regret satisfies:
@@ -547,7 +545,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 ----
 
-# Regret upper bound for \MCTopM-\klUCB{} II
+# Regret upper bound for \MCTopM{}
 
 ## Remarks
 - Hard to prove, we had to carefully design the \MCTopM{} algorithm to conclude the proof,\pause
@@ -643,7 +641,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 For the harder feedback model, without sensing.
 
-1. Explaining the heuristic,\vspace*{15pt}
+1. Just an heuristic,\vspace*{15pt}
 2. Problems with \Selfish,\vspace*{15pt}
 5. Illustration of failure cases.
 
@@ -669,7 +667,7 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 
 ## Works fine...
 - Except... when it fails drastically! \Sadey[1.3]
-- In small problems with $M$ and $K = 2$ or $3$, we found small probability of failures (\ie, linear regret), and this prevents from having a generic upper bound on regret for \Selfish. Sadly...
+- In small problems with $M$ and $K = 2$ or $3$, we found small probability of failures (\ie, linear regret), and this prevents from having a generic upper bound on regret for \Selfish.
 
 ----
 
@@ -678,15 +676,15 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 
 \begin{figure}[h!]
 \includegraphics[height=0.70\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{bluegreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
+\caption{\footnotesize{Regret for $M=2$, $K=3$, $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{bluegreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
 \end{figure}
 
 ----
 
 \section{\hfill{}9. Conclusion\hfill{}}
-\subsection{\hfill{}9.a. Perspectives\hfill{}}
+\subsection{\hfill{}9.a. Sum-up\hfill{}}
 
-# Perspectives
+# Sum-up
 ## *Wait, what was the problem ?*
 - MAB algorithms have guarantees for *i.i.d. settings*,
 - But here the collisions cancel the \iid{} hypothesis...
@@ -730,20 +728,20 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 - In a wireless network with an \iid{} background traffic in $K$ channels,
 - $M$ devices can use both sensing and acknowledgement feedback, to learn the most free channels and to find orthogonal configurations.
 
-## We showed \Smiley[1.4]
+## We showed \Smiley[1.2]
 
 - Decentralized bandit algorithms can solve this problem,
 - We have a lower bound for any decentralized algorithm,
 - And we proposed an order-optimal algorithm, based on \klUCB{} and an improved Musical Chair scheme, \MCTopM
 
-## But more work is still needed... \Sey[1.4]
+## But more work is still needed... \Sey[1.2]
 
 - **Theoretical guarantees** are still missing for the "IoT" model (without sensing), and can be improved (slightly) for the "OSA" model (with sensing).
 - Maybe study **other emission models**...
 - Implement and test this on **real-world radio devices**
   \hook demo (in progress) for the ICT $2018$ conference!
 
-## **Thanks!** \Smiley[1.4]
+## **Thanks!** \Smiley[1.2]
 
 \begin{center}\begin{Large}
 \emph{Any question or idea ?}
