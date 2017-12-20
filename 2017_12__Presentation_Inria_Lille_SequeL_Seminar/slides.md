@@ -406,6 +406,32 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 \subsection{\hfill{}5.c. \MCTopM{} algorithm\hfill{}}
 
+# The \MCTopM{} algorithm
+
+\begin{figure}[h!]
+\scalebox{0.70}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
+    %
+    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    %
+    \draw [black,->] (start) -> (notfixed.20);
+    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    %
+\end{tikzpicture}
+\end{minipage}}
+\caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
+Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
+\label{fig:StateMachineAlgorithm_MCTopM}
+\end{figure}
+
+----
+
 # The \MCTopM{} algorithm {.plain}
 
 \centerline{\scalebox{0.78}{\begin{minipage}{1.33\textwidth}  %% https://tex.stackexchange.com/a/366403/
@@ -453,32 +479,6 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 ----
 
-# The \MCTopM{} algorithm
-
-\begin{figure}[h!]
-\centerline{\scalebox{0.70}{\begin{minipage}{1.35\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
-    %
-    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
-    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
-    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
-    %
-    \draw [black,->] (start) -> (notfixed.20);
-    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
-    %
-\end{tikzpicture}
-\end{minipage}}}
-\caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
-Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
-\label{fig:StateMachineAlgorithm_MCTopM}
-\end{figure}
-
-----
-
 \section{\hfill{}6. Regret upper bound\hfill{}}
 
 # Regret upper bound
@@ -490,20 +490,31 @@ Taking one of the five transitions means playing one round of Algorithm \MCTopM,
 
 \subsection{\hfill{}6.a. \MCTopM-\klUCB\hfill{}}
 
-# Regret upper bound for \MCTopM-\klUCB
+# Regret upper bound for \MCTopM-\klUCB{} I
 
 ## Theorem 2  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}
 - If all $M$ players use \MCTopM-\klUCB,
-then for any non-degenerated problem $\boldsymbol{\mu}$,
-there exists a problem dependent constant $G_{M,\boldsymbol{\mu}}$
-, such that the regret satisfies:
-$$
-  R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
-$$
+  then for any non-degenerated problem $\boldsymbol{\mu}$,
+  there exists a problem dependent constant $G_{M,\boldsymbol{\mu}}$
+  , such that the regret satisfies:
+  $$
+    R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
+  $$
+
+## How?
+- Decomposition of regret controlled with two terms,
+- Control both terms, both are logarithmic:
+    + Suboptimal selections with the "classical analysis" on \klUCB{} indexes
+    + Collisions are harder to control...
+
+----
+
+# Regret upper bound for \MCTopM-\klUCB{} II
 
 ## Remarks
 - Hard to prove, we had to carefully design the \MCTopM{} algorithm to conclude the proof,
-- We have doubts regarding the proofs and results of all the previously proposed algorithms,
+- The constant $G_{M,\boldsymbol{\mu}}$ scales as $M^3$, way better than \rhoRand's constant scaling as $M{2M-1 \choose M}$
+- We have some doubts regarding the proofs and results of all the previously proposed algorithms,
 - For the suboptimal selections, we *match our lower bound* !
 - We also *minimize the number of channel switching*: interesting as it costs energy,
 - Not yet possible to know what is the best possible control of collisions...
