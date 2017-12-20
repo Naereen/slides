@@ -118,9 +118,9 @@ This is based on our latest article:
 
 ----
 
-\subsection{\hfill{}2.c. Notations for rewards\hfill{}}
+\subsection{\hfill{}2.c. Background traffic, and rewards\hfill{}}
 
-# Notations for rewards
+# Background traffic, and rewards
 ## \iid{} background traffic
 - $K$ channels, modeled as Bernoulli ($0/1$) distributions of mean $\mu_k$
   $=$ background traffic from *Primary Users*, bothering the dynamic devices,
@@ -187,7 +187,7 @@ $$r^j(t) := Y_{A^j(t),t} \alert{\times} \mathbbm{1}(\overline{C^j(t)}) = \mathbb
 
 \begin{small}\vspace*{-20pt}
   $$R_T(\boldsymbol{\mu}, M, \rho)
-  := \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \mu_j^* -  r^j(t)\right]
+  := \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \alert<1>{\mu_j^*} -  r^j(t)\right]
   \pause= \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right]$$
 \end{small}\vspace*{-10pt}
 
@@ -210,7 +210,7 @@ $$r^j(t) := Y_{A^j(t),t} \alert{\times} \mathbbm{1}(\overline{C^j(t)}) = \mathbb
 2. Asymptotic lower bound of one term,\vspace*{15pt}
 3. And for regret,\vspace*{15pt}
 4. Sketch of proof,\vspace*{15pt}
-5. Illustration
+5. Illustration.
 
 ----
 
@@ -242,12 +242,12 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 ## Lower bounds
 - The first term for sub-optimal arms selections
   is lower bounded asymptotically,
-  $$\forall j,k,\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},$$
+  $$\forall\, \text{player}\, j, \text{bad arm}\,k,\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},$$
   using technical information theory tools
   (Kullback-Leibler divergence, entropy),
-- And we lower bound the rest (including collisions) by... $0$\newline
-  $\left(T - \E_{\mu}[T_k(T)]\right) \geq 0$, $\E_{\mu}[\mathcal{C}_k(T)] \geq 0$
-  : we should be able to do better!
+- And we lower bound the rest (including collisions) by... $0$
+  $$\left(T - \E_{\mu}[T_k(T)]\right) \geq 0, \;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,$$
+  \Sadey[1.4] we should be able to do better!
 
 # Asymptotic Lower Bound on regret II
 
@@ -260,7 +260,8 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 \pause
 
 ## Remarks
-- Centralized \emph{multiple-play} lower bound is the same without the $M$ multiplicative factor...
+- The centralized \emph{multiple-play} lower bound is the same without the $M$ multiplicative factor...
+  \citationright{Ref: [Anantharam et al, 1987]}
   \hook "price of non-coordination" $= M =$ nb of player?
 - Improved state-of-the-art lower bound, but still not perfect: collisions should also be controlled!
 
@@ -283,7 +284,7 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 
 - Like for single-player bandit, focus on $\E_{\mu}[T_k^j(T)]$ expected number of selections of any sub-optimal arm $k$.
 - Same information-theoretic tools, using a "change of law" lemma.
-- Improving the state-of-the-art because of our decomposition, not because of a new tool.
+- It improved the state-of-the-art because of our decomposition, not because of new tools.
 
 > \strut\hfill$\hookrightarrow$ See our paper for details!
 
@@ -293,8 +294,9 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 
 # Single-player MAB algorithms
 
-1. Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
-2. Kullback-Leibler UCB algorithm : \klUCB
+1. Index-based MAB deterministic policies,
+2. Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
+3. Kullback-Leibler UCB algorithm : \klUCB.
 
 ----
 
@@ -309,7 +311,7 @@ Dynamic device keep $t$ number of sent packets, $T_k(t)$ selections of channel $
     - Choose channel $A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)$,
     - Update $T_k(t+1)$ and $X_k(t+1)$.
 
-\citationref{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
+\citationbottomright{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
 
 ----
 
@@ -320,14 +322,14 @@ Dynamic device keep $t$ number of sent packets, $T_k(t)$ selections of channel $
 
 1. For the first $K$ steps ($t=1,\dots,K$), try each channel *once*.
 2. Then for the next steps $t > K$ :
-    - Compute the index $g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}(\frac{X_k(t)}{N_k(t)}, q) \leq \frac{\log(t)}{N_k(t)} \right\}$
+    - Compute the index $g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\frac{X_k(t)}{N_k(t)}, q\right) \leq \frac{\log(t)}{N_k(t)} \right\}$
     - Choose channel $A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)$,
     - Update $T_k(t+1)$ and $X_k(t+1)$.
 
 \pause\alert<2>{\emph{Why bother?}} \klUCB{} is proved to be more efficient than \UCB{},
 and asymptotically optimal for single-player stochastic bandit.
 
-\citationref{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}
+\citationbottomright{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}
 
 ----
 
@@ -353,77 +355,103 @@ and asymptotically optimal for single-player stochastic bandit.
 . . .
 
 ## Many different proposals for *decentralized* learning policies
-- Recent: \MEGA{} and \MusicalChair{}, \hfill{}{\tiny \textcolor{gray}{[Avner \& Mannor, 2015], [Shamir et al, 2016]}}
-- State-of-the-art: **RhoRand policy** and variants, \hfill{}{\tiny \textcolor{gray}{[Anandkumar et al, 2011]}}
-- **Our proposals**: \hfill{}{\tiny \textcolor{gray}{[Besson \& Kaufmann, 2017]}}
-    + *With sensing*: \RandTopM{} and \MCTopM{} are sort of mixes between RhoRand and \MusicalChair{}, using UCB indexes or more efficient index policy (\klUCB),
+- Recent: \MEGA{} and \MusicalChair{}, \citationright{[Avner \& Mannor, 2015], [Shamir et al, 2016]}
+- State-of-the-art: **RhoRand policy** and variants, \citationright{[Anandkumar et al, 2011]} \pause
+- **Our proposals**: \citationright{[Besson \& Kaufmann, 2017]}
+    + *With sensing*: \RandTopM{} and \MCTopM{} are sort of mixes between RhoRand and \MusicalChair{}, using UCB indexes or more efficient index policies (\klUCB),
     + *Without sensing*: \Selfish{} use a UCB index directly on the reward $r^j(t)$.
 
 ----
 
+\subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
+
+# The \RandTopM{} algorithm {.plain}
+
+\customframefont{\small}
+\vspace*{-5pt}
+\begin{figure}[h!]
+\centering
+% Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+\begin{algorithm}[H]
+% XXX Input, data and output
+% \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
+% \KwData{Data}
+% \KwResult{Result}
+% XXX Algorithm
+Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
+\For{$t = 0, \dots, T - 1$}{
+    %
+    \eIf{$A^j(t) \notin \TopM(t)$}{
+      \eIf(\tcp*[f]{collision}){$C^j(t)$}{
+        $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
+        \tcp*[f]{randomly switch}
+        }(\tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}){
+          $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
+        }
+      }{
+        $A^j(t+1) = A^j(t)$
+        \tcp*[f]{stays on the same arm}
+      }
+    Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
+    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+}
+\caption{The \RandTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
+\label{algo:RandTopM}
+\end{algorithm}
+\end{figure}
+\vspace*{-5pt}
+
 ----
 
-\subsection{\hfill{}5.b. \MCTopM{} algorithm\hfill{}}
-# The \MCTopM{} algorithm
-
-FIXME include code, explain
-FIXME include figure, explain
-
-----
+\subsection{\hfill{}5.c. \MCTopM{} algorithm\hfill{}}
 
 # The \MCTopM{} algorithm {.plain}
 
-% \vspace*{-5pt}  % XXX remove if problem
-\begin{small}  % XXX remove if problem
-  \begin{figure}[h!]
-      % \begin{framed}  % XXX remove if problem
-      \begin{small}  % XXX remove if problem
-      \centering
-      % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
-      % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
-      % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
-      \begin{algorithm}[H]
-          % XXX Options
-          % \LinesNumbered  % XXX Option to number the line
-          % \RestyleAlgo{boxed}
-          % XXX Input, data and output
-          % \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
-          % \KwData{Data}
-          % \KwResult{Result}
-          % XXX Algorithm
-              Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{False}$ \\
-              \For{$t = 0, \dots, T-1$}{
-                   \uIf(\tcp*[f]{transition $(3)$ or $(5)$}){
-                      $A^j(t) \notin \TopM(t)$}
-                    {
-                      $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
-                      \tcp*[f]{not empty} \\
-                      % \tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}
-                      $s^j(t+1) = \mathrm{False}$
-                      \tcp*[f]{aim at an arm with a smaller UCB at $t-1$}
-                    }
-                    \uElseIf(\tcp*[f]{collision and not fixed}){
-                        $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
-                      {
-                        $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
-                        \tcp*[f]{transition $(2)$} \\
-                        $s^j(t+1) = \mathrm{False}$
-                    }
-                    \Else(\tcp*[f]{transition $(1)$ or $(4)$}){
-                      $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
-                      $s^j(t+1) = \mathrm{True}$ \tcp*[f]{become or stay fixed on a ``chair''}
-                    }
-                  Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
-                  Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
-              }
-              \caption{The \MCTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
-          \label{algo:MCTopM}
-      \end{algorithm}
-      \end{small}  % XXX remove if problem
-      % \end{framed}  % XXX remove if problem
-  \end{figure}
-\end{small}  % XXX remove if problem
-\vspace*{-5pt}  % XXX remove if problem
+\customframefont{\small}
+\vspace*{-5pt}
+\begin{figure}[h!]
+\centering
+% Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+\begin{algorithm}[H]
+% XXX Input, data and output
+% \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
+% \KwData{Data}
+% \KwResult{Result}
+% XXX Algorithm
+Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{False}$ \\
+\For{$t = 0, \dots, T-1$}{
+      \uIf(\tcp*[f]{transition $(3)$ or $(5)$}){
+        $A^j(t) \notin \TopM(t)$}
+      {
+        $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
+        \tcp*[f]{not empty} \\
+        % \tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}
+        $s^j(t+1) = \mathrm{False}$
+        \tcp*[f]{aim at an arm with a smaller UCB at $t-1$}
+      }
+      \uElseIf(\tcp*[f]{collision and not fixed}){
+          $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
+        {
+          $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
+          \tcp*[f]{transition $(2)$} \\
+          $s^j(t+1) = \mathrm{False}$
+      }
+      \Else(\tcp*[f]{transition $(1)$ or $(4)$}){
+        $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
+        $s^j(t+1) = \mathrm{True}$ \tcp*[f]{become or stay fixed on a ``chair''}
+      }
+    Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
+    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+}
+\caption{The \MCTopM{} decentralized learning policy (for a fixed underlying index policy $g^j$).}
+\label{algo:MCTopM}
+\end{algorithm}
+\end{figure}
+\vspace*{-5pt}
 
 ----
 
@@ -489,7 +517,7 @@ $$
 1. Bound the expected number of collisions by $M$ times the nb of collisions for non-sitted players,
 2. Bound the expected number of \textcolor{red}{transitions of type $(3)$ and $(5)$}, by $\bigO{\log T}$ using the \klUCB{} indexes and the forced choice of the algorithm XXX,
 3. Bound the expected length of a sequence in the non-sitted state by a constant,
-4. So most of the times ($\bigO{T - \log T}), players are sitted, and no collision happens when they are all sitted!
+4. So most of the times ($\bigO{T - \log T}$), players are sitted, and no collision happens when they are all sitted!
 
 > See our paper for details!
 
@@ -502,10 +530,10 @@ $$
 Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 
 1. Illustration of regret for a single problem and $M = K$,\vspace*{15pt}
-2. Illustration of regret for uniformly sampled problems and $M < K$,\vspace*{15pt}
-3. Collisions,\vspace*{15pt}
-4. Arm switches,\vspace*{15pt}
-5. Fairness.
+2. Regret for uniformly sampled problems and $M < K$,\vspace*{15pt}
+3. Logarithmic number of collisions,\vspace*{15pt}
+4. Logarithmic number of arm switches,\vspace*{15pt}
+5. Fairness?
 
 ----
 
@@ -516,7 +544,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{gold}{\MCTopM{}} achieve constant regret in this saturated case.}}
+\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{gold}{\MCTopM{}} achieve constant regret in this saturated case (proved).}}
 \end{figure}
 
 # Illustration of regret of different algorithms {.plain}
@@ -524,12 +552,12 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Conclusion : \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
 \end{figure}
 
 \subsection{\hfill{}7.c. Number of collisions\hfill{}}
 
-# Number of collisions {.plain}
+# Logarithmic number of collisions {.plain}
 
 \begin{figure}[h!]
 \centering
@@ -553,8 +581,8 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. It's quite hard to achieve both effiency and single-run fairness!}}
+\includegraphics[height=0.80\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
+\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run.\newline \textbf{It's quite hard to achieve both effiency and single-run fairness!}}}
 \end{figure}
 
 ----
@@ -563,7 +591,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 
 # An heuristic, \Selfish
 
-For the harder feedback model without sensing.
+For the harder feedback model, without sensing.
 
 1. Explaining the heuristic,\vspace*{15pt}
 2. Problems with \Selfish,\vspace*{15pt}
@@ -574,7 +602,9 @@ For the harder feedback model without sensing.
 \subsection{\hfill{}8.a. Problems with \Selfish\hfill{}}
 
 # The \Selfish{} heuristic {.allowframebreaks}
-The \Selfish{} decentralized approach = device don't use sensing, just learn on the receive acknowledgement.
+The \Selfish{} decentralized approach = device don't use sensing, just learn on the reward (acknowledgement or not, $r^j(t)$).
+
+\citationright{Reference: [Bonnefoi \& Besson et al, 2017]}
 
 ## Works fine...
 - More suited to model IoT networks,
@@ -588,7 +618,7 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 - But empirically, \Selfish{} with \UCB{} or \klUCB{} works much better than, \eg, \ExpThree...
 
 ## Works fine...
-- Except... when it fails drastically!
+- Except... when it fails drastically! \Sadey[1.3]
 - In small problems with $M$ and $K = 2$ or $3$, we found small probability of failures (\ie, linear regret), and this prevents from having a generic upper bound on regret for \Selfish. Sadly...
 
 ----
@@ -597,8 +627,7 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 # Illustration of failing cases for $\mathrm{Selfish}$ {.plain}
 
 \begin{figure}[h!]
-\centering
-\includegraphics[height=0.65\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
+\includegraphics[height=0.70\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
 \caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
 \end{figure}
 
@@ -613,6 +642,8 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 - But here the collisions cancel the \iid{} hypothesis...
 - Not easy to obtain guarantees in this mixed setting \newline
   (\iid{} emissions process, "game theoretic" collisions).
+
+. . .
 
 ## Theoretical results
 - With sensing ("OSA"), we obtained strong results: a lower bound, and an order-optimal algorithm,
@@ -633,6 +664,8 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
   maybe driven by number of packets in a whole day,
   instead of emission probability.
 
+. . .
+
 ## Extend to more objects $M > K$
 - Extend the theoretical analysis to the large-scale IoT model,
   first with sensing (\eg, models ZigBee networks),
@@ -647,18 +680,21 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 - In a wireless network with an \iid{} background traffic in $K$ channels,
 - $M$ devices can use both sensing and acknowledgement feedback, to learn the most free channels and to find orthogonal configurations.
 
-## We showed
+## We showed \Smiley[1.4]
+
 - Decentralized bandit algorithms can solve this problem,
 - We have a lower bound for any decentralized algorithm,
 - And we proposed an order-optimal algorithm, based on \klUCB{} and an improved Musical Chair scheme, \MCTopM
 
-## But more work is still needed...
+## But more work is still needed... \Sey[1.4]
+
 - **Theoretical guarantees** are still missing for the "IoT" model (without sensing), and can be improved (slightly) for the "OSA" model (with sensing).
 - Maybe study **other emission models**...
 - Implement and test this on **real-world radio devices**
   \hook demo (in progress) for the ICT $2018$ conference!
 
-## **Thanks!**
+## **Thanks!** \Smiley[1.4]
+
 \begin{center}\begin{Large}
 \emph{Any question or idea ?}
 \end{Large}\end{center}
