@@ -244,9 +244,9 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
   is lower bounded asymptotically,
   $$\forall\, \text{player}\, j, \text{bad arm}\,k,\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},$$
   using technical information theory tools
-  (Kullback-Leibler divergence, entropy),
+  (Kullback-Leibler divergence, entropy),\pause
 - And we lower bound the rest (including collisions) by... $0$
-  $$\left(T - \E_{\mu}[T_k(T)]\right) \geq 0, \;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,$$
+  $$T - \E_{\mu}[T_k(T)] \geq 0 \;\;\text{and}\;\;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,$$
   \Sadey[1.4] we should be able to do better!
 
 # Asymptotic Lower Bound on regret II
@@ -262,7 +262,7 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 ## Remarks
 - The centralized \emph{multiple-play} lower bound is the same without the $M$ multiplicative factor...
   \citationright{Ref: [Anantharam et al, 1987]}
-  \hook "price of non-coordination" $= M =$ nb of player?
+  \hook \alert{"price of non-coordination"} $= M =$ nb of player?
 - Improved state-of-the-art lower bound, but still not perfect: collisions should also be controlled!
 
 ----
@@ -273,7 +273,7 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 
 \begin{figure}[h!]
 \includegraphics[height=0.80\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
-\caption{\footnotesize{Any such lower bound is very asymptotic, usually not satisfied for small horizons. We can see the importance of the collisions!}}
+\caption{\footnotesize{Any such lower bound is \alert{very asymptotic}, usually not satisfied for small horizons. We can see the importance of the collisions!}}
 \end{figure}
 
 ----
@@ -282,8 +282,8 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 
 # Sketch of the proof
 
-- Like for single-player bandit, focus on $\E_{\mu}[T_k^j(T)]$ expected number of selections of any sub-optimal arm $k$.
-- Same information-theoretic tools, using a "change of law" lemma.
+- Like for single-player bandit, focus on $\E_{\mu}[T_k^j(T)]$ expected number of selections of any sub-optimal arm $k$.\vspace*{10pt}
+- Same information-theoretic tools, using a "change of law" lemma. \citationright{Ref: [Garivier et al, 2016]}\vspace*{10pt}
 - It improved the state-of-the-art because of our decomposition, not because of new tools.
 
 > \strut\hfill$\hookrightarrow$ See our paper for details!
@@ -294,7 +294,7 @@ $$ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)
 
 # Single-player MAB algorithms
 
-1. Index-based MAB deterministic policies,
+1. Index-based MAB deterministic policies,\vspace*{15pt}
 2. Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
 3. Kullback-Leibler UCB algorithm : \klUCB.
 
@@ -322,7 +322,7 @@ Dynamic device keep $t$ number of sent packets, $T_k(t)$ selections of channel $
 
 1. For the first $K$ steps ($t=1,\dots,K$), try each channel *once*.
 2. Then for the next steps $t > K$ :
-    - Compute the index $g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\frac{X_k(t)}{N_k(t)}, q\right) \leq \frac{\log(t)}{N_k(t)} \right\}$
+    - Compute the index $g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\frac{X_k(t)}{T_k(t)}, q\right) \leq \frac{\log(t)}{T_k(t)} \right\}$
     - Choose channel $A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)$,
     - Update $T_k(t+1)$ and $X_k(t+1)$.
 
@@ -356,14 +356,50 @@ and asymptotically optimal for single-player stochastic bandit.
 
 ## Many different proposals for *decentralized* learning policies
 - Recent: \MEGA{} and \MusicalChair{}, \citationright{[Avner \& Mannor, 2015], [Shamir et al, 2016]}
-- State-of-the-art: **RhoRand policy** and variants, \citationright{[Anandkumar et al, 2011]} \pause
-- **Our proposals**: \citationright{[Besson \& Kaufmann, 2017]}
-    + *With sensing*: \RandTopM{} and \MCTopM{} are sort of mixes between RhoRand and \MusicalChair{}, using UCB indexes or more efficient index policies (\klUCB),
-    + *Without sensing*: \Selfish{} use a UCB index directly on the reward $r^j(t)$.
+- State-of-the-art: \rhoRand{} policy and variants. \citationright{[Anandkumar et al, 2011]}
+
+. . .
+
+## **Our proposals**: \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}
+- *With sensing*: \RandTopM{} and \MCTopM{} are sort of mixes between \rhoRand{} and \MusicalChair, using UCB indexes or more efficient index policies (\klUCB),
+- *Without sensing*: \Selfish{} use a UCB index directly on the reward $r^j(t)$.
 
 ----
 
 \subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
+
+# A first decentralized algorithm {.plain}
+
+\centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{figure}[h!]
+\centering
+% Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+\begin{algorithm}[H]
+% XXX Input, data and output
+% \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
+% \KwData{Data}
+% \KwResult{Result}
+% XXX Algorithm
+Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
+\For{$t = 0, \dots, T - 1$}{
+    %
+    \eIf{$A^j(t) \notin \TopM(t)$}{
+      $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
+      \tcp*[f]{randomly switch}
+      }{
+        $A^j(t+1) = A^j(t)$
+        \tcp*[f]{stays on the same arm}
+      }
+    Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
+    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+}
+\caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). The set $\TopM(t)$ is the $M$ best arms according to indexes $g^j(t)$.}
+\label{algo:RandTopM}
+\end{algorithm}
+\end{figure}
+\end{minipage}}}
 
 # The \RandTopM{} algorithm {.plain}
 
@@ -386,7 +422,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
-        }(\tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}){
+        }(\tcp*[f]{aim at an arm with smaller UCB at $t-1$}){
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         }
       }{
@@ -434,7 +470,7 @@ Taking one of the five transitions means playing one round of Algorithm \MCTopM,
 
 # The \MCTopM{} algorithm {.plain}
 
-\centerline{\scalebox{0.78}{\begin{minipage}{1.33\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\centerline{\scalebox{0.78}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
 \centering
 % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
@@ -448,23 +484,22 @@ Taking one of the five transitions means playing one round of Algorithm \MCTopM,
 % XXX Algorithm
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{False}$ \\
 \For{$t = 0, \dots, T-1$}{
-      \uIf(\tcp*[f]{transition $(3)$ or $(5)$}){
+      \uIf(\tcp*[f]{\textcolor{red}{transition $(3)$ or $(5)$}}){
         $A^j(t) \notin \TopM(t)$}
       {
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         \tcp*[f]{not empty} \\
-        % \tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}
         $s^j(t+1) = \mathrm{False}$
-        \tcp*[f]{aim at an arm with a smaller UCB at $t-1$}
+        \tcp*[f]{aim at an arm with smaller UCB at $t-1$}
       }
       \uElseIf(\tcp*[f]{collision and not fixed}){
           $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
         {
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
-          \tcp*[f]{transition $(2)$} \\
+          \tcp*[f]{\textcolor{blue}{transition $(2)$}} \\
           $s^j(t+1) = \mathrm{False}$
       }
-      \Else(\tcp*[f]{transition $(1)$ or $(4)$}){
+      \Else(\tcp*[f]{transition \textcolor{cyan}{$(1)$} or \textcolor{darkgreen}{$(4)$}}){
         $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
         $s^j(t+1) = \mathrm{True}$ \tcp*[f]{become or stay fixed on a ``chair''}
       }
@@ -484,11 +519,12 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 # Regret upper bound
 
 1. Theorem,\vspace*{15pt}
-2. Idea of the proof.
+2. Remarks,\vspace*{15pt}
+3. Idea of the proof.
 
 ----
 
-\subsection{\hfill{}6.a. \MCTopM-\klUCB\hfill{}}
+\subsection{\hfill{}6.a. Theorem for \MCTopM-\klUCB\hfill{}}
 
 # Regret upper bound for \MCTopM-\klUCB{} I
 
@@ -501,6 +537,8 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
     R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
   $$
 
+. . .
+
 ## How?
 - Decomposition of regret controlled with two terms,
 - Control both terms, both are logarithmic:
@@ -512,11 +550,10 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 # Regret upper bound for \MCTopM-\klUCB{} II
 
 ## Remarks
-- Hard to prove, we had to carefully design the \MCTopM{} algorithm to conclude the proof,
-- The constant $G_{M,\boldsymbol{\mu}}$ scales as $M^3$, way better than \rhoRand's constant scaling as $M{2M-1 \choose M}$
-- We have some doubts regarding the proofs and results of all the previously proposed algorithms,
-- For the suboptimal selections, we *match our lower bound* !
-- We also *minimize the number of channel switching*: interesting as it costs energy,
+- Hard to prove, we had to carefully design the \MCTopM{} algorithm to conclude the proof,\pause
+- The constant $G_{M,\boldsymbol{\mu}}$ scales as $M^3$, way better than \rhoRand's constant scaling as $M{2M-1 \choose M}$,\pause
+- We also *minimize the number of channel switching*: interesting as changing arm costs energy in radio systems,\pause
+- For the suboptimal selections, we *match our lower bound* !\pause
 - Not yet possible to know what is the best possible control of collisions...
 
 ----
@@ -525,12 +562,14 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 # Sketch of the proof
 
-1. Bound the expected number of collisions by $M$ times the nb of collisions for non-sitted players,
-2. Bound the expected number of \textcolor{red}{transitions of type $(3)$ and $(5)$}, by $\bigO{\log T}$ using the \klUCB{} indexes and the forced choice of the algorithm XXX,
-3. Bound the expected length of a sequence in the non-sitted state by a constant,
+1. Bound the expected number of collisions by $M$ times the number of collisions for non-sitted players,\pause
+2. Bound the expected number of \textcolor{red}{transitions of type $(3)$ and $(5)$}, by $\bigO{\log T}$ using the \klUCB{} indexes and the forced choice of the algorithm:
+    $g_k^j(t-1) \leq g^j_{k'}(t-1), \;\;\text{and}\;\; g_k^j(t) > g^j_{k'}(t)$
+    when switching from $k'$ to $k$,\pause
+3. Bound the expected length of a sequence in the non-sitted state by a constant,\pause
 4. So most of the times ($\bigO{T - \log T}$), players are sitted, and no collision happens when they are all sitted!
 
-> See our paper for details!
+> \strut\hfill$\hookrightarrow$ See our paper for details!
 
 ----
 
@@ -538,7 +577,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 # Experimental results
 
-Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
+> Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 
 1. Illustration of regret for a single problem and $M = K$,\vspace*{15pt}
 2. Regret for uniformly sampled problems and $M < K$,\vspace*{15pt}
@@ -555,7 +594,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{gold}{\MCTopM{}} achieve constant regret in this saturated case (proved).}}
+\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{yellowgreen}{\MCTopM{}} achieve constant regret in this saturated case (proved).}}
 \end{figure}
 
 # Illustration of regret of different algorithms {.plain}
@@ -563,7 +602,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Conclusion : \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Conclusion : \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}} in most cases.}}
 \end{figure}
 
 \subsection{\hfill{}7.c. Number of collisions\hfill{}}
@@ -573,7 +612,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbCollisions____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Cumulated number of collisions, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Also \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\caption{\footnotesize{Cumulated number of collisions. Also \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}} in most cases.}}
 \end{figure}
 
 \subsection{\hfill{}7.d. Number of arm switches\hfill{}}
@@ -583,7 +622,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbSwitchs____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Cumulated number of arm switches, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
+\caption{\footnotesize{Cumulated number of arm switches. Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
 \end{figure}
 
 \subsection{\hfill{}7.e. Fairness\hfill{}}
@@ -592,7 +631,7 @@ Experiments on Bernoulli problems $\boldsymbol{\mu}\in[0,1]^K$.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.80\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
 \caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run.\newline \textbf{It's quite hard to achieve both effiency and single-run fairness!}}}
 \end{figure}
 
@@ -639,7 +678,7 @@ The \Selfish{} decentralized approach = device don't use sensing, just learn on 
 
 \begin{figure}[h!]
 \includegraphics[height=0.70\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
+\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{bluegreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
 \end{figure}
 
 ----

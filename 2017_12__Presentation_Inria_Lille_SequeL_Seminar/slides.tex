@@ -105,14 +105,16 @@
   \newcommand{\urlb}[1]{\textcolor{blue}{\url{#1}}}
 %% Color definition
 \usepackage{xcolor}
-\definecolor{bleu}{RGB}{0,0,204}  % rgb(0,0,204)
-\definecolor{deeppurple}{RGB}{102,0,204}  % rgb(102,0,204)
-\definecolor{darkgreen}{RGB}{0,100,0}  % rgb(0,100,0)
-\definecolor{gold}{RGB}{255,184,0}  % rgb(255,184,0)
-\definecolor{strongred}{RGB}{255,0,0}  % rgb(255,0,0)
-\definecolor{normalred}{RGB}{204,0,0}  % rgb(204,0,0)
-\definecolor{lightred}{RGB}{174,0,0}  % rgb(174,0,0)
-\definecolor{highlight}{RGB}{251,0,0}  % rgb(251,0,0)
+%% WARNING attention when changing the colors, change both the {RGB}{r,g,b} and % rgb(r,g,b)
+\definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
+\definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
+\definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
+\definecolor{yellowgreen}{RGB}{200,235,0}  % rgb(200,235,0)
+\definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
+\definecolor{gold}{RGB}{255,180,0}         % rgb(255,180,0)
+\definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
+\definecolor{normalred}{RGB}{204,0,0}      % rgb(204,0,0)
+\definecolor{darkred}{RGB}{174,0,0}        % rgb(174,0,0)
 
 \usepackage{amssymb,amsmath}
 \usepackage{bbm,bm}  % bold maths symbols
@@ -666,10 +668,10 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
   asymptotically,
   \[\forall\, \text{player}\, j, \text{bad arm}\,k,\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},\]
   using technical information theory tools (Kullback-Leibler divergence,
-  entropy),
+  entropy),\pause
 \item
   And we lower bound the rest (including collisions) by\ldots{} \(0\)
-  \[\left(T - \E_{\mu}[T_k(T)]\right) \geq 0, \;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,\]
+  \[T - \E_{\mu}[T_k(T)] \geq 0 \;\;\text{and}\;\;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,\]
   \Sadey[1.4] we should be able to do better!
 \end{itemize}
 
@@ -702,8 +704,8 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 \item
   The centralized \emph{multiple-play} lower bound is the same without
   the \(M\) multiplicative factor\ldots{}
-  \citationright{Ref: [Anantharam et al, 1987]} \hook ``price of
-  non-coordination'' \(= M =\) nb of player?
+  \citationright{Ref: [Anantharam et al, 1987]}
+  \hook \alert{"price of non-coordination"} \(= M =\) nb of player?
 \item
   Improved state-of-the-art lower bound, but still not perfect:
   collisions should also be controlled!
@@ -723,7 +725,7 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 \begin{figure}[h!]
 \includegraphics[height=0.80\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
-\caption{\footnotesize{Any such lower bound is very asymptotic, usually not satisfied for small horizons. We can see the importance of the collisions!}}
+\caption{\footnotesize{Any such lower bound is \alert{very asymptotic}, usually not satisfied for small horizons. We can see the importance of the collisions!}}
 \end{figure}
 
 \end{frame}
@@ -740,9 +742,11 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 \tightlist
 \item
   Like for single-player bandit, focus on \(\E_{\mu}[T_k^j(T)]\)
-  expected number of selections of any sub-optimal arm \(k\).
+  expected number of selections of any sub-optimal arm
+  \(k\).\vspace*{10pt}
 \item
   Same information-theoretic tools, using a ``change of law'' lemma.
+  \citationright{Ref: [Garivier et al, 2016]}\vspace*{10pt}
 \item
   It improved the state-of-the-art because of our decomposition, not
   because of new tools.
@@ -768,7 +772,7 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Index-based MAB deterministic policies,
+  Index-based MAB deterministic policies,\vspace*{15pt}
 \item
   Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
 \item
@@ -838,7 +842,7 @@ of channel \(k\), \(X_k(t)\) successful transmission in channel \(k\).
   \tightlist
   \item
     Compute the index
-    \(g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\frac{X_k(t)}{N_k(t)}, q\right) \leq \frac{\log(t)}{N_k(t)} \right\}\)
+    \(g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\frac{X_k(t)}{T_k(t)}, q\right) \leq \frac{\log(t)}{T_k(t)} \right\}\)
   \item
     Choose channel \(A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)\),
   \item
@@ -911,21 +915,26 @@ policies}
   Recent: \MEGA{} and \MusicalChair{},
   \citationright{[Avner \& Mannor, 2015], [Shamir et al, 2016]}
 \item
-  State-of-the-art: \textbf{RhoRand policy} and variants,
-  \citationright{[Anandkumar et al, 2011]} \pause
-\item
-  \textbf{Our proposals}: \citationright{[Besson \& Kaufmann, 2017]}
+  State-of-the-art: \rhoRand{} policy and variants.
+  \citationright{[Anandkumar et al, 2011]}
+\end{itemize}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{With sensing}: \RandTopM{} and \MCTopM{} are sort of mixes
-    between RhoRand and \MusicalChair{}, using UCB indexes or more
-    efficient index policies (\klUCB),
-  \item
-    \emph{Without sensing}: \Selfish{} use a UCB index directly on the
-    reward \(r^j(t)\).
-  \end{itemize}
+\pause
+
+\end{block}
+
+\begin{block}{\textbf{Our proposals}:
+\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{With sensing}: \RandTopM{} and \MCTopM{} are sort of mixes
+  between \rhoRand{} and \MusicalChair, using UCB indexes or more
+  efficient index policies (\klUCB),
+\item
+  \emph{Without sensing}: \Selfish{} use a UCB index directly on the
+  reward \(r^j(t)\).
 \end{itemize}
 
 \end{block}
@@ -935,6 +944,41 @@ policies}
 
 
 \subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
+
+\end{frame}
+
+\begin{frame}[plain]{A first decentralized algorithm}
+
+\centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{figure}[h!]
+\centering
+% Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+\begin{algorithm}[H]
+% XXX Input, data and output
+% \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
+% \KwData{Data}
+% \KwResult{Result}
+% XXX Algorithm
+Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
+\For{$t = 0, \dots, T - 1$}{
+    %
+    \eIf{$A^j(t) \notin \TopM(t)$}{
+      $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
+      \tcp*[f]{randomly switch}
+      }{
+        $A^j(t+1) = A^j(t)$
+        \tcp*[f]{stays on the same arm}
+      }
+    Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
+    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+}
+\caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). The set $\TopM(t)$ is the $M$ best arms according to indexes $g^j(t)$.}
+\label{algo:RandTopM}
+\end{algorithm}
+\end{figure}
+\end{minipage}}}
 
 \end{frame}
 
@@ -959,7 +1003,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
-        }(\tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}){
+        }(\tcp*[f]{aim at an arm with smaller UCB at $t-1$}){
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         }
       }{
@@ -1011,7 +1055,7 @@ Taking one of the five transitions means playing one round of Algorithm \MCTopM,
 
 \begin{frame}[plain]{The \MCTopM{} algorithm}
 
-\centerline{\scalebox{0.78}{\begin{minipage}{1.33\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\centerline{\scalebox{0.78}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
 \centering
 % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
@@ -1025,23 +1069,22 @@ Taking one of the five transitions means playing one round of Algorithm \MCTopM,
 % XXX Algorithm
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{False}$ \\
 \For{$t = 0, \dots, T-1$}{
-      \uIf(\tcp*[f]{transition $(3)$ or $(5)$}){
+      \uIf(\tcp*[f]{\textcolor{red}{transition $(3)$ or $(5)$}}){
         $A^j(t) \notin \TopM(t)$}
       {
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         \tcp*[f]{not empty} \\
-        % \tcp*[f]{randomly switch on an arm that had smaller UCB at $t-1$}
         $s^j(t+1) = \mathrm{False}$
-        \tcp*[f]{aim at an arm with a smaller UCB at $t-1$}
+        \tcp*[f]{aim at an arm with smaller UCB at $t-1$}
       }
       \uElseIf(\tcp*[f]{collision and not fixed}){
           $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
         {
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
-          \tcp*[f]{transition $(2)$} \\
+          \tcp*[f]{\textcolor{blue}{transition $(2)$}} \\
           $s^j(t+1) = \mathrm{False}$
       }
-      \Else(\tcp*[f]{transition $(1)$ or $(4)$}){
+      \Else(\tcp*[f]{transition \textcolor{cyan}{$(1)$} or \textcolor{darkgreen}{$(4)$}}){
         $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
         $s^j(t+1) = \mathrm{True}$ \tcp*[f]{become or stay fixed on a ``chair''}
       }
@@ -1070,6 +1113,8 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \item
   Theorem,\vspace*{15pt}
 \item
+  Remarks,\vspace*{15pt}
+\item
   Idea of the proof.
 \end{enumerate}
 
@@ -1077,7 +1122,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 
 
-\subsection{\hfill{}6.a. \MCTopM-\klUCB\hfill{}}
+\subsection{\hfill{}6.a. Theorem for \MCTopM-\klUCB\hfill{}}
 
 \end{frame}
 
@@ -1096,6 +1141,8 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
   R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
     \]
 \end{itemize}
+
+\pause
 
 \end{block}
 
@@ -1130,18 +1177,15 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \tightlist
 \item
   Hard to prove, we had to carefully design the \MCTopM{} algorithm to
-  conclude the proof,
+  conclude the proof,\pause
 \item
   The constant \(G_{M,\boldsymbol{\mu}}\) scales as \(M^3\), way better
-  than \rhoRand's constant scaling as \(M{2M-1 \choose M}\)
-\item
-  We have some doubts regarding the proofs and results of all the
-  previously proposed algorithms,
-\item
-  For the suboptimal selections, we \emph{match our lower bound} !
+  than \rhoRand's constant scaling as \(M{2M-1 \choose M}\),\pause
 \item
   We also \emph{minimize the number of channel switching}: interesting
-  as it costs energy,
+  as changing arm costs energy in radio systems,\pause
+\item
+  For the suboptimal selections, we \emph{match our lower bound} !\pause
 \item
   Not yet possible to know what is the best possible control of
   collisions\ldots{}
@@ -1163,23 +1207,27 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Bound the expected number of collisions by \(M\) times the nb of
-  collisions for non-sitted players,
+  Bound the expected number of collisions by \(M\) times the number of
+  collisions for non-sitted players,\pause
 \item
   Bound the expected number of
   \textcolor{red}{transitions of type $(3)$ and $(5)$}, by
   \(\bigO{\log T}\) using the \klUCB{} indexes and the forced choice of
-  the algorithm XXX,
+  the algorithm:
+  \(g_k^j(t-1) \leq g^j_{k'}(t-1), \;\;\text{and}\;\; g_k^j(t) > g^j_{k'}(t)\)
+  when switching from \(k'\) to \(k\),\pause
 \item
   Bound the expected length of a sequence in the non-sitted state by a
-  constant,
+  constant,\pause
 \item
   So most of the times (\(\bigO{T - \log T}\)), players are sitted, and
   no collision happens when they are all sitted!
 \end{enumerate}
 
 \begin{quote}
-See our paper for details!
+\strut
+
+\hfill\(\hookrightarrow\) See our paper for details!
 \end{quote}
 
 \end{frame}
@@ -1192,7 +1240,9 @@ See our paper for details!
 
 \begin{frame}{Experimental results}
 
+\begin{quote}
 Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
+\end{quote}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1223,7 +1273,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{gold}{\MCTopM{}} achieve constant regret in this saturated case (proved).}}
+\caption{\footnotesize{Regret, $M=9$ players, $K=9$ arms, horizon $T=10000$, $200$ repetitions. Only \textcolor{red}{\RandTopM{}} and \textcolor{yellowgreen}{\MCTopM{}} achieve constant regret in this saturated case (proved).}}
 \end{figure}
 
 \end{frame}
@@ -1233,7 +1283,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Conclusion : \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Conclusion : \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}} in most cases.}}
 \end{figure}
 
 \subsection{\hfill{}7.c. Number of collisions\hfill{}}
@@ -1245,7 +1295,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbCollisions____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Cumulated number of collisions, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Also \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}} in most cases.}}
+\caption{\footnotesize{Cumulated number of collisions. Also \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}} in most cases.}}
 \end{figure}
 
 \subsection{\hfill{}7.d. Number of arm switches\hfill{}}
@@ -1257,7 +1307,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbSwitchs____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Cumulated number of arm switches, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. \newline Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{darkgreen}{\Selfish{}} < \textcolor{gold}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
+\caption{\footnotesize{Cumulated number of arm switches. Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
 \end{figure}
 
 \subsection{\hfill{}7.e. Fairness\hfill{}}
@@ -1268,7 +1318,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.80\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
 \caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run.\newline \textbf{It's quite hard to achieve both effiency and single-run fairness!}}}
 \end{figure}
 
@@ -1369,7 +1419,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \begin{figure}[h!]
 \includegraphics[height=0.70\textheight]{figures/MP__K3_M2_T5000_N1000__4_algos/all_HistogramsRegret____env1-1_5016720151160452442.pdf}
-\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{darkgreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
+\caption{\footnotesize{Regret for $M=2$ players, $K=3$ arms, horizon $T=5000$, $1000$ repetitions and $\boldsymbol{\mu} = [0.1, 0.5, 0.9]$. Axis $x$ is for regret (different scale for each), and \textcolor{bluegreen}{\Selfish{}} have a small probability of failure ($17/1000$ cases of $R_T \gg \log T$). The regret for the three other algorithms is very small for this "easy" problem.}}
 \end{figure}
 
 \end{frame}
