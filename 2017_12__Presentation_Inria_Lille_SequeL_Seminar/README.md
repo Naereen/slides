@@ -203,7 +203,7 @@ Where kl(x,y) := x log(x / y) + (1 - x) log(1-x / 1-y) is the *binary* Kullback-
 
 # Illustration of the Lower Bound on regret
 
-[Any such lower bound is very asymptotic, usually not satisfied for small horizons. We can see the importance of the collisions!](figures/main_RegretCentralized____env3-4_2092905764868974160.png)
+![Any such lower bound is very asymptotic, usually not satisfied for small horizons. We can see the importance of the collisions!](figures/main_RegretCentralized____env3-4_2092905764868974160.png)
 
 ----
 
