@@ -630,7 +630,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run.\newline \textbf{It's quite hard to achieve both effiency and single-run fairness!}}}
+\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run.\newline \textbf{It's quite hard to achieve both efficiency and single-run fairness!}}}
 \end{figure}
 
 ----

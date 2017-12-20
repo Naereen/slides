@@ -4,7 +4,7 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 
 - At first, this repository was only here to host some small experiments, for me to learn how to use [the remark.js slideshow tools](http://remarkjs.com/) correctly;
 - But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:! [My pandoc/beamer template](my.beamer) is working well, I love it.
-- And I am passionate about open-source and Markdown, I am trying to publish here all the slides of the talks I gave recently (from July 2017).
+- And I am passionate about open-source, and really fond of Markdown, I am trying to publish here all the slides of the talks I gave recently (from July 2017).
 
 > See also [my SpeakerDesk profile](https://speakerdeck.com/naereen), where I also shared all my previous slides, and I will keep sharing the new ones.
 
@@ -26,6 +26,7 @@ PDF versions are not available on the Git repository, but on [my website, there 
 - [2017_09__Presentation_article_CrownCom_Conference.pdf](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf).
 - [2017_11__Git_and_open-source_your_simulation_code__at_Supelec.pdf](http://perso.crans.org/besson/publis/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.pdf).
 - [2017_11__Presentation_Supelec_SCEE_Seminar.pdf](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides.pdf).
+- [2017_12__Presentation_Inria_Lille_SequeL_Seminar.pdf](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.pdf).
 
 ### :arrow_forward: 2. View the slides on-line ?
 #### *rawgit*
@@ -39,6 +40,7 @@ PDF versions are not available on the Git repository, but on [my website, there 
 - [2017_09__Presentation_article_CrownCom_Conference](https://cdn.rawgit.com/Naereen/slides/master/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
 - [2017_11__Git_and_open-source_your_simulation_code__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.html).
 - [2017_11__Presentation_Supelec_SCEE_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Presentation_Supelec_SCEE_Seminar/slides.html).
+- [2017_12__Presentation_Inria_Lille_SequeL_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.html).
 
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/slides.html`.
 
@@ -49,6 +51,7 @@ PDF versions are not available on the Git repository, but on [my website, there 
 ----
 
 ### :information_desk_person: More information?
+> - More information about [pandoc](http://pandoc.org/): on [github.com/jgm/pandoc](https://github.com/jgm/pandoc).
 > - More information about [remarkjs](http://remarkjs.com/): on [github.com/gnab/remark](https://github.com/gnab/remark).
 > - More information about [reveal.js](https://github.com/hakimel/reveal.js): on [github.com/hakimel/reveal.js](https://github.com/hakimel/reveal.js).
 > - More information about [reveal-md](https://github.com/webpro/reveal-md): on [github.com/webpro/reveal-md](https://github.com/webpro/reveal-md).
