@@ -198,7 +198,7 @@
         \institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
 \newline \& Team SequeL, CRIStAL, Inria, Lille}
         \date[SequeL Seminar - 22/12/17]{SequeL Seminar - 22 December 2017}
-  
+
 % For \justifying command, see https://tex.stackexchange.com/a/148696/
 \usepackage{ragged2e}
 \addtobeamertemplate{frame begin}{}{\justifying}
@@ -242,12 +242,9 @@
 
 \subsection{\hfill{}1.a. Objective\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Motivation}
 
-We control some communicating devices, they want to access to a single
-base station.
+We control some communicating devices, they want to access to an access point.
 
 \begin{itemize}
 \tightlist
@@ -286,8 +283,6 @@ base station.
 
 \subsection{\hfill{}1.b. Outline and references\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Outline \uncover<2>{and reference}}
 
 \vspace*{-15pt}
@@ -300,9 +295,9 @@ base station.
 \item
   Our model: \(3\) different feedback levels
 \item
-  Decomposition and lower bound on regret
+  Regret lower bound
 \item
-  Quick reminder on single-player MAB algorithms
+  \invisible{Quick reminder on single-player MAB algorithms}
 \item
   Two new multi-player decentralized algorithms
 \item
@@ -310,9 +305,9 @@ base station.
 \item
   Experimental results
 \item
-  An heuristic (\Selfish), and disappointing results
+  \invisible{An heuristic (\Selfish), and disappointing results}
 \item
-  Conclusion
+  \invisible{Conclusion}
 \end{enumerate}
 
 \pause
@@ -333,8 +328,6 @@ This is based on our latest article:
 \section{\hfill{}2. Our model: $3$ different feedback level\hfill{}}
 
 \subsection{\hfill{}2.a. Our model\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Our model}
 
@@ -370,8 +363,6 @@ This is based on our latest article:
 
 
 \subsection{\hfill{}2.b. With or without sensing\hfill{}}
-
-\end{frame}
 
 \begin{frame}[fragile]{Our model}
 
@@ -418,8 +409,6 @@ This is based on our latest article:
 
 \subsection{\hfill{}2.c. Background traffic, and rewards\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Background traffic, and rewards}
 
 \begin{block}{\iid{} background traffic}
@@ -449,7 +438,7 @@ This is based on our latest article:
 \item
   collision for device \(j\) :
   \(C^j(t) = \mathbbm{1}(\)\emph{alone on arm $A^j(t)$}\()\).
-  \hook \alert{joint} binary reward \textbf{but not} from two Bernoulli!
+  \hook \alert{combined} binary reward \textbf{but not} from two Bernoulli!
 \end{itemize}
 
 \end{block}
@@ -459,8 +448,6 @@ This is based on our latest article:
 
 
 \subsection{\hfill{}2.d. Different feedback levels\hfill{}}
-
-\end{frame}
 
 \begin{frame}{3 feedback levels}
 
@@ -484,7 +471,7 @@ This is based on our latest article:
   \(\textcolor<2>{strongred}{Y_{A^j(t),t}} \neq 0\), \hook Models
   licensed protocols (ex. ZigBee), our main focus. \vspace*{10pt}\pause
 \item
-  \textcolor<3>{deeppurple}{``No sensing''}: observe only the joint
+  \textcolor<3>{deeppurple}{``No sensing''}: observe only the combined
   \(\textcolor<3>{deeppurple}{Y_{A^j(t),t} \times \mathbbm{1}(\overline{C^j(t)})}\),
   \hook Unlicensed protocols (ex. LoRaWAN), harder to analyze !
 \end{enumerate}
@@ -496,8 +483,6 @@ This is based on our latest article:
 
 
 \subsection{\hfill{}2.e. Goal\hfill{}}
-
-\end{frame}
 
 \begin{frame}[fragile]{Goal}
 
@@ -525,7 +510,7 @@ This is based on our latest article:
 \tightlist
 \item
   Max transmission rate \(\equiv\) \textbf{max cumulated rewards}
-  \hspace*{0.25\textwidth}\(\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{t=1}^{T} \sum\limits_{j=1}^M r^j_{A(t)}\).
+  \(\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{t=1}^{T} \sum\limits_{j=1}^M r^j(t)\).
 \item
   Each player wants to \textbf{maximize its cumulated reward},
 \item
@@ -543,8 +528,6 @@ This is based on our latest article:
 
 \subsection{\hfill{}2.f. Centralized regret\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Centralized regret}
 
 \begin{block}{A measure of success}
@@ -559,8 +542,9 @@ This is based on our latest article:
 
 \begin{small}\vspace*{-20pt}
   $$R_T(\boldsymbol{\mu}, M, \rho)
-  := \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \alert<1>{\mu_j^*} -  r^j(t)\right]
-  \pause= \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right]$$
+  :=
+  % \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \alert<1>{\mu_j^*} -  r^j(t)\right] \pause=
+  \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right]$$
 \end{small}
 
 \vspace*{-10pt}
@@ -592,8 +576,6 @@ This is based on our latest article:
 
 \section{\hfill{}3. Lower bound\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Lower bound}
 
 \begin{enumerate}
@@ -617,16 +599,15 @@ This is based on our latest article:
 
 \subsection{\hfill{}3.a. Lower bound on regret\hfill{}}
 
-\end{frame}
+\begin{frame}{\only<1-4>{Decomposition}\only<5>{\alert{Lower bound}} on regret}
 
-\begin{frame}{Decomposition on regret}
-
-\begin{block}{Decomposition}
+\begin{block}{\only<1-4>{Decomposition}\only<5>{Lower bound}}
 
 For any algorithm, decentralized or not, we have \vspace*{-10pt}
 \begin{footnotesize}\begin{align*}
-R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[T_k(T)]} \\
-&+ \alert<3>{\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)} + \alert<4>{\sum_{k=1}^{K} \mu_k \E_{\mu}[\mathcal{C}_k(T)]}.
+R_T(\boldsymbol{\mu}, M, \rho)
+&\only<1-4>{=}\only<5>{\alert<5>{\geq}} \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[T_k(T)]} \\
+&\uncover<1-4>{+ \alert<3>{\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)} + \alert<4>{\sum_{k=1}^{K} \mu_k \E_{\mu}[\mathcal{C}_k(T)]}.}
 \end{align*}\end{footnotesize}
 \vspace*{-10pt}
 
@@ -657,43 +638,31 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 \begin{frame}{Asymptotic Lower Bound on regret I}
 
-\begin{block}{\(3\) terms to lower bound\ldots{}}
+\begin{block}{Theorem 1
+  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
 
-\begin{itemize}
-\tightlist
-\item
-  The first term for sub-optimal arms selections is lower bounded
-  asymptotically,
-  \[\forall\, \text{player}\, j, \text{bad arm}\,k,\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},\]
-  using technical information theory tools (Kullback-Leibler divergence,
-  entropy),\pause
-\item
-  And we lower bound the rest (including collisions) by\ldots{} \(0\)
-  \[T - \E_{\mu}[T_k(T)] \geq 0 \;\;\text{and}\;\;\; \E_{\mu}[\mathcal{C}_k(T)] \geq 0,\]
-  \Sadey[1.4] we should be able to do better!
-\end{itemize}
+  Sub-optimal arms selections are lower bounded asymptotically,
+  \[\forall\, \text{player}\, j, \text{bad arm}\,k,\;\;\;\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},\]
+  \footnotetext{\tiny Where $\kl(x,y) := x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} Kullback-Leibler divergence.}
 
 \end{block}
+
+Proof: using technical information theory tools (Kullback-Leibler divergence, change of distributions).
+\citationright{Ref: [Garivier et al, 2016]}
 
 \end{frame}
 
 \begin{frame}{Asymptotic Lower Bound on regret II}
 
-\begin{block}{Theorem 1
+\begin{block}{Theorem 2
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
 
-\begin{itemize}
-\tightlist
-\item
-  {\small For any uniformly efficient decentralized policy, and any
-  non-degenerated problem \(\boldsymbol{\mu}\)}, \vspace*{-10pt}
-  \[ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)}{\log(T)} \geq M \times \left( \sum_{k \in \Mworst} \frac{(\mu_M^* -  \mu_k)}{\kl(\mu_k, \mu_M^*)} \right) . \]
-  \footnotetext{\tiny Where $\kl(x,y) := x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} Kullback-Leibler divergence.}
-\end{itemize}
+\small{For any uniformly efficient decentralized policy, and any
+non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
+\[ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)}{\log(T)} \geq M \times \left( \sum_{k \in \Mworst} \frac{(\mu_M^* -  \mu_k)}{\kl(\mu_k, \mu_M^*)} \right) . \]
+\end{block}
 
 \pause
-
-\end{block}
 
 \begin{block}{Remarks}
 
@@ -717,8 +686,6 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 \subsection{\hfill{}3.b. Illustration of the Lower Bound\hfill{}}
 
-\end{frame}
-
 \begin{frame}[plain]{Illustration of the Lower Bound on regret}
 
 \begin{figure}[h!]
@@ -730,39 +697,7 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 
 
-\subsection{\hfill{}3.c. Sketch of the proof\hfill{}}
-
-\end{frame}
-
-\begin{frame}{Sketch of the proof}
-
-\begin{itemize}
-\tightlist
-\item
-  Like for single-player bandit, focus on \(\E_{\mu}[T_k^j(T)]\)
-  expected number of selections of any sub-optimal arm
-  \(k\).\vspace*{10pt}
-\item
-  Same information-theoretic tools, using a ``change of law'' lemma.
-  \citationright{[Garivier et al, 2016]}\vspace*{10pt}
-\item
-  It improved the state-of-the-art because of our decomposition, not
-  because of new tools.
-\end{itemize}
-
-\begin{quote}
-\strut
-
-\hfill\(\hookrightarrow\) See our paper for details!
-\end{quote}
-
-\end{frame}
-
-
-
 \section{\hfill{}4. Single-player MAB algorithms : \UCB, \klUCB\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Single-player MAB algorithms}
 
@@ -782,8 +717,6 @@ R_T(\boldsymbol{\mu}, M, \rho) &= \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu
 
 
 \subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
@@ -819,8 +752,6 @@ channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
 
 \subsection{\hfill{}4.b. Kullback-Leibler UCB algorithm : \klUCB\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Kullback-Leibler UCB algorithm
 (\(\mathrm{kl}\)-\(\mathrm{UCB}\))}
 
@@ -848,9 +779,9 @@ channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
   \end{itemize}
 \end{enumerate}
 
-\pause\alert<2>{\emph{Why bother?}} \klUCB{} is proved to be more
+\uncover<2>{\alert<2>{\emph{Why bother?}} \klUCB{} is proved to be more
 efficient than \UCB{}, and asymptotically optimal for single-player
-stochastic bandit.
+stochastic bandit.}
 
 \citationbottomright{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}
 
@@ -859,8 +790,6 @@ stochastic bandit.
 
 
 \section{\hfill{}5. Multi-player decentralized algorithms\hfill{}}
-
-\end{frame}
 
 \begin{frame}{Multi-player decentralized algorithms}
 
@@ -883,8 +812,6 @@ stochastic bandit.
 
 \subsection{\hfill{}5.a. State-of-the-art MP algorithms\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Algorithms for this easier model}
 
 \begin{block}{Building blocks : separate the two aspects}
@@ -896,7 +823,7 @@ stochastic bandit.
   \textbf{MAB policy} to learn the best arms (use sensing
   \(Y_{A^j(t),t}\)),
 \item
-  \textbf{Orthogonalization scheme} to avoid collisions (use
+  \textbf{Orthogonalization scheme} to avoid collisions (use collision indicators
   \(C^j(t)\)).
 \end{enumerate}
 
@@ -913,7 +840,7 @@ policies}
   Recent: \MEGA{} and \MusicalChair{},
   \citationright{[Avner \& Mannor, 2015], [Shamir et al, 2016]}
 \item
-  State-of-the-art: \rhoRand{} policy and variants.
+  ``State-of-the-art'': \rhoRand{} policy and variants.
   \citationright{[Anandkumar et al, 2011]}
 \end{itemize}
 
@@ -924,16 +851,9 @@ policies}
 \begin{block}{\textbf{Our proposals}:
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
 
-\begin{itemize}
-\tightlist
-\item
-  \emph{With sensing}: \RandTopM{} and \MCTopM{} are sort of mixes
+  \RandTopM{} and \MCTopM{} are sort of mixes
   between \rhoRand{} and \MusicalChair, using UCB or more
-  efficient index policies (\klUCB),
-\item
-  \emph{Without sensing}: \Selfish{} use a UCB index directly on the
-  reward \(r^j(t)\).
-\end{itemize}
+  efficient index policies (\klUCB).
 
 \end{block}
 
@@ -942,8 +862,6 @@ policies}
 
 
 \subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
-
-\end{frame}
 
 \begin{frame}{A first decentralized algorithm}
 
@@ -960,7 +878,7 @@ policies}
 % \KwResult{Result}
 % XXX Algorithm
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
-\For{$t = 0, \dots, T - 1$}{
+\For{$t = 1, \dots, T - 1$}{
     %
     \eIf{$A^j(t) \notin \TopM(t)$ or $C^j(t)$}{
       $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
@@ -972,7 +890,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
-\caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). The set $\TopM(t)$ is the $M$ best arms according to indexes $g^j(t)$.}
+\caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). \newline The set $\TopM(t)$ is the \alert{$M$ best arms according to indexes $g^j(t)$}.}
 \label{algo:firstAlgo}
 \end{algorithm}
 \end{figure}
@@ -980,7 +898,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 \end{frame}
 
-\begin{frame}{The \RandTopM{} algorithm}
+\begin{frame}{\RandTopM{} algorithm}
 
 \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -995,14 +913,14 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 % \KwResult{Result}
 % XXX Algorithm
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
-\For{$t = 0, \dots, T - 1$}{
+\For{$t = 1, \dots, T - 1$}{
     %
     \eIf{$A^j(t) \notin \TopM(t)$}{
       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
-        }(\tcp*[f]{aim arm with smaller UCB at $t-1$}){
-          $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
+        }(\tcp*[f]{\alert{aim arm with smaller UCB at $t-1$}}){
+          $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)}\right\}\right)$
         }
       }{
         $A^j(t+1) = A^j(t)$
@@ -1022,13 +940,11 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 \subsection{\hfill{}5.c. \MCTopM{} algorithm\hfill{}}
 
-\end{frame}
-
-\begin{frame}{The \MCTopM{} algorithm}
+\begin{frame}{\MCTopM{} algorithm}
 
 \begin{figure}[h!]
 \scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
+\begin{tikzpicture}[>=latex',line join=bevel,scale=5]
     %
     \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
     \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
@@ -1043,14 +959,14 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
     %
 \end{tikzpicture}
 \end{minipage}}
-\caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
-Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
+% \caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
+% Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
 \label{fig:StateMachineAlgorithm_MCTopM}
 \end{figure}
 
 \end{frame}
 
-\begin{frame}[plain]{The \MCTopM{} algorithm}
+\begin{frame}[plain]{\MCTopM{} algorithm}
 
 \centerline{\scalebox{0.78}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -1065,25 +981,25 @@ Taking one of the five transitions means playing one round of Algorithm \MCTopM,
 % \KwResult{Result}
 % XXX Algorithm
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{False}$ \\
-\For{$t = 0, \dots, T-1$}{
+\For{$t = 1, \dots, T-1$}{
       \uIf(\tcp*[f]{\textcolor{red}{transition $(3)$ or $(5)$}}){
         $A^j(t) \notin \TopM(t)$}
       {
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         \tcp*[f]{not empty} \\
-        $s^j(t+1) = \mathrm{False}$
-        \tcp*[f]{aim at an arm with smaller UCB at $t-1$}
+        \alert{$s^j(t+1) = \mathrm{False}$}
+        \tcp*[f]{aim arm with smaller UCB at $t-1$}
       }
       \uElseIf(\tcp*[f]{collision and not fixed}){
           $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
         {
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
           \tcp*[f]{\textcolor{blue}{transition $(2)$}} \\
-          $s^j(t+1) = \mathrm{False}$
+          \alert{$s^j(t+1) = \mathrm{False}$}
       }
       \Else(\tcp*[f]{transition \textcolor{cyan}{$(1)$} or \textcolor{darkgreen}{$(4)$}}){
         $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
-        $s^j(t+1) = \mathrm{True}$ \tcp*[f]{become or stay fixed on a ``chair''}
+        \alert{$s^j(t+1) = \mathrm{True}$} \tcp*[f]{become or stay fixed on a ``chair''}
       }
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
@@ -1099,15 +1015,13 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \section{\hfill{}6. Regret upper bound\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Regret upper bound}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Theorem,\vspace*{15pt}
+  Theorems,\vspace*{15pt}
 \item
   Remarks,\vspace*{15pt}
 \item
@@ -1120,71 +1034,67 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \subsection{\hfill{}6.a. Theorem for \MCTopM{} with \klUCB\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Regret upper bound for \MCTopM{}}
 
-\begin{block}{Theorem 2
+\begin{block}{Theorem 3
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+One term is controlled by the two others:
+\begin{small}\[
+\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)
+\leq
+(\mu_1^* -  \mu_M^*) \left( \textcolor{red}{\sum_{k \in \Mworst} \E_{\mu}[T_k(T)]} + \textcolor{blue}{\sum_{k \in \Mbest} \E_{\mu}[C_k(T)]} \right)
+\]\end{small}
 
-\begin{itemize}
-\tightlist
-\item
-  If all \(M\) players use \MCTopM{} with \klUCB, then for any
-  non-degenerated problem \(\boldsymbol{\mu}\), there exists a problem
-  dependent constant \(G_{M,\boldsymbol{\mu}}\) , such that the regret
-  satisfies: \[
-  R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
-    \]
-\end{itemize}
+So only need to work on both \textcolor{red}{sub-optimal selections} and \textcolor{blue}{collisions}.
+\end{block}
 
 \pause
 
-\end{block}
+\begin{block}{Theorem 4
+\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
 
-\begin{block}{How?}
-
-\begin{itemize}
-\tightlist
-\item
-  Decomposition of regret controlled with two terms,
-\item
-  Control both terms, both are logarithmic:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Suboptimal selections with the ``classical analysis'' on \klUCB{}
-    indexes
-  \item
-    Collisions are harder to control\ldots{}
-  \end{itemize}
-\end{itemize}
+If all \(M\) players use \MCTopM{} with \klUCB:
+\[
+\forall \boldsymbol{\mu}, \exists G_{M,\boldsymbol{\mu}},\;\;\;\;
+R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
+\]
 
 \end{block}
 
 \end{frame}
 
+
 \begin{frame}{Regret upper bound for \MCTopM{}}
+
+\begin{block}{How?}
+
+Control both terms, both are logarithmic at finite horizon:
+
+\begin{itemize}
+\tightlist
+\item
+  Suboptimal selections with the ``classical analysis'' on \klUCB{}
+  indexes.
+\item
+  Collisions are also controlled with inequalities on the \klUCB{} indexes\ldots{}
+\end{itemize}
+
+\end{block}
+
+\pause
 
 \begin{block}{Remarks}
 
 \begin{itemize}
 \tightlist
 \item
-  Hard to prove, we had to carefully design the \MCTopM{} algorithm to
-  conclude the proof,\pause
-\item
   The constant \(G_{M,\boldsymbol{\mu}}\) scales as \(M^3\), way better
-  than \rhoRand's constant scaling as \(M{2M-1 \choose M}\),\pause
+  than \rhoRand's constant scaling as \(M{2M-1 \choose M}\),
 \item
   We also \emph{minimize the number of channel switching}: interesting
   as changing arm costs energy in radio systems,\pause
 \item
-  For the suboptimal selections, we \emph{match our lower bound} !\pause
-\item
-  Not yet possible to know what is the best possible control of
-  collisions\ldots{}
+  For the suboptimal selections, we \emph{match our lower bound} !
 \end{itemize}
 
 \end{block}
@@ -1195,13 +1105,10 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \subsection{\hfill{}6.b. Sketch of the proof\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Sketch of the proof}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   Bound the expected number of collisions by \(M\) times the number of
   collisions for non-sitted players,\pause
@@ -1232,8 +1139,6 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \section{\hfill{}7. Experimental results\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Experimental results}
 
 \begin{quote}
@@ -1262,8 +1167,6 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 \subsection{\hfill{}7.a. Illustration of regret\hfill{}}
 
-\end{frame}
-
 \begin{frame}[plain]{Constant regret if \(M=K\)}
 
 \begin{figure}[h!]
@@ -1282,9 +1185,9 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \caption{\footnotesize{Regret, $M=6$ players, $K=9$ arms, horizon $T=5000$, against $500$ problems $\boldsymbol{\mu}$ uniformly sampled in $[0,1]^K$. Conclusion : \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}} in most cases.}}
 \end{figure}
 
-\subsection{\hfill{}7.c. Number of collisions\hfill{}}
-
 \end{frame}
+
+\subsection{\hfill{}7.c. Number of collisions\hfill{}}
 
 \begin{frame}[plain]{Logarithmic number of collisions}
 
@@ -1294,9 +1197,9 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \caption{\footnotesize{Cumulated number of collisions. Also \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}}.}}
 \end{figure}
 
-\subsection{\hfill{}7.d. Number of arm switches\hfill{}}
-
 \end{frame}
+
+\subsection{\hfill{}7.d. Number of arm switches\hfill{}}
 
 \begin{frame}[plain]{Logarithmic number of arm switches}
 
@@ -1306,25 +1209,23 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \caption{\footnotesize{Cumulated number of arm switches. Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
 \end{figure}
 
-\subsection{\hfill{}7.e. Fairness\hfill{}}
-
 \end{frame}
 
-\begin{frame}[plain]{Fairness}
+% \subsection{\hfill{}7.e. Fairness\hfill{}}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. \textbf{It's quite hard to achieve both efficiency and single-run fairness!}}}
-\end{figure}
+% \begin{frame}[plain]{Fairness}
 
-\end{frame}
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
+% \caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. \textbf{It's quite hard to achieve both efficiency and single-run fairness!}}}
+% \end{figure}
+
+% \end{frame}
 
 
 
 \section{\hfill{}8. An heuristic, \Selfish\hfill{}}
-
-\end{frame}
 
 \begin{frame}{An heuristic, \Selfish}
 
@@ -1334,7 +1235,7 @@ For the harder feedback model, without sensing.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Just an heuristic,\vspace*{15pt}
+  An heuristic,\vspace*{15pt}
 \item
   Problems with \Selfish,\vspace*{15pt}
 \item
@@ -1347,14 +1248,15 @@ For the harder feedback model, without sensing.
 
 \subsection{\hfill{}8.a. Problems with \Selfish\hfill{}}
 
-\end{frame}
+\begin{frame}[allowframebreaks]{\Selfish{} heuristic}
 
-\begin{frame}[allowframebreaks]{The \Selfish{} heuristic}
+\Selfish{} decentralized approach = device don't use sensing:
 
-The \Selfish{} decentralized approach = device don't use sensing, just
-learn on the reward (acknowledgement or not, \(r^j(t)\)).
-
-\citationright{Reference: [Bonnefoi \& Besson et al, 2017]}
+\begin{block}{\Selfish}
+  Use \UCB{} (or \klUCB) indexes on the (non \iid) rewards \(r^j(t)\)
+  and not on the sensing $Y_{A^j(t)}(t)$.
+  \citationright{Reference: [Bonnefoi \& Besson et al, 2017]}
+\end{block}
 
 \begin{block}{Works fine\ldots{}}
 
@@ -1376,13 +1278,13 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 \begin{itemize}
 \tightlist
 \item
-  Sensing was \iid{} so using \UCB{} to learn the \(\mu_k\) makes sense,
+  Sensing feedback were \iid, so using \UCB{} to learn the \(\mu_k\) makes sense,
 \item
-  But collisions are not \iid,
+  But collisions make the rewards not \iid{} !
 \item
-  Adversarial algorithms are more appropriate here,
+  Adversarial algorithms should be more appropriate here,
 \item
-  But empirically, \Selfish{} works much better with \UCB{} or \klUCB{}
+  But empirically, \Selfish{} works much better with \klUCB{}
   than, \eg, \ExpThree\ldots{}
 \end{itemize}
 
@@ -1408,8 +1310,6 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \subsection{\hfill{}8.b. Failing cases for \Selfish\hfill{}}
 
-\end{frame}
-
 \begin{frame}[plain]{Illustration of failing cases for
 \(\mathrm{Selfish}\)}
 
@@ -1424,8 +1324,6 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \section{\hfill{}9. Conclusion\hfill{}}\subsection{\hfill{}9.a. Sum-up\hfill{}}
 
-\end{frame}
-
 \begin{frame}{Sum-up}
 
 \begin{block}{\emph{Wait, what was the problem ?}}
@@ -1437,8 +1335,8 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 \item
   But here the collisions cancel the \iid{} hypothesis\ldots{}
 \item
-  Not easy to obtain guarantees in this mixed setting \newline
-   (\iid{} emissions process, ``game theoretic'' collisions).
+  Not easy to obtain guarantees in this mixed setting
+  (``game theoretic'' collisions).
 \end{itemize}
 
 \pause
@@ -1465,9 +1363,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \subsection{\hfill{}9.b. Future work\hfill{}}
 
-\end{frame}
-
-\begin{frame}{Other directions of future work}
+\begin{frame}{Future work}
 
 \begin{block}{Conclude the Multi-Player OSA analysis}
 
@@ -1477,10 +1373,7 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 \item
   Allow arrival/departure of objects,
 \item
-  Non-stationarity of background traffic etc
-\item
-  \emph{More realistic emission model}: maybe driven by number of
-  packets in a whole day, instead of emission probability.
+  Non-stationarity of background traffic etc.
 \end{itemize}
 
 \pause
@@ -1489,13 +1382,9 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \begin{block}{Extend to more objects \(M > K\)}
 
-\begin{itemize}
-\tightlist
-\item
-  Extend the theoretical analysis to the large-scale IoT model, first
-  with sensing (\eg, models ZigBee networks), then without sensing (\eg,
-  LoRaWAN networks).
-\end{itemize}
+Extend the theoretical analysis to the large-scale IoT model, first
+with sensing (\eg, models ZigBee networks), then without sensing (\eg,
+LoRaWAN networks).
 
 \end{block}
 
@@ -1504,8 +1393,6 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 
 \subsection{\hfill{}9.c. Thanks!\hfill{}}
-
-\end{frame}
 
 \begin{frame}[allowframebreaks]{Conclusion}
 
@@ -1551,13 +1438,13 @@ learn on the reward (acknowledgement or not, \(r^j(t)\)).
 
 \end{block}
 
-\begin{block}{\textbf{Thanks!} \Smiley[1.2]}
+\vspace*{10pt}
 
 \begin{center}\begin{Large}
+\textbf{Thanks!} \Smiley[1.2]
+
 \emph{Any question or idea ?}
 \end{Large}\end{center}
-
-\end{block}
 
 \end{frame}
 
