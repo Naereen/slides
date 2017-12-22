@@ -1135,6 +1135,34 @@ Control both terms, both are logarithmic at finite horizon:
 
 \end{frame}
 
+\begin{frame}{Sketch of the proof}
+
+\begin{figure}[h!]
+\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
+    %
+    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    %
+    \draw [black,->] (start) -> (notfixed.20);
+    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    %
+\end{tikzpicture}
+\end{minipage}}
+\label{fig:StateMachineAlgorithm_MCTopM}
+\end{figure}
+\begin{small}
+  -- Time in sitted state is $\bigO{\log T}$, and collisions are $\leq M$ collisions in sitted state $\implies \bigO{\log T}$ collisions.\newline
+  -- Suboptimal selections is $\bigO{\log T}$ also as $A^j(t+1)$ is always selected in $\TopM(t)$ which is $\Mbest$ at least $\bigO{T - \log T}$ (in average).
+\end{small}
+
+\end{frame}
+
 
 
 \section{\hfill{}7. Experimental results\hfill{}}
