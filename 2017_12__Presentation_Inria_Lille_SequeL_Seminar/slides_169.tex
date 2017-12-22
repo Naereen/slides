@@ -720,9 +720,6 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 
 \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
-The device keep \(t\) number of sent packets, \(T_k(t)\) selections of
-channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -735,12 +732,16 @@ channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
   \begin{itemize}
   \tightlist
   \item
+  \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
+  \item
+  \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.\pause
+  \item
     Compute the index
-    \(g_k(t) := \underbrace{\frac{X_k(t)}{T_k(t)}}_{\text{Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k(t)}},}_{\text{Upper Confidence Bound}}\)
+    \(g_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Upper Confidence Bound}}\)\pause
   \item
-    Choose channel \(A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)\),
+    Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
   \item
-    Update \(T_k(t+1)\) and \(X_k(t+1)\).
+    Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
   \end{itemize}
 \end{enumerate}
 
@@ -755,9 +756,6 @@ channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
 \begin{frame}{Kullback-Leibler UCB algorithm
 (\(\mathrm{kl}\)-\(\mathrm{UCB}\))}
 
-The device keep \(t\) number of sent packets, \(T_k(t)\) selections of
-channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
-
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -770,20 +768,24 @@ channel \(k\), \(X_k(t)\) successful transmissions in channel \(k\).
   \begin{itemize}
   \tightlist
   \item
+  \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
+  \item
+  \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
+  \item
     Compute the index
-    \(g_k(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\frac{X_k(t)}{T_k(t)}, q\right) \leq \frac{\log(t)}{T_k(t)} \right\}\)
+    \(g_k^j(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\alert{\frac{S_k^j(t)}{T_k^j(t)}}, q\right) \leq \frac{\log(t)}{T_k^j(t)} \right\}\),
   \item
-    Choose channel \(A(t) = \mathop{\arg\max}\limits_{k} \; g_k(t)\),
+    Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
   \item
-    Update \(T_k(t+1)\) and \(X_k(t+1)\).
+    Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
   \end{itemize}
 \end{enumerate}
 
-\uncover<2>{\alert<2>{\emph{Why bother?}} \klUCB{} is proved to be more
+\uncover<2>{\small \alert<2>{\emph{Why bother?}} \klUCB{} is more
 efficient than \UCB{}, and asymptotically optimal for single-player
-stochastic bandit.}
-
-\citationbottomright{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}
+stochastic bandit.
+\citationright{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}
+}
 
 \end{frame}
 
