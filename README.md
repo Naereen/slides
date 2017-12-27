@@ -60,7 +60,7 @@ PDF versions are not available on the Git repository, but on [my website, there 
 
 ## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/slides.svg)](https://github.com/Naereen/slides/blob/master/LICENSE)
 All the slideshows in this repository are published under the terms of the [MIT License](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
-© [Lilian Besson](https://GitHub.com/Naereen), 2016-17.
+© [Lilian Besson](https://GitHub.com/Naereen), 2016-18.
 
 The logos and images are the properties of their respective authors (for instance, ENS Paris Saclay, EPFL, CentraleSupélec, IETR, etc).
 
