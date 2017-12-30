@@ -17,18 +17,22 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 ## *How to read these documents*?
 
 ### 1. PDF on [my website](http://perso.crans.org/besson/publis/slides/)
-PDF versions are not available on the Git repository, but on [my website, there are](http://perso.crans.org/besson/publis/slides/).
+> PDF versions are not available on the Git repository, but on [they are my website](http://perso.crans.org/besson/publis/slides/).
 
-- [2016_07__Python_demo_at_EPFL.pdf](http://perso.crans.org/besson/publis/slides/2016_07__Python_demo_at_EPFL/slides.pdf).
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec.pdf](http://perso.crans.org/besson/publis/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.pdf).
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec.pdf](http://perso.crans.org/besson/publis/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides_169.pdf)).
-- [2017_06__Presentation_of_ADDI_Association.pdf](http://perso.crans.org/besson/publis/slides/2017_06__Presentation_of_ADDI_Association/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_06__Presentation_of_ADDI_Association/slides_169.pdf)).
-- [2017_09__Presentation_article_CrownCom_Conference.pdf](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides_169.pdf)).
-- [2017_11__Git_and_open-source_your_simulation_code__at_Supelec.pdf](http://perso.crans.org/besson/publis/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides_169.pdf)).
-- [2017_11__Presentation_Supelec_SCEE_Seminar.pdf](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides.pdf) ([16:9 ?](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides_169.pdf)).
-- [2017_12__Presentation_Inria_Lille_SequeL_Seminar.pdf](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.pdf) ([16:9 ?](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides_169.pdf)).
+- [July 2016: Python Introduction and Demo at EPFL (Lausanne, Switzerland)](http://perso.crans.org/besson/publis/slides/2016_07__Python_demo_at_EPFL/slides.pdf).
+- [February 2017 : "Mastering Markdown and MediaWiki" training (CentraleSupélec Rennes)](http://perso.crans.org/besson/publis/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.pdf).
+- [May 2017 : 6 month PhD summary for my "CSID Comitee" (CentraleSupélec Rennes)](http://perso.crans.org/besson/publis/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides_169.pdf)).
+- [June 2017 : Presentation of the ADDI Association (PhD Student Day 2017 in Rennes)](http://perso.crans.org/besson/publis/slides/2017_06__Presentation_of_ADDI_Association/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_06__Presentation_of_ADDI_Association/slides_169.pdf)).
+- [September 2017 : Presentation of our CrownCom conference article (Lisboa, Portugal)](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides_169.pdf)).
+- [November 2017 : "Git and Open Source Your Simulation Code" training session (CentraleSupélec Rennes)](http://perso.crans.org/besson/publis/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.pdf) ([16:9 ?](http://perso.crans.org/besson/publis/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides_169.pdf)).
+- [November 2017 : 1 year of PhD summary, presentation at the SCEE team seminar (CentraleSupélec Rennes)](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides.pdf) ([16:9 ?](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides_169.pdf)).
+- [December 2017 : Presentation of our ALT 2018 article at SequeL team seminar (Inria Lille)](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.pdf) ([16:9 ?](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides_169.pdf)).
+- [January 2018 : Same presentation at the ENSAI "brown-bag" seminar (Rennes)](http:/perso.crans.org/besson/publis/slides/2018_01__ENSAI_Seminar_BrownBag__Article_ALT2018/slides_169.pdf).
 
-### :arrow_forward: 2. View the slides on-line ?
+### :arrow_forward: 2. View the slides on-line as HTML pages ?
+> These versions are experimental and should not be used.
+> [*Hic sunt dracones!*](https://actuelmoyenage.wordpress.com/2017/08/24/hic-sunt-dracones-des-cartes-au-code-informatique/)
+
 #### *rawgit*
 > Thanks to [rawgit.com](https://rawgit.com/):
 
