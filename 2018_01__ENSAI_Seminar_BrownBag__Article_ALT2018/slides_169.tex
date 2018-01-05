@@ -386,7 +386,7 @@ This is based on our latest article:
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \emph{With sensing}: Device first senses for presence of Primary Users
+  \emph{With sensing}: Device first senses for presence of Primary Users that have strict priority
   (background traffic), then use \texttt{Ack} to detect collisions.
 
   \begin{quote}
@@ -538,33 +538,45 @@ This is based on our latest article:
 \item
   Not the network throughput or collision probability,
 \item
-  We study the \textbf{centralized} (expected) \textbf{regret}:
+  We study the \textbf{centralized} (\textcolor<1>{blue}{expected}) \textbf{regret}:
 \end{itemize}
 
 \begin{small}\vspace*{-20pt}
   $$R_T(\boldsymbol{\mu}, M, \rho)
   :=
   % \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \alert<1>{\mu_j^*} -  r^j(t)\right] \pause=
-  \left(\sum_{k=1}^{M}\mu_k^*\right) T - \E_{\mu}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t)\right]$$
+  \left(\sum_{k=1}^{M}\alert<1>{\mu_k^*}\right) T - \textcolor<1>{blue}{\E_{\mu}}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t) \right]$$
 \end{small}
 
 \vspace*{-10pt}
 
-\pause
-
 \end{block}
 
-\begin{block}{Two directions of analysis}
+\only<1>{
+  Notation :
+  $\alert{\mu_k^*}$ is the mean of the $k$-best arm
+  ($k$-th largest in $\boldsymbol{\mu}$):
+  \begin{itemize}
+    \item
+    $\mu_1^* := \max \boldsymbol{\mu}$,
+    \item
+    $\mu_2^* := \max \boldsymbol{\mu} \setminus \{\mu_1^*\}$,
+    \item
+    etc.
+  \end{itemize}
+}
+
+\begin{block}<2-4>{Two directions of analysis}
 
 \begin{itemize}
 \tightlist
-\item
+\item<2-4>
   Clearly \(R_T = \mathcal{O}(T)\), but we want a sub-linear regret, as
-  small as possible!\pause
-\item
+  small as possible!
+\item<3-4>
   \emph{How good a decentralized algorithm can be in this setting?}
-  \hook{} \textbf{Lower Bound} on regret, for \textbf{any} algorithm !\pause
-\item
+  \hook{} \textbf{Lower Bound} on regret, for \textbf{any} algorithm !
+\item<4>
   \emph{How good is my decentralized algorithm in this setting?}
   \hook{} \textbf{Upper Bound} on regret, for \textbf{one} algorithm !
 \end{itemize}
@@ -589,9 +601,7 @@ This is based on our latest article:
 \item
   And for regret,\vspace*{15pt}
 \item
-  Sketch of proof,\vspace*{15pt}
-\item
-  Illustration.
+  Proof?
 \end{enumerate}
 
 \end{frame}
@@ -607,28 +617,39 @@ This is based on our latest article:
 For any algorithm, decentralized or not, we have \vspace*{-10pt}
 \begin{footnotesize}\begin{align*}
 R_T(\boldsymbol{\mu}, M, \rho)
-&\only<1-4>{=}\only<5>{\alert<5>{\geq}} \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[T_k(T)]} \\
-&\uncover<1-4>{+ \alert<3>{\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)} + \alert<4>{\sum_{k=1}^{K} \mu_k \E_{\mu}[\mathcal{C}_k(T)]}.}
+&\only<1-4>{=}\only<5>{\alert<5>{\boldsymbol{\geq}}} \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[\textcolor<1>{blue}{T_k(T)}]} \\
+&\uncover<1-4>{+ \alert<3>{\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[\textcolor<1>{blue}{T_k(T)}]\right)} + \alert<4>{\sum_{k=1}^{K} \mu_k \E_{\mu}[\textcolor{red}{\mathcal{C}_k(T)}]}.}
 \end{align*}\end{footnotesize}
 \vspace*{-10pt}
 
 \end{block}
 
-\begin{block}{Small regret can be attained if\ldots{}}
+\only<1>{\small{
+  Notations for an arm $k\in\{1,\dots,K\}$:
+  \begin{itemize}
+    \item
+    $T_k^j(T) := \sum_{t=1}^T \mathbbm{1}(A^j(t) = k)$, counts selections by the player $j\in\{1,\dots,M\}$,
+    \item
+    $\textcolor{blue}{T_k(T)} := \sum_{j=1}^M T_k^j(T)$, counts selections by all $M$ players,
+    \item
+    $\textcolor{red}{\mathcal{C}_k(T)} := \sum_{t=1}^T \mathbbm{1}(\exists j_1 \neq j_2, A^{j_1}(t) = k = A^{j_2}(t))$, counts collisions.
+  \end{itemize}
+}}
 
-\pause
+
+\begin{block}<2-4>{Small regret can be attained if\ldots{}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
-\item
+\item<2-4>
   Devices can quickly identify the bad arms \(\Mworst\), and not play
   them too much
-  (\alert<2>{\emph{number of sub-optimal selections}}),\pause
-\item
+  (\alert<2>{\emph{number of sub-optimal selections}}),
+\item<3-4>
   Devices can quickly identify the best arms, and most surely play them
-  (\alert<3>{\emph{number of optimal non-selections}}),\pause
-\item
+  (\alert<3>{\emph{number of optimal non-selections}}),
+\item<4>
   Devices can use orthogonal channels
   (\alert<4>{\emph{number of collisions}}).
 \end{enumerate}
@@ -680,19 +701,6 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 \end{itemize}
 
 \end{block}
-
-\end{frame}
-
-
-
-\subsection{\hfill{}3.b. Illustration of the Lower Bound\hfill{}}
-
-\begin{frame}[plain]{Illustration of the Lower Bound on regret}
-
-\begin{figure}[h!]
-\includegraphics[height=0.80\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
-\caption{\footnotesize{Any such lower bound is \alert{very asymptotic}, usually not satisfied for small horizons. We can see the importance of the collisions!}}
-\end{figure}
 
 \end{frame}
 
@@ -883,6 +891,7 @@ policies}
 Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 \For{$t = 1, \dots, T - 1$}{
     %
+    \pause
     \eIf{$A^j(t) \notin \TopM(t)$ or $C^j(t)$}{
       $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
       \tcp*[f]{randomly switch}
@@ -890,6 +899,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
         $A^j(t+1) = A^j(t)$
         \tcp*[f]{stays on the same arm}
       }
+    \pause
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
@@ -901,7 +911,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 
 \end{frame}
 
-\begin{frame}{\RandTopM{} algorithm}
+\begin{frame}{\RandTopM{} algorithm \only<3>{\hfill{} (also works well!)}}
 
 \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{figure}[h!]
@@ -922,10 +932,12 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
+        \pause
         }(\tcp*[f]{\alert{aim arm with smaller UCB at $t-1$}}){
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)}\right\}\right)$
         }
       }{
+        \pause
         $A^j(t+1) = A^j(t)$
         \tcp*[f]{stays on the same arm}
       }
@@ -966,6 +978,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
         \tcp*[f]{not empty} \\
         \alert{$s^j(t+1) = \mathrm{False}$}
         \tcp*[f]{aim arm with smaller UCB at $t-1$}
+        \pause
       }
       \uElseIf(\tcp*[f]{collision and not fixed}){
           $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
@@ -973,11 +986,13 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
           \tcp*[f]{\textcolor{blue}{transition $(2)$}} \\
           \alert{$s^j(t+1) = \mathrm{False}$}
+          \pause
       }
       \Else(\tcp*[f]{transition \textcolor{cyan}{$(1)$} or \textcolor{darkgreen}{$(4)$}}){
         $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
         \alert{$s^j(t+1) = \mathrm{True}$} \tcp*[f]{become or stay fixed on a ``chair''}
       }
+    \pause
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
@@ -995,15 +1010,21 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{tikzpicture}[>=latex',line join=bevel,scale=5]
     %
     \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
-    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
-    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    \pause
+    \node (notfixed) at (1,0) [draw,rectangle,very thick] {Not fixed, $\overline{s^j(t)}$};
     %
-    \draw [black,->] (start) -> (notfixed.20);
-    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    \draw [color=black,very thick,->] (start) -> (notfixed.20);
+    \pause
+    \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small \textcolor{blue}{$\bold{(2)}$}  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \pause
+    \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small \textcolor{red}{$\bold{(3)}$}  $A^j(t) \notin \TopM(t)$} (1);
+    \pause
+    \node (fixed) at (0,0) [draw,rectangle,very thick] {Fixed, $s^j(t)$};
+    \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small \textcolor{cyan}{$\bold{(1)}$} $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \pause
+    \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small \textcolor{darkgreen}{$\bold{(4)}$} $A^j(t) \in \TopM(t)$} (fixed);
+    \pause
+    \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small \textcolor{red}{$\bold{(5)}$}  $A^j(t) \notin \TopM(t)$} (notfixed);
     %
 \end{tikzpicture}
 \end{minipage}}
@@ -1092,7 +1113,7 @@ Control both terms, both are logarithmic at finite horizon:
 \tightlist
 \item
   The constant \(G_{M,\boldsymbol{\mu}}\) scales as \(M^3\), way better
-  than \rhoRand's constant scaling as \(M{2M-1 \choose M}\),
+  than \rhoRand's constant scaling as \(M^2 {2M-1 \choose M}\),
 \item
   We also \emph{minimize the number of channel switching}: interesting
   as changing arm costs energy in radio systems,\pause
@@ -1148,12 +1169,12 @@ Control both terms, both are logarithmic at finite horizon:
     \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
     \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
     %
-    \draw [black,->] (start) -> (notfixed.20);
-    \draw [color=cyan,thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-    \path [color=blue,thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-    \path [color=red,thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-    \path [color=darkgreen,thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-    \draw [color=red,thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    \draw [color=black,very thick,->] (start) -> (notfixed.20);
+    \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
     %
 \end{tikzpicture}
 \end{minipage}}
@@ -1180,6 +1201,8 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
+  Lower bound on regret,\vspace*{15pt}
+\item
   Illustration of regret for a single problem and
   \(M = K\),\vspace*{15pt}
 \item
@@ -1195,8 +1218,20 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{frame}
 
 
+\subsection{\hfill{}7.a. Illustration of the Lower Bound\hfill{}}
 
-\subsection{\hfill{}7.a. Illustration of regret\hfill{}}
+\begin{frame}[plain]{Illustration of the Lower Bound on regret}
+
+\begin{figure}[h!]
+\includegraphics[height=0.80\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
+\caption{\footnotesize{Any such lower bound is \alert{very asymptotic}, usually not satisfied for small horizons. We can see the importance of the collisions!}}
+\end{figure}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}7.b. Illustration of regret\hfill{}}
 
 \begin{frame}[plain]{Constant regret if \(M=K\)}
 
@@ -1208,6 +1243,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 \end{frame}
 
+
 \begin{frame}[plain]{Illustration of regret of different algorithms}
 
 \begin{figure}[h!]
@@ -1217,6 +1253,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{figure}
 
 \end{frame}
+
 
 \subsection{\hfill{}7.c. Number of collisions\hfill{}}
 
@@ -1230,6 +1267,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 \end{frame}
 
+
 \subsection{\hfill{}7.d. Number of arm switches\hfill{}}
 
 \begin{frame}[plain]{Logarithmic number of arm switches}
@@ -1241,6 +1279,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{figure}
 
 \end{frame}
+
 
 % \subsection{\hfill{}7.e. Fairness\hfill{}}
 
@@ -1474,7 +1513,7 @@ LoRaWAN networks).
 \begin{center}\begin{Large}
 \textbf{Thanks!} \Smiley[1.2]
 
-\emph{Any question or idea ?}
+\emph{Any question ?}
 \end{Large}\end{center}
 
 \end{frame}
