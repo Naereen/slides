@@ -4,7 +4,7 @@ title: Présentation de l'ADDI
 subtitle: Association des Docteurs et Doctorants de l'IETR
 institute: Institut d'Électronique et des Télécommunications de Rennes (IETR)
 smallinstitute: IETR
-date: Novembre 2017
+date: Janvier 2018
 lang: french
 babel-lang: french
 handout: false
@@ -12,7 +12,7 @@ numbersections: true
 section-titles: false
 fontsize: 12pt
 include-before:
-  \section*{\hfill{}Réunion de rentrée de l'ED MathSTIC\hfill{}}
+  \section*{\hfill{}Assemblée Générale de l'ADDI\hfill{}}
   \subsection*{\hfill{}IETR\hfill{}}
 ---
 
@@ -55,9 +55,8 @@ include-before:
 
 - Accueil des nouveaux-elles doctorant-es, avec une **visite de Rennes** et un repas dans une crêperie, en *octobre*, \newline
   ($22$ personnes)
-- **Galette des rois** de l'IETR, cette année le *jeudi 11 janvier* $2018$, \newline
-  ($\simeq 130$ personnes)
-- **Visite de Dinan** le samedi 13 janvier $2018$.
+- **Galette des rois** de l'IETR, maintenant, \newline
+  ($\simeq 190$ personnes)
 
 ---
 
@@ -67,8 +66,8 @@ include-before:
 - Proposer de nouvelles activités ?
 
 ## Besoin d'un nouveau bureau
-- L'Assemblée Générale de l'ADDI a lieu le jeudi 11 janvier (15h-16h),
-- C'est l'occasion de voter le nouveau bureau : $3$ personnes (minimum) qui s'occuperont de l'ADDI pour l'année $2018$,
+- Nous devons voter le nouveau bureau : $3$ personnes (minimum) qui s'occuperont de l'ADDI pour l'année $2018$,
+- Doctorant-e en 1ère ou 2ème année,
 - $\implies$ L'ADDI a **besoin de vous !**
 
 ---
@@ -83,10 +82,9 @@ include-before:
 - Cotisation : $5$ € $/$ membre \hfill{} $\simeq 300$ € $/$ an,
 - Subventions : CNRS (IETR) et ED MathSTIC : \hfill{} $\simeq 1000$ € $/$ an.
 
-## Autres possibilités de financement ?
-- Partenariat entreprises ? (par ex. Société Générale),
-- Aide des autres membres de l'IETR ? \newline
-  (INSA, Univ. Nantes, CentraleSupélec, etc)
+## On a du budget
+- Pour des soirées thématiques ou des repas,
+- Pour des visites etc.
 
 ---
 
@@ -101,8 +99,9 @@ include-before:
 - **Site** :
   *http://ADDI.Asso.Insa-Rennes.fr*
 
-. . .
+---
 
+# Bureau
 ## Bureau en $2017$
 - Président : *Lilian Besson* (CentraleSupélec, $2017$-$19$),
 - Secrétaire : *Rami Othman* (CentraleSupélec, $2016$-$18$),
@@ -110,15 +109,3 @@ include-before:
 
 ## Bureau en $2018$
 $\implies$ besoin de volontaires !
-
----
-
-# Conclusion
-
-- **Merci de votre soutien** !
-
-- Nous comptons sur votre présence le $11$ janvier $2018$ pour la **Galette des Rois** de l'IETR et l'Assemblée Générale de l'ADDI !
-
-- Et par la suite de l'année…
-
-- Toute *suggestion* est la *bienvenue* !

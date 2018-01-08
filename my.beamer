@@ -135,7 +135,9 @@ $endif$
 }
 \usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
 
-\usepackage{macrosText}  % FIXME remove
+% FIXME remove
+\IfFileExists{macrosText.sty}{\usepackage{macrosText}}{}
+
 \usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
 
 
