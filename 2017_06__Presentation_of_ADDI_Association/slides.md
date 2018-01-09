@@ -101,11 +101,18 @@ include-before:
 
 ---
 
-# Bureau
+# 6. Bureau
 ## Bureau en $2017$
 - Président : *Lilian Besson* (CentraleSupélec, $2017$-$19$),
 - Secrétaire : *Rami Othman* (CentraleSupélec, $2016$-$18$),
 - Trésorier : *Ariel Christopher Tondo Yoya* (Univ.Rennes 1, $2016$-$18$).
 
 ## Bureau en $2018$
-$\implies$ besoin de volontaires !
+$\implies$ besoin de (au moins) $3$ volontaires !
+
+---
+
+# 7. Idée pour $2018$
+- Visites à Dinan, St-Malo, etc
+- Entraînement à Ma Thèse en $180s$
+- Réessayer les activités sportives ?
