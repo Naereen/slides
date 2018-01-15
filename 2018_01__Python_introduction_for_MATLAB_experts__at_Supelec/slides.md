@@ -195,8 +195,8 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 > Just to give examples of syntax and modules
 
 1. $1$D numerical integration and plot
+3. Solving a $2$D Ordinary Differential Equation
 2. Solving a constraint optimization problem and plotting solution
-3. Solving a linear system
 4. A simple neural network
 5. Symbolic computations
 
@@ -204,9 +204,13 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 # 3.1. $1$D numerical integration and plot
 
-> Goal : evaluate and plot the function
-> $$Ei(x) = \int_{-\infty}^x \frac{\mathrm{e}^u}{u} \;\mathrm{d}u$$
+> Goal : evaluate and plot the function on $[-1, 1]$ :
+> $$\mathrm{Ei}(x) := \int_{-\infty}^x \frac{\mathrm{e}^u}{u} \;\mathrm{d}u$$
 
+## How to?
+Use modules!
+
+- `numpy` for maths functions and arrays
 - `scipy.integrate.quad` function for numerical integration
 - `matplotlib.pyplot.plot` for $2$D plotting
 
@@ -215,7 +219,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 ```python
 import numpy as np                # standard convention
 import matplotlib.pyplot as plt   # standard convention
-from scipy.integrate import quad  # only one function
+from scipy.integrate import quad  # need only 1 function
 
 def Ei(x, minfloat=1e-6, maxfloat=1000):
     def f(t):
@@ -226,11 +230,13 @@ def Ei(x, minfloat=1e-6, maxfloat=1000):
     else:
         return -1.0 * quad(f, -x, maxfloat)[0]
 
+
 X = np.linspace(-1, 1, 1000) # 1000 points
-Y = np.vectorize(Ei)(X)  # or [Ei(x) for x in X]
-plt.plot(X, Y)
+Y = np.vectorize(Ei)(X)      # or [Ei(x) for x in X]
+plt.plot(X, Y)               # MATLAB-like interface
 plt.title("The function Ei(x)")
 plt.xlabel("x"); plt.ylabel("y")
+plt.savefig("figures/Ei_integral.png")
 plt.show()
 ```
 
@@ -240,16 +246,84 @@ plt.show()
 
 ---
 
-# 3.3. Constraint optimization problem
+# 3.2. Solving a $2$D Ordinary Differential Equation
+
+> Goal : solve and plot the differential equation of a pendulum :
+> $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
+
+## How to?
+Use modules!
+
+- `scipy.integrate.odeint` function for ODE integration
+- `matplotlib.pyplot.plot` for $2$D plotting
 
 ---
 
-# 3.3. Solving a linear system
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.integrate import odeint  # use Runge-Kutta 4
+
+def pend(y, t, b, c):  # function definition
+    return np.array([y[1], -b*y[1] - c*np.sin(y[0])])
+
+b, c = 0.25, 5.0  # tuple assignment
+y0 = np.array([np.pi - 0.1, 0.0])
+t = np.linspace(0, 10, 101)  # on [0,10] with 101 points
+
+sol = odeint(pend, y0, t, args=(b, c))
+
+plt.plot(t, sol[:, 0], 'b', label=r'$\theta(t)$')# blue
+plt.plot(t, sol[:, 1], 'g', label=r'$\omega(t)$')# green
+plt.legend(loc='best')
+plt.xlabel('t')
+plt.grid()
+plt.savefig("figures/Pendulum_solution.png")
+plt.show()
+```
+
+---
+
+![bg original 90%](figures/Pendulum_solution.png)
+
+---
+
+# 3.3. Constraint optimization problem
+
+> Goal: minimize a function under inequality constraints
+> $$f(x,y) := (x - 1)^2 + (y - 2.5)^2$$
+> with $x \geq 0$, $y \geq 0$ and $x - 2y + 2 \geq 0$, $- x - 2y + 6 \geq 0$, $x + 2y + 2 \geq 0$.
+
+## How to?
+Use modules!
+
+- `scipy.optimize.minimize` function for minimization
+- `matplotlib.pyplot.plot` for $2$D plotting
+
+---
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import minimize
+
+def obj(x):  return (x[0] - 1)**2 + (x[1] - 2.5)**2
+
+x0 = (2, 0)  # first guess
+bnds = ((0, None), (0, None))  # [0, +oo) for x and y
+cons = ({'type': 'ineq', 'fun': lambda x: x[0]-2*x[1]+2},
+        {'type': 'ineq', 'fun': lambda x:-x[0]-2*x[1]+6},
+        {'type': 'ineq', 'fun': lambda x:-x[0]+2*x[1]+2})
+
+res = minimize(obj, x0, method='SLSQP', bounds=bnds,
+               constraints=cons)
+print("Minimum is", res.x)  # (1.4, 1.7)
+```
 
 ---
 
 # 3.4. A simple neural network
-> Using keras (keras.io)
+> Using keras (keras.io) it's very simple and concise :sunglasses: !
 
 ```python
 from keras.models import Sequential
