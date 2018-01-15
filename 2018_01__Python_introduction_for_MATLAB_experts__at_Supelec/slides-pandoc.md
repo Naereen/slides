@@ -1,9 +1,20 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for MATLAB users
--->
+---
+title: 4th GouTP @ SCEE
+subtitle: Python introduction for MATLAB users
+author: Lilian Besson
+institute: SCEE Team, IETR, CentraleSupélec, Rennes
+smallinstitute: IETR
+date: Thursday 18th of January, 2018
+lang: english
+babel-lang: english
+handout: true
+numbersections: true
+section-titles: false
+fontsize: 12pt
+include-before:
+  \section*{\hfill{}4th GouTP\hfill{}}
+  \subsection*{\hfill{}Python introduction for MATLAB users\hfill{}}
+---
 
 # $4^{\text{th}}$ $2017/18$ GouTP @ SCEE
 
@@ -17,28 +28,28 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 # What's a *"GouTP"* ?
 
-- **Internal monthly technical training session** :date:
-- Usually: *Thursday 3pm :clock3: - 3:30pm* :clock330:
-- With :coffee: coffee and :cookie: sweets : we relax while training !
+- **Internal monthly technical training session** 📅
+- Usually: *Thursday 3pm - 3:30pm*
+- With ☕ coffee and 🍪 sweets : we relax while training !
 
-  > Initiative of Quentin and Vincent :clap: in last January...
-  > Continued by Rémi and Lilian :ok_hand: !
+  > Initiative of Quentin and Vincent 👏 in last January...
+  > Continued by Rémi and Lilian 👌 !
 
 ## Not only @ SCEE ?
 - Currently open to the *FAST* and *AUT* teams
 
 ---
 
-# Agenda for today $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
+# Agenda for today \hfill{} \alert{[30 min]}
 
-1. What is Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-2. Main differences in syntax and concepts $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-3. Examples of problems solved Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
-4. Where can you find more information ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
+1. What is Python \hfill{} \alert{[5 min]}
+2. Main differences in syntax and concepts \hfill{} \alert{[5 min]}
+3. Examples of problems solved Python \hfill{} \alert{[10 min]}
+4. Where can you find more information ? \hfill{} \alert{[5 min]}
 
 ---
 
-# 1. What is Python :snake: ?
+# 1. What is Python 🐍 ?
 
 - Developped and popular from the last $25$ years
 - Open-source and free programming language
@@ -54,20 +65,20 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 # Comparison with MATLAB
 
-|  | Python :smiley: | MATLAB :cry:
+|  | Python 😃 | MATLAB 😢
 |:-|:-:|:-:|
-| **Cost** | Free :v: | Hundreds of euros / year
+| **Cost** | Free ✌ | Hundreds of euros / year
 | **License** | Open-source | 1 year user license (no longer after your PhD!)
 | **Comes from** | A non-profit foundation, and the community | MathWorks company
 | **Scope** | Generic | Numeric only
-| **Platform** | Any :computer: :iphone: | Desktop only :computer:
-| **Usage** | Generic, worldwide :earth_americas: | Research in academia and industry
+| **Platform** | Any 💻 📱 | Desktop only 💻
+| **Usage** | Generic, worldwide 🌎 | Research in academia and industry
 
 ---
 
 > But Python don't have only advantages…
 
-|  | Python :cry: | MATLAB :smiley:
+|  | Python 😢 | MATLAB 😃
 |:-|:-:|:-:|
 | **Packaging** | Different solutions (`conda`, `pip`, it works fine) | Toolboxes already included
 | **IDE** | Many possibilities, have to chose one (*Spyder*) | Good IDE already included
@@ -77,21 +88,21 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-# How to install Python :arrow_down:
+# How to install Python ⬇
 - On Linux and Mac OS : already installed!
 - On Windows:
-  + You can use the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/) :snake:
-  + Or the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
+  + You can use the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/) 🐍
+  + Or the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (✨)
 - Takes about $10$ minutes... and it's free !
 
-> :warning: Choose **Python 3** (currently 3.6.4) **not 2 !**
-> :warning: Python 2 will stop :clock3: in less than 3 years (pythonclock.org)
+> ⚠ Choose **Python 3** (currently 3.6.4) **not 2 !**
+> ⚠ Python 2 will stop in less than 3 years (pythonclock.org)
 
 ---
 
-# My suggestions for Python :snake:
+# My suggestions for Python 🐍
 - Use **Anaconda** to install (and upgrade) Python and packages
-- Use **IPython** for the command line (:sparkles: awesome features !)
+- Use **IPython** for the command line (✨ awesome features !)
 - Use:
   + **Spyder** for your IDE if you like the MATLAB interface
     (installed in Anaconda, or  github.com/spyder-ide/spyder)
@@ -105,18 +116,18 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-## :package: How to install modules in Python
+## 📦 How to install modules in Python
 - If you used Anaconda, use `conda install [name]` (in a terminal) to install module `[name]`,
 - Or with the standard installer, use `pip install [name]`.
 
-## :mag: How to find the module you need ?
-- Ask your colleagues :smile: !
+## 🔍 How to find the module you need ?
+- Ask your colleagues 😄 !
 - Look on the Internet !
 - Look directly on [pypi.org](https://pypi.org) (official) or [anaconda.org](https://anaconda.org)
 
 ---
 
-# :package: Overview of main Python modules
+# 📦 Overview of main Python modules
 > Standard library is very rich, but not for scientific applications
 
 - **Numpy** (numpy.org) for `numpy.array` for multi-dim arrays and linear algebra
@@ -136,10 +147,10 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 |  | Python | MATLAB
 |:-|:-:|:-:|
-| **File ext.** | ==`.py`== | ==`.m`==
+| **File ext.** | \alert{`.py`} | \alert{`.m`}
 | **Comment** | `# blabla...` | `% blabla...`
 | **Indexing** | `a[0]` to `a[-1]` | `a(1)` to `a(end)`
-| **Slicing** | `a[0:100]` (view) | `a(1:100)` (:warning: copy)
+| **Slicing** | `a[0:100]` (view) | `a(1:100)` (⚠ copy)
 | **Operations** | Element-wise by default | Linear algebra by default
 | **Logic** | Use `:` and indexing | Use `endif` `endfor` etc
 
@@ -322,7 +333,7 @@ print("Minimum is", res.x)  # (1.4, 1.7)
 ---
 
 # 3.4. A simple neural network
-> Using keras (keras.io) it's very simple and concise :sunglasses: !
+> Using keras (keras.io) it's very simple and concise 😎 !
 
 ```python
 from keras.models import Sequential
@@ -412,10 +423,10 @@ classes = model.predict(x_test, batch_size=128)
 
 # Conclusion (3/3)
 
-> *Thanks for joining :clap: !* *Contact us if you want to do a GouTP!*
+> *Thanks for joining 👏 !* *Contact us if you want to do a GouTP!*
 
-## Your mission, if you accept it... :boom:
-1. *Padawan level:* Train yourself a little bit on Python :snake:
+## Your mission, if you accept it... 💥
+1. *Padawan level:* Train yourself a little bit on Python 🐍
    $\hookrightarrow$ introtopython.org or learnpython.org
 2. *Jedi level:* Try to solve a numerical system, from your research or teaching, in Python instead of MATLAB
 3. *Master level:* From now on, try to use open-source tools for your research (Python and others)

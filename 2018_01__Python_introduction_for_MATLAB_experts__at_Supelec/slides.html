@@ -1,73 +1,78 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for MATLAB users
--->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>4th GouTP  |  Date : 18 Jan 2018  |  Lilian Besson  |  CentraleSupélec</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../common/slides.css">
+    </head>
+    <body>
+    <!-- Done for the header, now the content -->
+<textarea id="source">
+count: true
 
-# $4^{\text{th}}$ $2017/18$ GouTP @ SCEE
+## 4th 2017/18 GouTP @ SCEE
 
 - *About:* **Python introduction for MATLAB users**
 
-- *Date:* $18$th of January $2018$
+- *Date:* 18th of January 2018
 
 - *Who:* Lilian Besson
 
 ---
 
-# What's a *"GouTP"* ?
+## What's a *"GouTP"* ?
 
-- **Internal monthly technical training session** :date:
-- Usually: *Thursday 3pm :clock3: - 3:30pm* :clock330:
-- With :coffee: coffee and :cookie: sweets : we relax while training !
+- **Internal monthly technical training session** 📅
+- Usually: *Thursday 3pm - 3:30pm*
+- With ☕ coffee and 🍪 sweets : we relax while training !
 
-  > Initiative of Quentin and Vincent :clap: in last January...
-  > Continued by Rémi and Lilian :ok_hand: !
+  > Initiative of Quentin and Vincent 👏 in last January...
+  > Continued by Rémi and Lilian 👌 !
 
-## Not only @ SCEE ?
+#### Not only @ SCEE ?
 - Currently open to the *FAST* and *AUT* teams
 
 ---
 
-# Agenda for today $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
+## Agenda for today [30 min]
 
-1. What is Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-2. Main differences in syntax and concepts $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-3. Examples of problems solved Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
-4. Where can you find more information ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
+1. What is Python [5 min]
+2. Main differences in syntax and concepts [5 min]
+3. Examples of problems solved Python [10 min]
+4. Where can you find more information ?  [5 min]
 
 ---
 
-# 1. What is Python :snake: ?
+## 1. What is Python 🐍 ?
 
-- Developped and popular from the last $25$ years
+- Developped and popular from the last 25 years
 - Open-source and free programming language
 - Interpreted, multi-platform, imperative and object-oriented
 - Designed and acknowledged as *simple to learn and use*
 - Used worldwide: research, data science, web applications etc
 
-### Ressources
+##### Ressources
 - **Website**: python.org for the language & pypi.org for packages
 - Documentation : docs.python.org (:fr: [docs.python.org/fr/3](https://docs.python.org/fr/3) translation in progress)
 
 ---
 
-# Comparison with MATLAB
+## Comparison with MATLAB
 
-|  | Python :smiley: | MATLAB :cry:
+|  | Python 😃 | MATLAB 😢
 |:-|:-:|:-:|
-| **Cost** | Free :v: | Hundreds of euros / year
+| **Cost** | Free ✌ | Hundreds of euros / year
 | **License** | Open-source | 1 year user license (no longer after your PhD!)
 | **Comes from** | A non-profit foundation, and the community | MathWorks company
 | **Scope** | Generic | Numeric only
-| **Platform** | Any :computer: :iphone: | Desktop only :computer:
-| **Usage** | Generic, worldwide :earth_americas: | Research in academia and industry
+| **Platform** | Any 💻 📱 | Desktop only 💻
+| **Usage** | Generic, worldwide 🌎 | Research in academia and industry
 
 ---
 
 > But Python don't have only advantages…
 
-|  | Python :cry: | MATLAB :smiley:
+|  | Python 😢 | MATLAB 😃
 |:-|:-:|:-:|
 | **Packaging** | Different solutions (`conda`, `pip`, it works fine) | Toolboxes already included
 | **IDE** | Many possibilities, have to chose one (*Spyder*) | Good IDE already included
@@ -77,21 +82,21 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-# How to install Python :arrow_down:
+## How to install Python ⬇
 - On Linux and Mac OS : already installed!
 - On Windows:
-  + You can use the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/) :snake:
-  + Or the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
-- Takes about $10$ minutes... and it's free !
+  + You can use the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/) 🐍
+  + Or the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (✨)
+- Takes about 10 minutes... and it's free !
 
-> :warning: Choose **Python 3** (currently 3.6.4) **not 2 !**
-> :warning: Python 2 will stop :clock3: in less than 3 years (pythonclock.org)
+> ⚠ Choose **Python 3** (currently 3.6.4) **not 2 !**
+> ⚠ Python 2 will stop in less than 3 years (pythonclock.org)
 
 ---
 
-# My suggestions for Python :snake:
+## My suggestions for Python 🐍
 - Use **Anaconda** to install (and upgrade) Python and packages
-- Use **IPython** for the command line (:sparkles: awesome features !)
+- Use **IPython** for the command line (✨ awesome features !)
 - Use:
   + **Spyder** for your IDE if you like the MATLAB interface
     (installed in Anaconda, or  github.com/spyder-ide/spyder)
@@ -105,18 +110,18 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-## :package: How to install modules in Python
+#### 📦 How to install modules in Python
 - If you used Anaconda, use `conda install [name]` (in a terminal) to install module `[name]`,
 - Or with the standard installer, use `pip install [name]`.
 
-## :mag: How to find the module you need ?
-- Ask your colleagues :smile: !
+#### 🔍 How to find the module you need ?
+- Ask your colleagues 😄 !
 - Look on the Internet !
 - Look directly on [pypi.org](https://pypi.org) (official) or [anaconda.org](https://anaconda.org)
 
 ---
 
-# :package: Overview of main Python modules
+## 📦 Overview of main Python modules
 > Standard library is very rich, but not for scientific applications
 
 - **Numpy** (numpy.org) for `numpy.array` for multi-dim arrays and linear algebra
@@ -125,21 +130,21 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 - **pandas** for data manipulation (very powerful)
 - **Scikit-Learn** (scikit-learn.org) for "classical" Machine Learning
 - **Scikit-image** for 2D and generic image processing
-- **Keras** (keras.io) for neural networks and deep learning 
+- **Keras** (keras.io) for neural networks and deep learning
 
 > And many others ! Check pypi.org
 
 ---
 
-# 2. Main differences in syntax between Python and MATLAB
+## 2. Main differences in syntax between Python and MATLAB
 > Ref: mathesaurus.sourceforge.net/matlab-python-xref.pdf
 
 |  | Python | MATLAB
 |:-|:-:|:-:|
-| **File ext.** | ==`.py`== | ==`.m`==
+| **File ext.** | `.py` | `.m`
 | **Comment** | `# blabla...` | `% blabla...`
 | **Indexing** | `a[0]` to `a[-1]` | `a(1)` to `a(end)`
-| **Slicing** | `a[0:100]` (view) | `a(1:100)` (:warning: copy)
+| **Slicing** | `a[0:100]` (view) | `a(1:100)` (⚠ copy)
 | **Operations** | Element-wise by default | Linear algebra by default
 | **Logic** | Use `:` and indexing | Use `endif` `endfor` etc
 
@@ -150,7 +155,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 | **Help** | `help(func)` or `func?` (IPython) | `help func`
 | **And** | `a and b` | `a && b`
 | **Or** | `a or b` | `a || b`
-| **Datatype** | `np.array` of *any* type | multi-dim doubles array 
+| **Datatype** | `np.array` of *any* type | multi-dim doubles array
 | **Array** | `np.array([[1,2],[3,4]], dtype=float)` | `[1 2; 3 4]`
 | **Size** | `np.size(a)` | `size(a)`
 | **Nb Dim** | `np.ndim(a)` | `ndims(a)`
@@ -164,9 +169,9 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 |:-|:-:|:-:|
 | **Tranpose** | `a.T` | `a.'`
 | **Conj. transpose** | `a.conj().T` | `a'`
-| **Matrix** $\times$ | `a.dot(b)` or `a @ b` | `a * b`
-| **Element-wise** $\times$ | `a * b` | `a .* b`
-| **Element-wise** $/$ | `a / b` | `a ./ b`
+| **Matrix** x | `a.dot(b)` or `a @ b` | `a * b`
+| **Element-wise** x | `a * b` | `a .* b`
+| **Element-wise** / | `a / b` | `a ./ b`
 | **Element-wise** ^ | `a ** 3` | `a .^ 3`
 | **Zeros** | `numpy.zeros((2,3,5))` | `zeros(2,3,5)`
 | **Ones** | `numpy.ones((2,3,5))` | `ones(2,3,5)`
@@ -180,7 +185,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 |:-|:-:|:-:|
 | **Maximum** | `np.max(a)` | `max(max(a))` ?
 | **Random matrix** | `np.random.rand(3,4)` | `rand(3,4)`
-| $L^2$ **Norm** | `np.sqrt(v @ v)` or `L.norm(v)` | `norm(v)`
+| L2 **Norm** | `np.sqrt(v @ v)` or `L.norm(v)` | `norm(v)`
 | **Inverse** | `L.inv(a)` | `inv(a)`
 | **Pseudo inv** | `L.pinv(a)` | `pinv(a)`
 | **Solve syst.** | `L.solve(a, b)` | `a \ b`
@@ -191,28 +196,28 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-# 3. Scientific problems solved with Python
+## 3. Scientific problems solved with Python
 > Just to give examples of syntax and modules
 
-1. $1$D numerical integration and plot
-3. Solving a $2$D Ordinary Differential Equation
+1. 1D numerical integration and plot
+3. Solving a 2D Ordinary Differential Equation
 2. Solving a constraint optimization problem and plotting solution
 4. A simple neural network
 5. Symbolic computations
 
 ---
 
-# 3.1. $1$D numerical integration and plot
+## 3.1. 1D numerical integration and plot
 
-> Goal : evaluate and plot the function on $[-1, 1]$ :
+> Goal : evaluate and plot the function on [-1, 1] :
 > $$\mathrm{Ei}(x) := \int_{-\infty}^x \frac{\mathrm{e}^u}{u} \;\mathrm{d}u$$
 
-## How to?
+#### How to?
 Use modules!
 
 - `numpy` for maths functions and arrays
 - `scipy.integrate.quad` function for numerical integration
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `matplotlib.pyplot.plot` for 2D plotting
 
 ---
 
@@ -246,16 +251,16 @@ plt.show()
 
 ---
 
-# 3.2. Solving a $2$D Ordinary Differential Equation
+## 3.2. Solving a 2D Ordinary Differential Equation
 
 > Goal : solve and plot the differential equation of a pendulum :
 > $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
 
-## How to?
+#### How to?
 Use modules!
 
 - `scipy.integrate.odeint` function for ODE integration
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `matplotlib.pyplot.plot` for 2D plotting
 
 ---
 
@@ -288,16 +293,16 @@ plt.show()
 
 ---
 
-# 3.3. Constraint optimization problem
+## 3.3. Constraint optimization problem
 
 > Goal: minimize a function under inequality constraints
 > $$f(x,y) := (x - 1)^2 + (y - 2.5)^2$$
 > $$\text{such that } \begin{cases}x \geq 0 \text{ and } y \geq 0 \\ x - 2y + 2 \geq 0 \\ - x - 2y + 6 \geq 0 \\ x + 2y + 2 \geq 0\end{cases}$$
 
-## How to?
+#### How to?
 
 - `scipy.optimize.minimize` function for minimization
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `matplotlib.pyplot.plot` for 2D plotting
 
 ---
 
@@ -321,8 +326,8 @@ print("Minimum is", res.x)  # (1.4, 1.7)
 
 ---
 
-# 3.4. A simple neural network
-> Using keras (keras.io) it's very simple and concise :sunglasses: !
+## 3.4. A simple neural network
+> Using keras (keras.io) it's very simple and concise 😎 !
 
 ```python
 from keras.models import Sequential
@@ -335,18 +340,18 @@ model.add(Dense(units=10, activation='softmax'))
 model.compile(loss='categorical_crossentropy',
               optimizer='sgd', metrics=['accuracy'])
 
-# x_train and y_train are Numpy arrays
-# just like in the Scikit-Learn API.
+## x_train and y_train are Numpy arrays
+## just like in the Scikit-Learn API.
 model.fit(x_train, y_train, epochs=5, batch_size=32)
 
-# evaluate or predict using the model
+## evaluate or predict using the model
 loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
 classes = model.predict(x_test, batch_size=128)
 ```
 
 ---
 
-# 3.5. Symbolic computations
+## 3.5. Symbolic computations
 
 - Almost impossible to do in MATLAB…
 - Most Python code written for numerical values also works for symbolic values! Use **SymPy** module
@@ -358,7 +363,7 @@ classes = model.predict(x_test, batch_size=128)
 
 ---
 
-### Example : generated graph with numbers
+##### Example : generated graph with numbers
 
 <center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.png"></center>
 
@@ -366,7 +371,7 @@ classes = model.predict(x_test, batch_size=128)
 
 ---
 
-### Example : generated graph with fractions
+##### Example : generated graph with fractions
 
 <center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.png"></center>
 
@@ -374,15 +379,15 @@ classes = model.predict(x_test, batch_size=128)
 
 ---
 
-### Example : generated graph with symbols
+##### Example : generated graph with symbols
 
 <center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__formal.png"></center>
 
 ---
 
-# Conclusion (1/3)
+## Conclusion (1/3)
 
-## Sum-up
+#### Sum-up
 - I hope you got a good introduction to Python
   + Good tutorials: www.scipy-lectures.org
 - It's not hard to migrate from MATLAB to Python
@@ -393,14 +398,14 @@ classes = model.predict(x_test, batch_size=128)
 
 ---
 
-# Conclusion (2/3)
+## Conclusion (2/3)
 
-## Next GouTP @ SCEE
+#### Next GouTP @ SCEE
 > By Lilian
 - Jupyter notebooks for teaching and research
   $\hookrightarrow$ jupyter.org
 
-## GouTP @ FAST or AUT ?
+#### GouTP @ FAST or AUT ?
 > By Pierre Haessig
 
 - Julia programming language (~ between Python and Matlab)
@@ -410,12 +415,39 @@ classes = model.predict(x_test, batch_size=128)
 
 ---
 
-# Conclusion (3/3)
+## Conclusion (3/3)
 
-> *Thanks for joining :clap: !* *Contact us if you want to do a GouTP!*
+> *Thanks for joining 👏 !* *Contact us if you want to do a GouTP!*
 
-## Your mission, if you accept it... :boom:
-1. *Padawan level:* Train yourself a little bit on Python :snake:
+#### Your mission, if you accept it... 💥
+1. *Padawan level:* Train yourself a little bit on Python 🐍
    $\hookrightarrow$ introtopython.org or learnpython.org
 2. *Jedi level:* Try to solve a numerical system, from your research or teaching, in Python instead of MATLAB
 3. *Master level:* From now on, try to use open-source tools for your research (Python and others)
+
+</textarea>
+        <!-- Done for the content, now the footer -->
+        <script type="text/javascript" src="../common/remark.min.js"></script>
+        <!-- If needed, the latest version can be downloaded raw from GitHub : -->
+        <!-- <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script> -->
+        <script type="text/javascript">
+            var slideshow = remark.create({
+                    highlightLanguage: 'python',
+                    highlightStyle: 'monokai'
+                });
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                extensions: ["tex2jax.js"],
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                    inlineMath: [ ["$", "$"] ],
+                    displayMath: [ ["$$", "$$"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { availableFonts: ["TeX"] }
+            });
+        </script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
+    </body>
+</html>

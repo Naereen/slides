@@ -1,15 +1,17 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for MATLAB users
--->
+---
+title: 4th GouTP @ SCEE
+subtitle: Python introduction for MATLAB users
+author: Lilian Besson
+institute: SCEE Team, IETR, CentraleSupélec, Rennes
+date: Thursday 18th of January, 2018
+lang: english
+---
 
-# $4^{\text{th}}$ $2017/18$ GouTP @ SCEE
+# 4th 2017/18 GouTP @ SCEE
 
 - *About:* **Python introduction for MATLAB users**
 
-- *Date:* $18$th of January $2018$
+- *Date:* 18th of January 2018
 
 - *Who:* Lilian Besson
 
@@ -29,18 +31,18 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-# Agenda for today $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
+# Agenda for today [30 min]
 
-1. What is Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-2. Main differences in syntax and concepts $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-3. Examples of problems solved Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
-4. Where can you find more information ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
+1. What is Python [5 min]
+2. Main differences in syntax and concepts [5 min]
+3. Examples of problems solved Python [10 min]
+4. Where can you find more information ?  [5 min]
 
 ---
 
 # 1. What is Python :snake: ?
 
-- Developped and popular from the last $25$ years
+- Developped and popular from the last 25 years
 - Open-source and free programming language
 - Interpreted, multi-platform, imperative and object-oriented
 - Designed and acknowledged as *simple to learn and use*
@@ -82,7 +84,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 - On Windows:
   + You can use the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/) :snake:
   + Or the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
-- Takes about $10$ minutes... and it's free !
+- Takes about 10 minutes... and it's free !
 
 > :warning: Choose **Python 3** (currently 3.6.4) **not 2 !**
 > :warning: Python 2 will stop :clock3: in less than 3 years (pythonclock.org)
@@ -125,7 +127,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 - **pandas** for data manipulation (very powerful)
 - **Scikit-Learn** (scikit-learn.org) for "classical" Machine Learning
 - **Scikit-image** for 2D and generic image processing
-- **Keras** (keras.io) for neural networks and deep learning 
+- **Keras** (keras.io) for neural networks and deep learning
 
 > And many others ! Check pypi.org
 
@@ -136,7 +138,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 |  | Python | MATLAB
 |:-|:-:|:-:|
-| **File ext.** | ==`.py`== | ==`.m`==
+| **File ext.** | `.py` | `.m`
 | **Comment** | `# blabla...` | `% blabla...`
 | **Indexing** | `a[0]` to `a[-1]` | `a(1)` to `a(end)`
 | **Slicing** | `a[0:100]` (view) | `a(1:100)` (:warning: copy)
@@ -150,7 +152,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 | **Help** | `help(func)` or `func?` (IPython) | `help func`
 | **And** | `a and b` | `a && b`
 | **Or** | `a or b` | `a || b`
-| **Datatype** | `np.array` of *any* type | multi-dim doubles array 
+| **Datatype** | `np.array` of *any* type | multi-dim doubles array
 | **Array** | `np.array([[1,2],[3,4]], dtype=float)` | `[1 2; 3 4]`
 | **Size** | `np.size(a)` | `size(a)`
 | **Nb Dim** | `np.ndim(a)` | `ndims(a)`
@@ -164,9 +166,9 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 |:-|:-:|:-:|
 | **Tranpose** | `a.T` | `a.'`
 | **Conj. transpose** | `a.conj().T` | `a'`
-| **Matrix** $\times$ | `a.dot(b)` or `a @ b` | `a * b`
-| **Element-wise** $\times$ | `a * b` | `a .* b`
-| **Element-wise** $/$ | `a / b` | `a ./ b`
+| **Matrix** x | `a.dot(b)` or `a @ b` | `a * b`
+| **Element-wise** x | `a * b` | `a .* b`
+| **Element-wise** / | `a / b` | `a ./ b`
 | **Element-wise** ^ | `a ** 3` | `a .^ 3`
 | **Zeros** | `numpy.zeros((2,3,5))` | `zeros(2,3,5)`
 | **Ones** | `numpy.ones((2,3,5))` | `ones(2,3,5)`
@@ -180,7 +182,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 |:-|:-:|:-:|
 | **Maximum** | `np.max(a)` | `max(max(a))` ?
 | **Random matrix** | `np.random.rand(3,4)` | `rand(3,4)`
-| $L^2$ **Norm** | `np.sqrt(v @ v)` or `L.norm(v)` | `norm(v)`
+| L2 **Norm** | `np.sqrt(v @ v)` or `L.norm(v)` | `norm(v)`
 | **Inverse** | `L.inv(a)` | `inv(a)`
 | **Pseudo inv** | `L.pinv(a)` | `pinv(a)`
 | **Solve syst.** | `L.solve(a, b)` | `a \ b`
@@ -194,17 +196,17 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 # 3. Scientific problems solved with Python
 > Just to give examples of syntax and modules
 
-1. $1$D numerical integration and plot
-3. Solving a $2$D Ordinary Differential Equation
+1. 1D numerical integration and plot
+3. Solving a 2D Ordinary Differential Equation
 2. Solving a constraint optimization problem and plotting solution
 4. A simple neural network
 5. Symbolic computations
 
 ---
 
-# 3.1. $1$D numerical integration and plot
+# 3.1. 1D numerical integration and plot
 
-> Goal : evaluate and plot the function on $[-1, 1]$ :
+> Goal : evaluate and plot the function on [-1, 1] :
 > $$\mathrm{Ei}(x) := \int_{-\infty}^x \frac{\mathrm{e}^u}{u} \;\mathrm{d}u$$
 
 ## How to?
@@ -212,7 +214,7 @@ Use modules!
 
 - `numpy` for maths functions and arrays
 - `scipy.integrate.quad` function for numerical integration
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `matplotlib.pyplot.plot` for 2D plotting
 
 ---
 
@@ -246,7 +248,7 @@ plt.show()
 
 ---
 
-# 3.2. Solving a $2$D Ordinary Differential Equation
+# 3.2. Solving a 2D Ordinary Differential Equation
 
 > Goal : solve and plot the differential equation of a pendulum :
 > $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
@@ -255,7 +257,7 @@ plt.show()
 Use modules!
 
 - `scipy.integrate.odeint` function for ODE integration
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `matplotlib.pyplot.plot` for 2D plotting
 
 ---
 
@@ -297,7 +299,7 @@ plt.show()
 ## How to?
 
 - `scipy.optimize.minimize` function for minimization
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `matplotlib.pyplot.plot` for 2D plotting
 
 ---
 
