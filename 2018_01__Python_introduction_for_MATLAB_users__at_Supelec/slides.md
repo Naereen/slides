@@ -21,8 +21,8 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 - Usually: *Thursday 3pm :clock3: - 3:30pm* :clock330:
 - With :coffee: coffee and :cookie: sweets : we relax while training !
 
-  > Initiative of Quentin and Vincent :clap: in last January...
-  > Continued by Rémi and Lilian :ok_hand: !
+  > Initiative of Quentin and Vincent :clap: in January $2017$...
+  > Continued by Rémi, Rami and Lilian :ok_hand: !
 
 ## Not only @ SCEE ?
 - Currently open to the *FAST* and *AUT* teams
@@ -33,7 +33,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 1. What is Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
 2. Main differences in syntax and concepts $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-3. Examples of problems solved Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
+3. Examples of problems solved with Python $\;\;\;\;\;\;\;\;\;\;\;\;$ ==[15 min]==
 4. Where can you find more information ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
 
 ---
@@ -42,13 +42,14 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 - Developped and popular from the last $25$ years
 - Open-source and free programming language
-- Interpreted, multi-platform, imperative and object-oriented
+- *Interpreted*, multi-platform, imperative and object-oriented
 - Designed and acknowledged as *simple to learn and use*
 - Used worldwide: research, data science, web applications etc
 
 ### Ressources
-- **Website**: python.org for the language & pypi.org for packages
-- Documentation : docs.python.org (:fr: [docs.python.org/fr/3](https://docs.python.org/fr/3) translation in progress)
+- **Website**: python.org for the language & pypi.org for modules
+- Documentation :notebook: : docs.python.org
+  (:fr: also [docs.python.org/fr/3](https://docs.python.org/fr/3) the translation in progress)
 
 ---
 
@@ -58,31 +59,31 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 |:-|:-:|:-:|
 | **Cost** | Free :v: | Hundreds of euros / year
 | **License** | Open-source | 1 year user license (no longer after your PhD!)
-| **Comes from** | A non-profit foundation, and the community | MathWorks company
+| **Comes from** | A non-profit foundation, and "the community" | MathWorks company
 | **Scope** | Generic | Numeric only
 | **Platform** | Any :computer: :iphone: | Desktop only :computer:
-| **Usage** | Generic, worldwide :earth_americas: | Research in academia and industry
+| **Usage** | Generic, worldwide :earth_americas: | Research in academia :mortar_board: and industry :factory:
 
 ---
 
-> But Python don't have only advantages…
+> But Python is not perfect…
 
 |  | Python :cry: | MATLAB :smiley:
 |:-|:-:|:-:|
-| **Packaging** | Different solutions (`conda`, `pip`, it works fine) | Toolboxes already included
+| **Packaging** | Different good solutions (`conda`, `pip`) | Toolboxes already included
 | **IDE** | Many possibilities, have to chose one (*Spyder*) | Good IDE already included
 | **Support?** | Community (StackOverflow, IRC, mailing lists etc) | By MathWorks ?
-| **Performances** | Interpreted, not so fast (check *Pypy* for speed)| Faster (but worse than C, Julia)
-| **Documentation** | OK but very diverse | OK and inline
+| **Performances** | Interpreted, not so fast (check *Pypy* for speed)| Faster (but worse than C/Java/Julia)
+| **Documentation** | :ok_hand: OK but very diverse | :ok_hand: OK and inline
 
 ---
 
-# How to install Python :arrow_down:
+# How to install Python ? :arrow_down:
 - On Linux and Mac OS : already installed!
 - On Windows:
-  + You can use the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/) :snake:
-  + Or the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
-- Takes about $10$ minutes... and it's free !
+  + You should use the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
+  + Or the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/)
+- Takes about $10$ minutes… and it's free :v: !
 
 > :warning: Choose **Python 3** (currently 3.6.4) **not 2 !**
 > :warning: Python 2 will stop :clock3: in less than 3 years (pythonclock.org)
@@ -93,33 +94,39 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 - Use **Anaconda** to install (and upgrade) Python and packages
 - Use **IPython** for the command line (:sparkles: awesome features !)
 - Use:
-  + **Spyder** for your IDE if you like the MATLAB interface
-    (installed in Anaconda, or  github.com/spyder-ide/spyder)
-  + **PyCharm** if you want "the most powerful Python IDE ever"
+  + [**Spyder**](https://github.com/spyder-ide/spyder) for your IDE if you like the MATLAB interface
+    (installed in Anaconda, or `pip install spyder`)
+  + PyCharm if you want "the most powerful Python IDE ever"
   + Or a good generic text editor + a plugin for Python
     (Emacs, Vim, Atom, SublimeText, **Visual Studio Code**…)
 - Use **Jupyter notebooks** to write or share your experiments
-  (jupyter.org, eg. github.com/Naereen/notebooks)
+  (jupyter.org, ex: my github.com/Naereen/notebooks collection)
 
 > More suggestions: pierreh.eu/python-setup by Pierre Haessig
 
 ---
 
-## :package: How to install modules in Python
-- If you used Anaconda, use `conda install [name]` (in a terminal) to install module `[name]`,
+## :package: How to install modules in Python ?
+- If you used Anaconda, use `conda install [name]` (in a terminal) to install module `[name]`:
 - Or with the standard installer, use `pip install [name]`.
+  ```bash
+  $ [sudo] pip/conda install keras  # example
+  ```
 
 ## :mag: How to find the module you need ?
 - Ask your colleagues :smile: !
 - Look on the Internet !
 - Look directly on [pypi.org](https://pypi.org) (official) or [anaconda.org](https://anaconda.org)
+  ```bash
+  $ pip/conda search keras  # example
+  ```
 
 ---
 
 # :package: Overview of main Python modules
 > Standard library is very rich, but not for scientific applications
 
-- **Numpy** (numpy.org) for `numpy.array` for multi-dim arrays and linear algebra
+- **Numpy** (numpy.org) for `numpy.array` for multi-dim arrays and operations, and `numpy.linalg` module for linear algebra
 - **Scipy** (scipy.org) for numerical computations (signal processing, integration, ODE integration, optimization etc)
 - **Matplotlib** (matplotlib.org) for MATLAB-like 2D and 3D plots
 - **pandas** for data manipulation (very powerful)
@@ -127,7 +134,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 - **Scikit-image** for 2D and generic image processing
 - **Keras** (keras.io) for neural networks and deep learning 
 
-> And many others ! Check pypi.org
+> And many others :chart_with_upwards_trend: ! Check pypi.org
 
 ---
 
@@ -141,30 +148,30 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 | **Indexing** | `a[0]` to `a[-1]` | `a(1)` to `a(end)`
 | **Slicing** | `a[0:100]` (view) | `a(1:100)` (:warning: copy)
 | **Operations** | Element-wise by default | Linear algebra by default
-| **Logic** | Use `:` and indexing | Use `endif` `endfor` etc
+| **Logic** | Use `:` and indenting | Use `endif` `endfor` etc
 
 ---
 
 |  | Python | MATLAB
 |:-|:-:|:-:|
-| **Help** | `help(func)` or `func?` (IPython) | `help func`
+| **Help** | `help(func)` (or `func?` IPython) | `help func`
 | **And** | `a and b` | `a && b`
 | **Or** | `a or b` | `a || b`
-| **Datatype** | `np.array` of *any* type | multi-dim doubles array 
-| **Array** | `np.array([[1,2],[3,4]], dtype=float)` | `[1 2; 3 4]`
+| **Datatype** | `np.array` of *any* type | multi-dim `double`s array 
+| **New array** | `a = np.array([[1,2],[3,4]], dtype=float)` | `a=[1 2; 3 4]`
 | **Size** | `np.size(a)` | `size(a)`
 | **Nb Dim** | `np.ndim(a)` | `ndims(a)`
 | **Last** | `a[-1]` | `a(end)`
 
-> With `import numpy as np`
+> With the usual shortcut `import numpy as np`
 
 ---
 
 |  | Python | MATLAB
 |:-|:-:|:-:|
 | **Tranpose** | `a.T` | `a.'`
-| **Conj. transpose** | `a.conj().T` | `a'`
-| **Matrix** $\times$ | `a.dot(b)` or `a @ b` | `a * b`
+| **Conj. transpose** | `a.conj().T` :warning: | `a'`
+| **Matrix** $\times$ | `a.dot(b)` or ==`a @ b`== | `a * b`
 | **Element-wise** $\times$ | `a * b` | `a .* b`
 | **Element-wise** $/$ | `a / b` | `a ./ b`
 | **Element-wise** ^ | `a ** 3` | `a .^ 3`
@@ -191,8 +198,8 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-# 3. Scientific problems solved with Python
-> Just to give examples of syntax and modules
+# 3. Examples of scientific problems solved with Python
+> Just to give some real examples of syntax and use of modules
 
 1. $1$D numerical integration and plot
 3. Solving a $2$D Ordinary Differential Equation
@@ -204,7 +211,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 # 3.1. $1$D numerical integration and plot
 
-> Goal : evaluate and plot the function on $[-1, 1]$ :
+> Goal : evaluate and plot [this function](https://reference.wolfram.com/language/ref/ExpIntegralEi.html), on $[-1, 1]$ :
 > $$\mathrm{Ei}(x) := \int_{-\infty}^x \frac{\mathrm{e}^u}{u} \;\mathrm{d}u$$
 
 ## How to?
@@ -233,7 +240,7 @@ def Ei(x, minfloat=1e-6, maxfloat=1000):
 
 X = np.linspace(-1, 1, 1000) # 1000 points
 Y = np.vectorize(Ei)(X)      # or [Ei(x) for x in X]
-plt.plot(X, Y)               # MATLAB-like interface
+plt.plot(X, Y)               # MATLAB-like interface !
 plt.title("The function Ei(x)")
 plt.xlabel("x"); plt.ylabel("y")
 plt.savefig("figures/Ei_integral.png")
@@ -246,10 +253,11 @@ plt.show()
 
 ---
 
-# 3.2. Solving a $2$D Ordinary Differential Equation
+# 3.2. Solving a $2$D ODE
 
 > Goal : solve and plot the differential equation of a pendulum :
 > $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
+> For $b = 1/4$, $c = 5$, $\theta(0) = \pi - 0.1$, $\theta'(0)=0$, $t\in[0,10]$
 
 ## How to?
 Use modules!
@@ -262,7 +270,7 @@ Use modules!
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.integrate import odeint  # use Runge-Kutta 4
+from scipy.integrate import odeint   # use Runge-Kutta 4
 
 def pend(y, t, b, c):  # function definition
     return np.array([y[1], -b*y[1] - c*np.sin(y[0])])
@@ -284,13 +292,13 @@ plt.show()
 
 ---
 
-<center><img width="75%" src="figures/Pendulum_solution.png"></center>
+<center><img width="90%" src="figures/Pendulum_solution.png"></center>
 
 ---
 
 # 3.3. Constraint optimization problem
 
-> Goal: minimize a function under inequality constraints
+> Goal: minimize a function under linear inequality constraints
 > $$f(x,y) := (x - 1)^2 + (y - 2.5)^2$$
 > $$\text{such that } \begin{cases}x \geq 0 \text{ and } y \geq 0 \\ x - 2y + 2 \geq 0 \\ - x - 2y + 6 \geq 0 \\ x + 2y + 2 \geq 0\end{cases}$$
 
@@ -302,21 +310,23 @@ plt.show()
 ---
 
 ```python
-import numpy as np
-import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 
-def obj(x):  return (x[0] - 1)**2 + (x[1] - 2.5)**2
+def obj(x):
+    return (x[0] - 1)**2 + (x[1] - 2.5)**2
 
 x0 = (2, 0)  # first guess
+
 bnds = ((0, None), (0, None))  # [0, +oo) for x and y
+
 cons = ({'type': 'ineq', 'fun': lambda x: x[0]-2*x[1]+2},
         {'type': 'ineq', 'fun': lambda x:-x[0]-2*x[1]+6},
         {'type': 'ineq', 'fun': lambda x:-x[0]+2*x[1]+2})
 
+
 res = minimize(obj, x0, method='SLSQP', bounds=bnds,
                constraints=cons)
-print("Minimum is", res.x)  # (1.4, 1.7)
+print("Minimum is", res.x)  # Minimum is (1.4, 1.7)
 ```
 
 ---
@@ -335,8 +345,7 @@ model.add(Dense(units=10, activation='softmax'))
 model.compile(loss='categorical_crossentropy',
               optimizer='sgd', metrics=['accuracy'])
 
-# x_train and y_train are Numpy arrays
-# just like in the Scikit-Learn API.
+# x_train and y_train: numpy arrays like in Scikit-Learn
 model.fit(x_train, y_train, epochs=5, batch_size=32)
 
 # evaluate or predict using the model
@@ -350,11 +359,36 @@ classes = model.predict(x_test, batch_size=128)
 
 - Almost impossible to do in MATLAB…
 - Most Python code written for numerical values also works for symbolic values! Use **SymPy** module
-- Powerful webtool like Wolfram|Alpha : [sympygamma.com](http://www.sympygamma.com/)
+- Powerful webapp (like Wolfram|Alpha) : [sympygamma.com](http://www.sympygamma.com/)
 - An example from my latest article…
   + the same code works for numbers
   + or exact fractions
   + or symbols $\mu_1,\ldots,\mu_K$
+
+---
+
+# 3.5. Symbolic computations : examples
+> Using sympy (sympy.org)
+
+```python
+from sympy import *
+x, t, z, nu = symbols('x t z nu')
+
+diff(sin(x)*exp(x), x)  # exp(x)*sin(x) + exp(x)*cos(x)
+
+integrate(exp(x)*sin(x) + exp(x)*cos(x), x)  # exp(x)*sin(x)
+
+integrate(sin(x**2), (x, -oo, oo))  # sqrt(2)*sqrt(pi)/2
+
+limit(sin(x)/x, x, 0)  # 1
+
+y = Function('y')
+dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
+# Eq(y(t), C2*exp(-t) + (C1 + t/2)*exp(t))
+```
+
+> See http://docs.sympy.org for more examples
+
 
 ---
 
@@ -383,10 +417,10 @@ classes = model.predict(x_test, batch_size=128)
 # Conclusion (1/3)
 
 ## Sum-up
-- I hope you got a good introduction to Python
+- I hope you got a good introduction to Python :ok_hand:
   + Good tutorials: www.scipy-lectures.org
-- It's not hard to migrate from MATLAB to Python
-- More ressources:
+- It's not hard to migrate :airplane: from MATLAB to Python
+- More ressources :notebook: :
   + official documentation : docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html
   + a good 45-minute training video : youtu.be/YkCegjtoHFQ
   + mathesaurus.sourceforge.net/matlab-numpy.html and mathesaurus.sourceforge.net/matlab-python-xref.pdf
@@ -395,27 +429,27 @@ classes = model.predict(x_test, batch_size=128)
 
 # Conclusion (2/3)
 
-## Next GouTP @ SCEE
-> By Lilian
-- Jupyter notebooks for teaching and research
-  $\hookrightarrow$ jupyter.org
+## Next GouTP @ ==SCEE==
+> By Lilian Besson :wave:
+- **Jupyter notebooks** for teaching and research
+  $\hookrightarrow$ jupyter.org if you are curious
 
-## GouTP @ FAST or AUT ?
+## GouTP @ ==FAST== or ==AUT== ?
 > By Pierre Haessig
 
-- Julia programming language (~ between Python and Matlab)
-  $\hookrightarrow$ julialang.org
+- **Julia programming language** (~ between Python and Matlab)
+  $\hookrightarrow$ julialang.org if you are curious
 
-> By you ? Any idea is welcome!
+> By *you* ? Any idea is welcome ! :smiley:
 
 ---
 
 # Conclusion (3/3)
 
-> *Thanks for joining :clap: !* *Contact us if you want to do a GouTP!*
+> *Thanks for joining :clap: !* *Contact us if you want to do a GouTP !*
 
-## Your mission, if you accept it... :boom:
-1. *Padawan level:* Train yourself a little bit on Python :snake:
-   $\hookrightarrow$ introtopython.org or learnpython.org
-2. *Jedi level:* Try to solve a numerical system, from your research or teaching, in Python instead of MATLAB
-3. *Master level:* From now on, try to use open-source tools for your research (Python and others)
+## Your mission, if you accept it… :boom:
+1. *Padawan level :* Train yourself a little bit on Python :snake:
+   $\hookrightarrow$ python.org or introtopython.org or learnpython.org
+2. *Jedi level :* Try to solve a numerical system, from your research or teaching, in Python instead of MATLAB
+3. *Master level :* From now on, try to use (only?) open-source tools for your research (Python and others)
