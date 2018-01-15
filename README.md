@@ -28,6 +28,7 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 - [November 2017 : 1 year of PhD summary, presentation at the SCEE team seminar (CentraleSupélec Rennes)](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides.pdf) ([16:9 ?](http:/perso.crans.org/besson/publis/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides_169.pdf)).
 - [December 2017 : Presentation of our ALT 2018 article at SequeL team seminar (Inria Lille)](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.pdf) ([16:9 ?](http:/perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides_169.pdf)).
 - [January 2018 : Same presentation at the ENSAI "brown-bag" seminar (Rennes)](http:/perso.crans.org/besson/publis/slides/2018_01__ENSAI_Seminar_BrownBag__Article_ALT2018/slides_169.pdf).
+- [January 2018 : "Python introduction for MATLAB users" training session (CentraleSupélec Rennes)](http:/perso.crans.org/besson/publis/slides/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.pdf).
 
 ### :arrow_forward: 2. View the slides on-line as HTML pages ?
 > These versions are experimental and should not be used.
@@ -45,6 +46,7 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 - [2017_11__Git_and_open-source_your_simulation_code__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.html).
 - [2017_11__Presentation_Supelec_SCEE_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Presentation_Supelec_SCEE_Seminar/slides.html).
 - [2017_12__Presentation_Inria_Lille_SequeL_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.html).
+- [2018_01__Python_introduction_for_MATLAB_users__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.html).
 
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/slides.html`.
 
