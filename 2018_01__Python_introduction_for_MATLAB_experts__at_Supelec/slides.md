@@ -292,10 +292,9 @@ plt.show()
 
 > Goal: minimize a function under inequality constraints
 > $$f(x,y) := (x - 1)^2 + (y - 2.5)^2$$
-> with $x \geq 0$, $y \geq 0$ and $x - 2y + 2 \geq 0$, $- x - 2y + 6 \geq 0$, $x + 2y + 2 \geq 0$.
+> $$\text{such that } \begin{cases}x \geq 0 \text{ and } y \geq 0 \\ x - 2y + 2 \geq 0 \\ - x - 2y + 6 \geq 0 \\ x + 2y + 2 \geq 0\end{cases}$$
 
 ## How to?
-Use modules!
 
 - `scipy.optimize.minimize` function for minimization
 - `matplotlib.pyplot.plot` for $2$D plotting
@@ -361,19 +360,23 @@ classes = model.predict(x_test, batch_size=128)
 
 ### Example : generated graph with numbers
 
-<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.svg"></center>
+<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.png"></center>
+
+> Graph saved a DOT file and to a TikZ graph with [dot2tex](https://github.com/Naereen/dot2tex)
 
 ---
 
 ### Example : generated graph with fractions
 
-<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.svg"></center>
+<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.png"></center>
+
+> Source: [banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html](http://banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html)
 
 ---
 
 ### Example : generated graph with symbols
 
-<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__formal.svg"></center>
+<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__formal.png"></center>
 
 ---
 
