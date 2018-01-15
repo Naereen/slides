@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint  # use Runge-Kutta 4
 
 def pend(y, t, b, c):  # function definition
+    """Gives 2D vector dy/dt as function of y and t, with parameters b and c."""
     return np.array([y[1], -b*y[1] - c*np.sin(y[0])])
+
 
 b, c = 0.25, 5.0  # tuple assignment
 y0 = np.array([np.pi - 0.1, 0.0])
