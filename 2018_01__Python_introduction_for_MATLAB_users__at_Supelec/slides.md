@@ -22,7 +22,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 - **Internal monthly technical training session** :date:
 - Usually: *Thursday 3pm :clock3: - 3:30pm* :clock330:
-- With :coffee: coffee and :cookie: sweets : we relax while training !
+- With :coffee: coffee and :cookie: sweets: we relax while training !
 
   > Initiative of Quentin and Vincent :clap: in January $2017$...
   > Continued by Rémi, Rami and Lilian :ok_hand: !
@@ -35,9 +35,9 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 # Agenda for today $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
 
 1. What is Python $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-2. Main differences in syntax and concepts $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-3. Examples of problems solved with Python $\;\;\;\;\;\;\;\;\;\;\;\;$ ==[15 min]==
-4. Where can you find more information ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
+2. Main differences in syntax and concepts $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
+3. 5 Examples of problems solved with Python $\;\;\;\;\;\;\;\;\;\;\;\;$ ==[15 min]==
+4. Where can you find more information ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
 
 ---
 
@@ -52,7 +52,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 ### Ressources
 - **Website**: python.org for the language & pypi.org for modules
 - Documentation :notebook: : docs.python.org
-  (:fr: also [docs.python.org/fr/3](https://docs.python.org/fr/3) the translation in progress)
+  (:fr: also [docs.python.org/fr/3](https://docs.python.org/fr/3) ‑ :snail: the translation in progress)
 
 ---
 
@@ -82,7 +82,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 ---
 
 # How to install Python ? :arrow_down:
-- On Linux and Mac OS : already installed!
+- On Linux and Mac OS: already installed!
 - On Windows:
   + Use the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
   + Or the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/)
@@ -95,7 +95,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 # My suggestions for Python :snake:
 - Use **Anaconda** to install (and upgrade) Python and packages
-- Use **IPython** for the command line (:sparkles: awesome features !)
+- Use **IPython** for the command line (:sparkles: awesome features!)
 - Use:
   + [**Spyder**](https://github.com/spyder-ide/spyder) for your IDE if you like the MATLAB interface
     (installed in Anaconda, or `pip install spyder`)
@@ -118,7 +118,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ## :mag: How to find the module you need ?
 - Ask your colleagues :smile: !
-- Look on the Internet !
+- Look on the Internet!
 - Look directly on [pypi.org](https://pypi.org) (official) or [anaconda.org](https://anaconda.org)
   ```bash
   $ pip/conda search keras  # example
@@ -151,7 +151,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 | **Indexing** | `a[0]` to `a[-1]` | `a(1)` to `a(end)`
 | **Slicing** | `a[0:100]` (view) | `a(1:100)` (:warning: copy)
 | **Operations** | Element-wise by default | Linear algebra by default
-| **Logic** | Use `:` and indenting | Use `endif` `endfor` etc
+| **Logic** | Use `:` and indentation | Use `endif`, `endfor` etc
 
 ---
 
@@ -160,8 +160,8 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 | **Help** | `help(func)` (or `func?` IPython) | `help func`
 | **And** | `a and b` | `a && b`
 | **Or** | `a or b` | `a || b`
-| **Datatype** | `np.array` of *any* type | multi-dim `double`s array 
-| **New array** | `a = np.array([[1,2],[3,4]], dtype=float)` | `a=[1 2; 3 4]`
+| **Datatype** | `np.array` of *any* type | multi-dim `double` array 
+| **New array** | `np.array([[1,2],[3,4]], dtype=float)` | `[1 2; 3 4]`
 | **Size** | `np.size(a)` | `size(a)`
 | **Nb Dim** | `np.ndim(a)` | `ndims(a)`
 | **Last** | `a[-1]` | `a(end)`
@@ -169,6 +169,8 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 > With the usual shortcut `import numpy as np`
 
 ---
+
+<!-- *footer: -->
 
 |  | Python | MATLAB
 |:-|:-:|:-:|
@@ -201,7 +203,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 ---
 
-# 3. Examples of scientific problems solved with Python
+# 3. Examples of problems solved with Python
 > Just to give some real examples of syntax and use of modules
 
 1. $1$D numerical integration and plot
@@ -258,7 +260,7 @@ plt.show()
 
 # 3.2. Solving a $2$D ODE
 
-> Goal : solve and plot the differential equation of a pendulum :
+> Goal : solve and plot the differential equation of a pendulum:
 > $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
 > For $b = 1/4$, $c = 5$, $\theta(0) = \pi - 0.1$, $\theta'(0)=0$, $t\in[0,10]$
 
@@ -301,14 +303,13 @@ plt.show()
 
 # 3.3. Constraint optimization problem
 
-> Goal: minimize a function under linear inequality constraints
+> Goal: minimize a function under linear inequality constraints:
 > $$f(x,y) := (x - 1)^2 + (y - 2.5)^2$$
 > $$\text{such that } \begin{cases}x \geq 0 \text{ and } y \geq 0 \\ x - 2y + 2 \geq 0 \\ - x - 2y + 6 \geq 0 \\ x + 2y + 2 \geq 0\end{cases}$$
 
 ## How to?
 
-- `scipy.optimize.minimize` function for minimization
-- `matplotlib.pyplot.plot` for $2$D plotting
+- `scipy.optimize.minimize` function for black-box minimization
 
 ---
 
@@ -336,7 +337,7 @@ print("Minimum is", res.x)  # Minimum is (1.4, 1.7)
 
 ---
 
-# 3.4. A simple neural network
+# 3.4. A simple 2-layer neural network
 > Using keras (keras.io) it's very simple and concise :sunglasses: !
 
 ```python
@@ -364,10 +365,10 @@ classes = model.predict(x_test, batch_size=128)
 
 - MATLAB has the [Symbolic Math Toolbox](https://www.mathworks.com/pricing-licensing.html?prodcode=SM) (for $400$€/year)…
 - Python has the **SymPy** module (sympy.org)
-- :sparkles: Lots of Python code written with numerical values in mind also works directly for symbolic values!
 - Ex: Powerful webapp : [sympygamma.com](http://www.sympygamma.com/) (like Wolfram|Alpha)
+- :sparkles: Lots of Python code written for numerical values can work directly for symbolic values!
 
-##### a. A first example
+##### a. A few basic examples
 
 ##### b. A second example from my latest research article…
   + the same code works for numbers, or exact fractions
@@ -402,7 +403,7 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
 
 ### 3.5.b. Example : generated graph with numbers
 
-<img width="85%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.png">
+<img width="90%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.png">
 
 > Graph saved a DOT file and to a TikZ graph with [dot2tex](https://github.com/Naereen/dot2tex)
 
@@ -410,9 +411,9 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
 
 ### 3.5.b. Example : generated graph with fractions
 
-<img width="85%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.png">
+<img width="90%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.png">
 
-> <span style="font-size: 24px">Source: [banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html](http://banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html)</span>
+> <span style="font-size: 22px">Source: [banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html](http://banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html)</span>
 
 ---
 
@@ -429,7 +430,7 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
   + Good tutorials: www.scipy-lectures.org
 - It's not hard to migrate :airplane: from MATLAB to Python
 - More ressources :notebook: :
-  + official documentation : docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html
+  + official documentation: docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html
   + a good 45-minute training video : youtu.be/YkCegjtoHFQ
   + mathesaurus.sourceforge.net/matlab-numpy.html and mathesaurus.sourceforge.net/matlab-python-xref.pdf
 
@@ -440,21 +441,22 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
 ## Next GouTP @ ==SCEE==
 > By Lilian Besson :wave:
 - **Jupyter notebooks** for teaching and research
-  $\hookrightarrow$ jupyter.org if you are curious
+  $\hookrightarrow$ see jupyter.org if you are curious
 
 ## GouTP @ ==FAST== or ==AUT== ?
 > By Pierre Haessig
 
 - **Julia programming language** (~ between Python and Matlab)
-  $\hookrightarrow$ julialang.org if you are curious
+  $\hookrightarrow$ see julialang.org if you are curious
 
-> By *you* ? Any idea is welcome ! :smiley:
+> :point_right: By *you*? Any idea is welcome! :smiley:
 
 ---
 
 # Conclusion (3/3)
 
-> *Thanks for joining :clap: !* *Contact us if you want to do a GouTP !*
+> *Thanks for joining :clap: !*
+> *Contact us if you want to do a GouTP !*
 
 ## Your mission, if you accept it… :boom:
 1. *Padawan level :* Train yourself a little bit on Python :snake:
