@@ -1,0 +1,36 @@
+/* Custom CSS for slides written in Markdown with Marp
+
+- Ref: https://github.com/yhatt/marp/#customizing-slide-css
+- Marp: https://github.com/yhatt/marp
+- Author: Lilian Besson (Naereen) https://github.com/Naereen/
+- License: MIT (https://lbesson.mit-license.org/)
+*/
+
+.slide {
+    /* Use the Palatino font */
+    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+}
+
+/* Justify paragraph? It was ugly in some tables... */
+/* .slide_inner p {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+} */
+
+/* Try to align the slide to the top of the page */
+.slide_inner {
+    position: absolute !important;
+    top: 8% !important;
+}
+    .slide_inner code, .slide_inner pre {
+        max-width: 110%;
+    }
+        .slide_inner li code, .slide_inner li pre {
+            max-width: 80%;
+        }
+
+/* Increase font-size for footer */
+.slide .slide_footer {
+    font-size: 22px !important;
+}

@@ -5,6 +5,9 @@ page_number: true
 footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for MATLAB users
 -->
 
+<link rel="stylesheet" type="text/css" href="../marp-naereen.css" />
+
+
 # $4^{\text{th}}$ $2017/18$ GouTP @ SCEE
 
 - *About:* **Python introduction for MATLAB users**
@@ -57,7 +60,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 |  | Python :smiley: | MATLAB :cry:
 |:-|:-:|:-:|
-| **Cost** | Free :v: | Hundreds of euros / year
+| **Cost** | Free :v: | Hundreds of **€ / year**
 | **License** | Open-source | 1 year user license (no longer after your PhD!)
 | **Comes from** | A non-profit foundation, and "the community" | MathWorks company
 | **Scope** | Generic | Numeric only
@@ -70,10 +73,10 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 |  | Python :cry: | MATLAB :smiley:
 |:-|:-:|:-:|
-| **Packaging** | Different good solutions (`conda`, `pip`) | Toolboxes already included
+| **Modules** | Different good solutions (`conda`, `pip`) | Toolboxes already included
 | **IDE** | Many possibilities, have to chose one (*Spyder*) | Good IDE already included
 | **Support?** | Community (StackOverflow, IRC, mailing lists etc) | By MathWorks ?
-| **Performances** | Interpreted, not so fast (check *Pypy* for speed)| Faster (but worse than C/Java/Julia)
+| **Performance** | Interpreted, not so fast (check *Pypy* for speed)| Faster (but worse than C/Java/Julia)
 | **Documentation** | :ok_hand: OK but very diverse | :ok_hand: OK and inline
 
 ---
@@ -81,7 +84,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 # How to install Python ? :arrow_down:
 - On Linux and Mac OS : already installed!
 - On Windows:
-  + You should use the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
+  + Use the full installer from [anaconda.com/download](https://www.anaconda.com/download/) (:sparkles:)
   + Or the default installer from [python.org/downloads/windows](https://www.python.org/downloads/windows/)
 - Takes about $10$ minutes… and it's free :v: !
 
@@ -309,6 +312,8 @@ plt.show()
 
 ---
 
+# 3.3. Constraint optimization problem
+
 ```python
 from scipy.optimize import minimize
 
@@ -357,21 +362,24 @@ classes = model.predict(x_test, batch_size=128)
 
 # 3.5. Symbolic computations
 
-- Almost impossible to do in MATLAB…
-- Most Python code written for numerical values also works for symbolic values! Use **SymPy** module
-- Powerful webapp (like Wolfram|Alpha) : [sympygamma.com](http://www.sympygamma.com/)
-- An example from my latest article…
-  + the same code works for numbers
-  + or exact fractions
-  + or symbols $\mu_1,\ldots,\mu_K$
+- MATLAB has the [Symbolic Math Toolbox](https://www.mathworks.com/pricing-licensing.html?prodcode=SM) (for $400$€/year)…
+- Python has the **SymPy** module (sympy.org)
+- :sparkles: Lots of Python code written with numerical values in mind also works directly for symbolic values!
+- Ex: Powerful webapp : [sympygamma.com](http://www.sympygamma.com/) (like Wolfram|Alpha)
+
+##### a. A first example
+
+##### b. A second example from my latest research article…
+  + the same code works for numbers, or exact fractions
+  + or symbols $\mu_1,\ldots,\mu_K$ !
 
 ---
 
-# 3.5. Symbolic computations : examples
+# 3.5.a. A few basic examples
 > Using sympy (sympy.org)
 
 ```python
-from sympy import *
+from sympy import *     # usually a bad habit
 x, t, z, nu = symbols('x t z nu')
 
 diff(sin(x)*exp(x), x)  # exp(x)*sin(x) + exp(x)*cos(x)
@@ -380,7 +388,7 @@ integrate(exp(x)*sin(x) + exp(x)*cos(x), x)  # exp(x)*sin(x)
 
 integrate(sin(x**2), (x, -oo, oo))  # sqrt(2)*sqrt(pi)/2
 
-limit(sin(x)/x, x, 0)  # 1
+limit(sin(x)/x, x, 0)   # 1
 
 y = Function('y')
 dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
@@ -392,25 +400,25 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
 
 ---
 
-### Example : generated graph with numbers
+### 3.5.b. Example : generated graph with numbers
 
-<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.png"></center>
+<img width="85%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__decimals.png">
 
 > Graph saved a DOT file and to a TikZ graph with [dot2tex](https://github.com/Naereen/dot2tex)
 
 ---
 
-### Example : generated graph with fractions
+### 3.5.b. Example : generated graph with fractions
 
-<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.png"></center>
+<img width="85%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__fractions.png">
 
-> Source: [banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html](http://banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html)
+> <span style="font-size: 24px">Source: [banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html](http://banditslilian.gforge.inria.fr/docs/complete_tree_exploration_for_MP_bandits.html)</span>
 
 ---
 
-### Example : generated graph with symbols
+### 3.5.b. Example : generated graph with symbols
 
-<center><img width="100%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__formal.png"></center>
+<img width="95%" src="figures/Tree_exploration_K2_M2_depth3__Selfish_UCB__absorbing__formal.png">
 
 ---
 
