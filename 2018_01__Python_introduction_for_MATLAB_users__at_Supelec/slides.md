@@ -254,7 +254,7 @@ plt.show()
 
 ---
 
-<center><img width="70%" src="figures/Ei_integral.png"></center>
+![bg original 90%](figures/Ei_integral.png)
 
 ---
 
@@ -297,7 +297,7 @@ plt.show()
 
 ---
 
-<center><img width="90%" src="figures/Pendulum_solution.png"></center>
+![bg original 90%](figures/Pendulum_solution.png)
 
 ---
 
