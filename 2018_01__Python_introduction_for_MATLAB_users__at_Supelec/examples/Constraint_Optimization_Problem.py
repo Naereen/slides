@@ -3,9 +3,11 @@
 
 from scipy.optimize import minimize
 
+
 def obj(x):
     """Objective function to minimize."""
     return (x[0] - 1)**2 + (x[1] - 2.5)**2
+
 
 x0 = (2, 0)  # first guess
 bnds = ((0, None), (0, None))  # [0, +oo) for x and y
