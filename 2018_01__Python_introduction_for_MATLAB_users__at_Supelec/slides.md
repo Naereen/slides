@@ -151,7 +151,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 | **Indexing** | `a[0]` to `a[-1]` | `a(1)` to `a(end)`
 | **Slicing** | `a[0:100]` (view) | `a(1:100)` (:warning: copy)
 | **Operations** | Element-wise by default | Linear algebra by default
-| **Logic** | Use `:` and indentation | Use `endif`, `endfor` etc
+| **Logic** | Use `:` and indentation | Use `end` for closing
 
 ---
 
@@ -207,8 +207,8 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 > Just to give some real examples of syntax and use of modules
 
 1. $1$D numerical integration and plot
-3. Solving a $2$D Ordinary Differential Equation
-2. Solving a constraint optimization problem and plotting solution
+2. Solving a $2^{\text{nd}}$ order Ordinary Differential Equation
+3. Solving a constraint optimization problem and plotting solution
 4. A simple neural network
 5. Symbolic computations
 
@@ -258,7 +258,7 @@ plt.show()
 
 ---
 
-# 3.2. Solving a $2$D ODE
+# 3.2. Solving a $2^{\text{nd}}$ order ODE
 
 > Goal : solve and plot the differential equation of a pendulum:
 > $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
@@ -396,7 +396,7 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
 # Eq(y(t), C2*exp(-t) + (C1 + t/2)*exp(t))
 ```
 
-> See http://docs.sympy.org for more examples
+> See [docs.sympy.org](http://docs.sympy.org) for more examples
 
 
 ---
@@ -444,7 +444,7 @@ dsolve(Eq(y(t).diff(t, t) - y(t), exp(t)), y(t))
   $\hookrightarrow$ see jupyter.org if you are curious
 
 ## GouTP @ ==FAST== or ==AUT== ?
-> By Pierre Haessig
+> By Pierre Haessig ?
 
 - **Julia programming language** (~ between Python and Matlab)
   $\hookrightarrow$ see julialang.org if you are curious

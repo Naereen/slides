@@ -197,8 +197,8 @@ lang: english
 > Just to give examples of syntax and modules
 
 1. 1D numerical integration and plot
-3. Solving a 2D Ordinary Differential Equation
-2. Solving a constraint optimization problem and plotting solution
+2. Solving a $2^{\text{nd}}$ order Ordinary Differential Equation
+3. Solving a constraint optimization problem and plotting solution
 4. A simple neural network
 5. Symbolic computations
 
@@ -248,7 +248,7 @@ plt.show()
 
 ---
 
-# 3.2. Solving a 2D Ordinary Differential Equation
+# 3.2. Solving a 2nd order ODE
 
 > Goal : solve and plot the differential equation of a pendulum :
 > $$\theta''(t) + b \,\theta'(t) + c \,\sin(\theta(t)) = 0$$
@@ -350,13 +350,16 @@ classes = model.predict(x_test, batch_size=128)
 
 # 3.5. Symbolic computations
 
-- Almost impossible to do in MATLAB…
-- Most Python code written for numerical values also works for symbolic values! Use **SymPy** module
-- Powerful webtool like Wolfram|Alpha : [sympygamma.com](http://www.sympygamma.com/)
-- An example from my latest article…
-  + the same code works for numbers
-  + or exact fractions
-  + or symbols $\mu_1,\ldots,\mu_K$
+- MATLAB has the [Symbolic Math Toolbox](https://www.mathworks.com/pricing-licensing.html?prodcode=SM) (for $400$€/year)…
+- Python has the **SymPy** module (sympy.org)
+- Ex: Powerful webapp : [sympygamma.com](http://www.sympygamma.com/) (like Wolfram|Alpha)
+- :sparkles: Lots of Python code written for numerical values can work directly for symbolic values!
+
+##### a. A few basic examples
+
+##### b. A second example from my latest research article…
+  + the same code works for numbers, or exact fractions
+  + or symbols $\mu_1,\ldots,\mu_K$ !
 
 ---
 
