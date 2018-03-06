@@ -24,8 +24,11 @@ pandoctex169:
 	./preprocess_tex.sh slides_169.tex
 
 pandocpdf169:
-	pdflatex slides_169.tex
-	pdflatex slides_169.tex
+	latexmk -gg -pdf -pdflatex="pdflatex %O %S" slides_169.tex
+	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
+
+pandocxelatexpdf169:
+	latexmk -gg -pdf -pdflatex="xelatex %O %S" slides_169.tex
 	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
 
 open169:

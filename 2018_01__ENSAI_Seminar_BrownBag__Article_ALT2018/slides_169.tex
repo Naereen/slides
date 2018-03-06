@@ -169,12 +169,12 @@
 % Code embedding.
 \usepackage{palatino}              % Use the Palatino font % XXX remove if it is ugly ?
 
-% % % XXX find the best font
-% \usepackage[garamond]{mathdesign}
-% % \usepackage[full]{textcomp}
-% % \usepackage{garamondx}
-% \usepackage[varqu,varl,var0,scaled=0.97]{inconsolata}
-% \usepackage{FiraSans}
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+\newfontfamily\FiraCode{Fira Code}
+\newfontfamily\Fontify[Path = ../fonts/]{Fontify-Regular}
+\fi
 
 
 % Prevent slide breaks in the middle of a paragraph:
@@ -1518,10 +1518,16 @@ LoRaWAN networks).
 
 \vspace*{10pt}
 
-\begin{center}\begin{Large}
-\textbf{Thanks!} \Smiley[1.2]
+\begin{center}\begin{LARGE}
+  \ifxetex
+    {\Fontify Thanks!} \Smiley[1.2]
+  \else
+    \textbf{Thanks!} \Smiley[1.2]
+  \fi
+\end{LARGE}\end{center}
 
-\emph{Any question ?}
+\begin{center}\begin{Large}
+  \emph{Any question ?}
 \end{Large}\end{center}
 
 \end{frame}
