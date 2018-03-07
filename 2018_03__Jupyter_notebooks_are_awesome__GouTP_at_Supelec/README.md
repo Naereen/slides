@@ -1,22 +1,19 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: GouTP @ SCEE | 8 March 2017 | By: Lilian Besson | Introduction to Jupyter notebooks
--->
+---
+title: 5th GouTP @ SCEE
+subtitle: Introduction to Jupyter notebooks
+author: Lilian Besson
+institute: SCEE Team, IETR, CentraleSupélec, Rennes
+date: Thursday 8th of March, 2018
+lang: english
+---
 
-<link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
-
-
-# $4^{\text{th}}\;\;$ $2017/18$ GouTP @ SCEE
+# 5th 2017/18 GouTP @ SCEE
 
 - *About:* **Introduction to Jupyter notebooks**
 
-- *Date:* $8$th of March $2018$ :date:
+- *Date:* 8th of March 2018 :date:
 
 - *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :hand:
-
-<br><br>
 
 ### Open source content :notebook: ?
 > Note: slides are online: `github.com/Naereen/slides/tree/master/
@@ -33,21 +30,17 @@ footer: GouTP @ SCEE | 8 March 2017 | By: Lilian Besson | Introduction to Jupyte
   > Initiative of Quentin and Vincent :clap: in January 2017...
   > Continued by Rémi, Muhammad, Rami and Lilian :ok_hand: !
 
-<br><br>
-
 ## Not only @ SCEE :smiley: ?
 - Currently open to the *FAST* and *AUT* teams
 
 ---
 
-# Agenda for today :timer_clock: $\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
+# Agenda for today :timer_clock: [30 min]
 
-1. Quick presentation of internal tools @ SCEE $\;\;\;\;\;\;\;\;\;\;\;\,$ ==[5 min]==
-2. What are the Jupyter notebook tools ? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
-3. Demo time $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,$ ==[10 min]==
-4. Sharing your notebooks online or as PDF $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\,$ ==[5 min]==
-
-<br>
+1. Quick presentation of internal tools @ SCEE [5 min]
+2. What are the Jupyter notebook tools ? [10 min]
+3. Demo time [10 min]
+4. Sharing your notebooks online or as PDF [5 min]
 
 ## Please :pray:
 Ask questions and interrupt me if you want!
@@ -60,13 +53,9 @@ Ask questions and interrupt me if you want!
 - You met (almost) everybody this week !
 - You will become familiar with the research themes of our team…
 
-<br><br>
-
-### $\hookrightarrow$ Let see a few :hammer_and_wrench: tools that can make your life easier!
+### Let see a few :hammer_and_wrench: tools that can make your life easier!
 
 ---
-
-<!-- *footer: -->
 
 # Website :spider_web:
 - [www-scee.rennes.supelec.fr](http://www-scee.rennes.supelec.fr/) was created by Rémi and Aymeric
@@ -87,8 +76,6 @@ Ask questions and interrupt me if you want!
 - Anyone can edit, it is maintained by Rémi and I
 - Participate if you have anything to change (create an account, edit!)
 
-![30%](figures/demo_of_our_wiki.png#center)
-
 ---
 
 # Workstations :computer: (Windows & GNU/Linux)
@@ -99,16 +86,12 @@ Ask questions and interrupt me if you want!
 - 1 GNU/Linux (Ubuntu) workstation, with Python, GNU Radio…
   + WS3 : `172.16.6.213`
 - Powerful machines: 12 cores, 32 Gb of RAM, lots of storage…
-- Monitoring :mag: : http://172.16.6.219:8000 (ask us for ==id/passwd==)
+- Monitoring :mag: : http://172.16.6.219:8000 (ask us for id/passwd)
   (please check for use load, before launching heavy simulations)
 
 ## :tipping_hand_woman: Ask for an account if you need
 - To run computations, or to use the TestBed
 - Ask to *Muhammad for Windows*, to *me for GNU/Linux*
-
----
-
-![bg original 80%](figures/monitoring.png)
 
 ---
 
@@ -130,7 +113,7 @@ Ask questions and interrupt me if you want!
 
 ---
 
-# 2. "Project Jupyter", ==jupyter.org==
+# 2. "Project Jupyter", jupyter.org
 
 ![bg original 105%](figures/logo.png)
 
@@ -139,8 +122,8 @@ Ask questions and interrupt me if you want!
 # 2. What are Jupyter notebooks?
 
 ## Technical aspect :mag:
-1. A file format, ==`.ipynb`==  (just JSON with constraints)
-2. An editor in your browser (see it during ==demo time==)
+1. A file format, `.ipynb`  (just JSON with constraints)
+2. An editor in your browser (see it during demo time)
 3. Tools to convert `.ipynb` files to scripts, HTML, slides, PDF etc.
 
 ## Practical aspect :rocket:
@@ -150,12 +133,10 @@ Ask questions and interrupt me if you want!
 
 ---
 
-<!-- *footer: -->
-
 # How to learn :mortar_board: ?
 
 ## Online :spider_web:
-- Try without installing anything ? $\longrightarrow$ At [try.jupyter.org](https://try.jupyter.org/)
+- Try without installing anything ? At [try.jupyter.org](https://try.jupyter.org/)
 
 ## On your laptop :computer:
 1. Install it :package:
@@ -209,7 +190,7 @@ http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
 
 ---
 
-# 3. ==Demo time==
+# 3. Demo time
 
 - I will show you quickly all this…
 
@@ -219,8 +200,6 @@ http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
   [jupyter.readthedocs.io/en/latest/content-quickstart.html](https://jupyter.readthedocs.io/en/latest/content-quickstart.html)
 
 ---
-
-<!-- *footer: -->
 
 ## [Internally](https://jupyter.readthedocs.io/en/latest/architecture/visual_overview.html), it's quite complicated, just don't care
 
@@ -247,14 +226,14 @@ http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
 
 # Conclusion (2/3)
 
-## Next GouTP @ ==SCEE==
+## Next GouTP @ SCEE
 - Any request or suggestion ?
 
-## GouTP @ ==FAST== or ==AUT== ?
+## GouTP @ FAST or AUT ?
 > By Pierre Haessig ?
 
 - **Julia programming language** (~ between Python and Matlab)
-  $\hookrightarrow$ see julialang.org if you are curious
+  see julialang.org if you are curious
 
 ## We need participants!
 > :point_right: By *you*? Any idea is welcome! :smiley:
@@ -265,8 +244,6 @@ http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
 
 > *Thanks for joining :clap: !*
 > *Contact us if you want to do a GouTP !*
-
-<br>
 
 ## Your mission, if you accept it… :boom:
 1. *Padawan level :* next time you program in :snake: Python (or other language), think about **Jyputer**. Can it help you being more efficient?
