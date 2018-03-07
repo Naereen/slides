@@ -51,7 +51,7 @@ include-before:
 
 # 1. What is Python 🐍 ?
 
-- Developped and popular from the last $25$ years
+- developed and popular from the last $25$ years
 - Open-source and free programming language
 - Interpreted, multi-platform, imperative and object-oriented
 - Designed and acknowledged as *simple to learn and use*

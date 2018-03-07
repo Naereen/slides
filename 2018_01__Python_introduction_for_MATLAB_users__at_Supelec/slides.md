@@ -5,7 +5,7 @@ page_number: true
 footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for MATLAB users
 -->
 
-<link rel="stylesheet" type="text/css" href="../marp-naereen.css" />
+<link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
 
 
 # $4^{\text{th}}$ $2017/18$ GouTP @ SCEE
@@ -43,7 +43,7 @@ footer: GouTP @ SCEE | 18 Jan 2017 | By: Lilian Besson | Python introduction for
 
 # 1. What is Python :snake: ?
 
-- Developped and popular from the last $25$ years
+- developed and popular from the last $25$ years
 - Open-source and free programming language
 - *Interpreted*, multi-platform, imperative and object-oriented
 - Designed and acknowledged as *simple to learn and use*

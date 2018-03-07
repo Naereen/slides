@@ -11,6 +11,10 @@
     font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
 }
 
+.slide code, .slide pre {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
 /* Justify paragraph? It was ugly in some tables... */
 /* .slide_inner p {
     text-align: justify;
