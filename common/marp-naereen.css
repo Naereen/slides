@@ -8,11 +8,35 @@
 
 .slide {
     /* Use the Palatino font */
-    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+    font-family: Palatino,'Palatino Linotype','Palatino LT STD','TeX Gyre Pagella','Book Antiqua',Georgia,serif;
 }
 
 .slide code, .slide pre {
-    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-family: 'Fira Code', 'DejaVu Sans Mono', 'Ubuntu Mono', 'DejaVu Sans Mono Book', 'Courier New', Courier, monospace;
+}
+
+.slide {
+    -webkit-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    -moz-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    -ms-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+}
+
+/* See https://stackoverflow.com/questions/3912694/using-markdown-how-do-i-center-an-image-and-its-caption */
+.slide img[src*='#center'] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slide img[src*='#right'] {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+.slide img[src*='#left'] {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 /* Justify paragraph? It was ugly in some tables... */
