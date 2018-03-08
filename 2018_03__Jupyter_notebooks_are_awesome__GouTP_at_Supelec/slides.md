@@ -263,10 +263,8 @@ http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
 
 # Conclusion (3/3)
 
-> *Thanks for joining :clap: !*
-> *Contact us if you want to do a GouTP !*
-
-<br>
+> <span class="fontify">Thanks for joining :clap: !</span>
+> <span class="fontify">Contact us if you want to do a GouTP !</span>
 
 ## Your mission, if you accept it… :boom:
 1. *Padawan level :* next time you program in :snake: Python (or other language), think about **Jyputer**. Can it help you being more efficient?
