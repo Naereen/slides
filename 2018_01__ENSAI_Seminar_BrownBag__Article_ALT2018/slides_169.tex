@@ -174,8 +174,9 @@
 \setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
 \newfontfamily\FiraCode{Fira Code}
 \newfontfamily\Fontify[Path = ../common/]{Fontify-Regular}
+\else
+\newcommand{\Fontify}{}
 \fi
-
 
 % Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000
@@ -1519,11 +1520,7 @@ LoRaWAN networks).
 \vspace*{10pt}
 
 \begin{center}\begin{LARGE}
-  \ifxetex
     {\Fontify Thanks!} \Smiley[1.2]
-  \else
-    \textbf{Thanks!} \Smiley[1.2]
-  \fi
 \end{LARGE}\end{center}
 
 \begin{center}\begin{Large}
