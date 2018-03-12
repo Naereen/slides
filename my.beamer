@@ -125,18 +125,18 @@ $endif$
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 
-% FIXME remove as soon as possible, it slows down compilation to import TikZ
-%% TikZ
-\usepackage{tikz}
-\usetikzlibrary{snakes,arrows,shapes}
-% https://tex.stackexchange.com/a/226974/
-\tikzset{
-  font={\fontsize{10pt}{10}\selectfont}
-}
-\usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
+% % FIXME remove as soon as possible, it slows down compilation to import TikZ
+% %% TikZ
+% \usepackage{tikz}
+% \usetikzlibrary{snakes,arrows,shapes}
+% % https://tex.stackexchange.com/a/226974/
+% \tikzset{
+%   font={\fontsize{10pt}{10}\selectfont}
+% }
+% \usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
 
-% FIXME remove
-\IfFileExists{macrosText.sty}{\usepackage{macrosText}}{}
+% % FIXME remove
+% \IfFileExists{macrosText.sty}{\usepackage{macrosText}}{}
 
 \usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
 
@@ -318,6 +318,16 @@ $if(graphics)$
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 $endif$
+
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+\newfontfamily\FiraCode{Fira Code}
+\setmonofont[Contextuals={Alternate}]{Fira Code}
+\newfontfamily\Fontify[Path = ../common/]{Fontify-Regular}
+\else
+\newcommand{\Fontify}{}
+\fi
 
 % Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000

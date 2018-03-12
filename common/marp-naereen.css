@@ -79,4 +79,8 @@
     font-size: 150%;
     letter-spacing: -0.15em;
     word-spacing: 0.30em;
+    text-align: right;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
 }

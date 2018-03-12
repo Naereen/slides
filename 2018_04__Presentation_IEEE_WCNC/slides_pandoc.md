@@ -1,17 +1,37 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: Aggregation of MAB Learning Algorithms for OSA | 16th April 2017 | By: Lilian Besson
--->
+---
+author:
+  \textbf{Lilian Besson} \newline
+  \emph{Advised by} \and Christophe Moy \and Émilie Kaufmann
+smallauthor: Lilian Besson
+title: Aggregation of MAB Learning Algorithms for OSA
+institute:
+  PhD Student \newline
+  Team SCEE, IETR, CentraleSupélec, Rennes \newline
+  \& Team SequeL, CRIStAL, Inria, Lille
+smallinstitute: CentraleSupélec \& Inria
+date: IEEE WCNC -  16th April 2018
+smalldate: IEEE WCNC -  16/04/18
+lang: en-US
+babel-lang: english
+handout: false
+numbersections: true
+section-titles: false
+fontsize: 12pt
+toc: false
+include-before:
+  \section*{\hfill{}CentraleSupélec Rennes \& Inria Lille\hfill{}}
+  \subsection*{\hfill{}Team {:} SCEE @ IETR \& SequeL @ CRIStAL\hfill{}}
+---
 
-<link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
+\section{\hfill{}0. Introduction and motivation\hfill{}}
+
+\subsection{\hfill{}0.1. Title\hfill{}}
 
 ### IEEE WCNC: **« Aggregation of Multi-Armed Bandits Learning Algorithms for Opportunistic Spectrum Access »**
 
-- *Date* :date: : $16$th of April $2018$
+- *Date* : $16$th of April $2018$
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :wave: , PhD Student in France, co-advised by
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) , PhD Student in France, co-advised by
 
 | *Christophe Moy* <br> @ CentraleSupélec <br>& IETR, Rennes | *Émilie Kaufmann* <br> @ Inria, Lille |
 |:---:|:---:|
@@ -21,6 +41,8 @@ footer: Aggregation of MAB Learning Algorithms for OSA | 16th April 2017 | By: L
 
 ---
 
+\subsection{\hfill{}0.2. Objective\hfill{}}
+
 # Introduction
 
 - Cognitive Radio (CR) is known for being one of
@@ -29,7 +51,7 @@ footer: Aggregation of MAB Learning Algorithms for OSA | 16th April 2017 | By: L
   for CR problems in **licensed bands**
 
 - Online learning strategies, mainly using multi-armed bandits (MAB) algorithms, were recently proved to be efficient `[Jouini 2010]`
-- :boom: But there is many different MAB algorithms…
+- But there is many different MAB algorithms…
   which one should you choose in practice?
 
 $\Longrightarrow$ we propose to use an online learning algorithm to also decide
@@ -37,22 +59,28 @@ which algorithm to use, to be more robust and adaptive to unknown environments.
 
 ---
 
-# :timer_clock: Outline ==[15 min]==
+\subsection{\hfill{}0.3. Outline\hfill{}}
 
-1. Opportunistic Spectrum Access ==[3 min]==
-2. Multi-Armed Bandits ==[2 min]==
-3. MAB algorithms ==[3 min]==
-4. Aggregation of MAB algorithms  ==[3 min]==
-5. Illustration ==[3 min]==
+# Outline
+
+1. Opportunistic Spectrum Access
+2. Multi-Armed Bandits
+3. MAB algorithms
+4. Aggregation of MAB algorithms
+5. Illustration
 
 <br><br>
 
-### Please :pray:
+### Please
 Ask questions *at the end* if you want!
 
 ---
 
-# 1. Opportunistic Spectrum Access ==[3 min]==
+\section{\hfill{}1. Opportunistic Spectrum Access\hfill{}}
+
+\subsection{\hfill{}1.1. OSA\hfill{}}
+
+# 1. Opportunistic Spectrum Access
 
 - Spectrum scarcity is a well-known problem
 - Different range of solutions…
@@ -61,18 +89,22 @@ Ask questions *at the end* if you want!
 
 ---
 
+\subsection{\hfill{}1.2. Model\hfill{}}
+
 # Communication & interaction model
 
 <img width="75%" src="plots/diagram_model_of_OSA.png#center">
 
-- :iphone: Primary users are occupying $K$ radio channels
-- :phone: Secondary users can sense and exploit free channels:
+- Primary users are occupying $K$ radio channels
+- Secondary users can sense and exploit free channels:
   want to **explore** the channels, and learn to **exploit** the best one
 - Discrete time for everything $t\geq1,t\in\mathbb{N}$
 
 ---
 
-# 2. Multi-Armed Bandits ==[2 min]==
+\section{\hfill{}2. Multi-Armed Bandits\hfill{}}
+
+# 2. Multi-Armed Bandits
 
 ## Model
 - Again $K \geq 2$ resources (*e.g.*, channels), called **arms**
@@ -86,13 +118,18 @@ Simple but good model for **exploration/exploitation** dilemma.
 
 ---
 
-# 3. MAB algorithms ==[3 min]==
+\section{\hfill{}3. MAB algorithms\hfill{}}
+
+
+# 3. MAB algorithms
 
 - Main idea: index $I_k(t)$ to approximate the quality of each arm $k$
 - First example: *UCB algorithm*
 - Second example: *Thompson Sampling*
 
 ---
+
+\subsection{\hfill{}3.1.  Index based algorithms\hfill{}}
 
 # 3.1 Multi-Armed Bandit algorithms
 ### Often *index* based
@@ -107,6 +144,8 @@ Simple but good model for **exploration/exploitation** dilemma.
 
 ---
 
+\subsection{\hfill{}3.2. UCB algorithm \hfill{}}
+
 # 3.2 First example of algorithm <br>*Upper Confidence Bounds* algorithm (UCB)
 - Instead of using $I_k(t) = \frac{X_k(t)}{N_k(t)}$, add an exploration term
 $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
@@ -115,9 +154,11 @@ $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 - Small $\alpha$: focus more on **exploitation**
 - Large $\alpha$: focus more on **exploration**
 
-### :boom: Problem: how to choose "the good $\alpha$" for a certain problem?
+### Problem: how to choose "the good $\alpha$" for a certain problem?
 
 ---
+
+\subsection{\hfill{}3.3. Thompson sampling algorithm \hfill{}}
 
 # 3.3 Second example of algorithm <br> *Thompson sampling* (TS)
 - Choose an initial belief on $\mu_k$ (uniform) and a prior $p^t$ (*e.g.*, a Beta prior on $[0,1]$)
@@ -128,13 +169,14 @@ $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 - $p^t = \mathrm{Beta}(1 + \text{nb successes}, 1 + \text{nb failures})$.
 - Mean of $p^t$ $= \frac{1 + X_k(t)}{2 + N_k(t)} \simeq \hat{\mu}_k(t)$.
 
-### :boom: How to choose "the good prior" for a certain problem?
+### How to choose "the good prior" for a certain problem?
 
 ---
 
-<!-- *footer: -->
+\section{\hfill{}4. Aggregation of MAB algorithms\hfill{}}
 
-# 4. Aggregation of MAB algorithms ==[3 min]==
+
+# 4. Aggregation of MAB algorithms
 
 ## Problem
 - How to choose which algorithm to use?
@@ -167,6 +209,8 @@ If you have $\mathcal{A}_1,\ldots,\mathcal{A}_N$ different algorithms
 
 ---
 
+\subsection{\hfill{}4.2. The Exp4 algorithm\hfill{}}
+
 ## 4.2 Overview of the *Exp4* aggregation algorithm
 > For rewards in $r(t) \in [-1,1]$.
 
@@ -181,6 +225,8 @@ If you have $\mathcal{A}_1,\ldots,\mathcal{A}_N$ different algorithms
 
 ---
 
+\subsection{\hfill{}Unbiased estimates?\hfill{}}
+
 ## Use an *unbiased* estimate of the rewards
 Using directly $r(t)$ to update trust probability yields a biased estimator
 
@@ -192,6 +238,8 @@ $$= \mathbb{E}[r(t)] \sum\limits_{a=1}^N \frac{\mathbb{P}(a^t = a)}{\pi^t_{a}} =
 $$
 
 ---
+
+\subsection{\hfill{}4.3. Our Aggregator algorithm\hfill{}}
 
 ## 4.3 Our *Aggregator* aggregation algorithm
 
@@ -210,7 +258,9 @@ Improves on *Exp4* by the following ideas:
 
 ---
 
-# 5. Some illustrations ==[3 min]==
+\section{\hfill{}5. Some illustrations\hfill{}}
+
+# 5. Some illustrations
 
 - Artificial simulations of stochastic bandit problems
 - Bernoulli bandits but not only
@@ -223,20 +273,30 @@ Improves on *Exp4* by the following ideas:
 
 ---
 
+\subsection{\hfill{}5.1. On a simple Bernoulli problem\hfill{}}
+
 # On a simple Bernoulli problem
 ![bg original 105%](plots/main_semilogy____env1-4_932221613383548446.png)
 
 ---
+
+\subsection{\hfill{}5.2. On a "hard" Bernoulli problem\hfill{}}
 
 # On a "hard" Bernoulli problem
 ![bg original 105%](plots/main____env2-4_932221613383548446.png)
 
 ---
 
+\subsection{\hfill{}5.3. On a mixed problem\hfill{}}
+
 # On a mixed problem
 ![bg original 105%](plots/main_semilogy____env4-4_932221613383548446.png)
 
 ---
+
+\section{\hfill{}6. Conclusion\hfill{}}
+
+\subsection{\hfill{}6.1. Summary\hfill{}}
 
 # Conclusion (1/2)
 
@@ -248,6 +308,8 @@ Improves on *Exp4* by the following ideas:
   which algorithm to prefer, for a specific situation!
 
 ---
+
+\subsection{\hfill{}6.2. Summary \& Thanks\hfill{}}
 
 # Conclusion (2/2)
 
@@ -263,4 +325,4 @@ Improves on *Exp4* by the following ideas:
 ### See our code for experimenting with bandit algorithms
 Python library, open source at [`SMPyBandits.GitHub.io`](https://SMPyBandits.GitHub.io)
 
-<span class="fontify">Thanks for listening !</span>
+## **Thanks for listening!** \Smiley[1.2]

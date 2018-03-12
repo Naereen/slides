@@ -1,17 +1,20 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: Aggregation of MAB Learning Algorithms for OSA | 16th April 2017 | By: Lilian Besson
--->
-
-<link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
+---
+author:
+  __Lilian Besson__ *Advised by Christophe Moy Émilie Kaufmann
+title: Aggregation of MAB Learning Algorithms for OSA
+institute:
+  PhD Student,
+  Team SCEE, IETR, CentraleSupélec, Rennes
+  & Team SequeL, CRIStAL, Inria, Lille
+date: IEEE WCNC -  16th April 2018
+lang: english
+---
 
 ### IEEE WCNC: **« Aggregation of Multi-Armed Bandits Learning Algorithms for Opportunistic Spectrum Access »**
 
-- *Date* :date: : $16$th of April $2018$
+- *Date* 📅 : $16$th of April $2018$
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :wave: , PhD Student in France, co-advised by
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) 👋 , PhD Student in France, co-advised by
 
 | *Christophe Moy* <br> @ CentraleSupélec <br>& IETR, Rennes | *Émilie Kaufmann* <br> @ Inria, Lille |
 |:---:|:---:|
@@ -29,7 +32,7 @@ footer: Aggregation of MAB Learning Algorithms for OSA | 16th April 2017 | By: L
   for CR problems in **licensed bands**
 
 - Online learning strategies, mainly using multi-armed bandits (MAB) algorithms, were recently proved to be efficient `[Jouini 2010]`
-- :boom: But there is many different MAB algorithms…
+- 💥 But there is many different MAB algorithms…
   which one should you choose in practice?
 
 $\Longrightarrow$ we propose to use an online learning algorithm to also decide
@@ -37,22 +40,22 @@ which algorithm to use, to be more robust and adaptive to unknown environments.
 
 ---
 
-# :timer_clock: Outline ==[15 min]==
+# ⏲ Outline
 
-1. Opportunistic Spectrum Access ==[3 min]==
-2. Multi-Armed Bandits ==[2 min]==
-3. MAB algorithms ==[3 min]==
-4. Aggregation of MAB algorithms  ==[3 min]==
-5. Illustration ==[3 min]==
+1. Opportunistic Spectrum Access
+2. Multi-Armed Bandits
+3. MAB algorithms
+4. Aggregation of MAB algorithms 
+5. Illustration
 
 <br><br>
 
-### Please :pray:
+### Please 🙏
 Ask questions *at the end* if you want!
 
 ---
 
-# 1. Opportunistic Spectrum Access ==[3 min]==
+# 1. Opportunistic Spectrum Access
 
 - Spectrum scarcity is a well-known problem
 - Different range of solutions…
@@ -63,16 +66,16 @@ Ask questions *at the end* if you want!
 
 # Communication & interaction model
 
-<img width="75%" src="plots/diagram_model_of_OSA.png#center">
+<img width="75%" src="plots/diagram_model_of_OSA.png">
 
-- :iphone: Primary users are occupying $K$ radio channels
-- :phone: Secondary users can sense and exploit free channels:
+- 📱 Primary users are occupying $K$ radio channels
+- ☎ Secondary users can sense and exploit free channels:
   want to **explore** the channels, and learn to **exploit** the best one
 - Discrete time for everything $t\geq1,t\in\mathbb{N}$
 
 ---
 
-# 2. Multi-Armed Bandits ==[2 min]==
+# 2. Multi-Armed Bandits
 
 ## Model
 - Again $K \geq 2$ resources (*e.g.*, channels), called **arms**
@@ -86,7 +89,7 @@ Simple but good model for **exploration/exploitation** dilemma.
 
 ---
 
-# 3. MAB algorithms ==[3 min]==
+# 3. MAB algorithms
 
 - Main idea: index $I_k(t)$ to approximate the quality of each arm $k$
 - First example: *UCB algorithm*
@@ -115,7 +118,7 @@ $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 - Small $\alpha$: focus more on **exploitation**
 - Large $\alpha$: focus more on **exploration**
 
-### :boom: Problem: how to choose "the good $\alpha$" for a certain problem?
+### 💥 Problem: how to choose "the good $\alpha$" for a certain problem?
 
 ---
 
@@ -128,13 +131,11 @@ $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 - $p^t = \mathrm{Beta}(1 + \text{nb successes}, 1 + \text{nb failures})$.
 - Mean of $p^t$ $= \frac{1 + X_k(t)}{2 + N_k(t)} \simeq \hat{\mu}_k(t)$.
 
-### :boom: How to choose "the good prior" for a certain problem?
+### 💥 How to choose "the good prior" for a certain problem?
 
 ---
 
-<!-- *footer: -->
-
-# 4. Aggregation of MAB algorithms ==[3 min]==
+# 4. Aggregation of MAB algorithms
 
 ## Problem
 - How to choose which algorithm to use?
@@ -210,7 +211,7 @@ Improves on *Exp4* by the following ideas:
 
 ---
 
-# 5. Some illustrations ==[3 min]==
+# 5. Some illustrations
 
 - Artificial simulations of stochastic bandit problems
 - Bernoulli bandits but not only
@@ -263,4 +264,4 @@ Improves on *Exp4* by the following ideas:
 ### See our code for experimenting with bandit algorithms
 Python library, open source at [`SMPyBandits.GitHub.io`](https://SMPyBandits.GitHub.io)
 
-<span class="fontify">Thanks for listening !</span>
+> Thanks for listening !

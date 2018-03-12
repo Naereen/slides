@@ -1,0 +1,858 @@
+\documentclass[12pt,english,ignorenonframetext,]{beamer}
+
+
+%%%%%%%%%%%%%%%
+%% Beamer theme
+% choose one from http://deic.uab.es/~iblanes/beamer_gallery/
+% or http://www.hartwork.org/beamer-theme-matrix/
+% \usetheme{Warsaw}
+\usetheme{CambridgeUS}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Beamer color theme
+%% default albatross beaver beetle crane dolphin dove fly lily
+%% orchid rose seagull seahorse whale wolverine
+
+%\usecolortheme{seahorse}  %% very lighty
+\usecolortheme{dolphin}    %% nice blue
+\usecolortheme{orchid}     %% dark red ?
+\usecolortheme{whale}      %% black and blue as Warsaw
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Define your own colors
+\definecolor{blackblue}{rgb}{19,19,59}  % rgb(48,48,150)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Change the theme
+%\setbeamercolor{alerted text}{fg=orange}
+%\setbeamercolor{background canvas}{bg=white}
+%\setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+%\setbeamercolor{block body}{bg=normal text.bg!90!black}
+%\setbeamercolor{block body example}{bg=normal text.bg!90!black}
+%\setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+%\setbeamercolor{block title}{bg=blue}
+%\setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+%\setbeamercolor{fine separation line}{}
+\setbeamercolor{frametitle}{fg=black}
+%\setbeamercolor{item projected}{fg=black}
+%\setbeamercolor{normal text}{bg=black,fg=yellow}
+%\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{section in sidebar}{fg=brown}
+%\setbeamercolor{section in sidebar shaded}{fg= grey}
+\setbeamercolor{separation line}{}
+%\setbeamercolor{sidebar}{bg=red}
+%\setbeamercolor{sidebar}{parent=palette primary}
+%\setbeamercolor{structure}{bg=black, fg=green}
+%\setbeamercolor{subsection in sidebar}{fg=brown}
+%\setbeamercolor{subsection in sidebar shaded}{fg= grey}
+%\setbeamercolor{title}{fg=blackblue}
+%\setbeamercolor{titlelike}{fg=blackblue}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Other beamer options
+%\setbeamercovered{transparent}
+% Permet de laisser en gris le texte qui n'est pas encore apparu (lorsqu'on utilise les commandes avec des <1,2> ou <4-9>.
+
+%\setbeamercolor{normal text}{fg=black,bg=white}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Change Beamer fonts
+% \usefonttheme{default}
+% \usefonttheme[onlymath]{serif}
+\usefonttheme{serif}
+
+\setbeamerfont{title}{family=\rm}
+\setbeamerfont{titlelike}{family=\rm}
+\setbeamerfont{frametitle}{family=\rm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% innertheme
+%% rectangles circles inmargin rounded
+% \useinnertheme{rounded}  % XXX My preference
+\useinnertheme{circles}    % XXX
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% outertheme
+%% infolines miniframes shadow sidebar smoothbars smoothtree split tree
+%\useoutertheme{infolines}
+
+%% No navigation symbol.
+\setbeamertemplate{navigation symbols}{}
+\beamertemplatenavigationsymbolsempty
+
+% XXX Add a background image to the slides
+% \usepackage{tikz}
+% \setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{IETR.jpg}}
+% \setbeamertemplate{background}{{\centering\begin{tikzpicture}\node[opacity=0.15]{\includegraphics[width=0.98\paperwidth]{IETR_et_partenaires_IETR.png}};\end{tikzpicture}}}
+
+% Other options
+%\setbeamertemplate{footline}[page number]
+
+\beamertemplateballitem
+\setbeamertemplate{itemize item}[square]
+
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{color}
+  \newcommand{\urlb}[1]{\textcolor{blue}{\url{#1}}}
+%% Color definition
+\usepackage{xcolor}
+%% WARNING attention when changing the colors, change both the {RGB}{r,g,b} and % rgb(r,g,b)
+\definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
+\definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
+\definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
+\definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
+\definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
+\definecolor{gold}{RGB}{255,180,0}         % rgb(255,180,0)
+\definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
+\definecolor{normalred}{RGB}{204,0,0}      % rgb(204,0,0)
+\definecolor{darkred}{RGB}{174,0,0}        % rgb(174,0,0)
+
+\usepackage{amssymb,amsmath}
+\usepackage{bbm,bm}  % bold maths symbols
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+\usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
+
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=english]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[variant=american]{english}
+\fi
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={Aggregation of MAB Learning Algorithms for OSA},
+            pdfauthor={  Christophe Moy Émilie Kaufmann},
+            pdfborder={0 0 0},
+            breaklinks=true}
+% \urlstyle{same}  % don't use monospace font for urls
+% Code embedding.
+\usepackage{longtable,booktabs}
+\usepackage{caption}
+% These lines are needed to make table captions work with longtable:
+\makeatletter
+\def\fnum@table{\tablename~\thetable}
+\makeatother
+\usepackage{palatino}              % Use the Palatino font % XXX remove if it is ugly ?
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+\newfontfamily\FiraCode{Fira Code}
+\setmonofont[Contextuals={Alternate}]{Fira Code}
+\newfontfamily\Fontify[Path = ../common/]{Fontify-Regular}
+\else
+\newcommand{\Fontify}{}
+\fi
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% https://tex.stackexchange.com/a/2559/
+\newcommand{\backupbegin}{
+  \newcounter{framenumberappendix}
+  \setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+  \addtocounter{framenumberappendix}{-\value{framenumber}}
+  \addtocounter{framenumber}{\value{framenumberappendix}}
+}
+
+\title[Aggregation of MAB for OSA]{Aggregation of MAB Learning Algorithms for OSA}
+\author[Lilian Besson]{\textbf{Lilian Besson} \newline \emph{Advised by} \and Christophe Moy
+\and Émilie Kaufmann}
+\institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
+\newline \& Team SequeL, CRIStAL, Inria, Lille}
+\date[IEEE WCNC - 16/04/18]{IEEE WCNC - 16th April 2018}
+
+% For \justifying command, see https://tex.stackexchange.com/a/148696/
+\usepackage{ragged2e}
+\addtobeamertemplate{frame begin}{}{\justifying}
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+\addtobeamertemplate{itemize body begin}{}{\justifying}
+\addtobeamertemplate{itemize item}{}{\justifying}
+\addtobeamertemplate{itemize subitem}{}{\justifying}
+\addtobeamertemplate{itemize subsubitem}{}{\justifying}
+\addtobeamertemplate{enumerate body begin}{}{\justifying}
+\addtobeamertemplate{enumerate item}{}{\justifying}
+\addtobeamertemplate{enumerate subitem}{}{\justifying}
+\addtobeamertemplate{enumerate subsubitem}{}{\justifying}
+\addtobeamertemplate{description body begin}{}{\justifying}
+\addtobeamertemplate{description item}{}{\justifying}
+
+\begin{document}
+\justifying
+
+\section*{\hfill{}CentraleSupélec Rennes \& Inria Lille\hfill{}}
+\subsection*{\hfill{}Team {:} SCEE @ IETR \& SequeL @ CRIStAL\hfill{}}
+
+\begin{frame}[plain]
+\titlepage
+
+% XXX manual inclusion of logos
+\begin{center}
+\includegraphics[height=0.16\textheight]{../common/LogoIETR.png}
+\includegraphics[height=0.16\textheight]{../common/LogoCS.png}
+\includegraphics[height=0.16\textheight]{../common/LogoInria.jpg}
+\end{center}
+
+\end{frame}
+
+
+\section{\hfill{}0. Introduction and motivation\hfill{}}
+
+\subsection{\hfill{}0.2. Objective\hfill{}}
+
+\begin{frame}[fragile]{%
+\protect\hypertarget{introduction}{%
+Introduction}}
+
+\begin{itemize}
+\item
+  Cognitive Radio (CR) is known for being one of the possible solution
+  to tackle the spectrum scarcity issue
+\item
+  Opportunistic Spectrum Access (OSA) is a good model for CR problems in
+  \textbf{licensed bands}
+\item
+  Online learning strategies, mainly using multi-armed bandits (MAB)
+  algorithms, were recently proved to be efficient
+  \textcolor{gray}{\texttt{[Jouini 2010]}}
+\item
+  But there is many different MAB algorithms\ldots{} which one should
+  you choose in practice?
+\end{itemize}
+
+\(\Longrightarrow\) we propose to use an online learning algorithm to
+also decide which algorithm to use, to be more robust and adaptive to
+unknown environments.
+
+\end{frame}
+
+
+
+\subsection{\hfill{}0.3. Outline\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{outline}{%
+Outline}}
+
+\begin{enumerate}
+[1.]
+\tightlist
+\item
+  Opportunistic Spectrum Access
+\item
+  Multi-Armed Bandits
+\item
+  MAB algorithms
+\item
+  Aggregation of MAB algorithms
+\item
+  Illustration
+\end{enumerate}
+
+\begin{block}{Please}
+
+Ask questions \emph{at the end} if you want!
+
+\end{block}
+
+
+\begin{quote}
+See our paper
+\href{https://hal.inria.fr/hal-01705292}{\texttt{HAL.Inria.fr/hal-01705292}}
+\end{quote}
+
+\end{frame}
+
+
+
+\section{\hfill{}1. Opportunistic Spectrum Access\hfill{}}
+
+\subsection{\hfill{}1.1. OSA\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{opportunistic-spectrum-access}{%
+1. Opportunistic Spectrum Access}}
+
+\begin{itemize}
+\tightlist
+\item
+  Spectrum scarcity is a well-known problem
+\item
+  Different range of solutions\ldots{}
+\item
+  Cognitive Radio is one of them
+\item
+  Opportunistic Spectrum Access is a kind of cognitive radio
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}1.2. Model\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{communication-interaction-model}{%
+Communication \& interaction model}}
+
+\begin{figure}
+  \centering
+  \includegraphics{plots/diagram_model_of_OSA.pdf}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  Primary users are occupying \(K\) radio channels
+\item
+  Secondary users can sense and exploit free channels: want to
+  \textbf{explore} the channels, and learn to \textbf{exploit} the best
+  one
+\item
+  Discrete time for everything \(t\geq1,t\in\mathbb{N}\)
+\end{itemize}
+
+\end{frame}
+
+
+
+\section{\hfill{}2. Multi-Armed Bandits\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{multi-armed-bandits}{%
+2. Multi-Armed Bandits}}
+
+\begin{block}{Model}
+
+\begin{itemize}
+\tightlist
+\item
+  Again \(K \geq 2\) resources (\emph{e.g.}, channels), called
+  \textbf{arms}
+\item
+  Each time slot \(t=1,\ldots,T\), you must choose one arm, denoted
+  \(A(t)\in\{1,\ldots,K\}\)
+\item
+  You receive some reward \(r(t) \sim \nu_k\) when playing \(k = A(t)\)
+\item
+  \textbf{Goal:} maximize your sum reward \(\sum\limits_{t=1}^{T} r(t)\)
+\item
+  Hypothesis: rewards are stochastic, of mean \(\mu_k\). \emph{E.g.},
+  Bernoulli
+\end{itemize}
+
+\end{block}
+
+\begin{block}{Why is it famous?}
+
+Simple but good model for \textbf{exploration/exploitation} dilemma.
+
+\end{block}
+
+\end{frame}
+
+
+
+\section{\hfill{}3. MAB algorithms\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{mab-algorithms}{%
+3. MAB algorithms}}
+
+\begin{itemize}
+\tightlist
+\item
+  Main idea: index \(I_k(t)\) to approximate the quality of arm \(k\)
+\item
+  First example: \emph{UCB algorithm}
+\item
+  Second example: \emph{Thompson Sampling}
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}3.1.  Index based algorithms\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{multi-armed-bandit-algorithms}{%
+3.1 Multi-Armed Bandit algorithms}}
+
+\begin{block}{Often \emph{index} based}
+
+\begin{itemize}
+\tightlist
+\item
+  Keep \emph{index} \(I_k(t) \in \mathbb{R}\) for each arm
+  \(k=1,\ldots,K\)
+\item
+  Always play \(A(t) = \arg\max I_k(t)\)
+\item
+  \(I_k(t)\) should represent belief of the \emph{quality} of arm
+  \(k\) at time \(t\)
+\end{itemize}
+
+\end{block}
+
+\begin{block}{Example: ``Follow the Leader''}
+
+\begin{itemize}
+\tightlist
+\item
+  \(X_k(t) := \sum\limits_{s < t} r(s) \bold{1}(A(s)=k)\) sum reward
+  from arm \(k\)
+\item
+  \(N_k(t) := \sum\limits_{s < t} \bold{1}(A(s)=k)\) number of samples
+  of arm \(k\)
+\item
+  And use \(I_k(t) = \hat{\mu}_k(t) := \frac{X_k(t)}{N_k(t)}\).
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}3.2. UCB algorithm \hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{first-example-of-algorithm-upper-confidence-bounds-algorithm-ucb}{%
+\emph{Upper Confidence Bounds} algorithm
+(UCB)}}
+
+\begin{itemize}
+\tightlist
+\item
+  Instead of using \(I_k(t) = \frac{X_k(t)}{N_k(t)}\), add an
+  exploration term
+  \[ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} \]
+\end{itemize}
+
+\begin{block}{Parameter \(\alpha\): tradeoff exploration \emph{vs}
+exploitation}
+
+\begin{itemize}
+\tightlist
+\item
+  Small \(\alpha\): focus more on \textbf{exploitation}
+\item
+  Large \(\alpha\): focus more on \textbf{exploration}
+\end{itemize}
+
+\end{block}
+
+Problem: how to choose ``the good \(\alpha\)'' for a certain problem?
+
+\end{frame}
+
+
+
+\subsection{\hfill{}3.3. Thompson sampling algorithm \hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{second-example-of-algorithm-thompson-sampling-ts}{%
+\emph{Thompson sampling} (TS)}}
+
+\begin{itemize}
+\tightlist
+\item
+  Choose an initial belief on \(\mu_k\) (uniform) and a prior \(p^t\)
+  (\emph{e.g.}, a Beta prior on \([0,1]\))
+\item
+  At each time, update the prior \(p^{t+1}\) from \(p^t\) using Bayes
+  theorem
+\item
+  And use \(I_k(t) \sim p^t\) as \emph{random} index
+\end{itemize}
+
+\begin{block}{Example with Beta prior, for binary rewards}
+
+\begin{itemize}
+\tightlist
+\item
+  \(p^t = \mathrm{Beta}(1 + \text{nb successes}, 1 + \text{nb failures})\).
+\item
+  Mean of \(p^t\)
+  \(= \frac{1 + X_k(t)}{2 + N_k(t)} \simeq \hat{\mu}_k(t)\).
+\end{itemize}
+
+\end{block}
+
+How to choose ``the good prior'' for a certain problem?
+
+\end{frame}
+
+
+
+\section{\hfill{}4. Aggregation of MAB algorithms\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{aggregation-of-mab-algorithms}{%
+4. Aggregation of MAB algorithms}}
+
+\begin{block}{Problem}
+
+\begin{itemize}
+\tightlist
+\item
+  How to choose which algorithm to use?
+\item
+  But also\ldots{} Why commit to one only algorithm?
+\end{itemize}
+
+\end{block}
+
+\begin{block}{Solutions}
+
+\begin{itemize}
+\tightlist
+\item
+  Offline benchmarks?
+\item
+  Or online selections from a pool of algorithms?
+\end{itemize}
+
+\end{block}
+
+\begin{block}{\(\hookrightarrow\) Aggregation?}
+
+\begin{quote}
+Not a new idea, studied from the 90s in the ML community.
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Also use online learning to \emph{select the best algorithm}!
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+
+\subsection{\hfill{}4.1 Basic idea for online aggregationorithms\hfill{}}
+
+\begin{frame}{4.1 Basic idea for online aggregation}
+
+If you have \(\mathcal{A}_1,\ldots,\mathcal{A}_N\) different algorithms
+
+\begin{itemize}
+\tightlist
+\item
+  At time \(t=0\), start with a uniform distribution \(\pi^0\) on
+  \(\{1,\ldots,N\}\) (to represent the \textbf{trust} in each algorithm)
+\item
+  At time \(t\), choose \(a^t \sim \pi^t\), then play with
+  \(\mathcal{A}_{a^t}\)
+\item
+  Compute next distribution \(\pi^{t+1}\) from \(\pi^t\):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    increase \(\pi^{t+1}_{a^t}\) if choosing \(\mathcal{A}_{a^t}\) gave
+    a good reward
+  \item
+    or decrease it otherwise
+  \end{itemize}
+\end{itemize}
+
+\begin{block}{Problems}
+
+\begin{enumerate}
+[1.]
+\tightlist
+\item
+  How to increase \(\pi^{t+1}_{a^t}\) ?
+\item
+  What information should we give to which algorithms?
+\end{enumerate}
+
+\end{block}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}4.2. The Exp4 algorithm\hfill{}}
+
+\begin{frame}{4.2 Overview of the \emph{Exp4} aggregation algorithm}
+
+\begin{quote}
+For rewards in \(r(t) \in [-1,1]\).
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  Use \(\pi^t\) to choose randomly the algorithm to trust,
+  \(a^t \sim \pi^t\)
+\item
+  Play its decision, \(A_{\text{aggr}}(t) = A_{a^t}(t)\), receive reward
+  \(r(t)\)
+\item
+  And give feedback of observed reward \(r(t)\) only to this one
+\item
+  Increase or decrease \(\pi^t_{a^t}\) using an exponential weight:
+  \[ \pi^{t+1}_{a^t} := \pi^{t}_{a^t} \times \exp\left(\eta_t \times \frac{r(t)}{\pi^t_{a^t}}\right).\]
+\item
+  Renormalize \(\pi^{t+1}\) to keep a distribution on \(\{1,\ldots,N\}\)
+\item
+  Use a sequence of decreasing \emph{learning rate}
+  \(\eta_t = \frac{\log(N)}{t \times K}\) (cooling scheme,
+  \(\eta_t \to 0\) for \(t\to\infty\))
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}Unbiased estimates?\hfill{}}
+
+\begin{frame}{Use an \emph{unbiased} estimate of the rewards}
+
+Using directly \(r(t)\) to update trust probability yields a biased
+estimator
+
+\begin{itemize}
+\tightlist
+\item
+  So we use instead \(\hat{r}(t) = r(t) / \pi^t_{a}\) if we trusted
+  algorithm \(\mathcal{A}_a\)
+\item
+  This way
+\end{itemize}
+
+\[\mathbb{E}[\hat{r}(t)] = \sum\limits_{a=1}^N \mathbb{P}(a^t = a) \mathbb{E}[r(t) / \pi^t_{a}]\]
+\[= \mathbb{E}[r(t)] \sum\limits_{a=1}^N \frac{\mathbb{P}(a^t = a)}{\pi^t_{a}} = \mathbb{E}[r(t)]
+\]
+
+\end{frame}
+
+
+
+\subsection{\hfill{}4.3. Our Aggregator algorithm\hfill{}}
+
+\begin{frame}{4.3 Our \emph{Aggregator} aggregation algorithm}
+
+Improves on \emph{Exp4} by the following ideas:
+
+\begin{itemize}
+\item
+  First let each algorithm vote for its decision \(A_1^t,\ldots,A_N^t\)
+\item
+  Choose arm
+  \(A_{\text{aggr}}(t) \sim p_j^{t+1} := \sum\limits_{a=1}^N \pi_a^t \mathbf{1}(A_a^t = j)\)
+\item
+  Update trust for each of the trusted algorithm, not only one
+  (\emph{i.e.}, if \(A_a^t = A_{\text{aggr}}^t\)) \(\hookrightarrow\)
+  faster convergence
+\item
+  Give feedback of reward \(r(t)\) to \emph{each} algorithm! (and not
+  only the one trusted at time \(t\)) \(\hookrightarrow\) each algorithm
+  have more data to learn from
+\end{itemize}
+
+\end{frame}
+
+
+
+\section{\hfill{}5. Some illustrations\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{some-illustrations}{%
+5. Some illustrations}}
+
+\begin{itemize}
+\tightlist
+\item
+  Artificial simulations of stochastic bandit problems
+\item
+  Bernoulli bandits but not only
+\item
+  Pool of different algorithms (UCB, Thompson Sampling etc)
+\item
+  Compared with other state-of-the-art algorithms for \emph{expert
+  aggregation} (Exp4, CORRAL, LearnExp)
+\item
+  What is plotted it the \emph{regret} for problem of means
+  \(\mu_1,\ldots,\mu_K\) :
+  \[ R_T^{\mu}(\mathcal{A}) = \max_k (T \mu_k) - \sum_{t=1}^T \mathbb{E}[r(t)] \]
+\item
+  Regret is known to be lower-bounded by \(C(\mu) \log(T)\)
+\item
+  and upper-bounded by \(C'(\mu) \log(T)\) for efficient algorithms
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}5.1. On a simple Bernoulli problem\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{on-a-simple-bernoulli-problem}{%
+On a simple Bernoulli problem}}
+
+\begin{figure}
+\centering
+\includegraphics[width=1.05\textwidth]{plots/main_semilogy____env1-4_932221613383548446.pdf}
+\end{figure}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}5.2. On a "hard" Bernoulli problem\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{on-a-hard-bernoulli-problem}{%
+On a ``hard'' Bernoulli problem}}
+
+\begin{figure}
+\centering
+\includegraphics[width=1.05\textwidth]{plots/main____env2-4_932221613383548446.pdf}
+\end{figure}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}5.3. On a mixed problem\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{on-a-mixed-problem}{%
+On a mixed problem}}
+
+\begin{figure}
+\centering
+\includegraphics[width=1.05\textwidth]{plots/main_semilogy____env4-4_932221613383548446.pdf}
+\end{figure}
+
+\end{frame}
+
+
+
+\section{\hfill{}6. Conclusion\hfill{}}
+
+\subsection{\hfill{}6.1. Summary\hfill{}}
+
+\begin{frame}{%
+\protect\hypertarget{conclusion-12}{%
+Conclusion (1/2)}}
+
+\begin{itemize}
+\tightlist
+\item
+  Online learning can be a powerful tool for Cognitive Radio, and many
+  other real-world applications
+\item
+  Many formulation exist, a simple one is the Multi-Armed Bandit
+\item
+  Many algorithms exist, to tackle different situations
+\item
+  It’s hard to know before hand which algorithm is efficient for a
+  certain problem\ldots{}
+\item
+  Online learning can also be used to select \emph{on the run} which
+  algorithm to prefer, for a specific situation!
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}6.2. Summary \& Thanks\hfill{}}
+
+\begin{frame}[fragile]{%
+\protect\hypertarget{conclusion-22}{%
+Conclusion (2/2)}}
+
+\begin{itemize}
+\tightlist
+\item
+  Our algorithm \textbf{Aggregator} is efficient and easy to implement
+\item
+  For \(N\) algorithms \(\mathcal{A}_1,\ldots,\mathcal{A}_N\), it costs
+  \(\mathcal{O}(N)\) memory, and \(\mathcal{O}(N)\) extra computation
+  time at each time step
+\item
+  For stochastic bandit problem, it outperforms empirically the other
+  state-of-the-arts (Exp4, CORRAL, LearnExp).
+\end{itemize}
+
+\begin{block}{See our paper}
+
+\href{https://hal.inria.fr/hal-01705292}{\texttt{HAL.Inria.fr/hal-01705292}}
+
+\end{block}
+
+\begin{block}{See our code for experimenting with bandit algorithms}
+
+Python library, open source at
+\href{https://SMPyBandits.GitHub.io}{\texttt{SMPyBandits.GitHub.io}}
+
+\end{block}
+
+\begin{center}\begin{LARGE}
+  {\Fontify Thanks for listening!}
+\end{LARGE}\end{center}
+
+\end{frame}
+
+\end{document}

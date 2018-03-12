@@ -1,0 +1,49 @@
+\documentclass[a4paper,12pt]{standalone}
+
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+\newfontfamily\FiraCode{Fira Code}
+\fi
+
+%% TikZ
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+% https://tex.stackexchange.com/a/226974/
+\tikzset{
+  font={\fontsize{10pt}{10}\selectfont}
+}
+
+\begin{document}
+
+\begin{figure}[h!]
+  \begin{tikzpicture}[>=latex',line join=bevel,scale=2]
+      %
+      \node (C) at (0,2) [draw,rectangle,thick, text width=8cm,text centered] {Channel selection and access policy};
+      \node (S) at (1.16667,1) [draw,rectangle,thick, text width=3cm,text centered] {Spectrum Sensing};
+      \node (R) at (0,0) [draw,rectangle,thick, text width=8cm,text centered] {RF Environment};
+      %
+      \draw [black,->] (C.354) to node[near start,right,text centered,black] {Channel selection} (S.35);
+      \draw [black,->] (C.186) to node[near start,left,text centered,black] {Channel access} (R.160);
+      \draw [black,->] (R.140) to node[near start,right,text centered,black] {Reward} (C.188);
+      \draw [black,->] (S.130) to node[near start,left,text centered,black] {Free/busy} (C.350);
+      \draw [black,->] (R.10) to node[near start,right,text centered,black] {Observation} (S.south);
+      %
+  \end{tikzpicture}
+  % \caption{\small Test.}
+  \label{fig:test}
+\end{figure}
+
+\end{document}

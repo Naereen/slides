@@ -7,7 +7,7 @@ all:	pandoctex pandocpdf clean show
 all169:	pandoctex169 pandocpdf169 clean show169
 
 pandoctex:
-	pandoc -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
+	pandoc -N -s --template=../my.beamer -t beamer slides_pandoc.md -o slides.tex
 	./preprocess_tex.sh slides.tex
 
 pandocpdf:
@@ -21,7 +21,7 @@ show:
 	pdfpc -d 45 slides.pdf
 
 pandoctex169:
-	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides.md -o slides_169.tex
+	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides_pandoc.md -o slides_169.tex
 	./preprocess_tex.sh slides_169.tex
 
 pandocpdf169:
