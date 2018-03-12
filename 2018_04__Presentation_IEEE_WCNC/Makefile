@@ -1,4 +1,6 @@
 # Quick Makefile to easily compile the slides (make pdf) and run the slide (make showtime)
+SHELL=/usr/bin/env /bin/bash
+
 default: all
 
 all:	pandoctex pandocpdf clean show
@@ -9,8 +11,7 @@ pandoctex:
 	./preprocess_tex.sh slides.tex
 
 pandocpdf:
-	pdflatex slides.tex
-	pdflatex slides.tex
+	latexmk -xelatex -gg -pdf slides.tex
 	rm slides.toc slides.snm slides.out slides.nav slides.aux slides.log slides.vrb
 
 open:
@@ -24,8 +25,7 @@ pandoctex169:
 	./preprocess_tex.sh slides_169.tex
 
 pandocpdf169:
-	pdflatex slides_169.tex
-	pdflatex slides_169.tex
+	latexmk -xelatex -gg -pdf slides_169.tex
 	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
 
 open169:
