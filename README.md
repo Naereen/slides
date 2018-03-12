@@ -31,7 +31,9 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 - [December 2017 : Presentation of our ALT 2018 article at SequeL team seminar (Inria Lille)](https://perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides_169.pdf)).
 - [January 2018 : Same presentation at the ENSAI "brown-bag" seminar (Rennes)](https://perso.crans.org/besson/publis/slides/2018_01__ENSAI_Seminar_BrownBag__Article_ALT2018/slides_169.pdf).
 - [January 2018 : "Python introduction for MATLAB users" training session (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.pdf)).
-- [March 2018 : "Introduction to Jupyter notebooks" training session (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.pdf)).
+- [March 2018 : "Introduction to Jupyter notebooks" training session (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides_169.pdf)).
+- [April 2018 : "Multi-Player Bandits Models Revisited", talk at the ALT 2018 conference](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_at_ALT_2018_conference/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_at_ALT_2018_conference/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-01629733).
+- [April 2018 : "Aggregation of Multi-Armed Bandits Learning Algorithms for Opportunistic Spectrum Access", talk at the IEEE WCNC 2018 conference](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_IEEE_WCNC/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_IEEE_WCNC/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-01705292).
 
 ### :arrow_forward: 2. View the slides on-line as HTML pages ?
 > These versions are experimental and should not be used.
@@ -51,6 +53,8 @@ This repository hosts some [remark.js slideshows](https://github.com/gnab/remark
 - [2017_12__Presentation_Inria_Lille_SequeL_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.html).
 - [2018_01__Python_introduction_for_MATLAB_users__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.html).
 - [2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.html).
+- [2018_04__Presentation_at_ALT_2018_conference](https://cdn.rawgit.com/Naereen/slides/master/2018_04__Presentation_at_ALT_2018_conference/slides.html).
+- [2018_04__Presentation_IEEE_WCNC](https://cdn.rawgit.com/Naereen/slides/master/2018_04__Presentation_IEEE_WCNC/slides.html).
 
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/slides.html`.
 
