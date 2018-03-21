@@ -78,7 +78,7 @@ Ask questions *at the end* if you want!
 - Again $K \geq 2$ resources (*e.g.*, channels), called **arms**
 - Each time slot $t=1,\ldots,T$, you must choose one arm, denoted $A(t)\in\{1,\ldots,K\}$
 - You receive some reward $r(t) \sim \nu_k$ when playing $k = A(t)$
-- **Goal:** maximize your sum reward $\sum\limits_{t=1}^{T} r(t)$
+- **Goal:** maximize your sum reward $\sum\limits_{t=1}^{T} r(t)$, or expected $\sum\limits_{t=1}^{T} \mathbb{E}[r(t)]$
 - Hypothesis: rewards are stochastic, of mean $\mu_k$. *E.g.*, Bernoulli
 
 ## Why is it famous?
@@ -107,7 +107,7 @@ Simple but good model for **exploration/exploitation** dilemma.
 
 ---
 
-# 3.2 First example of algorithm <br>*Upper Confidence Bounds* algorithm (UCB)
+# 3.2 First example of algorithm (2002) <br>*Upper Confidence Bounds* algorithm (UCB)
 - Instead of using $I_k(t) = \frac{X_k(t)}{N_k(t)}$, add an exploration term
 $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 
@@ -119,7 +119,7 @@ $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 
 ---
 
-# 3.3 Second example of algorithm <br> *Thompson sampling* (TS)
+# 3.3 Second example of algorithm (1933) <br> *Thompson sampling* (TS)
 - Choose an initial belief on $\mu_k$ (uniform) and a prior $p^t$ (*e.g.*, a Beta prior on $[0,1]$)
 - At each time, update the prior $p^{t+1}$ from $p^t$ using Bayes theorem
 - And use $I_k(t) \sim p^t$ as *random* index
@@ -167,7 +167,7 @@ If you have $\mathcal{A}_1,\ldots,\mathcal{A}_N$ different algorithms
 
 ---
 
-## 4.2 Overview of the *Exp4* aggregation algorithm
+## 4.2 Overview of the *Exp4* aggregation algorithm (2002)
 > For rewards in $r(t) \in [-1,1]$.
 
 - Use $\pi^t$ to choose randomly the algorithm to trust, $a^t \sim \pi^t$
@@ -213,13 +213,13 @@ Improves on *Exp4* by the following ideas:
 # 5. Some illustrations ==[3 min]==
 
 - Artificial simulations of stochastic bandit problems
-- Bernoulli bandits but not only
+- Bernoulli bandits but not only (also Gaussian, Exponential)
 - Pool of different algorithms (UCB, Thompson Sampling etc)
 - Compared with other state-of-the-art algorithms for *expert aggregation* (Exp4, CORRAL, LearnExp)
 - What is plotted it the *regret* for problem of means $\mu_1,\ldots,\mu_K$ :
-  $$ R_T^{\mu}(\mathcal{A}) = \max_k (T \mu_k) - \sum_{t=1}^T \mathbb{E}[r(t)] $$
+$$ R_T^{\mu}(\mathcal{A}) = \max_k (T \mu_k) - \sum_{t=1}^T \mathbb{E}[r(t)] $$
 - Regret is known to be lower-bounded by $C(\mu) \log(T)$
-- and upper-bounded by $C'(\mu) \log(T)$ for efficient algorithms
+  and upper-bounded by $C'(\mu) \log(T)$ for efficient algorithms
 
 ---
 
@@ -251,14 +251,15 @@ Improves on *Exp4* by the following ideas:
 
 # Conclusion (2/2)
 
-- Our algorithm **Aggregator** is efficient and easy to implement
+- Our algorithm **Aggregator** is **efficient and easy to implement**
 - For $N$ algorithms $\mathcal{A}_1,\ldots,\mathcal{A}_N$, it costs $\mathcal{O}(N)$ memory,
   and $\mathcal{O}(N)$ extra computation time at each time step
 - For stochastic bandit problem, it outperforms empirically
   the other state-of-the-arts (Exp4, CORRAL, LearnExp).
 
-### See our paper
-[`HAL.Inria.fr/hal-01705292`](https://hal.inria.fr/hal-01705292)
+<br>
+
+### See our paper: [`HAL.Inria.fr/hal-01705292`](https://hal.inria.fr/hal-01705292)
 
 ### See our code for experimenting with bandit algorithms
 Python library, open source at [`SMPyBandits.GitHub.io`](https://SMPyBandits.GitHub.io)
