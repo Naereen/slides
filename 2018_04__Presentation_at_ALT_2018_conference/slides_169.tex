@@ -1,6 +1,5 @@
 \documentclass[12pt,english,ignorenonframetext,aspectratio=169,]{beamer}
 
-
 %%%%%%%%%%%%%%%
 %% Beamer theme
 % choose one from http://deic.uab.es/~iblanes/beamer_gallery/
@@ -131,7 +130,8 @@
 }
 \usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
 
-\usepackage{macrosText}  % FIXME remove
+\IfFileExists{macrosText.sty}{\usepackage{macrosText}}{}
+
 \usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
 
 
@@ -254,7 +254,7 @@
 
 \begin{frame}{Motivation}
 
-We control some communicating devices, they want to access to an access point.
+We control some communicating devices, they want to use a wireless access point.
 
 \begin{itemize}
 \tightlist
@@ -291,9 +291,9 @@ We control some communicating devices, they want to access to an access point.
 
 
 
-\subsection{\hfill{}1.b. Outline and references\hfill{}}
+\subsection{\hfill{}1.b. Outline\hfill{}}
 
-\begin{frame}{Outline \uncover<2>{and reference}}
+\begin{frame}{Outline}
 
 \vspace*{-15pt}
 
@@ -320,27 +320,15 @@ We control some communicating devices, they want to access to an access point.
   \invisible{Conclusion}
 \end{enumerate}
 
-\pause
-
-\vfill{}
-
-\begin{footnotesize}
-This is based on our latest article:
-\begin{itemize}
-\item \emph{``Multi-Player Bandits Models Revisited''}, Besson \& Kaufmann.
-\hspace*{50pt}\texttt{\textcolor{blue}{\href{https://arXiv.org/abs/1711.02317}{arXiv:1711.02317}}}, for \emph{ALT 2018} (Lanzarote, April).
-\end{itemize}
-\end{footnotesize}
-
 \end{frame}
 
 
 
 \section{\hfill{}2. Our model: $3$ different feedback level\hfill{}}
 
-\subsection{\hfill{}2.a. Our model\hfill{}}
+\subsection{\hfill{}2.a. Our communication model\hfill{}}
 
-\begin{frame}{Our model}
+\begin{frame}{Our communication model}
 
 \begin{itemize}
 \tightlist
@@ -403,8 +391,6 @@ This is based on our latest article:
   \small{Model the ``classical'' Opportunistic Spectrum Access problem.
   Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
   \end{quote}
-
-  \pause
 \item
   \emph{Without sensing}: same background traffic, but cannot sense, so
   only \texttt{Ack} is used.
@@ -473,13 +459,15 @@ This is based on our latest article:
 \item
   ``Full \textcolor<1>{red}{feed}\textcolor<1>{blue}{back}'': observe
   both \textcolor<1>{red}{$Y_{A^j(t),t}$} \emph{and}
-  \textcolor<1>{blue}{$C^j(t)$} separately, \hook Not realistic enough,
+  \textcolor<1>{blue}{$C^j(t)$} separately,
+  \hook Not realistic enough,
   we don't focus on it. \vspace*{10pt}\pause
 \item
   \textcolor<2>{strongred}{``Sensing''}: first observe
   \(\textcolor<2>{strongred}{Y_{A^j(t),t}}\), \emph{then}
   \(\textcolor<2>{normalred}{C^j(t)}\) only if
-  \(\textcolor<2>{strongred}{Y_{A^j(t),t}} \neq 0\), \hook Models
+  \(\textcolor<2>{strongred}{Y_{A^j(t),t}} \neq 0\),
+  \hook Models
   licensed protocols (ex. ZigBee), our main focus. \vspace*{10pt}\pause
 \item
   \textcolor<3>{deeppurple}{``No sensing''}: observe only the combined
@@ -502,7 +490,7 @@ This is based on our latest article:
 \begin{itemize}
 \tightlist
 \item
-  \emph{Goal} : \emph{minimize packet loss ratio} (\(=\) maximize nb of
+  \emph{Goal}: \emph{minimize packet loss ratio} (\(=\) maximize nb of
   received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
   Making Problem}.
 \item
@@ -510,8 +498,6 @@ This is based on our latest article:
   \textbf{decentralized} and used \textbf{independently} by each dynamic
   device.
 \end{itemize}
-
-\pause
 
 \end{block}
 
@@ -555,7 +541,7 @@ This is based on our latest article:
   $$R_T(\boldsymbol{\mu}, M, \rho)
   :=
   % \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \alert<1>{\mu_j^*} -  r^j(t)\right] \pause=
-  \left(\sum_{k=1}^{M}\alert<1>{\mu_k^*}\right) T - \textcolor<1>{blue}{\E_{\mu}}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t) \right]$$
+  \left(\sum_{k=1}^{M}\alert<1>{\mu_k^*}\right) T - \textcolor<1>{blue}{\E_{\mu}}\left[\sum_{t=1}^T\sum_{j=1}^M r^j(t) \right].$$
 \end{small}
 
 \vspace*{-10pt}
@@ -628,7 +614,7 @@ For any algorithm, decentralized or not, we have \vspace*{-10pt}
 \begin{footnotesize}\begin{align*}
 R_T(\boldsymbol{\mu}, M, \rho)
 &\only<1-4>{=}\only<5>{\alert<5>{\boldsymbol{\geq}}} \alert<2>{\sum_{k \in \Mworst} (\mu_M^* -  \mu_k) \E_{\mu}[\textcolor<1>{blue}{T_k(T)}]} \\
-&\uncover<1-4>{+ \alert<3>{\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[\textcolor<1>{blue}{T_k(T)}]\right)} + \alert<4>{\sum_{k=1}^{K} \mu_k \E_{\mu}[\textcolor{red}{\mathcal{C}_k(T)}]}.}
+&\uncover<1-4>{+ \alert<3>{\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[\textcolor<1>{blue}{T_k(T)}]\right)} + \alert<4>{\sum_{k=1}^{K} \mu_k \E_{\mu}[\textcolor<1>{red}{\mathcal{C}_k(T)}]}.}
 \end{align*}\end{footnotesize}
 \vspace*{-10pt}
 
@@ -671,7 +657,7 @@ R_T(\boldsymbol{\mu}, M, \rho)
 \begin{frame}{Asymptotic Lower Bound on regret I}
 
 \begin{block}{Theorem 1
-  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+  \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
   Sub-optimal arms selections are lower bounded asymptotically,
   \[\forall\, \text{player}\, j, \text{bad arm}\,k,\;\;\;\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},\]
@@ -679,7 +665,7 @@ R_T(\boldsymbol{\mu}, M, \rho)
 
 \end{block}
 
-Proof: using technical information theory tools (Kullback-Leibler divergence, change of distributions).
+Proof: using classical information theory tools (Kullback-Leibler divergence, change of distributions).
 \citationright{Ref: [Garivier et al, 2016]}
 
 \end{frame}
@@ -687,7 +673,7 @@ Proof: using technical information theory tools (Kullback-Leibler divergence, ch
 \begin{frame}{Asymptotic Lower Bound on regret II}
 
 \begin{block}{Theorem 2
-\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
 \small{For any uniformly efficient decentralized policy, and any
 non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
@@ -753,10 +739,10 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \item
   \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
   \item
-  \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.\pause
+  \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
   \item
     Compute the index
-    \(g_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Upper Confidence Bound}}\)\pause
+    \(g_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Upper Confidence Bound}}\)
   \item
     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
   \item
@@ -800,10 +786,10 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \end{itemize}
 \end{enumerate}
 
-\uncover<2>{\small \alert<2>{\emph{Why bother?}} \klUCB{} is more
+{\small \emph{Why bother?} \klUCB{} is more
 efficient than \UCB{}, and asymptotically optimal for single-player
 stochastic bandit.
-\citationright{References: [Garivier \& Cappé, 2011], [Cappé \& Garivier \& Maillard \& Munos \& Stoltz, 2013]}
+\citationright{References: [Garivier \& Cappé, 2011], [Cappé et al, 2013]}
 }
 
 \end{frame}
@@ -824,7 +810,7 @@ stochastic bandit.
 \item
   Second proposal: \MCTopM,\vspace*{15pt}
 \item
-  Algorithm and illustration.
+  Algorithm.
 \end{enumerate}
 
 \end{frame}
@@ -848,8 +834,6 @@ stochastic bandit.
   \(C^j(t)\)).
 \end{enumerate}
 
-\pause
-
 \end{block}
 
 \begin{block}{Many different proposals for \emph{decentralized} learning
@@ -865,12 +849,10 @@ policies}
   \citationright{[Avner \& Mannor, 2015], [Shamir et al, 2016]}
 \end{itemize}
 
-\pause
-
 \end{block}
 
 \begin{block}{\textbf{Our proposals}:
-\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
   \RandTopM{} and \MCTopM{} are sort of mixes
   between \rhoRand{} and \MusicalChair, using UCB or more
@@ -943,7 +925,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
         \tcp*[f]{randomly switch}
         \pause
-        }(\tcp*[f]{\alert{aim arm with smaller UCB at $t-1$}}){
+        }(\tcp*[f]{\alert{arm with smaller index at $t-1$}}){
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)}\right\}\right)$
         }
       }{
@@ -979,28 +961,31 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
 % \KwData{Data}
 % \KwResult{Result}
 % XXX Algorithm
-Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{False}$ \\
+Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^j(1)=\mathrm{Non}\;\mathrm{fixed}$ \\
 \For{$t = 1, \dots, T-1$}{
-      \uIf(\tcp*[f]{\textcolor{red}{transition $(3)$ or $(5)$}}){
+      \uIf(\tcp*[f]{\textcolor{red}{transition $\bold{(3)}$ or $\bold{(5)}$}}){
         $A^j(t) \notin \TopM(t)$}
       {
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
         \tcp*[f]{not empty} \\
-        \alert{$s^j(t+1) = \mathrm{False}$}
-        \tcp*[f]{aim arm with smaller UCB at $t-1$}
+        \alert{$s^j(t+1) = \mathrm{Non}\;\mathrm{fixed}$}
+        \tcp*[f]{arm with smaller index at $t-1$}
         \pause
       }
       \uElseIf(\tcp*[f]{collision and not fixed}){
-          $C^j(t)$ \emph{and} $\overline{s^j(t)}$}
+          $C^j(t)$ \emph{and}
+          $s^j(t) = \mathrm{Non}\;\mathrm{fixed}$
+          % $\overline{s^j(t)}$
+        }
         {
           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
-          \tcp*[f]{\textcolor{blue}{transition $(2)$}} \\
-          \alert{$s^j(t+1) = \mathrm{False}$}
+          \tcp*[f]{\textcolor{blue}{transition $\bold{(2)}$}} \\
+          \alert{$s^j(t+1) = \mathrm{Non}\;\mathrm{fixed}$}
           \pause
       }
-      \Else(\tcp*[f]{transition \textcolor{cyan}{$(1)$} or \textcolor{darkgreen}{$(4)$}}){
+      \Else(\tcp*[f]{transition \textcolor{cyan}{$\bold{(1)}$} or \textcolor{darkgreen}{$\bold{(4)}$}}){
         $A^j(t+1) = A^j(t)$ \tcp*[f]{stay on the previous arm} \\
-        \alert{$s^j(t+1) = \mathrm{True}$} \tcp*[f]{become or stay fixed on a ``chair''}
+        \alert{$s^j(t+1) = \mathrm{Fixed}$} \tcp*[f]{become or stay fixed on a ``chair''}
       }
     \pause
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
@@ -1013,7 +998,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \end{frame}
 
-\begin{frame}{\MCTopM{} algorithm}
+\begin{frame}{\MCTopM{} algorithm illustrated, step by step}
 
 \begin{figure}[h!]
 \scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
@@ -1071,7 +1056,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{frame}{Regret upper bound for \MCTopM{}}
 
 \begin{block}{Theorem 3
-\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 One term is controlled by the two others:
 \begin{small}\[
 \sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)
@@ -1085,12 +1070,12 @@ So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \tex
 \pause
 
 \begin{block}{Theorem 4
-\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2017]}}
+\hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
 If all \(M\) players use \MCTopM{} with \klUCB:
 \[
 \forall \boldsymbol{\mu}, \exists G_{M,\boldsymbol{\mu}},\;\;\;\;
-R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \log(T) + \smallO{\log T}.
+R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \times \log(T) + \smallO{\log T}.
 \]
 
 \end{block}
@@ -1126,7 +1111,7 @@ Control both terms, both are logarithmic at finite horizon:
   than \rhoRand's constant scaling as \(M^2 {2M-1 \choose M}\),
 \item
   We also \emph{minimize the number of channel switching}: interesting
-  as changing arm costs energy in radio systems,\pause
+  as changing arm costs energy in radio systems,
 \item
   For the suboptimal selections, we \emph{match our lower bound} !
 \end{itemize}
@@ -1134,69 +1119,6 @@ Control both terms, both are logarithmic at finite horizon:
 \end{block}
 
 \end{frame}
-
-
-
-\subsection{\hfill{}6.b. Sketch of the proof\hfill{}}
-
-\begin{frame}{Sketch of the proof}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Bound the expected number of collisions by \(M\) times the number of
-  collisions for non-sitted players,\pause
-\item
-  Bound the expected number of
-  \textcolor<2>{red}{transitions of type $(3)$ and $(5)$}, by
-  \(\bigO{\log T}\) using the \klUCB{} indexes and the forced choice of
-  the algorithm:
-  \(g_k^j(t-1) \leq g^j_{k'}(t-1), \;\;\text{and}\;\; g_k^j(t) > g^j_{k'}(t)\)
-  when switching from \(k'\) to \(k\),\pause
-\item
-  Bound the expected length of a sequence in the non-sitted state by a
-  constant,\pause
-\item
-  So most of the times (\(\bigO{T - \log T}\)), players are sitted, and
-  no collision happens when they are all sitted!
-\end{enumerate}
-
-\begin{quote}
-\strut
-
-\hfill\(\hookrightarrow\) See our paper for details!
-\end{quote}
-
-\end{frame}
-
-\begin{frame}{Sketch of the proof}
-
-\begin{figure}[h!]
-\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
-    %
-    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
-    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
-    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
-    %
-    \draw [color=black,very thick,->] (start) -> (notfixed.20);
-    \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-    \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-    \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-    \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-    \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
-    %
-\end{tikzpicture}
-\end{minipage}}
-\label{fig:StateMachineAlgorithm_MCTopM}
-\end{figure}
-\begin{small}
-  -- Time in sitted state is $\bigO{\log T}$, and collisions are $\leq M$ collisions in sitted state $\implies \bigO{\log T}$ collisions.\newline
-  -- Suboptimal selections is $\bigO{\log T}$ also as $A^j(t+1)$ is always selected in $\TopM(t)$ which is $\Mbest$ at least $\bigO{T - \log T}$ (in average).
-\end{small}
-
-\end{frame}
-
 
 
 \section{\hfill{}7. Experimental results\hfill{}}
@@ -1233,7 +1155,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{frame}[plain]{Illustration of the Lower Bound on regret}
 
 \begin{figure}[h!]
-\includegraphics[height=0.80\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
+\includegraphics[height=0.78\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
 \caption{\footnotesize{Any such lower bound is \alert{very asymptotic}, usually not satisfied for small horizons. We can see the importance of the collisions!}}
 \end{figure}
 
@@ -1285,7 +1207,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_CumNbSwitchs____env1-1_8318947830261751207.pdf}
-\caption{\footnotesize{Cumulated number of arm switches. Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}.}}
+\caption{\footnotesize{Cumulated number of arm switches. Again \textcolor{blue}{\rhoRand{}} < \textcolor{red}{\RandTopM{}} < \textcolor{bluegreen}{\Selfish{}} < \textcolor{yellowgreen}{\MCTopM{}}, but no guarantee for \textcolor{blue}{\rhoRand{}}. \emph{Bonus} result: logarithmic arm switches for our algorithms!}}
 \end{figure}
 
 \end{frame}
@@ -1304,8 +1226,205 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 % \end{frame}
 
 
+\section{\hfill{}8. Conclusion\hfill{}}\subsection{\hfill{}8.a. Sum-up\hfill{}}
 
-\section{\hfill{}8. An heuristic, \Selfish\hfill{}}
+\begin{frame}{Sum-up}
+
+\begin{block}{\emph{Wait, what was the problem ?}}
+
+\begin{itemize}
+\tightlist
+\item
+  MAB algorithms have guarantees for \emph{i.i.d. settings},
+\item
+  But here the collisions cancel the \iid{} hypothesis\ldots{}
+\item
+  Not easy to obtain guarantees in this mixed setting
+  (``game theoretic'' collisions).
+\end{itemize}
+
+\pause
+
+\end{block}
+
+\begin{block}{Theoretical results}
+
+\begin{itemize}
+\tightlist
+\item
+  With sensing (``OSA''), we obtained strong results: a lower bound, and
+  an order-optimal algorithm,
+\item
+  But without sensing (``IoT''), it is harder\ldots{}\newline
+  our heuristic \Selfish{} usually works but can fail!
+\end{itemize}
+
+\end{block}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}8.b. Future work\hfill{}}
+
+\begin{frame}{Future work}
+
+\begin{block}{Conclude the Multi-Player OSA analysis}
+
+\begin{itemize}
+\item
+  Remove hypothesis that objects know \(M\),
+\item
+  Allow arrival/departure of objects,
+\item
+  Non-stationarity of background traffic etc.
+\end{itemize}
+
+
+\end{block}
+
+\begin{block}{Extend to more objects \(M > K\)}
+
+Extend the theoretical analysis to the large-scale IoT model, first
+with sensing (\eg, models ZigBee networks), then without sensing (\eg,
+LoRaWAN networks).
+\hook objects can no longer communicate at every time step!
+
+\end{block}
+
+\end{frame}
+
+
+
+\subsection{\hfill{}8.c. Thanks!\hfill{}}
+
+\begin{frame}[allowframebreaks]{Conclusion}
+
+\begin{itemize}
+\tightlist
+\item
+  In a wireless network with an \iid{} background traffic in \(K\)
+  channels,
+\item
+  \(M\) devices can use both sensing and acknowledgement feedback, to
+  learn the most free channels and to find orthogonal configurations.
+\end{itemize}
+
+\begin{block}{We showed $\;\;$ \Smiley[1.2]}
+
+\begin{itemize}
+\tightlist
+\item
+  Decentralized bandit algorithms can solve this problem,
+\item
+  We have a lower bound for any decentralized algorithm,
+\item
+  And we proposed an order-optimal algorithm, based on \klUCB{} and an
+  improved Musical Chair scheme, \MCTopM
+\end{itemize}
+
+\end{block}
+
+\begin{block}{But more work is still needed\ldots{} $\;\;$ \Sey[1.2]}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Theoretical guarantees} are still missing for the ``IoT''
+  model (without sensing), and can be improved (slightly) for the
+  ``OSA'' model (with sensing).
+\item
+  Maybe study \textbf{other emission models}\ldots{}
+\item
+  Implement and test this on \textbf{real-world radio devices}
+  \hook demo (in progress) for the ICT \(2018\) conference (Saint-Malo, France)
+\end{itemize}
+
+\end{block}
+
+\vspace*{10pt}
+
+\begin{center}\begin{LARGE}
+    {\Fontify Thanks!} \Smiley[1.0]
+\end{LARGE}\end{center}
+
+\begin{center}\begin{Large}
+  \emph{Any question ?}
+\end{Large}\end{center}
+
+\end{frame}
+
+
+% ----------------------------------------------------------------------------
+% \appendix{}
+\backupbegin{}
+
+\section{\hfill{}A. Regret upper bound (more details)\hfill{}}
+
+\subsection{\hfill{}A.b. Sketch of the proof\hfill{}}
+
+\begin{frame}{Sketch of the proof}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Bound the expected number of collisions by \(M\) times the number of
+  collisions for non-fixed players,\pause
+\item
+  Bound the expected number of
+  \textcolor<2>{red}{transitions of type $(3)$ and $(5)$}, by
+  \(\bigO{\log T}\) using the \klUCB{} indexes and the forced choice of
+  the algorithm:
+  \(g_k^j(t-1) \leq g^j_{k'}(t-1), \;\;\text{and}\;\; g_k^j(t) > g^j_{k'}(t)\)
+  when switching from \(k'\) to \(k\),\pause
+\item
+  Bound the expected length of a sequence in the non-fixed state by a
+  constant,\pause
+\item
+  So most of the times (\(\bigO{T - \log T}\)), players are fixed, and
+  no collision happens when they are all fixed!
+\end{enumerate}
+
+\begin{quote}
+\strut
+
+\hfill\(\hookrightarrow\) See our paper for details!
+\end{quote}
+
+\end{frame}
+
+\subsection{\hfill{}A.b. Illustration of the proof\hfill{}}
+
+\begin{frame}{Illustration of the proof}
+
+\begin{figure}[h!]
+\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
+    %
+    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    %
+    \draw [color=black,very thick,->] (start) -> (notfixed.20);
+    \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    %
+\end{tikzpicture}
+\end{minipage}}
+\label{fig:StateMachineAlgorithm_MCTopM}
+\end{figure}
+\begin{small}
+  -- Time in fixed state is $\bigO{\log T}$, and collisions are $\leq M$ collisions in fixed state $\implies \bigO{\log T}$ collisions.\newline
+  -- Suboptimal selections is $\bigO{\log T}$ also as $A^j(t+1)$ is always selected in $\TopM(t)$ which is $\Mbest$ at least $\bigO{T - \log T}$ (in average).
+\end{small}
+
+\end{frame}
+
+
+\section{\hfill{}B. An heuristic, \Selfish\hfill{}}
 
 \begin{frame}{An heuristic, \Selfish}
 
@@ -1326,7 +1445,7 @@ For the harder feedback model, without sensing.
 
 
 
-\subsection{\hfill{}8.a. Problems with \Selfish\hfill{}}
+\subsection{\hfill{}B.a. Problems with \Selfish\hfill{}}
 
 \begin{frame}[allowframebreaks]{\Selfish{} heuristic}
 
@@ -1388,7 +1507,7 @@ For the harder feedback model, without sensing.
 
 
 
-\subsection{\hfill{}8.b. Failing cases for \Selfish\hfill{}}
+\subsection{\hfill{}B.b. Failing cases for \Selfish\hfill{}}
 
 \begin{frame}[plain]{Illustration of failing cases for
 \(\mathrm{Selfish}\)}
@@ -1400,134 +1519,6 @@ For the harder feedback model, without sensing.
 
 \end{frame}
 
-
-
-\section{\hfill{}9. Conclusion\hfill{}}\subsection{\hfill{}9.a. Sum-up\hfill{}}
-
-\begin{frame}{Sum-up}
-
-\begin{block}{\emph{Wait, what was the problem ?}}
-
-\begin{itemize}
-\tightlist
-\item
-  MAB algorithms have guarantees for \emph{i.i.d. settings},
-\item
-  But here the collisions cancel the \iid{} hypothesis\ldots{}
-\item
-  Not easy to obtain guarantees in this mixed setting
-  (``game theoretic'' collisions).
-\end{itemize}
-
-\pause
-
-\end{block}
-
-\begin{block}{Theoretical results}
-
-\begin{itemize}
-\tightlist
-\item
-  With sensing (``OSA''), we obtained strong results: a lower bound, and
-  an order-optimal algorithm,
-\item
-  But without sensing (``IoT''), it is harder\ldots{} our heuristic
-  \Selfish{} usually works but can fail!
-\end{itemize}
-
-\end{block}
-
-\end{frame}
-
-
-
-\subsection{\hfill{}9.b. Future work\hfill{}}
-
-\begin{frame}{Future work}
-
-\begin{block}{Conclude the Multi-Player OSA analysis}
-
-\begin{itemize}
-\item
-  Remove hypothesis that objects know \(M\),
-\item
-  Allow arrival/departure of objects,
-\item
-  Non-stationarity of background traffic etc.
-\end{itemize}
-
-\pause
-
-\end{block}
-
-\begin{block}{Extend to more objects \(M > K\)}
-
-Extend the theoretical analysis to the large-scale IoT model, first
-with sensing (\eg, models ZigBee networks), then without sensing (\eg,
-LoRaWAN networks).
-
-\end{block}
-
-\end{frame}
-
-
-
-\subsection{\hfill{}9.c. Thanks!\hfill{}}
-
-\begin{frame}[allowframebreaks]{Conclusion}
-
-\begin{itemize}
-\tightlist
-\item
-  In a wireless network with an \iid{} background traffic in \(K\)
-  channels,
-\item
-  \(M\) devices can use both sensing and acknowledgement feedback, to
-  learn the most free channels and to find orthogonal configurations.
-\end{itemize}
-
-\begin{block}{We showed \Smiley[1.2]}
-
-\begin{itemize}
-\tightlist
-\item
-  Decentralized bandit algorithms can solve this problem,
-\item
-  We have a lower bound for any decentralized algorithm,
-\item
-  And we proposed an order-optimal algorithm, based on \klUCB{} and an
-  improved Musical Chair scheme, \MCTopM
-\end{itemize}
-
-\end{block}
-
-\begin{block}{But more work is still needed\ldots{} \Sey[1.2]}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Theoretical guarantees} are still missing for the ``IoT''
-  model (without sensing), and can be improved (slightly) for the
-  ``OSA'' model (with sensing).
-\item
-  Maybe study \textbf{other emission models}\ldots{}
-\item
-  Implement and test this on \textbf{real-world radio devices}
-  \hook demo (in progress) for the ICT \(2018\) conference!
-\end{itemize}
-
-\end{block}
-
-\vspace*{10pt}
-
-\begin{center}\begin{LARGE}
-    {\Fontify Thanks!} \Smiley[1.2]
-\end{LARGE}\end{center}
-
-\begin{center}\begin{Large}
-  \emph{Any question ?}
-\end{Large}\end{center}
-
-\end{frame}
+\backupend{}
 
 \end{document}
