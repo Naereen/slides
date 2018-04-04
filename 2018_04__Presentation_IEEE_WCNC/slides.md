@@ -241,7 +241,7 @@ $$ R_T^{\mu}(\mathcal{A}) = \max_k (T \mu_k) - \sum_{t=1}^T \mathbb{E}[r(t)] $$
 # Conclusion (1/2)
 
 - Online learning can be a powerful tool for Cognitive Radio, and many other real-world applications
-- Many formulation exist, a simple one is the Multi-Armed Bandit
+- Many formulations exist, a simple one is the Multi-Armed Bandit
 - Many algorithms exist, to tackle different situations
 - It's hard to know before hand which algorithm is efficient for a certain problem…
 - Online learning can also be used to select *on the run*
