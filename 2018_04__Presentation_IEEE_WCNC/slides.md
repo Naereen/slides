@@ -29,7 +29,7 @@ footer: Aggregation of MAB Learning Algorithms for OSA | 16th April 2017 | By: L
   for CR problems in **licensed bands**
 
 - Online learning strategies, mainly using multi-armed bandits (MAB) algorithms, were recently proved to be efficient `[Jouini 2010]`
-- :boom: But there is many different MAB algorithms…
+- :boom: But there are many different MAB algorithms…
   which one should you choose in practice?
 
 $\Longrightarrow$ we propose to use an online learning algorithm to also decide
