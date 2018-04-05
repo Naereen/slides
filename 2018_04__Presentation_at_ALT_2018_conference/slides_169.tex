@@ -191,15 +191,9 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 
-% https://tex.stackexchange.com/a/2559/
-\newcommand{\backupbegin}{
-  \newcounter{framenumberappendix}
-  \setcounter{framenumberappendix}{\value{framenumber}}
-}
-\newcommand{\backupend}{
-  \addtocounter{framenumberappendix}{-\value{framenumber}}
-  \addtocounter{framenumber}{\value{framenumberappendix}}
-}
+% https://tex.stackexchange.com/a/70495/
+\usepackage{appendixnumberbeamer}
+
 
 \title{Multi-Player Bandits Revisited}
 \subtitle{Decentralized Multi-Player Multi-Arm Bandits}
@@ -207,7 +201,7 @@
 \and Émilie Kaufmann}
 \institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
 \newline \& Team SequeL, CRIStAL, Inria, Lille}
-\date[ALT Conference -- 08 April 2018]{ALT Conference -- 08 April 2018}
+\date[ALT Conference -- $08$th April $2018$]{ALT Conference -- $08$th April $2018$}
 
 % For \justifying command, see https://tex.stackexchange.com/a/148696/
 \usepackage{ragged2e}
@@ -282,7 +276,7 @@ We control some communicating devices, they want to use a wireless access point.
 \tightlist
 \item
   Devices can choose a different radio channel at each time \hook learn
-  the best one with sequential algorithm!
+  the best one with a \emph{sequential algorithm}!
 \end{itemize}
 
 \end{block}
@@ -309,7 +303,7 @@ We control some communicating devices, they want to use a wireless access point.
 \item
   \invisible{Quick reminder on single-player MAB algorithms}
 \item
-  Two new multi-player decentralized algorithms
+  A new multi-player decentralized algorithm
 \item
   Upper bound on regret for \MCTopM
 \item
@@ -431,12 +425,14 @@ We control some communicating devices, they want to use a wireless access point.
 \tightlist
 \item
   with sensing information
+  \(\;\;\)
   \(\forall k, \;\; Y_{k,t} \overset{\text{iid}}{\sim} \mathrm{Bern}(\mu_k) \in \{0, 1\}\),
-\item
+  \item
   collision for device \(j\) :
+  \(\;\;\)
   \(C^j(t) = \mathbbm{1}(\)\emph{alone on arm $A^j(t)$}\()\).
-  \hook \alert{combined} binary reward \textbf{but not} from two Bernoulli!
 \end{itemize}
+\(\hookrightarrow\) \(r^j(t)\) \alert{combined} binary reward \textbf{but not} from two Bernoulli!
 
 \end{block}
 
@@ -513,7 +509,7 @@ We control some communicating devices, they want to use a wireless access point.
 \item
   With no central control, and no exchange of information,
 \item
-  Only possible if : each player converges to one of the \(M\) best
+  Only possible if: each player converges to one of the \(M\) best
   arms, orthogonally (without collisions).
 \end{itemize}
 
@@ -532,7 +528,7 @@ We control some communicating devices, they want to use a wireless access point.
 \begin{itemize}
 \tightlist
 \item
-  Not the network throughput or collision probability,
+  \textbf{Not} the network throughput or collision probability,
 \item
   We study the \textbf{centralized} (\textcolor<1>{blue}{expected}) \textbf{regret}:
 \end{itemize}
@@ -560,6 +556,8 @@ We control some communicating devices, they want to use a wireless access point.
     \item
     etc.
   \end{itemize}
+
+\citationbottomright{References: [Lai \& Robbins, 1985], [Liu \& Zhao, 2009], [Anandkumar et al, 2010]}
 }
 
 \begin{block}<2-4>{Two directions of analysis}
@@ -595,9 +593,10 @@ We control some communicating devices, they want to use a wireless access point.
 \item
   Asymptotic lower bound of one term,\vspace*{15pt}
 \item
-  And for regret,\vspace*{15pt}
-\item
-  Proof?
+  And for regret,
+  % \vspace*{15pt}
+% \item
+%   Proof?
 \end{enumerate}
 
 \end{frame}
@@ -677,7 +676,8 @@ Proof: using classical information theory tools (Kullback-Leibler divergence, ch
 
 \small{For any uniformly efficient decentralized policy, and any
 non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
-\[ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)}{\log(T)} \geq M \times \left( \sum_{k \in \Mworst} \frac{(\mu_M^* -  \mu_k)}{\kl(\mu_k, \mu_M^*)} \right) . \]
+\[ \mathop{\lim\inf}\limits_{T \to +\infty} \frac{R_T(\boldsymbol{\mu}, M, \rho)}{\log(T)} \geq
+\alert<2>{M \times} \left( \sum_{k \in \Mworst} \frac{(\mu_M^* -  \mu_k)}{\kl(\mu_k, \mu_M^*)} \right) . \]
 \end{block}
 
 \pause
@@ -688,7 +688,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 \tightlist
 \item
   The centralized \emph{multiple-play} lower bound is the same without
-  the \(M\) multiplicative factor\ldots{}
+  the \alert{\(M\) multiplicative factor}\ldots{}
   \citationright{Ref: [Anantharam et al, 1987]}
   \hook \alert{``price of non-coordination''} \(= M =\) nb of player?
 \item
@@ -709,8 +709,8 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
-\item
-  Index-based MAB deterministic policies,\vspace*{15pt}
+% \item
+%   Index-based MAB deterministic policies,\vspace*{15pt}
 \item
   Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
 \item
@@ -750,7 +750,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \end{itemize}
 \end{enumerate}
 
-\citationbottomright{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
+\citationbottomright{References: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
 
 \end{frame}
 
@@ -805,12 +805,11 @@ stochastic bandit.
 \tightlist
 \item
   Common building blocks of previous algorithms,\vspace*{15pt}
+% \item
+%   First proposal: \RandTopM,\vspace*{15pt}
 \item
-  First proposal: \RandTopM,\vspace*{15pt}
-\item
-  Second proposal: \MCTopM,\vspace*{15pt}
-\item
-  Algorithm.
+  % Second proposal:
+  Our proposal: the \MCTopM{} algorithm.
 \end{enumerate}
 
 \end{frame}
@@ -864,88 +863,88 @@ policies}
 
 
 
-\subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
+% \subsection{\hfill{}5.b. \RandTopM{} algorithm\hfill{}}
 
-\begin{frame}{A first decentralized algorithm (naive)}
+% \begin{frame}{A first decentralized algorithm (naive)}
 
-\centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{figure}[h!]
-\centering
-% Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
-% Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
-% \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
-\begin{algorithm}[H]
-% XXX Input, data and output
-% \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
-% \KwData{Data}
-% \KwResult{Result}
-% XXX Algorithm
-Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
-\For{$t = 1, \dots, T - 1$}{
-    %
-    \pause
-    \eIf{$A^j(t) \notin \TopM(t)$ or $C^j(t)$}{
-      $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
-      \tcp*[f]{randomly switch}
-      }{
-        $A^j(t+1) = A^j(t)$
-        \tcp*[f]{stays on the same arm}
-      }
-    \pause
-    Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
-    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
-}
-\caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). \newline The set $\TopM(t)$ is the \alert{$M$ best arms according to indexes $g^j(t)$}.}
-\label{algo:firstAlgo}
-\end{algorithm}
-\end{figure}
-\end{minipage}}}
+% \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
+% \begin{figure}[h!]
+% \centering
+% % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+% \begin{algorithm}[H]
+% % XXX Input, data and output
+% % \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
+% % \KwData{Data}
+% % \KwResult{Result}
+% % XXX Algorithm
+% Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
+% \For{$t = 1, \dots, T - 1$}{
+%     %
+%     \pause
+%     \eIf{$A^j(t) \notin \TopM(t)$ or $C^j(t)$}{
+%       $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
+%       \tcp*[f]{randomly switch}
+%       }{
+%         $A^j(t+1) = A^j(t)$
+%         \tcp*[f]{stays on the same arm}
+%       }
+%     \pause
+%     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
+%     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+% }
+% \caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). \newline The set $\TopM(t)$ is the \alert{$M$ best arms according to indexes $g^j(t)$}.}
+% \label{algo:firstAlgo}
+% \end{algorithm}
+% \end{figure}
+% \end{minipage}}}
 
-\end{frame}
+% \end{frame}
 
-\begin{frame}{\RandTopM{} algorithm \only<3>{\hfill{} (also works well!)}}
+% \begin{frame}{\RandTopM{} algorithm \only<3>{\hfill{} (good but not the best!)}}
 
-\centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{figure}[h!]
-\centering
-% Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
-% Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
-% \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
-\begin{algorithm}[H]
-% XXX Input, data and output
-% \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
-% \KwData{Data}
-% \KwResult{Result}
-% XXX Algorithm
-Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
-\For{$t = 1, \dots, T - 1$}{
-    %
-    \eIf{$A^j(t) \notin \TopM(t)$}{
-      \eIf(\tcp*[f]{collision}){$C^j(t)$}{
-        $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
-        \tcp*[f]{randomly switch}
-        \pause
-        }(\tcp*[f]{\alert{arm with smaller index at $t-1$}}){
-          $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)}\right\}\right)$
-        }
-      }{
-        \pause
-        $A^j(t+1) = A^j(t)$
-        \tcp*[f]{stays on the same arm}
-      }
-    Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
-    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
-}
-\label{algo:RandTopM}
-\end{algorithm}
-\end{figure}
-\end{minipage}}}
+% \centerline{\scalebox{0.80}{\begin{minipage}{1.25\textwidth}  %% https://tex.stackexchange.com/a/366403/
+% \begin{figure}[h!]
+% \centering
+% % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+% \begin{algorithm}[H]
+% % XXX Input, data and output
+% % \KwIn{$K$ and policy $P^j$ for arms set $\{1,\dots,K\}$\;}
+% % \KwData{Data}
+% % \KwResult{Result}
+% % XXX Algorithm
+% Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ \\
+% \For{$t = 1, \dots, T - 1$}{
+%     %
+%     \eIf{$A^j(t) \notin \TopM(t)$}{
+%       \eIf(\tcp*[f]{collision}){$C^j(t)$}{
+%         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t)\right)$
+%         \tcp*[f]{randomly switch}
+%         \pause
+%         }(\tcp*[f]{\alert{arm with smaller index at $t-1$}}){
+%           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)}\right\}\right)$
+%         }
+%       }{
+%         \pause
+%         $A^j(t+1) = A^j(t)$
+%         \tcp*[f]{stays on the same arm}
+%       }
+%     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
+%     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+% }
+% \label{algo:RandTopM}
+% \end{algorithm}
+% \end{figure}
+% \end{minipage}}}
 
-\end{frame}
+% \end{frame}
 
 
 
-\subsection{\hfill{}5.c. \MCTopM{} algorithm\hfill{}}
+\subsection{\hfill{}5.b. \MCTopM{} algorithm\hfill{}}
 
 \begin{frame}[plain]{\MCTopM{} algorithm}
 
@@ -1040,11 +1039,11 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Theorems,\vspace*{15pt}
+  Theorem,\vspace*{15pt}
 \item
-  Remarks,\vspace*{15pt}
-\item
-  Idea of the proof.
+  Remarks.\vspace*{15pt}
+% \item
+%   Idea of the proof.
 \end{enumerate}
 
 \end{frame}
@@ -1075,7 +1074,7 @@ So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \tex
 If all \(M\) players use \MCTopM{} with \klUCB:
 \[
 \forall \boldsymbol{\mu}, \exists G_{M,\boldsymbol{\mu}},\;\;\;\;
-R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \times \log(T) + \smallO{\log T}.
+\alert{R_T(\boldsymbol{\mu}, M, \rho) \leq G_{M,\boldsymbol{\mu}} \times \log(T) + \smallO{\log T}}.
 \]
 
 \end{block}
@@ -1143,8 +1142,8 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
   Logarithmic number of collisions,\vspace*{15pt}
 \item
   Logarithmic number of arm switches,\vspace*{15pt}
-\item
-  Fairness?
+% \item
+%   Fairness?
 \end{enumerate}
 
 \end{frame}
@@ -1235,9 +1234,10 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{itemize}
 \tightlist
 \item
-  MAB algorithms have guarantees for \emph{i.i.d. settings},
+  Classical stochastic MAB algorithms have guarantees for \emph{i.i.d. settings},
 \item
-  But here the collisions cancel the \iid{} hypothesis\ldots{}
+  But here the collisions cancel the \iid{} hypothesis
+  while still being easier than the ``adversarial'' case\ldots{}
 \item
   Not easy to obtain guarantees in this mixed setting
   (``game theoretic'' collisions).
@@ -1252,8 +1252,8 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \begin{itemize}
 \tightlist
 \item
-  With sensing (``OSA''), we obtained strong results: a lower bound, and
-  an order-optimal algorithm,
+  With sensing (``OSA''), we obtained strong results:\newline
+  a lower bound, and an order-optimal algorithm,
 \item
   But without sensing (``IoT''), it is harder\ldots{}\newline
   our heuristic \Selfish{} usually works but can fail!
@@ -1265,25 +1265,25 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 
 
-\subsection{\hfill{}8.b. Future work\hfill{}}
+\subsection{\hfill{}8.b. Future works\hfill{}}
 
-\begin{frame}{Future work}
+\begin{frame}{Future works ?}
 
 \begin{block}{Conclude the Multi-Player OSA analysis}
 
 \begin{itemize}
 \item
-  Remove hypothesis that objects know \(M\),
+  Remove hypothesis that objects know \(M\)\ldots
 \item
-  Allow arrival/departure of objects,
+  Allow arrival/departure of objects\ldots
 \item
-  Non-stationarity of background traffic etc.
+  Non-stationarity of background traffic etc\ldots
 \end{itemize}
 
 
 \end{block}
 
-\begin{block}{Extend to more objects \(M > K\)}
+\begin{block}{Extend to more objects (\ie, when \(M > K\))}
 
 Extend the theoretical analysis to the large-scale IoT model, first
 with sensing (\eg, models ZigBee networks), then without sensing (\eg,
@@ -1337,7 +1337,7 @@ LoRaWAN networks).
   Maybe study \textbf{other emission models}\ldots{}
 \item
   Implement and test this on \textbf{real-world radio devices}
-  \hook demo (in progress) for the ICT \(2018\) conference (Saint-Malo, France)
+  \hook demo for the ICT \(2018\) conference (Saint-Malo, France)
 \end{itemize}
 
 \end{block}
@@ -1345,23 +1345,41 @@ LoRaWAN networks).
 \vspace*{10pt}
 
 \begin{center}\begin{LARGE}
-    {\Fontify Thanks!} \Smiley[1.0]
-\end{LARGE}\end{center}
+  {\Fontify Thanks !}
+  \Smiley[0.9]
 
-\begin{center}\begin{Large}
-  \emph{Any question ?}
-\end{Large}\end{center}
+  {\Fontify Any question ?}
+\end{LARGE}\end{center}
 
 \end{frame}
 
 
 % ----------------------------------------------------------------------------
-% \appendix{}
-\backupbegin{}
+\appendix{}
+
+
+\section{\hfill{}Appendix\hfill{}}
+
+\begin{frame}{Appendix}
+
+\begin{itemize}
+\tightlist
+\item
+  Proof of the regret upper bound,
+\item
+  Illustration of the proof,
+\item
+  An heuristic for the ``IoT'' case (no sensing): the \Selfish{} algorithm,
+\item
+  Success and failures case for \Selfish{}.
+\end{itemize}
+
+\end{frame}
+
 
 \section{\hfill{}A. Regret upper bound (more details)\hfill{}}
 
-\subsection{\hfill{}A.b. Sketch of the proof\hfill{}}
+\subsection{\hfill{}A.b. Sketch of the proof of the upper bound\hfill{}}
 
 \begin{frame}{Sketch of the proof}
 
@@ -1393,7 +1411,7 @@ LoRaWAN networks).
 
 \end{frame}
 
-\subsection{\hfill{}A.b. Illustration of the proof\hfill{}}
+\subsection{\hfill{}A.b. Illustration of the proof of the upper bound\hfill{}}
 
 \begin{frame}{Illustration of the proof}
 
@@ -1518,7 +1536,5 @@ For the harder feedback model, without sensing.
 \end{figure}
 
 \end{frame}
-
-\backupend{}
 
 \end{document}
