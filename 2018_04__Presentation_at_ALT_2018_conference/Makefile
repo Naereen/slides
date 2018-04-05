@@ -28,6 +28,10 @@ pandocpdf169:
 	latexmk -gg -pdf -pdflatex="pdflatex %O %S" slides_169.tex
 	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
 
+pandocxelatexpdf:
+	latexmk -gg -pdf -pdflatex="xelatex %O %S" slides.tex
+	rm slides.toc slides.snm slides.out slides.nav slides.aux slides.log slides.vrb
+
 pandocxelatexpdf169:
 	latexmk -gg -pdf -pdflatex="xelatex %O %S" slides_169.tex
 	rm slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
