@@ -201,7 +201,7 @@
 \and Émilie Kaufmann}
 \institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
 \newline \& Team SequeL, CRIStAL, Inria, Lille}
-\date[ALT Conference -- $08$th April $2018$]{ALT Conference -- $08$th April $2018$}
+\date[ALT -- $08$th Apr $2018$]{ALT Conference -- $08$th April $2018$}
 
 % For \justifying command, see https://tex.stackexchange.com/a/148696/
 \usepackage{ragged2e}
@@ -380,11 +380,10 @@ We control some communicating devices, they want to use a wireless access point.
 \item
   \emph{With sensing}: Device first senses for presence of Primary Users that have strict priority
   (background traffic), then use \texttt{Ack} to detect collisions.
-
-  \begin{quote}
-  \small{Model the ``classical'' Opportunistic Spectrum Access problem.
-  Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
-  \end{quote}
+  % \begin{quote}
+  % \small{Model the ``classical'' Opportunistic Spectrum Access problem.
+  % Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
+  % \end{quote}
 \item
   \emph{Without sensing}: same background traffic, but cannot sense, so
   only \texttt{Ack} is used.
@@ -789,7 +788,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 {\small \emph{Why bother?} \klUCB{} is more
 efficient than \UCB{}, and asymptotically optimal for single-player
 stochastic bandit.
-\citationright{References: [Garivier \& Cappé, 2011], [Cappé et al, 2013]}
+\citationright{References: [Garivier \& Cappé, 2011]}
 }
 
 \end{frame}
@@ -1000,7 +999,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{frame}{\MCTopM{} algorithm illustrated, step by step}
 
 \begin{figure}[h!]
-\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\scalebox{0.65}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{tikzpicture}[>=latex',line join=bevel,scale=5]
     %
     \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
@@ -1057,11 +1056,11 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{block}{Theorem 3
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 One term is controlled by the two others:
-\begin{small}\[
-\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)
-\leq
-(\mu_1^* -  \mu_M^*) \left( \textcolor<1>{red}{\sum_{k \in \Mworst} \E_{\mu}[T_k(T)]} + \textcolor<1>{blue}{\sum_{k \in \Mbest} \E_{\mu}[C_k(T)]} \right)
-\]\end{small}
+\begin{footnotesize}\begin{align*}
+\sum_{k \in \Mbest} &(\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)
+\leq \\
+&(\mu_1^* -  \mu_M^*) \left( \textcolor<1>{red}{\sum_{k \in \Mworst} \E_{\mu}[T_k(T)]} + \textcolor<1>{blue}{\sum_{k \in \Mbest} \E_{\mu}[C_k(T)]} \right)
+\end{align*}\end{footnotesize}
 
 So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \textcolor<1>{blue}{collisions}.
 \end{block}
@@ -1416,7 +1415,7 @@ LoRaWAN networks).
 \begin{frame}{Illustration of the proof}
 
 \begin{figure}[h!]
-\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\scalebox{0.65}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
 \begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
     %
     \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
