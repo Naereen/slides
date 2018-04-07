@@ -285,36 +285,36 @@ We control some communicating devices, they want to use a wireless access point.
 
 
 
-\subsection{\hfill{}1.b. Outline\hfill{}}
+% \subsection{\hfill{}1.b. Outline\hfill{}}
 
-\begin{frame}{Outline}
+% \begin{frame}{Outline}
 
-\vspace*{-15pt}
+% \vspace*{-15pt}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  \invisible{Introduction}
-\item
-  Our model: \(3\) different feedback levels
-\item
-  Regret lower bound
-\item
-  \invisible{Quick reminder on single-player MAB algorithms}
-\item
-  A new multi-player decentralized algorithm
-\item
-  Upper bound on regret for \MCTopM
-\item
-  Experimental results
-\item
-  \invisible{An heuristic (\Selfish), and disappointing results}
-\item
-  \invisible{Conclusion}
-\end{enumerate}
+% \begin{enumerate}
+% \def\labelenumi{\arabic{enumi}.}
+% \tightlist
+% \item
+%   \invisible{Introduction}
+% \item
+%   Our model: \(3\) different feedback levels
+% \item
+%   Regret lower bound
+% \item
+%   \invisible{Quick reminder on single-player MAB algorithms}
+% \item
+%   A new multi-player decentralized algorithm
+% \item
+%   Upper bound on the regret for \MCTopM
+% \item
+%   Experimental results
+% \item
+%   \invisible{An heuristic (\Selfish), and disappointing results}
+% \item
+%   \invisible{Conclusion}
+% \end{enumerate}
 
-\end{frame}
+% \end{frame}
 
 
 
@@ -324,18 +324,16 @@ We control some communicating devices, they want to use a wireless access point.
 
 \begin{frame}{Our communication model}
 
-\begin{itemize}
-\tightlist
-\item
-  \(K\) radio channels (\eg, 10) \hfill{} (\emph{known})
-\item
-  Discrete and synchronized time \(t\geq1\). Every time frame \(t\) is:
-\end{itemize}
+\(K\) radio channels (\eg, 10).
+Discrete and synchronized time \(t\geq1\).
+% Every time frame \(t\) is:
 
 \begin{figure}[h!]
 \centering
-\includegraphics[height=0.27\textheight]{figures/protocol.eps}
-\caption{\small{Protocol in time and frequency, with an \textcolor{darkgreen}{\emph{Acknowledgement}}.}}
+% \includegraphics[height=0.27\textheight]{figures/protocol.eps}
+% \caption{\small{Protocol in time and frequency, with an \textcolor{darkgreen}{\emph{Acknowledgement}}.}}
+\includegraphics[height=0.50\textheight]{figures/protocol_v2.png}
+% \caption{\small{Protocol in time and frequency, with an \textcolor{darkgreen}{\emph{Acknowledgement}}.}}
 \end{figure}
 
 \begin{block}{Dynamic device \(=\) dynamic radio reconfiguration}
@@ -380,11 +378,10 @@ We control some communicating devices, they want to use a wireless access point.
 \item
   \emph{With sensing}: Device first senses for presence of Primary Users that have strict priority
   (background traffic), then use \texttt{Ack} to detect collisions.
-
-  \begin{quote}
-  \small{Model the ``classical'' Opportunistic Spectrum Access problem.
-  Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
-  \end{quote}
+  % \begin{quote}
+  % \small{Model the ``classical'' Opportunistic Spectrum Access problem.
+  % Not exactly suited for \emph{Internet of Things}, but can model ZigBee, and can be analyzed mathematically...}
+  % \end{quote}
 \item
   \emph{Without sensing}: same background traffic, but cannot sense, so
   only \texttt{Ack} is used.
@@ -431,8 +428,9 @@ We control some communicating devices, they want to use a wireless access point.
   collision for device \(j\) :
   \(\;\;\)
   \(C^j(t) = \mathbbm{1}(\)\emph{alone on arm $A^j(t)$}\()\).
+  \newline
+  \(\hookrightarrow\) \(r^j(t)\) \alert{combined} binary reward \textbf{but not} from two Bernoulli!
 \end{itemize}
-\(\hookrightarrow\) \(r^j(t)\) \alert{combined} binary reward \textbf{but not} from two Bernoulli!
 
 \end{block}
 
@@ -560,19 +558,19 @@ We control some communicating devices, they want to use a wireless access point.
 \citationbottomright{References: [Lai \& Robbins, 1985], [Liu \& Zhao, 2009], [Anandkumar et al, 2010]}
 }
 
-\begin{block}<2-4>{Two directions of analysis}
+\begin{block}<2->{Two directions of analysis}
 
 \begin{itemize}
 \tightlist
-\item<2-4>
-  Clearly \(R_T = \mathcal{O}(T)\), but we want a sub-linear regret, as
-  small as possible!
-\item<3-4>
+% \item<2-4>
+%   Clearly \(R_T = \mathcal{O}(T)\), but we want a sub-linear regret, as
+%   small as possible!
+\item<2->
   \emph{How good a decentralized algorithm can be in this setting?}
-  \hook{} \textbf{Lower Bound} on regret, for \textbf{any} algorithm !
-\item<4>
+  \hook{} \textbf{Lower Bound} on the regret, for \textbf{any} algorithm !
+\item<2->
   \emph{How good is my decentralized algorithm in this setting?}
-  \hook{} \textbf{Upper Bound} on regret, for \textbf{one} algorithm !
+  \hook{} \textbf{Upper Bound} on the regret, for \textbf{one} algorithm !
 \end{itemize}
 
 \end{block}
@@ -589,7 +587,7 @@ We control some communicating devices, they want to use a wireless access point.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Decomposition of regret in \(3\) terms,\vspace*{15pt}
+  Decomposition of the regret in \(3\) terms,\vspace*{15pt}
 \item
   Asymptotic lower bound of one term,\vspace*{15pt}
 \item
@@ -603,9 +601,9 @@ We control some communicating devices, they want to use a wireless access point.
 
 
 
-\subsection{\hfill{}3.a. Lower bound on regret\hfill{}}
+\subsection{\hfill{}3.a. Lower bound on the regret\hfill{}}
 
-\begin{frame}{\only<1-4>{Decomposition}\only<5>{\alert{Lower bound}} on regret}
+\begin{frame}{\only<1-4>{Decomposition}\only<5>{\alert{Lower bound}} on the regret}
 
 \begin{block}{\only<1-4>{Decomposition}\only<5>{Lower bound}}
 
@@ -653,7 +651,7 @@ R_T(\boldsymbol{\mu}, M, \rho)
 
 \end{frame}
 
-\begin{frame}{Asymptotic Lower Bound on regret I}
+\begin{frame}{Asymptotic lower bound on the regret I}
 
 \begin{block}{Theorem 1
   \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
@@ -664,12 +662,12 @@ R_T(\boldsymbol{\mu}, M, \rho)
 
 \end{block}
 
-Proof: using classical information theory tools (Kullback-Leibler divergence, change of distributions).
+Proof: using classical information theory tools (Kullback-Leibler divergence, change of distributions)\dots
 \citationright{Ref: [Garivier et al, 2016]}
 
 \end{frame}
 
-\begin{frame}{Asymptotic Lower Bound on regret II}
+\begin{frame}{Asymptotic lower bound on the regret II}
 
 \begin{block}{Theorem 2
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
@@ -704,59 +702,59 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 
 \section{\hfill{}4. Single-player MAB algorithms : \UCB, \klUCB\hfill{}}
 
-\begin{frame}{Single-player MAB algorithms}
+% \begin{frame}{Single-player MAB algorithms}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
+% \begin{enumerate}
+% \def\labelenumi{\arabic{enumi}.}
+% \tightlist
+% % \item
+% %   Index-based MAB deterministic policies,\vspace*{15pt}
 % \item
-%   Index-based MAB deterministic policies,\vspace*{15pt}
-\item
-  Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
-\item
-  Kullback-Leibler UCB algorithm : \klUCB.
-\end{enumerate}
+%   Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
+% \item
+%   Kullback-Leibler UCB algorithm : \klUCB.
+% \end{enumerate}
 
-\end{frame}
+% \end{frame}
 
 
 
-\subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
+% \subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
 
-\begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
+% \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  For the first \(K\) steps (\(t=1,\dots,K\)), try each channel
-  \emph{once}.
-\item
-  Then for the next steps \(t > K\) :
+% \begin{enumerate}
+% \def\labelenumi{\arabic{enumi}.}
+% \tightlist
+% \item
+%   For the first \(K\) steps (\(t=1,\dots,K\)), try each channel
+%   \emph{once}.
+% \item
+%   Then for the next steps \(t > K\) :
 
-  \begin{itemize}
-  \tightlist
-  \item
-  \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
-  \item
-  \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
-  \item
-    Compute the index
-    \(g_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Upper Confidence Bound}}\)
-  \item
-    Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
-  \item
-    Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
-  \end{itemize}
-\end{enumerate}
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%   \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
+%   \item
+%   \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
+%   \item
+%     Compute the index
+%     \(g_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Confide isnce Bonus}}\)
+%   \item
+%     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
+%   \item
+%     Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
+%   \end{itemize}
+% \end{enumerate}
 
-\citationbottomright{References: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
+% \citationbottomright{References: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
 
-\end{frame}
+% \end{frame}
 
 
 
-\subsection{\hfill{}4.b. Kullback-Leibler UCB algorithm : \klUCB\hfill{}}
+\subsection{\hfill{}Kullback-Leibler UCB algorithm : \klUCB\hfill{}}
 
 \begin{frame}{Kullback-Leibler UCB algorithm
 (\(\mathrm{kl}\)-\(\mathrm{UCB}\))}
@@ -777,8 +775,10 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \item
   \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
   \item
-    Compute the index
+    Compute the index \(g_k^j(t)\), an \emph{Upper Confidence Bound} on the mean \(\mu_k\)
+    \newline
     \(g_k^j(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\alert{\frac{S_k^j(t)}{T_k^j(t)}}, q\right) \leq \frac{\log(t)}{T_k^j(t)} \right\}\),
+    \citationright{References: [Garivier \& Cappé, 2011], [Cappé et al, 2013]}
   \item
     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
   \item
@@ -786,10 +786,9 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \end{itemize}
 \end{enumerate}
 
-{\small \emph{Why bother?} \klUCB{} is more
-efficient than \UCB{}, and asymptotically optimal for single-player
-stochastic bandit.
-\citationright{References: [Garivier \& Cappé, 2011], [Cappé et al, 2013]}
+{\small \klUCB{}
+% is more efficient than \UCB{}, and
+is asymptotically optimal for single-player Bernoulli stochastic bandit.
 }
 
 \end{frame}
@@ -809,7 +808,7 @@ stochastic bandit.
 %   First proposal: \RandTopM,\vspace*{15pt}
 \item
   % Second proposal:
-  Our proposal: the \MCTopM{} algorithm.
+  One of our proposal: the \MCTopM{} algorithm.
 \end{enumerate}
 
 \end{frame}
@@ -850,12 +849,15 @@ policies}
 
 \end{block}
 
-\begin{block}{\textbf{Our proposals}:
+\begin{block}{\textbf{Our contributions}:
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
-  \RandTopM{} and \MCTopM{} are sort of mixes
-  between \rhoRand{} and \MusicalChair, using UCB or more
-  efficient index policies (\klUCB).
+  % \RandTopM{} and \MCTopM{} are sort of mixes
+  % between \rhoRand{} and \MusicalChair, using UCB or more
+  % efficient index policies (\klUCB).
+
+  Two new orthogonalization scheme inspired by \RhoRand{} and \MusicalChair{},
+  combined with the use of \klUCB{} indices.
 
 \end{block}
 
@@ -945,6 +947,13 @@ policies}
 
 
 \subsection{\hfill{}5.b. \MCTopM{} algorithm\hfill{}}
+
+
+\begin{frame}{Ideas for the \MCTopM{} algorithm}
+
+  FIXME from Emilie's slides
+
+\end{frame}
 
 \begin{frame}[plain]{\MCTopM{} algorithm}
 
@@ -1128,30 +1137,30 @@ Control both terms, both are logarithmic at finite horizon:
 Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{quote}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
-\item
-  Lower bound on regret,\vspace*{15pt}
-\item
-  Illustration of regret for a single problem and
-  \(M = K\),\vspace*{15pt}
-\item
-  Regret for uniformly sampled problems and \(M < K\),\vspace*{15pt}
-\item
-  Logarithmic number of collisions,\vspace*{15pt}
-\item
-  Logarithmic number of arm switches,\vspace*{15pt}
+% \begin{enumerate}
+% \def\labelenumi{\arabic{enumi}.}
+% \tightlist
 % \item
-%   Fairness?
-\end{enumerate}
+%   Lower bound on the regret,\vspace*{15pt}
+% \item
+%   Illustration of the regret for a single problem and
+%   \(M = K\),\vspace*{15pt}
+% \item
+%   Regret for uniformly sampled problems and \(M < K\),\vspace*{15pt}
+% \item
+%   Logarithmic number of collisions,\vspace*{15pt}
+% \item
+%   Logarithmic number of arm switches,\vspace*{15pt}
+% % \item
+% %   Fairness?
+% \end{enumerate}
 
 \end{frame}
 
 
-\subsection{\hfill{}7.a. Illustration of the Lower Bound\hfill{}}
+\subsection{\hfill{}7.a. Illustration of the lower bound\hfill{}}
 
-\begin{frame}[plain]{Illustration of the Lower Bound on regret}
+\begin{frame}[plain]{Illustration of the regret lower bound}
 
 \begin{figure}[h!]
 \includegraphics[height=0.78\textheight]{figures/main_RegretCentralized____env3-4_2092905764868974160.pdf}
@@ -1162,7 +1171,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 
 
-\subsection{\hfill{}7.b. Illustration of regret\hfill{}}
+\subsection{\hfill{}7.b. Illustration of the regret\hfill{}}
 
 \begin{frame}[plain]{Constant regret if \(M=K\)}
 
@@ -1175,7 +1184,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{frame}
 
 
-\begin{frame}[plain]{Illustration of regret of different algorithms}
+\begin{frame}[plain]{Illustration of the regret of different algorithms}
 
 \begin{figure}[h!]
 \centering
@@ -1225,38 +1234,64 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 % \end{frame}
 
 
-\section{\hfill{}8. Conclusion\hfill{}}\subsection{\hfill{}8.a. Sum-up\hfill{}}
+\section{\hfill{}8. Conclusion\hfill{}}
+\subsection{\hfill{}8.a. Conclusion\hfill{}}
 
-\begin{frame}{Sum-up}
+\begin{frame}{Sum up}
 
-\begin{block}{\emph{Wait, what was the problem ?}}
+% \begin{block}{\emph{Wait, what was the problem ?}}
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   Classical stochastic MAB algorithms have guarantees for \emph{i.i.d. settings},
+% \item
+%   But here the collisions cancel the \iid{} hypothesis
+%   while still being easier than the ``adversarial'' case\ldots{}
+% \item
+%   Not easy to obtain guarantees in this mixed setting
+%   (``game theoretic'' collisions).
+% \end{itemize}
+
+% \pause
+
+% \end{block}
+
+% \begin{block}{Theoretical results}
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   With sensing (``OSA''), we obtained strong results:\newline
+%   a lower bound, and an order-optimal algorithm,
+% \item
+%   But without sensing (``IoT''), it is harder\ldots{}\newline
+%   our heuristic \Selfish{} usually works but can fail!
+% \end{itemize}
+
+% \end{block}
 
 \begin{itemize}
 \tightlist
 \item
-  Classical stochastic MAB algorithms have guarantees for \emph{i.i.d. settings},
+  In a wireless network with an \iid{} background traffic in \(K\)
+  channels,
 \item
-  But here the collisions cancel the \iid{} hypothesis
-  while still being easier than the ``adversarial'' case\ldots{}
-\item
-  Not easy to obtain guarantees in this mixed setting
-  (``game theoretic'' collisions).
+  \(M\) devices can use both sensing and acknowledgement feedback, to
+  learn the most free channels and to find orthogonal configurations.
 \end{itemize}
 
-\pause
-
-\end{block}
-
-\begin{block}{Theoretical results}
+\begin{block}{We showed}
 
 \begin{itemize}
 \tightlist
 \item
-  With sensing (``OSA''), we obtained strong results:\newline
-  a lower bound, and an order-optimal algorithm,
+  Decentralized bandit algorithms can solve this problem,
 \item
-  But without sensing (``IoT''), it is harder\ldots{}\newline
-  our heuristic \Selfish{} usually works but can fail!
+  We have a lower bound for any decentralized algorithm,
+\item
+  And we proposed an order-optimal algorithm, based on \klUCB{} and an
+  improved Musical Chair scheme, \MCTopM.
 \end{itemize}
 
 \end{block}
@@ -1265,9 +1300,9 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 
 
-\subsection{\hfill{}8.b. Future works\hfill{}}
+\subsection{\hfill{}8.b. Future work\hfill{}}
 
-\begin{frame}{Future works ?}
+\begin{frame}{Future work}
 
 \begin{block}{Conclude the Multi-Player OSA analysis}
 
@@ -1292,47 +1327,14 @@ LoRaWAN networks).
 
 \end{block}
 
-\end{frame}
-
-
-
-\subsection{\hfill{}8.c. Thanks!\hfill{}}
-
-\begin{frame}[allowframebreaks]{Conclusion}
-
-\begin{itemize}
-\tightlist
-\item
-  In a wireless network with an \iid{} background traffic in \(K\)
-  channels,
-\item
-  \(M\) devices can use both sensing and acknowledgement feedback, to
-  learn the most free channels and to find orthogonal configurations.
-\end{itemize}
-
-\begin{block}{We showed $\;\;$ \Smiley[1.2]}
-
-\begin{itemize}
-\tightlist
-\item
-  Decentralized bandit algorithms can solve this problem,
-\item
-  We have a lower bound for any decentralized algorithm,
-\item
-  And we proposed an order-optimal algorithm, based on \klUCB{} and an
-  improved Musical Chair scheme, \MCTopM
-\end{itemize}
-
-\end{block}
-
-\begin{block}{But more work is still needed\ldots{} $\;\;$ \Sey[1.2]}
+\begin{block}{But more work is still needed\ldots{}}
 
 \begin{itemize}
 \tightlist
 \item
   \textbf{Theoretical guarantees} are still missing for the ``IoT''
-  model (without sensing), and can be improved (slightly) for the
-  ``OSA'' model (with sensing).
+  model (without sensing.
+  % and can be improved (slightly) for the ``OSA'' model (with sensing).
 \item
   Maybe study \textbf{other emission models}\ldots{}
 \item
@@ -1342,14 +1344,23 @@ LoRaWAN networks).
 
 \end{block}
 
-\vspace*{10pt}
+\end{frame}
 
-\begin{center}\begin{LARGE}
+
+\subsection{\hfill{}8.c. Thanks!\hfill{}}
+
+\begin{frame}{Thanks!}
+
+\begin{center}\begin{Huge}
   {\Fontify Thanks !}
   \Smiley[0.9]
+\end{Huge}\end{center}
 
+\vspace*{20pt}
+
+\begin{center}\begin{Huge}
   {\Fontify Any question ?}
-\end{LARGE}\end{center}
+\end{Huge}\end{center}
 
 \end{frame}
 
@@ -1516,7 +1527,7 @@ For the harder feedback model, without sensing.
 \item
   In small problems with \(M\) and \(K = 2\) or \(3\), we found small
   probability of failures (\ie, linear regret), and this prevents from
-  having a generic upper bound on regret for \Selfish.
+  having a generic upper bound on the regret for \Selfish.
 \end{itemize}
 
 \end{block}
