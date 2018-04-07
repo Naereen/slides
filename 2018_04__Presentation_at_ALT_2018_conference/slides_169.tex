@@ -197,7 +197,7 @@
 
 \title{Multi-Player Bandits Revisited}
 \subtitle{Decentralized Multi-Player Multi-Arm Bandits}
-\author[Lilian Besson]{\textbf{Lilian Besson} \newline \emph{Advised by} \and Christophe Moy
+\author[Lilian Besson]{\textbf{Lilian Besson} \newline \emph{Joint work with}
 \and Émilie Kaufmann}
 \institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
 \newline \& Team SequeL, CRIStAL, Inria, Lille}
@@ -250,8 +250,7 @@
 
 We control some communicating devices, they want to use a wireless access point.
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Insert them in a \textbf{crowded wireless network}.
 \item
@@ -260,8 +259,7 @@ We control some communicating devices, they want to use a wireless access point.
 
 \begin{block}{Goal}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Maintain a \textbf{good Quality of Service}.
 \item
@@ -272,8 +270,7 @@ We control some communicating devices, they want to use a wireless access point.
 
 \begin{block}{How?}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Devices can choose a different radio channel at each time \hook learn
   the best one with a \emph{sequential algorithm}!
@@ -338,8 +335,7 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{block}{Dynamic device \(=\) dynamic radio reconfiguration}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   It decides \textbf{each time} the channel it uses to send \textbf{each
   packet}.
@@ -359,8 +355,7 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{block}{``Easy'' case}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   \(M \leq K\) devices \textbf{always communicate} and try to access the
   network, \emph{independently} without centralized supervision,
@@ -401,8 +396,7 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{block}{\iid{} background traffic}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   \(K\) channels, modeled as Bernoulli (\(0/1\)) distributions of mean
   \(\mu_k\) \(=\) background traffic from \emph{Primary Users},
@@ -418,8 +412,7 @@ Discrete and synchronized time \(t\geq1\).
 
 \[r^j(t) := Y_{A^j(t),t} \alert{\times} \mathbbm{1}(\overline{C^j(t)}) = \mathbbm{1}(\text{uplink \alert{\&} Ack})\]
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   with sensing information
   \(\;\;\)
@@ -481,8 +474,7 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{block}{Problem}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   \emph{Goal}: \emph{minimize packet loss ratio} (\(=\) maximize nb of
   received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
@@ -495,23 +487,23 @@ Discrete and synchronized time \(t\geq1\).
 
 \end{block}
 
-\begin{block}{\emph{Decentralized} reinforcement learning optimization!}
+% \begin{block}{\emph{Decentralized} reinforcement learning optimization!}
 
-\begin{itemize}
-\tightlist
-\item
-  Max transmission rate \(\equiv\) \textbf{max cumulated rewards}
-  \(\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{t=1}^{T} \sum\limits_{j=1}^M r^j(t)\).
-\item
-  Each player wants to \textbf{maximize its cumulated reward},
-\item
-  With no central control, and no exchange of information,
-\item
-  Only possible if: each player converges to one of the \(M\) best
-  arms, orthogonally (without collisions).
-\end{itemize}
+% \begin{itemize}
+% \tightlist
+% \item
+%   Max transmission rate \(\equiv\) \textbf{max cumulated rewards}
+%   \(\max\limits_{\text{algorithm}\;A} \;\; \sum\limits_{t=1}^{T} \sum\limits_{j=1}^M r^j(t)\).
+% \item
+%   Each player wants to \textbf{maximize its cumulated reward},
+% \item
+%   With no central control, and no exchange of information,
+% \item
+%   Only possible if: each player converges to one of the \(M\) best
+%   arms, orthogonally (without collisions).
+% \end{itemize}
 
-\end{block}
+% \end{block}
 
 \end{frame}
 
@@ -523,8 +515,7 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{block}{A measure of success}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   \textbf{Not} the network throughput or collision probability,
 \item
@@ -555,13 +546,12 @@ Discrete and synchronized time \(t\geq1\).
     etc.
   \end{itemize}
 
-\citationbottomright{References: [Lai \& Robbins, 1985], [Liu \& Zhao, 2009], [Anandkumar et al, 2010]}
+\citationbottomright{Ref: [Lai \& Robbins, 1985], [Liu \& Zhao, 2009], [Anandkumar et al, 2010]}
 }
 
 \begin{block}<2->{Two directions of analysis}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 % \item<2-4>
 %   Clearly \(R_T = \mathcal{O}(T)\), but we want a sub-linear regret, as
 %   small as possible!
@@ -591,7 +581,7 @@ Discrete and synchronized time \(t\geq1\).
 \item
   Asymptotic lower bound of one term,\vspace*{15pt}
 \item
-  And for regret,
+  And for regret.
   % \vspace*{15pt}
 % \item
 %   Proof?
@@ -682,8 +672,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 
 \begin{block}{Remarks}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   The centralized \emph{multiple-play} lower bound is the same without
   the \alert{\(M\) multiplicative factor}\ldots{}
@@ -700,7 +689,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 
 
 
-\section{\hfill{}4. Single-player MAB algorithms : \UCB, \klUCB\hfill{}}
+\section{\hfill{}4. Single-player MAB algorithm: \klUCB\hfill{}}
 
 % \begin{frame}{Single-player MAB algorithms}
 
@@ -740,21 +729,21 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 %   \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
 %   \item
 %     Compute the index
-%     \(g_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Confide isnce Bonus}}\)
+%     \(\mathrm{UCB}_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Confide isnce Bonus}}\)
 %   \item
-%     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
+%     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k^j(t)\),
 %   \item
 %     Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
 %   \end{itemize}
 % \end{enumerate}
 
-% \citationbottomright{References: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
+% \citationbottomright{Ref: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
 
 % \end{frame}
 
 
 
-\subsection{\hfill{}Kullback-Leibler UCB algorithm : \klUCB\hfill{}}
+\subsection{\hfill{}Kullback-Leibler UCB algorithm: \klUCB\hfill{}}
 
 \begin{frame}{Kullback-Leibler UCB algorithm
 (\(\mathrm{kl}\)-\(\mathrm{UCB}\))}
@@ -775,13 +764,13 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \item
   \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
   \item
-    Compute the index \(g_k^j(t)\), an \emph{Upper Confidence Bound} on the mean \(\mu_k\)
+    Compute the index \(\mathrm{UCB}_k^j(t)\), an \emph{Upper Confidence Bound} on the mean \(\mu_k\)
     \newline
-    \(g_k^j(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\alert{\frac{S_k^j(t)}{T_k^j(t)}}, q\right) \leq \frac{\log(t)}{T_k^j(t)} \right\}\),
-    \citationright{References: [Garivier \& Cappé, 2011], [Cappé et al, 2013]}
-  \item
-    Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; g_k^j(t)\),
-  \item
+    \(\mathrm{UCB}_k^j(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\alert{\frac{S_k^j(t)}{T_k^j(t)}}, q\right) \leq \frac{\log(t)}{T_k^j(t)} \right\}\),
+    \citationright{Ref: [Garivier \& Cappé, 2011]}
+    \item
+    Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k^j(t)\),
+    \item
     Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
   \end{itemize}
 \end{enumerate}
@@ -789,6 +778,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 {\small \klUCB{}
 % is more efficient than \UCB{}, and
 is asymptotically optimal for single-player Bernoulli stochastic bandit.
+\citationright{Ref: [Cappé et al, 2013]}
 }
 
 \end{frame}
@@ -819,7 +809,7 @@ is asymptotically optimal for single-player Bernoulli stochastic bandit.
 
 \begin{frame}{Algorithms for this easier model}
 
-\begin{block}{Building blocks : separate the two aspects}
+\begin{block}{Building blocks: separate the two aspects}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -837,19 +827,18 @@ is asymptotically optimal for single-player Bernoulli stochastic bandit.
 \begin{block}{Many different proposals for \emph{decentralized} learning
 policies}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   ``State-of-the-art'': \rhoRand{} policy and variants,
-  \citationright{[Anandkumar et al, 2011]}
+  \citationright{Ref: [Anandkumar et al, 2011]}
 \item
   Recent approaches: \MEGA{} and \MusicalChair{}.
-  \citationright{[Avner \& Mannor, 2015], [Shamir et al, 2016]}
+  \citationright{Ref: [Avner \& Mannor, 2015], [Shamir et al, 2016]}
 \end{itemize}
 
 \end{block}
 
-\begin{block}{\textbf{Our contributions}:
+\begin{exampleblock}{Our contributions:
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
   % \RandTopM{} and \MCTopM{} are sort of mixes
@@ -859,7 +848,7 @@ policies}
   Two new orthogonalization scheme inspired by \RhoRand{} and \MusicalChair{},
   combined with the use of \klUCB{} indices.
 
-\end{block}
+\end{exampleblock}
 
 \end{frame}
 
@@ -894,9 +883,9 @@ policies}
 %       }
 %     \pause
 %     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
-%     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+%     Compute the indices $\mathrm{UCB}^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 % }
-% \caption{A first decentralized learning policy (for a fixed underlying index policy $g^j$). \newline The set $\TopM(t)$ is the \alert{$M$ best arms according to indexes $g^j(t)$}.}
+% \caption{A first decentralized learning policy (for a fixed underlying index policy $\mathrm{UCB}^j$). \newline The set $\TopM(t)$ is the \alert{$M$ best arms according to indexes $\mathrm{UCB}^j(t)$}.}
 % \label{algo:firstAlgo}
 % \end{algorithm}
 % \end{figure}
@@ -927,7 +916,7 @@ policies}
 %         \tcp*[f]{randomly switch}
 %         \pause
 %         }(\tcp*[f]{\alert{arm with smaller index at $t-1$}}){
-%           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)}\right\}\right)$
+%           $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \alert{\mathrm{UCB}_k^j(t-1) \leq \mathrm{UCB}^j_{A^j(t)}(t-1)}\right\}\right)$
 %         }
 %       }{
 %         \pause
@@ -935,7 +924,7 @@ policies}
 %         \tcp*[f]{stays on the same arm}
 %       }
 %     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
-%     Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+%     Compute the indices $\mathrm{UCB}^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 % }
 % \label{algo:RandTopM}
 % \end{algorithm}
@@ -951,9 +940,28 @@ policies}
 
 \begin{frame}{Ideas for the \MCTopM{} algorithm}
 
-  FIXME from Emilie's slides
+\begin{itemize}\tightlist
+\item
+  Based on sensing information, each user \(j\) keeps \(\mathrm{UCB}_k^j(t)\) for each arm \(k\),
+\item
+  Use it to estimate the \(M\) best arms: \(\TopM(t) = \{\text{arms with } M \text{ largest } \mathrm{UCB}_k^j(t)\}\)
+\end{itemize}
+
+Two ideas:
+\begin{itemize}\tightlist
+  \item
+  Always pick an arm \(A^j(t) \in \TopM(t)\),
+  \citationright{Ref: [Anandkumar et al, 2011]}
+  \item
+  Try not to switch arm too often.
+\end{itemize}
+
+Introduce a \textbf{fixed state} \(s^j(t)\):\newline
+first non fixed, then fix when happy about an arm and no collision.
+\citationright{Ref: [Shamir et al, 2016]}
 
 \end{frame}
+
 
 \begin{frame}[plain]{\MCTopM{} algorithm}
 
@@ -974,7 +982,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
       \uIf(\tcp*[f]{\textcolor{red}{transition $\bold{(3)}$ or $\bold{(5)}$}}){
         $A^j(t) \notin \TopM(t)$}
       {
-        $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : g_k^j(t-1) \leq g^j_{A^j(t)}(t-1)\right\}\right)$
+        $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \mathrm{UCB}_k^j(t-1) \leq \mathrm{UCB}^j_{A^j(t)}(t-1)\right\}\right)$
         \tcp*[f]{not empty} \\
         \alert{$s^j(t+1) = \mathrm{Non}\;\mathrm{fixed}$}
         \tcp*[f]{arm with smaller index at $t-1$}
@@ -997,7 +1005,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
       }
     \pause
     Play arm $A^j(t+1)$, get new observations (sensing and collision), \\
-    Compute the indices $g^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
+    Compute the indices $\mathrm{UCB}^j_k(t+1)$ and set $\TopM(t+1)$ for next step.
 }
 \label{algo:MCTopM}
 \end{algorithm}
@@ -1097,8 +1105,7 @@ If all \(M\) players use \MCTopM{} with \klUCB:
 
 Control both terms, both are logarithmic at finite horizon:
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Suboptimal selections with the ``classical analysis'' on \klUCB{}
   indexes.
@@ -1112,8 +1119,7 @@ Control both terms, both are logarithmic at finite horizon:
 
 \begin{block}{Remarks}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   The constant \(G_{M,\boldsymbol{\mu}}\) scales as \(M^3\), way better
   than \rhoRand's constant scaling as \(M^2 {2M-1 \choose M}\),
@@ -1271,8 +1277,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 % \end{block}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   In a wireless network with an \iid{} background traffic in \(K\)
   channels,
@@ -1283,8 +1288,7 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 \begin{block}{We showed}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Decentralized bandit algorithms can solve this problem,
 \item
@@ -1329,8 +1333,7 @@ LoRaWAN networks).
 
 \begin{block}{But more work is still needed\ldots{}}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   \textbf{Theoretical guarantees} are still missing for the ``IoT''
   model (without sensing.
@@ -1373,8 +1376,7 @@ LoRaWAN networks).
 
 \begin{frame}{Appendix}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Proof of the regret upper bound,
 \item
@@ -1404,7 +1406,7 @@ LoRaWAN networks).
   \textcolor<2>{red}{transitions of type $(3)$ and $(5)$}, by
   \(\bigO{\log T}\) using the \klUCB{} indexes and the forced choice of
   the algorithm:
-  \(g_k^j(t-1) \leq g^j_{k'}(t-1), \;\;\text{and}\;\; g_k^j(t) > g^j_{k'}(t)\)
+  \(\mathrm{UCB}_k^j(t-1) \leq \mathrm{UCB}^j_{k'}(t-1), \;\;\text{and}\;\; \mathrm{UCB}_k^j(t) > \mathrm{UCB}^j_{k'}(t)\)
   when switching from \(k'\) to \(k\),\pause
 \item
   Bound the expected length of a sequence in the non-fixed state by a
@@ -1483,13 +1485,12 @@ For the harder feedback model, without sensing.
 \begin{block}{\Selfish}
   Use \UCB{} (or \klUCB) indexes on the (non \iid) rewards \(r^j(t)\)
   and not on the sensing $Y_{A^j(t)}(t)$.
-  \citationright{Reference: [Bonnefoi \& Besson et al, 2017]}
+  \citationright{Ref: [Bonnefoi \& Besson et al, 2017]}
 \end{block}
 
 \begin{block}{Works fine\ldots{}}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   More suited to model IoT networks,
 \item
@@ -1503,8 +1504,7 @@ For the harder feedback model, without sensing.
 
 \begin{block}{\emph{But why would it work?}}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Sensing feedback were \iid, so using \UCB{} to learn the \(\mu_k\) makes sense,
 \item
@@ -1520,8 +1520,7 @@ For the harder feedback model, without sensing.
 
 \begin{block}{Works fine\ldots{}}
 
-\begin{itemize}
-\tightlist
+\begin{itemize}\tightlist
 \item
   Except\ldots{} when it fails drastically! \Sadey[1.3]
 \item
