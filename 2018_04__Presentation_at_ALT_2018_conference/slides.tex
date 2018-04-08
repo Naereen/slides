@@ -315,7 +315,7 @@ We control some communicating devices, they want to use a wireless access point.
 
 
 
-\section{\hfill{}2. Our model: $3$ different feedback level\hfill{}}
+\section{\hfill{}2. Our model: $3$ different feedback levels\hfill{}}
 
 \subsection{\hfill{}2.a. Our communication model\hfill{}}
 
@@ -380,8 +380,8 @@ Discrete and synchronized time \(t\geq1\).
 \item
   \emph{Without sensing}: same background traffic, but cannot sense, so
   only \texttt{Ack} is used.
-  \small{More suited for ``IoT'' networks like LoRa or SigFox} (Harder to
-  analyze mathematically.)
+  % \small{More suited for ``IoT'' networks like LoRa or SigFox} (Harder to
+  % analyze mathematically.)
 \end{enumerate}
 
 \end{block}
@@ -470,20 +470,30 @@ Discrete and synchronized time \(t\geq1\).
 
 \subsection{\hfill{}2.e. Goal\hfill{}}
 
-\begin{frame}[fragile]{Goal}
+\begin{frame}{Goal}
 
-\begin{block}{Problem}
+\begin{block}{Goal}
+  \begin{itemize}\tightlist
+    \item
+    \emph{Minimize packet loss ratio} \newline
+    (\(=\) maximize nb of received \texttt{Ack})
+    \item
+    in a \emph{finite-space discrete-time Decision Making Problem}.
+  \end{itemize}
+\end{block}
 
-\begin{itemize}\tightlist
-\item
-  \emph{Goal}: \emph{minimize packet loss ratio} (\(=\) maximize nb of
-  received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
-  Making Problem}.
-\item
-  \emph{Solution ?} \textbf{Multi-Armed Bandit algorithms},
-  \textbf{decentralized} and used \textbf{independently} by each dynamic
-  device.
-\end{itemize}
+\vspace*{20pt}
+
+\begin{block}{Solution ?}
+
+  \textbf{Multi-Armed Bandit algorithms}
+  \begin{itemize}\tightlist
+    \item
+    \textbf{decentralized} and
+    \item
+    used \textbf{independently} by each dynamic device.
+  \end{itemize}
+
 
 \end{block}
 
@@ -508,7 +518,6 @@ Discrete and synchronized time \(t\geq1\).
 \end{frame}
 
 
-
 \subsection{\hfill{}2.f. Centralized regret\hfill{}}
 
 \begin{frame}{Centralized regret}
@@ -517,9 +526,9 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{itemize}\tightlist
 \item
-  \textbf{Not} the network throughput or collision probability,
+  \textbf<1>{Not} the network throughput or collision probability,
 \item
-  We study the \textbf{centralized} (\textcolor<1>{blue}{expected}) \textbf{regret}:
+  We study the \textbf<1>{centralized} (\textcolor<1>{blue}{expected}) \textbf<1>{regret}:
 \end{itemize}
 
 \begin{small}\vspace*{-10pt}
@@ -534,7 +543,7 @@ Discrete and synchronized time \(t\geq1\).
 \end{block}
 
 \only<1>{
-  Notation :
+  Notation:
   $\alert{\mu_k^*}$ is the mean of the $k$-best arm
   ($k$-th largest in $\boldsymbol{\mu}$):
   \begin{itemize}
@@ -579,9 +588,9 @@ Discrete and synchronized time \(t\geq1\).
 \item
   Decomposition of the regret in \(3\) terms,\vspace*{15pt}
 \item
-  Asymptotic lower bound of one term,\vspace*{15pt}
+  Asymptotic lower bound on one term,\vspace*{15pt}
 \item
-  And for regret.
+  And for the regret.
   % \vspace*{15pt}
 % \item
 %   Proof?
@@ -643,13 +652,13 @@ R_T(\boldsymbol{\mu}, M, \rho)
 
 \begin{frame}{Asymptotic lower bound on the regret I}
 
-\begin{block}{Theorem 1
+\begin{block}{Theorem $1$
   \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
   Sub-optimal arms selections are lower bounded asymptotically,
   \[\forall\, \text{player}\, j, \text{bad arm}\,k,\;\;\;\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},\]
-  \footnotetext{\tiny Where $\kl(x,y) := x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} Kullback-Leibler divergence.}
-
+  \footnotetext{\tiny Where $\kl(x,y) := \mathcal{KL}(\mathcal{B}(x), \mathcal{B}(y)) = x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} KL divergence.}
+  % Kullback-Leibler
 \end{block}
 
 Proof: using classical information theory tools (Kullback-Leibler divergence, change of distributions)\dots
@@ -659,7 +668,7 @@ Proof: using classical information theory tools (Kullback-Leibler divergence, ch
 
 \begin{frame}{Asymptotic lower bound on the regret II}
 
-\begin{block}{Theorem 2
+\begin{block}{Theorem $2$
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
 \small{For any uniformly efficient decentralized policy, and any
@@ -839,6 +848,8 @@ policies}
 
 \end{block}
 
+\pause
+
 \begin{exampleblock}{Our contributions:
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
@@ -945,7 +956,8 @@ policies}
 \item
   Based on sensing information, each user \(j\) keeps \(\mathrm{UCB}_k^j(t)\) for each arm \(k\),
 \item
-  Use it to estimate the \(M\) best arms: \(\TopM(t) = \{\text{arms with } M \text{ largest } \mathrm{UCB}_k^j(t)\}\)
+  Use it to estimate the \(M\) best arms:
+  \[\TopM(t) = \{\text{arms with } M \text{ largest } \mathrm{UCB}_k^j(t)\}.\]
 \end{itemize}
 
 Two ideas:
@@ -1073,7 +1085,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \begin{frame}{Regret upper bound for \MCTopM{}}
 
-\begin{block}{Theorem 3
+\begin{block}{Theorem $3$
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 One term is controlled by the two others:
 \begin{small}\begin{align*}
@@ -1087,7 +1099,7 @@ So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \tex
 
 \pause
 
-\begin{block}{Theorem 4
+\begin{block}{Theorem $4$
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
 If all \(M\) players use \MCTopM{} with \klUCB:
@@ -1321,7 +1333,8 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 % \end{itemize}
 % \end{block}
 
-  \pause
+\vspace*{15pt}
+\pause
 
 % \begin{block}{}
 \item Extend to more objects (\ie, when \(M > K\))
@@ -1332,6 +1345,7 @@ with (\eg, ZigBee networks),
 or without sensing (\eg, LoRaWAN networks).
 \hook objects should no longer communicate at every time step!
 
+\vspace*{15pt}
 \pause
 
 % \end{block}
