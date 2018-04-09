@@ -63,7 +63,7 @@ Ask questions *at the end* if you want!
 
 # Communication & interaction model
 
-<img width="75%" src="plots/diagram_model_of_OSA.png#center">
+<img width="55%" src="plots/diagram_model_of_OSA.jpg#center">
 
 - :iphone: Primary users are occupying $K$ radio channels
 - :phone: Secondary users can sense and exploit free channels:
