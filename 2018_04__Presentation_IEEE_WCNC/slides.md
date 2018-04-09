@@ -37,13 +37,13 @@ which algorithm to use, to be more robust and adaptive to unknown environments.
 
 ---
 
-# :timer_clock: Outline ==[15 min]==
+# :timer_clock: Outline
 
-1. Opportunistic Spectrum Access ==[3 min]==
-2. Multi-Armed Bandits ==[2 min]==
-3. MAB algorithms ==[3 min]==
-4. Aggregation of MAB algorithms  ==[3 min]==
-5. Illustration ==[3 min]==
+1. Opportunistic Spectrum Access
+2. Multi-Armed Bandits
+3. MAB algorithms
+4. Aggregation of MAB algorithms
+5. Illustration
 
 <br><br>
 
@@ -52,7 +52,7 @@ Ask questions *at the end* if you want!
 
 ---
 
-# 1. Opportunistic Spectrum Access ==[3 min]==
+# 1. Opportunistic Spectrum Access
 
 - Spectrum scarcity is a well-known problem
 - Different range of solutions…
@@ -63,16 +63,16 @@ Ask questions *at the end* if you want!
 
 # Communication & interaction model
 
-<img width="55%" src="plots/diagram_model_of_OSA.jpg#center">
+<img width="35%" src="plots/protocol_v2.png#center">
 
-- :iphone: Primary users are occupying $K$ radio channels
-- :phone: Secondary users can sense and exploit free channels:
+- :phone: Primary users are occupying $K$ radio channels
+- :iphone: Secondary users can sense and exploit free channels:
   want to **explore** the channels, and learn to **exploit** the best one
 - Discrete time for everything $t\geq1,t\in\mathbb{N}$
 
 ---
 
-# 2. Multi-Armed Bandits ==[2 min]==
+# 2. Multi-Armed Bandits
 
 ## Model
 - Again $K \geq 2$ resources (*e.g.*, channels), called **arms**
@@ -86,7 +86,7 @@ Simple but good model for **exploration/exploitation** dilemma.
 
 ---
 
-# 3. MAB algorithms ==[3 min]==
+# 3. MAB algorithms
 
 - Main idea: index $I_k(t)$ to approximate the quality of each arm $k$
 - First example: *UCB algorithm*
@@ -134,7 +134,7 @@ $$ I_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(t)}{2 N_k(t)}} $$
 
 <!-- *footer: -->
 
-# 4. Aggregation of MAB algorithms ==[3 min]==
+# 4. Aggregation of MAB algorithms
 
 ## Problem
 - How to choose which algorithm to use?
@@ -210,7 +210,7 @@ Improves on *Exp4* by the following ideas:
 
 ---
 
-# 5. Some illustrations ==[3 min]==
+# 5. Some illustrations
 
 - Artificial simulations of stochastic bandit problems
 - Bernoulli bandits but not only (also Gaussian, Exponential)
