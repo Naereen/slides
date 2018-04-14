@@ -253,6 +253,6 @@ Et beaucoup de choses à faire pour la suite...
 
 \vfill{}
 
-\begin{center}\begin{Huge} {\Fontify Merci !} \Smiley[0.9] \end{Huge}\end{center}
+\begin{center}\begin{Huge} {\Fontify Merci !} \end{Huge}\end{center}
 
 > *À l'année prochaine... pour la soutenance !?*

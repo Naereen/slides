@@ -1,6 +1,9 @@
 # Quick Makefile to easily compile the slides (make pdf) and run the slide (make showtime)
 default: pandocpdf
 
+slides.pdf:	clean pandoctex pandocpdf
+pdf:	slides.pdf
+
 pandoctex:
 	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
 
@@ -12,6 +15,8 @@ open:
 
 show:
 	pdfpc -d 18 slides_.pdf
+
+slides_169.pdf:	clean pandoctex169 pandocpdf169
 
 pandoctex169:
 	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides.md -o slides_169.tex
@@ -26,7 +31,7 @@ show169:
 	pdfpc -d 18 slides_169.pdf
 
 clean:
-	-mv -vf *.fls *.fdb_latexmk *.ps *.dvi *.htoc *.tms *.tid *.lg *.log *.id[vx] *.vrb *.toc *.snm *.nav *.htmp *.aux *.tmp *.out *.haux *.hidx *.bbl *.blg *.brf *.lof *.ilg *.ind *.meta *.fdb_latexmk *.fls *.gz*busy* *busy* /tmp/ 2>/dev/null
+	-mv -vf *.fls *.fdb_latexmk *.ps *.dvi *.htoc *.tms *.tid *.lg *.log *.id[vx] *.vrb *.toc *.snm *.nav *.htmp *.aux *.tmp *.out *.haux *.hidx *.bbl *.blg *.brf *.lof *.ilg *.ind *.meta *.fdb_latexmk *.fls *.gz*busy* *busy* *.tex /tmp/ 2>/dev/null
 
 Marp:
 	Marp slides.md
