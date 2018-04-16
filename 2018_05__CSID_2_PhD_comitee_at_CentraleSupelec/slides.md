@@ -219,7 +219,7 @@ Je préfère présenter un seul des travaux, le plus récent.
 
 # Algorithme du "Doubling trick"
 
-<!-- ![](Generic_Doubling_Trick_algorithm.png) -->
+<!-- ![](./images/Generic_Doubling_Trick_algorithm.png) -->
 
 \begin{algorithm}[H]
 % XXX Options
@@ -453,7 +453,7 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 - Quelques petits projets\footnote{Cf. \urlb{GitHub.com/Naereen/fix-iocaml-notebook-exports-to-pdf} et \urlb{GitHub.com/Naereen/Jupyter-NBConvert-OCaml}} pour faciliter l'utilisation des Notebooks Jupyter avec le langage OCaml (utilisé en option info en prépa et pour l'agrég).\newline
     $\hookrightarrow$ utilisé pour mon enseignement\footnote{Cf. \urlb{nbviewer.jupyter.org/github/Naereen/notebooks/tree/master/agreg/TP_Programmation_2017-18/}} (et à l'avenir, j'espère) !
 
-![](demo-jupyter-for-OCaml-1.png){width=40%}![](demo-jupyter-for-OCaml-2.png){width=40%}
+    ![](./images/demo-jupyter-for-OCaml-1.png){width=45%}![](./images/demo-jupyter-for-OCaml-2.png){width=45%}
 
 ----
 
@@ -461,19 +461,19 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 - Modules Python et Julia\footnote{Cf. \urlb{GitHub.com/Naereen/Lempel-Ziv_Complexity} et \urlb{GitHub.com/Naereen/LempelZiv.jl}} pour calculer la complexité de Lempel-Ziv sur des chaînes binaires. Environ 500 téléchargements...
 
-```python
->>> from lempel_ziv_complexity import lempel_ziv_complexity
->>> s = '1001111011000010'
->>> lempel_ziv_complexity(s)
-6  # because s = 1 / 0 / 01 / 1110 / 1100 / 0010
-```
+    ```python
+    >>> from lempel_ziv_complexity import lempel_ziv_complexity
+    >>> s = '1001111011000010'
+    >>> lempel_ziv_complexity(s)
+    6  # because s = 1 / 0 / 01 / 1110 / 1100 / 0010
+    ```
 
-```python
->>> %timeit lempel_ziv_complexity(s)
-6.1 µs ± 33.6 ns per loop (mean ± std. dev. of 7 runs)
->>> %timeit lempel_ziv_complexity_cython(s)  # plus rapide!
-132 ns ± 2.55 ns per loop (mean ± std. dev. of 7 runs)
-```
+    ```python
+    >>> %timeit lempel_ziv_complexity(s)
+    6.1 µs ± 33.6 ns per loop (mean ± std. dev. of 7 runs)
+    >>> %timeit lempel_ziv_complexity_cython(s)  # plus rapide!
+    132 ns ± 2.55 ns per loop (mean ± std. dev. of 7 runs)
+    ```
 
 ----
 
@@ -481,19 +481,19 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 - Implémentation pédagogique\footnote{Cf. \urlb{GitHub.com/Naereen/Tiny-Prolog-in-OCaml}} d'un sous-ensemble du langage Prolog, en OCaml, pour mes élèves d'agrég.
 
-```prolog
-even(o).
-even(s(s(X))) :- even(X).
-```
+    ```prolog
+    even(o).
+    even(s(s(X))) :- even(X).
+    ```
 
-```prolog
-whiteFur(bugsBunny).
-longEars(bugsBunny).
-whiteFur(Y) :- child(bugsBunny,Y).
-child(X,sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
-blueEyes(sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
-cleanTeeth(X) :- whiteFur(X).
-```
+    ```prolog
+    whiteFur(bugsBunny).
+    longEars(bugsBunny).
+    whiteFur(Y) :- child(bugsBunny,Y).
+    child(X,sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
+    blueEyes(sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
+    cleanTeeth(X) :- whiteFur(X).
+    ```
 
 ----
 
@@ -503,7 +503,7 @@ cleanTeeth(X) :- whiteFur(X).
     But : une version "manuscrite" de mon manuscrit de thèse...\newline
     \Fontify{Exemple : Fontify}
 
-![](demo-Fontify-1.png){width=30%}![](demo-Fontify-2.png){width=30%}![](demo-Fontify-3.png){width=30%}
+    ![](./images/demo-Fontify-1.png){width=30%}![](./images/demo-Fontify-2.png){width=30%}![](./images/demo-Fontify-3.png){width=45%}
 
 ----
 
@@ -513,7 +513,7 @@ cleanTeeth(X) :- whiteFur(X).
     + Exemple avec des jeux ATARI (classique) et NES (dont un Mario\footnote{Cf. \urlb{GitHub.com/Naereen/gym-nes-mario-bros}} qui n'a jamais été traité comme ça avant).
     + Encore en cours (c'est pas simple)...
 
-![](demo-gym-nes-mario-bros.png){width=80%}
+    ![](./images/demo-gym-nes-mario-bros.png){width=65%}
 
 ----
 
