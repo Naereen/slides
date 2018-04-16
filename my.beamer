@@ -132,7 +132,7 @@ $endif$
 % \tikzset{
 %   font={\fontsize{10pt}{10}\selectfont}
 % }
-% \usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
+\usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
 
 \IfFileExists{macrosText.sty}{\usepackage{macrosText}}{}
 
