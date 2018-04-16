@@ -1,5 +1,5 @@
 # Quick Makefile to easily compile the slides (make pdf) and run the slide (make showtime)
-default: pandocpdf
+default: slides.pdf
 
 slides.pdf:	clean pandoctex pandocpdf
 pdf:	slides.pdf

@@ -12,3 +12,6 @@
 *.toc
 *.vrb
 *busy*
+
+# Ignored directories
+2017_06__Direction_recherche_fin_2017/

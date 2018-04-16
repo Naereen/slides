@@ -461,19 +461,19 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 - Modules Python et Julia\footnote{Cf. \urlb{GitHub.com/Naereen/Lempel-Ziv_Complexity} et \urlb{GitHub.com/Naereen/LempelZiv.jl}} pour calculer la complexité de Lempel-Ziv sur des chaînes binaires. Environ 500 téléchargements...
 
-    ```python
-    >>> from lempel_ziv_complexity import lempel_ziv_complexity
-    >>> s = '1001111011000010'
-    >>> lempel_ziv_complexity(s)
-    6  # because s = 1 / 0 / 01 / 1110 / 1100 / 0010
-    ```
+```python
+>>> from lempel_ziv_complexity import lempel_ziv_complexity
+>>> s = '1001111011000010'
+>>> lempel_ziv_complexity(s)
+6  # because s = 1 / 0 / 01 / 1110 / 1100 / 0010
+```
 
-    ```python
-    >>> %timeit lempel_ziv_complexity(s)
-    6.1 µs ± 33.6 ns per loop (mean ± std. dev. of 7 runs)
-    >>> %timeit lempel_ziv_complexity_cython(s)  # plus rapide!
-    132 ns ± 2.55 ns per loop (mean ± std. dev. of 7 runs)
-    ```
+```python
+>>> %timeit lempel_ziv_complexity(s)
+6.1 µs ± 33.6 ns per loop (mean ± std. dev. of 7 runs)
+>>> %timeit lempel_ziv_complexity_cython(s)  # plus rapide!
+132 ns ± 2.55 ns per loop (mean ± std. dev. of 7 runs)
+```
 
 ----
 
@@ -481,19 +481,19 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 - Implémentation pédagogique\footnote{Cf. \urlb{GitHub.com/Naereen/Tiny-Prolog-in-OCaml}} d'un sous-ensemble du langage Prolog, en OCaml, pour mes élèves d'agrég.
 
-    ```prolog
-    even(o).
-    even(s(s(X))) :- even(X).
-    ```
+```prolog
+even(o).
+even(s(s(X))) :- even(X).
+```
 
-    ```prolog
-    whiteFur(bugsBunny).
-    longEars(bugsBunny).
-    whiteFur(Y) :- child(bugsBunny,Y).
-    child(X,sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
-    blueEyes(sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
-    cleanTeeth(X) :- whiteFur(X).
-    ```
+```prolog
+whiteFur(bugsBunny).
+longEars(bugsBunny).
+whiteFur(Y) :- child(bugsBunny,Y).
+child(X,sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
+blueEyes(sonWithBlueEyes(X)) :- longEars(X),cleanTeeth(X).
+cleanTeeth(X) :- whiteFur(X).
+```
 
 ----
 
@@ -503,7 +503,7 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
     But : une version "manuscrite" de mon manuscrit de thèse...\newline
     \Fontify{Exemple : Fontify}
 
-    ![](./images/demo-Fontify-1.png){width=30%}![](./images/demo-Fontify-2.png){width=30%}![](./images/demo-Fontify-3.png){width=45%}
+    ![](./images/demo-Fontify-1.png){width=20%}![](./images/demo-Fontify-2.png){width=20%}![](./images/demo-Fontify-3.png){width=35%}
 
 ----
 
@@ -511,13 +511,18 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 - Formation et expérimentations en apprentissage par renforcement profond ("deep reinforcement learning") pour apprendre à jouer à un jeu vidéo à partir des pixels de l'écran.
     + Exemple avec des jeux ATARI (classique) et NES (dont un Mario\footnote{Cf. \urlb{GitHub.com/Naereen/gym-nes-mario-bros}} qui n'a jamais été traité comme ça avant).
-    + Encore en cours (c'est pas simple)...
+    + But : j'aimerai trouver une application des bandits pour accélérer la convergence de tels réseaux, ou une application de tels réseaux pour de la radio intelligente... (pas simple)
+    + Encore en cours... (c'est pas simple)
 
-    ![](./images/demo-gym-nes-mario-bros.png){width=65%}
+    ![](./images/demo-gym-nes-mario-bros.png){width=35%}
 
 ----
 
 # Conclusion \& Perspectives
+
+> Bilan...
+>
+> Perspectives...
 
 ----
 
