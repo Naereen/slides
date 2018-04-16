@@ -144,12 +144,16 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 ## $2$ posters, chacun présenté $2$ fois :
 1. Pour\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/phd-student-day-ietr-2017-bonnefoi-and-besson}} mon article CROWNCOM $2017$
     + Journée des Doctorants (IETR) @ Rennes, juillet $2017$,
-    + Atelier @ Lille, septembre $2017$ ("bandits \& privacy").
+    + Atelier @ Lille, septembre $2017$ ("bandits \& privacy"\footnote{Cf. \urlb{team.inria.fr/magnet/workshop-on-decentralized-machine-learning-optimization-and-privacy/}}).
 2. Pour\footnote{Cf. \urlb{bitbucket.org/lbesson/phd-student-day-ietr-2018}} mon article ALT $2018$
-    + Atelier @ Rotterdam, mai $2018$ ("applications of bandits"),
+    + Atelier @ Rotterdam, mai $2018$ ("applications of bandits"\footnote{Cf. \urlb{www.erim.eur.nl/e-code-erasmus-centre-for-optimization-of-digital-experiments/workshop-on-multi-armed-bandits-and-learning-algorithms/}}),
     + Journée des Doctorants (IETR) @ Vannes, juin $2018$.
 
 <!-- FIXME check URL of 2nd poster -->
+
+----
+
+# Publications depuis le début de ma thèse III
 
 ## $9$ présentations !
 - Conférences\footnote{Planches et code source en accès libre. Cf. \urlb{perso.crans.org/besson/publis/slides/}} : CROWNCOM @ Lisbonne, ALT @ Lanzarote, IEEE WCNC @ Barcelone,
@@ -158,12 +162,14 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 
 ----
 
-# Publications depuis le début de ma thèse III
+# Publications depuis le début de ma thèse IV
 
-1. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01575419}} "maths et télécom et simulations" avec Rémi.
+1. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01575419}} "maths et télécom et simulations" avec Rémi B.
     + Présenté à la conférence européenne **CROWNCOM** $2017$ (septembre, Lisbonne).
     + *Best paper award!* (mais toute petite conférence...)
     + Publié, \alert{mais aucune nouvelle pour la version longue}...
+
+. . .
 
 \vspace*{5pt}
 
@@ -173,11 +179,13 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 
 ----
 
-# Publications depuis le début de ma thèse IV
+# Publications depuis le début de ma thèse V
 
 3. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01705292}} "machine learning + télécom" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive.
     + Présenté à la conférence **IEEE WCNC** $2018$ (avril, Barcelone).
     + Bon retour ! \alert{Mais difficile d'obtenir des résultats théoriques}
+
+. . .
 
 \vspace*{5pt}
 
@@ -187,7 +195,7 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 
 ----
 
-# Publications depuis le début de ma thèse III
+# Publications depuis le début de ma thèse VI
 
 5. Ma bibliothèque d'algorithmes de bandits (mono- et multi-joueurs),
     + Environ $65$ algorithmes mono-joueur, $15$ multi joueurs,
@@ -210,7 +218,7 @@ Je préfère présenter un seul des travaux, le plus récent.
 \vspace*{15pt}
 
 ## Publication associée
-**What Doubling Tricks Can and Can't Do for Multi-Armed Bandits**, Lilian Besson \& Emilie Kaufmann, Feb $2018$.
+"**What Doubling Tricks Can and Can't Do for Multi-Armed Bandits**", Lilian Besson \& Emilie Kaufmann, Feb $2018$.
 
 > En accès libre : `HAL.Inria.fr/hal-01736357`
 
@@ -227,7 +235,7 @@ Je préfère présenter un seul des travaux, le plus récent.
 
 ## But ?
 
-- $\hookrightarrow$ Peut-on transformer un algorithme dépendant de $T$ et le rendre \alert{indépendant de l'horizon} ?
+- $\hookrightarrow$ Peut-on transformer un algorithme $\mathcal{A}$ dépendant de $T$ et le rendre \alert{indépendant de l'horizon} $\mathcal{A}'$ ?
 - $\implies$ **Oui !**
 - Une technique classique : "doubling trick" !
 
@@ -245,7 +253,7 @@ Je préfère présenter un seul des travaux, le plus récent.
 \DontPrintSemicolon
 % \RestyleAlgo{boxed}
 % XXX Input, data and output
-\KwIn{Algorithme de bandit $\mathcal{A}$, et suite $(T_i)_{i\in\mathbb{N}}$.}
+\KwIn{Algorithme de bandit $\mathcal{A}$, et une suite $(T_i)_{i\in\mathbb{N}}$.}
 % \KwData{Données}
 % \KwResult{Résultat}
 \BlankLine
@@ -259,9 +267,9 @@ Horizon suivante : $i = i + 1$.\;
 Initialise $\mathcal{A}^{(i)} = \mathcal{A}_{T_i - T_{i-1}}$.
 \tcp*[f]{Départ à vide}
 }
-Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$, observe la récompense $r(t) = Y_{A'(t), t}$, lui donne cette observation. \nllabel{line:internalTimer_DTr}
+Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$, observe la récompense $r(t) = Y_{A'(t), t}$, lui donne cette observation. \nllabel{line:internalTimer_DTr}
 }
-\caption{L'algorithme de "Doubling Trick" générique, $\mathcal{A}' = \mathrm{DT}(\mathcal{A}, (T_i)_{i\in\mathbb{N}})$.}
+\caption{$\mathcal{A}' = \mathrm{DT}(\mathcal{A}, (T_i)_{i\in\mathbb{N}})$.}
 \label{algo:DTr}
 \end{algorithm}
 
@@ -287,16 +295,16 @@ Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 
 # Regret et but
 ## Regret ?
-- $R_T(A_T)$ mesure la performance moyenne de l'algorithme $A$ (qui peut connaître $T$), sur une expérience d'horizon $T$.
-- $R_T(A) := \sum_{t=1}^T \mu^* - \mathbb{E}[\mu_{A(t)}]$ pour un problème à $K$ bras de moyennes $\mu_1,\dots,\mu_K$, de meilleur bras $\mu^* := \arg\max_k \mu_k$ et si $A(t)$ est le choix de l'algorithme à l'instant $t$.
+- $R_T(\mathcal{A}_T)$ mesure la performance moyenne de l'algorithme $\mathcal{A}$ (qui peut connaître $T$), sur une expérience d'horizon $T$.
+- $R_T(\mathcal{A}) := \sum_{t=1}^T \mu^* - \mathbb{E}[\mu_{A(t)}]$ pour un problème à $K$ bras de moyennes $\mu_1,\dots,\mu_K$, de meilleur bras $\mu^* := \arg\max_k \mu_k$ et si $A(t)$ est le choix de l'algorithme à l'instant $t$.
 
 . . .
 
 ## But : *conserver* des bornes de regret !
-- Si $A$ vérifie une borne de regret, *e.g.*, $R_T(A_T) \leq f(T)$
-- Alors la version indépendante de $T$, $\mathrm{DT}(A)$, vérifie une borne similaire, avec une perte constante $\ell$, \alert{ou non} :
-    + $R_T(\mathrm{DT}(A)) \leq \ell(\text{paramètres pb}) \times f(T)$ : bien !
-    + $R_T(\mathrm{DT}(A)) \leq \ell(\text{paramètres pb}) \times g(T)$ : \alert{moins bien} ! (pour $g(T) \gg f(T)$).
+- Si $\mathcal{A}$ vérifie une borne de regret, *e.g.*, $R_T(\mathcal{A}_T) \leq f(T)$
+- Alors la version indépendante de $T$, $\mathrm{DT}(\mathcal{A})$, vérifie une borne similaire, avec une perte constante $\ell$, \alert{ou non} :
+    + $R_T(\mathrm{DT}(\mathcal{A})) \leq \ell(\text{paramètres pb}) \times f(T)$ : bien !
+    + $R_T(\mathrm{DT}(\mathcal{A})) \leq \ell(\text{paramètres pb}) \times g(T)$ : \alert{moins bien} ! (pour $g(T) \gg f(T)$).
 
 ----
 
@@ -304,13 +312,13 @@ Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 > $c > 0$ est une constante dépendant des paramètres $\mu_1,\dots,\mu_K$ du problème, mais **pas** de $T$.
 
 1. Regret indépendant des paramètres ("adversarial bandits")
-    $$R_T(A_T) \leq c \; \sqrt{T}$$
+    $$R_T(\mathcal{A}_T) \leq c \; \sqrt{T}$$
 
 2. Regret dépendant des paramètres ("stochastic bandits")
-    $$R_T(A_T) \leq c \; \log(T)$$
+    $$R_T(\mathcal{A}_T) \leq c \; \log(T)$$
 
 ## Forme générique
-- \alert{$R_T(A_T) \leq c \; (\log T)^{\delta} T^{\gamma}$}
+- \alert{$R_T(\mathcal{A}_T) \leq c \; (\log T)^{\delta} T^{\gamma}$}
     + $\delta=0,\gamma>0$ (adverse),
     + ou $\delta>0,\gamma=0$ (stochastique),
     + ou $\delta>0,\gamma>0$ (hybride !).
@@ -348,7 +356,7 @@ Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 
 # Illustration
 
-![](images/main____env1-1_1217677871459230631.pdf){width=110%}
+![](images/main____env1-1_1217677871459230631.pdf){width=105%}
 
 ----
 
@@ -367,16 +375,16 @@ Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 - Très générique !
 - Donne une meilleure compréhension théorique de cette technique très utilisée depuis $\sim$ 20 ans (au moins).
 - Justifie quelques articles qui utilisent le "doubling trick" sans justifier plus qu'une note de bas de page disant "on ne perd rien qu'une constante multiplicative dans le regret"...
-- Donne une méthode simple pour choisir les valeurs de $T_0,b$ ou $T_0,a,b$ (minimise la perte constante $\ell$).
+- Donne une méthode simple pour choisir les valeurs de $T_0,b$ ou $T_0,a,b$ ($\hookrightarrow$ minimiser la perte constante $\ell$ !).
 
 ----
 
 # Applications de ce travail II
 
 ## En radio intelligente ? Oui aussi !
-1. Si Alice utilise un algorithme $A_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index* en bandits mono-joueur, *Musical Chair* en bandits multi-joueurs, etc),
-2. Si elle sait quel genre de garantie elle espère (contexte stochastique, ou adverse, ou hybride),\pause
-3. $\implies$ Alors elle peut savoir quel "doubling trick" utiliser pour rendre son algorithme indépendant de $T$ le plus efficacement possible (on connaît $\delta,\gamma$ alors on choisit $T_0,b$ ou $T_0,a,b$ pour minimiser la perte constante $\ell$...).
+1. Si on utilise un algorithme $\mathcal{A}_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index*, $\mathrm{KLUCB}++$, en bandits mono-joueur, *Musical Chair* en bandits multi-joueurs, etc),
+2. Si on sait quel genre de garantie on espère (contexte stochastique, ou adverse, ou hybride),\pause
+3. $\implies$ Alors on peut savoir quel "doubling trick" utiliser pour rendre son algorithme indépendant de $T$ le plus efficacement possible (on connaît $\delta,\gamma$ alors on choisit $T_0,b$ ou $T_0,a,b$ pour minimiser la perte constante $\ell$...).
 
 ----
 
@@ -404,6 +412,10 @@ Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$
     + *Difficile*,
     + Motivation très utile en radio : apprentissage par renforcement avec des SNIR, des puissances reçus, etc. Ces mesures sont toujours bornées mais pouvoir s'adapter à leur amplitude peut améliorer les performances.
 
+----
+
+# Objectifs de recherche pour $2018$ III
+
 3. Un algorithme générique pour s'adapter à des problèmes avec $K$ bras mais seulement $s < K$ ayant des moyennes positives (bandits parcimonieux, "sparse").
     + *Déjà pas mal travaillé dessus* (juillet $2017$, mars $2018$),
     + Le problème est montré "difficile" si $s$ n'est pas connu (en résumé : on ne peut pas faire mieux que si $s=K$, *i.e.*, un algorithme "sparsity aware" ignorant $s$ ne peut pas faire mieux qu'un algorithme classique),
@@ -411,12 +423,16 @@ Joue selon $\mathcal{A}^{(i)}$ : choisis le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 
 ----
 
-# Objectifs de recherche pour $2018$ II
+# Objectifs de recherche pour $2018$ IV
 
 4. Travailler encore un peu sur les bandits multi-joueurs, notamment pour :
     + découvrir le nombre de joueurs,
     + autoriser des arrivées/départs de joueurs,
     + intégrer des perturbateurs (*jammers*, cf. article de Sumit Darak @ IEEE WCNC $2018$)...
+
+----
+
+# Objectifs de recherche pour $2018$ V
 
 5. J'ai envie de travailler encore plus sur des approches "black-box wrapper algorithms" : un algorithme générique $\mathcal{W}$, qui transforme $\mathcal{A}$ avec *telle faiblesse* en un algorithme $\mathcal{A}' = \mathcal{W}(\mathcal{A})$ sans cette faiblesse.
     + Agrégation, "Doubling Trick", "Sparse Wrapper", "Unknown range wrapper", etc. Déjà plusieurs de mes travaux rentrent dans ce cadre !
@@ -465,7 +481,7 @@ Par plaisir et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 # Autres activités ($2/5$) : Enseignements II
 
-J'ai obtenu la même mission pour $2019$.
+J'ai obtenu la même mission pour $2019$ (évidemment).
 
 \vspace*{15pt}
 
@@ -478,11 +494,11 @@ J'ai obtenu la même mission pour $2019$.
 ## "Review" \hfill{} Pas officiellement (bien sûr)
 - Un article pour NIPS $2017$ en juillet (pour aider une amie),
 - Un article pour ICML $2018$ en février (pour aider Émilie),
-- Deux rapports de projet de recherche d'un cours de "Reinforcement Learning" du master MVA, en janvier $2017$ et $2018$ (pour aider Émilie).
+- Deux rapports de projet de recherche d'un cours de "Reinforcement Learning" du master MVA (pour aider Émilie), en janvier $2017$ et $2018$ (sur un de nos articles !).
 
 ## Coups de main
-- Trois relectures d'articles de Rémi Bonnefoi (novembre $2016$, mars $2017$ et $2018$),
-- Relectures de morceaux des thèses de Navikkumar Modi (SCEE, mai $2017$), Claire Vernade (Télécom, octobre $2017$), et bientôt Rémi Bonnefoi (SCEE, été $2017$).
+- Trois relectures d'articles de Rémi B. (novembre $2016$, mars $2017$ et $2018$),
+- Relectures de morceaux des thèses de Navikkumar Modi (SCEE, mai $2017$), Claire Vernade (Télécom, octobre $2017$), et bientôt Rémi B. (SCEE, été $2017$).
 
 ----
 
@@ -490,7 +506,7 @@ J'ai obtenu la même mission pour $2019$.
 
 - Accueil des nouveaux @ SCEE (stagiaires, doctorants, post-doc \& ATER).
 
-- Administration système pour nos machines de calcul dans l'équipe SCEE (3 "*workstations*", 15 utilisateurs).
+- Administration système pour nos machines de calcul dans l'équipe SCEE ($3$ "*workstations*", $15$ utilisateurs).
 
 . . .
 
@@ -498,6 +514,12 @@ J'ai obtenu la même mission pour $2019$.
     + J'ai donné $5$ formations\footnote{Cf. \urlb{perso.crans.org/besson/publis/slides/}} depuis le lancement en janvier $2017$.
 
 - Programmeur passionné, j'essaie de contribuer régulièrement à des projets personnels\footnote{Cf. \urlb{Bitbucket.org/lbesson} et \urlb{GitHub.com/Naereen}} et des grands projets *open-source*, surtout en Bash, OCaml, Python et Julia (*e.g.*, bibliothèques `tensorflow`, `keras`, `sphinx-doc`, `scikit-monaco` etc).
+
+----
+
+# Exemples de projets personnels en $2017$-$18$
+
+> Juste un aperçu de certains projets reliés à la thèse (de près ou de loin)...
 
 ----
 
@@ -510,7 +532,7 @@ J'ai obtenu la même mission pour $2019$.
 
 # Exemples de projets personnels en $2017$-$18$ I
 
-![](./images/demo-jupyter-for-OCaml-1.png){width=55%}![](./images/demo-jupyter-for-OCaml-2.png){width=55%}
+![](./images/demo-jupyter-for-OCaml-1.png){width=50%}![](./images/demo-jupyter-for-OCaml-2.png){width=50%}
 
 ----
 
@@ -522,13 +544,13 @@ J'ai obtenu la même mission pour $2019$.
 >>> from lempel_ziv_complexity import lempel_ziv_complexity
 >>> s = '1001111011000010'
 >>> lempel_ziv_complexity(s)
-6  # because s = 1 / 0 / 01 / 1110 / 1100 / 0010
+6     # 6 car s = 1 / 0 / 01 / 1110 / 1100 / 0010
 ```
 
 ```python
 >>> %timeit lempel_ziv_complexity(s)
 6.1 µs ± 33.6 ns per loop (mean ± std. dev. of 7 runs)
->>> %timeit lempel_ziv_complexity_cython(s)  # plus rapide !
+>>> %timeit lempel_ziv_complexity_cython(s)  # rapide !
 132 ns ± 2.55 ns per loop (mean ± std. dev. of 7 runs)
 ```
 
@@ -540,16 +562,16 @@ J'ai obtenu la même mission pour $2019$.
 
 ```prolog
 pair(o).    # nombre entier pair
-pair(s(s(X))) :- pair(X).
+pair(s(s(X))) <-- pair(X).
 ```
 
 ```prolog
-blanc(jeannot).
+blanc(jeannot).  # famille de lapins !
 longOreilles(jeannot).
-blanc(Y) :- enfant(jeannot,Y).
-enfant(X,filsYeuxBleux(X)) :- longOreilles(X),dentPropres(X).
-yeuxBleux(filsYeuxBleux(X)) :- longOreilles(X),dentPropres(X).
-dentPropres(X) :- blanc(X).
+blanc(Y) <-- enfant(jeannot,Y).
+enfant(X,filsYeuxB(X)) <-- longOreilles(X),dentPropres(X).
+yeuxBleux(filsYeuxB(X)) <-- longOreilles(X),dentPropres(X).
+dentPropres(X) <-- blanc(X).
 ```
 
 ----
@@ -570,7 +592,7 @@ dentPropres(X) :- blanc(X).
 
 # Exemples de projets personnels en $2017$-$18$ V
 
-- Formation et expérimentations en apprentissage par renforcement profond ("deep reinforcement learning") pour apprendre à jouer à un jeu vidéo à partir des pixels de l'écran.
+- Formation et expérimentations en apprentissage par $Q$-renforcement profond ("deep $Q$-reinforcement learning", DQL) pour apprendre à jouer à un jeu vidéo à partir des pixels de l'écran.
     + Exemple avec des jeux ATARI (classique) et NES (dont un Mario\footnote{Cf. \urlb{GitHub.com/Naereen/gym-nes-mario-bros}} qui n'a jamais été traité avant, **Mario Bros.** -- $1986$).
     + But : j'aimerai trouver une application des bandits pour accélérer la convergence de tels réseaux, ou une application de tels réseaux pour de la radio intelligente... (pas simple)
     + \alert{Encore en cours}... (ce n'est pas simple)
@@ -586,7 +608,9 @@ dentPropres(X) :- blanc(X).
 # Conclusion \& Perspectives
 
 > Bilan...
->
+
+\vspace*{15pt}
+
 > Perspectives...
 
 ----
@@ -605,7 +629,7 @@ dentPropres(X) :- blanc(X).
 
 - La même charge d'*enseignement*, à l'ENS de Rennes et l'ENSAI,
 - encore quelques heures de *formations* (générales) à Rennes,
-- et quelques *conférences* prévues à l'étranger :
+- et quelques *conférences* à l'étranger ?
     + Atelier à Rotterdam en mai,
     + ICT à St-Malo en juin,
     + COLT à Stockholm en juillet ?
@@ -622,6 +646,6 @@ Et \alert{beaucoup de choses à faire pour la suite \& fin...}
 
 \vfill{}
 
-\begin{center}\begin{Huge} \Fontify{Merci ! !} \end{Huge}\end{center}
+\begin{center}\begin{Huge} \Fontify{Merci ! ! :-)} \end{Huge}\end{center}
 
 > *À l'année prochaine... \alert{pour la soutenance !?}*
