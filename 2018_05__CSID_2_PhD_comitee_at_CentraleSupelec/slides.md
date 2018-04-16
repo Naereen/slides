@@ -42,7 +42,7 @@ include-before:
 # Présentation personnelle
 
 ## Rapidement, je suis...
-- Français, $24$ ans, je viens des Hautes-Alpes (Briançon),
+- Français, $25$ ans, je viens des Hautes-Alpes (Briançon),
 - Normalien de l'ENS Cachan ($2011-2016$), diplômé en *mathématiques* et *informatique* (agrégation en $2014$, master MVA en $2016$).
 
 . . .
@@ -50,7 +50,7 @@ include-before:
 ## Avant et maintenant...
 - *Avant* : stages de recherche en $2012$, $2013$, et $2016$, un an d'enseignement en $2014$-$2015$,
 - *En thèse* depuis octobre $2016$, basé à Rennes, avec un financement ministériel ("contrat doctoral spécifique normalien"),
-- Passionné par l'enseignement et la programmation, je souhaite *enseigner* l'informatique, en classes préparatoires ou à l'université, après ma thèse plutôt que de rester en recherche ou aller dans l'industrie.
+- Passionné par l'enseignement et la programmation, je souhaite *enseigner* l'informatique après ma thèse.
 
 ----
 
@@ -72,12 +72,12 @@ include-before:
 
 # Double encadrement
 
-Avec Émilie Kaufmann, CR au CNRS travaillant à Inria Lille (équipe SequeL, laboratoire CRIStAL) :
+Avec **Émilie Kaufmann**, CR au CNRS travaillant à Inria Lille (équipe SequeL, laboratoire CRIStAL) :
 
 - Total de $3$ *visites* de Lilian à Lille depuis septembre $2017$ ($1+2+1$ semaines)
-- $2$ visites prévues en mai et juin ($1+1$ semaines)
+- $4$ visites prévues (mai, juin, octobre, décembre) ($1+1+1+2$ semaines)
 
-- *Projets en commun* : moins qu'en 1ère année,
+- *Projets en commun* : moins qu'en 1ère année (aucun ?),
 
 - *Financements* : financement PEPS "BIO" du CNRS obtenu par Émilie et moi (pour $2017$), projet ANR "BADASS" (Lille), et dotation SCEE (pour $2018$).
 
@@ -107,43 +107,156 @@ Notamment afin de :
 - Analyser les performances de différents algorithmes mono- et multi-joueurs dans différents modèles (*e.g.*, preuves de bornes supérieures sur le *regret*),
 - et les difficultés intrinsèques de ces problèmes (bornes $\inf$).
 
-
+----
 
 # Recherches en cours et collaborations ($2/2$)
 
 ## Avec Rémi Bonnefoi (autre doctorant dans l'équipe SCEE)
-- Demo ICT $2018$
+Démo réalisée ensemble, présentée en juin à la conférence ICT $2018$ (St-Malo) :
 
-## Avec XXX XXX (doctorant à Inria Grenoble)
-- XXX
+- Basée sur notre article CROWNCOM $2017$,
+- **"MALIN"**: **M**ulti-**A**rmed bandits **L**earning in **I**oT **N**etworks,
+- Avec GNU Radio + Python + C++,
+- Avec des cartes USRP (via notre TestBed),
+- Rien de révolutionnaire, juste une illustration (et vérification) de nos travaux théoriques...
 
 ----
 
 # Publications depuis le début de ma thèse {.allowframebreaks}
 
-1. Un *article* présenté à la conférence européenne **CrownCom** $2017$ (septembre, Lisbonne) avec Rémi Bonnefoi. *Best paper award* ! Aucune nouvelle pour la version longue... `HAL.Inria.fr/hal-01575419`
+1. Un *article* présenté à la conférence européenne **CrownCom** $2017$ (septembre, Lisbonne) avec Rémi Bonnefoi. *Best paper award* ! Publié, mais aucune nouvelle pour la version longue... \footnote{Cf. \urlb{HAL.Inria.fr/hal-01575419}}
 
-2. Un *article* "maths et théorie" avec Émilie Kaufmann, avec de nouvelles bornes inférieures et de meilleures bornes supérieures pour l'algorithme $\rho^{\mathrm{Rand}}$ et deux nouveaux algorithms (OSA multi-joueur décentralisé). Présenté à la conférence **ALT** $2018$ (avril, Lanzarote). Poster présenté à un atelier international à Rotterdam (fin mai). `HAL.Inria.fr/hal-01629733`
+2. Un *article* "maths et théorie + télécom" avec Émilie Kaufmann, avec de nouvelles bornes inférieures et de meilleures bornes supérieures pour l'algorithme $\rho^{\mathrm{Rand}}$ et deux nouveaux algorithms (OSA multi-joueur décentralisé). Présenté à la conférence **ALT** $2018$ (avril, Lanzarote). Poster présenté à un atelier international à Rotterdam (fin mai). \footnote{Cf. \urlb{HAL.Inria.fr/hal-01629733}}
 
-3. Un *article* "télécom" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive. Présenté à la conférence **IEEE WCNC** $2018$ (avril, Barcelone). `HAL.Inria.fr/hal-01705292`
+3. Un *article* "machine learning for télécom" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive. Présenté à la conférence **IEEE WCNC** $2018$ (avril, Barcelone). \footnote{Cf. \urlb{HAL.Inria.fr/hal-01705292}}
 
-2. Un *article* "maths et théorie" avec Émilie Kaufmann, étudiant le "doubling trick" (voir plus tard). Envoyé à la conférence **COLT** $2018$ (juillet, Stockholm). Retour pas excellent... `HAL.Inria.fr/hal-01736357`
+2. Un *article* "maths et théorie" avec Émilie Kaufmann, étudiant le "doubling trick" (voir plus tard). Envoyé à la conférence **COLT** $2018$ (juillet, Stockholm). Retour pas excellent, on attends la réponse finale... Pas de lien direct avec les télécoms \footnote{Cf. \urlb{HAL.Inria.fr/hal-01736357}}
 
-5. Ma bibliothèque d'algorithmes de bandits (simple et multi-joueurs), `SMPyBandits`, documentation `SMPyBandits.GitHub.io`, et rapport en accès libre `perso.crans.org/besson/articles/SMPyBandits.pdf`. Publié sur MLOSS (`MLOSS.org/software/view/710`), bientôt envoyé au JMLR MLOSS (journal en ligne). Déjà ~ 1000 vues en 3 mois.
+5. Ma bibliothèque d'algorithmes de bandits (simple et multi-joueurs), `SMPyBandits`, documentation `SMPyBandits.GitHub.io`, et rapport en accès libre \footnote{Cf. \urlb{perso.crans.org/besson/articles/SMPyBandits.pdf}}. Publié sur MLOSS (`MLOSS.org/software/view/710`), bientôt envoyé au JMLR MLOSS (journal en ligne). Déjà $\sim 1000$ vues en $3$ mois...
 
 ----
 
-# Présentation de quelques résultats de recherche {.allowframebreaks}
+# Présentation de quelques résultats de recherche
 
-> Article sur le "Doubling Trick"
+Je préfère présenter un seul des travaux, le plus récent.
 
-MATHS
+> **What Doubling Tricks Can and Can't Do for Multi-Armed Bandits**, Lilian Besson \& Emilie Kaufmann, Feb 2018
+>
+> En accès libre : `HAL.Inria.fr/hal-01736357`
 
-MATHS
+----
 
-MATHS
+# "Doubling trick" : rapide présentation
 
-MATHS
+## Horizon $T$ : mieux de ne pas la connaître
+- En apprentissage séquentiel, les expériences durent de $t=1$ à $t=T$ ($T =$ **horizon**),
+- Pour des applications réelles, les algorithmes ne doivent pas connaître l'horizon...
+- Mais beaucoup sont développés avec principalement la théorie en tête, et dépendent de la valeur de $T$ !
+
+## But
+
+- $\hookrightarrow$ Peut-on transformer un algorithme dépendant de $T$ et le rendre indépendant de l'horizon ?
+- $\implies$ **Oui !**
+- Une technique classique : "doubling trick" !
+
+----
+
+# Algorithme du "Doubling trick"
+
+![](Generic_Doubling_Trick_algorithm.png)
+
+----
+
+# Deux "doubling" : géométrique et exponentiel
+
+- $T_0 \in \mathbb{N}$, $(T_i)_{i\in\mathbb{N}}$ croissant et divergeante ($\to+\infty$ pour $i\to\infty$).
+- "Dernier terme" : $L_T := \min\{ i \in\mathbb{N} : T_i > T\}$.
+
+## Géométrique
+- Pour un paramètre $b > 1$,
+- $T_i := \lfloor T_0 b^i\rfloor$,
+- $L_T = \lceil \log_b\left( \frac{T}{T_0} \right) \rceil$.
+
+## Exponentiel
+- Pour deux paramètres $a, b > 1$,
+- $T_i := \lfloor \frac{T_0}{a} a^{b^i}\rfloor$,
+- $L_T = \lceil \log_b\left( \log_a\left( \frac{T}{T_0/a} \right) \right) \rceil$.
+
+----
+
+# Regret et but
+## Regret ?
+- $R_T(A_T)$ mesure la performance moyenne de l'algorithme $A$ (qui peut connaître $T$), sur une expérience d'horizon $T$.
+- $R_T(A) := \sum_{t=1}^T \mu^* - \mathbb{E}[\mu_{A(t)}]$ pour un problème à $K$ bras de moyennes $\mu_1,\dots,\mu_K$, $\mu^* := \arg\max_k \mu_k$ et $A(t)$ le choix de l'algorithme à l'instant $t$.
+
+## But : conserver des bornes de regret !
+- Si $A$ vérifie une borne de regret, *e.g.*, $R_T(A_T) \leq f(T)$
+- Alors la version indépendante de $T$, $\mathrm{DT}(A)$, vérifie une borne similaire, avec un coût constant ou non
+    + $R_T(\mathrm{DT}(A)) \leq \ell(\text{paramètres du problème}) f(T)$ : bien !
+    + $R_T(\mathrm{DT}(A)) \leq \ell(\text{paramètres du problème}) g(T)$ : moins bien ! (pour $g(T) \gg f(T)$).
+
+----
+
+# Types de bornes
+> $c$ est une constante muette, $c > 0$, dépendant des paramètres $K,\mu_1,\dots,mu_K$ du problème (et de l'algorithme), mais indépendante de $T$.
+
+## Indépendant des paramètres
+- $R_T(A_T) \leq c \sqrt{T}$
+
+## Dépendant des paramètres
+- $R_T(A_T) \leq c \log(T)$
+
+## Forme générique
+- $R_T(A_T) \leq c (\log T)^{\delta} T^{\gamma}$
+    + $\delta=0,\gamma>0$ (adverse),
+    + ou $\delta>0,\gamma=0$ (stochastique),
+    + ou $\delta>0,\gamma>0$ (hybride!).
+
+----
+
+# Résultats avec un "doubling" géométrique
+
+## Conserve bien $R_T \leq \sqrt{T}$
+- Perte constante $\ell(b,\gamma) = \frac{b^{\gamma}(b-1)^{\gamma}}{b^{\gamma}-1} > 1$.
+
+## Conserve pas bien $R_T \leq \log(T)$
+- On sait que ça ne peut pas marcher !
+- On a une borne inférieure : transforme ${(\log T)}^{\delta}$ en ${(\log T)}^{\delta}$.
+
+----
+
+# Résultats avec un "doubling" exponentiel
+
+## Conserve *peut-être* $R_T \leq \sqrt{T}$
+- Pas encore de borne sup ou inf convainte
+- Transforme $\leq T^{\gamma}$ en $T^{b \gamma}$, pas top...
+- Borne inf a la forme inverse, $\geq T^{\gamma}$ en $T^{\frac{\gamma}{b}}$...
+
+## Conserve bien $R_T \leq \log(T)$
+- Perte constante $\ell(\delta, b) = \frac{b^{2\delta}}{b^{\delta}-1} > 1$ ($> 4$ pour $\delta=1$).
+
+----
+
+# Questions encore ouvertes
+
+- Un schéma intermédiaire qui conviendrait pour les trois types de bornes ?
+- Une autre approche "plus intelligente" qui permettrait d'obtenir des meilleures garanties ?
+- Empiriquement : choisir des paramètres ($T_0, b$ ou $T_0,a,b$) n'est pas simple, comment bien les choisir ?
+
+## Question bonus
+- Où publier cet article ?
+
+----
+
+# Applications de ce travail
+- Très générique !
+- Donne une meilleure compréhension théorique de cette technique très utilisée depuis $\sim$ 20 ans (au moins).
+- Justifie un nombre déraisonnable d'articles qui utilisent le "doubling trick" sans justifier plus qu'une note de bas de page disant "on perd une constante"...
+
+## En radio intelligente ? Oui aussi !
+1. Si Alice utilise un algorithme $A_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index* en bandits simple joueur, *Musical Chair* en bandits multi-joueurs, etc),
+2. Si elle sait quel genre de garantie elle espère (contexte stochastique, ou adverse, ou hybride),
+3. Alors elle peut savoir quel "doubling trick" utiliser pour rendre son algorithme indépendant de $T$ le plus efficacement possible (on connaît $\delta,\gamma$ alors on choisit $T_0,b$ ou $T_0,a,b$ pour minimiser la perte constante $\ell$...).
 
 ----
 
@@ -160,6 +273,8 @@ MATHS
 ----
 
 # Présentation de quelques directions de recherches
+
+> Discussion sur des idées de directions...
 
 ----
 
@@ -212,15 +327,15 @@ Par passion et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 # Exemples de projets personnels en $2017-18$ ($4/4$) {.allowframebreaks}
 
-- Quelques petits projets pour faciliter l'utilisation des Notebooks Jupyter avec le langage OCaml (utilisé en option info en prépa et pour l'agrég). `GitHub.com/Naereen/fix-iocaml-notebook-exports-to-pdf` et `GitHub.com/Naereen/Jupyter-NBConvert-OCaml`
+- Quelques petits projets pour faciliter l'utilisation des Notebooks Jupyter avec le langage OCaml (utilisé en option info en prépa et pour l'agrég). \footnote{Cf. \urlb{GitHub.com/Naereen/fix-iocaml-notebook-exports-to-pdf} et \urlb{GitHub.com/Naereen/Jupyter-NBConvert-OCaml}}
 
-- Module Python et Julia pour calculer la complexité de Lempel-Ziv sur des chaînes binaires. `GitHub.com/Naereen/Lempel-Ziv_Complexity`. Environ 500 téléchargements.
+- Module Python et Julia pour calculer la complexité de Lempel-Ziv sur des chaînes binaires. \footnote{Cf. \urlb{GitHub.com/Naereen/Lempel-Ziv_Complexity}} Environ 500 téléchargements.
 
-- Un peu de traitement d'images et de programmation web pour une application web qui créée une police manuscrite "personnelle" à partir d'un échantillon d'écriture manuscrite. {\Fontify Fontify} `GitHub.com/Naereen/Fontify`
+- Un peu de traitement d'images et de programmation web pour une application web qui créée une police manuscrite "personnelle" à partir d'un échantillon d'écriture manuscrite. {\Fontify{Fontify}} \footnote{Cf. \urlb{GitHub.com/Naereen/Fontify}}
 
-- Formation et expérimentations en apprentissage par renforcement profond ("deep reinforcement learning") pour apprendre à jouer à un jeu vidéo à partir des pixels de l'écran. Exemple avec des jeux ATARI (classique) et NES (dont un Mario qui n'a jamais été traité comme ça avant). Encore en cours (c'est pas simple). `GitHub.com/Naereen/gym-nes-mario-bros`
+- Formation et expérimentations en apprentissage par renforcement profond ("deep reinforcement learning") pour apprendre à jouer à un jeu vidéo à partir des pixels de l'écran. Exemple avec des jeux ATARI (classique) et NES (dont un Mario qui n'a jamais été traité comme ça avant). Encore en cours (c'est pas simple). \footnote{Cf. \urlb{GitHub.com/Naereen/gym-nes-mario-bros}}
 
-- Implémentation pédagogique d'un sous-ensemble du langage Prolog, en OCaml, pour mes élèves d'agrég. `GitHub.com/Naereen/Tiny-Prolog-in-OCaml`
+- Implémentation pédagogique d'un sous-ensemble du langage Prolog, en OCaml, pour mes élèves d'agrég. \footnote{Cf. \urlb{GitHub.com/Naereen/Tiny-Prolog-in-OCaml}}
 
 ----
 
@@ -253,6 +368,6 @@ Et beaucoup de choses à faire pour la suite...
 
 \vfill{}
 
-\begin{center}\begin{Huge} {\Fontify Merci !} \end{Huge}\end{center}
+\begin{center}\begin{Huge} {\Fontify{Merci !}}\end{Huge}\end{center}
 
 > *À l'année prochaine... pour la soutenance !?*
