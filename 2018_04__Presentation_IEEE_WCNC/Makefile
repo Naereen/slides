@@ -1,4 +1,4 @@
-# Quick Makefile to easily compile the slides (make pdf) and run the slide (make showtime)
+# Quick Makefile to easily compile the slides (make pdf) and run the slide (make show)
 SHELL=/usr/bin/env /bin/bash
 
 default: all
@@ -19,6 +19,9 @@ open:
 
 show:
 	pdfpc -d 15 slides.pdf
+
+show_pandoc:
+	pdfpc -d 15 slides_pandoc.pdf
 
 pandoctex169:
 	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides_pandoc.md -o slides_169.tex
