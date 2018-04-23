@@ -83,7 +83,10 @@ Avec **Émilie Kaufmann**, CR au CNRS travaillant à Inria Lille (équipe SequeL
 
 - *Projets en commun* : \alert{moins qu'en 1ère année} (aucun entre Émilie et Christophe), mais davantage entre Émilie et moi,
 
-- *Financements* : financement PEPS "BIO" du CNRS obtenu par Émilie et moi (pour $2017$), projet ANR "BADASS" (Lille), et dotation SCEE (pour $2018$).
+- *Financements* :
+    + financement PEPS "BIO" du CNRS obtenu par Émilie et moi (pour $2017$),
+    + projet ANR "BADASS" (Lille),
+    + et dotation SCEE (pour $2018$).
 
 ----
 
@@ -114,7 +117,7 @@ Avec **Émilie Kaufmann**, CR au CNRS travaillant à Inria Lille (équipe SequeL
 # Recherches en cours et collaborations ($2/2$)
 
 ## Avec Rémi Bonnefoi (autre doctorant dans l'équipe SCEE)
-Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslotted-lpwan/}} réalisée ensemble :
+Démo\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/multi-arm-bandit-learning-for-lora-networks-with-grc}} réalisée ensemble :
 
 <!-- FIXME check link ! -->
 
@@ -125,48 +128,54 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 - Avec des cartes USRP (via notre TestBed),
 - Rien de révolutionnaire, juste une illustration (et vérification) de nos travaux théoriques...
 
-> En fait : c'est simple sur le papier, mais vraiment compliqué en vrai \Sadey !
+> En fait : simple sur le papier, mais compliqué en vrai \Sadey{} !
 
 ----
 
-# Publications depuis le début de ma thèse I
+# Publications depuis l'an dernier I
 
 ## Aperçu "numérique"
-- $3$ articles publiés\footnote{Cf. \urlb{perso.crans.org/besson/me/}},
+- $3$ communications dans des conférences internationales\footnote{Cf. \urlb{perso.crans.org/besson/me/}},
 - $1$ envoyé,
 - $1$ en relecture,
-- $1$ bibliothèque publiée en accès libre...
+- $1$ bibliothèque de code, publiée en accès libre...
 
 ----
 
-# Publications depuis le début de ma thèse II
+# Publications depuis l'an dernier II
 
-## $2$ posters, chacun présenté $2$ fois :
-1. Pour\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/phd-student-day-ietr-2017-bonnefoi-and-besson}} mon article CROWNCOM $2017$
+## $2$ posters, chacun présentés $2$ fois :
+1. Pour\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/phd-student-day-ietr-2017-bonnefoi-and-besson}} mon article CROWNCOM $2017$
     + Journée des Doctorants (IETR) @ Rennes, juillet $2017$,
-    + Atelier @ Lille, septembre $2017$ ("bandits \& privacy"\footnote{Cf. \urlb{team.inria.fr/magnet/workshop-on-decentralized-machine-learning-optimization-and-privacy/}}).
-2. Pour\footnote{Cf. \urlb{bitbucket.org/lbesson/phd-student-day-ietr-2018}} mon article ALT $2018$
-    + Atelier @ Rotterdam, mai $2018$ ("applications of bandits"\footnote{Cf. \urlb{www.erim.eur.nl/e-code-erasmus-centre-for-optimization-of-digital-experiments/workshop-on-multi-armed-bandits-and-learning-algorithms/}}),
+    + Atelier @ Lille, septembre $2017$ ("*bandits \& privacy"*\footnote{\tiny Cf. \urlb{team.inria.fr/magnet/workshop-on-decentralized-machine-learning-optimization-and-privacy/}}).
+2. Pour\footnote{\tiny Cf. \urlb{bitbucket.org/lbesson/phd-student-day-ietr-2018}} mon article ALT $2018$
+    + Atelier @ Rotterdam, mai $2018$ ("*applications of bandits"*\footnote{\tiny Cf. \urlb{www.erim.eur.nl/e-code-erasmus-centre-for-optimization-of-digital-experiments/workshop-on-multi-armed-bandits-and-learning-algorithms/}}),
     + Journée des Doctorants (IETR) @ Vannes, juin $2018$.
 
 <!-- FIXME check URL of 2nd poster -->
 
 ----
 
-# Publications depuis le début de ma thèse III
+# Publications depuis l'an dernier III
 
 ## $9$ présentations !
-- Conférences\footnote{Planches et code source en accès libre. Cf. \urlb{perso.crans.org/besson/publis/slides/}} : CROWNCOM @ Lisbonne, ALT @ Lanzarote, IEEE WCNC @ Barcelone,
-- Séminaires : ENSAI @ Rennes, SCEE @ Rennes ($\times 2$), SequeL @ Lille ($\times 2$),
+- Conférences\footnote{Planches et code source en accès libre. Cf. \urlb{perso.crans.org/besson/publis/slides/}} :
+    + CROWNCOM @ Lisbonne,
+    + ALT @ Lanzarote,
+    + IEEE WCNC @ Barcelone,
+- Séminaires :
+    + SCEE @ Rennes ($\times 2$),
+    + ENSAI @ Rennes,
+    + SequeL @ Lille ($\times 2$),
 - Bonus : journée GDR ISIS @ Paris.
 
 ----
 
-# Publications depuis le début de ma thèse IV
+# Publications depuis l'an dernier IV
 
 1. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01575419}} "maths et télécom et simulations" avec Rémi B.
     + Présenté à la conférence européenne **CROWNCOM** $2017$ (septembre, Lisbonne).
-    + *Best paper award!* (mais toute petite conférence...)
+    + *Best paper award!* \Smiley{} (mais toute petite conférence...)
     + Publié, \alert{mais aucune nouvelle pour la version longue}...
 
 . . .
@@ -179,11 +188,12 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 
 ----
 
-# Publications depuis le début de ma thèse V
+# Publications depuis l'an dernier V
 
 3. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01705292}} "machine learning + télécom" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive.
     + Présenté à la conférence **IEEE WCNC** $2018$ (avril, Barcelone).
-    + Bon retour ! \alert{Mais difficile d'obtenir des résultats théoriques}
+    + Bon retour des relecteurs et à la conférence \Smiley{} !
+    + \alert{Mais difficile d'obtenir des résultats théoriques}
 
 . . .
 
@@ -195,7 +205,7 @@ Démo\footnote{Cf. \urlb{Bitbucket.org/scee_ietr/reinforcement-learning-in-unslo
 
 ----
 
-# Publications depuis le début de ma thèse VI
+# Publications depuis l'an dernier VI
 
 5. Ma bibliothèque d'algorithmes de bandits (mono- et multi-joueurs),
     + Environ $65$ algorithmes mono-joueur, $15$ multi joueurs,
@@ -226,9 +236,9 @@ Je préfère présenter un seul des travaux, le plus récent.
 
 # "Doubling trick" : rapide présentation
 
-## Horizon $T$ : mieux de ne pas la connaître !
+## Horizon $T$ \only<2->{: mieux de ne pas la connaître !}
 - En apprentissage séquentiel, expériences de $t=1$ à $t=T$,
-- Pour des applications réelles, les algorithmes ne doivent pas connaître l'horizon... (ex : essais cliniques, pubs en ligne, radio intelligente etc).
+- Pour des applications réelles, les algorithmes ne doivent pas connaître l'horizon... (ex : essais cliniques, pubs en ligne, radio intelligente etc).\pause
 - Mais beaucoup sont développés avec "la théorie en tête", et dépendent de la valeur de $T$ !
 
 . . .
@@ -263,11 +273,13 @@ Soit $i = 0$, et initialise l'algorithme $\mathcal{A}^{(0)} = \mathcal{A}_{T_0}$
 \If(\tcp*[f]{Horizon suivante $T_{i+1}$ dans la suite}){
 $t > T_i$
 }{
-Horizon suivante : $i = i + 1$.\;
-Initialise $\mathcal{A}^{(i)} = \mathcal{A}_{T_i - T_{i-1}}$.
+Horizon suivante : $i = i + 1$\;
+Initialise $\mathcal{A}^{(i)} = \mathcal{A}_{T_i - T_{i-1}}$
 \tcp*[f]{Départ à vide}
 }
-Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$, observe la récompense $r(t) = Y_{A'(t), t}$, lui donne cette observation. \nllabel{line:internalTimer_DTr}
+Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$\;
+Observe la récompense $r(t) = Y_{A'(t), t}$\;
+Lui donner cette observation.
 }
 \caption{$\mathcal{A}' = \mathrm{DT}(\mathcal{A}, (T_i)_{i\in\mathbb{N}})$.}
 \label{algo:DTr}
@@ -321,13 +333,13 @@ Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 - \alert{$R_T(\mathcal{A}_T) \leq c \; (\log T)^{\delta} T^{\gamma}$}
     + $\delta=0,\gamma>0$ (adverse),
     + ou $\delta>0,\gamma=0$ (stochastique),
-    + ou $\delta>0,\gamma>0$ (hybride !).
+    + ou $\delta>0,\gamma>0$ (hybride !). E.g. : $\sqrt{T \log(T)}$.
 
 ----
 
 # Résultats avec un "doubling" géométrique
 
-> $T_i := \lfloor T_0 b^i\rfloor$.
+> Avec des horizons $T_i := \lfloor T_0 b^i\rfloor$.
 
 ## Conserve bien $R_T \leq \sqrt{T}$ \hfill\Smiley
 - Perte constante $\ell(b,\gamma) = \frac{b^{\gamma}(b-1)^{\gamma}}{b^{\gamma}-1} > 1$,
@@ -341,7 +353,7 @@ Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 
 # Résultats avec un "doubling" exponentiel
 
-> $T_i := \lfloor \frac{T_0}{a} a^{b^i}\rfloor$.
+> Avec des horizons $T_i := \lfloor \frac{T_0}{a} a^{b^i}\rfloor$.
 
 ## Conserve *peut-être* $R_T \leq \sqrt{T}$ \hfill\Sey
 - \alert{Pas encore de borne sup ou inf convaincante},
@@ -367,7 +379,8 @@ Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 - Empiriquement : choisir des paramètres ($T_0, b$ ou $T_0,a,b$) n'est pas simple, comment bien les choisir ?
 
 ## Question bonus
-- \alert{Où publier cet article (si refusé à COLT $2018$) ?}
+- \alert{Où publier cet article (si refusé à COLT $2018$) ?}\newline
+  $\hookrightarrow$ NIPS $2018$ ?
 
 ----
 
@@ -382,67 +395,9 @@ Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 # Applications de ce travail II
 
 ## En radio intelligente ? Oui aussi !
-1. Si on utilise un algorithme $\mathcal{A}_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index*, $\mathrm{KLUCB}++$, en bandits mono-joueur, *Musical Chair* en bandits multi-joueurs, etc),
+1. Si on utilise un algorithme $\mathcal{A}_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index*, $\mathrm{KLUCB}^{++}$, en bandits mono-joueur, *Musical Chair* en bandits multi-joueurs, etc),
 2. Si on sait quel genre de garantie on espère (contexte stochastique, ou adverse, ou hybride),\pause
 3. $\implies$ Alors on peut savoir quel "doubling trick" utiliser pour rendre son algorithme indépendant de $T$ le plus efficacement possible (on connaît $\delta,\gamma$ alors on choisit $T_0,b$ ou $T_0,a,b$ pour minimiser la perte constante $\ell$...).
-
-----
-
-# Objectifs de recherche pour $2018$
-
-> Petit aperçu...
-
-----
-
-# Objectifs de recherche pour $2018$ I
-
-1. J'aimerai aussi faire un *"survey"* sur les algorithmes de bandits,
-    + en les écrivant tous avec la même structure (initialisation, choix, récompense, etc), basé sur mon environnement de simulation.
-    + Il y en a une trentaine pour l'aspect mono-joueur (et beaucoup de variantes), et une quinzaine pour l'aspect multi-joueurs,
-    + et je les ai tous implémenté et documenté sous une même organisation logique (approche objet).\pause
-    + \alert{Pas sûr d'où publier ça si je l'écris}...
-    + Un doctorant @ Inria Grenoble voudrait collaborer avec moi sur ça. ([Valentin Reis](http://freux.fr/index.html))
-    + (en fait, j'aimerai que le rapport s'écrive "tout seul" à partir de ma bibliothèque, pas sûr de comment m'y prendre)
-
-----
-
-# Objectifs de recherche pour $2018$ II
-
-2. Un algorithme générique pour s'adapter à des \alert{récompenses bornées dans un intervalle inconnu}.
-    + *Difficile*,
-    + Motivation très utile en radio : apprentissage par renforcement avec des SNIR, des puissances reçus, etc. Ces mesures sont toujours bornées mais pouvoir s'adapter à leur amplitude peut améliorer les performances.
-
-----
-
-# Objectifs de recherche pour $2018$ III
-
-3. Un algorithme générique pour s'adapter à des problèmes avec $K$ bras mais seulement $s < K$ ayant des moyennes positives (bandits parcimonieux, "sparse").
-    + *Déjà pas mal travaillé dessus* (juillet $2017$, mars $2018$),
-    + Le problème est montré "difficile" si $s$ n'est pas connu (en résumé : on ne peut pas faire mieux que si $s=K$, *i.e.*, un algorithme "sparsity aware" ignorant $s$ ne peut pas faire mieux qu'un algorithme classique),
-    + Et ça me semble assez dur à utiliser en radio intelligente, si $s$ doit être connu...
-
-----
-
-# Objectifs de recherche pour $2018$ IV
-
-4. Travailler encore un peu sur les bandits multi-joueurs, notamment pour :
-    + découvrir le nombre de joueurs,
-    + autoriser des arrivées/départs de joueurs,
-    + intégrer des perturbateurs (*jammers*, cf. article de Sumit Darak @ IEEE WCNC $2018$)...
-
-----
-
-# Objectifs de recherche pour $2018$ V
-
-5. J'ai envie de travailler encore plus sur des approches "black-box wrapper algorithms" : un algorithme générique $\mathcal{W}$, qui transforme $\mathcal{A}$ avec *telle faiblesse* en un algorithme $\mathcal{A}' = \mathcal{W}(\mathcal{A})$ sans cette faiblesse.
-    + Agrégation, "Doubling Trick", "Sparse Wrapper", "Unknown range wrapper", etc. Déjà plusieurs de mes travaux rentrent dans ce cadre !
-    + $\implies$ \alert{Je verrai bien ma thèse orientée entièrement autour de cette idée...}
-
-----
-
-# Objectifs de recherche pour $2018$ III
-
-> Discussion sur des idées de directions ?
 
 ----
 
@@ -455,7 +410,9 @@ Joue selon $\mathcal{A}^{(i)}$ : choisit le bras $A'(t) := A^{(i)}(t - T_{i-1})$
 # Autres activités ($1/5$) : Formations
 
 Pour la thèse, il faut suivre des formations...
-J'ai fait des $60$ sur les $72$ heures exigées.
+J'ai déjà fait $60$ sur les $72$ heures exigées.
+
+> Encore quelques heures à faire, ce sera bouclé d'ici octobre !
 
 - Scientifiques :
     + Présentations à des conférences et ateliers,
@@ -464,8 +421,6 @@ J'ai fait des $60$ sur les $72$ heures exigées.
 - Générales ou professionnelles :
     + À l'Université de Rennes 1, \alert{mais peu sont proposés}...
     + Formations internes (GouTP) à CentraleSupélec Rennes ? \alert{Pas sûr que "ça passe"}...
-
-> Encore quelques heures à faire, ce sera bouclé d'ici octobre !
 
 ----
 
@@ -481,7 +436,7 @@ Par plaisir et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 # Autres activités ($2/5$) : Enseignements II
 
-J'ai obtenu la même mission pour $2019$ (évidemment).
+J'ai obtenu la même mission pour $2019$.
 
 \vspace*{15pt}
 
@@ -519,7 +474,7 @@ J'ai obtenu la même mission pour $2019$ (évidemment).
 
 # Exemples de projets personnels en $2017$-$18$
 
-> Juste un aperçu de certains projets reliés à la thèse (de près ou de loin)...
+> Aperçu de certains projets reliés à la thèse (de près ou de loin)...
 
 ----
 
@@ -579,7 +534,7 @@ dentPropres(X) <-- blanc(X).
 # Exemples de projets personnels en $2017$-$18$ IV
 
 - Un peu de traitement d'images et de programmation web pour une application web qui produit une police cursive "personnalisée", à partir d'un petit échantillon d'écriture manuscrite\footnote{Cf. \urlb{GitHub.com/Naereen/Fontify}}.\newline
-    But : une version "manuscrite" de mon manuscrit de thèse... (\alert{pour le plaisir})\newline
+    $\hookrightarrow$ But : une version "manuscrite" de mon manuscrit de thèse... (\alert{pour le plaisir})\newline
     \begin{Huge}\Fontify{Exemple : Fontify}\end{Huge}
 
 ----
@@ -602,6 +557,67 @@ dentPropres(X) <-- blanc(X).
 # Exemples de projets personnels en $2017$-$18$ V
 
 ![](./images/demo-gym-nes-mario-bros.png){width=100%}
+
+----
+
+# Objectifs de recherche pour $2018$
+
+> Petit aperçu...
+
+----
+
+# Objectifs de recherche pour $2018$ I
+
+1. J'aimerai aussi faire un *"survey"* sur les algorithmes de bandits,
+    + en les écrivant tous avec la même structure (initialisation, choix, récompenses, etc), basé sur `SMPyBandits`.
+    + Il y en a une trentaine pour l'aspect mono-joueur (et beaucoup de variantes), et une quinzaine pour l'aspect multi-joueurs,
+    + et je les ai tous implémenté et documenté sous une même organisation logique (approche objet).\pause
+    + \alert{Pas sûr où publier ça si je l'écris}... Idées ?
+    + Un doctorant @ Inria Grenoble voudrait collaborer avec moi sur ça. ([Valentin Reis](http://freux.fr/index.html))
+    + (en fait, j'aimerai que le rapport s'écrive "tout seul" à partir de ma bibliothèque, pas sûr de comment m'y prendre…)
+
+----
+
+# Objectifs de recherche pour $2018$ II
+
+2. Un algorithme générique pour s'adapter à des \alert{récompenses bornées dans un intervalle inconnu}.
+    + *Difficile*,
+    + Déjà très étudié, j'ai besoin de plus travailler l'état de l'art,
+    + Motivation très utile en radio : apprentissage par renforcement avec des SNIR, des puissances reçus, etc. Ces mesures sont toujours bornées mais pouvoir s'adapter à leur amplitude peut améliorer les performances.
+
+----
+
+# Objectifs de recherche pour $2018$ III
+
+3. Un algorithme générique pour s'adapter à des problèmes avec $K$ bras mais seulement $s < K$ ayant des moyennes positives (bandits parcimonieux, "sparse").
+    + *Déjà pas mal travaillé dessus* (juillet $2017$, mars $2018$),
+    + Le problème est montré "difficile" si $s$ n'est pas connu (en résumé : on ne peut pas faire mieux que si $s=K$, *i.e.*, un algorithme "sparsity aware" ignorant $s$ ne peut pas faire mieux qu'un algorithme classique),
+    + Et ça me semble assez dur à utiliser en radio intelligente, si $s$ doit être connu...
+
+----
+
+# Objectifs de recherche pour $2018$ IV
+
+4. Travailler encore un peu sur les bandits multi-joueurs, notamment pour :
+    + découvrir le nombre de joueurs \hfill{} (\Smiley{} j'ai ce qu'il faut),
+    + autoriser des arrivées/départs de joueurs, de temps en temps ?
+    + autoriser des environments stochastiques *par morceaux* ?
+    + étudier des variantes du modèles (*e.g.*, avec écoute des autres joueurs, cf. article de Sumit Darak et al @ IEEE WCNC $2018$)...
+    + intégrer des perturbateurs (*jammers*, cf. un [autre article de Sumit Darak et al, arXiv:1803.06810](https://arxiv.org/pdf/1803.06810.pdf))...
+
+----
+
+# Objectifs de recherche pour $2018$ V
+
+5. J'ai envie de travailler encore plus sur des approches "black-box wrapper algorithms" : un algorithme générique $\mathcal{W}$, qui transforme $\mathcal{A}$ avec *telle faiblesse* en un algorithme $\mathcal{A}' = \mathcal{W}(\mathcal{A})$ sans cette faiblesse.
+    + Agrégation, "Doubling Trick", "Sparse Wrapper", "Unknown range wrapper", etc. Déjà plusieurs de mes travaux rentrent dans ce cadre !
+    + $\implies$ \alert{Je verrai bien ma thèse orientée entièrement autour de cette idée...}
+
+----
+
+# Objectifs de recherche pour $2018$
+
+> Discussion sur des idées de directions ?
 
 ----
 
@@ -633,6 +649,7 @@ dentPropres(X) <-- blanc(X).
     + Atelier à Rotterdam en mai,
     + ICT à St-Malo en juin,
     + COLT à Stockholm en juillet ?
+    + URSI AP-RASC à New Delhi en mars $2019$ ?
     + AISTATS à Okinawa en avril $2019$ ?
     + IEEE WCNC à Marrakech en avril $2019$ ?
 
@@ -646,6 +663,6 @@ Et \alert{beaucoup de choses à faire pour la suite \& fin...}
 
 \vfill{}
 
-\begin{center}\begin{Huge} \Fontify{Merci ! ! :-)} \end{Huge}\end{center}
+\begin{center}\begin{Huge} \Fontify{Merci ! :-)} \end{Huge}\end{center}
 
 > *À l'année prochaine... \alert{pour la soutenance !?}*
