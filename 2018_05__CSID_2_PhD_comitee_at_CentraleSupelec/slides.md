@@ -6,7 +6,7 @@ institute:
   Équipe SCEE, IETR, CentraleSupélec, Rennes \newline
   \& Équipe SequeL, CRIStAL, Inria, Lille \newline
   \newline
-  $30$-$40$ minutes
+  $20$ minutes
 smallinstitute: E.-D. MATISSE
 date: 18 mai 2018
 lang: french
@@ -41,28 +41,7 @@ include-before:
 
 ----
 
-# Présentation personnelle
-
-## Rapidement, je suis...
-- Français, $25$ ans, je viens des Hautes-Alpes (Briançon),
-- Normalien de l'ENS Cachan ($2011-2016$), diplômé en *mathématiques* et *informatique* (agrégation en $2014$, master MVA en $2016$).
-
-. . .
-
-## Avant et maintenant...
-- *Avant* : stages de recherche en $2012$, $2013$, et $2016$, un an d'enseignement en $2014$-$2015$,
-- *En thèse* depuis octobre $2016$, basé à Rennes, avec un financement ministériel ("contrat doctoral spécifique normalien"),
-- Passionné par l'enseignement et la programmation, je souhaite *enseigner* l'informatique après ma thèse.
-
-----
-
-# Contexte et sujet {.allowframebreaks}
-
-## Historique de l'équipe SCEE sur ce sujet
-- Thèse de Wassim Jouini ($2008$-$2012$), *"Contribution to learning and decision making under uncertainty for Cognitive Radio"*,
-- Thèse de Navikkumar Modi ($2014$-$2017$), *"Machine Learning and Statistical Decision Making for Green Radio"*,
-- $10$ ans d'expertise de l'équipe, notamment Christophe Moy, Yves Louët et Jacques Palicot,
-- $\implies$ suite des thèses de Wassim et Navikkumar.
+# Contexte et sujet
 
 ## Contexte thématique
 - Télécom radio et *radio intelligente* (*"cognitive radio"*),
@@ -136,7 +115,7 @@ Démo\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/multi-arm-bandit-learning
 
 ## Aperçu "numérique"
 - $3$ communications dans des conférences internationales\footnote{Cf. \urlb{perso.crans.org/besson/me/}},
-- $1$ envoyé,
+- $1$ envoyée,
 - $1$ en relecture,
 - $1$ bibliothèque de code, publiée en accès libre...
 
@@ -236,9 +215,9 @@ Je préfère présenter un seul des travaux, le plus récent.
 
 # "Doubling trick" : rapide présentation
 
-## Horizon $T$ \only<2->{: mieux de ne pas la connaître !}
+## Horizon $T$ : mieux de ne pas la connaître !
 - En apprentissage séquentiel, expériences de $t=1$ à $t=T$,
-- Pour des applications réelles, les algorithmes ne doivent pas connaître l'horizon... (ex : essais cliniques, pubs en ligne, radio intelligente etc).\pause
+- Pour des applications réelles, les algorithmes ne doivent pas connaître l'horizon... (ex : essais cliniques, pubs en ligne, radio intelligente etc).
 - Mais beaucoup sont développés avec "la théorie en tête", et dépendent de la valeur de $T$ !
 
 . . .
@@ -374,7 +353,7 @@ Lui donner cette observation.
 
 # Questions encore ouvertes
 
-- Un schéma intermédiaire qui conviendrait pour les trois types de bornes ?
+- Un schéma ($(T_i)_{i\in\mathbb{N}}$) intermédiaire qui conviendrait pour les trois types de bornes ?
 - Une autre approche "plus intelligente" qui permettrait d'obtenir des meilleures garanties ?
 - Empiriquement : choisir des paramètres ($T_0, b$ ou $T_0,a,b$) n'est pas simple, comment bien les choisir ?
 
@@ -453,7 +432,7 @@ J'ai obtenu la même mission pour $2019$.
 
 ## Coups de main
 - Trois relectures d'articles de Rémi B. (novembre $2016$, mars $2017$ et $2018$),
-- Relectures de morceaux des thèses de Navikkumar Modi (SCEE, mai $2017$), Claire Vernade (Télécom, octobre $2017$), et bientôt Rémi B. (SCEE, été $2017$).
+- Relectures de morceaux des thèses de Navikkumar Modi (SCEE, mai $2017$), Claire Vernade (Télécom, octobre $2017$), et bientôt Rémi B. (SCEE, automne $2018$).
 
 ----
 
@@ -469,94 +448,6 @@ J'ai obtenu la même mission pour $2019$.
     + J'ai donné $5$ formations\footnote{Cf. \urlb{perso.crans.org/besson/publis/slides/}} depuis le lancement en janvier $2017$.
 
 - Programmeur passionné, j'essaie de contribuer régulièrement à des projets personnels\footnote{Cf. \urlb{Bitbucket.org/lbesson} et \urlb{GitHub.com/Naereen}} et des grands projets *open-source*, surtout en Bash, OCaml, Python et Julia (*e.g.*, bibliothèques `tensorflow`, `keras`, `sphinx-doc`, `scikit-monaco` etc).
-
-----
-
-# Exemples de projets personnels en $2017$-$18$
-
-> Aperçu de certains projets reliés à la thèse (de près ou de loin)...
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ I
-
-- Quelques petits projets\footnote{Cf. \urlb{GitHub.com/Naereen/fix-iocaml-notebook-exports-to-pdf} et \urlb{GitHub.com/Naereen/Jupyter-NBConvert-OCaml}} pour faciliter l'utilisation des Notebooks Jupyter avec le langage OCaml (utilisé en option info en prépa et pour l'agrég).\newline
-    $\hookrightarrow$ utilisé pour mon enseignement\footnote{Cf. \urlb{nbviewer.jupyter.org/github/Naereen/notebooks/tree/master/agreg/TP_Programmation_2017-18/}} (et à l'avenir, j'espère) !
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ I
-
-![](./images/demo-jupyter-for-OCaml-1.png){width=50%}![](./images/demo-jupyter-for-OCaml-2.png){width=50%}
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ II
-
-- Modules Python et Julia\footnote{Cf. \urlb{GitHub.com/Naereen/Lempel-Ziv_Complexity} et \urlb{GitHub.com/Naereen/LempelZiv.jl}} pour calculer la complexité de Lempel-Ziv sur des chaînes binaires. Environ 500 téléchargements...
-
-```python
->>> from lempel_ziv_complexity import lempel_ziv_complexity
->>> s = '1001111011000010'
->>> lempel_ziv_complexity(s)
-6     # 6 car s = 1 / 0 / 01 / 1110 / 1100 / 0010
-```
-
-```python
->>> %timeit lempel_ziv_complexity(s)
-6.1 µs ± 33.6 ns per loop (mean ± std. dev. of 7 runs)
->>> %timeit lempel_ziv_complexity_cython(s)  # rapide !
-132 ns ± 2.55 ns per loop (mean ± std. dev. of 7 runs)
-```
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ III
-
-- Implémentation pédagogique\footnote{Cf. \urlb{GitHub.com/Naereen/Tiny-Prolog-in-OCaml}} d'un sous-ensemble du langage Prolog, en OCaml, pour mes élèves d'agrég.
-
-```prolog
-pair(o).    # nombre entier pair
-pair(s(s(X))) <-- pair(X).
-```
-
-```prolog
-blanc(jeannot).  # famille de lapins !
-longOreilles(jeannot).
-blanc(Y) <-- enfant(jeannot,Y).
-enfant(X,filsYeuxB(X)) <-- longOreilles(X),dentPropres(X).
-yeuxBleux(filsYeuxB(X)) <-- longOreilles(X),dentPropres(X).
-dentPropres(X) <-- blanc(X).
-```
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ IV
-
-- Un peu de traitement d'images et de programmation web pour une application web qui produit une police cursive "personnalisée", à partir d'un petit échantillon d'écriture manuscrite\footnote{Cf. \urlb{GitHub.com/Naereen/Fontify}}.\newline
-    $\hookrightarrow$ But : une version "manuscrite" de mon manuscrit de thèse... (\alert{pour le plaisir})\newline
-    \begin{Huge}\Fontify{Exemple : Fontify}\end{Huge}
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ IV
-
-![](./images/demo-Fontify-1.png){width=30%}![](./images/demo-Fontify-2.png){width=30%}![](./images/demo-Fontify-3.png){width=45%}
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ V
-
-- Formation et expérimentations en apprentissage par $Q$-renforcement profond ("deep $Q$-reinforcement learning", DQL) pour apprendre à jouer à un jeu vidéo à partir des pixels de l'écran.
-    + Exemple avec des jeux ATARI (classique) et NES (dont un Mario\footnote{Cf. \urlb{GitHub.com/Naereen/gym-nes-mario-bros}} qui n'a jamais été traité avant, **Mario Bros.** -- $1986$).
-    + But : j'aimerai trouver une application des bandits pour accélérer la convergence de tels réseaux, ou une application de tels réseaux pour de la radio intelligente... (pas simple)
-    + \alert{Encore en cours}... (ce n'est pas simple)
-
-----
-
-# Exemples de projets personnels en $2017$-$18$ V
-
-![](./images/demo-gym-nes-mario-bros.png){width=100%}
 
 ----
 
@@ -594,6 +485,8 @@ dentPropres(X) <-- blanc(X).
     + Le problème est montré "difficile" si $s$ n'est pas connu (en résumé : on ne peut pas faire mieux que si $s=K$, *i.e.*, un algorithme "sparsity aware" ignorant $s$ ne peut pas faire mieux qu'un algorithme classique),
     + Et ça me semble assez dur à utiliser en radio intelligente, si $s$ doit être connu...
 
+  $\hookrightarrow$ un court article à EWRL $2018$ (octobre, Lille) ?
+
 ----
 
 # Objectifs de recherche pour $2018$ IV
@@ -605,13 +498,15 @@ dentPropres(X) <-- blanc(X).
     + étudier des variantes du modèles (*e.g.*, avec écoute des autres joueurs, cf. article de Sumit Darak et al @ IEEE WCNC $2018$)...
     + intégrer des perturbateurs (*jammers*, cf. un [autre article de Sumit Darak et al, arXiv:1803.06810](https://arxiv.org/pdf/1803.06810.pdf))...
 
+  $\hookrightarrow$ un article à IEEE WCNC $2019$ ?
+
 ----
 
 # Objectifs de recherche pour $2018$ V
 
 5. J'ai envie de travailler encore plus sur des approches "black-box wrapper algorithms" : un algorithme générique $\mathcal{W}$, qui transforme $\mathcal{A}$ avec *telle faiblesse* en un algorithme $\mathcal{A}' = \mathcal{W}(\mathcal{A})$ sans cette faiblesse.
     + Agrégation, "Doubling Trick", "Sparse Wrapper", "Unknown range wrapper", etc. Déjà plusieurs de mes travaux rentrent dans ce cadre !
-    + $\implies$ \alert{Je verrai bien ma thèse orientée entièrement autour de cette idée...}
+    + $\implies$ \alert{Je verrai bien ma une bonne partie de ma thèse entièrement orientée autour de cette idée...}
 
 ----
 
@@ -649,8 +544,8 @@ dentPropres(X) <-- blanc(X).
     + Atelier à Rotterdam en mai,
     + ICT à St-Malo en juin,
     + COLT à Stockholm en juillet ?
+    + EWRL à Lille en octobre ?
     + URSI AP-RASC à New Delhi en mars $2019$ ?
-    + AISTATS à Okinawa en avril $2019$ ?
     + IEEE WCNC à Marrakech en avril $2019$ ?
 
 ----
