@@ -126,12 +126,10 @@ Démo\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/multi-arm-bandit-learning
 ## $2$ posters, chacun présentés $2$ fois :
 1. Pour\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/phd-student-day-ietr-2017-bonnefoi-and-besson}} mon article CROWNCOM $2017$
     + Journée des Doctorants (IETR) @ Rennes, juillet $2017$,
-    + Atelier @ Lille, septembre $2017$ ("*bandits \& privacy"*\footnote{\tiny Cf. \urlb{team.inria.fr/magnet/workshop-on-decentralized-machine-learning-optimization-and-privacy/}}).
+    + Atelier @ Lille, septembre $2017$ ("*bandits \& privacy*"\footnote{\tiny Cf. \urlb{team.inria.fr/magnet/workshop-on-decentralized-machine-learning-optimization-and-privacy/}}).
 2. Pour\footnote{\tiny Cf. \urlb{bitbucket.org/lbesson/phd-student-day-ietr-2018}} mon article ALT $2018$
-    + Atelier @ Rotterdam, mai $2018$ ("*applications of bandits"*\footnote{\tiny Cf. \urlb{www.erim.eur.nl/e-code-erasmus-centre-for-optimization-of-digital-experiments/workshop-on-multi-armed-bandits-and-learning-algorithms/}}),
+    + Atelier @ Rotterdam, mai $2018$ ("*applications of bandits*"\footnote{\tiny Cf. \urlb{www.erim.eur.nl/e-code-erasmus-centre-for-optimization-of-digital-experiments/workshop-on-multi-armed-bandits-and-learning-algorithms/}}),
     + Journée des Doctorants (IETR) @ Vannes, juin $2018$.
-
-<!-- FIXME check URL of 2nd poster -->
 
 ----
 
@@ -146,7 +144,7 @@ Démo\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/multi-arm-bandit-learning
     + SCEE @ Rennes ($\times 2$),
     + ENSAI @ Rennes,
     + SequeL @ Lille ($\times 2$),
-- Bonus : journée GDR ISIS @ Paris.
+- Bonus : journée GDR ISIS @ Paris ("*Méthodes et outils mathématiques pour la modélisation des réseaux IoT*").
 
 ----
 
@@ -172,15 +170,15 @@ Démo\footnote{\tiny Cf. \urlb{Bitbucket.org/scee_ietr/multi-arm-bandit-learning
 3. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01705292}} "machine learning + télécom" exposant l'intérêt de l'agrégation d'algorithmes de bandit pour des problèmes de radio cognitive.
     + Présenté à la conférence **IEEE WCNC** $2018$ (avril, Barcelone).
     + Bon retour des relecteurs et à la conférence \Smiley{} !
-    + \alert{Mais difficile d'obtenir des résultats théoriques}
+    + \alert{Mais difficile d'obtenir des résultats théoriques satisfaisants.}
 
 . . .
 
 \vspace*{5pt}
 
 4. Un article\footnote{Cf. \urlb{HAL.Inria.fr/hal-01736357}} "maths et théorie" avec Émilie, étudiant le "doubling trick" (voir plus tard). Pas de lien direct avec les télécoms.
-    + *Envoyé* à la conférence **COLT** $2018$ (juillet, Stockholm).
-    + \alert{Retours pas excellents, on attends encore la réponse finale...}
+    + *Refusé* à la conférence **COLT** $2018$ (juillet, Stockholm).
+    + \alert{Pas encore sûr de ce qu'on en fait !}
 
 ----
 
@@ -358,8 +356,8 @@ Lui donner cette observation.
 - Empiriquement : choisir des paramètres ($T_0, b$ ou $T_0,a,b$) n'est pas simple, comment bien les choisir ?
 
 ## Question bonus
-- \alert{Où publier cet article (si refusé à COLT $2018$) ?}\newline
-  $\hookrightarrow$ NIPS $2018$ ?
+- \alert{Où publier cet article (refusé à COLT $2018$) ?}\newline
+  $\hookrightarrow$ une revue ? (*e.g.*, JMLR)
 
 ----
 
@@ -374,7 +372,7 @@ Lui donner cette observation.
 # Applications de ce travail II
 
 ## En radio intelligente ? Oui aussi !
-1. Si on utilise un algorithme $\mathcal{A}_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index*, $\mathrm{KLUCB}^{++}$, en bandits mono-joueur, *Musical Chair* en bandits multi-joueurs, etc),
+1. Si on utilise un algorithme $\mathcal{A}_T$ très efficace dans son contexte, mais qui dépend de $T$ (*e.g.*, *Approximated Finite-Horizons Gittins Index*, $\mathrm{kl}$-$\mathrm{UCB}^{++}$, en bandits mono-joueur, *Musical Chair* en bandits multi-joueurs, etc),
 2. Si on sait quel genre de garantie on espère (contexte stochastique, ou adverse, ou hybride),\pause
 3. $\implies$ Alors on peut savoir quel "doubling trick" utiliser pour rendre son algorithme indépendant de $T$ le plus efficacement possible (on connaît $\delta,\gamma$ alors on choisit $T_0,b$ ou $T_0,a,b$ pour minimiser la perte constante $\ell$...).
 
@@ -388,7 +386,7 @@ Lui donner cette observation.
 
 # Autres activités ($1/5$) : Formations
 
-Pour la thèse, il faut suivre des formations...
+Pour la thèse, il faut suivre des formations...\newline
 J'ai déjà fait $60$ sur les $72$ heures exigées.
 
 > Encore quelques heures à faire, ce sera bouclé d'ici octobre !
@@ -417,7 +415,7 @@ Par plaisir et pour (espérer) valider mon stage d'agrégation, j'enseigne :
 
 J'ai obtenu la même mission pour $2019$.
 
-\vspace*{15pt}
+\vspace*{35pt}
 
 > Plus un éventuel poste de PRAG à l'ENS de Rennes pour continuer chez eux après ma thèse... A suivre !
 
@@ -485,7 +483,7 @@ J'ai obtenu la même mission pour $2019$.
     + Le problème est montré "difficile" si $s$ n'est pas connu (en résumé : on ne peut pas faire mieux que si $s=K$, *i.e.*, un algorithme "sparsity aware" ignorant $s$ ne peut pas faire mieux qu'un algorithme classique),
     + Et ça me semble assez dur à utiliser en radio intelligente, si $s$ doit être connu...
 
-  $\hookrightarrow$ un court article à EWRL $2018$ (octobre, Lille) ?
+  $\hookrightarrow$ un court article à EWRL $2018$ (octobre, Lille), rédaction en cours ?
 
 ----
 
@@ -544,15 +542,18 @@ J'ai obtenu la même mission pour $2019$.
     + Atelier à Rotterdam en mai,
     + ICT à St-Malo en juin,
     + COLT à Stockholm en juillet ?
-    + EWRL à Lille en octobre ?
+    + Atelier "*Optimization and Learning*" à Toulouse, en septembre
+    <!-- + http://www.cimi.univ-toulouse.fr/optimisation/en/workshop-optimization-and-machine-learning -->
+    + EWRL $+$ PyCON Fr à Lille en octobre
     + URSI AP-RASC à New Delhi en mars $2019$ ?
     + IEEE WCNC à Marrakech en avril $2019$ ?
+    + etc
 
 ----
 
 # Merci
 
-Déjà la moitié de ma thèse.
+Déjà plus de la moitié de ma thèse.
 
 Et \alert{beaucoup de choses à faire pour la suite \& fin...}
 
