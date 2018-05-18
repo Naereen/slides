@@ -378,6 +378,19 @@ Lui donner cette observation.
 
 ----
 
+# Une remarque qui m'intrigue
+
+![](images/sad_paragraph_about_doubling_trick.png){width=90%}
+
+\hfill{}\small{\textcolor{gray}{[\href{https://arxiv.org/abs/1805.05071}{Garivier et al, 2018, arXiv:1805.05071}]}}
+
+\vspace*{10pt}
+
+Surprenant : rien n'est prouvé ni justifié dans ce genre d'affirmations, et aucune référence n'est citée.\newline
+Et les auteurs connaissent notre article...
+
+----
+
 # Autres activités
 
 > Mais aussi...
