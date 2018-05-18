@@ -1,6 +1,6 @@
-# [remark.js slideshow](https://github.com/gnab/remark) :notebook: by [Naereen @ GitHub](https://naereen.github.io/)
+# Slideshows :notebook: by [Naereen @ GitHub](https://naereen.github.io/)
 
-This repository hosts some [remark.js slideshows](https://github.com/gnab/remark), covering various subjects.
+This repository hosts some slides for talks I have gavin, covering various subjects, including code, training, research...
 
 ## About tools
 - At first, this repository was only here to host some small experiments, for me to learn how to use [the remark.js slideshow tools](http://remarkjs.com/) correctly;
