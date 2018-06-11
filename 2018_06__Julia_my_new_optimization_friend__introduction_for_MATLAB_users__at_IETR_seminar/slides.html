@@ -1,11 +1,14 @@
----
-title: Julia, my new optimization friend
-subtitle: Julia introduction for MATLAB users
-author: Lilian Besson
-institute: SCEE Team, IETR, CentraleSupélec, Rennes
-date: Thursday 14th of June, 2018
-lang: english
----
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>« Julia, my new optimization friend » | 14 June 2018 | By: Lilian Besson | IETR @ Vannes</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../common/slides.css">
+    </head>
+    <body>
+    <!-- Done for the header, now the content -->
+<textarea id="source">
+count: true
 
 # « Julia, my new optimization friend »
 
@@ -334,3 +337,30 @@ savefig("figures/Pendulum_solution.png")
    And ead [introduction in the Julia manual](https://docs.julialang.org/en/stable/manual/introduction/)!
 2. :woman_student: *Jedi level:* Try to solve a numerical system, from your research or teaching, **in Julia instead of MATLAB**
 3. :crossed_swords: *Master level:* From now on, try to use open-source & free tools for your research (Julia, Python and others)… :money_mouth_face:
+
+</textarea>
+        <!-- Done for the content, now the footer -->
+        <script type="text/javascript" src="../common/remark.min.js"></script>
+        <!-- If needed, the latest version can be downloaded raw from GitHub : -->
+        <!-- <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script> -->
+        <script type="text/javascript">
+            var slideshow = remark.create({
+                    highlightLanguage: 'python',
+                    highlightStyle: 'monokai'
+                });
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                extensions: ["tex2jax.js"],
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                    inlineMath: [ ["$", "$"] ],
+                    displayMath: [ ["$$", "$$"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { availableFonts: ["TeX"] }
+            });
+        </script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
+    </body>
+</html>

@@ -3,8 +3,17 @@ title: Julia, my new optimization friend
 subtitle: Julia introduction for MATLAB users
 author: Lilian Besson
 institute: SCEE Team, IETR, CentraleSupélec, Rennes
+smallinstitute: IETR
 date: Thursday 14th of June, 2018
 lang: english
+babel-lang: english
+handout: true
+numbersections: true
+section-titles: false
+fontsize: 12pt
+include-before:
+  \section*{\hfill{}Julia, my new optimization friend\hfill{}}
+  \subsection*{\hfill{}Julia introduction for MATLAB users\hfill{}}
 ---
 
 # « Julia, my new optimization friend »
