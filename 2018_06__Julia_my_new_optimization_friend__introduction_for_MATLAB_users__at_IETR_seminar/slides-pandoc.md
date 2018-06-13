@@ -1,7 +1,7 @@
 ---
-title: Julia, my new optimization friend
+title: Julia, my new computing friend?
 subtitle: Julia introduction for MATLAB users
-author: Lilian Besson
+author: Lilian Besson and Pierre Haessig
 institute: SCEE Team, IETR, CentraleSupélec, Rennes
 smallinstitute: IETR
 date: Thursday 14th of June, 2018
@@ -12,11 +12,15 @@ numbersections: true
 section-titles: false
 fontsize: 12pt
 include-before:
-  \section*{\hfill{}Julia, my new optimization friend\hfill{}}
+  \section*{\hfill{}Julia, my new computing friend\hfill{}}?
   \subsection*{\hfill{}Julia introduction for MATLAB users\hfill{}}
 ---
 
-# « Julia, my new optimization friend »
+<img src="figures/ET_Julia.png" style="position:relative;left:-1.5em;width:100%;">
+
+---
+
+# « Julia, my new friend for computing and optimization? »
 
 - **Intro to the Julia programming language, for MATLAB users**
 
@@ -25,7 +29,7 @@ include-before:
 - *Who:* Lilian Besson & Pierre Haessig
    (SCEE & AUT team @ IETR / CentraleSupélec campus Rennes)
 
-<center><img src="figures/julia_logo.png" width="40%"</center>
+<img src="figures/julia_logo.png" width="35%">
 
 ---
 
@@ -45,19 +49,22 @@ include-before:
 - Open-source and free programming language (MIT license)
 - Interpreted *and* compiled, very efficient
 - But easy syntax, dynamic typing, inline documentation etc
-- Multi-platform, imperative
+- Multi-platform (Windows, Mac OS X, GNU/Linux etc)
+- MATLAB-like imperative style
 - MATLAB-like syntax for linear algebra etc
-- Designed and acknowledged as *simple to learn and use*
+- Designed to be *simple to learn and use*
 - Easy to run your code in parallel (multi-core & cluster)
 - Used worldwide: research, data science, finance etc…
 
 ---
 
 # Ressources
-- **Website**: [JuliaLang.org](https://julialang.org/) for the language & [Pkg.JuliaLang.org](https://pkg.julialang.org/) for packages
+- **Website**:
+    + [JuliaLang.org](https://julialang.org/) for the language
+    + & [Pkg.JuliaLang.org](https://pkg.julialang.org/) for packages
 - Documentation : [docs.JuliaLang.org](https://docs.julialang.org/en/latest/)
 
-<center><img src="figures/julia_logo.png" width="50%"</center>
+<img src="figures/julia_logo.png" width="50%">
 
 ---
 
@@ -157,7 +164,9 @@ julia> Pkg.update()
 
 # :package: Overview of famous Julia modules
 
-- [`Winston.jl`](https://github.com/JuliaGraphics/Winston.jl) for easy plotting like MATLAB
+- Plotting:
+    + [`Winston.jl`](https://github.com/JuliaGraphics/Winston.jl) for easy plotting like MATLAB
+    + [`PyPlot.jl`](https://github.com/JuliaPy/PyPlot.jl) interface to Matplotlib (Python)
 - The [JuliaDiffEq](http://juliadiffeq.org) collection for **differential equations**
 - The [JuliaOpt](https://www.juliaopt.org/) collection for **optimization**
 - The [JuliaStats](http://juliastats.github.io) collection for **statistics**
@@ -172,6 +181,11 @@ julia> Pkg.update()
 [![bg original 50%](figures/pulse_julia_allver.png)](https://pkg.julialang.org/pulse.html)
 
 > Julia is still in development, in version v0.6 but version 1.0 is planned soon!
+
+---
+
+# 2. Main differences in syntax between Julia and MATLAB
+> Ref: [cheatsheets.quantecon.org](https://cheatsheets.quantecon.org/)
 
 ---
 
@@ -256,7 +270,7 @@ Use packages and everything is easy!
 using QuadGK
 
 function Ei(x, minfloat=1e-3, maxfloat=100)
-    f = t -> exp(-t) / t  # inline function, with '- >'
+    f = t -> exp(-t) / t  # inline function
     if x > 0
         return quadgk(f, -x, -minfloat)[1]
              + quadgk(f, minfloat, maxfloat)[1]
@@ -302,7 +316,7 @@ b, c = 0.25, 5.0
 
 # macro magic!
 pend2 = @ode_def Pendulum begin
-  dθ = ω  # <-- yes, this is UTF8
+  dθ = ω  # ← yes, this is UTF8, θ and ω in text
   dω = (-b * ω) - (c * sin(θ))
 end
 
@@ -322,18 +336,374 @@ savefig("figures/Pendulum_solution.png")
 
 ---
 
-# Conclusion (1/2)
+# Examples
 
-## Sum-up
-- I hope you got a good introduction to Julia
-- It's not hard to migrate from MATLAB to Julia
-- Good start:
-  [`docs.JuliaLang.org/en/stable/manual/getting-started`](https://docs.julialang.org/en/stable/manual/getting-started/)
+
+1. **Iterative computation**: signal filtering
+2. **Optimization**: robust regression on RADAR data
+
+---
+
+# Ex. 1: Iterative computation
+
+Objective:
+
+* show the efficiency of Julia's Just-in-Time (JIT) compilation
+* but also its fragility...
+
+---
+
+# Iterative computation: signal filtering
+
+The classical saying:
+
+> *« Vectorized code often runs much faster than the corresponding code containing loops. »* (cf. [MATLAB doc](https://mathworks.com/help/matlab/matlab_prog/vectorization.html))
+
+does not hold for Julia, because of its **Just-in-Time compiler**.
+
+## Example of a computation that cannot be vectorized
+Smoothing of a signal $\{u_k\}_{k\in\mathbb{N}}$:
+
+$$ y_k = ay_{k-1} + (1-a) u_k, \;\;\;\; k\in\mathbb{N}^+ $$
+
+
+Parameter $a$ tunes the smoothing (none: $a=0$, strong $a\to1^-$).
+
+==:boom: Iteration (`for` loop) **cannot** be avoided.==
+
+NB : Matlab also has [JIT](https://fr.mathworks.com/products/matlab/matlab-execution-engine.html) but it may not work well in all cases.
+
+---
+
+# Signal filtering in Julia :ok_hand:
+
+```julia
+function smooth(u, a)
+    y = zeros(u)
+
+    y[1] = (1-a)*u[1]
+    for k=2:length(u)  # this loop is NOT slow!
+        y[k] = a*y[k-1] + (1-a)*u[k]
+    end
+
+    return y
+end
+```
+
+![figures/signal_filtering.png 50%](figures/signal_filtering.png#right)
+
+---
+
+# Performance of the signal filter
+
+| Implementation        | Time for $10 \,\mathrm{Mpts}$   | notes |
+|-----------------------|----------------------|-------|
+| Julia                 | $50-70\,\mathrm{ms}$ | **Fast! Easy!** :ok_hand:     |
+| Octave native         | $88000\,\mathrm{ms}$  | **slow!!** :snail: |
+| Python native         | $4400\,\mathrm{ms}$  | **slow!** :snail: |
+| SciPy's `lfilter`     | $70\,\mathrm{ms}$    | many lines of C |
+| Python + `@numba.jit` | $50\,\mathrm{ms}$    | since $2012$    |
+
+> ```python
+> @numba.jit # <- factor ×100 speed-up!
+> def smooth_jit(u, a):
+>     y = np.zeros_like(u)
+>     y[0] = (1-a)*u[0]
+>     for k in range(1, len(u)):
+>         y[k] = a*y[k-1] + (1-a)*u[k]
+>     return y
+>```
+
+---
+
+# Conclusion on the performance
+
+For this simple iterative computation:
+
+* Julia performs very well, much better than native Python
+* but it's possible to get the same with fresh Python tools ([Numba](http://numba.pydata.org/))
+* more realistic examples are needed
 
 
 ---
 
-# Conclusion (2/2)
+# Fragility of Julia's JIT Compilation :boom:
+
+The efficiency of the compiled code relies on **type inference**.
+
+```julia
+function smooth1(u, a)
+    y = 0
+    for k=1:length(u)
+        y = a*y + (1-a)*u[k]
+    end
+    return y
+end
+```
+
+```julia
+function smooth2(u, a)
+    y = 0.0   # <- difference is here!
+    for k=1:length(u)
+        y = a*y + (1-a)*u[k]
+    end
+    return y
+end
+```
+
+---
+
+# An order of magnitude difference :snail:vs:running_man:
+
+```julia
+julia> @time smooth1(u, 0.9);
+  0.212018 seconds (30.00 M allocations: 457.764 MiB ...)
+```
+```julia
+julia> @time smooth2(u, 0.9);
+  0.024883 seconds (5 allocations: 176 bytes)
+```
+
+### Fortunately, Julia gives a good diagnosis tool :hammer_and_wrench:
+
+```julia
+julia> @code_warntype smooth1(u, 0.9);
+...  # ↓ we spot a detail
+y::Union{Float64, Int64}
+...
+```
+`y` is ==either== `Float64` or `Int64` when it should be just `Float64`.
+
+Cause: initialization `y=0` vs. `y=0.0`!
+
+---
+
+# Ex. 2: Optimization in Julia
+
+Objective: demonstrate **JuMP**, a Modeling Language for Optimization in Julia.
+
+*Some research groups migrate to Julia just for this package!*
+
+> Cf. [JuMP.ReadTheDocs.io](http://jump.readthedocs.io/) for documentation!
+
+---
+
+# Optimization problem
+
+Example problem: identifying the sea clutter in Weather Radar data.
+
+* is a **robust regression** problem
+    * $\hookrightarrow$ is an optimization problem!
+
+
+<details>
+<summary>References</summary>
+An « IETR-colored » example, inspired by:
+
+* Radar data+photo: P.-J. Trombe *et al.*, « Weather radars – the new eyes for offshore wind farms?,» *Wind Energy*, 2014.
+* Regression methods: S. Boyd and L. Vandenberghe, *Convex Optimization*. Cambridge University Press, 2004. (Example 6.2).
+<details>
+
+---
+
+# Weather radar: the problem of sea clutter
+
+
+<img src="./figures/radar_illustration.png" width="90%">
+
+Given $n$ data points $(x_i, y_i)$, fit a linear trend:
+
+$$\hat{y} = a.x + b$$
+
+An **optimization problem** with two parameters: $a$ (slope), $b$ (intercept)
+
+---
+
+# Regression as an optimization problem
+
+The parameters for the trend $(a,b)$ should minimize a criterion $J$
+which penalizes the residuals $r_i = y_i - \hat{y} = y_i - a.x + b$:
+
+$$J(a,b) = \sum_i \phi(r_i)$$
+
+where $\phi$ is the *penaly function*, to be chosen:
+
+* $\phi(r) = r^2$: quadratic deviation $\rightarrow$ least squares regression
+* $\phi(r) = \lvert r \rvert$: absolute value deviation
+* $\phi(r) = h(r)$: [Huber loss](https://en.wikipedia.org/wiki/Huber_loss)
+* ...
+
+---
+
+# :wrench: Choice of penalty function
+The choice of the loss function influences:
+
+* the optimization result (fit quality)
+    + *e.g.*, in the presence of outliers
+* the properties of optimization problem: convexity, smoothness
+
+### Properties of each function
+
+<img src="./figures/loss_func.png" width="45%" style="float:right; margin-left:0em;">
+
+* quadratic: convex, smooth, heavy weight for strong deviations
+* absolute value: convex, not smooth
+* Huber: a mix of the two
+
+---
+
+# :hammer_and_wrench: How to solve the regression problem?
+
+## Option 1: a big bag of tools
+
+A specific package for each type of regression:
+
+* « least square toolbox » ($\rightarrow$ [MultivariateStats.jl](https://github.com/JuliaStats/MultivariateStats.jl))
+* « least absolute value toolbox » ($\rightarrow$ [quantile regression](https://github.com/pkofod/QuantileRegression.jl/))
+* « Huber toolbox » (*i.e.*, robust regression $\rightarrow$ ???)
+* ...
+
+
+
+<img src="figures/Unico_Anello.png" style="float:right;width:10%;margin-right:25%;">
+
+## Option 2: the « One Tool »
+
+$\Longrightarrow$ a **Modeling Language for Optimization**
+
++ more **freedom to explore variants** of the problem
+
+---
+
+# Modeling Languages for Optimization
+
+*Purpose: make it easy to **specify** and **solve** optimization problems without expert knowledge*.
+
+---
+
+# JuMP: optimization modeling in Julia
+
+- The [JuMP](https://github.com/JuliaOpt/JuMP.jl) package offers a domain-specific modeling language for mathematical optimization.
+
+JuMP **interfaces with many optimization solvers**: open-source (Ipopt, GLPK, Clp, ECOS...) and commercial (CPLEX, Gurobi, MOSEK...).
+
+- Other Modeling Languages for Optimization:
+
+  + Standalone software: AMPL, GAMS
+  + Matlab: YALMIP ([previous seminar](http://pierreh.eu/efficient-tools-seminar/)), CVX
+  + Python: Pyomo, PuLP, CVXPy
+
+> Claim: JuMP is **fast**, thanks to Julia's [metaprogramming](https://docs.julialang.org/en/stable/manual/metaprogramming/#Metaprogramming-1) capabilities (generation of Julia code within Julia code).
+
+---
+
+# :chart_with_upwards_trend: Regression with JuMP — common part
+
+- Given `x` and `y` the $300$ data points:
+
+```julia
+m = Model(solver = ECOSSolver())
+
+@variable(m, a)
+@variable(m, b)
+
+res = a*x .- y + b
+```
+
+`res` (« residuals ») is an Array of $300$ elements of type `JuMP.GenericAffExpr{Float64,JuMP.Variable}`, *i.e.*, a semi-symbolic affine expression.
+
+- Now, we need to specify the penalty on those residuals.
+
+---
+
+# Regression choice: least squares regression
+
+$$\min \sum_i r_i^2$$
+
+Reformulated as a [Second-Order Cone Program](https://en.wikipedia.org/wiki/Second-order_cone_programming) (SOCP):
+
+
+$$\min j, \quad \text{such that} \; \lVert r \rVert_2 \leq j$$
+
+
+```julia
+@variable(m, j)
+@constraint(m, norm(res) <= j)
+@objective(m, Min, j)
+```
+(SOCP problem $\Longrightarrow$ [ECOS](https://github.com/embotech/ecos) solver)
+
+---
+
+# Regression choice: least absolute deviation
+
+$$\min \sum_i \lvert r_i \rvert $$
+
+Reformulated as a [Linear Program](https://en.wikipedia.org/wiki/Linear_programming) (LP)
+
+$$\min \sum_i t_i, \quad \text{such that} \; -t_i \leq r_i \leq t_i$$
+
+```julia
+@variable(m, t[1:n])
+@constraint(m, res .<= t)
+@constraint(m, res .>= -t)
+@objective(m, Min, sum(t))
+```
+
+---
+# Solve! :gear:
+
+
+```julia
+julia> solve(m)
+[solver blabla... ⏳ ]
+:Optimal  # hopefully
+```
+
+```julia
+julia> getvalue(a), getvalue(b)
+(-1.094, 127.52)  # for least squares
+```
+
+<img src="figures/radar_fit_cmp.png" style="float:right;width:55%;">
+
+Observations:
+* least abs. val., Huber :white_check_mark:
+* least squares :negative_squared_cross_mark:
+
+---
+
+# JuMP: summary :scroll:
+
+A modeling language for optimization, *within Julia*:
+
+* gives access to all classical optimization solvers
+* very fast (claim)
+* gives freedom to explore many variations of an optimization problem (fast prototyping)
+
+:spiral_notepad: More on optimization with Julia:
+
+* [JuliaOpt](http://www.juliaopt.org/): host organization of JuMP
+* [Optim.jl](http://julianlsolvers.github.io/Optim.jl/stable/): implementation of classics in Julia (*e.g.*, Nelder-Mead)
+* [JuliaDiff](http://www.juliadiff.org/): Automatic Differentiation to compute gradients,
+  thanks to Julia's strong capability for code introspection
+
+---
+
+# Conclusion (1/2)
+
+## Sum-up
+- I hope you got a good introduction to Julia :ok_hand:
+- It's not hard to migrate from MATLAB to Julia
+- Good start:
+  [`docs.JuliaLang.org/en/stable/manual/getting-started`](https://docs.julialang.org/en/stable/manual/getting-started/)
+- Julia is fast!
+- Free and open source!
+- Can be very efficient for some applications!
+
+---
+
+# Conclusion (1/2)
 
 > *Thanks for joining :clap: !*
 
