@@ -35,6 +35,7 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [April 2018 : "Multi-Player Bandits Models Revisited", talk at the ALT 2018 conference](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_at_ALT_2018_conference/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_at_ALT_2018_conference/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-01629733).
 - [April 2018 : "Aggregation of Multi-Armed Bandits Learning Algorithms for Opportunistic Spectrum Access", talk at the IEEE WCNC 2018 conference](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_IEEE_WCNC/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_04__Presentation_IEEE_WCNC/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-01705292).
 - [May 2018 : summary for half of my PhD, the "CSID Comitee" (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_05__CSID_2_PhD_comitee_at_CentraleSupelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_05__CSID_2_PhD_comitee_at_CentraleSupelec/slides_169.pdf)).
+- [June 2018 : Julia my new computing friend?](https://perso.crans.org/besson/publis/slides/2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar/slides.pdf) An introduction for MATLAB users, at [IETR seminar 2018](https://seminar-ietr-18.sciencesconf.org/program), in collaboration with [Pierre Haessig](https://GitHub.com/pierre-haessig/) (see also [here](https://github.com/pierre-haessig/julia-presentation-ietr2018)).
 
 ### :arrow_forward: 2. View the slides on-line as HTML pages ?
 > These versions are experimental and should not be used.
@@ -54,9 +55,10 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [2017_12__Presentation_Inria_Lille_SequeL_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.html).
 - [2018_01__Python_introduction_for_MATLAB_users__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.html).
 - [2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.html).
+- [2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar](https://cdn.rawgit.com/Naereen/slides/master/2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar/slides.html).
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/slides.html`.
 
-> Note: I have stopped writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless.
+> Note: I have stopped writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless. Tell me if you want them!
 
 ### :arrows_counterclockwise: 3. View the slides locally ?
 - You can also clone this repository, and browse locally the slides.

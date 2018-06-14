@@ -7,7 +7,7 @@ footer: « Julia, my new computing friend? » | 14 June 2018, IETR@Vannes | By: 
 
 <link rel="stylesheet" type="text/css" href="common/marp-naereen.css" />
 
-<img src="figures/ET_Julia.png" style="position:relative;left:-1.5em;width:100%;">
+![bg original 100%](figures/ET_Julia.png)
 
 ---
 
@@ -26,28 +26,29 @@ footer: « Julia, my new computing friend? » | 14 June 2018, IETR@Vannes | By: 
 
 <!-- *template: break -->
 
-# Agenda for today [25 min]
+# Agenda for today [30 min]
 
-1. What is Julia [4 min]
-2. Comparison with MATLAB [4 min]
-3. Examples of problems solved Julia [5 min]
-4. Longer example on optimization with JuMP [10min]
+1. What is Julia? [5 min]
+2. Comparison with MATLAB [5 min]
+3. Two examples of problems solved Julia [5 min]
+4. Longer ex. on optimization with JuMP [13min]
 5. Links for more information ?  [2 min]
 
 ---
 
 # 1. What is Julia ?
 
-- Developed and popular from the [last $7$ years](https://julialang.org/blog/2012/02/why-we-created-julia)
-- Open-source and free programming language (MIT license)
-- Interpreted *and* compiled, very efficient
-- But easy syntax, dynamic typing, inline documentation etc
-- Multi-platform (Windows, Mac OS X, GNU/Linux etc)
-- MATLAB-like imperative style
-- MATLAB-like syntax for linear algebra etc
-- Designed to be *simple to learn and use*
-- Easy to run your code in parallel (multi-core & cluster)
-- Used worldwide: research, data science, finance etc…
+- **Open-source and free programming language** (MIT license)
+	- Developed since [2012](https://julialang.org/blog/2012/02/why-we-created-julia) (creators: MIT researchers)
+	- Growing popularity worldwide, in research, data science, finance etc…
+	- Multi-platform: Windows, Mac OS X, GNU/Linux...
+- Designed for *performance*:
+	- Interpreted *and* compiled, very efficient
+	- Easy to run your code in parallel (multi-core & cluster)
+
+- Designed to be *simple to learn and use*:
+	- Easy syntax, dynamic typing (MATLAB & Python-like)
+<!--	- Inline documentation -->
 
 ---
 
@@ -61,7 +62,7 @@ footer: « Julia, my new computing friend? » | 14 June 2018, IETR@Vannes | By: 
 
 ---
 
-# Comparison with MATLAB
+# Comparison with MATLAB (1/3)
 
 |  | Julia :smiley: | MATLAB :cry:
 |:-|:-:|:-:|
@@ -73,7 +74,7 @@ footer: « Julia, my new computing friend? » | 14 June 2018, IETR@Vannes | By: 
 
 ---
 
-# Comparison with MATLAB
+# Comparison with MATLAB (2/3)
 
 |  | Julia | MATLAB
 |:-|:-:|:-:|
@@ -83,16 +84,16 @@ footer: « Julia, my new computing friend? » | 14 June 2018, IETR@Vannes | By: 
 
 ---
 
-# Comparison with MATLAB
+# Comparison with MATLAB (3/3)
 
 |  | Julia | MATLAB
 |:-|:-:|:-:|
 | **Usage** | Generic, worldwide :earth_americas: | Research in academia and industry
-| **Fame** | Young but starts to be known | Old and known, in decline
-| **Support?** | Community$^1$: StackOverflow, mailing lists etc  | By MathWorks
+| **Fame** | Young but starts to be known | Old and known... In decline :chart_with_downwards_trend: ?
+| **Support?** | Community$^1$: StackOverflow, [Forum](https://discourse.julialang.org/)  | By MathWorks
 | **Documentation** | OK and growing, inline/online | OK, inline/online
 
-> Note$^1$: **JuliaPro** offer paid licenses, if professional support is needed.
+> Note$^1$: [Julia Computing, Inc.](https://juliacomputing.com/) (founded 2015 by Julia creators) offer paid licenses ([JuliaPro](https://juliacomputing.com/products/juliapro.html) Enterprise) with professional support.
 
 ---
 
@@ -350,6 +351,8 @@ Objective:
 * show the efficiency of Julia's Just-in-Time (JIT) compilation
 * but also its fragility...
 
+*Note: you can find companion notebooks on [GitHub](https://github.com/pierre-haessig/julia-presentation-ietr2018/tree/master/filter%20example)*
+
 ---
 
 # Iterative computation: signal filtering
@@ -485,13 +488,14 @@ Cause: initialization `y=0` vs. `y=0.0`!
 
 Objective: demonstrate **JuMP**, a Modeling Language for Optimization in Julia.
 
-*Some research groups migrate to Julia just for this package!*
+* Some researchers migrate to Julia just for this!
+* I use JuMP for **my research** (energy management)
 
-> Cf. [`JuMP.ReadTheDocs.io`](http://jump.readthedocs.io/) for documentation!
+*Note: you can find companion notebooks on [GitHub](https://github.com/pierre-haessig/julia-presentation-ietr2018/tree/master/regression%20example)*
 
 ---
 
-# Optimization problem
+# Optimization problem example
 
 Example problem: identifying the sea clutter in Weather Radar data.
 
@@ -499,12 +503,12 @@ Example problem: identifying the sea clutter in Weather Radar data.
     * $\hookrightarrow$ is an optimization problem!
 
 <br>
-<span class="detail">
+<div class="detail">
 An « IETR-colored » example, inspired by:
 
 * Radar data+photo: P.-J. Trombe *et al.*, « Weather radars – the new eyes for offshore wind farms?,» *Wind Energy*, 2014.
 * Regression methods: S. Boyd and L. Vandenberghe, *Convex Optimization*. Cambridge University Press, 2004. (Example 6.2).
-</span>
+</div>
 
 ---
 
@@ -729,7 +733,7 @@ A modeling language for optimization, *within Julia*:
 
 ---
 
-# Conclusion (1/2)
+# Conclusion (2/2)
 
 > *Thanks for joining :clap: !*
  
