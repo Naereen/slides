@@ -459,7 +459,7 @@ An « IETR-colored » example, inspired by:
 # Weather radar: the problem of sea clutter
 
 
-<img src="./figures/radar_illustration.png" width="90%">
+<img src="slides/figures/radar_illustration.png" width="90%">
 
 Given $n$ data points $(x_i, y_i)$, fit a linear trend:
 
@@ -494,7 +494,7 @@ The choice of the loss function influences:
 
 ### Properties of each function
 
-<img src="./figures/loss_func.png" width="45%" style="float:right; margin-left:0em;">
+<img src="slides/figures/loss_func.png" width="45%" style="float:right; margin-left:0em;">
 
 * quadratic: convex, smooth, heavy weight for strong deviations
 * absolute value: convex, not smooth
