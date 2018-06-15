@@ -7,7 +7,7 @@ date: Thursday 14th of June, 2018
 lang: english
 ---
 
-<img src="figures/ET_Julia.png" style="position:relative;left:-1.5em;width:100%;">
+<img src="slides/figures/ET_Julia.png" style="position:relative;left:-1.5em;width:100%;">
 
 ---
 
@@ -20,7 +20,7 @@ lang: english
 - *Who:* Lilian Besson & Pierre Haessig
    (SCEE & AUT team @ IETR / CentraleSupélec campus Rennes)
 
-<img src="figures/julia_logo.png" width="35%">
+<img src="slides/figures/julia_logo.png" width="35%">
 
 ---
 
@@ -55,7 +55,7 @@ lang: english
     + & [Pkg.JuliaLang.org](https://pkg.julialang.org/) for packages
 - Documentation : [docs.JuliaLang.org](https://docs.julialang.org/en/latest/)
 
-<img src="figures/julia_logo.png" width="50%">
+<img src="slides/figures/julia_logo.png" width="50%">
 
 ---
 
@@ -68,23 +68,9 @@ lang: english
 | **Comes from** | A non-profit foundation, and the community | MathWorks company
 | **Scope** | Mainly numeric | Numeric only
 | **Performances** | Very good performance | Faster than Python, slower than Julia
-
----
-
-# Comparison with MATLAB
-
-|  | Julia | MATLAB
-|:-|:-:|:-:|
 | **Packaging** | `Pkg` manager included. Based on `git` + GitHub, very easy to use | Toolboxes already included but :moneybag: have to pay if you wat more!
 | **Editor/IDE** | [*Jupyter*](https://jupyter.org/) is recommended ([*Juno*](http://junolab.org/) is also good) | Good IDE already included
 | **Parallel computations** | Very easy, low overhead cost | Possible, high overhead
-
----
-
-# Comparison with MATLAB
-
-|  | Julia | MATLAB
-|:-|:-:|:-:|
 | **Usage** | Generic, worldwide :earth_americas: | Research in academia and industry
 | **Fame** | Young but starts to be known | Old and known, in decline
 | **Support?** | Community$^1$ (StackOverflow, mailing lists etc).  | By MathWorks
@@ -94,7 +80,7 @@ lang: english
 
 ---
 
-# How to install Julia :arrow_down: (1/2)
+# How to install Julia :arrow_down:
 - You can try online *for free* on [JuliaBox.com](https://www.juliabox.com/)
 
 - On Linux, Mac OS or Windows:
@@ -105,11 +91,7 @@ lang: english
 > You also need Python 3 to use Jupyter :sparkles:, I suggest to use
 > [Anaconda.com/download](https://www.anaconda.com/download/) if you don't have Python yet.
 
----
-
-# How to install Julia :arrow_down: (2/2)
-
-![download_julia.png 40%](figures/download_julia.png)
+![download_julia.png 40%](slides/figures/download_julia.png)
 
 1. Select the binary of your platform :package:
 2. Run the binary :running: !
@@ -120,17 +102,14 @@ lang: english
 
 # Different tools to use Julia
 - Use `julia` for the command line for short experiments
-  ![50%](figures/screenshot_julia_repl.png)
+  ![50%](slides/figures/screenshot_julia_repl.png)
 - Use the *Juno* IDE to edit large projects
 
 > Demo time :watch: !
 
----
-
-# Different tools to use Julia
 - Use **Ju***pyter* notebooks to write or share your experiments
   (examples: [`github.com/Naereen/notebooks`](https://github.com/Naereen/notebooks/))
-  ![40%](figures/screenshot_julia_jupyter.png)
+  ![40%](slides/figures/screenshot_julia_jupyter.png)
 
 > Demo time :watch: !
 
@@ -169,14 +148,9 @@ julia> Pkg.update()
 
 # Many packages, and a quickly growing community
 
-[![bg original 50%](figures/pulse_julia_allver.png)](https://pkg.julialang.org/pulse.html)
+[![bg original 50%](slides/figures/pulse_julia_allver.png)](https://pkg.julialang.org/pulse.html)
 
 > Julia is still in development, in version v0.6 but version 1.0 is planned soon!
-
----
-
-# 2. Main differences in syntax between Julia and MATLAB
-> Ref: [cheatsheets.quantecon.org](https://cheatsheets.quantecon.org/)
 
 ---
 
@@ -191,11 +165,6 @@ julia> Pkg.update()
 | **Slicing** | `a[1:100]` (view) | `a(1:100)` (:warning: copy)
 | **Operations** | Linear algebra by default | Linear algebra by default
 | **Block** | Use `end` to close all blocks | Use `endif` `endfor` etc
-
----
-
-|  | Julia | MATLAB
-|:-|:-:|:-:|
 | **Help** | `?func` | `help func`
 | **And** | `a & b` | `a && b`
 | **Or** | `a | b` | `a || b`
@@ -204,11 +173,6 @@ julia> Pkg.update()
 | **Size** | `size(a)` | `size(a)`
 | **Nb Dim** | `ndims(a)` | `ndims(a)`
 | **Last** | `a[end]` | `a(end)`
-
----
-
-|  | Julia | MATLAB
-|:-|:-:|:-:|
 | **Tranpose** | `a.'` | `a.'`
 | **Conj. transpose** | `a'` | `a'`
 | **Matrix** x | `a * b` | `a * b`
@@ -219,11 +183,6 @@ julia> Pkg.update()
 | **Ones** | `ones(2, 3, 5)` | `ones(2, 3, 5)`
 | **Identity** | `eye(10)` | `eye(10)`
 | **Range** | `range(0, 100, 2)` or `1:2:100` | `1:2:100`
-
----
-
-|  | Julia | MATLAB
-|:-|:-:|:-:|
 | **Maximum** | `max(a)` | `max(max(a))` ?
 | **Random matrix** | `rand(3, 4)` | `rand(3, 4)`
 | L2 **Norm** | `norm(v)` | `norm(v)`
@@ -282,7 +241,7 @@ savefig("figures/Ei_integral.png")
 
 ---
 
-![bg original 65%](figures/Ei_integral.png)
+![bg original 65%](slides/figures/Ei_integral.png)
 
 ---
 
@@ -323,7 +282,7 @@ savefig("figures/Pendulum_solution.png")
 
 ---
 
-![bg original 70%](figures/Pendulum_solution.png)
+![bg original 70%](slides/figures/Pendulum_solution.png)
 
 ---
 
@@ -355,12 +314,12 @@ does not hold for Julia, because of its **Just-in-Time compiler**.
 ## Example of a computation that cannot be vectorized
 Smoothing of a signal $\{u_k\}_{k\in\mathbb{N}}$:
 
-$$ y_k = ay_{k-1} + (1-a) u_k, \;\;\;\; k\in\mathbb{N}^+ $$
+$$ y_k = ay_{k-1} + (1-a) u_k, k\in\mathbb{N}^+ $$
 
 
 Parameter $a$ tunes the smoothing (none: $a=0$, strong $a\to1^-$).
 
-==:boom: Iteration (`for` loop) **cannot** be avoided.==
+:boom: Iteration (`for` loop) **cannot** be avoided.
 
 NB : Matlab also has [JIT](https://fr.mathworks.com/products/matlab/matlab-execution-engine.html) but it may not work well in all cases.
 
@@ -381,7 +340,7 @@ function smooth(u, a)
 end
 ```
 
-![figures/signal_filtering.png 50%](figures/signal_filtering.png#right)
+![figures/signal_filtering.png 50%](slides/figures/signal_filtering.png#right)
 
 ---
 
@@ -463,7 +422,7 @@ julia> @code_warntype smooth1(u, 0.9);
 y::Union{Float64, Int64}
 ...
 ```
-`y` is ==either== `Float64` or `Int64` when it should be just `Float64`.
+`y` is either `Float64` or `Int64` when it should be just `Float64`.
 
 Cause: initialization `y=0` vs. `y=0.0`!
 
@@ -493,7 +452,7 @@ An « IETR-colored » example, inspired by:
 
 * Radar data+photo: P.-J. Trombe *et al.*, « Weather radars – the new eyes for offshore wind farms?,» *Wind Energy*, 2014.
 * Regression methods: S. Boyd and L. Vandenberghe, *Convex Optimization*. Cambridge University Press, 2004. (Example 6.2).
-<details>
+</details>
 
 ---
 
@@ -556,7 +515,7 @@ A specific package for each type of regression:
 
 
 
-<img src="figures/Unico_Anello.png" style="float:right;width:10%;margin-right:25%;">
+<img src="slides/figures/Unico_Anello.png" style="float:right;width:10%;margin-right:25%;">
 
 ## Option 2: the « One Tool »
 
@@ -656,7 +615,7 @@ julia> getvalue(a), getvalue(b)
 (-1.094, 127.52)  # for least squares
 ```
 
-<img src="figures/radar_fit_cmp.png" style="float:right;width:55%;">
+<img src="slides/figures/radar_fit_cmp.png" style="float:right;width:55%;">
 
 Observations:
 * least abs. val., Huber :white_check_mark:
@@ -681,7 +640,7 @@ A modeling language for optimization, *within Julia*:
 
 ---
 
-# Conclusion (1/2)
+# Conclusion
 
 ## Sum-up
 - I hope you got a good introduction to Julia :ok_hand:
@@ -691,10 +650,6 @@ A modeling language for optimization, *within Julia*:
 - Julia is fast!
 - Free and open source!
 - Can be very efficient for some applications!
-
----
-
-# Conclusion (1/2)
 
 > *Thanks for joining :clap: !*
 
