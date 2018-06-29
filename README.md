@@ -74,7 +74,7 @@ This repository hosts some slides for talks I have gavin, covering various subje
 > - More information about [Markdown](http://commonmark.org/): on [commonmark.org](http://commonmark.org/).
 
 
-## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/slides.svg)](https://github.com/Naereen/slides/blob/master/LICENSE)
+## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/slides.svg)](https://github.com/Naereen/slides/blob/master/LICENSE.txt)
 All the slideshows in this repository are published under the terms of the [MIT License](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
 © [Lilian Besson](https://GitHub.com/Naereen), 2016-18.
 
