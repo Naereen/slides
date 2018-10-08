@@ -1,6 +1,6 @@
 <!--
 $theme: default
-$size: 16:9
+$size: 4:3
 page_number: true
 footer: GouTP @ SCEE | 18 October 2017 | By: Lilian Besson | Introduction to Jupyter notebooks
 -->
