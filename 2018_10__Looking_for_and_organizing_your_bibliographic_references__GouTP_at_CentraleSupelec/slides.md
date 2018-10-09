@@ -2,7 +2,7 @@
 $theme: default
 $size: 4:3
 page_number: true
-footer: GouTP @ SCEE | 18 October 2017 | By: Lilian Besson & Bastien Trotobas | Searching and Organizing Your Bibliographic References
+footer: GouTP @ SCEE | 18 October 2017 | By: Lilian Besson & Bastien Trotobas
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
@@ -80,6 +80,8 @@ Ask questions and interrupt me if you want!
 
 ---
 
+<!-- *footer: -->
+
 # Internal Wiki :memo:
 - We have a MediaWiki running locally on http://172.16.6.219/
 - Welcome pack : can be useful in your first days here!
@@ -90,6 +92,8 @@ Ask questions and interrupt me if you want!
 ![30%](figures/demo_of_our_wiki.png#center)
 
 ---
+
+<!-- *footer: -->
 
 # Workstations :computer: (Windows & GNU/Linux)
 
@@ -111,6 +115,8 @@ Ask questions and interrupt me if you want!
 ![bg original 80%](figures/monitoring.png)
 
 ---
+
+<!-- *footer: -->
 
 # USRP TestBeds :phone:
 - We have 8 USRP cards that can be used from GNU Radio Companion on the WS3
@@ -230,8 +236,9 @@ Once you know what to read, try this to find the paper:
 1. Google Scholar / ResearchGate / Academia
 2. Google / DuckDuckGo / your favorite search engine
 3. The author's website! Or directly ask them!
-4. arXiv search page (it's brand new and works perfectly well!)
-5. IEEEXplore : CentraleSupélec pays the license!
+4. arXiv search page (it's brand new and works perfectly well!),
+5. or HAL search page
+6. IEEEXplore : CentraleSupélec pays the license!
    [`ieeexplore-ieee-org.bibliopam.supelec.fr`](https://ieeexplore-ieee-org.bibliopam.supelec.fr)
 6. Some hacky websites (use at your own risk),
    e.g., Sci-Hub → [`WhereIsSciHub.Now.sh`](https://whereisscihub.now.sh/) ?
@@ -251,11 +258,17 @@ Once you know what to read, try this to find the paper:
 
 ---
 
+![bg original 75%](figures/looking_for_on_HAL_search_page.png)
+
+---
+
 ![bg original 95%](figures/looking_for_on_IEEEXplore_search_page.png)
 
 ---
 
 ![bg original 95%](figures/looking_for_on_sci-hub_search_page.png)
+
+:warning: Don't do it!
 
 ---
 
@@ -422,20 +435,21 @@ Use a dedicated software such as
 
 ## Export as IEEE style for copy & paste
 
-![bg original 40%](figures/generate_IEEE.png)
+![bg original 38%](figures/generate_IEEE.png)
 
 ---
 
 ## Output
 
 ```
-[1]Q. Wei, L. Liu, G. Peng, S. Yin, et S. Wei,
+[1] Q. Wei, L. Liu, G. Peng, S. Yin, et S. Wei,
 « Efficient and Flexible VLSI Architecture
 for Soft-Output Massive MIMO Detector », in
 Proceedings of Information Science and Cloud
 Computing — PoS(ISCC 2017), Guangzhou, China,
 2018, p. 055.
-[2]B. Yin, M. Wu, J. R. Cavallaro, et C. Studer,
+
+[2] B. Yin, M. Wu, J. R. Cavallaro, et C. Studer,
 « VLSI design of large-scale soft-output MIMO
 detection using conjugate gradients », in 2015
 IEEE International Symposium on Circuits and
@@ -464,6 +478,7 @@ Systems (ISCAS), Lisbon, Portugal, 2015, p. 1498‑1501.
 
 ## Pointers
 - $\hookrightarrow$ [scholar.google.com](https://scholar.google.com/)
+- $\hookrightarrow$ [archives-ouvertes.fr](https://www.archives-ouvertes.fr/) & [arxiv.org](https://arxiv.org/)
 - $\hookrightarrow$ [duckduckgo.com](https://duckduckgo.com/) :heart:
 - $\hookrightarrow$ [zotero.org](https://zotero.org) and [jabref.org](https://jabref.org)
 
@@ -486,5 +501,5 @@ Systems (ISCAS), Lisbon, Portugal, 2015, p. 1498‑1501.
 
 ## Your mission, if you accept it… :boom:
 1. *Padawan level :* be smart about how you look for new references.
-2. *Jedi level :* organize and backup your references and BibTeX files!
+2. *Jedi level :* organize **and backup** your references and BibTeX files!
 3. *Master level :* publish so many papers that your name will be in the BibTeX files of half the planet (*yes we can!*).
