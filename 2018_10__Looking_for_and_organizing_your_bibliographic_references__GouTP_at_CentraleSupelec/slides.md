@@ -78,7 +78,7 @@ Ask questions and interrupt me if you want!
 
 ## New comers, please :pray:
 - send a short summary of your research interest with links to your LinkedIn, Google Scholar profile (or other sites). Picture: *if you want*
-- **to Rémi and I** so we add you on the website
+- **to Karim and Majed** so we add you on the website
 
 ---
 
