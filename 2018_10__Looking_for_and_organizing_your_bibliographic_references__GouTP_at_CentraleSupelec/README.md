@@ -1,23 +1,26 @@
 ---
-title: 5th GouTP @ SCEE
-subtitle: Introduction to Jupyter notebooks
+title: 1st GouTP @ SCEE
+subtitle: Searching and Organizing Your Bibliographic References
 author: Lilian Besson
 institute: SCEE Team, IETR, CentraleSupélec, Rennes
-date: Thursday 8th of March, 2018
+date: Thursday 18th of October, 2018
 lang: english
 ---
 
-# 5th 2017/18 GouTP @ SCEE
+# $1^{\text{st}}\;\;$ $2018/19$ GouTP @ SCEE
 
-- *About:* **Introduction to Jupyter notebooks**
+- *About:* **Searching and Organizing Your Bibliographic References**
 
-- *Date:* 8th of March 2018 :date:
+- *Date:* $18$th of October $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :hand:
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](TODO) :hand:
+
+<br><br>
 
 ### Open source content :notebook: ?
 > Note: slides are online: `github.com/Naereen/slides/tree/master/
-  2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec`
+  2018_10__Looking_for_and_organizing`
+  `_your_bibliographic_references__GouTP_at_CentraleSupelec`
 
 ---
 
@@ -30,17 +33,22 @@ lang: english
   > Initiative of Quentin and Vincent :clap: in January 2017...
   > Continued by Rémi, Muhammad, Rami and Lilian :ok_hand: !
 
+<br><br>
+
 ## Not only @ SCEE :smiley: ?
 - Currently open to the *FAST* and *AUT* teams
 
 ---
 
-# Agenda for today :timer_clock: [30 min]
+# Agenda for today :timer_clock: $\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
 
-1. Quick presentation of internal tools @ SCEE [5 min]
-2. What are the Jupyter notebook tools ? [10 min]
-3. Demo time [10 min]
-4. Sharing your notebooks online or as PDF [5 min]
+1. Quick presentation of internal tools @ SCEE $\;\;\;\;\;\;\;\;\;\;\;\,$ ==[5 min]==
+2. How to look for bibliographic references? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
+3. Demo time $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
+4. How to organize your references: JabRef & Zotero $;\;\;\;$ ==[5 min]==
+3. Demo time $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
+
+<br>
 
 ## Please :pray:
 Ask questions and interrupt me if you want!
@@ -53,13 +61,17 @@ Ask questions and interrupt me if you want!
 - You met (almost) everybody this week !
 - You will become familiar with the research themes of our team…
 
-### Let see a few :hammer_and_wrench: tools that can make your life easier!
+<br><br>
+
+### $\hookrightarrow$ Let see a few :hammer_and_wrench: tools that can make your life easier!
 
 ---
 
+<!-- *footer: -->
+
 # Website :spider_web:
 - [www-scee.rennes.supelec.fr](http://www-scee.rennes.supelec.fr/) was created by Rémi and Aymeric
-- It is maintained mainly by Rémi : we need help!
+- It is maintained by Karim and Majed
 
 ![35%](figures/demo_of_our_website.png#center)
 
@@ -73,8 +85,10 @@ Ask questions and interrupt me if you want!
 - We have a MediaWiki running locally on http://172.16.6.219/
 - Welcome pack : can be useful in your first days here!
   http://172.16.6.219/mediawiki/index.php/Welcome_to_SCEE
-- Anyone can edit, it is maintained by Rémi and I
+- Anyone can edit, it is maintained by Bastien and Lilian
 - Participate if you have anything to change (create an account, edit!)
+
+![30%](figures/demo_of_our_wiki.png#center)
 
 ---
 
@@ -86,12 +100,16 @@ Ask questions and interrupt me if you want!
 - 1 GNU/Linux (Ubuntu) workstation, with Python, GNU Radio…
   + WS3 : `172.16.6.213`
 - Powerful machines: 12 cores, 32 Gb of RAM, lots of storage…
-- Monitoring :mag: : http://172.16.6.219:8000 (ask us for id/passwd)
+- Monitoring :mag: : http://172.16.6.219:8000 (ask us for ==id/passwd==)
   (please check for use load, before launching heavy simulations)
 
 ## :tipping_hand_woman: Ask for an account if you need
 - To run computations, or to use the TestBed
-- Ask to *Muhammad for Windows*, to *me for GNU/Linux*
+- Ask to *Rami for Windows*, to *Lilian for GNU/Linux*
+
+---
+
+![bg original 80%](figures/monitoring.png)
 
 ---
 
@@ -105,7 +123,7 @@ Ask questions and interrupt me if you want!
 - and who uses what in real time
 
 ## :tipping_hand_woman: Advice
-- If you need to use the USRP, *discuss with Rémi and Lilian before*
+- If you need to use the USRP, *discuss with Nabil and Lilian before*
 
 ---
 
@@ -113,127 +131,202 @@ Ask questions and interrupt me if you want!
 
 ---
 
-# 2. "Project Jupyter", jupyter.org
+# 2. How to look for bibliographic references?
 
-![bg original 105%](figures/logo.png)
+## :warning: Do we need references?
+- Yes
 
----
+## :warning: But just for the paper right?
+- No: you need references *at every step* of our research job!
 
-# 2. What are Jupyter notebooks?
-
-## Technical aspect :mag:
-1. A file format, `.ipynb`  (just JSON with constraints)
-2. An editor in your browser (see it during demo time)
-3. Tools to convert `.ipynb` files to scripts, HTML, slides, PDF etc.
-
-## Practical aspect :rocket:
-4. A very good way to interact with your code
-5. Create smart document with text, maths, code, output and figures, **all included in one file**
-6. Easy and perfect to share online and with colleagues !
+## :warning: How to find references?
+- We will see some techniques
 
 ---
 
-# How to learn :mortar_board: ?
-
-## Online :spider_web:
-- Try without installing anything ? At [try.jupyter.org](https://try.jupyter.org/)
-
-## On your laptop :computer:
-1. Install it :package:
-2. Then start:
-   ```bash
-   # from your console
-   $ jupyter notebook
-   ```
-3. Then experiment, practice and learn
-
-> If you installed Python with Anaconda, it should be in your system menu *by default* (along *Spyder*, *IPython* and *IPython QT Console*)…
-
+## Reading papers
+- Each research paper has a list of references
+- This always gives an easy way to find new references: just go read every quoted paper!
 
 ---
 
-## How to install it :package: ?
+![bg original 95%](figures/reading_papers_for_new_references.png)
 
-Install it (you need :snake: Python) from https://jupyter.org/install.html.
+---
 
-```bash
-$ conda install jupyter  # if you use Anaconda/conda
-$ pip install jupyter    # for the system-wide Python & pip
+![bg original 95%](figures/reading_papers_for_new_references_2.png)
+
+---
+
+## Looking by keyword
+
+- Try to look for some keywords, in Google Scholar, Google, DuckDuckGo, ResearchGate etc
+- :warning: Some keywords will give *a lot* of results!
+- Filter by language! Filter by date!
+- Combine keywords!
+
+---
+
+![bg original 95%](figures/looking_for_by_keyword_2.png)
+
+---
+
+![bg original 95%](figures/looking_for_by_keyword.png)
+
+---
+
+## Looking by author
+
+- If you know an author, it's easy to find his/her work
+- It usually gives good references on related work!
+
+## Example?
+- For examples, with my advisor Émilie Kaufmann…
+
+---
+
+![bg original 95%](figures/looking_for_by_author_name_1.png)
+
+---
+
+![bg original 95%](figures/looking_for_by_author_name_2.png)
+
+---
+
+## Google Scholar
+
+- Many researchers have a Google Scholar profile
+- But it is also very useful to look for new references
+
+---
+
+![bg original 95%](figures/looking_for_on_google_scholar.png)
+
+---
+
+![bg original 95%](figures/looking_for_on_google_scholar_2.png)
+
+---
+
+## ResearchGate
+
+- Many researchers have a Google Scholar profile
+- But it is also very useful to look for new references
+- (same, just less popular than Google Scholar)
+
+### :warning: Warning!
+- :warning: they have a very aggressive copyright policy!
+- Suggestion: do as Rémi:
+  only upload a one-page PDF that links to the HAL version
+
+---
+
+![bg original 95%](figures/warning_about_researchgate_copyright_policy.png)
+
+---
+
+## How to find the PDF of a research paper ?
+Once you know what to read, try this to find the paper:
+
+1. Google Scholar / ResearchGate / Academia
+2. Google / DuckDuckGo / your favorite search engine
+3. The author's website! Or directly ask them!
+4. arXiv search page (it's brand new and works perfectly well!)
+5. IEEEXplore : CentraleSupélec pays the license!
+   [`ieeexplore-ieee-org.bibliopam.supelec.fr`](https://ieeexplore-ieee-org.bibliopam.supelec.fr)
+6. Some hacky websites (use at your own risk),
+   e.g., Sci-Hub → [`WhereIsSciHub.Now.sh`](https://whereisscihub.now.sh/) ?
+7. :warning: *Never pay yourself to read a research paper!* :warning:
+
+---
+
+![bg original 95%](figures/looking_for_by_exact_title.png)
+
+---
+
+![bg original 95%](figures/on_an_author_website.png)
+
+---
+
+![bg original 95%](figures/looking_for_on_arxiv_search_page.png)
+
+---
+
+![bg original 95%](figures/looking_for_on_IEEEXplore_search_page.png)
+
+---
+
+![bg original 95%](figures/looking_for_on_sci-hub_search_page.png)
+
+---
+
+# 3. How to organize your references: JabRef & Zotero
+
+> By Bastien
+
+---
+
+## How to write paper and insert bibliography
+
+- Use *LaTeX*
+- Use *BibTeX* (or *BibLaTeX*)
+
+Example (LaTeX `.tex` file and BibTeX `.bib` file):
+
+```latex
+\bibliographystyle{ieeetr}
+\bibliography{myBibFile}     % at the end of the LaTeX file
 ```
 
-## How to start it ?
-```sh
-$ jupyter notebook # from your console
-...
-Copy/paste this URL into your browser when you connect
-for the first time, to login with a token:
-http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
+```bibtex
+@unpublished{SMPyBanditsHAL,
+    title = {{SMPyBandits: an Experimental Framework
+    for Single and Multi-Players Multi-Arms Bandits Algorithms in Python}},
+    author = {Besson, Lilian},
+    url = {https://hal.inria.fr/hal-01840022},
+    note = {Presentation paper, at hal.inria.fr/hal-01840022},
+    year = {2018},
+}
 ```
 
-- It should open http://localhost:8888/notebooks/ in your browser
-- Or open the link in your terminal
+---
+
+## Lazy way to organize your references
+
+- Keep a bibtex file for each research project or paper,
+- Fill it slowly and painfully everytime you think of a new reference
+- Struggle a lot
+- $\Longrightarrow$ avoid this lazy solution :warning:
+
+> Lilian : I'm ashamed but I'm still at this level…
 
 ---
 
-# :snake: Only for Python :cry: ??
-- No: supports naitively Julia, Python and R (**Ju + Py + R = Jupyter**)
-- Dozens of "kernels" allow you to use Jupyter with *almost* any language ! (for free). Installation is usually simple & fast.
+## Smart way to organize your references
 
-## Partial list :memo:
-- Interpreted languages: :shell: Bash, :camel: Caml/OCaml, Lua etc
-- :smiley: and of course Wolfram Mathematica and MATLAB
-  > even if they have their own notebook tools now.
-- :open_mouth: But also compiled languages : C++, C, Go, Java !
-
-## Complete list of "kernels"
-> See [github.com/jupyter/jupyter/wiki/Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
-
----
-
-# 3. Demo time
-
-- I will show you quickly all this…
-
-- With an example of coding in Python.
-
-- Reference documentation is:
-  [jupyter.readthedocs.io/en/latest/content-quickstart.html](https://jupyter.readthedocs.io/en/latest/content-quickstart.html)
-
----
-
-## [Internally](https://jupyter.readthedocs.io/en/latest/architecture/visual_overview.html), it's quite complicated, just don't care
-
-![original 60%](figures/repos_map.png#center)
+> By Bastien
+> :boom: TODO
 
 ---
 
 # Conclusion (1/3)
 
 ## Sum-up
-- I hope you got a good introduction to Jupyter :ok_hand:
-  + Official documentation: at [jupyter.rtfd.io](https://jupyter.readthedocs.io/en/latest/content-quickstart.html)
-- Also [datacamp.com/community/tutorials/tutorial-jupyter-notebook](http://datacamp.com/community/tutorials/tutorial-jupyter-notebook)
+- We showed you techniques to look for new references,
+  and to find and download the PDF (*legally*)
+- We showed you two softwares to manage your bibliography
 
 ## Pointers
-1. :heart: use it and fall in love with it !
-
-2. Use Jupyter-themes ([`github.com/dunovank/jupyter-themes`](https://github.com/dunovank/jupyter-themes))
-  to customize the UI as you wish (dark themes, custom fonts etc)
-3. Use extensions if you want more features,
-  See [jupyter-contrib-nbextensions.rtfd.io](https://jupyter-contrib-nbextensions.readthedocs.io)
+- $\hookrightarrow$ [scholar.google.com](https://scholar.google.com/)
+- $\hookrightarrow$ [duckduckgo.com](https://duckduckgo.com/) :heart:
+- $\hookrightarrow$ [zotero.org](https://zotero.org) and [jabref.org](https://jabref.org)
 
 ---
 
 # Conclusion (2/3)
 
-## Next GouTP @ SCEE
+## Next GouTP @ ==SCEE==
 - Any request or suggestion ?
-
-## GouTP @ FAST or AUT ?
-> By Pierre Haessig ?
-
-- **Julia programming language** (~ between Python and Matlab)
-  see julialang.org if you are curious
 
 ## We need participants!
 > :point_right: By *you*? Any idea is welcome! :smiley:
@@ -242,10 +335,10 @@ http://localhost:8888/?token=44450caacdbe3ecddc21e02e66a6b5162cdd2d86dccd5264
 
 # Conclusion (3/3)
 
-> *Thanks for joining :clap: !*
-> *Contact us if you want to do a GouTP !*
+> <span class="fontify">Thanks for joining :clap: !</span>
+> <span class="fontify">Contact us if you want to do a GouTP !</span>
 
 ## Your mission, if you accept it… :boom:
-1. *Padawan level :* next time you program in :snake: Python (or other language), think about **Jyputer**. Can it help you being more efficient?
-2. *Jedi level :* Try to use **Jupyter** when you will have to share or show some piece of code?
-3. *Master level :* From now on, try to use (only?) open-source tools for your research (Python and others)…
+1. *Padawan level :* be smart about how you look for new references.
+2. *Jedi level :* organize and backup your references and BibTeX files!
+3. *Master level :* publish so many papers that your name will be in the BibTeX files of half the planet (*yes we can!*).

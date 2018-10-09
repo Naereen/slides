@@ -2,7 +2,7 @@
 $theme: default
 $size: 4:3
 page_number: true
-footer: GouTP @ SCEE | 18 October 2017 | By: Lilian Besson | Introduction to Jupyter notebooks
+footer: GouTP @ SCEE | 18 October 2017 | By: Lilian Besson | Searching and Organizing Your Bibliographic References
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
@@ -86,7 +86,7 @@ Ask questions and interrupt me if you want!
 - We have a MediaWiki running locally on http://172.16.6.219/
 - Welcome pack : can be useful in your first days here!
   http://172.16.6.219/mediawiki/index.php/Welcome_to_SCEE
-- Anyone can edit, it is maintained by Rémi and I
+- Anyone can edit, it is maintained by Bastien and Lilian
 - Participate if you have anything to change (create an account, edit!)
 
 ![30%](figures/demo_of_our_wiki.png#center)
