@@ -1,9 +1,9 @@
 ---
 title: 1st GouTP @ SCEE
 subtitle: Searching and Organizing Your Bibliographic References
-author: Lilian Besson
+author: Lilian Besson and Bastien Trotobas and Nabil Zaraneh
 institute: SCEE Team, IETR, CentraleSupélec, Rennes
-date: Thursday 18th of October, 2018
+date: Thursday 25th of October, 2018
 lang: english
 ---
 
@@ -11,9 +11,9 @@ lang: english
 
 - *About:* **Searching and Organizing Your Bibliographic References**
 
-- *Date:* $18$th of October $2018$ :date:
+- *Date:* $25$th of October $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](TODO) :hand:
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/slides/) and [Nabil Zeraneh](TODO) :hand:
 
 <br><br>
 
@@ -36,17 +36,15 @@ lang: english
 <br><br>
 
 ## Not only @ SCEE :smiley: ?
-- Currently open to the *FAST* and *AUT* teams
+- Now open to all the PhD students of CentraleSupélec, campus of Rennes.
 
 ---
 
-# Agenda for today :timer_clock: $\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[30 min]==
+# Agenda for today :timer_clock:
 
-1. Quick presentation of internal tools @ SCEE $\;\;\;\;\;\;\;\;\;\;\;\,$ ==[5 min]==
-2. How to look for bibliographic references? $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[5 min]==
-3. Demo time $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
-4. How to organize your references: JabRef & Zotero $;\;\;\;$ ==[5 min]==
-3. Demo time $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ ==[10 min]==
+1. Quick presentation of internal tools @ SCEE
+2. How to look for bibliographic references?
+3. How to organize your references: Zotero, JabRef & others.
 
 <br>
 
@@ -77,9 +75,11 @@ Ask questions and interrupt me if you want!
 
 ## New comers, please :pray:
 - send a short summary of your research interest with links to your LinkedIn, Google Scholar profile (or other sites). Picture: *if you want*
-- **to Rémi and I** so we add you on the website
+- **to Karim and Majed** so we add you on the website
 
 ---
+
+<!-- *footer: -->
 
 # Internal Wiki :memo:
 - We have a MediaWiki running locally on http://172.16.6.219/
@@ -92,6 +92,8 @@ Ask questions and interrupt me if you want!
 
 ---
 
+<!-- *footer: -->
+
 # Workstations :computer: (Windows & GNU/Linux)
 
 - 2 Windows 7 workstations, with MATLAB
@@ -100,7 +102,7 @@ Ask questions and interrupt me if you want!
 - 1 GNU/Linux (Ubuntu) workstation, with Python, GNU Radio…
   + WS3 : `172.16.6.213`
 - Powerful machines: 12 cores, 32 Gb of RAM, lots of storage…
-- Monitoring :mag: : http://172.16.6.219:8000 (ask us for ==id/passwd==)
+- Monitoring :mag: : http://172.16.6.219:8000 (ask us for id/passwd)
   (please check for use load, before launching heavy simulations)
 
 ## :tipping_hand_woman: Ask for an account if you need
@@ -112,6 +114,8 @@ Ask questions and interrupt me if you want!
 ![bg original 80%](figures/monitoring.png)
 
 ---
+
+<!-- *footer: -->
 
 # USRP TestBeds :phone:
 - We have 8 USRP cards that can be used from GNU Radio Companion on the WS3
@@ -210,7 +214,7 @@ Ask questions and interrupt me if you want!
 
 ## ResearchGate
 
-- Many researchers have a Google Scholar profile
+- Many researchers have a ResearchGate profile
 - But it is also very useful to look for new references
 - (same, just less popular than Google Scholar)
 
@@ -230,9 +234,10 @@ Once you know what to read, try this to find the paper:
 
 1. Google Scholar / ResearchGate / Academia
 2. Google / DuckDuckGo / your favorite search engine
-3. The author's website! Or directly ask them!
-4. arXiv search page (it's brand new and works perfectly well!)
-5. IEEEXplore : CentraleSupélec pays the license!
+3. The author's website! *Or directly ask them!*
+4. arXiv search page (it's brand new and works perfectly well!),
+5. or HAL search page
+6. IEEEXplore : CentraleSupélec pays the license!
    [`ieeexplore-ieee-org.bibliopam.supelec.fr`](https://ieeexplore-ieee-org.bibliopam.supelec.fr)
 6. Some hacky websites (use at your own risk),
    e.g., Sci-Hub → [`WhereIsSciHub.Now.sh`](https://whereisscihub.now.sh/) ?
@@ -252,17 +257,17 @@ Once you know what to read, try this to find the paper:
 
 ---
 
+![bg original 75%](figures/looking_for_on_HAL_search_page.png)
+
+---
+
 ![bg original 95%](figures/looking_for_on_IEEEXplore_search_page.png)
 
 ---
 
 ![bg original 95%](figures/looking_for_on_sci-hub_search_page.png)
 
----
-
-# 3. How to organize your references: JabRef & Zotero
-
-> By Bastien
+:warning: Don't do it!
 
 ---
 
@@ -274,7 +279,7 @@ Once you know what to read, try this to find the paper:
 Example (LaTeX `.tex` file and BibTeX `.bib` file):
 
 ```latex
-\bibliographystyle{ieeetr}
+\bibliographystyle{ieeetr}   % or alpha, or other style
 \bibliography{myBibFile}     % at the end of the LaTeX file
 ```
 
@@ -291,6 +296,18 @@ Example (LaTeX `.tex` file and BibTeX `.bib` file):
 
 ---
 
+## Example: In the body of the article
+
+![bg original 95%](figures/example_of_using_bibtex_and_latex_1.png)
+
+---
+
+## Example: In the reference list
+
+![bg original 95%](figures/example_of_using_bibtex_and_latex_2.png)
+
+---
+
 ## Lazy way to organize your references
 
 - Keep a bibtex file for each research project or paper,
@@ -304,8 +321,162 @@ Example (LaTeX `.tex` file and BibTeX `.bib` file):
 
 ## Smart way to organize your references
 
-> By Bastien
-> :boom: TODO
+Use a dedicated software such as
+
+- [Zotero](www.zotero.org) $\Longrightarrow$ ask me
+- [JabRef](www.jabref.org) $\Longrightarrow$ ask Hussein
+- Others (see [full comparison by Munich University](https://mediatum.ub.tum.de/doc/1320978/1320978.pdf))
+
+### Why selecting this two ones
+- Used by the team
+- Cross-plateform (Windows, Mac, Linux)
+- Integration with text editors
+- Open source $\Longrightarrow$ free
+
+---
+
+# But what is this ?
+
+## Goal
+- To help you along
+	- searching,
+	- classifying,
+	- inserting references in your papers.
+
+## Let's go for a quick walkthrough :walking:
+
+---
+
+## Step 1: Download, install and setup
+
+- Download and install from website ([Zotero](www.zotero.org), [JabRef](www.jabref.org), etc).
+- Download and install browser add-on.
+	- Zotero: Firefox, Chrome & Safari
+	- JabRef: Firefox only
+- Setup synchronization.
+	- Backup your bibliography
+	- Share your bibliography
+- Setup CentraleSupelec proxy if you want to access IEEExplore with connector.
+
+---
+
+## Setup proxy to access IEEExplore
+
+![bg original 95%](figures/setup_proxy.png)
+
+---
+
+## Step 2: Develop your bibliography
+
+### On both Zotero & JabRef
+- Import files from your computer
+- Save pages from your web browser
+	- Papers
+	- Web pages
+	- Wikipedia...
+
+### On JabRef
+- Search for papers on IEEExplore, arXiv, Google Scholar...
+
+---
+
+## Step 3: Classify your bibliography
+
+### On both Zotero & JabRef
+- Classify into collections to sort documents by topics.
+- Automatic fetch of meta-data.
+- Search based on author, date, conferences...
+- Add notes and comments.
+
+### On Zotero
+- Add markers and use them to find articles.
+- Construct a chronology.
+
+---
+
+## Zotero desktop version
+
+![bg original 95%](figures/Zotero_desktop_idle.png)
+
+---
+
+## Zotero web version
+
+![bg original 95%](figures/Zotero_online.png)
+
+---
+
+## Step 4: Add references to your documents
+
+- Application plugins to quick reference insertions
+	- JabRef: Emacs, Lyk, TeXstudio, Vim...
+	- Zotero: LibreOffice, Word...
+
+- Export a list of references as
+	- *BibTex* and other *LaTeX* formats
+	- IEEE style and other ordinary styles for copy & paste
+
+---
+
+## Export as *BibTex*
+
+```
+@incollection{goos_globally_2003,
+	address = {Berlin, Heidelberg},
+	title = {Globally {Asynchronous} {Locally} {Synchronous} {FPGA} {Architectures}},
+	volume = {2778},
+	isbn = {978-3-540-40822-2 978-3-540-45234-8},
+	url = {http://link.springer.com/10.1007/978-3-540-45234-8_35},
+	abstract = {Globally Asynchronous Locally Synchronous (GALS) Systems have provoked renewed interest over recent years as they have the potential to combine the beneﬁts of asynchronous and synchronous design paradigms. It has been applied to ASICs, but not yet applied to FPGAs. In this paper we propose applying GALS techniques to FPGAs in order to overcome the limitation on timing imposed by slow routing.},
+	language = {en},
+	urldate = {2018-09-12},
+	booktitle = {Field {Programmable} {Logic} and {Application}},
+	publisher = {Springer Berlin Heidelberg},
+	author = {Royal, Andrew and Cheung, Peter Y. K.},
+	editor = {Goos, Gerhard and Hartmanis, Juris and van Leeuwen, Jan and Y. K. Cheung, Peter and Constantinides, George A.},
+	year = {2003},
+	doi = {10.1007/978-3-540-45234-8_35},
+	keywords = {Micropipeline, Muller C-element},
+	pages = {355--364},
+	file = {Royal et Cheung - 2003 - Globally Asynchronous Locally Synchronous FPGA Arc.pdf:C\:\\Users\\Bastien\\Zotero\\storage\\PZHDR9ZI\\Royal et Cheung - 2003 - Globally Asynchronous Locally Synchronous FPGA Arc.pdf:application/pdf}
+}
+```
+
+---
+
+## Export as IEEE style for copy & paste
+
+![bg original 38%](figures/generate_IEEE.png)
+
+---
+
+## Output
+
+```
+[1] Q. Wei, L. Liu, G. Peng, S. Yin, et S. Wei,
+« Efficient and Flexible VLSI Architecture
+for Soft-Output Massive MIMO Detector », in
+Proceedings of Information Science and Cloud
+Computing — PoS(ISCC 2017), Guangzhou, China,
+2018, p. 055.
+
+[2] B. Yin, M. Wu, J. R. Cavallaro, et C. Studer,
+« VLSI design of large-scale soft-output MIMO
+detection using conjugate gradients », in 2015
+IEEE International Symposium on Circuits and
+Systems (ISCAS), Lisbon, Portugal, 2015, p. 1498‑1501.
+```
+
+---
+
+## Tips & tricks
+
+- Save all papers that you read.
+- Save also usefull web pages, newspaper articles...
+	- :warning: Dont forget to add few information about the content
+
+
+- A few minutes to lose now but hours to save later.
 
 ---
 
@@ -314,10 +485,11 @@ Example (LaTeX `.tex` file and BibTeX `.bib` file):
 ## Sum-up
 - We showed you techniques to look for new references,
   and to find and download the PDF (*legally*)
-- We showed you two softwares to manage your bibliography
+- We showed you some softwares to manage your bibliography
 
 ## Pointers
 - $\hookrightarrow$ [scholar.google.com](https://scholar.google.com/)
+- $\hookrightarrow$ [archives-ouvertes.fr](https://www.archives-ouvertes.fr/) & [arxiv.org](https://arxiv.org/)
 - $\hookrightarrow$ [duckduckgo.com](https://duckduckgo.com/) :heart:
 - $\hookrightarrow$ [zotero.org](https://zotero.org) and [jabref.org](https://jabref.org)
 
@@ -325,20 +497,21 @@ Example (LaTeX `.tex` file and BibTeX `.bib` file):
 
 # Conclusion (2/3)
 
-## Next GouTP @ ==SCEE==
+## Next GouTP @ SCEE
 - Any request or suggestion ?
 
 ## We need participants!
 > :point_right: By *you*? Any idea is welcome! :smiley:
 
+> Contact us if you want to do a GouTP !
+
 ---
 
 # Conclusion (3/3)
 
-> <span class="fontify">Thanks for joining :clap: !</span>
-> <span class="fontify">Contact us if you want to do a GouTP !</span>
+> Thanks for joining :clap: !
 
 ## Your mission, if you accept it… :boom:
 1. *Padawan level :* be smart about how you look for new references.
-2. *Jedi level :* organize and backup your references and BibTeX files!
+2. *Jedi level :* organize **and backup** your references and BibTeX files!
 3. *Master level :* publish so many papers that your name will be in the BibTeX files of half the planet (*yes we can!*).

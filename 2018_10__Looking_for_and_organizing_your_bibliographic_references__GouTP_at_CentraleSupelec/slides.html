@@ -1,12 +1,14 @@
-<!--
-$theme: default
-$size: 4:3
-page_number: true
-footer: GouTP @ SCEE | 25 October 2017 | By: Lilian Besson & Bastien Trotobas & Nabil Zaraneh
--->
-
-<link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>1st GouTP @ SCEE  |  Date : 25 October 2018  |  Lilian Besson & Bastien Trotobas & Nabil Zaraneh</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../common/slides.css">
+    </head>
+    <body>
+    <!-- Done for the header, now the content -->
+<textarea id="source">
+count: true
 
 # $1^{\text{st}}\;\;$ $2018/19$ GouTP @ SCEE
 
@@ -103,7 +105,7 @@ Ask questions and interrupt me if you want!
 - 1 GNU/Linux (Ubuntu) workstation, with Python, GNU Radio…
   + WS3 : `172.16.6.213`
 - Powerful machines: 12 cores, 32 Gb of RAM, lots of storage…
-- Monitoring :mag: : http://172.16.6.219:8000 (ask us for ==id/passwd==)
+- Monitoring :mag: : http://172.16.6.219:8000 (ask us for id/passwd)
   (please check for use load, before launching heavy simulations)
 
 ## :tipping_hand_woman: Ask for an account if you need
@@ -498,21 +500,49 @@ Systems (ISCAS), Lisbon, Portugal, 2015, p. 1498‑1501.
 
 # Conclusion (2/3)
 
-## Next GouTP @ ==SCEE==
+## Next GouTP @ SCEE
 - Any request or suggestion ?
 
 ## We need participants!
 > :point_right: By *you*? Any idea is welcome! :smiley:
 
-> <span class="fontify">Contact us if you want to do a GouTP !</span>
+> Contact us if you want to do a GouTP !
 
 ---
 
 # Conclusion (3/3)
 
-> <span class="fontify">Thanks for joining :clap: !</span>
+> Thanks for joining :clap: !
 
 ## Your mission, if you accept it… :boom:
 1. *Padawan level :* be smart about how you look for new references.
 2. *Jedi level :* organize **and backup** your references and BibTeX files!
 3. *Master level :* publish so many papers that your name will be in the BibTeX files of half the planet (*yes we can!*).
+
+</textarea>
+        <!-- Done for the content, now the footer -->
+        <script type="text/javascript" src="../common/remark.min.js"></script>
+        <!-- If needed, the latest version can be downloaded raw from GitHub : -->
+        <!-- <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js"></script> -->
+        <script type="text/javascript">
+            var slideshow = remark.create({
+                    highlightLanguage: 'python',
+                    highlightStyle: 'monokai'
+                });
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                extensions: ["tex2jax.js"],
+                jax: ["input/TeX", "output/HTML-CSS"],
+                tex2jax: {
+                    inlineMath: [ ["$", "$"] ],
+                    displayMath: [ ["$$", "$$"] ],
+                    processEscapes: true
+                },
+                "HTML-CSS": { availableFonts: ["TeX"] }
+            });
+        </script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
+        <script type="text/javascript" src="https://localhost/_static/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML.js"></script>
+    </body>
+</html>
