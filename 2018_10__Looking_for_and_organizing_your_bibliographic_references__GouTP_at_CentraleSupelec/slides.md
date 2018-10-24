@@ -237,7 +237,7 @@ Once you know what to read, try this to find the paper:
 2. Google / DuckDuckGo / your favorite search engine
 3. The author's website! *Or directly ask them!*
 4. arXiv search page (it's brand new and works perfectly well!),
-5. or HAL search page
+5. or HAL search page, or arXiv-sanity
 6. IEEEXplore : CentraleSupélec pays the license!
    [`ieeexplore-ieee-org.bibliopam.supelec.fr`](https://ieeexplore-ieee-org.bibliopam.supelec.fr)
 6. Some hacky websites (use at your own risk),
@@ -255,6 +255,10 @@ Once you know what to read, try this to find the paper:
 ---
 
 ![bg original 95%](figures/looking_for_on_arxiv_search_page.png)
+
+---
+
+![bg original 78%](figures/looking_for_on_arxiv_sanity_search_page.png)
 
 ---
 
