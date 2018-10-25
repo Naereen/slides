@@ -6,7 +6,7 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - At first, this repository was only here to host some small experiments, for me to learn how to use [the remark.js slideshow tools](http://remarkjs.com/) correctly;
 - But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:! [My pandoc/beamer template](my.beamer) is working well, I love it.
 - And I am passionate about open-source, and really fond of Markdown, I am trying to publish here all the slides of the talks I gave recently (from July 2017).
-- I also really like [Marp](https://yhatt.github.io/marp/) (even if it's not updated enough), and [have wrote this small CSS file to customize it](common/marp-naereen.css) (using [Palatino](https://en.wikipedia.org/wiki/Palatino) & [Fira Code](https://github.com/tonsky/FiraCode/) fonts).
+- I also really like [Marp](https://yhatt.github.io/marp/) (even if it's not updated enough), and [have written this small CSS file to customize it](common/marp-naereen.css) (using [Palatino](https://en.wikipedia.org/wiki/Palatino) & [Fira Code](https://github.com/tonsky/FiraCode/) fonts).
 
 > See also [my SpeakerDesk profile](https://speakerdeck.com/naereen), where I also shared all my previous slides, and I will keep sharing the new ones.
 
