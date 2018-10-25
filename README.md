@@ -58,7 +58,6 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.html).
 - [2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar](https://cdn.rawgit.com/Naereen/slides/master/2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar/slides.html).
 - [2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec/slides.html).
-- [2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec](
 - For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/slides.html`.
 
 > Note: I have stopped writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless. Tell me if you want them!
