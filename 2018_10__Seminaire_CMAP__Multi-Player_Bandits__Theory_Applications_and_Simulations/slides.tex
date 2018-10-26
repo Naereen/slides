@@ -1,4 +1,4 @@
-\documentclass[12pt,english,ignorenonframetext,aspectratio=169,]{beamer}
+\documentclass[12pt,english,ignorenonframetext,]{beamer}
 
 %%%%%%%%%%%%%%%
 %% Beamer theme
@@ -201,7 +201,7 @@
 \and Émilie Kaufmann}
 \institute[CentraleSupélec \& Inria]{PhD Student \newline Team SCEE, IETR, CentraleSupélec, Rennes
 \newline \& Team SequeL, CRIStAL, Inria, Lille}
-\date[ALT Conference -- $08$th April $2018$]{ALT Conference -- $08$th April $2018$}
+\date[CMAP Seminar -- $31$ Oct $2018$]{CMAP Seminar -- $31^{\text{st}}$ October $2018$}
 
 % For \justifying command, see https://tex.stackexchange.com/a/148696/
 \usepackage{ragged2e}
@@ -229,7 +229,7 @@
 % XXX manual inclusion of logos
 \begin{center}
 \includegraphics[height=0.13\textheight]{../common/LogoIETR.png}
-\includegraphics[height=0.13\textheight]{../common/LogoCS.png}
+\includegraphics[height=0.17\textheight]{../common/LogoCS.png}
 \includegraphics[height=0.13\textheight]{../common/LogoInria.jpg}
 \end{center}
 
@@ -249,6 +249,7 @@
 \begin{frame}{Motivation}
 
 We control some communicating devices, they want to use a wireless access point.
+\pause
 
 \begin{itemize}\tightlist
 \item
@@ -256,6 +257,7 @@ We control some communicating devices, they want to use a wireless access point.
 \item
   With a protocol \textbf{slotted in both time and frequency}.
 \end{itemize}
+\pause
 
 \begin{block}{Goal}
 
@@ -267,6 +269,7 @@ We control some communicating devices, they want to use a wireless access point.
 \end{itemize}
 
 \end{block}
+\pause
 
 \begin{block}{How?}
 
@@ -282,40 +285,71 @@ We control some communicating devices, they want to use a wireless access point.
 
 
 
-% \subsection{\hfill{}1.b. Outline\hfill{}}
+\subsection{\hfill{}1.b. Outline and references\hfill{}}
 
-% \begin{frame}{Outline}
+\begin{frame}{Outline \uncover<4>{and reference}}
 
-% \vspace*{-15pt}
+\vspace*{-15pt}
 
-% \begin{enumerate}
-% \def\labelenumi{\arabic{enumi}.}
-% \tightlist
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Introduction
+\item
+  Our model: \(3\) different feedback levels
+\item
+  Regret of the system, and our lower bound on regret
+  \pause
+\item
+  Quick reminder on single-player MAB algorithms
+\item
+  New multi-player non-coordinated decentralized algorithms
+\item
+  Our upper bound on regret for \MCTopM
+  \pause
+\item
+  Review of two more recent articles
+\item
+  Experimental results
 % \item
-%   \invisible{Introduction}
-% \item
-%   Our model: \(3\) different feedback levels
-% \item
-%   Regret lower bound
-% \item
-%   \invisible{Quick reminder on single-player MAB algorithms}
-% \item
-%   A new multi-player decentralized algorithm
-% \item
-%   Upper bound on the regret for \MCTopM
-% \item
-%   Experimental results
-% \item
-%   \invisible{An heuristic (\Selfish), and disappointing results}
-% \item
-%   \invisible{Conclusion}
-% \end{enumerate}
+%   An heuristic (\Selfish), and disappointing results
+  \pause
+\item
+  Conclusion
+\end{enumerate}
 
-% \end{frame}
+\pause
+
+\vfill{}
+
+\begin{footnotesize}
+This is based on our latest article:
+\begin{itemize}
+\item \emph{``Multi-Player Bandits Revisited''}, Besson \& Kaufmann.
+\texttt{\textcolor{blue}{\href{https://arXiv.org/abs/1711.02317}{arXiv:1711.02317}}}, presented at \emph{ALT 2018} (Lanzarote, Spain) in April.
+\end{itemize}
+\end{footnotesize}
+
+\end{frame}
 
 
 
-\section{\hfill{}2. Our model: $3$ different feedback level\hfill{}}
+\section{\hfill{}2. Our model: $3$ different feedback levels\hfill{}}
+
+\begin{frame}{Our model}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item Our communication model
+\item With or without sensing
+\item Background traffic, and rewards
+\item Different feedback levels
+\item Goal
+\end{enumerate}
+
+\end{frame}
 
 \subsection{\hfill{}2.a. Our communication model\hfill{}}
 
@@ -380,8 +414,8 @@ Discrete and synchronized time \(t\geq1\).
 \item
   \emph{Without sensing}: same background traffic, but cannot sense, so
   only \texttt{Ack} is used.
-  \small{More suited for ``IoT'' networks like LoRa or SigFox} (Harder to
-  analyze mathematically.)
+  % \small{More suited for ``IoT'' networks like LoRa or SigFox} (Harder to
+  % analyze mathematically.)
 \end{enumerate}
 
 \end{block}
@@ -422,7 +456,7 @@ Discrete and synchronized time \(t\geq1\).
   \(\;\;\)
   \(C^j(t) = \mathbbm{1}(\)\emph{alone on arm $A^j(t)$}\()\).
   \newline
-  \(\hookrightarrow\) \(r^j(t)\) \alert{combined} binary reward \textbf{but not} from two Bernoulli!
+\(\hookrightarrow\) \(r^j(t)\) \alert{combined} binary reward \textbf{but not} from two Bernoulli!
 \end{itemize}
 
 \end{block}
@@ -470,20 +504,30 @@ Discrete and synchronized time \(t\geq1\).
 
 \subsection{\hfill{}2.e. Goal\hfill{}}
 
-\begin{frame}[fragile]{Goal}
+\begin{frame}{Goal}
 
-\begin{block}{Problem}
+\begin{block}{Goal}
+  \begin{itemize}\tightlist
+    \item
+    \emph{Minimize packet loss ratio} \newline
+    (\(=\) maximize nb of received \texttt{Ack})
+    \item
+    in a \emph{finite-space discrete-time Decision Making Problem}.
+  \end{itemize}
+\end{block}
 
-\begin{itemize}\tightlist
-\item
-  \emph{Goal}: \emph{minimize packet loss ratio} (\(=\) maximize nb of
-  received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
-  Making Problem}.
-\item
-  \emph{Solution ?} \textbf{Multi-Armed Bandit algorithms},
-  \textbf{decentralized} and used \textbf{independently} by each dynamic
-  device.
-\end{itemize}
+\vspace*{20pt}
+
+\begin{block}{Solution ?}
+
+  \textbf{Multi-Armed Bandit algorithms}
+  \begin{itemize}\tightlist
+    \item
+    \textbf{decentralized} and
+    \item
+    used \textbf{independently} by each dynamic device.
+  \end{itemize}
+
 
 \end{block}
 
@@ -508,7 +552,6 @@ Discrete and synchronized time \(t\geq1\).
 \end{frame}
 
 
-
 \subsection{\hfill{}2.f. Centralized regret\hfill{}}
 
 \begin{frame}{Centralized regret}
@@ -517,12 +560,12 @@ Discrete and synchronized time \(t\geq1\).
 
 \begin{itemize}\tightlist
 \item
-  \textbf{Not} the network throughput or collision probability,
+  \textbf<1>{Not} the network throughput or collision probability,
 \item
-  We study the \textbf{centralized} (\textcolor<1>{blue}{expected}) \textbf{regret}:
+  We study the \textbf<1>{centralized} (\textcolor<1>{blue}{expected}) \textbf<1>{regret}:
 \end{itemize}
 
-\begin{small}\vspace*{-20pt}
+\begin{small}\vspace*{-10pt}
   $$R_T(\boldsymbol{\mu}, M, \rho)
   :=
   % \E_{\mu}\left[ \sum_{t=1}^T \sum_{j=1}^M \alert<1>{\mu_j^*} -  r^j(t)\right] \pause=
@@ -534,7 +577,7 @@ Discrete and synchronized time \(t\geq1\).
 \end{block}
 
 \only<1>{
-  Notation :
+  Notation:
   $\alert{\mu_k^*}$ is the mean of the $k$-best arm
   ($k$-th largest in $\boldsymbol{\mu}$):
   \begin{itemize}
@@ -579,12 +622,11 @@ Discrete and synchronized time \(t\geq1\).
 \item
   Decomposition of the regret in \(3\) terms,\vspace*{15pt}
 \item
-  Asymptotic lower bound of one term,\vspace*{15pt}
+  Asymptotic lower bound on one term,\vspace*{15pt}
 \item
-  And for regret.
-  % \vspace*{15pt}
-% \item
-%   Proof?
+  And for the regret,\vspace*{15pt}
+\item
+  Possibly wrong result, not sure yet.
 \end{enumerate}
 
 \end{frame}
@@ -643,13 +685,13 @@ R_T(\boldsymbol{\mu}, M, \rho)
 
 \begin{frame}{Asymptotic lower bound on the regret I}
 
-\begin{block}{Theorem 1
+\begin{block}{Theorem $1$
   \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
   Sub-optimal arms selections are lower bounded asymptotically,
   \[\forall\, \text{player}\, j, \text{bad arm}\,k,\;\;\;\; \mathop{\lim\inf}\limits_{T \to +\infty} \frac{\E_{\mu}[T_k^j(T)]}{\log T} \geq \frac{1}{\kl(\mu_k, \mu_M^*)},\]
-  \footnotetext{\tiny Where $\kl(x,y) := x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} Kullback-Leibler divergence.}
-
+  \footnotetext{\tiny Where $\kl(x,y) := \mathcal{KL}(\mathcal{B}(x), \mathcal{B}(y)) = x \log(\frac{x}{y}) + (1 - x) \log(\frac{1-x}{1-y})$ is the \emph{binary} KL divergence.}
+  % Kullback-Leibler
 \end{block}
 
 Proof: using classical information theory tools (Kullback-Leibler divergence, change of distributions)\dots
@@ -659,7 +701,7 @@ Proof: using classical information theory tools (Kullback-Leibler divergence, ch
 
 \begin{frame}{Asymptotic lower bound on the regret II}
 
-\begin{block}{Theorem 2
+\begin{block}{Theorem $2$
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
 \small{For any uniformly efficient decentralized policy, and any
@@ -688,58 +730,89 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 \end{frame}
 
 
+\subsection{\hfll{}3.b. Possibly wrong result, not sure yet\hfill{}}
+
+\begin{frame}{Possibly wrong result, not sure yet}
+
+\begin{itemize}\tightlist
+\item
+A recent article studied the same problem (end of September).
+
+\item
+They showed a regret upper bound for their SIC-MMAB algorithm which disproves our regret lower bound.
+(no price of decentralization)
+\pause
+
+\item
+Their algorithm works fine in practice, see later,
+and their proof seems fine, but the point they indicate as wrong in our paper is not clear and we couldn't find an error.
+
+\item
+I will work on this more in the close future!
+\end{itemize}
+
+\vfill{}
+\textcolor{gray}{\small
+  ``\emph{SIC-MMAB: Synchronisation Involves Communication in Multiplayer Multi-Armed Bandits}'',
+  by Etienne Boursier \& Vianney Perchet
+  \textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}
+}
+
+\end{frame}
+
+
 
 \section{\hfill{}4. Single-player MAB algorithm: \klUCB\hfill{}}
 
-% \begin{frame}{Single-player MAB algorithms}
+\begin{frame}{Single-player MAB algorithms}
 
-% \begin{enumerate}
-% \def\labelenumi{\arabic{enumi}.}
-% \tightlist
-% % \item
-% %   Index-based MAB deterministic policies,\vspace*{15pt}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 % \item
-%   Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
-% \item
-%   Kullback-Leibler UCB algorithm : \klUCB.
-% \end{enumerate}
+%   Index-based MAB deterministic policies,\vspace*{15pt}
+\item
+  Upper Confidence Bound algorithm : \UCB,\vspace*{15pt}
+\item
+  Kullback-Leibler UCB algorithm : \klUCB.
+\end{enumerate}
 
-% \end{frame}
+\end{frame}
 
 
 
-% \subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
+\subsection{\hfill{}4.a. Upper Confidence Bound algorithm : \UCB\hfill{}}
 
-% \begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
+\begin{frame}{Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))}
 
-% \begin{enumerate}
-% \def\labelenumi{\arabic{enumi}.}
-% \tightlist
-% \item
-%   For the first \(K\) steps (\(t=1,\dots,K\)), try each channel
-%   \emph{once}.
-% \item
-%   Then for the next steps \(t > K\) :
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  For the first \(K\) steps (\(t=1,\dots,K\)), try each channel
+  \emph{once}.
+\item
+  Then for the next steps \(t > K\) :
 
-%   \begin{itemize}
-%   \tightlist
-%   \item
-%   \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
-%   \item
-%   \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
-%   \item
-%     Compute the index
-%     \(\mathrm{UCB}_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Confide isnce Bonus}}\)
-%   \item
-%     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k^j(t)\),
-%   \item
-%     Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
-%   \end{itemize}
-% \end{enumerate}
+  \begin{itemize}
+  \tightlist
+  \item
+  \(T_k^j(t) := \sum\limits_{s=1}^{t} \mathbbm{1}(A^j(s) = k)\) selections of channel \(k\),
+  \item
+  \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
+  \item
+    Compute the index
+    \(\mathrm{UCB}_k^j(t) := \underbrace{\alert{\frac{S_k^j(t)}{T_k^j(t)}}}_{\text{Empirical Mean}\; \widehat{\mu_k}(t)} + \underbrace{\sqrt{\frac{\log(t)}{2 \; T_k^j(t)}},}_{\text{Confide isnce Bonus}}\)
+  \item
+    Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k^j(t)\),
+  \item
+    Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
+  \end{itemize}
+\end{enumerate}
 
-% \citationbottomright{Ref: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
+\citationbottomright{Ref: [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}
 
-% \end{frame}
+\end{frame}
 
 
 
@@ -764,20 +837,20 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
   \item
   \(S_k^j(t) := \sum\limits_{s=1}^{t} Y_{k}(s) \mathbbm{1}(A^j(s) = k)\) sum of sensing information.
   \item
-    Compute the index \(\mathrm{UCB}_k^j(t)\), an \emph{Upper Confidence Bound} on the mean \(\mu_k\)
+    Compute \(\mathrm{UCB}_k^j(t)\), \emph{Upper Confidence Bound} on mean \(\mu_k\)
     \newline
     \(\mathrm{UCB}_k^j(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\alert{\frac{S_k^j(t)}{T_k^j(t)}}, q\right) \leq \frac{\log(t)}{T_k^j(t)} \right\}\),
     \citationright{Ref: [Garivier \& Cappé, 2011]}
-    \item
+  \item
     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k^j(t)\),
-    \item
+  \item
     Update \(T_k^j(t+1)\) and \(S_k^j(t+1)\).
   \end{itemize}
 \end{enumerate}
 
 {\small \klUCB{}
 % is more efficient than \UCB{}, and
-is asymptotically optimal for single-player Bernoulli stochastic bandit.
+is asymptotically optimal for $1$-player Bernoulli stochastic bandit.
 \citationright{Ref: [Cappé et al, 2013]}
 }
 
@@ -829,14 +902,17 @@ policies}
 
 \begin{itemize}\tightlist
 \item
-  ``State-of-the-art'': \rhoRand{} policy and variants,
+  ``State-of-the-art'': \rhoRand{}
+  % policy and variants,
   \citationright{Ref: [Anandkumar et al, 2011]}
 \item
-  Recent approaches: \MEGA{} and \MusicalChair{}.
+  Recent: \MEGA{} and \MusicalChair{}.
   \citationright{Ref: [Avner \& Mannor, 2015], [Shamir et al, 2016]}
 \end{itemize}
 
 \end{block}
+
+\pause
 
 \begin{exampleblock}{Our contributions:
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
@@ -944,7 +1020,8 @@ policies}
 \item
   Based on sensing information, each user \(j\) keeps \(\mathrm{UCB}_k^j(t)\) for each arm \(k\),
 \item
-  Use it to estimate the \(M\) best arms: \(\TopM(t) = \{\text{arms with } M \text{ largest } \mathrm{UCB}_k^j(t)\}\)
+  Use it to estimate the \(M\) best arms:
+  \[\TopM(t) = \{\text{arms with } M \text{ largest } \mathrm{UCB}_k^j(t)\}.\]
 \end{itemize}
 
 Two ideas:
@@ -956,9 +1033,10 @@ Two ideas:
   Try not to switch arm too often.
 \end{itemize}
 
-Introduce a \textbf{fixed state} \(s^j(t)\):\newline
-first non fixed, then fix when happy about an arm and no collision.
+Introduce a \textbf{fixed state} \(s^j(t)\):
 \citationright{Ref: [Shamir et al, 2016]}
+\newline
+first non fixed, then fix when happy about an arm and no collision.
 
 \end{frame}
 
@@ -1017,8 +1095,8 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 \begin{frame}{\MCTopM{} algorithm illustrated, step by step}
 
 \begin{figure}[h!]
-\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{tikzpicture}[>=latex',line join=bevel,scale=5]
+\scalebox{0.65}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=5.5]
     %
     \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
     \pause
@@ -1071,21 +1149,21 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
 
 \begin{frame}{Regret upper bound for \MCTopM{}}
 
-\begin{block}{Theorem 3
+\begin{block}{Theorem $3$
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 One term is controlled by the two others:
-\begin{small}\[
-\sum_{k \in \Mbest} (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right)
+\begin{small}\begin{align*}
+\sum_{k \in \Mbest} & (\mu_k -  \mu_M^*) \left(T - \E_{\mu}[T_k(T)]\right) \\
 \leq
-(\mu_1^* -  \mu_M^*) \left( \textcolor<1>{red}{\sum_{k \in \Mworst} \E_{\mu}[T_k(T)]} + \textcolor<1>{blue}{\sum_{k \in \Mbest} \E_{\mu}[C_k(T)]} \right)
-\]\end{small}
+&(\mu_1^* -  \mu_M^*) \left( \textcolor<1>{red}{\sum_{k \in \Mworst} \E_{\mu}[T_k(T)]} + \textcolor<1>{blue}{\sum_{k \in \Mbest} \E_{\mu}[C_k(T)]} \right)
+\end{align*}\end{small}
 
 So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \textcolor<1>{blue}{collisions}.
 \end{block}
 
 \pause
 
-\begin{block}{Theorem 4
+\begin{block}{Theorem $4$
 \hfill{}\textcolor{gray}{[Besson \& Kaufmann, 2018]}}
 
 If all \(M\) players use \MCTopM{} with \klUCB:
@@ -1131,6 +1209,68 @@ Control both terms, both are logarithmic at finite horizon:
 \end{itemize}
 
 \end{block}
+
+\end{frame}\section{\hfill{}A. Regret upper bound (more details)\hfill{}}
+
+\subsection{\hfill{}A.b. Sketch of the proof of the upper bound\hfill{}}
+
+\begin{frame}{Sketch of the proof}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Bound the expected number of collisions by \(M\) times the number of
+  collisions for non-fixed players,\pause
+\item
+  Bound the expected number of
+  \textcolor<2>{red}{transitions of type $(3)$ and $(5)$}, by
+  \(\bigO{\log T}\) using the \klUCB{} indexes and the forced choice of
+  the algorithm:
+  \(\mathrm{UCB}_k^j(t-1) \leq \mathrm{UCB}^j_{k'}(t-1), \;\;\text{and}\;\; \mathrm{UCB}_k^j(t) > \mathrm{UCB}^j_{k'}(t)\)
+  when switching from \(k'\) to \(k\),\pause
+\item
+  Bound the expected length of a sequence in the non-fixed state by a
+  constant,\pause
+\item
+  So most of the times (\(\bigO{T - \log T}\)), players are fixed, and
+  no collision happens when they are all fixed!
+\end{enumerate}
+
+\begin{quote}
+\strut
+
+\hfill\(\hookrightarrow\) See our paper for details!
+\end{quote}
+
+\end{frame}
+
+\subsection{\hfill{}A.b. Illustration of the proof of the upper bound\hfill{}}
+
+\begin{frame}{Illustration of the proof}
+
+\begin{figure}[h!]
+\scalebox{0.65}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
+\begin{tikzpicture}[>=latex',line join=bevel,scale=5.5]
+    %
+    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
+    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
+    %
+    \draw [color=black,very thick,->] (start) -> (notfixed.20);
+    \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
+    \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
+    \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
+    \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
+    \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
+    %
+\end{tikzpicture}
+\end{minipage}}
+\label{fig:StateMachineAlgorithm_MCTopM}
+\end{figure}
+\begin{small}
+  -- Time in fixed state is $\bigO{\log T}$, and collisions are $\leq M$ collisions in fixed state $\implies \bigO{\log T}$ collisions.\newline
+  -- Suboptimal selections is $\bigO{\log T}$ also as $A^j(t+1)$ is always selected in $\TopM(t)$ which is $\Mbest$ at least $\bigO{T - \log T}$ (in average).
+\end{small}
 
 \end{frame}
 
@@ -1227,55 +1367,23 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{frame}
 
 
-% \subsection{\hfill{}7.e. Fairness\hfill{}}
+\subsection{\hfill{}7.e. Fairness\hfill{}}
 
-% \begin{frame}[plain]{Fairness}
+\begin{frame}[plain]{Fairness}
 
-% \begin{figure}[h!]
-% \centering
-% \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
-% \caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. \textbf{It's quite hard to achieve both efficiency and single-run fairness!}}}
-% \end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
+\caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. \textbf{It's quite hard to achieve both efficiency and single-run fairness!}}}
+\end{figure}
 
-% \end{frame}
+\end{frame}
 
 
 \section{\hfill{}8. Conclusion\hfill{}}
 \subsection{\hfill{}8.a. Conclusion\hfill{}}
 
 \begin{frame}{Sum up}
-
-% \begin{block}{\emph{Wait, what was the problem ?}}
-
-% \begin{itemize}
-% \tightlist
-% \item
-%   Classical stochastic MAB algorithms have guarantees for \emph{i.i.d. settings},
-% \item
-%   But here the collisions cancel the \iid{} hypothesis
-%   while still being easier than the ``adversarial'' case\ldots{}
-% \item
-%   Not easy to obtain guarantees in this mixed setting
-%   (``game theoretic'' collisions).
-% \end{itemize}
-
-% \pause
-
-% \end{block}
-
-% \begin{block}{Theoretical results}
-
-% \begin{itemize}
-% \tightlist
-% \item
-%   With sensing (``OSA''), we obtained strong results:\newline
-%   a lower bound, and an order-optimal algorithm,
-% \item
-%   But without sensing (``IoT''), it is harder\ldots{}\newline
-%   our heuristic \Selfish{} usually works but can fail!
-% \end{itemize}
-
-% \end{block}
 
 \begin{itemize}\tightlist
 \item
@@ -1308,7 +1416,6 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 
 \begin{frame}{Future works}
 
-% \begin{block}{Conclude the Multi-Player OSA analysis}
 \begin{itemize}\tightlist
 \item
   Remove hypothesis that objects know \(M\)?
@@ -1316,25 +1423,20 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
   Allow arrival/departure of objects?
 \item
   Non-stationarity of background traffic?
-% \end{itemize}
-% \end{block}
 
-% \begin{block}{}
+\vspace*{15pt}
+\pause
+
 \item Extend to more objects (\ie, when \(M > K\))
 
-% Extend the theoretical analysis to the
 ``Large-scale'' IoT model,
 with (\eg, ZigBee networks),
 or without sensing (\eg, LoRaWAN networks).
 \hook objects should no longer communicate at every time step!
 
-% \end{block}
+\vspace*{15pt}
+\pause
 
-% \begin{block}{But more work is still needed\ldots{}}
-% \begin{itemize}\tightlist
-\item
-  Obtain a \textbf{better understanding} for the ``IoT'' model (without sensing).
-  % and can be improved (slightly) for the ``OSA'' model (with sensing).
 \item
   Maybe study \textbf{other emission models}?
 \item
@@ -1342,7 +1444,6 @@ or without sensing (\eg, LoRaWAN networks).
   \hook Yes! Demo presented at the ICT \(2018\) conference! (Saint-Malo, France)
 
 \end{itemize}
-% \end{block}
 
 \end{frame}
 
@@ -1375,10 +1476,6 @@ or without sensing (\eg, LoRaWAN networks).
 
 \begin{itemize}\tightlist
 \item
-  Proof of the regret upper bound,
-\item
-  Illustration of the proof,
-\item
   An heuristic for the ``IoT'' case (no sensing): the \Selfish{} algorithm,
 \item
   Success and failures case for \Selfish{}.
@@ -1386,70 +1483,6 @@ or without sensing (\eg, LoRaWAN networks).
 
 \end{frame}
 
-
-\section{\hfill{}A. Regret upper bound (more details)\hfill{}}
-
-\subsection{\hfill{}A.b. Sketch of the proof of the upper bound\hfill{}}
-
-\begin{frame}{Sketch of the proof}
-
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  Bound the expected number of collisions by \(M\) times the number of
-  collisions for non-fixed players,\pause
-\item
-  Bound the expected number of
-  \textcolor<2>{red}{transitions of type $(3)$ and $(5)$}, by
-  \(\bigO{\log T}\) using the \klUCB{} indexes and the forced choice of
-  the algorithm:
-  \(\mathrm{UCB}_k^j(t-1) \leq \mathrm{UCB}^j_{k'}(t-1), \;\;\text{and}\;\; \mathrm{UCB}_k^j(t) > \mathrm{UCB}^j_{k'}(t)\)
-  when switching from \(k'\) to \(k\),\pause
-\item
-  Bound the expected length of a sequence in the non-fixed state by a
-  constant,\pause
-\item
-  So most of the times (\(\bigO{T - \log T}\)), players are fixed, and
-  no collision happens when they are all fixed!
-\end{enumerate}
-
-\begin{quote}
-\strut
-
-\hfill\(\hookrightarrow\) See our paper for details!
-\end{quote}
-
-\end{frame}
-
-\subsection{\hfill{}A.b. Illustration of the proof of the upper bound\hfill{}}
-
-\begin{frame}{Illustration of the proof}
-
-\begin{figure}[h!]
-\scalebox{0.85}{\begin{minipage}{1.45\textwidth}  %% https://tex.stackexchange.com/a/366403/
-\begin{tikzpicture}[>=latex',line join=bevel,scale=4.5]
-    %
-    \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
-    \node (notfixed) at (1,0) [draw,rectangle,thick] {Not fixed, $\overline{s^j(t)}$};
-    \node (fixed) at (0,0) [draw,rectangle,thick] {Fixed, $s^j(t)$};
-    %
-    \draw [color=black,very thick,->] (start) -> (notfixed.20);
-    \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small $(1)$ $\overline{C^j(t)}, A^j(t) \in \TopM(t)$} (fixed);
-    \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small $(2)$  $C^j(t), A^j(t) \in \TopM(t)$} (1);
-    \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small $(3)$  $A^j(t) \notin \TopM(t)$} (1);
-    \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small $(4)$ $A^j(t) \in \TopM(t)$} (fixed);
-    \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small $(5)$  $A^j(t) \notin \TopM(t)$} (notfixed);
-    %
-\end{tikzpicture}
-\end{minipage}}
-\label{fig:StateMachineAlgorithm_MCTopM}
-\end{figure}
-\begin{small}
-  -- Time in fixed state is $\bigO{\log T}$, and collisions are $\leq M$ collisions in fixed state $\implies \bigO{\log T}$ collisions.\newline
-  -- Suboptimal selections is $\bigO{\log T}$ also as $A^j(t+1)$ is always selected in $\TopM(t)$ which is $\Mbest$ at least $\bigO{T - \log T}$ (in average).
-\end{small}
-
-\end{frame}
 
 
 \section{\hfill{}B. An heuristic, \Selfish\hfill{}}
