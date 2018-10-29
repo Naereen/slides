@@ -287,7 +287,7 @@ We control some communicating devices, they want to use a wireless access point.
 
 \subsection{\hfill{}1.b. Outline and references\hfill{}}
 
-\begin{frame}{Outline \uncover<4>{and reference}}
+\begin{frame}{Outline \uncover<5->{and reference}}
 
 \vspace*{-15pt}
 
@@ -300,22 +300,25 @@ We control some communicating devices, they want to use a wireless access point.
   Our model: \(3\) different feedback levels
 \item
   Regret of the system, and our lower bound on regret
+  \vspace*{10pt}
   \pause
-\item
+  \item
   Quick reminder on single-player MAB algorithms
-\item
+  \item
   New multi-player non-coordinated decentralized algorithms
-\item
+  \item
   Our upper bound on regret for \MCTopM
+  \vspace*{10pt}
   \pause
-\item
+  \item
   Review of two more recent articles
-\item
+  \item
   Experimental results
-% \item
-%   An heuristic (\Selfish), and disappointing results
+  % \item
+  %   An heuristic (\Selfish), and disappointing results
+  \vspace*{10pt}
   \pause
-\item
+  \item
   Conclusion
 \end{enumerate}
 
@@ -324,11 +327,9 @@ We control some communicating devices, they want to use a wireless access point.
 \vfill{}
 
 \begin{footnotesize}
-This is based on our latest article:
-\begin{itemize}
-\item \emph{``Multi-Player Bandits Revisited''}, Besson \& Kaufmann.
+Based on
+\emph{``Multi-Player Bandits Revisited''}, by Lilian Besson \& {\'E}milie Kaufmann.
 \texttt{\textcolor{blue}{\href{https://arXiv.org/abs/1711.02317}{arXiv:1711.02317}}}, presented at \emph{ALT 2018} (Lanzarote, Spain) in April.
-\end{itemize}
 \end{footnotesize}
 
 \end{frame}
@@ -738,7 +739,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 \end{frame}
 
 
-\subsection{\hfll{}3.b. Possibly wrong result, not sure yet\hfill{}}
+\subsection{\hfill{}3.b. Possibly wrong result, not sure yet\hfill{}}
 
 \begin{frame}{Possibly wrong result, not sure yet?}
 
@@ -757,18 +758,19 @@ A recent article studied the same problem (\textcolor{blue}{\href{https://arxiv.
 \pause
 
 \item
-They showed a regret upper bound for their SIC-MMAB algorithm which disproves our regret lower bound:
+They showed a regret upper bound for their \SICMMAB{} algorithm which disproves our regret lower bound:\\
 they do not suffer from any ``price of decentralization'' {\Sadey} !
 
 \only<2>{
   \begin{figure}[h!]
     \centering
     \includegraphics[height=0.45\textheight]{figures/SIC_MMAB_and_its_regret_bound.png}
-    % \caption{\footnotesize{Theorem 1 from their article, regret bound for the SIC-MMAB algorithm (same setting as ours: with sensing).}}
+    % \caption{\footnotesize{Theorem 1 from their article, regret bound for the \SICMMAB{} algorithm (same setting as ours: with sensing).}}
   \end{figure}
 }
 
 \pause
+\vspace*{15pt}
 
 \item
 Their algorithm works fine in practice, see later,
@@ -779,11 +781,11 @@ I will work on this more in the close future!
 \end{itemize}
 
 \vfill{}
-\textcolor{gray}{\small
+\begin{footnotesize}
   ``\emph{SIC-MMAB: Synchronisation Involves Communication in Multiplayer Multi-Armed Bandits}'',
   by Etienne Boursier \& Vianney Perchet
   \textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}
-}
+\end{footnotesize}
 
 \end{frame}
 
@@ -867,7 +869,6 @@ I will work on this more in the close future!
     Compute \(\mathrm{UCB}_k^j(t)\), \emph{Upper Confidence Bound} on mean \(\mu_k\)
     \newline
     \(\mathrm{UCB}_k^j(t) := \sup\limits_{q \in [a, b]} \left\{ q : \mathrm{kl}\left(\alert{\frac{S_k^j(t)}{T_k^j(t)}}, q\right) \leq \frac{\log(t)}{T_k^j(t)} \right\}\),
-    \citationright{Ref: [Garivier \& Cappé, 2011]}
   \item
     Choose channel \(A^j(t) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k^j(t)\),
   \item
@@ -875,11 +876,12 @@ I will work on this more in the close future!
   \end{itemize}
 \end{enumerate}
 
-{\small \klUCB{}
-% is more efficient than \UCB{}, and
-is asymptotically optimal for $1$-player Bernoulli stochastic bandit.
-\citationright{Ref: [Cappé et al, 2013]}
-}
+\begin{small}
+  Known result:
+  \klUCB{}
+  is asymptotically optimal for $1$-player Bernoulli stochastic bandit.
+  \citationright{Ref: [Garivier \& Cappé, 2011], [Cappé et al, 2013]}
+\end{small}
 
 \end{frame}
 
@@ -1185,7 +1187,7 @@ One term is controlled by the two others:
 &(\mu_1^* -  \mu_M^*) \left( \textcolor<1>{red}{\sum_{k \in \Mworst} \E_{\mu}[T_k(T)]} + \textcolor<1>{blue}{\sum_{k \in \Mbest} \E_{\mu}[C_k(T)]} \right)
 \end{align*}\end{small}
 
-So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \textcolor<1>{blue}{collisions}.
+\only<1>{So only need to work on both \textcolor<1>{red}{sub-optimal selections} and \textcolor<1>{blue}{collisions}.}
 \end{block}
 
 \pause
@@ -1407,12 +1409,12 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \end{frame}
 
 
-\subsection{\hfill{}7.f. Comparison with SIC-MMAB and other approaches\hfill{}}
+\subsection{\hfill{}7.f. Comparison with \SICMMAB{} and other approaches\hfill{}}
 
 
-\begin{frame}{Comparison with SIC-MMAB and other approaches}
+\begin{frame}{A larger benchmark}
 
-  Let's compare different approaches:
+Now I also want to compare more approaches.
 
 \begin{itemize}\tightlist
   \item \rhoRand, with \UCB{} or \klUCB{},
@@ -1421,54 +1423,56 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
   \item \Selfish, with \UCB{} or \klUCB{},
   \item a centralized agent (\alert{not playing the same game, not fair to compare against it}), with \UCB{} or \klUCB{},
   \item three hand-tuned Musical-Chair algorithms,
-  \item three variants of the SIC-MMAB algorithm (from \textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}), with \UCB, \klUCB{} and their proposal with {\UCB}-H.
+  \item three variants of the \SICMMAB{} algorithm (from \textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}), with \UCB, \klUCB{} and their proposal with \UCBH.
 \end{itemize}
 
 \end{frame}
 
 
-\begin{frame}[plain]{Comparison with other approaches}
+\begin{frame}[plain]{Comparison with other approaches (1/3)}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T50000_N40__16_algos/all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-\caption{\footnotesize{For $M=6$ objects, XXX}}
+\caption{\footnotesize{For $M=6$ objects, \MCTopM{} and \RandTopM{} largely outperform \SICMMAB{} and \rhoRand.}}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}[plain]{Comparison with other approaches}
+\begin{frame}[plain]{Comparison with other approaches (2/3)}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M8_T50000_N40__16_algos/all_RegretCentralized_loglog____env1-1_2473883029686742467.pdf}
-\caption{\footnotesize{For $M=8$ objects, XXX}}
+\caption{\footnotesize{For $M=8$ objects, \MCTopM{} still outperforms \SICMMAB{} for short term regret, but the constant in front of the $\log(T)$ term seems smaller for \SICMMAB.}}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}[plain]{Comparison with other approaches}
+\begin{frame}[plain]{Comparison with other approaches (3/3)}
 
 \begin{figure}[h!]
 \centering
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M9_T50000_N40__16_algos/all_RegretCentralized_loglog____env1-1_4780366798347909369.pdf}
-\caption{\footnotesize{For $M=9$ objects, XXX}}
+\caption{\footnotesize{For $M=9$ objects, \MCTopM{} and \RandTopM{} largely outperform all approaches, they have finite regret when the other don't. For our algorithm, $M=K$ is the easiest case: just orthogonalize and it's done!}}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}{Comparison with SIC-MMAB and other approaches}
+\begin{frame}{Short summary of these benchmarks}
 
 In such experiments, and many more not showed here, I did the following observations:
 
 \begin{itemize}\tightlist
-  \item For any algorithm, the \klUCB{} variant is uniformly better than the \UCB{} and {\UCB}-H variant (obviously),
+  \item For any algorithm, the \klUCB{} variant is uniformly better than the \UCB{} and \UCBH variant (obviously),
   \item Any decentralized approach is less efficient than the ``cheating'' centralized multiple-play approach,
   \item And for a fixed index policy, the following ordering on decentralized approaches can be observed (smaller means smaller regret, so a better algorithm):
-  \MCTopM{} < \RandTopM{} < SIC-MMAB < \Selfish{} < \rhoRand.
+  \begin{center}
+    \MCTopM{} < \RandTopM{} < \SICMMAB{} < \Selfish{} < \rhoRand.
+  \end{center}
 \end{itemize}
 
 \end{frame}
