@@ -367,6 +367,8 @@ Discrete and synchronized time \(t\geq1\).
 % \caption{\small{Protocol in time and frequency, with an \textcolor{darkgreen}{\emph{Acknowledgement}}.}}
 \end{figure}
 
+\pause
+
 \begin{block}{Dynamic device \(=\) dynamic radio reconfiguration}
 
 \begin{itemize}\tightlist
@@ -398,6 +400,8 @@ Discrete and synchronized time \(t\geq1\).
 \end{itemize}
 
 \end{block}
+
+\pause
 
 \begin{block}{Two variants : with or without \emph{sensing}}
 
@@ -439,6 +443,8 @@ Discrete and synchronized time \(t\geq1\).
   \(M\) devices, each uses channel \(A^j(t) \in \{1,\dots,K\}\) at time
   \(t\).
 \end{itemize}
+
+\pause
 
 \end{block}
 
@@ -517,6 +523,8 @@ Discrete and synchronized time \(t\geq1\).
 \end{block}
 
 \vspace*{20pt}
+
+\pause
 
 \begin{block}{Solution ?}
 
@@ -626,7 +634,7 @@ Discrete and synchronized time \(t\geq1\).
 \item
   And for the regret,\vspace*{15pt}
 \item
-  Possibly wrong result, not sure yet.
+  \alert{Possibly wrong result, not sure yet!}
 \end{enumerate}
 
 \end{frame}
@@ -732,15 +740,34 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 
 \subsection{\hfll{}3.b. Possibly wrong result, not sure yet\hfill{}}
 
-\begin{frame}{Possibly wrong result, not sure yet}
+\begin{frame}{Possibly wrong result, not sure yet?}
 
 \begin{itemize}\tightlist
 \item
-A recent article studied the same problem (end of September).
+A recent article studied the same problem (\textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}).
+
+\only<1>{
+  \vspace*{10pt}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[height=0.65\textheight]{figures/SIC_MMAB_front_page.png}
+    % \caption{\footnotesize{Front page of their article.}}
+  \end{figure}
+}
+\pause
 
 \item
-They showed a regret upper bound for their SIC-MMAB algorithm which disproves our regret lower bound.
-(no price of decentralization)
+They showed a regret upper bound for their SIC-MMAB algorithm which disproves our regret lower bound:
+they do not suffer from any ``price of decentralization'' {\Sadey} !
+
+\only<2>{
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[height=0.45\textheight]{figures/SIC_MMAB_and_its_regret_bound.png}
+    % \caption{\footnotesize{Theorem 1 from their article, regret bound for the SIC-MMAB algorithm (same setting as ours: with sensing).}}
+  \end{figure}
+}
+
 \pause
 
 \item
@@ -1376,6 +1403,73 @@ Experiments on Bernoulli problems \(\boldsymbol{\mu}\in[0,1]^K\).
 \includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T5000_N500__4_algos/all_FairnessSTD____env1-1_8318947830261751207.pdf}
 \caption{\footnotesize{Measure of fairness among player. All $4$ algorithms seem fair \textbf{in average}, but none is fair on a single run. \textbf{It's quite hard to achieve both efficiency and single-run fairness!}}}
 \end{figure}
+
+\end{frame}
+
+
+\subsection{\hfill{}7.f. Comparison with SIC-MMAB and other approaches\hfill{}}
+
+
+\begin{frame}{Comparison with SIC-MMAB and other approaches}
+
+  Let's compare different approaches:
+
+\begin{itemize}\tightlist
+  \item \rhoRand, with \UCB{} or \klUCB{},
+  \item \RandTopM, with \UCB{} or \klUCB{},
+  \item \MCTopM, with \UCB{} or \klUCB{},
+  \item \Selfish, with \UCB{} or \klUCB{},
+  \item a centralized agent (\alert{not playing the same game, not fair to compare against it}), with \UCB{} or \klUCB{},
+  \item three hand-tuned Musical-Chair algorithms,
+  \item three variants of the SIC-MMAB algorithm (from \textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}), with \UCB, \klUCB{} and their proposal with {\UCB}-H.
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[plain]{Comparison with other approaches}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M6_T50000_N40__16_algos/all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
+\caption{\footnotesize{For $M=6$ objects, XXX}}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}[plain]{Comparison with other approaches}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M8_T50000_N40__16_algos/all_RegretCentralized_loglog____env1-1_2473883029686742467.pdf}
+\caption{\footnotesize{For $M=8$ objects, XXX}}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}[plain]{Comparison with other approaches}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[height=0.75\textheight]{figures/MP__K9_M9_T50000_N40__16_algos/all_RegretCentralized_loglog____env1-1_4780366798347909369.pdf}
+\caption{\footnotesize{For $M=9$ objects, XXX}}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Comparison with SIC-MMAB and other approaches}
+
+In such experiments, and many more not showed here, I did the following observations:
+
+\begin{itemize}\tightlist
+  \item For any algorithm, the \klUCB{} variant is uniformly better than the \UCB{} and {\UCB}-H variant (obviously),
+  \item Any decentralized approach is less efficient than the ``cheating'' centralized multiple-play approach,
+  \item And for a fixed index policy, the following ordering on decentralized approaches can be observed (smaller means smaller regret, so a better algorithm):
+  \MCTopM{} < \RandTopM{} < SIC-MMAB < \Selfish{} < \rhoRand.
+\end{itemize}
 
 \end{frame}
 
