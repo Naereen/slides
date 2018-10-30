@@ -172,7 +172,8 @@
 
 \ifxetex
 \usepackage{fontspec}
-\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+%\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+\setmainfont[Ligatures=Historic]{Palatino-Roman}
 \newfontfamily\FiraCode{Fira Code}
 \setmonofont[Contextuals={Alternate}]{Fira Code}
 \newfontfamily\Fontify[Path = ../common/]{Fontify-Regular}
@@ -778,7 +779,7 @@ Their algorithm works fine in practice, see later,
 and their proof seems fine, but the point they indicate as wrong in our paper is not clear and we couldn't find an error.
 
 \item
-I will work on this more in the near future!
+$\implies$ I will work on this more in the near future!
 \end{itemize}
 
 \vfill{}
@@ -1488,7 +1489,7 @@ In such experiments, and many more not showed here, I did the following observat
 
 \begin{itemize}\tightlist
 \item
-Another recent article studied a similar problem (\textcolor{blue}{\href{https://arxiv.org/abs/1808.04875}{arXiv:1808.04875}}).
+Another recent article studied a similar problem.
 
 \only<1>{
   \vspace*{10pt}
@@ -1514,8 +1515,9 @@ Implementing their algorithms should be easy, but their model is quite different
   So it's a little bit more complicated than my (simple) model.
   \end{itemize}
 
+\pause
 \item
-I will\footnote{\tiny I will try to code their model in my framework, see \href{https://github.com/SMPyBandits/SMPyBandits/issues/139}{\texttt{GitHub.com/SMPyBandits/SMPyBandits/issues/139}}}
+$\implies$ I will\footnote{\tiny I will try to code their model in my framework, see \href{https://github.com/SMPyBandits/SMPyBandits/issues/139}{\texttt{GitHub.com/SMPyBandits/SMPyBandits/issues/139}}}
 work on this more in the near future!
 
 \end{itemize}
@@ -1534,7 +1536,7 @@ work on this more in the near future!
 
 \begin{itemize}\tightlist
 \item
-Another recent article studied a similar problem (\textcolor{blue}{\href{https://arxiv.org/abs/1808.08416}{arXiv:1808.08416}}).
+And another recent article also studied a similar problem.
 
 \only<1>{
   \vspace*{10pt}
@@ -1547,29 +1549,35 @@ Another recent article studied a similar problem (\textcolor{blue}{\href{https:/
 \pause
 
 \item
-Yeah, as expected all this work is extremely nice from a theoretical point of view, but quite impractical for real.
+A very strong work from a theoretical point of view, but completely impractical even for simulations.
 
+\only<2,3>{
 \item
-Just have a look at the examples of \href{https://smpybandits.readthedocs.io/en/latest/docs/Policies.MusicalChairNoSensing.html?highlight=musicalchairnosensing\#Policies.MusicalChairNoSensing.estimate\_length\_phases\_12}{computation of estimated length of uniform exploration phases (1 and 2)}
+Their analysis says that their algorithm can be efficient only after at least $T_{1,2}$
+\href{https://smpybandits.readthedocs.io/en/latest/docs/Policies.MusicalChairNoSensing.html?highlight=musicalchairnosensing\#Policies.MusicalChairNoSensing.estimate\_length\_phases\_12}{steps of uniform exploration} (\ie, linear regret).
 
-On very easy problems with minimal gap between arms of $\Delta_{\min} = 0.1$ (rewards in $[0,1]$), and very small horizons, small $M$ and $K$, their analysis says that their algorithm can be efficient from $T_{1,2}$ steps of uniform explorations.
-
+\pause
+\item
+On very easy problems with minimal gap between arms of $\Delta_{\min} = 0.1$ (rewards in $[0,1]$), and very small horizons, small $M$ and $K$, $T_{1,2}$ is computed as:
 \begin{itemize}
-\item For $M=2$ and $K=2$, and $T=100$, $T_{1,2} = 198214307$,
-\item For $M=2$ and $K=2$, and $T=100$, $T_{1,2} = 19821430723$,
-\item For $M=2$ and $K=2$, and $T=1000$, $T_{1,2} = 271897030$,
-\item For $M=2$ and $K=3$, and $T=100$, $T_{1,2} = 307052623$,
-\item For $M=2$ and $K=5$, and $T=100$, $T_{1,2} = 532187397$.
+\item For $M = 2$ and $K = 2$, and $T = 100$, $T_{1,2} = 198214307$,
+% \item For $M = 2$ and $K = 2$, and $T = 100$, and $\Delta_{\min} = 0.01$ $T_{1,2} = 19821430723$,
+\item For $M = 2$ and $K = 2$, and $T = 1000$, $T_{1,2} = 271897030$,
+\item For $M = 2$ and $K = 3$, and $T = 100$, $T_{1,2} = 307052623$,
+\item For $M = 2$ and $K = 5$, and $T = 100$, $T_{1,2} = 532187397$.
 \end{itemize}
 
 \item
 \danger{} That's just unreasonable!
+}
 
+\pause
 \item
 After discussing with the author, I tried using a much smaller value for their constant $g$ ($1$ instead of $128$), and their algorithm is still very much asymptotic in practice, even on very simple problems!
 
+\pause
 \item
-I will\footnote{\tiny I added their first algorithm in my framework, see \href{https://github.com/SMPyBandits/SMPyBandits/issues/141}{\texttt{GitHub.com/SMPyBandits/SMPyBandits/issues/141}}}
+$\implies$ I will\footnote{\tiny I added their first algorithm in my framework, see \href{https://github.com/SMPyBandits/SMPyBandits/issues/141}{\texttt{GitHub.com/SMPyBandits/SMPyBandits/issues/141}}}
 work on this more in the near future!
 
 \end{itemize}
@@ -1597,6 +1605,8 @@ work on this more in the near future!
   learn the most free channels and to find orthogonal configurations.
 \end{itemize}
 
+\pause
+
 \begin{block}{We showed}
 
 \begin{itemize}\tightlist
@@ -1621,6 +1631,13 @@ work on this more in the near future!
 
 \begin{itemize}\tightlist
 \item
+  Implement and test this on \textbf{real-world radio devices}?
+  \hook Yes! Demo presented at the ICT \(2018\) conference! (Saint-Malo, France)
+
+\vspace*{15pt}
+\pause
+
+\item
   Remove hypothesis that objects know \(M\)?
 \item
   Allow arrival/departure of objects?
@@ -1642,9 +1659,6 @@ or without sensing (\eg, LoRaWAN networks).
 
 \item
   Maybe study \textbf{other emission models}?
-\item
-  Implement and test this on \textbf{real-world radio devices}?
-  \hook Yes! Demo presented at the ICT \(2018\) conference! (Saint-Malo, France)
 
 \end{itemize}
 
