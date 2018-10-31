@@ -313,9 +313,9 @@ We control some communicating devices, they want to use a wireless access point.
   \vspace*{10pt}
   \pause
   \item
-  Review of two more recent articles
-  \item
   Experimental results
+  \item
+  Review of two more recent articles
   % \item
   %   An heuristic (\Selfish), and disappointing results
   \vspace*{10pt}
@@ -611,10 +611,10 @@ Discrete and synchronized time \(t\geq1\).
 %   small as possible!
 \item<2->
   \emph{How good a decentralized algorithm can be in this setting?}
-  \hook{} \textbf{Lower Bound} on the regret, for \textbf{any} algorithm !
+  \hook{} \alert{Lower Bound} on the regret, for \alert{any} algorithm !
 \item<2->
   \emph{How good is my decentralized algorithm in this setting?}
-  \hook{} \textbf{Upper Bound} on the regret, for \textbf{one} algorithm !
+  \hook{} \alert{Upper Bound} on the regret, for \alert{one} algorithm !
 \end{itemize}
 
 \end{block}
@@ -743,7 +743,7 @@ non-degenerated problem \(\boldsymbol{\mu}\),} \vspace*{-10pt}
 
 \subsection{\hfill{}3.b. Possibly wrong result, not sure yet\hfill{}}
 
-\begin{frame}{Possibly wrong result, not sure yet?}
+\begin{frame}{\alert{Possibly wrong result, not sure yet?}}
 
 \begin{itemize}\tightlist
 \item
@@ -785,7 +785,7 @@ $\implies$ I will work on this more in the near future!
 \vfill{}
 \begin{footnotesize}
   ``\emph{SIC-MMAB: Synchronisation Involves Communication in Multiplayer Multi-Armed Bandits}'',
-  by Etienne Boursier \& Vianney Perchet
+  by Etienne Boursier \& Vianney Perchet,
   \textcolor{blue}{\href{https://arxiv.org/abs/1809.08151}{arXiv:1809.08151}}
 \end{footnotesize}
 
@@ -1094,7 +1094,7 @@ Let $A^j(1) \sim \mathcal{U}(\{1,\dots,K\})$ and $C^j(1)=\mathrm{False}$ and $s^
         $A^j(t+1) \sim \mathcal{U} \left(\TopM(t) \cap \left\{k : \mathrm{UCB}_k^j(t-1) \leq \mathrm{UCB}^j_{A^j(t)}(t-1)\right\}\right)$
         \tcp*[f]{not empty} \\
         \alert{$s^j(t+1) = \mathrm{Non}\;\mathrm{fixed}$}
-        \tcp*[f]{arm with smaller index at $t-1$}
+        \tcp*[f]{go for arm with smaller index at $t-1$}
         \pause
       }
       \uElseIf(\tcp*[f]{collision and not fixed}){
@@ -1577,7 +1577,7 @@ After discussing with the author, I tried using a much smaller value for their c
 
 \pause
 \item
-$\implies$ I will\footnote{\tiny I added their first algorithm in my framework, see \href{https://github.com/SMPyBandits/SMPyBandits/issues/141}{\texttt{GitHub.com/SMPyBandits/SMPyBandits/issues/141}}}
+$\implies$ I will\footnote{\tiny I already added their first algorithm in my framework, see \href{https://github.com/SMPyBandits/SMPyBandits/issues/141}{\texttt{GitHub.com/SMPyBandits/SMPyBandits/issues/141}}}
 work on this more in the near future!
 
 \end{itemize}
@@ -1632,22 +1632,23 @@ work on this more in the near future!
 \begin{itemize}\tightlist
 \item
   Implement and test this on \textbf{real-world radio devices}?
-  \hook Yes! Demo presented at the ICT \(2018\) conference! (Saint-Malo, France)
+  \hook Yes!\\
+   Demo presented at the ICT \(2018\) conference! (Saint-Malo, France)
 
 \vspace*{15pt}
 \pause
 
 \item
-  Remove hypothesis that objects know \(M\)?
+  Remove hypothesis that objects know \(M\)? (easy)
 \item
-  Allow arrival/departure of objects?
+  Allow arrival/departure of objects? (harder)
 \item
-  Non-stationarity of background traffic?
+  Non-stationarity of background traffic? (much harder)
 
 \vspace*{15pt}
 \pause
 
-\item Extend to more objects (\ie, when \(M > K\))
+\item Extend to more objects (\ie, when \(M > K\)) ?
 
 ``Large-scale'' IoT model,
 with (\eg, ZigBee networks),
