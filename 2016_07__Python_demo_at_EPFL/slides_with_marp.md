@@ -197,7 +197,7 @@ plt.imshow(crop_face, cmap='gray')
 
 ## 7. Deep Learning in Python, with `caffe`, `lasagne` or `tensorflow`...
 
-- `caffe`: Python interface to a C++ engine, by Berkeley's Vision lab, [caffe.berkeleyvision.org](http://caffe.berkeleyvision.org/), see this [example](http://nbviewer.jupyter.org/github/BVLC/caffe/blob/master/examples/01-learning-lenet.ipynb#2.-Creating-the-net)
+- `caffe`: Python interface to a C++ engine, by Berkeley's Vision lab, [caffe.berkeleyvision.org](http://caffe.berkeleyvision.org/), see this [example](https://nbviewer.jupyter.org/github/BVLC/caffe/blob/master/examples/01-learning-lenet.ipynb#2.-Creating-the-net)
 
 - `lasagne`: C and Python, built on top of `theano`, by Yoshua Bengio's lab (Montreal), [lasagne.readthedocs.org](http://lasagne.readthedocs.org/), see this [example](https://github.com/Lasagne/Lasagne#example)
 
