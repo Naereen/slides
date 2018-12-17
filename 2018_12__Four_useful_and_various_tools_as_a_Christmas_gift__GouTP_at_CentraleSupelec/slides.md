@@ -8,7 +8,7 @@ footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas &
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
 
 
-# $3^{\text{rd}}\;\;$ $2018/19$ GouTP @ SCEE
+# $2^{\text{nd}}\;\;$ $2018/19$ GouTP @ SCEE
 
 - *About:* **Four useful and various tools as a Christmas gift**
 
@@ -48,7 +48,7 @@ Simple and tiny tool to help you win some time!
 
 ## 2. Offline documentation browser
 
-## 3. Tool 3
+## 3. Reformating Matlab figures
 
 ## 4. Tool 4
 
@@ -80,7 +80,7 @@ Ask questions and interrupt me if you want!
     $ sudo apt install parcellite
     ```
     > Or replace `apt` with `aur`, `yum`, `pacman` etc
-    > (= your distriubtion's package manager)
+    > (= your distribution's package manager)
 
 - Other good solutions
   + diodon (launchpad.net/diodon)
@@ -140,7 +140,7 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 
 ---
 
-# 3rd tool: XXX (XXX)
+# 3rd tool: Reformating Matlab figures (Nabil)
 
 TODO
 
@@ -150,7 +150,7 @@ TODO
 
 ---
 
-# 4th tool: XXX (XXX)
+# 4th tool: XXX (Bastien)
 
 TODO
 
@@ -164,8 +164,8 @@ TODO
 
 ## Sum-up
 1. A *clipboard history manager* is simple to use and can be useful!
-2. Tool 2
-3. Tool 3
+2. *Offline documentation browser* is awesome!
+3. *Reformating Matlab figures* is simple and gives pretty figures!
 4. Tool 4
 
 ## Pointers
@@ -187,9 +187,12 @@ TODO
 
 # Conclusion (3/3)
 
+Happy holidays!
+And merry Christmas :christmas_tree: :snowman_with_snow: :gift: :santa: !
+
 > <span class="fontify">Thanks for joining :clap: !</span>
 
 ## Your mission, if you accept it... :boom:
-1. *Padawan level :* be smart and try to use *one* of these tools!
-2. *Jedi level :* discuss about your tools with your colleagues and friends!
-3. *Master level :* write your own open source tools to solve problems nobody never had!
+1. *Padawan level :* **be smart and try new tools!**
+2. *Jedi level :* **discuss** about your tools with your colleagues and friends!
+3. *Master level :* **write your own** open source tools to solve problems nobody never had!

@@ -27,5 +27,11 @@ show169:
 Marp:
 	Marp slides.md
 
+marp2html:
+	marp slides.md -o slides_marp2html.html
+
+marp2pdf:
+	marp slides.md -o slides_marp2pdf.pdf
+
 typora:
 	typora slides.md
