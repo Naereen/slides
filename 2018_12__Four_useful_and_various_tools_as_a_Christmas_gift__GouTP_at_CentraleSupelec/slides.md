@@ -104,6 +104,13 @@ Ask questions and interrupt me if you want!
 ## Demo!
 > Me editing the source code of last slides, using `parcellite`
 
+[![bg original 75%](figures/demo_parcellite.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_parcellite.gif)
+
+---
+
+## Demo!
+> Me editing the source code of last slides, using `parcellite`
+
 ![bg original 75%](figures/demo_parcellite.png)
 
 ---
@@ -116,7 +123,7 @@ Ask questions and interrupt me if you want!
 Other features?
 - :notebook: Works with images & files
   (:cry: parcelitte don't support this, :ok_hand: CopyQ does)
-- ♻ Keep history after system reboot (they all do)
+- :recycle: Keep history after system reboot (they all do)
 - :pencil: Modify / clean your clipboard history
 - :raised_hands: Work with multiple items (for multi-cursor editors)
 
@@ -137,6 +144,10 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 ---
 
 ![bg original 95%](figures/demo_devdocs2.png)
+
+---
+
+[![bg original 95%](figures/demo_devdocs.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_devdocs.gif)
 
 ---
 
