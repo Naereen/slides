@@ -2,7 +2,7 @@
 $theme: default
 $size: 4:3
 page_number: true
-footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas & Nabil Zaraneh
+footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaraneh & P. Haessig
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
@@ -14,9 +14,9 @@ footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas &
 
 - *Date:* $21$th of December $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Nabil Zeraneh](TODO) :hand:
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Nabil Zeraneh](TODO) and [Pierre Haessig](http://pierreh.eu/) :hand:
 
-<br><br>
+<br>
 
 ### Open source content :notebook: ?
 > Note: slides are online: `github.com/Naereen/slides/tree/master/
@@ -34,7 +34,7 @@ footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas &
   > Initiative of Quentin and Vincent :clap: in January 2017...
   > Continued by Rémi, Muhammad, Rami and Lilian :ok_hand: !
 
-<br><br>
+<br>
 
 ## Not only @ SCEE :smiley: ?
 - Now open to all the teams of CentraleSupélec, campus of Rennes.
@@ -44,7 +44,6 @@ footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas &
 # Agenda for today :timer_clock:
 
 ## 1. Clipboard history manager
-Simple and tiny tool to help you win some time!
 
 ## 2. Offline documentation browser
 
@@ -59,7 +58,8 @@ Ask questions and interrupt us if you want!
 
 ---
 
-# 1st tool: Clipboard history manager (Lilian)
+# 1st tool: Clipboard history manager
+Simple and tiny tool to help you win some time!
 
 ## :boom: Example of a problem?
 - You're editing some files, browsing Internet
@@ -104,7 +104,7 @@ Ask questions and interrupt us if you want!
 ## Demo!
 > Me editing the source code of last slides, using `parcellite`
 
-[![bg original 75%](figures/demo_parcellite.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_parcellite.gif)
+[![bg original 100%](figures/demo_parcellite.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_parcellite.gif)
 
 ---
 
@@ -120,7 +120,7 @@ Ask questions and interrupt us if you want!
 - :mouse: Accessible in the system menu (system tray) with your mouse
 - :sparkles: *Bonus* if accessible from a keyboard shortcut as a floating menu (`Ctrl+Alt+h` for `parcellite` on GNU/Linux, cf. demo)
 
-Other features?
+## Other features?
 - :notebook: Works with images & files
   (:cry: parcelitte don't support this, :ok_hand: CopyQ does)
 - :recycle: Keep history after system reboot (they all do)
@@ -129,9 +129,11 @@ Other features?
 
 ---
 
-# 2nd tool: Offline documentation browser (Lilian)
+# 2nd tool: Offline documentation browser
 
 TL;DR: if you use open source languages and tools for your work, the website devdocs.io is very useful!
+
+<br>
 
 - Browse and search documentation of languages and libraries
 - Examples: Python, tensorflow, matplotlib, C++, etc
@@ -151,7 +153,7 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 
 ---
 
-# 3rd tool: Reformating Matlab figures (Nabil)
+# 3rd tool: Reformating Matlab figures
 
 TODO
 
@@ -164,69 +166,72 @@ TODO
 # 4th tool: Compressing PNGs, JPEGs & PDFs
 
 - *What?*
-	- Reduce the size of figures with little or no quality loss.
+  + Reduce the size of figures with little or no quality loss.
 - *Why?* 
-	- Reduce the size of your papers,
-	- Spped up your data transfers to your git, drive, etc,
-	- Reduce your environmental impact effortlessly.
+  + :chart_with_downwards_trend: Reduce the size of your research papers,
+  + :rocket: Speed up your data transfers to your git, drive, etc,
+  + :recycle: Reduce your environmental impact effortlessly.
 - *How?*
-	- Remove EXIF data from figures and compress them.
-	- See next slides.
+  1. (you can) remove EXIF data from figures
+  2. **Compress** them.
+  3. See next slides.
 
 ---
 
 ## For PNGs :arrow_right: Up to 60% compression rate!
 
-```
-advpng -z -2 *.png
+```bash
+$ advpng -z -2 *.png  # on *Nix systems
       112098       88316  78% Zotero_desktop_idle.png
       120106       89860  74% Zotero_online.png
       124577       93638  75% bibtex_style.png
        21961       16303  74% generate_IEEE.png
        73520       56477  76% setup_proxy.png
-      452262      344594  76%
+      452262      344594  76%   # quite good!
 ```
 
-![original center 90%](figures/PNGGauntlet.png)
+![original center 80%](figures/PNGGauntlet.png)
 
 ---
 
 ## For JPEGs :arrow_right: already compressed
 
 - One can reduce the size with little loss.
-- Lots of web tools. One among all [compressjpeg.com/](https://compressjpeg.com/)
+- Lots of web tools. One among all [CompressJPEG.com](https://compressjpeg.com/)
 
 ![original center 90%](figures/compressjpeg.png)
 
 ---
 
-## Example
-
+## Example: two compression steps
 
 ![original 20%](figures/IETR.jpg) ![original 20%](figures/IETR-min.jpg) ![original 20%](figures/IETR-mini.jpg)
 
 - 159 ko :arrow_right: 47 ko (30%) :arrow_right: 21 ko (13%)
-- It depend of your use case!
+- It depends on your use case!
 
 ---
 
-## For PDFs :arrow_right: Up to 40% compression rate
+## For PDFs :arrow_right: Up to 100% compression rate!
 
-On Unix systems
+### On Unix systems
+Lilian wrote [`PDFCompress`](https://bitbucket.org/lbesson/bin/src/master/PDFCompress) for this ($\hookrightarrow$ [`bitbucket.org/lbesson/bin`](https://bitbucket.org/lbesson/bin/)).
 
-> Without loss
-> ```
-> convert input.pdf -compress Zip output.pdf
-> ```
+```bash
+$ cp input.pdf output.pdf
+$ PDFCompress output.pdf
+# lot of verbose output ...
 
-> With loss
-> ```
-> qpdf --linearize input.pdf output.pdf
-> pdftk file1.pdf output file2.pdf compress
-> ```
+$ du input.pdf output.pdf
+2,1M    input.pdf   |   1,1M    output.pdf
 
-On Windows systems
-> Use online tools such as [smallpdf](https://smallpdf.com/compress-pdf)
+# it does this command with gs (ghostscript):
+$ gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite \
+     -sOutputFile=output.pdf input.pdf
+```
+
+## On Windows systems
+Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
 
 ---
 
@@ -236,7 +241,7 @@ On Windows systems
 1. A *clipboard history manager* is simple to use and can be useful!
 2. *Offline documentation browser* is awesome!
 3. *Reformating Matlab figures* is simple and gives pretty figures!
-4. *Compress your figures* before including them on git, papers, etc!
+4. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
 
 ## Pointers
 - $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/)
@@ -261,9 +266,9 @@ On Windows systems
 Happy holidays!
 And merry Christmas :christmas_tree: :snowman_with_snow: :gift: :santa: !
 
-> <span class="fontify">Thanks for joining :clap: !</span>
-
 ## Your mission, if you accept it... :boom:
 1. *Padawan level :* **be smart and try new tools!**
 2. *Jedi level :* **discuss** about your tools with your colleagues and friends!
 3. *Master level :* **write your own** open source tools to solve problems nobody never had!
+
+> <span class="fontify">Thanks for joining :clap: !</span>
