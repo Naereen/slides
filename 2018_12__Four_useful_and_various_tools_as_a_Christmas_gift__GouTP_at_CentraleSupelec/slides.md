@@ -242,7 +242,7 @@ e.g. in a non native language
 
 Three propositions:
 
-* Dictionnary power user: [Wordreference](http://www.wordreference.com/) + Firefox [smart keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar) 
+* Dictionnary power user: [Wordreference](http://www.wordreference.com/) + Firefox [smart keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar)
 * Fast translation with [DeepL](https://www.deepl.com/translator)
 * Grammar spellchecker with : [Antidote](https://www.antidote.info/)
    * FR + EN: 120 + 60 €
@@ -267,7 +267,7 @@ Step 1: right-click in search field: “Add a Keyword for this Search...”
 ---
 # Firefox keywords: HOWTO 2/2
 
-Step 2: choose the keyword: “ling”, “fren”, “enfr”… 
+Step 2: choose the keyword: “ling”, “fren”, “enfr”…
 ![60%](figures/lang/Linguee2_dialog.png)
 
 ---
@@ -298,7 +298,7 @@ Then hit `Enter` to query the search:
 
 https://www.deepl.com/ *(by the makers of [Linguee](https://www.linguee.com))*.
 
-Key interesting points: 
+Key interesting points:
 
 * **word-by-word interactivity**: adjust the translation to your taste
 * integrated dictionnary
