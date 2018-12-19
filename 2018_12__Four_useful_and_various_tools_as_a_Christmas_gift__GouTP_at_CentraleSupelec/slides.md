@@ -14,7 +14,7 @@ footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas &
 
 - *Date:* $21$th of December $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/slides/) and [Nabil Zeraneh](TODO) :hand:
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Nabil Zeraneh](TODO) :hand:
 
 <br><br>
 
@@ -37,7 +37,7 @@ footer: GouTP @ SCEE | 21 December 2018 | By: Lilian Besson & Bastien Trotobas &
 <br><br>
 
 ## Not only @ SCEE :smiley: ?
-- Now open to all the PhD students of CentraleSupélec, campus of Rennes.
+- Now open to all the teams of CentraleSupélec, campus of Rennes.
 
 ---
 
@@ -50,12 +50,12 @@ Simple and tiny tool to help you win some time!
 
 ## 3. Reformating Matlab figures
 
-## 4. Tool 4
+## 4. Compressing PNG, JPEG and PDF
 
 <br>
 
 ### Please :pray:
-Ask questions and interrupt me if you want!
+Ask questions and interrupt us if you want!
 
 ---
 
@@ -161,13 +161,72 @@ TODO
 
 ---
 
-# 4th tool: XXX (Bastien)
+# 4th tool: Compressing PNGs, JPEGs & PDFs
 
-TODO
+- *What?*
+	- Reduce the size of figures with little or no quality loss.
+- *Why?* 
+	- Reduce the size of your papers,
+	- Spped up your data transfers to your git, drive, etc,
+	- Reduce your environmental impact effortlessly.
+- *How?*
+	- Remove EXIF data from figures and compress them.
+	- See next slides.
 
 ---
 
-![bg original 95%](figures/XXX.png)
+## For PNGs :arrow_right: Up to 60% compression rate!
+
+```
+advpng -z -2 *.png
+      112098       88316  78% Zotero_desktop_idle.png
+      120106       89860  74% Zotero_online.png
+      124577       93638  75% bibtex_style.png
+       21961       16303  74% generate_IEEE.png
+       73520       56477  76% setup_proxy.png
+      452262      344594  76%
+```
+
+![original center 90%](figures/PNGGauntlet.png)
+
+---
+
+## For JPEGs :arrow_right: already compressed
+
+- One can reduce the size with little loss.
+- Lots of web tools. One among all [compressjpeg.com/](https://compressjpeg.com/)
+
+![original center 90%](figures/compressjpeg.png)
+
+---
+
+## Example
+
+
+![original 20%](figures/IETR.jpg) ![original 20%](figures/IETR-min.jpg) ![original 20%](figures/IETR-mini.jpg)
+
+- 159 ko :arrow_right: 47 ko (30%) :arrow_right: 21 ko (13%)
+- It depend of your use case!
+
+---
+
+## For PDFs :arrow_right: Up to 40% compression rate
+
+On Unix systems
+
+> Without loss
+> ```
+> convert input.pdf -compress Zip output.pdf
+> ```
+
+> With loss
+> ```
+> qpdf --linearize input.pdf output.pdf
+> pdftk file1.pdf output file2.pdf compress
+> ```
+
+On Windows systems
+> Use online tools such as [smallpdf](https://smallpdf.com/compress-pdf)
 
 ---
 
@@ -177,10 +236,11 @@ TODO
 1. A *clipboard history manager* is simple to use and can be useful!
 2. *Offline documentation browser* is awesome!
 3. *Reformating Matlab figures* is simple and gives pretty figures!
-4. Tool 4
+4. *Compress your figures* before including them on git, papers, etc!
 
 ## Pointers
-- $\hookrightarrow$ ?
+- $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/)
+- $\hookrightarrow$ [Other PDFs compression tools](https://www.intowindows.com/6-ways-to-compress-pdf-files/)
 
 ---
 
