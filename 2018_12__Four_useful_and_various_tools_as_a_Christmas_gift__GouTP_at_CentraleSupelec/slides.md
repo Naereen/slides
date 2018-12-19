@@ -235,6 +235,100 @@ Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
 
 ---
 
+# Writing tools
+
+Goal: increase quality and productivity when writing, 
+e.g. in a non native language
+
+Three propositions:
+
+* Dictionnary power user: [Wordreference](http://www.wordreference.com/) + Firefox [smart keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar)
+* Fast translation with [DeepL](https://www.deepl.com/translator)
+* Grammar spellchecker with : [Antidote](https://www.antidote.info/)
+   * FR + EN: 120 + 60 €
+   * LaTeX compatible
+   * I used it for my PhD manuscript (in French), and all articles since then
+
+---
+# Firefox keywords for dictionnaries
+
+Goal: fast word translation with Wordreference or other dictionnary.
+cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
+
+Access dictionnaries *without leaving the keyboard*
+(no mouse click needed).
+
+---
+# Firefox keywords: HOWTO 1/2
+
+Step 1: right-click in search field: “Add a Keyword for this Search...”
+![60%](figures/lang/Linguee1_add.png)
+
+---
+# Firefox keywords: HOWTO 2/2
+
+Step 2: choose the keyword: “ling”, “fren”, “enfr”…
+![60%](figures/lang/Linguee2_dialog.png)
+
+---
+# Firefox keywords: check
+
+NB: keywords are associated with *bookmarks*
+
+You can hack the bookmark record, playing with the `%s` placeholder:
+
+![60%](figures/lang/Wordref_bookmark.png)
+
+
+---
+# Firefox keywords: usage (without mouse!)
+
+*(`Ctrl+L` to focus the address bar)*
+
+Type `keyword` + `space` + search string:
+
+![100%](figures/lang/Linguee3_search.png)
+
+Then hit `Enter` to query the search:
+
+![100%](figures/lang/Linguee4_result.png)
+
+---
+# DeepL online translator
+
+https://www.deepl.com/ *(by the makers of [Linguee](https://www.linguee.com))*.
+
+Key interesting points:
+
+* **word-by-word interactivity**: adjust the translation to your taste
+* integrated dictionnary
+
+Important warning: in the free version, *everything gets recorded* (cf. https://www.deepl.com/privacy.html)
+
+---
+# DeepL demo
+
+My tip: make changes *forward*, or you shall loose previous changes 😭.
+
+![50%](figures/lang/DeepL.gif)
+
+
+---
+# Antidote grammar spellchecker
+
+NB: non free tool: 120 € + 60 € for French + English
+
+Features:
+
+* detects advanced grammar errors ...)
+   * including *false friends* for French (ex: actuellement/actually)
+* can spellcheck LaTeX
+* includes dictionnaries with synonyms, antonyms, citations...
+
+![70%](figures/lang/Antidote.gif)
+
+---
+
 # Conclusion (1/3)
 
 ## Sum-up
