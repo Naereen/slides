@@ -1,6 +1,6 @@
 <!--
 $theme: default
-$size: 4:3
+$size: 16:9
 page_number: true
 footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaraneh & P. Haessig
 -->
@@ -50,6 +50,8 @@ footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaran
 ## 3. Reformating Matlab figures
 
 ## 4. Compressing PNG, JPEG and PDF
+
+## 5. Tools to write easily in a foreign language
 
 <br>
 
@@ -155,7 +157,7 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 
 # 3rd tool: Reformating Matlab figures
 
-TODO
+(slides by Nabil)
 
 ---
 
@@ -237,43 +239,46 @@ Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
 
 # Writing tools
 
-Goal: increase quality and productivity when writing, 
+*Goal*: increase quality and productivity when writing, 
 e.g. in a non native language
 
 Three propositions:
 
-* Dictionnary power user: [Wordreference](http://www.wordreference.com/) + Firefox [smart keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar)
-* Fast translation with [DeepL](https://www.deepl.com/translator)
-* Grammar spellchecker with : [Antidote](https://www.antidote.info/)
-   * FR + EN: 120 + 60 €
-   * LaTeX compatible
-   * I used it for my PhD manuscript (in French), and all articles since then
+1. Dictionnary power user: [WordReference.com](http://www.wordreference.com/) + Firefox [smart keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar)
+2. Fast translation with [DeepL.com](https://www.deepl.com/translator)
+3. Grammar spellchecker with : [Antidote.info](https://www.antidote.info/)
+   + Fr + En = $120 + 60$ €
+   + LaTeX compatible
+   + I used it for my PhD manuscript (in French), and all articles since then
 
 ---
+
 # Firefox keywords for dictionnaries
 
-Goal: fast word translation with Wordreference or other dictionnary.
+*Goal*: fast word translation with Wordreference or other dictionnary.
 cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
 
 Access dictionnaries *without leaving the keyboard*
 (no mouse click needed).
 
 ---
+
 # Firefox keywords: HOWTO 1/2
 
-Step 1: right-click in search field: “Add a Keyword for this Search...”
+Step 1: right-click in search field: "Add a Keyword for this Search..."
 ![60%](figures/lang/Linguee1_add.png)
 
 ---
+
 # Firefox keywords: HOWTO 2/2
 
-Step 2: choose the keyword: “ling”, “fren”, “enfr”…
+Step 2: choose the keyword: "ling", "fren", "enfr"...
 ![60%](figures/lang/Linguee2_dialog.png)
 
 ---
 # Firefox keywords: check
 
-NB: keywords are associated with *bookmarks*
+NB: keywords are associated with *bookmarks*.
 
 You can hack the bookmark record, playing with the `%s` placeholder:
 
@@ -296,36 +301,37 @@ Then hit `Enter` to query the search:
 ---
 # DeepL online translator
 
-https://www.deepl.com/ *(by the makers of [Linguee](https://www.linguee.com))*.
+[DeepL.com](https://www.deepl.com/) *(by the makers of [Linguee.com](https://www.linguee.com))*.
 
 Key interesting points:
 
 * **word-by-word interactivity**: adjust the translation to your taste
 * integrated dictionnary
 
-Important warning: in the free version, *everything gets recorded* (cf. https://www.deepl.com/privacy.html)
+:warning: Important warning: in the free version, *everything gets recorded* (cf. [privacy policy](https://www.deepl.com/privacy.html)), like Google Translate...
 
 ---
+
 # DeepL demo
 
-My tip: make changes *forward*, or you shall loose previous changes 😭.
+My tip: make changes *forward*, or you shall loose previous changes :cry:.
 
-![50%](figures/lang/DeepL.gif)
-
+[![50%](figures/lang/DeepL.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/DeepL.gif)
 
 ---
+
 # Antidote grammar spellchecker
 
-NB: non free tool: 120 € + 60 € for French + English
+NB: non free tool: $120$ € + $60$ € for French + English
 
 Features:
 
-* detects advanced grammar errors ...)
-   * including *false friends* for French (ex: actuellement/actually)
-* can spellcheck LaTeX
-* includes dictionnaries with synonyms, antonyms, citations...
+- detects advanced grammar errors
+  + including *false friends* for French (e.g.: actuellement/actually)
+- can spellcheck LaTeX
+- includes dictionnaries with synonyms, antonyms, citations...
 
-![70%](figures/lang/Antidote.gif)
+[![70%](figures/lang/Antidote.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/Antidote.gif)
 
 ---
 
@@ -336,6 +342,7 @@ Features:
 2. *Offline documentation browser* is awesome!
 3. *Reformating Matlab figures* is simple and gives pretty figures!
 4. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
+5. *Advanced writing tools*
 
 ## Pointers
 - $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/)

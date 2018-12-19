@@ -1,21 +1,21 @@
 ---
 title: 3rd GouTP @ SCEE
-subtitle: Four useful and various tools as a Christmas gift
-author: Lilian Besson and Bastien Trotobas and Nabil Zaraneh
+subtitle: Five useful and various tools as a Christmas gift
+author: Lilian Besson and Bastien Trotobas and Nabil Zaraneh and Pierre Haessig
 institute: SCEE Team, IETR, CentraleSupélec, Rennes
 date: Thursday 21th of December, 2018
 lang: english
 ---
 
-# $3^{\text{rd}}\;\;$ $2018/19$ GouTP @ SCEE
+# $2^{\text{nd}}\;\;$ $2018/19$ GouTP @ SCEE
 
-- *About:* **Four useful and various tools as a Christmas gift**
+- *About:* **Five useful and various tools as a Christmas gift**
 
 - *Date:* $21$th of December $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/slides/) and [Nabil Zeraneh](TODO) :hand:
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Nabil Zeraneh](TODO) and [Pierre Haessig](http://pierreh.eu/) :hand:
 
-<br><br>
+
 
 ### Open source content :notebook: ?
 > Note: slides are online: `github.com/Naereen/slides/tree/master/
@@ -33,32 +33,34 @@ lang: english
   > Initiative of Quentin and Vincent :clap: in January 2017...
   > Continued by Rémi, Muhammad, Rami and Lilian :ok_hand: !
 
-<br><br>
+
 
 ## Not only @ SCEE :smiley: ?
-- Now open to all the PhD students of CentraleSupélec, campus of Rennes.
+- Now open to all the teams of CentraleSupélec, campus of Rennes.
 
 ---
 
 # Agenda for today :timer_clock:
 
 ## 1. Clipboard history manager
-Simple and tiny tool to help you win some time!
 
 ## 2. Offline documentation browser
 
-## 3. Tool 3
+## 3. Reformating Matlab figures
 
-## 4. Tool 4
+## 4. Compressing PNG, JPEG and PDF
 
-<br>
+## 5. Tools to write easily in a foreign language
+
+
 
 ### Please :pray:
-Ask questions and interrupt me if you want!
+Ask questions and interrupt us if you want!
 
 ---
 
-# 1st tool: Clipboard history manager (Lilian)
+# 1st tool: Clipboard history manager
+Simple and tiny tool to help you win some time!
 
 ## :boom: Example of a problem?
 - You're editing some files, browsing Internet
@@ -79,13 +81,13 @@ Ask questions and interrupt me if you want!
     $ sudo apt install parcellite
     ```
     > Or replace `apt` with `aur`, `yum`, `pacman` etc
-    > (= your distriubtion's package manager)
+    > (= your distribution's package manager)
 
 - Other good solutions
   + diodon (launchpad.net/diodon)
   + glipper (launchpad.net/glipper)
 
-> → superuser.com/questions/42991/clipboard-manager-for-ubuntu
+> $\hookrightarrow$ superuser.com/questions/42991/clipboard-manager-for-ubuntu
 > All listed solutions I found are free, easy to install etc.
 
 ---
@@ -103,7 +105,14 @@ Ask questions and interrupt me if you want!
 ## Demo!
 > Me editing the source code of last slides, using `parcellite`
 
-![bg original 75%](figures/demo_parcellite.gif)
+[![bg original 100%](figures/demo_parcellite.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_parcellite.gif)
+
+---
+
+## Demo!
+> Me editing the source code of last slides, using `parcellite`
+
+![bg original 75%](figures/demo_parcellite.png)
 
 ---
 
@@ -112,18 +121,20 @@ Ask questions and interrupt me if you want!
 - :mouse: Accessible in the system menu (system tray) with your mouse
 - :sparkles: *Bonus* if accessible from a keyboard shortcut as a floating menu (`Ctrl+Alt+h` for `parcellite` on GNU/Linux, cf. demo)
 
-Other features?
+## Other features?
 - :notebook: Works with images & files
   (:cry: parcelitte don't support this, :ok_hand: CopyQ does)
-- ♻ Keep history after system reboot (they all do)
+- :recycle: Keep history after system reboot (they all do)
 - :pencil: Modify / clean your clipboard history
 - :raised_hands: Work with multiple items (for multi-cursor editors)
 
 ---
 
-# 2nd tool: Offline documentation browser (Lilian)
+# 2nd tool: Offline documentation browser
 
 TL;DR: if you use open source languages and tools for your work, the website devdocs.io is very useful!
+
+
 
 - Browse and search documentation of languages and libraries
 - Examples: Python, tensorflow, matplotlib, C++, etc
@@ -135,27 +146,187 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 
 ---
 
-![bg original 95%](figures/demo_devdocs.gif)
+![bg original 95%](figures/demo_devdocs2.png)
 
 ---
 
-# 3rd tool: XXX (XXX)
-
-TODO
+[![bg original 95%](figures/demo_devdocs.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_devdocs.gif)
 
 ---
 
-![bg original 95%](figures/XXX.png)
+# 3rd tool: Reformating Matlab figures
+
+(slides by Nabil)
 
 ---
 
-# 4th tool: XXX (XXX)
+# 4th tool: Compressing PNGs, JPEGs & PDFs
 
-TODO
+- *What?*
+  + Reduce the size of figures with little or no quality loss.
+- *Why?* 
+  + :chart_with_downwards_trend: Reduce the size of your research papers,
+  + :rocket: Speed up your data transfers to your git, drive, etc,
+  + :recycle: Reduce your environmental impact effortlessly.
+- *How?*
+  1. (you can) remove EXIF data from figures
+  2. **Compress** them.
+  3. See next slides.
 
 ---
 
-![bg original 95%](figures/XXX.png)
+## For PNGs :arrow_right: Up to 60% compression rate!
+
+```bash
+$ advpng -z -2 *.png  # on *Nix systems
+      112098       88316  78% Zotero_desktop_idle.png
+      120106       89860  74% Zotero_online.png
+      124577       93638  75% bibtex_style.png
+       21961       16303  74% generate_IEEE.png
+       73520       56477  76% setup_proxy.png
+      452262      344594  76%   # quite good!
+```
+
+![original center 80%](figures/PNGGauntlet.png)
+
+---
+
+## For JPEGs :arrow_right: already compressed
+
+- One can reduce the size with little loss.
+- Lots of web tools. One among all [CompressJPEG.com](https://compressjpeg.com/)
+
+![original center 90%](figures/compressjpeg.png)
+
+---
+
+## Example: two compression steps
+
+![original 20%](figures/IETR.jpg) ![original 20%](figures/IETR-min.jpg) ![original 20%](figures/IETR-mini.jpg)
+
+- 159 ko :arrow_right: 47 ko (30%) :arrow_right: 21 ko (13%)
+- It depends on your use case!
+
+---
+
+## For PDFs :arrow_right: Up to 100% compression rate!
+
+### On Unix systems
+Lilian wrote [`PDFCompress`](https://bitbucket.org/lbesson/bin/src/master/PDFCompress) for this ($\hookrightarrow$ [`bitbucket.org/lbesson/bin`](https://bitbucket.org/lbesson/bin/)).
+
+```bash
+$ cp input.pdf output.pdf
+$ PDFCompress output.pdf
+# lot of verbose output ...
+
+$ du input.pdf output.pdf
+2,1M    input.pdf   |   1,1M    output.pdf
+
+# it does this command with gs (ghostscript):
+$ gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite \
+     -sOutputFile=output.pdf input.pdf
+```
+
+## On Windows systems
+Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
+
+---
+
+# Writing tools
+
+*Goal*: increase quality and productivity when writing, 
+e.g. in a non native language
+
+Three propositions:
+
+1. Dictionnary power user: [WordReference.com](http://www.wordreference.com/) + Firefox [smart keywords](https://support.mozilla.org/en-US/kb/how-search-from-address-bar)
+2. Fast translation with [DeepL.com](https://www.deepl.com/translator)
+3. Grammar spellchecker with : [Antidote.info](https://www.antidote.info/)
+   + Fr + En = $120 + 60$ €
+   + LaTeX compatible
+   + I used it for my PhD manuscript (in French), and all articles since then
+
+---
+
+# Firefox keywords for dictionnaries
+
+*Goal*: fast word translation with Wordreference or other dictionnary.
+cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
+
+Access dictionnaries *without leaving the keyboard*
+(no mouse click needed).
+
+---
+
+# Firefox keywords: HOWTO 1/2
+
+Step 1: right-click in search field: "Add a Keyword for this Search..."
+![60%](figures/lang/Linguee1_add.png)
+
+---
+
+# Firefox keywords: HOWTO 2/2
+
+Step 2: choose the keyword: "ling", "fren", "enfr"...
+![60%](figures/lang/Linguee2_dialog.png)
+
+---
+# Firefox keywords: check
+
+NB: keywords are associated with *bookmarks*.
+
+You can hack the bookmark record, playing with the `%s` placeholder:
+
+![60%](figures/lang/Wordref_bookmark.png)
+
+
+---
+# Firefox keywords: usage (without mouse!)
+
+*(`Ctrl+L` to focus the address bar)*
+
+Type `keyword` + `space` + search string:
+
+![100%](figures/lang/Linguee3_search.png)
+
+Then hit `Enter` to query the search:
+
+![100%](figures/lang/Linguee4_result.png)
+
+---
+# DeepL online translator
+
+[DeepL.com](https://www.deepl.com/) *(by the makers of [Linguee.com](https://www.linguee.com))*.
+
+Key interesting points:
+
+* **word-by-word interactivity**: adjust the translation to your taste
+* integrated dictionnary
+
+:warning: Important warning: in the free version, *everything gets recorded* (cf. [privacy policy](https://www.deepl.com/privacy.html)), like Google Translate...
+
+---
+
+# DeepL demo
+
+My tip: make changes *forward*, or you shall loose previous changes :cry:.
+
+[![50%](figures/lang/DeepL.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/DeepL.gif)
+
+---
+
+# Antidote grammar spellchecker
+
+NB: non free tool: $120$ € + $60$ € for French + English
+
+Features:
+
+- detects advanced grammar errors
+  + including *false friends* for French (e.g.: actuellement/actually)
+- can spellcheck LaTeX
+- includes dictionnaries with synonyms, antonyms, citations...
+
+[![70%](figures/lang/Antidote.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/Antidote.gif)
 
 ---
 
@@ -163,12 +334,14 @@ TODO
 
 ## Sum-up
 1. A *clipboard history manager* is simple to use and can be useful!
-2. Tool 2
-3. Tool 3
-4. Tool 4
+2. *Offline documentation browser* is awesome!
+3. *Reformating Matlab figures* is simple and gives pretty figures!
+4. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
+5. *Advanced writing tools*
 
 ## Pointers
-- → ?
+- $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/)
+- $\hookrightarrow$ [Other PDFs compression tools](https://www.intowindows.com/6-ways-to-compress-pdf-files/)
 
 ---
 
@@ -186,9 +359,12 @@ TODO
 
 # Conclusion (3/3)
 
-> *Thanks for joining :clap: !*
+Happy holidays!
+And merry Christmas :christmas_tree: :snowman_with_snow: :gift: :santa: !
 
 ## Your mission, if you accept it... :boom:
-1. *Padawan level :* be smart and try to use *one* of these tools!
-2. *Jedi level :* discuss about your tools with your colleagues and friends!
-3. *Master level :* write your own open source tools to solve problems nobody never had!
+1. *Padawan level :* **be smart and try new tools!**
+2. *Jedi level :* **discuss** about your tools with your colleagues and friends!
+3. *Master level :* **write your own** open source tools to solve problems nobody never had!
+
+> Thanks for joining :clap: !
