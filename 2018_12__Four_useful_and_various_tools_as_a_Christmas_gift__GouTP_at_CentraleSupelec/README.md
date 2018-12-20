@@ -1,21 +1,19 @@
 ---
-title: 3rd GouTP @ SCEE
+title: 2nd GouTP @ SCEE
 subtitle: Five useful and various tools as a Christmas gift
 author: Lilian Besson and Bastien Trotobas and Nabil Zaraneh and Pierre Haessig
 institute: SCEE Team, IETR, CentraleSupélec, Rennes
-date: Thursday 21th of December, 2018
+date: Thursday 20th of December, 2018
 lang: english
 ---
 
-# $2^{\text{nd}}\;\;$ $2018/19$ GouTP @ SCEE
+# $2^{\text{nd}}\;$ $2018/19$ GouTP @ SCEE
 
-- *About:* **Five useful and various tools as a Christmas gift**
+- *About:* **Useful and various tools as a Christmas gift**  :christmas_tree: :snowman_with_snow: :gift: :santa:
 
-- *Date:* $21$th of December $2018$ :date:
+- *Date:* $20$th of December $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Nabil Zeraneh](TODO) and [Pierre Haessig](http://pierreh.eu/) :hand:
-
-
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Pierre Haessig](http://pierreh.eu/) :hand:
 
 ### Open source content :notebook: ?
 > Note: slides are online: `github.com/Naereen/slides/tree/master/
@@ -33,8 +31,6 @@ lang: english
   > Initiative of Quentin and Vincent :clap: in January 2017...
   > Continued by Rémi, Muhammad, Rami and Lilian :ok_hand: !
 
-
-
 ## Not only @ SCEE :smiley: ?
 - Now open to all the teams of CentraleSupélec, campus of Rennes.
 
@@ -46,13 +42,9 @@ lang: english
 
 ## 2. Offline documentation browser
 
-## 3. Reformating Matlab figures
+## 3. Compressing PNG, JPEG and PDF
 
-## 4. Compressing PNG, JPEG and PDF
-
-## 5. Tools to write easily in a foreign language
-
-
+## 4. Tools to write easily in a foreign language
 
 ### Please :pray:
 Ask questions and interrupt us if you want!
@@ -105,14 +97,7 @@ Simple and tiny tool to help you win some time!
 ## Demo!
 > Me editing the source code of last slides, using `parcellite`
 
-[![bg original 100%](figures/demo_parcellite.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_parcellite.gif)
-
----
-
-## Demo!
-> Me editing the source code of last slides, using `parcellite`
-
-![bg original 75%](figures/demo_parcellite.png)
+[![bg original 150%](figures/demo_parcellite.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/demo_parcellite.gif)
 
 ---
 
@@ -134,8 +119,6 @@ Simple and tiny tool to help you win some time!
 
 TL;DR: if you use open source languages and tools for your work, the website devdocs.io is very useful!
 
-
-
 - Browse and search documentation of languages and libraries
 - Examples: Python, tensorflow, matplotlib, C++, etc
 - Work *offline* (nice in a :airplane: plane, :train: train etc)
@@ -154,17 +137,11 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 
 ---
 
-# 3rd tool: Reformating Matlab figures
-
-(slides by Nabil)
-
----
-
-# 4th tool: Compressing PNGs, JPEGs & PDFs
+# 3rd tool: Compressing PNGs, JPEGs & PDFs
 
 - *What?*
   + Reduce the size of figures with little or no quality loss.
-- *Why?* 
+- *Why?*
   + :chart_with_downwards_trend: Reduce the size of your research papers,
   + :rocket: Speed up your data transfers to your git, drive, etc,
   + :recycle: Reduce your environmental impact effortlessly.
@@ -202,7 +179,7 @@ $ advpng -z -2 *.png  # on *Nix systems
 
 ## Example: two compression steps
 
-![original 20%](figures/IETR.jpg) ![original 20%](figures/IETR-min.jpg) ![original 20%](figures/IETR-mini.jpg)
+![original 25%](figures/IETR.jpg) ![original 25%](figures/IETR-min.jpg) ![original 25%](figures/IETR-mini.jpg)
 
 - 159 ko :arrow_right: 47 ko (30%) :arrow_right: 21 ko (13%)
 - It depends on your use case!
@@ -232,9 +209,9 @@ Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
 
 ---
 
-# Writing tools
+# 4th tools: Writing tools
 
-*Goal*: increase quality and productivity when writing, 
+*Goal*: increase quality and productivity when writing,
 e.g. in a non native language
 
 Three propositions:
@@ -248,30 +225,33 @@ Three propositions:
 
 ---
 
-# Firefox keywords for dictionnaries
+## 4.1. Firefox keywords for dictionnaries
 
-*Goal*: fast word translation with Wordreference or other dictionnary.
-cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
+- *Goal*: fast word translation with Wordreference or other dictionnary.
+  cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
 
-Access dictionnaries *without leaving the keyboard*
-(no mouse click needed).
+- Access dictionnaries *without leaving the keyboard*
+  (no mouse click needed).
 
 ---
 
-# Firefox keywords: HOWTO 1/2
+## Firefox keywords: HOWTO 1/2
 
 Step 1: right-click in search field: "Add a Keyword for this Search..."
-![60%](figures/lang/Linguee1_add.png)
+
+![50%](figures/lang/Linguee1_add.png)
 
 ---
 
-# Firefox keywords: HOWTO 2/2
+## Firefox keywords: HOWTO 2/2
 
 Step 2: choose the keyword: "ling", "fren", "enfr"...
-![60%](figures/lang/Linguee2_dialog.png)
+
+![50%](figures/lang/Linguee2_dialog.png)
 
 ---
-# Firefox keywords: check
+
+## Firefox keywords: check
 
 NB: keywords are associated with *bookmarks*.
 
@@ -281,52 +261,56 @@ You can hack the bookmark record, playing with the `%s` placeholder:
 
 
 ---
-# Firefox keywords: usage (without mouse!)
+
+## Firefox keywords: usage (without mouse!)
 
 *(`Ctrl+L` to focus the address bar)*
 
-Type `keyword` + `space` + search string:
+Type `keyword` + `space` + search string: ![60%](figures/lang/Linguee3_search.png)
 
-![100%](figures/lang/Linguee3_search.png)
-
-Then hit `Enter` to query the search:
-
-![100%](figures/lang/Linguee4_result.png)
+Then hit `Enter` to query the search: ![60%](figures/lang/Linguee4_result.png)
 
 ---
-# DeepL online translator
 
-[DeepL.com](https://www.deepl.com/) *(by the makers of [Linguee.com](https://www.linguee.com))*.
+## 4.2. DeepL online translator
+
+$\hookrightarrow$ [DeepL.com](https://www.deepl.com/) *(by the makers of [Linguee.com](https://www.linguee.com))*.
 
 Key interesting points:
 
 * **word-by-word interactivity**: adjust the translation to your taste
 * integrated dictionnary
 
-:warning: Important warning: in the free version, *everything gets recorded* (cf. [privacy policy](https://www.deepl.com/privacy.html)), like Google Translate...
+### :see_no_evil: Don't use for private documents!
+:warning: Important warning: in the free version, *everything gets recorded* (cf. [privacy policy](https://www.deepl.com/privacy.html)),
+:warning: like Google Translate...
 
 ---
 
-# DeepL demo
+## DeepL demo
 
 My tip: make changes *forward*, or you shall loose previous changes :cry:.
 
-[![50%](figures/lang/DeepL.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/DeepL.gif)
+[![bg original 60%](figures/lang/DeepL.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/DeepL.gif)
 
 ---
 
-# Antidote grammar spellchecker
+## 4.3. Antidote grammar spellchecker
 
-NB: non free tool: $120$ € + $60$ € for French + English
+:warning: NB: non free tool: $120$ € + $60$ € for French + English
 
-Features:
+### Features
 
 - detects advanced grammar errors
   + including *false friends* for French (e.g.: actuellement/actually)
 - can spellcheck LaTeX
 - includes dictionnaries with synonyms, antonyms, citations...
 
-[![70%](figures/lang/Antidote.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/Antidote.gif)
+---
+
+## Demo of Antidote
+
+[![bg original 120%](figures/lang/Antidote.gif)](https://localhost/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/figures/lang/Antidote.gif)
 
 ---
 
@@ -335,13 +319,12 @@ Features:
 ## Sum-up
 1. A *clipboard history manager* is simple to use and can be useful!
 2. *Offline documentation browser* is awesome!
-3. *Reformating Matlab figures* is simple and gives pretty figures!
-4. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
-5. *Advanced writing tools*
+3. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
+4. *Advanced writing tools*
 
 ## Pointers
-- $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/)
-- $\hookrightarrow$ [Other PDFs compression tools](https://www.intowindows.com/6-ways-to-compress-pdf-files/)
+- $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/) and [Other PDFs compression tools](https://www.intowindows.com/6-ways-to-compress-pdf-files/) online
+- $\hookrightarrow$ [DeepL.com](https://www.deepl.com/) and other websites
 
 ---
 
@@ -353,7 +336,10 @@ Features:
 ## We need participants!
 > :point_right: By *you*? Any idea is welcome! :smiley:
 
-> *Contact us if you want to do a GouTP !*
+> Contact us if you want to do a GouTP !
+
+## Note for PhD students
+GouTP count as **PhD training hours**, come with a paper from Ecole Doctorale for us to sign!
 
 ---
 
