@@ -9,8 +9,8 @@ reveal-md:
 	reveal-md --theme $(theme) --title "4th GouTP  |  Date : 18 Jan 2018  |  Lilian Besson  |  CentraleSupélec" slides.md
 
 pandocpdf:
-	# pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides-pandoc.md -o slides.pdf
-	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides-pandoc.md -o slides.tex
+	# pandoc --variable=aspectratio:43 -N -s --template=../common/my.beamer -t beamer slides-pandoc.md -o slides.pdf
+	pandoc --variable=aspectratio:43 -N -s --template=../common/my.beamer -t beamer slides-pandoc.md -o slides.tex
 	latexmk -xelatex -gg -pdf slides.tex
 	xdg-open slides.pdf &
 
@@ -18,8 +18,8 @@ show:
 	pdfpc -d 30 slides.pdf
 
 pandocpdf169:
-	# pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides-pandoc.md -o slides_169.pdf
-	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides-pandoc.md -o slides_169.tex
+	# pandoc --variable=aspectratio:169 -N -s --template=../common/my.beamer -t beamer slides-pandoc.md -o slides_169.pdf
+	pandoc --variable=aspectratio:169 -N -s --template=../common/my.beamer -t beamer slides-pandoc.md -o slides_169.tex
 	latexmk -xelatex -gg -pdf slides_169.tex
 	xdg-open slides_169.pdf &
 

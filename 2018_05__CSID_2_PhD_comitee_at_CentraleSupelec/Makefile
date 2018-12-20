@@ -5,7 +5,7 @@ slides.pdf:	clean pandoctex pandocpdf
 pdf:	slides.pdf
 
 pandoctex:
-	pandoc --variable=aspectratio:43 -N -s --template=../my.beamer -t beamer slides.md -o slides.tex
+	pandoc --variable=aspectratio:43 -N -s --template=../common/my.beamer -t beamer slides.md -o slides.tex
 
 pandocpdf:
 	latexmk -gg -pdf -pdflatex="xelatex %O %S" slides.tex
@@ -19,7 +19,7 @@ show:
 slides_169.pdf:	clean pandoctex169 pandocpdf169
 
 pandoctex169:
-	pandoc --variable=aspectratio:169 -N -s --template=../my.beamer -t beamer slides.md -o slides_169.tex
+	pandoc --variable=aspectratio:169 -N -s --template=../common/my.beamer -t beamer slides.md -o slides_169.tex
 
 pandocpdf169:
 	latexmk -gg -pdf -pdflatex="xelatex %O %S" slides_169.tex

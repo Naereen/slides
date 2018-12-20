@@ -44,25 +44,22 @@ This repository hosts some slides for talks I have gavin, covering various subje
 > These versions are experimental and should not be used.
 > [*Hic sunt dracones!*](https://actuelmoyenage.wordpress.com/2017/08/24/hic-sunt-dracones-des-cartes-au-code-informatique/)
 
-#### *rawgit*
-> Thanks to [rawgit.com](https://rawgit.com/):
-
-- Example: [template](https://cdn.rawgit.com/Naereen/slides/master/template/slides.html).
-- [2016_07__Python_demo_at_EPFL](https://cdn.rawgit.com/Naereen/slides/master/2016_07__Python_demo_at_EPFL/slides.html).
-- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.html).
-- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.html).
-- [2017_06__Presentation_of_ADDI_Association](https://cdn.rawgit.com/Naereen/slides/master/2017_06__Presentation_of_ADDI_Association/slides.html).
-- [2017_09__Presentation_article_CrownCom_Conference](https://cdn.rawgit.com/Naereen/slides/master/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](https://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
-- [2017_11__Git_and_open-source_your_simulation_code__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.html).
-- [2017_11__Presentation_Supelec_SCEE_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_11__Presentation_Supelec_SCEE_Seminar/slides.html).
-- [2017_12__Presentation_Inria_Lille_SequeL_Seminar](https://cdn.rawgit.com/Naereen/slides/master/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.html).
-- [2018_01__Python_introduction_for_MATLAB_users__at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.html).
-- [2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec](https://cdn.rawgit.com/Naereen/slides/master/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.html).
-- [2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar](https://cdn.rawgit.com/Naereen/slides/master/2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar/slides.html).
-- [2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec/slides.html).
-- [2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations](https://cdn.rawgit.com/Naereen/slides/master/2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations/slides.html).
-- [2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec](https://cdn.rawgit.com/Naereen/slides/master/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides.html).
-- For other slides, if I forgot one, use this URL: `https://cdn.rawgit.com/Naereen/slides/master/NAME_OF_THE_SLIDE/slides.html`.
+- Example: [template](https://Naereen.GitHub.io/slides/template/slides.html).
+- [2016_07__Python_demo_at_EPFL](https://Naereen.GitHub.io/slides/2016_07__Python_demo_at_EPFL/slides.html).
+- [2017_02__Markdown_and_MediaWiki_primer_at_Supelec](https://Naereen.GitHub.io/slides/2017_02__Markdown_and_MediaWiki_primer_at_Supelec/slides.html).
+- [2017_05__CSID_PhD_comitee_at_CentraleSupelec](https://Naereen.GitHub.io/slides/2017_05__CSID_PhD_comitee_at_CentraleSupelec/slides.html).
+- [2017_06__Presentation_of_ADDI_Association](https://Naereen.GitHub.io/slides/2017_06__Presentation_of_ADDI_Association/slides.html).
+- [2017_09__Presentation_article_CrownCom_Conference](https://Naereen.GitHub.io/slides/2017_09__Presentation_article_CrownCom_Conference/) (still ugly, prefer [the PDF](https://perso.crans.org/besson/publis/slides/2017_09__Presentation_article_CrownCom_Conference/slides.pdf)).
+- [2017_11__Git_and_open-source_your_simulation_code__at_Supelec](https://Naereen.GitHub.io/slides/2017_11__Git_and_open-source_your_simulation_code__at_Supelec/slides.html).
+- [2017_11__Presentation_Supelec_SCEE_Seminar](https://Naereen.GitHub.io/slides/2017_11__Presentation_Supelec_SCEE_Seminar/slides.html).
+- [2017_12__Presentation_Inria_Lille_SequeL_Seminar](https://Naereen.GitHub.io/slides/2017_12__Presentation_Inria_Lille_SequeL_Seminar/slides.html).
+- [2018_01__Python_introduction_for_MATLAB_users__at_Supelec](https://Naereen.GitHub.io/slides/2018_01__Python_introduction_for_MATLAB_users__at_Supelec/slides.html).
+- [2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec](https://Naereen.GitHub.io/slides/2018_03__Jupyter_notebooks_are_awesome__GouTP_at_Supelec/slides.html).
+- [2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar](https://Naereen.GitHub.io/slides/2018_06__Julia_my_new_optimization_friend__introduction_for_MATLAB_users__at_IETR_seminar/slides.html).
+- [2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec](https://Naereen.GitHub.io/slides/2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec/slides.html).
+- [2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations](https://Naereen.GitHub.io/slides/2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations/slides.html).
+- [2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec](https://Naereen.GitHub.io/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides.html).
+- For other slides, if I forgot one, use this URL: `https://Naereen.GitHub.io/slides/NAME_OF_THE_SLIDE/slides.html`.
 
 > Note: I have stopped writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless. Tell me if you want them!
 
