@@ -2,7 +2,7 @@
 $theme: default
 $size: 16:9
 page_number: true
-footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaraneh & P. Haessig  | Useful and various tools as a Christmas gift
+footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & P. Haessig  | Useful and various tools as a Christmas gift
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-just-to-aligned.css" />
@@ -13,7 +13,7 @@ footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaran
 
 - *Date:* $21$th of December $2018$ :date:
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Nabil Zeraneh](TODO) and [Pierre Haessig](http://pierreh.eu/) :hand:
+- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) and [Bastien Trotobas](https://github.com/BastienTr/) and [Pierre Haessig](http://pierreh.eu/) :hand:
 
 <br>
 
@@ -46,11 +46,9 @@ footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaran
 
 ## 2. Offline documentation browser
 
-## 3. Reformating Matlab figures
+## 3. Compressing PNG, JPEG and PDF
 
-## 4. Compressing PNG, JPEG and PDF
-
-## 5. Tools to write easily in a foreign language
+## 4. Tools to write easily in a foreign language
 
 <br>
 
@@ -147,52 +145,7 @@ TL;DR: if you use open source languages and tools for your work, the website dev
 
 ---
 
-# 3rd tool: Reformating Matlab figures
-
-- Using export setup tool
-
-- Demonstration :rocket:
-
----
-
-## 1. Opening the tool
-
-![bg original 45%](figures/matlab/1.png)
-
----
-
-## 2. Configuring the figure size
-
-![bg original 60%](figures/matlab/2.png)
-
----
-
-## 3. Changing the colors
-
-![bg original 60%](figures/matlab/3.png)
-
----
-
-## 4. Choosing the font
-
-![bg original 60%](figures/matlab/4.png)
-
----
-
-## 5. Configuring the lines
-
-![bg original 60%](figures/matlab/5.png)
-
----
-
-## 6. Saving all of the configurations
-Very smart!
-
-![bg original 50%](figures/matlab/6.png)
-
----
-
-# 4th tool: Compressing PNGs, JPEGs & PDFs
+# 3rd tool: Compressing PNGs, JPEGs & PDFs
 
 - *What?*
   + Reduce the size of figures with little or no quality loss.
@@ -264,7 +217,7 @@ Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
 
 ---
 
-# 5th tools: Writing tools
+# 4th tools: Writing tools
 
 *Goal*: increase quality and productivity when writing, 
 e.g. in a non native language
@@ -280,7 +233,7 @@ Three propositions:
 
 ---
 
-## 5.1. Firefox keywords for dictionnaries
+## 4.1. Firefox keywords for dictionnaries
 
 - *Goal*: fast word translation with Wordreference or other dictionnary.
   cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
@@ -327,7 +280,7 @@ Then hit `Enter` to query the search: ![60%](figures/lang/Linguee4_result.png)
 
 ---
 
-## 5.2. DeepL online translator
+## 4.2. DeepL online translator
 
 $\hookrightarrow$ [DeepL.com](https://www.deepl.com/) *(by the makers of [Linguee.com](https://www.linguee.com))*.
 
@@ -350,7 +303,7 @@ My tip: make changes *forward*, or you shall loose previous changes :cry:.
 
 ---
 
-## 5.3. Antidote grammar spellchecker
+## 4.3. Antidote grammar spellchecker
 
 :warning: NB: non free tool: $120$ € + $60$ € for French + English
 
@@ -374,9 +327,8 @@ My tip: make changes *forward*, or you shall loose previous changes :cry:.
 ## Sum-up
 1. A *clipboard history manager* is simple to use and can be useful!
 2. *Offline documentation browser* is awesome!
-3. *Reformating Matlab figures* is simple and gives pretty figures!
-4. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
-5. *Advanced writing tools*
+3. *Compress your figures* before including them on your papers, sending them online, storing them on your git, etc!
+4. *Advanced writing tools*
 
 ## Pointers
 - $\hookrightarrow$ [Other JPEGs and PNGs compression tools](https://enviragallery.com/9-best-free-image-optimization-tools-for-image-compression/) and [Other PDFs compression tools](https://www.intowindows.com/6-ways-to-compress-pdf-files/) online
