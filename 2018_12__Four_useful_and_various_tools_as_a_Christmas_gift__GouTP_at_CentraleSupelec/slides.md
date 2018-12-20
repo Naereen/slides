@@ -1,12 +1,11 @@
 <!--
 $theme: default
-$size: 16:9
+$size: 4:3
 page_number: true
 footer: GouTP @ SCEE | 21 December 2018 | By: L. Besson & B. Trotobas & N. Zaraneh & P. Haessig
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
-
 
 # $2^{\text{nd}}\;\;$ $2018/19$ GouTP @ SCEE
 
@@ -237,7 +236,7 @@ Use online tools such as [SmallPDF.com](https://SmallPDF.com/compress-pdf)
 
 ---
 
-# Writing tools
+# 5th tools: Writing tools
 
 *Goal*: increase quality and productivity when writing, 
 e.g. in a non native language
@@ -253,7 +252,7 @@ Three propositions:
 
 ---
 
-# Firefox keywords for dictionnaries
+## Firefox keywords for dictionnaries
 
 *Goal*: fast word translation with Wordreference or other dictionnary.
 cf. [support.mozilla.org/en-US/kb/Smart keywords](https://support.mozilla.org/en-US/kb/Smart%20keywords).
@@ -263,20 +262,21 @@ Access dictionnaries *without leaving the keyboard*
 
 ---
 
-# Firefox keywords: HOWTO 1/2
+## Firefox keywords: HOWTO 1/2
 
 Step 1: right-click in search field: "Add a Keyword for this Search..."
 ![60%](figures/lang/Linguee1_add.png)
 
 ---
 
-# Firefox keywords: HOWTO 2/2
+## Firefox keywords: HOWTO 2/2
 
 Step 2: choose the keyword: "ling", "fren", "enfr"...
 ![60%](figures/lang/Linguee2_dialog.png)
 
 ---
-# Firefox keywords: check
+
+## Firefox keywords: check
 
 NB: keywords are associated with *bookmarks*.
 
@@ -286,7 +286,8 @@ You can hack the bookmark record, playing with the `%s` placeholder:
 
 
 ---
-# Firefox keywords: usage (without mouse!)
+
+## Firefox keywords: usage (without mouse!)
 
 *(`Ctrl+L` to focus the address bar)*
 
@@ -299,7 +300,8 @@ Then hit `Enter` to query the search:
 ![100%](figures/lang/Linguee4_result.png)
 
 ---
-# DeepL online translator
+
+## DeepL online translator
 
 [DeepL.com](https://www.deepl.com/) *(by the makers of [Linguee.com](https://www.linguee.com))*.
 
@@ -312,7 +314,7 @@ Key interesting points:
 
 ---
 
-# DeepL demo
+## DeepL demo
 
 My tip: make changes *forward*, or you shall loose previous changes :cry:.
 
@@ -320,7 +322,7 @@ My tip: make changes *forward*, or you shall loose previous changes :cry:.
 
 ---
 
-# Antidote grammar spellchecker
+## Antidote grammar spellchecker
 
 NB: non free tool: $120$ € + $60$ € for French + English
 
