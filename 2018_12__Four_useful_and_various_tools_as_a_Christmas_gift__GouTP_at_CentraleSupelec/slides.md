@@ -1,6 +1,6 @@
 <!--
 $theme: default
-$size: 16:9
+$size: 4:3
 page_number: true
 footer: GouTP @ SCEE | 20 December 2018 | By: L. Besson & B. Trotobas & P. Haessig  | Useful and various tools as a Christmas gift
 -->
