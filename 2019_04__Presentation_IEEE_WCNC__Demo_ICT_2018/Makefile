@@ -4,7 +4,7 @@ SHELL=/usr/bin/env /bin/bash
 default: all
 
 talk:
-	clear ; pokemonsay "Good luck Lilian :-)" ; make show_pandoc ; clear ; pokemonsay 'You rock!'
+	clear ; pokemonsay "Good luck Lilian :-)" ; make show ; clear ; pokemonsay 'You rock!'
 
 all:	pandoctex pandocpdf clean show
 all169:	pandoctex169 pandocpdf169 clean show169
@@ -52,4 +52,4 @@ typora:
 theme = league
 
 reveal-md:
-	reveal-md --theme $(theme) --title "Aggregation of MAB Algorithms for OSA  |  Date : April 2018  |  Lilian Besson  |  IEEE WCNC" slides.md
+	reveal-md --theme $(theme) --title "GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of-things Networks  |  Date : April 2019  |  Lilian Besson  |  IEEE WCNC" slides.md

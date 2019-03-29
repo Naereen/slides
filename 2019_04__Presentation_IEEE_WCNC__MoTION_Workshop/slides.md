@@ -5,7 +5,7 @@ page_number: true
 footer: Upper-Confidence Bound for Channel Selection inLPWA Networks with Retransmissions
 -->
 
-<link rel="stylesheet" type="text/css" href="../../common/marp-naereen.css" />
+<link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
 
 ### *IEEE WCNC 2019*: "**Upper-Confidence Bound for Channel Selection inLPWA Networks with Retransmissions**"
 
@@ -13,9 +13,9 @@ footer: Upper-Confidence Bound for Channel Selection inLPWA Networks with Retran
 
 - *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :wave: , PhD Student in France, co-advised by
 
-| *Christophe Moy* <br> @ IETR, Rennes | *Ãƒâ€°milie Kaufmann* <br> @ CNRS & Inria, Lille |
+| *Christophe Moy* <br> @ IETR, Rennes | *Emilie Kaufmann* <br> @ CNRS & Inria, Lille |
 |:---:|:---:|
-| ![7%](../../common/LogoCS.png) ![14%](../../common/LogoIETR.png) | ![12%](../../common/LogoInria.jpg) ![16%](../../common/LogoCNRS.jpg) |
+| ![7%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) | ![12%](../common/LogoInria.jpg) ![16%](../common/LogoCNRS.jpg) |
 
 > See our paper at [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824)
 
