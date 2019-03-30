@@ -223,17 +223,44 @@ XXX
 
 ---
 
-# 6. Summary
+# 6. Summary (1/3)
+## Setting…
+1. For **LPWA networks** based onan **ALOHA protocol**
+   (slotted both in time and frequency),
+<br>
+2. We presented a **retransmission model**,
+<br>
+3. Dynamic **IoT devices** can use **simple machine learning algorithms**, to improve their PLR when accessing the network,
+<br>
+4. We focus on the packet retransmissions upon radio collision, by using **Multi-Armed Bandit** algorithms, like **UCB**.
 
+---
+
+# 6. Summary (2/3)
+## We presented
+
+Several **learning heuristics**
+
+- that try to learn how to transmit and retransmit in a smarter way,
+<br>
+- by using the classical UCB algorithm for **channel selection for first transmission**:  it has a **low memory and computation cost**, easy to add on an embedded CPU of an IoT device,
+<br>
+- and different ideas based on UCB for the retransmissions upon collisions, that add no cost/memory overhead.
+
+---
+
+# 6. Summary (3/3)
 ## We showed
-1. XXX
-2. XXX
-3. XXX
-4. XXX
 
-## Take home message
-
-**XXX**
+We showed that incorporating learning for the transmission
+is needed to achieve optimal performance, with significant
+gain in terms of successful transmission rate in networks
+with a large number of devices (up-to 30% in the example
+network). Our empirical simulations show that each of our
+proposed heuristic outperforms a naive random access scheme.
+Surprisingly, the main take-away message is that a simple
+UCB learning approach, that retransmit in the same channel,
+turns out to perform as well as more complicated heuristics.
 
 ---
 
