@@ -9,7 +9,11 @@ footer: GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of
 
 ### *IEEE WCNC 2019*: "**GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of-things Networks**"
 
+<br>
+
 - *Date* :date: : $17$th of April $2019$
+
+<br>
 
 - *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :wave: , PhD Student in France, co-advised by
 
