@@ -7,11 +7,11 @@ footer: Upper-Confidence Bound for Channel Selection in LPWA Networks with Retra
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
 
-### *IEEE WCNC 2019*: "**Upper-Confidence Bound for Channel Selection in LPWA Networks with Retransmissions**"
+### *1st MoTION Workshop - 2019*: "**Upper-Confidence Bound for Channel Selection in LPWA Networks with Retransmissions**"
 
 <br>
 
-- *Date* :date: : $14$th of April $2019$
+- *Date* :date: : $15$th of April $2019$
 
 <br>
 
@@ -19,30 +19,33 @@ footer: Upper-Confidence Bound for Channel Selection in LPWA Networks with Retra
 
 | *Christophe Moy* <br> @ IETR, Rennes | *Emilie Kaufmann* <br> @ CNRS & Inria, Lille |
 |:---:|:---:|
-| ![7%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) | ![12%](../common/LogoInria.jpg) ![16%](../common/LogoCNRS.jpg) |
+| ![8%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) | ![12%](../common/LogoInria.jpg) ![16%](../common/LogoCNRS.jpg) |
 
 > See our paper at [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824)
-
----
-
-# Introduction
-
-- XXX
-
-> By R. Bonnefoi, ==L. Besson==, J. Manco-Vasquez and C. Moy.
 
 ---
 
 # :timer_clock: Outline
 
 ## 1. Motivations
-## 2. System Model
-## 3. Multi-Armed Bandit (MAB) Model and Algorithms
-## 4. Proposed Heuristics
-## 5. Results
+## 2. System model
+## 3. Multi-armed bandit (MAB) model and algorithms
+## 4. Proposed heuristics
+## 5. Numerical simulations and results
 
-### Please :pray:
-Ask questions *at the end* if you want!
+#### Please :pray: ask questions *at the end* if you want!
+
+> By R. Bonnefoi, ==L. Besson==, J. Manco-Vasquez and C. Moy.
+
+---
+
+# 1. Motivations
+
+- IoT networks are interesting and will be more and more present,
+- More and more IoT objects
+- $\Longrightarrow$ networks will be more and more occupied
+
+But...
 
 ---
 
@@ -61,33 +64,102 @@ But...
 
 ---
 
-# 2. System Model
+# 2. System model
 
-Wireless network
+### Wireless network
+
 - In ISM band, centered at $433.5$ MHz (in Europe)
 - $K=4$ (or more) orthogonal channels
 
-Gateway
+<br>
+
+### One gateway, many IoT devices
+
 - One gateway, handling different objects
-- Communications with ALOHA protocol (without retransmission)
-- Objects send data for $1$s in one channel, wait for an *acknowledgement* for $1$s in same channel, use Ack as feedback: success / failure
-- Each object: communicate from time to time (e.g., every $10$ s)
-- Goal: maximize successful communications $\Longleftrightarrow$ maximize sum of received Ack
+- Communications with ALOHA protocol **with retransmission**
+- Objects send data for $1$s in one channel, wait for an *acknowledgement* for $1$s in same channel,
+  use Ack as feedback: success / failure
 
 ---
 
-# 2. Markov Chain of our System Model
+### Transmission and retransmission model
+- Each object communicates from time to time (e.g., every $10$ s)
+  $\Longleftrightarrow$ probability $p$ of transmission at every time (Bernoulli process)
 
-![bg original 75%](plots/Markov_model.png)
+- Retransmit at most $M$ times if first transmission failed
+  (until Ack is received)
+
+- Retransmissions can use a different channel that the one used for first transmission
+
+- Retransmissions happen after a random back-off time
+  back-off time $\sim\mathcal{U}(0,\cdots,M-1)$
+
+### The goal of each object
+Is to *max*imize its successful communication rates
+$\Longleftrightarrow$ *max*imize its number of received Ack.
 
 ---
 
-# Hypotheses
+# Do we need learning for transmission? Yes!
 
-1. Blabla
-1. Blabla
-1. Blabla
-1. Blabla
+#### First hypothesis
+The surrounding traffic is not uniformly occupying the $K$ channels.
+
+#### Consequence
+- Then it is always sub-optimal to use a (naive) uniformly random channel access
+
+- $\Longrightarrow$ we can use online machine learning to let each IoT device learn, on its own and in an automatic and decentralized way, which channel is the best one (= less occupied) in its current environment.
+
+- ==Learning is actually *needed* to achieve (close to) optimal performance.==
+
+---
+
+# Do we need learning for *re*transmission?
+
+#### Second hypothesis
+Imagine a set of IoT devices learned to transmit efficiently
+(in the most free channel), in one IoT network.
+
+#### Question
+- Then if two devices collide, do they have a higher probability of colliding again *if retransmissions happen in the same channel* ?
+
+---
+
+# Mathematical intution and illustration
+
+Consider one IoT device and one channel, we consider two probabilities:
+
+- $p_c$ : suffering a collision at first transmission,
+- $p_{c1}$ : collision at the first retransmission (if it uses the same channel).
+
+<br>
+
+In an example network with...
+- a small transmission probability $p=10^{-3}$,
+- from $N=50$ to $N=400$ IoT devices,
+
+<br>
+
+- $\Longrightarrow$ we ran simulations showing that
+  ==$p_{c1}$ can be more than twice of $p_c$ (from $5\%$ to $15\%$!)==
+
+---
+
+![bg original 75%](plots/Approximation_m10.png)
+
+---
+
+# Do we need learning for *re*transmission?
+# Yes we do!
+
+#### Consequence
+
+- Then if two devices collide, they have a higher probability of colliding again *if retransmissions happen in the same channel*
+
+- $\Longrightarrow$ we can also use online machine learning to let each IoT device learn, on its own and in an automatic and decentralized way, which channel is the best one (= less occupied)
+  to retransmit a packet which failed due to a collision.
+
+- ==Learning is again *needed* to achieve (close to) optimal performance.==
 
 ---
 
@@ -161,7 +233,7 @@ $$ U_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\alpha \frac{\log(t)}{N_k(t)}} $$
 
 Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, regardless if it's a first transmission or a retransmission of a message.
 
-![90%](plots/Algorithm1_UCB.png)
+![80%](plots/Algorithm1_UCB.png)
 
 ---
 
@@ -189,18 +261,33 @@ Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, 
 
 ---
 
-# 5. Results
+# 5. Numerical simulations and results
 
-XXX
+### What
+- We simulate a network,
+- With many IoT dynamic devices.
+
+<br>
+
+### Why
+- They implement the UCB learning algorithm to learn to optimize their *first* transmission of any uplink packets,
+- And the different heuristic to (try to) learn to optimize their *retransmissions* of the packets after any collision.
 
 ---
 
-# 5.1. First Experiment
+# 5.1. First experiment
 
-- Blabla
-- Blabla
-- Blabla
-- Blabla
+We consider an example network with...
+
+- $K=4$ channels (e.g., like in LoRa),
+- $M=5$ maximum number of retransmission,
+- $m=5$ maximum back-off interval,
+- $p=10^{-3}$ transmission probability,
+- $5=20 \times 10^4$ time slots,
+- from $N=1000$ IoT devices.
+
+==Non uniform occupancy of the $4$ channels:==
+they are occupied $10$, $30$, $30$ and $30\%$ of times (by other IoT networks).
 
 ---
 
@@ -208,12 +295,10 @@ XXX
 
 ---
 
-# 5.2. Second Experiment
+# 5.2. Second experiment
 
-- Blabla
-- Blabla
-- Blabla
-- Blabla
+==Non uniform occupancy of the $4$ channels:==
+they are occupied $40$, $30$, $20$ and $30\%$ of times (by other IoT networks).
 
 ---
 
@@ -224,15 +309,13 @@ XXX
 ---
 
 # 6. Summary (1/3)
-## Setting…
+## Settings
 1. For **LPWA networks** based onan **ALOHA protocol**
    (slotted both in time and frequency),
-<br>
 2. We presented a **retransmission model**,
 <br>
-3. Dynamic **IoT devices** can use **simple machine learning algorithms**, to improve their PLR when accessing the network,
-<br>
-4. We focus on the packet retransmissions upon radio collision, by using **Multi-Armed Bandit** algorithms, like **UCB**.
+3. Dynamic **IoT devices** can use **simple machine learning algorithms**, to improve their successful communication rate,
+4. We focus on the packet retransmissions upon radio collision, by using low-cost **Multi-Armed Bandit** algorithms, like **UCB**.
 
 ---
 
@@ -252,28 +335,32 @@ Several **learning heuristics**
 # 6. Summary (3/3)
 ## We showed
 
-We showed that incorporating learning for the transmission
-is needed to achieve optimal performance, with significant
-gain in terms of successful transmission rate in networks
-with a large number of devices (up-to 30% in the example
-network). Our empirical simulations show that each of our
-proposed heuristic outperforms a naive random access scheme.
-Surprisingly, the main take-away message is that a simple
-UCB learning approach, that retransmit in the same channel,
-turns out to perform as well as more complicated heuristics.
+- Using machine learning for the *transmission* is **needed** to achieve optimal performance, and can lead to significant gain in terms of successful transmission rates  (up-to 30% in the example network).
+
+- Using machine learning for the *retransmission* is also useful, and improves over previous approach unaware of retransmission.
+
+- The proposed heuristics outperform a naive random access scheme.
+
+- Surprisingly, the main take-away message is that a simple UCB learning approach, that retransmit in the same channel, turns out to perform as well as more complicated heuristics.
 
 ---
 
 # 6. Future works
 
-- Implement our proposed approach in a real-world demo using USRP boards
+- Implement our proposed approach in a real-world demo
+  For instance using USRP boards.
 - Study a real IoT LPWAN protocol (e.g., LoRa)
+- Explore in LoRa how to use machine learning (e.g., Multi-Armed Bandit algorithms) to let IoT devices learn on their own the best retransmission pattern to follow in a given scenario.
+
+---
 
 # More ?
 
+<br>
+
 ### $\hookrightarrow$ See our paper: [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824)
 
-### Please ask questions !
+### :pray: Please ask questions !
 
 <br>
 
