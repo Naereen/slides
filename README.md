@@ -39,6 +39,8 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [October 2018 : "Looking for and Organizing your Bibliographic References" training session (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec/slides_169.pdf)).
 - [October 2018 : "Multi-Player Bandits Revisited", seminar at CMAP laboratory at École Polytechnique (Palaiseau, France)](https://perso.crans.org/besson/publis/slides/2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-01629733).
 - [December 2018 : "5 useful tools as a Christmas gift", traning session (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides_169.pdf)), in collaboration with [Bastien Trotobas](https://github.com/BastienTr/), Nabil Zaraneh and [Pierre Haessig](http://pierreh.eu/).
+- [April 2019 : "GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of-things Networks", talk at the IEEE WCNC 2019 conference](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__Demo_ICT_2018/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__Demo_ICT_2018/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006825).
+- [April 2019 : "Upper-Confidence Bound for Channel Selection in LPWA Networks with Retransmissions", talk at the MoTION Workshop at IEEE WCNC 2019 conference](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02049824).
 
 ### :arrow_forward: 2. View the slides on-line as HTML pages ?
 > These versions are experimental and should not be used.
@@ -59,6 +61,8 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec](https://Naereen.GitHub.io/slides/2018_10__Looking_for_and_organizing_your_bibliographic_references__GouTP_at_CentraleSupelec/slides.html).
 - [2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations](https://Naereen.GitHub.io/slides/2018_10__Seminaire_CMAP__Multi-Player_Bandits__Theory_Applications_and_Simulations/slides.html).
 - [2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec](https://Naereen.GitHub.io/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides.html).
+- [2019_04__Presentation_IEEE_WCNC__Demo_ICT_2018](https://Naereen.GitHub.io/slides/2019_04__Presentation_IEEE_WCNC__Demo_ICT_2018/slides.html).
+- [2019_04__Presentation_IEEE_WCNC__MoTION_Workshop](https://Naereen.GitHub.io/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides.html).
 - For other slides, if I forgot one, use this URL: `https://Naereen.GitHub.io/slides/NAME_OF_THE_SLIDE/slides.html`.
 
 > Note: I have stopped writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless. Tell me if you want them!
@@ -79,7 +83,7 @@ This repository hosts some slides for talks I have gavin, covering various subje
 
 ## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/slides.svg)](https://github.com/Naereen/slides/blob/master/LICENSE.txt)
 All the slideshows in this repository are published under the terms of the [MIT License](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
-© [Lilian Besson](https://GitHub.com/Naereen), 2016-18.
+© [Lilian Besson](https://GitHub.com/Naereen), 2016-19.
 
 The logos and images are the properties of their respective authors (for instance, ENS Paris Saclay, EPFL, CentraleSupélec, IETR, etc).
 
