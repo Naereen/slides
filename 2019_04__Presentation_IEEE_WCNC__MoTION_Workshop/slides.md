@@ -92,7 +92,7 @@ But...
 - Retransmissions can use a different channel that the one used for first transmission
 
 - Retransmissions happen after a random back-off time
-  back-off time $\sim\mathcal{U}(0,\cdots,M-1)$
+  back-off time $\sim\mathcal{U}(0,\cdots,m-1)$
 
 ### The goal of each object
 Is to *max*imize its successful communication rates
