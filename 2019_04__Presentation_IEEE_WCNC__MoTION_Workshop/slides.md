@@ -13,13 +13,11 @@ footer: Upper-Confidence Bound for Channel Selection in LPWA Networks with Retra
 
 - *Date* :date: : $15$th of April $2019$
 
-<br>
+- *By* :wave: : [Lilian Besson](https://GitHub.com/Naereen/slides/), PhD Student in France, co-advised by
+  ![9%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) ![12%](../common/LogoInria.jpg)
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :wave: , PhD Student in France, co-advised by
-
-| *Christophe Moy* <br> @ IETR, Rennes | *Emilie Kaufmann* <br> @ CNRS & Inria, Lille |
-|:---:|:---:|
-| ![8%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) | ![12%](../common/LogoInria.jpg) ![16%](../common/LogoCNRS.jpg) |
+  | *Christophe Moy* <br> @ Univ Rennes 1 & IETR, Rennes | *Emilie Kaufmann* <br> @ CNRS & Inria, Lille |
+  |:---:|:---:|
 
 > See our paper at [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824)
 
@@ -41,7 +39,7 @@ footer: Upper-Confidence Bound for Channel Selection in LPWA Networks with Retra
 
 # 1. Motivations
 
-- :chart_with_upwards_trend:IoT networks are interesting and will be more and more present,
+- :chart_with_upwards_trend: IoT (the Internet of Things) is the most promizing new paradigm and business opportunity of modern wireless telecommunications,
 - :chart_with_upwards_trend: More and more IoT devices are using unlicensed bands 
 - $\Longrightarrow$ networks will be more and more occupied :boom:
 
@@ -50,16 +48,13 @@ But...
 ---
 
 # 1. Motivations
-
-- :chart_with_upwards_trend:IoT networks are interesting and will be more and more present,
-- :chart_with_upwards_trend: More and more IoT devices are using unlicensed bands 
 - $\Longrightarrow$ networks will be more and more occupied :boom:
 
 But...
 
 - Heterogeneous spectrum occupancy in most IoT networks standards
-- Maybe IoT devices can improve their communication by *learning* to access the network more efficiently (e.g., by using the less occupied spectrum channel)
 - Simple but efficient learning algorithm can give great improvements in terms of successful communication rates
+- IoT can improve their battery lifetime and mitigate spectrum overload thanks to learning!
 - $\Longrightarrow$ can fit more devices in the existing IoT networks :tada: !
 
 ---
@@ -264,7 +259,7 @@ Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, 
 # 5. Numerical simulations and results
 
 ### What
-- We simulate a network,
+- We simulate a network, with $K=4$ channels
 - With many IoT dynamic devices.
 
 <br>
@@ -340,15 +335,6 @@ Several **learning heuristics**
 - The proposed heuristics outperform a naive random access scheme.
 
 - :point_right: Surprisingly, the main take-away message is that a simple UCB learning approach, that retransmit in the same channel, turns out to perform as well as more complicated heuristics.
-
----
-
-# 6. Future works
-
-- Implement our proposed approach in a real-world demo
-  For instance using USRP boards.
-- Study a real IoT LPWAN protocol (e.g., LoRa)
-- Explore in LoRa how to use machine learning (e.g., Multi-Armed Bandit algorithms) to let IoT devices learn on their own the best retransmission pattern to follow in a given scenario.
 
 ---
 

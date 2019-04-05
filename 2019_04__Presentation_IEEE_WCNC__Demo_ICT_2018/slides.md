@@ -13,13 +13,11 @@ footer: GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of
 
 - *Date* :date: : $17$th of April $2019$
 
-<br>
+- *By* :wave: : [Lilian Besson](https://GitHub.com/Naereen/slides/), PhD Student in France, co-advised by
+  ![9%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) ![12%](../common/LogoInria.jpg)
 
-- *Who:* [Lilian Besson](https://GitHub.com/Naereen/slides/) :wave: , PhD Student in France, co-advised by
-
-| *Christophe Moy* <br> @ IETR, Rennes | *Emilie Kaufmann* <br> @ CNRS & Inria, Lille |
-|:---:|:---:|
-| ![8%](../common/LogoCS.png) ![14%](../common/LogoIETR.png) | ![12%](../common/LogoInria.jpg) ![16%](../common/LogoCNRS.jpg) |
+  | *Christophe Moy* <br> @ Univ Rennes 1 & IETR, Rennes | *Emilie Kaufmann* <br> @ CNRS & Inria, Lille |
+  |:---:|:---:|
 
 > See our paper at [`HAL.Inria.fr/hal-02006825`](https://hal.inria.fr/hal-02006825)
 
@@ -30,6 +28,7 @@ footer: GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of
 - We implemented a demonstration of a simple IoT network
 - Using open-source software (GNU Radio) and USRP boards from Ettus Research / National Instrument
 - In a wireless ALOHA-based protocol, IoT devices are able to improve their network access efficiency by using *embedded* *decentralized* *low-cost* machine learning algorithms
+  (so simple implementation that it can be run on IoT device side)
 - The Multi-Armed Bandit model fits well for this problem
 - Our demonstration shows that using the simple UCB algorithm can lead to great empirical improvement in terms of successful transmission rate for the IoT devices
 
@@ -45,14 +44,11 @@ footer: GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of
 ## 4. GNU Radio Implementation
 ## 5. Results
 
-### Please :pray:
-Ask questions *at the end* if you want!
-
 ---
 
 # 1. Motivations
 
-- :chart_with_upwards_trend:IoT networks are interesting and will be more and more present,
+- :chart_with_upwards_trend: IoT (the Internet of Things) is the most promizing new paradigm and business opportunity of modern wireless telecommunications,
 - :chart_with_upwards_trend: More and more IoT devices are using unlicensed bands 
 - $\Longrightarrow$ networks will be more and more occupied :boom:
 
@@ -62,16 +58,14 @@ But...
 
 # 1. Motivations
 
-- :chart_with_upwards_trend:IoT networks are interesting and will be more and more present,
-- :chart_with_upwards_trend: More and more IoT devices are using unlicensed bands 
 - $\Longrightarrow$ networks will be more and more occupied :boom:
 
 But...
 
 - Heterogeneous spectrum occupancy in most IoT networks standards
-- Maybe IoT devices can improve their communication by *learning* to access the network more efficiently (e.g., by using the less occupied spectrum channel)
 - Simple but efficient learning algorithm can give great improvements in terms of successful communication rates
-- $\Longrightarrow$ can fit more devices in the existing IoT networks :tada: !
+- IoT can improve their battery lifetime and mitigate spectrum overload thanks to learning!
+- $\Longrightarrow$ more devices can cohabit in IoT networks in unlicensed bands !
 
 ---
 
@@ -79,7 +73,7 @@ But...
 
 ### Wireless network
 
-- In unlicensed bands, like the ISM bands
+- In unlicensed bands (e.g. ISM bands: 433 or 868 MHz, 2.4 or 5 GHz)
 - $K=4$ (or more) orthogonal channels
 
 ### One gateway, many IoT devices
@@ -99,7 +93,7 @@ But...
 
 # Hypotheses
 
-1. We focus on **one gateway**
+1. We focus on **one gateway**, $K \geq 2$ channels
 
 2. Different IoT devices using the same standard are able to run a low-cost learning algorithm on their embedded CPU
 
@@ -174,7 +168,7 @@ $$ I_k(t) = \mathrm{UCB}_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\frac{\alpha \log(
 
 # 4.1. Physical layer and protocol
 
-> Very simple ALOHA-based protocol
+> Very simple ALOHA-based protocol, $K=4$ channels
 
 An uplink message :zap: $\,\nearrow\,$ is made of...
 - a preamble (for phase synchronization)
@@ -266,32 +260,19 @@ On an example of a small IoT network:
 
 ---
 
-# 6. Summary
-
-## We showed
-1. The system model and PHY/MAC layers of our demo
-2. The Multi-Armed Bandits model and algorithms
-3. Our demonstration written in C++ and GNU Radio Companion
-4. *Empirical results*: the proposed approach works fine, is simple to set-up in existing networks, and give impressive results!
-
-## :point_right: Take home message
-
-**Dynamically reconfigurable IoT devices can learn on their own to favor certain channels, if the environment traffic is not uniform between the $K$ channels, and greatly improve their succesful communication rates!**
-
----
-
-# 6. Future works
-
-- Study a real IoT LPWAN protocol (e.g., LoRa)
-- Implement our proposed approach in a large scale realistic
+# 6. Conclusion
 
 <br>
 
-### We are exploring these directions
-- Extending the model for ALOHA-like retransmissions
-  ($\hookrightarrow$ [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824) at MoTION Workshop @ WCNC)
-- Experiments in a real LoRa network with dozens of nodes
-  ($\hookrightarrow$ IoTlligent project @ Rennes, France)
+## :point_right: Take home message
+
+<br>
+
+**Dynamically reconfigurable IoT devices can learn on their own to favor certain channels, if the environment traffic is not uniform between the $K$ channels, and greatly improve their succesful communication rates!**
+
+<br>
+
+### :pray: Please ask questions !
 
 ---
 
@@ -304,8 +285,6 @@ On an example of a small IoT network:
 ### $\hookrightarrow$ See the code of our demo: :point_left:
 > Under GPL open-source license, for GNU Radio:
 [bitbucket.org/scee_ietr/malin-multi-arm-bandit-learning-for-iot-networks-with-grc](https://bitbucket.org/scee_ietr/malin-multi-arm-bandit-learning-for-iot-networks-with-grc/) :point_left:
-
-### :pray: Please ask questions !
 
 <br>
 
