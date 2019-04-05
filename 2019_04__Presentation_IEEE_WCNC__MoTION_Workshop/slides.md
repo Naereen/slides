@@ -41,9 +41,9 @@ footer: Upper-Confidence Bound for Channel Selection in LPWA Networks with Retra
 
 # 1. Motivations
 
-- IoT networks are interesting and will be more and more present,
-- More and more IoT objects
-- $\Longrightarrow$ networks will be more and more occupied
+- :chart_with_upwards_trend:IoT networks are interesting and will be more and more present,
+- :chart_with_upwards_trend: More and more IoT devices are using unlicensed bands 
+- $\Longrightarrow$ networks will be more and more occupied :boom:
 
 But...
 
@@ -51,16 +51,16 @@ But...
 
 # 1. Motivations
 
-- IoT networks are interesting and will be more and more present,
-- More and more IoT objects
-- $\Longrightarrow$ networks will be more and more occupied
+- :chart_with_upwards_trend:IoT networks are interesting and will be more and more present,
+- :chart_with_upwards_trend: More and more IoT devices are using unlicensed bands 
+- $\Longrightarrow$ networks will be more and more occupied :boom:
 
 But...
 
 - Heterogeneous spectrum occupancy in most IoT networks standards
-- Maybe IoT objects can improve their communication by *learning* to access the network more efficiently (e.g., by using the less occupied spectrum channel)
+- Maybe IoT devices can improve their communication by *learning* to access the network more efficiently (e.g., by using the less occupied spectrum channel)
 - Simple but efficient learning algorithm can give great improvements in terms of successful communication rates
-- $\Longrightarrow$ can fit more objects in the existing IoT networks :tada: !
+- $\Longrightarrow$ can fit more devices in the existing IoT networks :tada: !
 
 ---
 
@@ -68,22 +68,22 @@ But...
 
 ### Wireless network
 
-- In ISM band, centered at $433.5$ MHz (in Europe)
+- In unlicensed bands, like the ISM bands
 - $K=4$ (or more) orthogonal channels
 
 <br>
 
 ### One gateway, many IoT devices
 
-- One gateway, handling different objects
-- Communications with ALOHA protocol **with retransmission**
-- Objects send data for $1$s in one channel, wait for an *acknowledgement* for $1$s in same channel,
+- One gateway, handling different devices
+- Using a slotted ALOHA protocol **with retransmission**
+- Devices send data for $1$s in one channel, wait for an *acknowledgement* for $1$s in same channel,
   use Ack as feedback: success / failure
 
 ---
 
 ### Transmission and retransmission model
-- Each object communicates from time to time (e.g., every $10$ s)
+- Each device communicates from time to time (e.g., every $10$ s)
   $\Longleftrightarrow$ probability $p$ of transmission at every time (Bernoulli process)
 
 - Retransmit at most $M$ times if first transmission failed
@@ -94,7 +94,7 @@ But...
 - Retransmissions happen after a random back-off time
   back-off time $\sim\mathcal{U}(0,\cdots,m-1)$
 
-### The goal of each object
+### The goal of each device
 Is to *max*imize its successful communication rates
 $\Longleftrightarrow$ *max*imize its number of received Ack.
 
@@ -150,7 +150,7 @@ In an example network with...
 ---
 
 # Do we need learning for *re*transmission?
-# Yes we do!
+## :point_right: Maybe we do!
 
 #### Consequence
 
@@ -191,20 +191,20 @@ Simple but good model for **exploration/exploitation** dilemma.
 - Always use channel $C(t) = \arg\max U_k(t)$
 - $U_k(t)$ should represent our belief of the *quality* of arm $k$ at time $t$
 
-### Example: "Follow the Leader"
-- $X_k(t) := \sum\limits_{s < t} r(s) \bold{1}(A(s)=k)$ sum reward from arm $k$
-- $N_k(t) := \sum\limits_{s < t} \bold{1}(A(s)=k)$ number of samples of arm $k$
+### (:boom: unefficient) Example: "Follow the Leader"
+- $X_k(t) := \sum\limits_{s < t} r(s) \bold{1}(C(s)=k)$ sum reward from arm $k$
+- $N_k(t) := \sum\limits_{s < t} \bold{1}(C(s)=k)$ number of samples of arm $k$
 - And use $U_k(t) = \hat{\mu}_k(t) := \frac{X_k(t)}{N_k(t)}$.
 
 ---
 
 # *Upper Confidence Bounds* algorithm (UCB)
-- Instead of using $U_k(t) = \frac{X_k(t)}{N_k(t)}$, add an *exploration term*
-$$ U_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\alpha \frac{\log(t)}{N_k(t)}} $$
+- Instead of $U_k(t) = \hat{\mu}_k(t) = \frac{X_k(t)}{N_k(t)}$, :ok_hand: add an *exploration term*
+$$ U_k(t) = \mathrm{UCB}_k(t) = \hat{\mu}_k(t) + \sqrt{\alpha \frac{\log(t)}{N_k(t)}} $$
 
-### Parameter $\alpha$: tradeoff exploration *vs* exploitation
-- Small $\alpha$: focus more on **exploitation**,
-- Large $\alpha$: focus more on **exploration**,
+### Parameter $\alpha =$ trade-off exploration *vs* exploitation
+- Small $\alpha \Longleftrightarrow$ focus more on **exploitation**,
+- Large $\alpha \Longleftrightarrow$ focus more on **exploration**,
 - Typically $\alpha=1$ works fine empirically and theoretically.
 
 ---
@@ -233,29 +233,29 @@ $$ U_k(t) = \frac{X_k(t)}{N_k(t)} + \sqrt{\alpha \frac{\log(t)}{N_k(t)}} $$
 
 Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, regardless if it's a first transmission or a retransmission of a message.
 
-![80%](plots/Algorithm1_UCB.png)
+![70%](plots/Algorithm1_UCB.png)
 
 ---
 
-# 4.1. UCB + Random Retransmissions
+# 4.1. UCB + ==Random Retransmissions==
 
 ![bg original 90%](plots/Algorithm2_UCB_RandomRetransmission.png)
 
 ---
 
-# 4.2. UCB + a single UCB for Retransmissions
+# 4.2. UCB + ==a single UCB for Retransmissions==
 
 ![bg original 90%](plots/Algorithm3_UCB_UCBRetransmission.png)
 
 ---
 
-# 4.3. UCB + $K$ UCB for Retransmissions
+# 4.3. UCB + ==$K$ UCB for Retransmissions==
 
 ![bg original 85%](plots/Algorithm4_UCB_KUCBRetransmission.png)
 
 ---
 
-# 4.4. UCB + Random Retransmission
+# 4.4. UCB + ==Random Retransmissions==
 
 ![bg original 85%](plots/Algorithm5_UCB_DelayedUCBRetransmission.png)
 
@@ -269,8 +269,8 @@ Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, 
 
 <br>
 
-### Why
-- They implement the UCB learning algorithm to learn to optimize their *first* transmission of any uplink packets,
+### Why ?
+- IoT devices implement the UCB learning algorithm to learn to optimize their *first* transmission of any uplink packets,
 - And the different heuristic to (try to) learn to optimize their *retransmissions* of the packets after any collision.
 
 ---
@@ -286,7 +286,7 @@ We consider an example network with...
 - $5=20 \times 10^4$ time slots,
 - from $N=1000$ IoT devices.
 
-==Non uniform occupancy of the $4$ channels:==
+:point_right: ==Non uniform occupancy of the $4$ channels:==
 they are occupied $10$, $30$, $30$ and $30\%$ of times (by other IoT networks).
 
 ---
@@ -297,7 +297,7 @@ they are occupied $10$, $30$, $30$ and $30\%$ of times (by other IoT networks).
 
 # 5.2. Second experiment
 
-==Non uniform occupancy of the $4$ channels:==
+:point_right: ==Non uniform occupancy of the $4$ channels:==
 they are occupied $40$, $30$, $20$ and $30\%$ of times (by other IoT networks).
 
 ---
@@ -308,7 +308,7 @@ they are occupied $40$, $30$, $20$ and $30\%$ of times (by other IoT networks).
 
 # 6. Summary (1/3)
 ## Settings
-1. For **LPWA networks** based onan **ALOHA protocol**
+1. For **IoT networks** based on a simple **ALOHA protocol**
    (slotted both in time and frequency),
 2. We presented a **retransmission model**,
 <br>
@@ -339,7 +339,7 @@ Several **learning heuristics**
 
 - The proposed heuristics outperform a naive random access scheme.
 
-- Surprisingly, the main take-away message is that a simple UCB learning approach, that retransmit in the same channel, turns out to perform as well as more complicated heuristics.
+- :point_right: Surprisingly, the main take-away message is that a simple UCB learning approach, that retransmit in the same channel, turns out to perform as well as more complicated heuristics.
 
 ---
 
@@ -356,10 +356,13 @@ Several **learning heuristics**
 
 <br>
 
-### $\hookrightarrow$ See our paper: [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824)
+### $\hookrightarrow$ See our paper: [`HAL.Inria.fr/hal-02049824`](https://hal.inria.fr/hal-02049824) :point_left:
+
+<br><br>
 
 ### :pray: Please ask questions !
+### Or by email ==`Lilian.Besson @ CentraleSupelec.fr`== ?
 
-<br>
+<br><br>
 
-<span class="fontify">Thanks for listening !</span>
+<span class="fontify">Thanks for listening :+1: !</span>
