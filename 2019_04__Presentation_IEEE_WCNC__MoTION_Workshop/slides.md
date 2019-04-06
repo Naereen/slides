@@ -71,23 +71,24 @@ But...
 ### One gateway, many IoT devices
 
 - One gateway, handling different devices
-- Using a slotted ALOHA protocol **with retransmission**
-- Devices send data for $1$s in one channel, wait for an *acknowledgement* for $1$s in same channel,
-  use Ack as feedback: success / failure
+- Using a slotted ALOHA protocol **with retransmissions**
+- Devices send data in one channel ($\nearrow$ uplink), wait for an *acknowledgement* ($\swarrow$ downlink) in same channel,
+  use Ack as feedback : success / failure
 
 ---
 
 ### Transmission and retransmission model
-- Each device communicates from time to time (e.g., every $10$ s)
+- Each device communicates from time to time (e.g., every 	hour)
   $\Longleftrightarrow$ probability $p$ of transmission at every time (Bernoulli process)
 
 - Retransmit at most $M$ times if first transmission failed
-  (until Ack is received)
+  (until Ack is received). $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ (Ex. $M=10$)
 
-- Retransmissions can use a different channel that the one used for first transmission
+- Retransmissions can use a different channel that
+  the one used for first transmission
 
 - Retransmissions happen after a random back-off time
-  back-off time $\sim\mathcal{U}(0,\cdots,m-1)$
+  back-off time $\sim\mathcal{U}(0,\cdots,m-1)$ $\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;$ (Ex. $m=10$)
 
 ### The goal of each device
 Is to *max*imize its successful communication rates
@@ -109,18 +110,18 @@ The surrounding traffic is not uniformly occupying the $K$ channels.
 
 ---
 
-# Do we need learning for *re*transmission?
+# Do we need learning for ==*re*transmission==?
 
 #### Second hypothesis
 Imagine a set of IoT devices learned to transmit efficiently
-(in the most free channel), in one IoT network.
+(in the most free channels), in one IoT network.
 
 #### Question
-- Then if two devices collide, do they have a higher probability of colliding again *if retransmissions happen in the same channel* ?
+- Then if two devices collide, do they have a higher probability of ==colliding again== *if retransmissions happen in the same channel* ?
 
 ---
 
-# Mathematical intution and illustration
+## Mathematical intuition and illustration
 
 Consider one IoT device and one channel, we consider two probabilities:
 
@@ -145,16 +146,16 @@ In an example network with...
 ---
 
 # Do we need learning for *re*transmission?
-## :point_right: Maybe we do!
+### :point_right: Maybe we do!
 
-#### Consequence
+### Consequence
 
 - Then if two devices collide, they have a higher probability of colliding again *if retransmissions happen in the same channel*
 
 - $\Longrightarrow$ we can also use online machine learning to let each IoT device learn, on its own and in an automatic and decentralized way, which channel is the best one (= less occupied)
   to retransmit a packet which failed due to a collision.
 
-- ==Learning is again *needed* to achieve (close to) optimal performance.==
+- ==Learning is *maybe needed* to achieve (close to) optimal performance!==
 
 ---
 
@@ -171,7 +172,7 @@ In an example network with...
 - $K \geq 2$ resources (*e.g.*, channels), called **arms**
 - Each time slot $t=1,\ldots,T$, you must choose one arm, denoted $C(t)\in\{1,\ldots,K\}$
 - You receive some reward $r(t) \sim \nu_k$ when playing $k = C(t)$
-- **Goal:** maximize your sum reward $\sum\limits_{t=1}^{T} r(t)$, or expected $\sum\limits_{t=1}^{T} \mathbb{E}[r(t)]$
+- **Goal:** maximize your sum reward $\sum\limits_{t=1}^{T} r(t)$
 - Hypothesis: rewards are stochastic, of mean $\mu_k$.
   Example: Bernoulli distributions.
 
@@ -224,7 +225,7 @@ $$ U_k(t) = \mathrm{UCB}_k(t) = \hat{\mu}_k(t) + \sqrt{\alpha \frac{\log(t)}{N_k
 
 ---
 
-# 4.0. Only UCB
+## 4.1. Only UCB
 
 Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, regardless if it's a first transmission or a retransmission of a message.
 
@@ -232,25 +233,25 @@ Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, 
 
 ---
 
-# 4.1. UCB + ==Random Retransmissions==
+## 4.2. UCB + ==random retransmissions==
 
 ![bg original 90%](plots/Algorithm2_UCB_RandomRetransmission.png)
 
 ---
 
-# 4.2. UCB + ==a single UCB for Retransmissions==
+## 4.3. UCB + ==one $\mathrm{UCB}^r$ for retransmissions==
 
 ![bg original 90%](plots/Algorithm3_UCB_UCBRetransmission.png)
 
 ---
 
-# 4.3. UCB + ==$K$ UCB for Retransmissions==
+## 4.4. UCB + ==$K$ $\neq$ $\mathrm{UCB}^j$ for retransmissions==
 
 ![bg original 85%](plots/Algorithm4_UCB_KUCBRetransmission.png)
 
 ---
 
-# 4.4. UCB + ==Random Retransmissions==
+## 4.5. UCB + ==Delayed $\mathrm{UCB}^d$ for retransmissions==
 
 ![bg original 85%](plots/Algorithm5_UCB_DelayedUCBRetransmission.png)
 
@@ -259,14 +260,14 @@ Use the same $\mathrm{UCB}$ to decide the channel to use for any transmissions, 
 # 5. Numerical simulations and results
 
 ### What
-- We simulate a network, with $K=4$ channels
+- We simulate a network, with $K=4$ orthogonal channels,
 - With many IoT dynamic devices.
 
 <br>
 
 ### Why ?
 - IoT devices implement the UCB learning algorithm to learn to optimize their *first* transmission of any uplink packets,
-- And the different heuristic to (try to) learn to optimize their *retransmissions* of the packets after any collision.
+- And the different heuristic to (try to) learn ==to optimize their *retransmissions*== of the packets after any collision.
 
 ---
 
@@ -279,8 +280,9 @@ We consider an example network with...
 - $m=5$ maximum back-off interval,
 - $p=10^{-3}$ transmission probability,
 - $5=20 \times 10^4$ time slots,
-- from $N=1000$ IoT devices.
+- for$N=1000$ IoT devices.
 
+### Hypothesis
 :point_right: ==Non uniform occupancy of the $4$ channels:==
 they are occupied $10$, $30$, $30$ and $30\%$ of times (by other IoT networks).
 
@@ -292,6 +294,11 @@ they are occupied $10$, $30$, $30$ and $30\%$ of times (by other IoT networks).
 
 # 5.2. Second experiment
 
+- Same parameters
+
+<br>
+
+### Hypothesis
 :point_right: ==Non uniform occupancy of the $4$ channels:==
 they are occupied $40$, $30$, $20$ and $30\%$ of times (by other IoT networks).
 
@@ -334,7 +341,8 @@ Several **learning heuristics**
 
 - The proposed heuristics outperform a naive random access scheme.
 
-- :point_right: Surprisingly, the main take-away message is that a simple UCB learning approach, that retransmit in the same channel, turns out to perform as well as more complicated heuristics.
+- :point_right: Surprisingly, the main take-away message is that
+  ==a simple UCB learning approach, that retransmit in the same channel, turns out to perform as well as more complicated heuristics==.
 
 ---
 
