@@ -232,9 +232,7 @@ boards
 # 4.4. User interface of our demonstration
 $\hookrightarrow$ See video of the demo: [`YouTu.be/HospLNQhcMk`](https://youtu.be/HospLNQhcMk)
 
-<br>
-
-![30%](plots/UI.png)
+![33%](plots/UI.png)
 
 
 ---
@@ -246,9 +244,11 @@ On an example of a small IoT network:
 - and *non uniform* "background" traffic (other networks),
   with a repartition of $15\%$, $10\%$, $2\%$, $1\%$
 
-1. $\Longrightarrow$ the uniform access strategy obtains a successful communication rate of about $40\%$.
+1. $\Longrightarrow$ the uniform access strategy obtains
+  a successful communication rate of about $40\%$.
 
-2. About $400$ communication slots are enough for the learning IoT devices to reach a successful communication rate close to $80\%$, using UCB algorithm or another one (Thompson Sampling).
+2. About $400$ communication slots are enough for the learning IoT devices to reach a successful communication rate close to $80\%$,
+  with UCB algorithm or another one (Thompson Sampling).
 
 > Note: similar gains of performance were obtained in other scenarios.
 
@@ -268,11 +268,11 @@ On an example of a small IoT network:
 
 <br>
 
-**Dynamically reconfigurable IoT devices can learn on their own to favor certain channels, if the environment traffic is not uniform between the $K$ channels, and greatly improve their succesful communication rates!**
+## Dynamically reconfigurable IoT devices can learn on their own to favor certain channels, if the environment traffic is not uniform between the $K$ channels, and greatly improve their succesful communication rates!
 
 <br>
 
-### :pray: Please ask questions !
+## :pray: Please ask questions !
 
 ---
 
