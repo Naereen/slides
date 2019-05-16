@@ -18,10 +18,10 @@
 
 /* Enable all text ligatures in all the slides */
 .slide {
-    -webkit-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
-    -moz-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
-    -ms-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
-    font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" on, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    -webkit-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" off, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    -moz-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" off, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    -ms-font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" off, "calt" on, "swsh" on, "kern" on, "locl" on !important;
+    font-feature-settings: "liga" on, "hlig" on, "hist" on, "dlig" on, "zero" off, "calt" on, "swsh" on, "kern" on, "locl" on !important;
 }
 
 /* See https://stackoverflow.com/questions/3912694/using-markdown-how-do-i-center-an-image-and-its-caption */
