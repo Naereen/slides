@@ -1,0 +1,1810 @@
+% \documentclass[12pt,english,ignorenonframetext,aspectratio=169,]{beamer}
+\documentclass[11pt,english,ignorenonframetext,]{beamer}
+
+%%%%%%%%%%%%%%%
+%% Beamer theme
+% choose one from http://deic.uab.es/~iblanes/beamer_gallery/
+% or http://www.hartwork.org/beamer-theme-matrix/
+% \usetheme{Warsaw}
+\usetheme{CambridgeUS}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% Beamer color theme
+%% default albatross beaver beetle crane dolphin dove fly lily
+%% orchid rose seagull seahorse whale wolverine
+
+%\usecolortheme{seahorse}  %% very lighty
+\usecolortheme{dolphin}    %% nice blue
+\usecolortheme{orchid}     %% dark red ?
+\usecolortheme{whale}      %% black and blue as Warsaw
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Change the theme
+%\setbeamercolor{alerted text}{fg=orange}
+%\setbeamercolor{background canvas}{bg=white}
+%\setbeamercolor{block body alerted}{bg=normal text.bg!90!black}
+%\setbeamercolor{block body}{bg=normal text.bg!90!black}
+%\setbeamercolor{block body example}{bg=normal text.bg!90!black}
+%\setbeamercolor{block title alerted}{use={normal text,alerted text},fg=alerted text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+%\setbeamercolor{block title}{bg=blue}
+%\setbeamercolor{block title example}{use={normal text,example text},fg=example text.fg!75!normal text.fg,bg=normal text.bg!75!black}
+%\setbeamercolor{fine separation line}{}
+\setbeamercolor{frametitle}{fg=black}
+%\setbeamercolor{item projected}{fg=black}
+%\setbeamercolor{normal text}{bg=black,fg=yellow}
+%\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+%\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{section in sidebar}{fg=brown}
+%\setbeamercolor{section in sidebar shaded}{fg= grey}
+\setbeamercolor{separation line}{}
+%\setbeamercolor{sidebar}{bg=red}
+%\setbeamercolor{sidebar}{parent=palette primary}
+%\setbeamercolor{structure}{bg=black, fg=green}
+%\setbeamercolor{subsection in sidebar}{fg=brown}
+%\setbeamercolor{subsection in sidebar shaded}{fg= grey}
+%\setbeamercolor{title}{fg=blackblue}
+%\setbeamercolor{titlelike}{fg=blackblue}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Other beamer options
+% \setbeamercovered{transparent}
+\setbeamercovered{invisible}
+% Permet de laisser en gris le texte qui n'est pas encore apparu (lorsqu'on utilise les commandes avec des <1,2> ou <4-9>.
+
+%\setbeamercolor{normal text}{fg=black,bg=white}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Change Beamer fonts
+% \usefonttheme{default}
+% \usefonttheme[onlymath]{serif}
+\usefonttheme{serif}
+
+\setbeamerfont{title}{family=\rm}
+\setbeamerfont{titlelike}{family=\rm}
+\setbeamerfont{frametitle}{family=\rm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% innertheme
+%% rectangles circles inmargin rounded
+% \useinnertheme{rounded}  % XXX My preference
+\useinnertheme{circles}    % XXX
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% outertheme
+%% infolines miniframes shadow sidebar smoothbars smoothtree split tree
+%\useoutertheme{infolines}
+
+%% No navigation symbol.
+\setbeamertemplate{navigation symbols}{}
+\beamertemplatenavigationsymbolsempty
+
+% XXX Add a background image to the slides
+% \usepackage{tikz}
+% \setbeamertemplate{background}{\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{IETR.jpg}}
+% \setbeamertemplate{background}{{\centering\begin{tikzpicture}\node[opacity=0.15]{\includegraphics[width=0.98\paperwidth]{IETR_et_partenaires_IETR.png}};\end{tikzpicture}}}
+
+% Other options
+%\setbeamertemplate{footline}[page number]
+
+\beamertemplateballitem
+\setbeamertemplate{itemize item}[square]
+
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{color}
+  \newcommand{\urlb}[1]{\textcolor{blue}{\url{#1}}}
+%% Color definition
+\usepackage{xcolor}
+%% WARNING attention when changing the colors, change both the {RGB}{r,g,b} and % rgb(r,g,b)
+\definecolor{blackblue}{RGB}{19,19,59}  % rgb(48,48,150)
+\definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
+\definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
+\definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
+\definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
+\definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
+\definecolor{gold}{RGB}{255,180,0}         % rgb(255,180,0)
+\definecolor{meca}{RGB}{255,110,0}         % rgb(255,110,0)
+\definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
+\definecolor{normalred}{RGB}{204,0,0}      % rgb(204,0,0)
+\definecolor{darkred}{RGB}{174,0,0}        % rgb(174,0,0)
+\definecolor{info}{RGB}{174,0,0}        % rgb(174,0,0)
+\definecolor{darkblue}{RGB}{0,0,174}        % rgb(0,0,174)
+\definecolor{maths}{RGB}{0,0,174}        % rgb(0,0,174)
+\definecolor{darkpurple}{RGB}{114,0,114}   % rgb(114,0,114)
+\definecolor{ml}{RGB}{114,0,114}   % rgb(114,0,114)
+
+\usepackage{amssymb,amsmath}
+\usepackage{bbm,bm}  % bold maths symbols
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+
+% % FIXME remove as soon as possible, it slows down compilation to import TikZ
+% %% TikZ
+% \usepackage{tikz}
+% \usetikzlibrary{snakes,arrows,shapes}
+% % https://tex.stackexchange.com/a/226974/
+% \tikzset{
+%   font={\fontsize{10pt}{10}\selectfont}
+% }
+\usepackage{tikzsymbols}  % https://tex.stackexchange.com/a/227226/97964
+
+\IfFileExists{macrosText.sty}{\usepackage{macrosText}}{}
+
+\usepackage[linesnumbered,commentsnumbered,inoutnumbered,slide]{algorithm2e}
+
+
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+% \urlstyle{same}  % don't use monospace font for urls
+% Code embedding.
+\usepackage{palatino}              % Use the Palatino font % XXX remove if it is ugly ?
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight0.8\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+\ifxetex
+\usepackage{fontspec}
+\setmainfont[Ligatures=Historic]{TeX Gyre Pagella}
+\newfontfamily\FiraCode{Fira Code}
+\setmonofont[Contextuals={Alternate}]{Fira Code}
+\newfontfamily\Fontify[Path = ../common/]{Fontify-Regular}
+\else
+\newcommand{\Fontify}{}
+\fi
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+% \AtBeginPart{
+%   \let\insertpartnumber\relax
+%   \let\partname\relax
+%   \frame{\partpage}
+% }
+% \AtBeginSection{
+%   \ifbibliography
+%   \else
+%     \let\insertsectionnumber\relax
+%     \let\sectionname\relax
+%     \frame{\sectionpage}
+%   \fi
+% }
+% % Si on veut faire apparaître le sommaire courant à chaque nouvelle section.
+% \AtBeginSection{
+%   \begin{frame}<beamer>%[t]
+%   %\frametitle{Local outline}  % Translate the name of the slide
+%   \frametitle{\hspace{0pt}}  % Translate the name of the slide
+%     \begin{LARGE}  % XXX LARGE font for this slide?
+%     \tableofcontents[currentsection, sectionstyle=show/hide, subsectionstyle=hide/hide]
+%     \end{LARGE}  % XXX LARGE font for this slide?
+%   \end{frame}
+% }
+% \AtBeginSubsection{
+%   \let\insertsubsectionnumber\relax
+%   \let\subsectionname\relax
+%   \frame{\subsectionpage}
+% }
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+% https://tex.stackexchange.com/a/70495/
+\usepackage{appendixnumberbeamer}
+
+
+% For \justifying command, see https://tex.stackexchange.com/a/148696/
+\usepackage{ragged2e}
+\addtobeamertemplate{frame begin}{}{\justifying}
+\addtobeamertemplate{block begin}{}{\justifying}
+\addtobeamertemplate{block alerted begin}{}{\justifying}
+\addtobeamertemplate{block example begin}{}{\justifying}
+\addtobeamertemplate{itemize body begin}{}{\justifying}
+\addtobeamertemplate{itemize item}{}{\justifying}
+\addtobeamertemplate{itemize subitem}{}{\justifying}
+\addtobeamertemplate{itemize subsubitem}{}{\justifying}
+\addtobeamertemplate{enumerate body begin}{}{\justifying}
+\addtobeamertemplate{enumerate item}{}{\justifying}
+\addtobeamertemplate{enumerate subitem}{}{\justifying}
+\addtobeamertemplate{enumerate subsubitem}{}{\justifying}
+\addtobeamertemplate{description body begin}{}{\justifying}
+\addtobeamertemplate{description item}{}{\justifying}
+
+
+\title[Audition AGPR à l'ENS Rennes]{Audition : poste d'AGPR à l'ENS de Rennes}
+% \subtitle{Mercredi 29 mai 2019}
+
+\author[Lilian Besson]{\Large \textbf{Lilian Besson}}
+
+\institute[]{{\large
+  Doctorant et agrégé}{\newline
+  \normalsize
+  \newline Équipe SCEE, laboratoire IETR, CentraleSupélec à Rennes
+  \newline \& Équipe SequeL, laboratoire CRIStAL, Inria à Lille}}
+
+\date{Mercredi $29$ mai $2019$}
+
+\begin{document}
+\justifying
+
+\begin{frame}[plain]
+\titlepage
+
+% XXX manual inclusion of logos
+\begin{center}
+  \includegraphics[height=0.18\textheight]{../common/LogoIETR.png}
+  \includegraphics[height=0.21\textheight]{../common/LogoCS.png}
+  \includegraphics[height=0.18\textheight]{../common/LogoInria.jpg}
+\end{center}
+
+\end{frame}
+
+
+% \section{\hfill{}Plan\hfill{}}
+
+% \begin{frame}{Organisation de l'exposé \hfill{}(20 minutes)}
+
+% \begin{enumerate}
+% \item
+%   Présentation du candidat
+% \vspace*{25pt}
+
+% \item
+%   Mes expériences d'enseignement\\
+%   Mon projet pédagogique à l'ENS de Rennes
+% \vspace*{25pt}
+
+% \item
+%   Mes expériences de recherche\\
+%   Mon projet de recherche à l'IRISA
+% \end{enumerate}
+
+% \end{frame}
+
+
+\section{\hfill{}1. Présentation du candidat\hfill{}}
+
+\subsection{\hfill{}Plan\hfill{}}
+
+\begin{frame}{\textcolor{gray}{Organisation de l'exposé}}
+
+\begin{enumerate}
+\item
+\alert{\textbf{%
+  Présentation du candidat
+}}
+\vspace*{25pt}
+
+\item
+\textcolor{gray}{
+  Mes expériences d'enseignement\\
+  Mon projet pédagogique à l'ENS de Rennes
+}
+\vspace*{25pt}
+
+\item
+\textcolor{gray}{
+  Mes expériences de recherche\\
+  Mon projet de recherche à l'IRISA
+}
+\end{enumerate}
+
+\end{frame}
+
+
+% \begin{frame}{1. Présentation du candidat}
+
+% \begin{itemize}
+% \item
+%   Cursus universitaire
+%   % \\
+%   % 10 ans d'informatique et de mathématiques
+% % \vspace*{20pt}
+% % \item
+% %   Mes expériences d'enseignements
+%   % \\
+%   % 650 heures depuis 2013
+% \vspace*{20pt}
+% \item
+%   Expériences en programmation \& développement
+% % \vspace*{20pt}
+% % \item
+% %   Mes expériences de recherche
+% \end{itemize}
+
+% % \begin{quote}
+% % Cf. mon CV ou mon site web pour plus de détails. \\
+% % \(\hookrightarrow\) \href{https://perso.crans.org/besson/}{perso.crans.org/besson}
+% % \end{quote}
+
+% \end{frame}
+
+
+\subsection{\hfill{}1.1. Cursus\hfill{}}
+
+\begin{frame}{Cursus universitaire :\\
+  10 ans d'\textcolor{info}{informatique} et de \textcolor{maths}{mathématiques}}
+
+\pause
+
+\begin{itemize}
+\tightlist
+\item
+  2009-11 : classe prépa. \textcolor{maths}{M}PSI \& \textcolor{maths}{M}P\(^*\), au Lycée Thiers, Marseille
+
+\vspace*{10pt}
+\pause
+\item
+  2011-16 : \textbf{double cursus \textcolor{maths}{maths} \textcolor{info}{informatique}}, à l'ENS de Cachan
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    2011-12 : double licence, \textcolor{info}{informatique} \& \textcolor{maths}{mathématiques}
+  \item
+    2012-13 : M1 en \textcolor{info}{info. théorique} (MPRI) \& M1 en \textcolor{maths}{maths appliquées}
+  \item
+    2013-14 : \textcolor{maths}{agrégation maths}, \textcolor{info}{option informatique} ($23^{\text{ème}}$)
+  \item
+    \textcolor{gray}{2014-15 : césure}
+  \item
+    2015-16 : M2 en \textcolor{ml}{apprentissage statistique} (MVA, major $1^{\text{er}}/115$)
+  \end{itemize}
+
+\pause
+\vspace*{10pt}
+  \item
+  2016-19 : \textbf{doctorat en \textcolor{info}{informatique}}, à Rennes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ``\textcolor{ml}{Apprentissage séquentiel} multi-joueurs et bandits multi-bras
+    appliqués aux réseaux de l'Internet des Objects''
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\subsection{\hfill{}1.2. Programmation \& développement\hfill{}}
+
+\begin{frame}{Expériences en programmation \& développement}
+
+\begin{itemize}
+\item
+  Passionné de logiciels libres et de libre diffusion !
+
+  \begin{itemize}\tightlist
+    \item
+  % $\hookrightarrow$
+      Tout ce que je rédige depuis 2012 (pour mes cours, ma recherche etc)\\
+      est distribué gratuitement en ligne, et sous licence libre
+      % (GPL, MIT)
+  \item[]
+    \(\hookrightarrow\)
+    si personnel
+    \href{https://perso.crans.org/besson}{\textcolor{blue}{\texttt{perso.crans.org/besson}}}
+    % \&
+    % \href{https://naereen.GitHub.io}{\textcolor{blue}{\texttt{naereen.GitHub.io}}}
+  \end{itemize}
+
+\pause
+\vspace*{7pt}
+\item
+  \alert{Expert en Python et OCaml}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Utilisation quotidienne de Python et Jupyter pour mes recherches
+  \item
+    Habitué à donner des TP en Python ou Ocaml, au niveau L1 à M2
+  \end{itemize}
+
+\pause
+\vspace*{7pt}
+\item
+  Mais aussi \LaTeX, Bash, git, Julia\ldots{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Actif sur Bitbucket et sur GitHub depuis 2012 \\
+    \(\hookrightarrow\)
+    \href{https://Bitbucket.org/lbesson}{\textcolor{blue}{\texttt{Bitbucket.org/lbesson}}}
+    \&
+    \href{https://GitHub.com/Naereen}{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}
+  \item
+    \(10\) formations techniques ``GouTP'' données durant ma thèse
+  % \item
+  %   Des projets variés, tous diffusés en ligne\\
+  %   \(\hookrightarrow\)
+  %   \href{https://perso.Crans.org/besson}{\textcolor{blue}{\texttt{perso.Crans.org/besson}}}
+  %   \&
+  %   \href{https://naereen.GitHub.io}{\textcolor{blue}{\texttt{naereen.GitHub.io}}}
+  \end{itemize}
+
+% \vspace*{10pt}
+% \item
+%   Capable de créer/maintenir des pages et site web, SQL etc
+% \item
+%   Maintenance de machines (Windows, GNU Linux) pour ma thèse
+\end{itemize}
+
+\end{frame}
+
+% \begin{frame}{%
+% \protect\hypertarget{rightarrow-github.comnaereen}{%
+% \(\rightarrow\)
+% \href{https://GitHub.com/Naereen}{\texttt{GitHub.com/Naereen}}}}
+
+% % \begin{figure}
+% \centering
+% \includegraphics{figures/apercu_GitHub.png}
+% % \caption{bg original 90\%}
+% % \end{figure}
+
+% \end{frame}
+
+
+\section{\hfill{}2. Mon projet pédagogique\hfill{}}
+
+\subsection{\hfill{}Plan\hfill{}}
+
+\begin{frame}{\textcolor{gray}{Organisation de l'exposé}}
+
+\begin{enumerate}
+  \item
+\textcolor{gray}{
+  Présentation du candidat
+}
+\vspace*{25pt}
+
+% \item
+% Aperçu de ma thèse, que je soutiendrai en octobre 2019
+% \vspace*{25pt}
+
+\item
+\alert{\textbf{%
+  Mes expériences d'enseignement\\
+  Mon projet pédagogique à l'ENS de Rennes
+}}
+\vspace*{25pt}
+
+\item
+\textcolor{gray}{
+  Mes expériences de recherche\\
+  Mon projet de recherche à l'IRISA
+}
+\end{enumerate}
+
+\end{frame}
+
+
+\subsection{\hfill{}2.1. Enseignements\hfill{}}
+
+\begin{frame}{Mes expériences d'enseignements}
+
+\begin{itemize}
+\item
+Environ $400$ heures avant ma thèse
+\vspace*{20pt}
+\item
+\(64 \) heures par an pendant ma thèse
+\vspace*{20pt}
+\item
+\textcolor{info}{En informatique} et \textcolor{maths}{en mathématiques}
+\vspace*{20pt}
+\item
+Du lycée aux niveaux master et agrégation
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Enseignements : environ $400$ heures avant ma thèse}
+
+\begin{itemize}
+\tightlist
+\item
+  2013-14 : cours particuliers \& correction de copies, \textcolor{maths}{en maths} au lycée, à Paris
+\vspace*{10pt}
+\pause
+\item
+  2014-15 : participation à la création de \emph{Mahindra Ecole Centrale}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Une école d'ingénieur-e-s à Hyderabad (Inde)
+  \item
+    Partenariat franco-indien : Mahindra group \& École Centrale Paris
+  \item
+    \textcolor{maths}{150h de cours et TD en maths, niveau post-bac (MPSI)}
+  \item
+  \textcolor{info}{\textbf{En charge de l'introduction à l'informatique (CS101) avec Python}}
+  \item
+    Conceptions des sujets et corrections d'examens pour $230$ élèves
+  \end{itemize}
+
+\vspace*{10pt}
+\pause
+\item
+  2015-16 : \textcolor{maths}{khôlles en maths (BCPST et MP)}, et \textcolor{info}{TD/TP/examens en \textbf{informatique avec Python (MP)}}, Lycée Lakanal
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[plain]{Corrections de TP/TP/DS \textcolor{info}{en Python pour ``l'Informatique pour Tous''} en CPGE (MP)}
+
+% \begin{figure}
+\centering
+\includegraphics{figures/apercu_Lakanal.png}
+% \caption{bg original 100\%}
+% \end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Enseignements : \(64 \) heures par an pendant ma thèse}
+
+\begin{itemize}[<+->]
+% \tightlist
+\item
+  2016-18 : TD/TP/examens en \textcolor{info}{informatique fondamentale}, pour un cours de \textbf{calculabilité et complexité}, à l'ENSAI
+\vspace*{15pt}
+\item
+  Août 2017 \& 2018 : évaluation de rapports de stage des élèves de L3 et M1 du \textcolor{info}{département informatique} de l'ENS Rennes
+\vspace*{15pt}
+\item
+  2016-19 : TP, leçons, oraux blancs, pour la
+  préparation à \textbf{\textcolor{info}{l'option informatique} de \textcolor{maths}{l'agrégation de mathématiques}}, à l'ENS Rennes
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[plain]
+  {Simulateur de Machine de Turing interactif pour des TP d'\textcolor{info}{informatique fondamentale à l'ENSAI}}
+
+% \begin{figure}
+\centering
+\includegraphics{figures/apercu_ENSAI.png}
+% \caption{bg original 85\%}
+% \end{figure}
+
+\end{frame}
+
+\begin{frame}[plain]{Ressources publiées pour la préparation à l'agrégation}
+
+% \begin{figure}
+\centering
+\includegraphics{figures/apercu_ENS_agreg_0.png}
+% \caption{bg original 90\%}
+% \end{figure}
+
+\end{frame}
+
+\begin{frame}[plain]{Corrections de \emph{tous} les textes d'annales de modélisation (\textcolor{info}{option info}) en OCaml et Python}
+
+% \begin{figure}
+\centering
+\includegraphics{figures/apercu_ENS_agreg_1.png}
+% \caption{bg original 90\%}
+% \end{figure}
+
+\end{frame}
+
+\begin{frame}[plain]{Corrections avec des \emph{notebooks Jupyter} OCaml /Python}
+
+% \begin{figure}
+\centering
+\includegraphics{figures/apercu_ENS_agreg_3.png}
+% \caption{bg original 90\%}
+% \end{figure}
+
+Format interactif qui mélange texte, code (entrée/sortie) et figures.
+
+\end{frame}
+
+
+\subsection{}
+
+\begin{frame}{Mon projet pédagogique à l'ENS de Rennes}
+
+Avec ce poste d'Agrégé Préparateur à l'ENS de Rennes, je souhaite\ldots{}
+
+\pause
+
+\vspace*{20pt}
+\begin{itemize}
+\tightlist
+
+\item
+Rester \textbf{très impliqué dans la préparation à \textcolor{info}{l'option informatique}} de \textcolor{maths}{l'agrégation de mathématiques}
+% (``\emph{prépa agrég}'')
+\vspace*{15pt}
+
+\pause
+\item
+\textbf{M'investir dans d'autres formations !}
+\vspace*{15pt}
+
+\item
+Et participer à la \textbf{création de nouvelles formations}
+
+\end{itemize}
+
+\end{frame}
+
+
+% \subsection{\hfill{}2.2. Rester impliqup\hfill{}}
+
+
+\subsection{\hfill{}2.2. Option informatique à l'agrégation de mathématiques\hfill{}}
+
+\begin{frame}{Préparation à \textcolor{info}{l'option informatique} à l'agrégation}
+
+Je maîtrise l'\textbf{intégralité du programme}, et je connais bien le fonctionnement des \textcolor{info}{deux épreuves orales d'informatique}.
+
+\pause
+Je peux\ldots{}
+
+\begin{itemize}
+\tightlist
+\item
+  assurer l'entraînement aux oraux (leçons \& oral de modélisation)
+\item
+  notamment des TP de programmation en OCaml \& Python
+% \item
+%   garder \(\simeq\) 15 séances d'entraînements pour les épreuves orales
+%   de leçon \& modélisation
+% \item
+%   être jury pour les oraux blancs
+  %  (je peux participer pour les leçons aussi)
+\item
+  donner des rappels/compléments de cours en algorithmique, fondements etc (selon les besoins)
+\end{itemize}
+
+\pause
+\vspace*{10pt}
+
+\begin{itemize}
+\tightlist
+\item
+  \ldots{} \textbf{prendre en charge la gestion de la formation ?} (si besoin)
+  % \begin{quote}
+  %   Je pense connaître assez bien les rouages de son
+  % organisation, et l'expérience sera très enrichissante.
+  % \end{quote}
+\end{itemize}
+
+\end{frame}
+
+
+
+% \begin{frame}{Besoin de corriger des lacunes ?}
+
+% % Nous pouvons essayer de mieux préparer pour ces points du programme, les connaissances des élèves sont souvent limitées\ldots{}
+% Il y a deux semaines, nous avons constaté que les élèves ont de fortes lacunes sur ces points du programme :
+
+% % \begin{figure}
+% \centering
+% \includegraphics[width=0.95\textwidth]{figures/programme_specifique_option_D_modelisation.png}
+% % \caption{100\%}
+% % \end{figure}
+
+% \pause
+% \vspace*{-10pt}
+% \begin{itemize}
+%   \tightlist
+%   \item
+%   Exemple : 2 élèves ne connaissaient pas la résolution ($4$:$3$) ni la taille (ex. $1024\times768$) de l'écran utilisé pendant les oraux blancs !
+%   \begin{small}\begin{quote}
+%     ``Je dirais de l'ordre d'un million de pixels sur l'axe horizontal\ldots{}?''
+%   \end{quote}\end{small}
+% \end{itemize}
+
+% \end{frame}
+
+
+
+% \begin{frame}{Deux idées de nouveautés}
+
+% \begin{enumerate}
+% [1.]
+% \item
+%   Des rappels de ``culture générale informatique''
+
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%     connaissances de base en architectures logicielle, matérielle etc
+%   \item
+%     évalué par un QCM plein de petites connaissances
+%   % \item
+%     % je peux rédiger un long peut-être rédigé avec les élèves de cette année ?
+%   \end{itemize}
+% \vspace*{20pt}
+% \pause
+% \item
+%   Rappels sur la représentation des nombres et
+%   l'arithmétique ``côté machine'' : nombres entiers binaires, flottants (norme IEEE 754) etc
+
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%     beaucoup de textes de l'oral de modélisation traitent de ce sujet
+%   \item
+%     les élèves doivent connaître les bases
+%   \item
+%     et savoir expliquer des erreurs classiques telles que\\
+%     \begin{center}
+%       \texttt{max\_int + 1 < 0} (en OCaml)\\
+%       \texttt{0.1 + 0.1 + 0.1 != 0.3} (en Python, OCaml etc)
+%     \end{center}
+%   % \item
+%   %   $\hookrightarrow$ un TP utilisant à la fois Python et OCaml
+%   \end{itemize}
+%   % \begin{quote}
+%   %   Je veux aussi terminer la
+%   %   rédaction d'un nouveau texte de modélisation sur les ``posits'', une
+%   %   alternative aux flottants IEEE
+%   % \end{quote}
+% % \item
+% %   Raviver l'utilisation du wiki ``Minerve'' pour l'option info\\
+% %   \href{https://minerve.ens-rennes.fr/index.php/Le\%C3\%A7ons_d\%27informatique}{\small \texttt{minerve.ens-rennes.fr/index.php/Leçons\_d'informatique}}
+% \end{enumerate}
+
+% \end{frame}
+
+
+\subsection{\hfill{}2.3. D'autres formations à l'ENS Rennes\hfill{}}
+
+\begin{frame}{M'investir dans d'autres formations}
+
+\pause
+
+% \begin{itemize}
+% \item
+%   Évaluer les rapports \& soutenances de stages de recherche (L3, M1)
+%   % m'a beaucoup plu en août 2017 et 2018\ldots{}
+%   \\\(\hookrightarrow\)
+%   Utile de connaître les expériences ``hors de l'école'' des élèves !
+
+% \pause
+% \vspace*{15pt}
+% \item
+  Je suis très intéressé par d'autres formations :
+  % n'importe quel cours d'informatique ou maths, en L3 et M1.
+
+  \begin{itemize}
+  % \tightlist
+  % \item
+  %   Travaux dirigés ou pratiques
+    % (ex : analyse numérique avec MATLAB, Python ou Julia, informatique fondamentale avec OCaml, etc)
+  \item
+    \textcolor{info}{En informatique fondamentale ou appliquée},
+    ou \textcolor{maths}{en mathématiques}
+  \vspace*{15pt}
+  \item
+    En L3 ou en M1, \textcolor{info}{au département d'informatique}
+  \vspace*{15pt}
+  \item
+    Mais aussi aux départements \textcolor{maths}{mathématiques} ou \textcolor{meca}{mécatronique} ?
+    % (si besoin)
+  \vspace*{15pt}
+  \item
+    \emph{Thèmes} : algorithmique, programmation, fondements informatique,
+    optimisation numérique, proba/stats, \textcolor{ml}{\textbf{apprentissage statistique}}\ldots
+  \end{itemize}
+% \end{itemize}
+
+\end{frame}
+
+
+\subsection{\hfill{}2.4. Nouvelles formations\hfill{}}
+
+
+\begin{frame}{Réfléchir à de nouvelles formations ? \hfill{} \only<2->{(1/2)}}
+
+\pause
+
+J'aimerai créer un cours d'\textcolor{ml}{\textbf{apprentissage statistique}} à l'ENS Rennes
+
+\begin{enumerate}
+[1.]
+\tightlist
+\item
+  En L3 : cours d'introduction théorique + TP, aux départements \textcolor{info}{informatique} \& \textcolor{maths}{maths} (\& \textcolor{meca}{mécatronique} ?)
+  \hfill{}
+  \emph{(semestre \#2)}
+\item
+  En M1 : compléments théoriques + un ``zoo'' des méthodes existantes + un projet de développement, \textcolor{info}{au dpt info}
+  \hfill{}
+  \emph{(semestre \#1)}
+\end{enumerate}
+
+\pause
+
+\begin{exampleblock}{Quelques idées ?}
+
+\begin{itemize}
+\tightlist
+\item
+  TP = un projet en plusieurs morceaux, sur de ``vraies'' données\\
+  Ex : sur la ville de Rennes, \href{https://data.rennesmetropole.fr/}{\texttt{data.RennesMetropole.fr}}
+\item
+  Dès la seconde édition du cours, j'aimerais permettre aux M1
+  d'intervenir auprès des L3
+  (entre-aide entre les deux promotions)
+  % (ex : les faire évaluer un TP ?)
+% \item
+%   le lier à un groupe de lecture à l'IRISA ?
+\end{itemize}
+
+\end{exampleblock}
+
+\end{frame}
+
+
+\begin{frame}{Réfléchir à de nouvelles formations ? \hfill{} (2/2)}
+
+\begin{itemize}
+\item
+  Le \textcolor{info}{CAPES d'informatique} sera ouvert dès la rentrée 2019 !
+  % \begin{quote}
+  %   L'agrégation d'informatique suivra peut-être (un jour)
+  % \end{quote}
+\item
+  L'ISTIC ouvre une formation au CAPES (\textcolor{info}{M1 informatique})
+  % conçue en accord avec l'ESPE de Bretagne
+\end{itemize}
+
+\vspace*{30pt}
+
+\begin{alertblock}{Et pour l'agrégation d'informatique\ldots{}?}
+  \begin{itemize}
+    \item
+    Pas encore annoncée, mais elle devrait être créée bientôt !
+    \pause
+    \item
+    Je vais garder un œil sur cette formation au CAPES\ldots{}
+    \item
+    $\implies$ Pour participer à la création de la \textcolor{info}{\textbf{préparation à l'agrégation d'informatique}} à l'ENS de Rennes ?
+  \end{itemize}
+  \end{alertblock}
+
+% \begin{exampleblock}{\emph{Idée / espoir}}
+
+% Entraide bi-directionelle : agrégation \(\Longleftrightarrow\) CAPES ?
+
+% % \begin{itemize}
+% % \tightlist
+% % \item
+% %   Une leçon préparée par un-e candidat-e à l'agrég sera un
+% %   bon (complément de) cours pour les candidats au CAPES
+% % \end{itemize}
+
+% % \begin{quote}
+% % Le programme du CAPES n'est pas encore disponible\ldots{}
+% % \end{quote}
+
+% \end{exampleblock}
+
+\end{frame}
+
+
+
+% \begin{frame}{3.3. Créer de nouvelles formations ? (2/2)}
+
+% \begin{block}{« Pré-prépa agrég »}
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   Entre janvier et avril 2019
+% \item
+%   Avec trois jeunes agrégé-e-s chercheur-euse-s à l'IRISA
+%   % et 2 anciens élèves de la prépa agrég
+% \item
+%   Nous avons donné quelques séances de compléments de cours en maths aux
+%   élèves de M1 du département informatique (\(\simeq\) 20h)
+% \item
+%   6 élèves étaient déjà intéressés pour préparer l'agrég l'an prochain
+% \item
+%   Rappels de cours, renforcements théoriques, méthodologie (développement au
+%   tableau) etc
+% \end{itemize}
+
+% \end{block}
+
+% \(\Longrightarrow\) j'aimerais refaire cette formation en 2020, la
+% prendre en charge et la renforcer, s'il y a assez d'élèves !
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   Ici aussi : entreaide prépa agrég \(\Longleftrightarrow\) pré-prépa
+%   agrég ?
+% \end{itemize}
+
+% \end{frame}
+
+
+
+\section{\hfill{}3. Mon projet de recherche\hfill{}}
+
+\subsection{\hfill{}Plan\hfill{}}
+
+\begin{frame}{\textcolor{gray}{Organisation de l'exposé}}
+
+\begin{enumerate}
+  \item
+\textcolor{gray}{
+  Présentation du candidat
+}
+\vspace*{25pt}
+
+% \item
+% Aperçu de ma thèse, que je soutiendrai en octobre 2019
+% \vspace*{25pt}
+
+\item
+\textcolor{gray}{
+  Mes expériences d'enseignement\\
+  Mon projet pédagogique à l'ENS de Rennes
+}
+\vspace*{25pt}
+
+\item
+\alert{\textbf{%
+  Mes expériences de recherche\\
+  Mon projet de recherche à l'IRISA
+}}
+\end{enumerate}
+
+\end{frame}
+
+
+\subsection{\hfill{}3.1. Mes expériences de recherche\hfill{}}
+
+
+\begin{frame}{Mes expériences de recherche}
+
+\pause
+
+\begin{itemize}
+\item
+  2012, 2013, 2016 : à l'ENS de Cachan, trois stages de recherche
+\item
+  2013, 2014-15, 2016 : un an et demi à l'étranger (R-U, Inde, Suisse)
+
+\pause
+\item
+  2016-19 : thèse à la \textbf{frontière entre \textcolor{info}{informatique} et \textcolor{maths}{maths}},
+  télécommunications et électronique. Co-encadrement par :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Christophe Moy (Univ Rennes 1, IETR) expert en \emph{radio intelligente}
+  \item
+    Émilie Kaufmann (CNRS, labo CRIStAL \& Inria Lille), experte en \textcolor{maths}{statistiques, probabilités} et surtout \textcolor{ml}{les \emph{bandits multi-bras}}
+  \end{itemize}
+
+  \pause
+  Quelques contributions :
+
+  \begin{itemize}
+  \tightlist
+  \item
+    4 articles dans des conférences internationales (2017, 2018, 2019)
+  \item
+    2 workshops (2019), 1 démo. à une conf. internationale (2018)
+  \item
+    3 articles en cours de seconde soumission (2 pour des journaux)
+  \item
+    SMPyBandits, une bibliothèque de simulations de problèmes de bandits multi-bras en Python
+    $\hookrightarrow$ \href{https://SMPyBandits.rtfd.io/}{\textcolor{blue}{\texttt{SMPyBandits.rtfd.io}}}
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+% \subsection{\hfill{}Démonstration d'un problème de bandit\hfill{}}
+
+\begin{frame}{Bandits multi-bras}
+
+  Prise de décisions séquentielles face à un environment incertain
+
+  \centering
+  \includegraphics[height=0.65\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
+
+  {\tiny
+      $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+  }
+
+\end{frame}
+
+% \begin{frame}{%
+% \protect\hypertarget{rightarrow-cv.archives-ouvertes.frlilian-besson}{%
+% \(\rightarrow\)
+% \href{https://cv.archives-ouvertes.fr/lilian-besson}{\texttt{CV.Archives-Ouvertes.fr/Lilian-Besson}}}}
+
+% % \begin{figure}
+% \centering
+% \includegraphics{figures/apercu_CV_HAL.png}
+% % \caption{bg original 90\%}
+% % \end{figure}
+
+% \end{frame}
+
+
+% \begin{frame}{Aperçu de ma thèse - FIXME schéma à dessiner ?}
+
+% \begin{center}
+%   ``\alert<4>{\textbf<4>{Apprentissage séquentiel multi-joueurs}} et \alert<3>{\textbf<3>{bandits multi-bras}} appliqués aux réseaux de l'\alert<2>{\textbf<2>{Internet des Objects}}''
+% \end{center}
+
+% \begin{exampleblock}<2->{Objets communicants (Internet of Things)}
+%   % Communications sans fil, entre des
+%   Appareils autonomes qui communiquent avec une station de base lointaine :
+%   faible consommation énergétique, faible capacité de calcul etc.
+% \end{exampleblock}
+
+% \begin{exampleblock}<3->{Bandits multi-bras pour la radio intelligente}
+%   Idée : laisser les objets apprendre d'eux même une stratégie pour accéder efficacement au réseau, via l'apprentissage par reinforcement.
+% \end{exampleblock}
+
+% \begin{exampleblock}<4->{Apprentissage séquentiel multi-joueurs décentralisé}
+%   Les objets apprennent à collaborer efficacement, sans supervision, et sans communication entre eux.
+% \end{exampleblock}
+
+% \end{frame}
+
+
+\subsection{\hfill{}3.2. Aperçu de ma thèse\hfill{}}
+
+
+\begin{frame}{Aperçu de ma thèse}
+
+\begin{center}
+  ``Apprentissage séquentiel multi-joueurs et bandits multi-bras appliqués aux réseaux de l'Internet des Objects''
+\end{center}
+
+Thèmes :
+
+\begin{enumerate}
+  \item
+  Réseaux sans fil
+  \begin{itemize}
+    \item
+    Objets communicants (``Internet of Things'')
+    \item
+    Radio intelligente
+  \end{itemize}
+  \item
+  Apprentissage statistique par renforcement
+  \begin{itemize}
+    \item
+    Apprentissage séquentiel, bandits multi-bras
+    \item
+    Apprentissage multi-joueurs décentralisé
+    \item
+    \alert{Problèmes non stationnaires, stationnaires par morceaux}
+  \end{itemize}
+\end{enumerate}
+
+\end{frame}
+
+
+% \begin{frame}{Quelques publications}
+%   \setbeamercovered{transparent}
+  
+%   \begin{enumerate}
+%     \uncover<1>{
+%     \item
+%     Radio intelligente et objets communicants
+%     \begin{itemize}
+%     \item
+%       \href{https://hal.inria.fr/hal-XXX/document}{\textcolor{darkgreen}{``Decentralized Spectrum Learning for IoT Wireless Networks Collision Mitigation''}}, \href{https://moychris.wordpress.com/}{C. Moy} \& \textbf{L. Besson},
+%       \href{https://sites.google.com/view/ISIoT2019/}{workshop ISIoT}, 2019.
+%     \item
+%       \href{https://hal.inria.fr/hal-01575419/document}``{\textcolor{darkgreen}{Multi-Armed Bandit
+%       Learning in IoT Networks and non-stationary settings''}},
+%       \href{https://remibonnefoi.wordpress.com/}{R. Bonnefoi}, \textbf{L.
+%       Besson}, \href{https://moychris.wordpress.com/}{C. Moy},
+%       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%       Kaufmann} \& J. Palicot. \href{http://crowncom.org/2017/}{CrownCom},
+%       % (\emph{Conference on Cognitive Radio Oriented Wireless Networks}),
+%       % Lisbonne, Portugal,
+%       septembre 2017,
+%       % \href{https://hal.inria.fr/hal-01575419}{HAL-01575419},
+%       \alert{\textbf{prix du meilleur article !}}
+%     \end{itemize}
+%     }
+
+%     \vspace*{10pt}
+%     \uncover<2>{
+%     \item
+%     Problèmes de bandits multi-joueurs décentralisés
+%     \begin{itemize}
+%       \item
+%       \href{https://hal.inria.fr/hal-01629733/document}{\textcolor{darkgreen}{``Multi-Player Bandits
+%       Revisited''}}, \textbf{L. Besson} \&
+%       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%       Kaufmann},
+%       \href{http://www.cs.cornell.edu/conferences/alt2018/accepted.html}{ALT}
+%       (\emph{Algorithmic Learning Theory}), avril 2018
+%       % \href{https://hal.inria.fr/hal-01629733}{HAL-01629733}.
+%     \end{itemize}
+%     }
+
+%     \vspace*{10pt}
+%     \uncover<3>{
+%     \item
+%     Problèmes non stationnaires, stationnaires par morceaux
+%     \begin{itemize}
+%       \item
+%       \href{https://hal.inria.fr/hal-02006471/document}{\textcolor{darkgreen}{Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires}}\\
+%       \textbf{L. Besson} \&
+%       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%       Kaufmann}, GRETSI, août 2019
+%       % \href{https://hal.inria.fr/hal-02006471}{HAL-02006471}.
+%     % \item
+%     %   \href{https://hal.inria.fr/hal-02006471/document}{\textcolor{darkgreen}{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}}\\
+%     %   \textbf{L. Besson} \&
+%     %   \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%     %   Kaufmann},
+%     %   % \href{https://hal.inria.fr/hal-02006471}{HAL-02006471}
+%     %   \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+%     \end{itemize}
+%     }
+%   \end{enumerate}
+
+% \end{frame}
+
+% \setbeamercovered{invisibile}
+
+% \begin{frame}{Aperçu de mes publications - FIXME}
+
+% International Conferences
+% \begin{itemize}
+% \item
+%   \href{https://hal.inria.fr/hal-XXX/document}{Decentralized Spectrum Learning for IoT Wireless Networks Collision Mitigation}, by \href{https://moychris.wordpress.com/}{C. Moy} \& \textbf{L. Besson},
+%   \href{https://sites.google.com/view/ISIoT2019/}{ISIoT Workshop} at \href{https://dcoss.org/}{DCOSS}, Santorini, Greece, May 2019.
+%   % \href{https://hal.inria.fr/hal-XXX}{HAL-XXX}.
+% \item
+%   \href{https://perso.crans.org/besson/articles/BMBBM__IEEE_WCNC__2019.pdf}{Upper-Confidence
+%   Bound for Channel Selection in LPWA Networks with Retransmissions},
+%   by \href{https://remibonnefoi.wordpress.com/}{R. Bonnefoi}, \textbf{L. Besson}, J.
+%   Manco-Vasquez,
+%   \href{https://moychris.wordpress.com/}{C. Moy}.
+%   \href{https://sites.google.com/view/wcncworkshop-motion2019/}{MoTION Workshop} at
+%   \href{http://wcnc2019.ieee-wcnc.org/}{IEEE WCNC},
+%   Marrakech, Maroc, April 2019, \href{https://hal.inria.fr/hal-02049824}{HAL-02049824}.
+% \item
+%   \href{https://perso.crans.org/besson/articles/BBM__Demo_ICT_2018.pdf}{MALIN:
+%   « Multi-Arm bandit Learning for Iot Networks » with GRC: A TestBed
+%   Implementation and Demonstration that Learning Helps}, by \textbf{L.
+%   Besson}, \href{https://remibonnefoi.wordpress.com/}{R. Bonnefoi},
+%   \href{https://moychris.wordpress.com/}{C. Moy}. Demonstration
+%   presented at ICT (\emph{International Conference on Communication}),
+%   Saint-Malo, France, June 2018. Cf. \texttt{YouTu.be/HospLNQhcMk}, \href{https://hal.inria.fr/hal-02013866}{HAL-02013866}.
+% \end{itemize}
+
+
+% International Conferences
+
+% \begin{itemize}
+% \item
+%   \href{https://perso.crans.org/besson/articles/BBM__IEEE_WCNC_2019.pdf}{GNU
+%   Radio Implementation of MALIN: « Multi-Armed bandits Learning for
+%   Internet-of-things Networks »}, by \textbf{L. Besson},
+%   \href{https://remibonnefoi.wordpress.com/}{R. Bonnefoi},
+%   \href{https://moychris.wordpress.com/}{C. Moy}.
+%   \href{http://wcnc2019.ieee-wcnc.org/}{IEEE WCNC},
+%   Marrakech, Maroc, April 2019, \href{https://hal.inria.fr/hal-02006825}{HAL-02006825}.
+% \item
+%   \href{https://hal.inria.fr/hal-01629733/document}{Multi-Player Bandits
+%   Revisited}, by \textbf{L. Besson} \&
+%   \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%   Kaufmann}.
+%   \href{http://www.cs.cornell.edu/conferences/alt2018/accepted.html}{ALT}
+%   (\emph{Algorithmic Learning Theory}), Lanzarote, Spain, April 2018,
+%   \href{https://hal.inria.fr/hal-01629733}{HAL-01629733}.
+% \item
+%   \href{https://hal.inria.fr/hal-01705292/document}{Aggregation of
+%   Multi-Armed Bandits learning algorithms for Opportunistic Spectrum
+%   Access}, by \textbf{L. Besson},
+%   \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%   Kaufmann} \& \href{https://moychris.wordpress.com/}{C. Moy}.
+%   \href{http://wcnc2018.ieee-wcnc.org/}{IEEE WCNC}, Barcelone, Spain,
+%   avril 2018, \href{https://hal.inria.fr/hal-01705292}{HAL-01705292}.
+% \item
+%   \href{https://hal.inria.fr/hal-01575419/document}{Multi-Armed Bandit
+%   Learning in IoT Networks and non-stationary settings}, by
+%   \href{https://remibonnefoi.wordpress.com/}{R. Bonnefoi}, \textbf{L.
+%   Besson}, \href{https://moychris.wordpress.com/}{C. Moy},
+%   \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%   Kaufmann} \& J. Palicot. \href{http://crowncom.org/2017/}{CrownCom}
+%   (\emph{Conference on Cognitive Radio Oriented Wireless Networks}),
+%   Lisbonne, Portugal, September 2017,
+%   \href{https://hal.inria.fr/hal-01575419}{HAL-01575419}, \textbf{Best Paper Award}.
+% \end{itemize}
+
+
+
+% Other Publications
+
+% \begin{itemize}
+% \item
+%   \href{https://hal.inria.fr/hal-02006471/document}{Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires}, by \textbf{L. Besson} \&
+%   \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%   Kaufmann}, March 2019,
+%   \href{https://hal.inria.fr/hal-02006471}{HAL-02006471}.
+% \item
+%   \href{https://hal.inria.fr/hal-02006471/document}{The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits}, by \textbf{L. Besson} \&
+%   \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+%   Kaufmann}, February 2019,
+%   \href{https://hal.inria.fr/hal-02006471}{HAL-02006471}.
+% \item
+% 	\href{https://hal.inria.fr/hal-01840022/document}{SMPyBandits: an
+% 	Open-Source Research Framework for Single and Multi-Players Multi-Arms
+% 	Bandits (MAB) Algorithms in Python}, by \textbf{L. Besson},
+% 	active development since 2016,
+% 	\href{https://hal.inria.fr/hal-01840022}{HAL-01840022}. Code on
+% 	\href{https://GitHub.com/SMPyBandits/SMPyBandits}{GitHub.com/SMPyBandits}
+% 	(about 40000 lines), documentation and tutorials on
+%   \href{https://SMPyBandits.rtfd.io}{SMPyBandits.rtfd.io}.
+% \item
+% 	\href{https://hal.inria.fr/hal-01736357/document}{What Doubling-Trick
+% 	Can and Can't Do for Multi-Armed Bandits}, by \textbf{L. Besson} \&
+% 	\href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+% 	Kaufmann}, September 2018,
+%   \href{https://hal.inria.fr/hal-01736357}{HAL-01736357}.
+
+% \end{itemize}
+
+% \end{frame}
+
+
+% \subsection{\hfill{}Algorithme \emph{``Upper Confidence Bound''}\hfill{}}
+
+% \begin{frame}{Exemple de solution : l'algorithme UCB}
+
+% Au temps $t$, on joue le bras $C(t)\in\{1,\dots,K\}$, on observe la récompense \emph{iid} aléatoire $r(t) \sim \mathrm{Bernoulli}(\mu_k) \in\{0,1\}$.
+% But : maximiser $\sum\limits_{t=1}^T r(t)$
+
+% \pause
+% \begin{itemize}
+%   \item
+%   Compter le nombre d'échantillons et la somme des récompenses pour chaque bras
+%   % \item
+%   % Et la somme des récompenses
+%   \[
+%     N_k(t) := \sum\limits_{s < t} \bold{1}(C(s)=k),
+%     \;\;\;\;
+%     X_k(t) := \sum\limits_{s < t} r(s) \bold{1}(C(s)=k)
+%   \]
+%   \pause
+%     \item
+%   Calculer $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$ \\
+%   $=$ une borne supérieure de confiance sur la moyenne $\mu_k$ \alert{inconnue}
+%   \item
+%   Jouer le bras d'UCB maximum : $C(t) = \arg\max_k \mathrm{UCB}_k(t)$
+%   % \\
+%   % $\hookrightarrow$ Principe d'optimisme face à l'incertain
+%     \item
+%   % $\alpha$ contrôle l'
+%   Équilibre entre \emph{exploitation} ($\alpha\to0$) et \emph{exploration}  ($\alpha\to\infty$)
+% \end{itemize}
+
+% \end{frame}
+
+
+% \subsection{\hfill{}Mesure de performance pour les algorithmes de bandits\hfill{}}
+
+\begin{frame}{Mesurer la performance d'un algorithme $\mathcal{A}$ avec son regret (moyen) $R_{\mathcal{A}}(T)$}
+
+\pause
+
+\begin{itemize}
+  \item
+  Différence de récompenses accumulées entre un ``oracle'' et $\mathcal{A}$
+
+  \item
+  L'algorithme ``oracle'' joue le meilleur bras $k^* = \arg\max \mu_k$
+  %  pour tout $t$
+  % $\Longrightarrow$
+  % accumule les récompenses (moyennes) $\mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = T \mu_{k^*}$
+
+  % \item
+  % Algorithme $\mathcal{A}$ : accumule $\sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]$
+
+  \item
+  Maximiser les récompenses cumulées
+  $\Longleftrightarrow$ \alert{minimiser le regret}
+  %
+  \[ \alert{ R_{\mathcal{A}}(T) } := \mathbb{E}\left[ \sum\limits_{t=1}^T r_{k^*}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = T \mu_{k^*} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+
+\end{itemize}
+
+\pause
+\vspace*{10pt}
+
+\begin{exampleblock}{Régimes typiques pour des problèmes stationnaires (borne inf \& sup)}
+  \begin{itemize}
+  \item
+  Aucun algorithme ne peut obtenir mieux que
+  \hfill{}
+  $R_{\mathcal{A}}(T) \geq \Omega(\log(T))$
+
+  \item
+  Et un algorithme efficace $\mathcal{A}$ obtient
+  \hfill{}
+  $R_{\mathcal{A}}(T) \leq \mathcal{O}(\log(T))$
+  \end{itemize}
+\end{exampleblock}
+
+% \pause
+
+% \begin{exampleblock}{Exemple de borne de regret : pour l'algorithme UCB}
+%   Pour tout problème avec $K$ bras distribués selon des lois de Bernoulli, de paramètres $\mu_1,\dots,\mu_K \in[0,1]$, de bras optimal $k^*$
+%   \begin{small}
+%     \[ R_T^{\mathrm{UCB}} \leq \left( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu_{k^*}}} \frac{8}{(\mu_k - \mu_{k^*})^2} \right) \log(T) + o(\log(T)) = \mathcal{O}\left( \alert{C(\mu_1,\dots,\mu_K)} \log(T) \right). \]
+%   \end{small}%
+% \end{exampleblock}
+
+\end{frame}
+
+
+% \begin{frame}[plain]{Simulation de problèmes de bandits stationaires, avec ma bibliothèque SMPyBandits (en Python)}
+
+%   % \centering
+%   \includegraphics[width=1.20\textwidth]{figures/example_regret_stationary_bandits.pdf}
+
+% \end{frame}
+
+
+% \begin{frame}[plain]{Sélection dynamique du canal radio pour des objets communicants ``IoT'' (Internet of Things)}
+
+%   \centering
+%   \includegraphics[width=0.85\textwidth]{figures/Layout.pdf}
+
+%   \vspace*{-15pt}
+%   \textbf{Modèle} :
+%   bras $=$ canal radio,
+%   message reçu/perdu $=$ récompense $1$/$0$
+
+% \end{frame}
+
+
+% \begin{frame}[plain]{Interface utilisateur d'une démonstration sur du matériel réel présentée à la conférence ICT 2018}
+
+%   \centering
+%   \includegraphics[width=1.00\textwidth]{figures/UI.pdf}
+
+% \end{frame}
+
+
+% \begin{frame}[plain]{Comparaison entre un accès uniforme (naïf) et un accès intelligent (algorithme UCB)}
+
+%   \centering
+%   \includegraphics[width=0.50\textwidth]{figures/Object2_UniformAccess__UI.png}
+%   ~
+%   \includegraphics[width=0.47\textwidth]{figures/Object1_UCB__UI.png}
+
+%   Conclusion : utiliser un algorithme peu coûteux de ``bandits multi-bras'' améliore les performances de l'objet connecté (ici $40\% \Rightarrow 60\%$)
+
+% \end{frame}
+
+
+% \begin{frame}{Contributions principales de ma thèse}
+\begin{frame}{Deux contributions principales de ma thèse}
+
+Pour différentes extensions du modèle classique de bandits\ldots{}
+
+\begin{itemize}
+  \item
+  Formalisation mathématique
+  \item
+  Nous proposons de nouveaux algorithmes\ldots{}
+  % \item
+  \newline
+  avec une nouvelle analyse théorique, nouvelles bornes de regret\ldots{}
+  % \item
+  \newline
+  validées par des simulations numériques\ldots{}
+  \item
+  $\implies$ Améliore l'état de l'art sur les deux aspects !
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Deux contributions principales de ma thèse}
+
+\begin{exampleblock}{Bandits stationnaires (classiques) avec $K$ bras et $T$ étapes}
+  \[ R_{\mathcal{A}}(T) = \mathcal{O}\left( K \log(T) \right). \]
+\end{exampleblock}
+
+% Pour différentes extensions du modèle classique de bandits\ldots{}
+
+\begin{block}<2->{1) Bandits \textbf{multi-joueurs décentralisé} \hspace*{40pt} \href{https://arxiv.org/abs/1711.02317}{[Besson et al, ALT, 2018]}}
+  Si \alert{$M \leq K$ joueurs} jouent face au même problème de bandit, \alert{avec collisions} mais sans communication entre eux ni sans contrôle centralisé :
+  %
+  $R_{\mathrm{MCTopM}}(T) = \mathcal{O}\left( K \alert{M^3} \log(T) \right)$.
+\end{block}
+
+% \pause
+
+% \begin{block}{Analyse générique des \textbf<2>{``doubling trick''} \hspace*{55pt} \href{https://arxiv.org/abs/1803.06971}{[arXiv:1803.06971]}}
+%   % % Analyse unifiée des ``doubling trick'' exponentiels et géométrique.
+%   % But : si l'algorithme $\mathcal{A}$ doit connaître l'horizon $A$, une technique ``doubling trick'' le rend ``anytime'' (e.g., $T=2,4,8,\dots,2^i,\dots$),
+%   % sans trop réduire ses garanties en regret :
+%   Une \alert<2>{technique ``\emph{doubling trick}''} enlève la dépendance en $T$ d'un algorithme $\mathcal{A}$ non-\emph{anytime}, et garde l'ordre de grandeur de son regret :
+%   %
+%   \begin{small}
+%     \[
+%       % \forall 0<\gamma<1, \delta>0,
+%       % \;\;
+%       R_T^{\mathcal{A}_T} = \mathcal{O}\left( C_{\mathcal{A}} T^{\gamma} (\log(T))^{\delta} \right)
+%       \implies
+%       R_T^{\alert<2>{DT(\mathcal{A})}} = \mathcal{O}\left( \alert<2>{\ell(\gamma,\delta) \times} C_{\mathcal{A}} T^{\gamma} (\log(T))^{\delta} \right).
+%     \]
+%   \end{small}%
+% \end{block}
+
+% \pause
+
+\begin{block}<3->{2) Bandits stationnaires \textbf{par morceaux} \hspace*{25pt} \href{https://arxiv.org/abs/1902.01575}{[Besson et al, GRETSI, 2019]}}
+  Si le problème est \alert{stationnaire par morceaux, sur $\Upsilon = o(\sqrt{T})$ intervalles ``assez grands''} :
+  %
+  $R_{\mathrm{B}\text{-}\mathrm{GLR}}(T) = \mathcal{O}\left( K \sqrt{\alert{\Upsilon} T \log(T)} \right)$.
+\end{block}
+
+\end{frame}
+
+
+% \begin{frame}[plain]{Bandits \alert{multi-joueurs} [Besson et al, ALT, 2018]}
+
+%   % \centering
+%   \includegraphics[width=1.20\textwidth]{figures/example_regret_multi_players_bandits.png}
+
+% \end{frame}
+
+
+\begin{frame}[plain]{\normalsize Simulations d'algorithmes de bandits \alert{non stationnaires} avec ma bibliothèque SMPyBandits, écrite en Python \hfill{}\textcolor{gray}{[Besson et al, GRETSI, 2019]}}
+
+  \centering
+  \includegraphics[width=1.15\textwidth]{figures/example_regret_non_stationary_bandits.png}
+
+\end{frame}
+
+
+% \subsection{\hfill{}Thèse bientôt terminée\hfill{}}
+
+\begin{frame}{Calendrier de la fin de ma thèse}
+
+% \begin{block}{Je termine ma thèse de doctorat}
+
+\begin{itemize}
+% \tightlist
+\item
+  Rédaction bientôt terminée
+  \newline
+  $\implies$ \textbf{Manuscrit envoyé en juillet}
+% \item
+%   Mon manuscrit est basé sur mes principales publications
+\vspace*{20pt}
+\item
+  Jury constitué
+  \newline
+  Rapporteurs en attente de ma thèse
+  \newline
+  $\implies$ \textbf{Soutenance prévue en octobre}
+\end{itemize}
+
+% \end{block}
+
+% \begin{block}{D'ici septembre 2019}
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   Un séjour à Lille fin juin pour assister aux oraux d'agrégation ?\\
+%   Si j'ai le temps\ldots{} \\
+%   \(\Longrightarrow\) important de garder une expérience actuelle du concours !
+% \item
+%   Je devrais présenter un article au GRETSI 2019 (Lille, fin août)
+% \end{itemize}
+
+% \end{block}
+
+\end{frame}
+
+
+
+% \begin{frame}[plain]{Aperçu de mon manuscrit
+% (\href{https://GitHub.com/Naereen/phd}{GitHub.com/Naereen/phd})}
+
+% % \begin{figure}
+% % \centering
+% \includegraphics{figures/apercu_plan_these.png}
+% % \caption{bg original 90\%}
+% % \end{figure}
+
+% \end{frame}
+
+
+
+\subsection{\hfill{}3.3. Mon projet de recherche à l'IRISA\hfill{}}
+
+\begin{frame}{Mon projet de recherche \only<2->{à l'IRISA}}
+
+% But : poursuivre une \textbf{activité de recherche} après ma thèse, \textbf{en informatique et mathématiques}, en ``machine learning'' et algorithmique numérique,
+% mais en changeant de domaine d'applications
+
+But : continuer à résoudre \alert{\textbf{des problèmes de détection et d'adaptation automatique à la non stationnarité}}
+
+Et les appliquer à d'autres flux de données réels (ex : sons, images)\ldots
+
+% \begin{itemize}
+% \item
+%   Après ma thèse, je souhaite poursuivre une activité de recherche
+% \item
+%   Toujours
+%   % , mais sans contrainte quant aux applications
+% \end{itemize}
+
+\vspace*{15pt}
+\pause
+
+$\implies$ \textbf{L'équipe PANAMA est prête à m'accueillir à l'IRISA} :
+\begin{itemize}
+\item
+  Rémi Gribonval et Frédéric Bimbot soutiennent mon projet
+  % intégration dans leur équipe
+\pause
+\item
+  Je vais \textbf{collaborer avec Jérémy Cohen},
+  un chargé de recherche (CNRS) recruté en octobre 2018,
+  spécialiste des méthodes de décompositions et factorisations matricielles et tensorielles
+% \item
+%   Nous avons identifié trois axes de collaboration
+\end{itemize}
+
+% \begin{block}{Organisation / prévision}
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   1/2 jours par semaines à plein temps dès octobre
+% \item
+%   Une place dans les bureaux de l'équipe
+% \item
+%   Lectures et discussions très régulières, octobre-décembre
+% \item
+%   Recherche active dès janvier 2020
+% \item
+%   Je pense pouvoir être ``productif'' dès mars prochain
+% \end{itemize}
+
+% \end{block}
+
+\end{frame}
+
+
+\begin{frame}{3 axes de collaboration avec Jérémy Cohen}
+
+\begin{enumerate}[1.]
+\item
+  \alert<1>{Méthodes matricielles et tensorielles étendues au \textbf<1>{cadre séquentiel}} \\
+  \(\hookrightarrow\) mélange nos deux domaines d'expertise
+\vspace*{20pt}
+\pause
+\item
+  \alert<2>{Détection et adaptation automatique à des \textbf<2>{non-stationnarités}} \\
+  \(\hookrightarrow\) encore trop peu étudié pour ce genre de problèmes, mais très utile ``en pratique''
+\vspace*{20pt}
+\pause
+\item
+  \alert<3>{Sélection automatique du meilleur algorithme et \textbf<3>{hyper apprentissage} automatique (séquentiel ou non), avec des bandits} \\
+  \(\hookrightarrow\) déjà très étudié, mais pas encore dans ce domaine
+  % appliqué aux méthodes matricielles/tensorielles
+\end{enumerate}
+
+% \pause
+
+% Suite logique de deux des questions au cœur de ma thèse :
+% \begin{itemize}\tightlist
+%   \item
+%   agrégation séquentielle d'algorithmes de bandits \hfill{}\textcolor{gray}{[Besson \& Moy \& Kaufmann, WCNC 2018]}
+%   \item
+%   test de vraisemblance généralisé pour un algorithme adaptatif qui résout les problèmes de bandits stationnaires par morceaux
+%   % \hfill{}\textcolor{gray}{[arXiv:1902.01575]}
+% \end{itemize}
+
+\end{frame}
+
+
+
+% \begin{frame}{Autres aspects de mon intégration à l'IRISA}
+
+% \begin{enumerate}
+% [1.]
+% \tightlist
+% \item
+%   Séminaire de l'équipe PANAMA
+
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%     J'y présente mon dernier travail début juin !
+%   \end{itemize}
+% \item
+%   Créer un groupe de lecture ``Deep Reinforcement Learning''
+
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%     Possiblement lié au cours d'apprentissage statistique à l'ENS ?
+%   \end{itemize}
+% \item
+%   Formations techniques : deux demi-journées annuelles (en 2020)
+
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%     diffusion et production de codes libres,
+%   \item
+%     tests et documentations de codes de recherche en mathématiques
+%     appliquées et informatique
+%   \end{itemize}
+% \item
+%   Encadrer un-e stagiaire de recherche à partir d'avril 2020 ?
+% \end{enumerate}
+
+% \end{frame}
+
+% \begin{frame}{%
+% \protect\hypertarget{autres-objectifs-personnels}{%
+% 5. Autres objectifs personnels}}
+
+% \begin{enumerate}
+% [1.]
+% \tightlist
+% \item
+%   Terminer mes travaux de thèse en cours (un ou deux articles à réécrire
+%   et soumettre ailleurs ?)
+% \end{enumerate}
+
+% \begin{enumerate}
+% [1.]
+% \setcounter{enumi}{1}
+% \tightlist
+% \item
+%   Remettre un pied en \textbf{classe préparatoire} ?
+
+%   \begin{itemize}
+%   \tightlist
+%   \item
+%     En septembre, peut-être demander une autorisation de cumul ?
+%   \item
+%     pour des khôlles de maths et/ou TD/TP d'informatique
+%   \item
+%     \emph{maximum 2h/semaine}, si la charge d'AGPR le permet
+%   \item
+%     \(\hookrightarrow\) en MPSI/MP, avec Amélie Stainer au Lycée
+%     Chateaubriand ?
+%   \end{itemize}
+% \end{enumerate}
+
+% \begin{enumerate}
+% [1.]
+% \setcounter{enumi}{2}
+% \tightlist
+% \item
+%   Rester à Rennes 2 ou 3 ans, voire plus !
+% \end{enumerate}
+
+% \end{frame}
+
+% \begin{frame}{%
+% \protect\hypertarget{perspectives-apruxe8s-ce-poste}{%
+% Perspectives (après ce poste)}}
+
+% Après 2/3\(^+\) années en tant qu'AGPR à l'ENS de Rennes\ldots{}
+
+% \begin{block}{Prochain poste ?}
+
+% \begin{itemize}
+% \item
+%   Mouvement spécifique (EN), pour demander un poste en classe
+%   "prépa"ratoire (maths+info / info)
+% \item
+%   Peut-être aussi postuler au CNRS, Inria ou Maître de Conférence
+%   (sections 26, 27) ?
+% \end{itemize}
+
+% \end{block}
+
+% \begin{block}{\emph{Mais aussi ?}}
+
+% \begin{itemize}
+% \tightlist
+% \item
+%   Enseigner l'informatique dans le secondaire\ldots{}?
+% \item
+%   Lycée Français à l'étranger\ldots{}?
+% \item
+%   Retourner enseigner à l'étranger (écoles d'ingénieurs, prépa
+%   etc)\ldots{}?
+% \end{itemize}
+
+% \end{block}
+
+% \end{frame}
+
+\section{\hfill{}Conclusion\hfill{}}
+\subsection{}
+
+
+\begin{frame}{Conclusion}
+
+\begin{center}
+  % \raggedright
+  \includegraphics[width=0.80\linewidth,right]{figures/merci_ecriture_manuelle.png}
+\end{center}
+
+\begin{center}
+  \begin{Large}
+    Seconde partie\\
+    Questions \& discussion
+  % {\Fontify Merci de votre attention .}
+  % \Smiley[0.9]
+  \end{Large}
+\end{center}
+
+\end{frame}
+
+\end{document}
