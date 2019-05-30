@@ -10,7 +10,7 @@ all:	pandoctex pandocpdf clean show
 all169:	pandoctex169 pandocpdf169 clean show169
 
 pandoctex:
-	pandoc -N -s --template=../common/my.beamer -t beamer slides_pandoc.md -o slides.tex
+	pandoc -N -s --template=../common/my.beamer -t beamer slides.md -o slides.tex
 	./preprocess_tex.sh slides.tex
 
 pandocpdf:
@@ -21,13 +21,13 @@ open:
 	xdg-open slides.pdf &
 
 show:
-	pdfpc -d 25 slides.pdf
+	pdfpc -d 35 slides.pdf
 
 show_pandoc:
-	pdfpc -d 25 slides_pandoc.pdf
+	pdfpc -d 35 slides.pdf
 
 pandoctex169:
-	pandoc --variable=aspectratio:169 -N -s --template=../common/my.beamer -t beamer slides_pandoc.md -o slides_169.tex
+	pandoc --variable=aspectratio:169 -N -s --template=../common/my.beamer -t beamer slides.md -o slides_169.tex
 	./preprocess_tex.sh slides_169.tex
 
 pandocpdf169:
@@ -38,7 +38,7 @@ open169:
 	xdg-open slides_169.pdf &
 
 show169:
-	pdfpc -d 15 slides_169.pdf
+	pdfpc -d 35 slides_169.pdf
 
 clean:
 	-mv -vf *.fls *.fdb_latexmk *.ps *.dvi *.htoc *.tms *.tid *.lg *.log *.id[vx] *.vrb *.toc *.snm *.nav *.htmp *.aux *.tmp *.out *.haux *.hidx *.bbl *.blg *.brf *.lof *.ilg *.ind *.meta *.fdb_latexmk *.fls *.gz*busy* /tmp/ 2>/dev/null
@@ -52,4 +52,4 @@ typora:
 theme = league
 
 reveal-md:
-	reveal-md --theme $(theme) --title "About the Bernoulli GLR Test for non-stationary multi-armed bandits - Seminar at PANAMA team, IRISA lab, Rennes  |  Date: June 2019  | Lilian Besson" slides.md
+	reveal-md --theme $(theme) --title "Research Seminar at PANAMA team - IRISA lab  |  Date : 6 June 2019  |  Lilian Besson" slides.md
