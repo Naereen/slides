@@ -627,11 +627,328 @@
 \end{frame}
 
 
+\section{\hfill{}2. Piece-wise stationary multi-armed bandits problems\hfill{}}
 
-\begin{frame}[plain]{\normalsize Simulations d'algorithmes de bandits \alert{non stationnaires} avec ma bibliothèque SMPyBandits, écrite en Python \hfill{}\textcolor{gray}{[Besson et al, GRETSI, 2019]}}
+\begin{frame}{2. Piece-wise stationary multi-armed bandits problems}
 
+  \begin{enumerate}
+    \item
+    \textcolor{gray}{
+      (Stationary) Multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \alert{\textbf{%
+      Piece-wise stationary multi-armed bandits problems
+    }}
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The B-GLR test and its finite time properties
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The BGLRT-klUCB algorithm
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Regret analysis
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Numerical simulations
+    }
+  \end{enumerate}
+
+\end{frame}
+
+
+\section{\hfill{}3. The B-GLR test and its finite time properties\hfill{}}
+
+\begin{frame}{3. The B-GLR test and its finite time properties}
+
+  \begin{enumerate}
+    \item
+    \textcolor{gray}{
+      (Stationary) Multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Piece-wise stationary multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \alert{\textbf{%
+      The B-GLR test and its finite time properties
+    }}
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The BGLRT-klUCB algorithm
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Regret analysis
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Numerical simulations
+    }
+  \end{enumerate}
+
+\end{frame}
+
+
+\section{\hfill{}4. The BGLRT-klUCB algorithm\hfill{}}
+
+\begin{frame}{4. The BGLRT-klUCB algorithm}
+
+  \begin{enumerate}
+    \item
+    \textcolor{gray}{
+      (Stationary) Multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Piece-wise stationary multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The B-GLR test and its finite time properties
+    }
+    \vspace*{15pt}
+
+    \item
+    \alert{\textbf{%
+      The BGLRT-klUCB algorithm
+    }}
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Regret analysis
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Numerical simulations
+    }
+  \end{enumerate}
+
+\end{frame}
+
+
+\section{\hfill{}5. Regret analysis\hfill{}}
+
+\begin{frame}{5. Regret analysis}
+
+  \begin{enumerate}
+    \item
+    \textcolor{gray}{
+      (Stationary) Multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Piece-wise stationary multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The B-GLR test and its finite time properties
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The BGLRT-klUCB algorithm
+    }
+    \vspace*{15pt}
+
+    \item
+    \alert{\textbf{%
+      Regret analysis
+    }}
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Numerical simulations
+    }
+  \end{enumerate}
+
+\end{frame}
+
+
+\section{\hfill{}6. Numerical simulations\hfill{}}
+
+\begin{frame}{6. Numerical simulations}
+
+  \begin{enumerate}
+    \item
+    \textcolor{gray}{
+      (Stationary) Multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Piece-wise stationary multi-armed bandits problems
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The B-GLR test and its finite time properties
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      The BGLRT-klUCB algorithm
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Regret analysis
+    }
+    \vspace*{15pt}
+
+    \item
+    \alert{\textbf{%
+      Numerical simulations
+    }}
+  \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Numerical simulations}
+
+  \begin{block}{We consider three problems with}
+    \begin{itemize}
+      \item
+      $K=3$ arms, Bernoulli distributed
+      \item
+      $T=5000$ time steps (fixed horizon)
+      \item
+      $\Upsilon_T=4$ break-points ($=5$ stationary intervals)
+      \item
+      Algorithms can use this prior knowledge of $T$ and $\Upsilon_T$
+      \item
+      $1000$ independent runs, we plot the average regret
+    \end{itemize}
+  \end{block}
+
+  \begin{exampleblock}{Reference}
+    \begin{itemize}
+      \item
+      We used my open-source Python library for simulations of multi-armed bandits problems, \textbf{SMPyBandits}\\
+      $\hookrightarrow$ Published online at \href{https://SMPyBandits.GitHub.io}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
+      \item
+      More experiments are included in the long version of the paper!\\
+      $\hookrightarrow$ pre-print on
+      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
+      and
+      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+    \end{itemize}
+  \end{exampleblock}
+
+\end{frame}
+
+
+\begin{frame}[plain]{First problem: only local changes}
   \centering
-  \includegraphics[width=1.15\textwidth]{figures/example_regret_non_stationary_bandits.png}
+  \includegraphics[width=1.15\textwidth]{figures/Problem_1.pdf}
+\end{frame}
+
+\begin{frame}[plain]{Results on the first problem}
+  \centering
+  \includegraphics[width=1.15\textwidth]{figures/regret_problem1.png}
+  $\implies$ BGLR achieves the best performance among non-oracle algorithms!
+\end{frame}
+
+
+\begin{frame}[plain]{Second problem: only global changes}
+  \centering
+  \includegraphics[width=1.15\textwidth]{figures/Problem_2.pdf}
+\end{frame}
+
+\begin{frame}[plain]{Results on the second problem}
+  \centering
+  \includegraphics[width=1.15\textwidth]{figures/regret_problem2.pdf}
+  $\implies$ BGLR again achieves the best performance!
+\end{frame}
+
+
+\begin{frame}[plain]{Third problem: non-uniform lenghts of stationary intervals}
+  \centering
+  \includegraphics[width=1.15\textwidth]{figures/Problem_4.pdf}
+\end{frame}
+
+\begin{frame}[plain]{Results on the third problem}
+  \centering
+  \includegraphics[width=1.15\textwidth]{figures/regret_problem4.pdf}
+  $\implies$ BGLR achieves the best performance among non-oracle algorithms!
+\end{frame}
+
+
+\begin{frame}{Interpretation of the simulations}
+
+  \begin{block}{Conclusions in terms of regret}
+    \begin{itemize}
+      \item
+      Empirically we can check that the \alert{BGLR test is efficient}:
+      \begin{itemize}\tightlist
+        \item
+        it has a \alert{low false alarm probability}
+        \item
+        it has a \alert{small delay} if the stationary intervals are long enough
+      \end{itemize}
+      And this is ture even if the hypotheses of our analysis are not satisfied!
+      \item
+      Using the kl-UCB policy gives very good performance
+    \end{itemize}
+    $\implies$ Our algorithm (BGLR test + kl-UCB) achieves state-of-the-art performance!
+  \end{block}
+
+  \begin{block}{What about the efficiency in terms of time and memory?}
+    \begin{itemize}
+      \item \textbf{Memory:}
+      Our algorithm is as efficient as other state-of-the-art strategies!
+      (memory $= \mathcal{O}(K \max \text{duration of stationary intervals}})$)
+      \item \textbf{Time:}
+      But it is costly!
+      $\hookrightarrow$ we propose two numerical tweaks to speed it up, see the long version on
+      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
+      and
+      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+    \end{itemize}
+  \end{block}
 
 \end{frame}
 
@@ -643,16 +960,16 @@
 \begin{frame}{Conclusion}
 
 \begin{center}
-  \begin{Large}
+  \begin{LARGE}
     {\Fontify Thanks for your attention .}
     \Smiley[0.9]
-  \end{Large}
+  \end{LARGE}
 \end{center}
 
 \begin{center}
-  \begin{Large}
-    Questions \& discussion
-  \end{Large}
+  \begin{LARGE}
+    Questions \& Discussion ?
+  \end{LARGE}
 \end{center}
 
 \end{frame}
