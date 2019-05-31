@@ -280,18 +280,18 @@
 
   \begin{itemize}
     \item
-      \href{https://hal.inria.fr/hal-02006471/document}{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}\\
+      \href{https://hal.inria.fr/hal-02006471/document}{\emph{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}}\\
       by \textbf{L. Besson} \&
       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
       Kaufmann}
 
-      $\hookrightarrow$ presented at the
-      \textbf{GRETSI} conference, in Lille (France), next August 2019
+      $\hookrightarrow$ presented at
+      \textbf{GRETSI}, in Lille (France), next August 2019
 
     \vspace*{30pt}
 
     \item
-      \href{https://hal.inria.fr/hal-02006471/document}{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}\\
+      \href{https://hal.inria.fr/hal-02006471/document}{\emph{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}}\\
       by \textbf{L. Besson} \&
       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
       Kaufmann}\\
@@ -387,13 +387,17 @@
 
   $=$ Sequential decision making problems in uncertain environments :
 
-  \centering
-  \includegraphics[height=0.65\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
+  \begin{center}
+    % \centering
+    \includegraphics[height=0.55\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
+  \end{center}
 
-  {\tiny
+  \begin{tiny}
   $\hookrightarrow$ Interactive demo
-    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
-  }
+    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}\\
+    Ref: [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
+    on \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
+  \end{tiny}
 
 \end{frame}
 
@@ -443,7 +447,7 @@
       Play arm $A(t) \sim \mathcal{U}(\{1,\dots,K\})$ uniformly at random
       \item
       $\implies$ Mean expected rewards
-      $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \mu^*$
+      $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \max_k \mu_k$
     \end{itemize}
   \end{exampleblock}
 
@@ -462,17 +466,18 @@
     \end{itemize}
   \end{exampleblock}
 
-  {\tiny
+  \begin{tiny}
+    $\hookrightarrow$
     Interactive demo
-    $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
-  }
+    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+  \end{tiny}
 
 \end{frame}
 
 
 \subsection{\hfill{}The \emph{``Upper Confidence Bound''} algorithm\hfill{}}
 
-\begin{frame}{A first solution : the \emph{``Upper Confidence Bound''} algorithm}
+\begin{frame}{A first solution: \emph{``Upper Confidence Bound''} algorithm}
 
   \begin{itemize}
     \item
@@ -514,12 +519,12 @@
       \item
         And if a suboptimal arm $k>1$ is sampled, it implies
         $\mathrm{UCB}_k(t) > \mathrm{UCB}_1(t)$, but $\mu_k < \mu_1$:
-        Hoeffding's inequality also proves that ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ are unlikely
+        Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
       \item
         We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
         $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \mu^* \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
 
-        \alert{At which speed do we have this convergence?}
+        \alert{But\ldots{} at which speed do we have this convergence?}
     \end{itemize}
   \end{block}
 
@@ -567,17 +572,17 @@
 
 \begin{frame}{Regret of the UCB algorithm and another algorithm}
 
-  For any problem with $K$ arms following Bernoulli distributions, of means $\mu_1,\dots,\mu_K \in[0,1]$, and optimal arm $k^*$, then
+  For any problem with $K$ arms following Bernoulli distributions, of means $\mu_1,\dots,\mu_K \in[0,1]$, and optimal mean $\mu^*$, then
 
   \begin{exampleblock}{For the UCB algorithm}
     \begin{small}
-      \[ R_T^{\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu_{k^*}}} \frac{8}{(\mu_k - \mu_{k^*})} ) \log(T) + o(\log(T)) = \mathcal{O}\left( \alert{C(\mu_1,\dots,\mu_K)} \log(T) \right). \]
+      \[ R_T^{\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu^*}} \frac{8}{(\mu_k - \mu^*)} ) \log(T) + o(\log(T)) = \mathcal{O}\left( \alert{C(\mu_1,\dots,\mu_K)} \log(T) \right). \]
     \end{small}%
   \end{exampleblock}
 
-  \begin{exampleblock}<2->{For the kl-UCB algorithm: a small regret upper-bound}
+  \begin{exampleblock}<2->{For the kl-UCB algorithm: a smaller regret upper-bound}
     \begin{small}
-      \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu_{k^*}}} \frac{(\mu_k - \mu_{k^*})}{\mathrm{kl}(\mu_k, \mu_{k^*})} ) \log(T) + o(\log(T)). \]
+      \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu^*}} \frac{(\mu_k - \mu^*)}{\mathrm{kl}(\mu^*, \mu_k)} ) \log(T) + o(\log(T)). \]
       If $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ is the binary relative entropy (Kullback-Leibler divergence of two Bernoulli of means $x$ and $y$)
     \end{small}%
   \end{exampleblock}
@@ -586,50 +591,10 @@
 
 % FIXME !
 
-\begin{frame}{Main contributions of my PhD thesis}
-
-  For different extensions of the classical model of stationary bandits\ldots{}
-
-  \begin{itemize}
-    \item
-      A clean mathematical model
-    \item
-      We propose new algorithms\ldots{}
-      \newline
-      with a new theoretical analysis, we obtain new regret bounds\ldots{}
-      \newline
-      that can verified on numerical simulations\ldots{}
-    \item
-      $\implies$ We improve the state-of-the-art on the two aspects of theoretical and empirical performances!
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Deux contributions principales de ma thèse}
-
-\begin{exampleblock}{Bandits stationnaires (classiques) avec $K$ bras et $T$ étapes}
-  \[ R_{\mathcal{A}}(T) = \mathcal{O}\left( K \log(T) \right). \]
-\end{exampleblock}
-
-\begin{block}<2->{1) Bandits \textbf{multi-joueurs décentralisé} \hspace*{40pt} \href{https://arxiv.org/abs/1711.02317}{[Besson et al, ALT, 2018]}}
-  Si \alert{$M \leq K$ joueurs} jouent face au même problème de bandit, \alert{avec collisions} mais sans communication entre eux ni sans contrôle centralisé :
-  %
-  $R_{\mathrm{MCTopM}}(T) = \mathcal{O}\left( K \alert{M^3} \log(T) \right)$.
-\end{block}
-
-\begin{block}<3->{2) Bandits stationnaires \textbf{par morceaux} \hspace*{25pt} \href{https://arxiv.org/abs/1902.01575}{[Besson et al, GRETSI, 2019]}}
-  Si le problème est \alert{stationnaire par morceaux, sur $\Upsilon = o(\sqrt{T})$ intervalles ``assez grands''} :
-  %
-  $R_{\mathrm{B}\text{-}\mathrm{GLR}}(T) = \mathcal{O}\left( K \sqrt{\alert{\Upsilon} T \log(T)} \right)$.
-\end{block}
-
-\end{frame}
-
 
 \section{\hfill{}2. Piece-wise stationary multi-armed bandits problems\hfill{}}
 
-\begin{frame}{2. Piece-wise stationary multi-armed bandits problems}
+\begin{frame}{2. Piece-wise stationary MAB problems}
 
   \begin{enumerate}
     \item
@@ -668,6 +633,42 @@
     }
   \end{enumerate}
 
+\end{frame}
+
+
+\begin{frame}{Non stationary MAB problems}
+
+  \begin{block}{Stationary MAB problems}
+    Arm $k$ gives rewards sampled from the same distribution for any time step:
+    $\forall t, r(t) \overset{\text{iid}}{\sim} \nu_k = \mathrm{Bernoulli}(\mu_k)$.
+  \end{block}
+
+  \begin{alertblock}{Non stationary MAB problems?}
+    Arm $k$ gives rewards sampled a (possibly) different same distribution at any time step:
+    $\forall t, r(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathrm{Bernoulli}(\mu_k\alert{(t)})$.
+  \end{alertblock}
+
+  \pause
+  $\implies$ harder problem!
+  And very hard if $\mu_k(t)$ can change at any step!
+
+  \begin{block}{\textbf{Piece-wise stationary} problems!}
+    $\hookrightarrow$ we focus on the easier case when there are at most $o(\sqrt{T})$ intervals on which the means are all stationary
+
+    $\hookrightarrow$ and stationary intervals are supposed to be ``long enough''
+  \end{block}
+\end{frame}
+
+
+\begin{frame}{Example of a piece-wise stationary MAB problem}
+  With $K=3$ arms and horizon $T=5000$,
+  for $\Upsilon_T=4$ break-points, giving $5$ stationary intervals:
+  % \centering
+  \includegraphics[width=0.90\textwidth]{figures/Problem_1.pdf}
+  We plots the means:
+  \textcolor{red}{$\mu_1(t)$},
+  \textcolor{green}{$\mu_2(t)$},
+  \textcolor{blue}{$\mu_3(t)$}.
 \end{frame}
 
 
@@ -711,6 +712,12 @@
       Numerical simulations
     }
   \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Test}
+
+  Test
 
 \end{frame}
 
@@ -881,43 +888,47 @@
 \end{frame}
 
 
-\begin{frame}[plain]{First problem: only local changes}
+\begin{frame}[plain]{Problem 1: only local changes}
   \centering
   \includegraphics[width=1.15\textwidth]{figures/Problem_1.pdf}
+  We plots the means:
+  \textcolor{red}{$\mu_1(t)$},
+  \textcolor{green}{$\mu_2(t)$},
+  \textcolor{blue}{$\mu_3(t)$}.
 \end{frame}
 
-\begin{frame}[plain]{Results on the first problem}
+\begin{frame}[plain]{Results on problem 1}
   \centering
   \includegraphics[width=1.15\textwidth]{figures/regret_problem1.png}
   $\implies$ BGLR achieves the best performance among non-oracle algorithms!
 \end{frame}
 
 
-\begin{frame}[plain]{Second problem: only global changes}
+\begin{frame}[plain]{Problem 2: only global changes}
   \centering
   \includegraphics[width=1.15\textwidth]{figures/Problem_2.pdf}
 \end{frame}
 
-\begin{frame}[plain]{Results on the second problem}
+\begin{frame}[plain]{Results on problem 2}
   \centering
   \includegraphics[width=1.15\textwidth]{figures/regret_problem2.pdf}
   $\implies$ BGLR again achieves the best performance!
 \end{frame}
 
 
-\begin{frame}[plain]{Third problem: non-uniform lenghts of stationary intervals}
+\begin{frame}[plain]{Problem 3: non-uniform lenghts of stationary intervals}
   \centering
   \includegraphics[width=1.15\textwidth]{figures/Problem_4.pdf}
 \end{frame}
 
-\begin{frame}[plain]{Results on the third problem}
+\begin{frame}[plain]{Results on problem 3}
   \centering
   \includegraphics[width=1.15\textwidth]{figures/regret_problem4.pdf}
   $\implies$ BGLR achieves the best performance among non-oracle algorithms!
 \end{frame}
 
 
-\begin{frame}{Interpretation of the simulations}
+\begin{frame}{Interpretation of the simulations (1/2)}
 
   \begin{block}{Conclusions in terms of regret}
     \begin{itemize}
@@ -929,47 +940,85 @@
         \item
         it has a \alert{small delay} if the stationary intervals are long enough
       \end{itemize}
-      And this is ture even if the hypotheses of our analysis are not satisfied!
+      And this is true even if the hypotheses of our analysis are not satisfied!
       \item
-      Using the kl-UCB policy gives very good performance
+      Using the kl-UCB indexes policy gives good performance
     \end{itemize}
-    $\implies$ Our algorithm (BGLR test + kl-UCB) achieves state-of-the-art performance!
+    $\implies$ Our algorithm (BGLR test + kl-UCB) is efficient
+
+    $\implies$ We verified that it obtains state-of-the-art performance!
   \end{block}
 
-  \begin{block}{What about the efficiency in terms of time and memory?}
-    \begin{itemize}
-      \item \textbf{Memory:}
-      Our algorithm is as efficient as other state-of-the-art strategies!
-      (memory $= \mathcal{O}(K \max \text{duration of stationary intervals}})$)
-      \item \textbf{Time:}
-      But it is costly!
-      $\hookrightarrow$ we propose two numerical tweaks to speed it up, see the long version on
-      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
-      and
-      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
-    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Interpretation of the simulations (2/2)}
+
+  What about the efficiency in terms of time and memory?
+
+  \begin{block}{Memory: efficient}
+    Our algorithm is as efficient as other state-of-the-art strategies!\\
+    Memory $= \mathcal{O}(K d_{\max})$
+    for $K$ arms and horizon $T$.
   \end{block}
+
+  \begin{alertblock}<2->{Time: slow!}
+    But it is too slow!
+    Time $= \mathcal{O}(K T d_{\max}$
+    for $K$ arms and horizon $T$.
+
+    $\hookrightarrow$ we proposed two numerical tweaks to speed it up
+
+    $\implies$ BGLR test + kl-UCB can be as fast as M-UCB or CUSUM-UCB, the two algorithms that perform as well in terms of regret
+
+    $\hookrightarrow$  see the long version on \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}} and \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+  \end{alertblock}
+
+  ($d_{\max}$ $=$ duration of the longer stationary interval, $T \leq (1+\Upsilon_T) d_{\max}$)
 
 \end{frame}
 
 
 
 \section{\hfill{}Conclusion\hfill{}}
-\subsection{}
+\subsection{Summary}
 
+\begin{frame}{Summary}
+
+  What we just presented\ldots{}
+  \begin{itemize}
+    \item
+    The Multi-Armed Bandits problem (MAB)
+    \item
+    First its stationary version then its \alert{piece-wise stationary}
+    \item
+    The B-GLR test is efficient to detect break-points for Bernoulli (or sub-Bernoulli) data,
+    and does not need to know the amplitude of the break-point
+    \item
+    We can combine it with the kl-UCB MAB policy:
+    \alert{BGLR + kl-UCB}
+    \item
+    Its regret is bounded as $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ and matches state-of-the-art results
+    \item
+    On numerical simulations, our algorithm outperforms other efficient policies, and can be as fast as its best competitors
+  \end{itemize}
+
+\end{frame}
+
+\subsection{Thanks}
 \begin{frame}{Conclusion}
 
 \begin{center}
-  \begin{LARGE}
+  \begin{Large}
     {\Fontify Thanks for your attention .}
     \Smiley[0.9]
-  \end{LARGE}
+  \end{Large}
 \end{center}
 
 \begin{center}
-  \begin{LARGE}
+  \begin{Large}
     Questions \& Discussion ?
-  \end{LARGE}
+  \end{Large}
 \end{center}
 
 \end{frame}
