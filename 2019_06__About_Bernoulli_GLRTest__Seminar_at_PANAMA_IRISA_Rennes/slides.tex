@@ -254,7 +254,7 @@
 
 \institute[]{{\large
   PhD Student}{\newline
-  \normalsize
+  % \normalsize
   \newline SCEE team, IETR laboratory, CentraleSupélec in Rennes
   \newline \& SequeL team, CRIStAL laboratory, Inria in Lille}}
 
@@ -264,207 +264,344 @@
 \justifying
 
 \begin{frame}[plain]
-\titlepage
+  \titlepage
 
-% XXX manual inclusion of logos
-\begin{center}
-  \includegraphics[height=0.18\textheight]{../common/LogoIETR.png}
-  \includegraphics[height=0.21\textheight]{../common/LogoCS.png}
-  \includegraphics[height=0.18\textheight]{../common/LogoInria.jpg}
-\end{center}
+  % XXX manual inclusion of logos
+  \begin{center}
+    \includegraphics[height=0.18\textheight]{../common/LogoIETR.png}
+    \includegraphics[height=0.21\textheight]{../common/LogoCS.png}
+    \includegraphics[height=0.18\textheight]{../common/LogoInria.jpg}
+  \end{center}
 
 \end{frame}
 
 
-\section{\hfill{}1. Présentation du candidat\hfill{}}
+\begin{frame}{Publications associated with this talk}
 
-\subsection{\hfill{}Plan\hfill{}}
+  \begin{itemize}
+    \item
+      \href{https://hal.inria.fr/hal-02006471/document}{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}\\
+      by \textbf{L. Besson} \&
+      \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+      Kaufmann}
+
+      $\hookrightarrow$ presented at the
+      \textbf{GRETSI} conference, in Lille (France), next August 2019
+
+    \vspace*{30pt}
+
+    \item
+      \href{https://hal.inria.fr/hal-02006471/document}{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}\\
+      by \textbf{L. Besson} \&
+      \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
+      Kaufmann}\\
+      February 2019,
+      pre-print on
+      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
+      and
+      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+
+  \end{itemize}
+
+\end{frame}
+
+
+\section{\hfill{}Outline of the talk\hfill{}}
 
 \begin{frame}{Outline of the talk}
 
-\begin{enumerate}
-\item
-\alert{\textbf{%
-  (Stationary) Multi-armed bandits problems
-}}
-\vspace*{15pt}
+  \begin{enumerate}
+    \item
+      (Stationary) Multi-armed bandits problems
+    \vspace*{15pt}
 
-\item
-\textcolor{gray}{
-  Piece-wise stationary multi-armed bandits problems
-}
-\vspace*{15pt}
+    \item
+      Piece-wise stationary multi-armed bandits problems
+    \vspace*{15pt}
 
-\item
-\textcolor{gray}{
-  The B-GLR test
-}
-\vspace*{15pt}
+    \item
+      The B-GLR test and its finite time properties
+    \vspace*{15pt}
 
-\item
-\textcolor{gray}{
-  The BGLRT-klUCB algorithm
-}
-\vspace*{15pt}
+    \item
+      The BGLRT-klUCB algorithm
+    \vspace*{15pt}
 
-\item
-\textcolor{gray}{
-  Regret analysis
-}
-\vspace*{15pt}
+    \item
+      Regret analysis
+    \vspace*{15pt}
 
-\item
-\textcolor{gray}{
-  Numerical simulations
-}
-\end{enumerate}
+    \item
+      Numerical simulations
+  \end{enumerate}
 
 \end{frame}
 
 
-\begin{frame}{Associated publications}
+\section{\hfill{}1. (Stationary) Multi-armed bandits problems\hfill{}}
 
-\begin{itemize}
-\item
-  \href{https://hal.inria.fr/hal-02006471/document}{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}, by \textbf{L. Besson} \&
-  \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
-  Kaufmann}.
-  \textbf{GRETSI}, Lille, France, August 2019
+\begin{frame}{1. (Stationary) Multi-armed bandits problems}
 
-\end{itemize}
+  \begin{enumerate}
+    \item
+    \alert{\textbf{%
+      (Stationary) Multi-armed bandits problems
+    }}
+    \vspace*{15pt}
 
-\begin{itemize}
+    \item
+    \textcolor{gray}{
+      Piece-wise stationary multi-armed bandits problems
+    }
+    \vspace*{15pt}
 
-\item
-  \href{https://hal.inria.fr/hal-02006471/document}{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}, by \textbf{L. Besson} \&
-  \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{E.
-  Kaufmann}, February 2019,
-  \href{https://hal.inria.fr/hal-02006471}{HAL-02006471}.
+    \item
+    \textcolor{gray}{
+      The B-GLR test and its finite time properties
+    }
+    \vspace*{15pt}
 
-\end{itemize}
+    \item
+    \textcolor{gray}{
+      The BGLRT-klUCB algorithm
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Regret analysis
+    }
+    \vspace*{15pt}
+
+    \item
+    \textcolor{gray}{
+      Numerical simulations
+    }
+  \end{enumerate}
 
 \end{frame}
 
+\subsection{\hfill{}What is a bandit problem?\hfill{}}
 
-% \subsection{\hfill{}Démonstration d'un problème de bandit\hfill{}}
+\begin{frame}{Multi-armed bandits}
 
-\begin{frame}{Bandits multi-bras}
-
-  Prise de décisions séquentielles face à un environment incertain
+  $=$ Sequential decision making problems in uncertain environments :
 
   \centering
   \includegraphics[height=0.65\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
 
   {\tiny
-      $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+  $\hookrightarrow$ Interactive demo
+    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
   }
 
 \end{frame}
 
 
-\subsection{\hfill{}Algorithme \emph{``Upper Confidence Bound''}\hfill{}}
+\subsection{\hfill{}Mathematical model\hfill{}}
 
-\begin{frame}{Exemple de solution : l'algorithme UCB}
+\begin{frame}{Mathematical model}
 
-Au temps $t$, on joue le bras $C(t)\in\{1,\dots,K\}$, on observe la récompense \emph{iid} aléatoire $r(t) \sim \mathrm{Bernoulli}(\mu_k) \in\{0,1\}$.
-But : maximiser $\sum\limits_{t=1}^T r(t)$
-
-\pause
 \begin{itemize}
   \item
-  Compter le nombre d'échantillons et la somme des récompenses pour chaque bras
-  % \item
-  % Et la somme des récompenses
-  \[
-    N_k(t) := \sum\limits_{s < t} \bold{1}(C(s)=k),
-    \;\;\;\;
-    X_k(t) := \sum\limits_{s < t} r(s) \bold{1}(C(s)=k)
-  \]
-  \pause
-    \item
-  Calculer $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$ \\
-  $=$ une borne supérieure de confiance sur la moyenne $\mu_k$ \alert{inconnue}
+  Discrete time steps $t = 1, \dots, T$\\
+  The \emph{horizon} $T$ is fixed and usually unknown
+
   \item
-  Jouer le bras d'UCB maximum : $C(t) = \arg\max_k \mathrm{UCB}_k(t)$
-  % \\
-  % $\hookrightarrow$ Principe d'optimisme face à l'incertain
-    \item
-  % $\alpha$ contrôle l'
-  Équilibre entre \emph{exploitation} ($\alpha\to0$) et \emph{exploration}  ($\alpha\to\infty$)
+  At time $t$, an \emph{agent plays the arm} $A(t)\in\{1,\dots,K\}$,\\
+  then she observes the \emph{iid random reward} $r(t) \sim \nu_k$, $r(t)\in\mathbb{R}$
+
+  \pause
+  \item
+  Usually, we focus on Bernoulli arms $\nu_k = \mathrm{Bernoulli}(\mu_k)$, of mean $\mu_k\in[0,1]$,
+  giving binary rewards $r(t) \in\{0,1\}$.
+
+  \pause
+  \item
+  \textbf{Goal} : maximize the sum of rewards $\sum\limits_{t=1}^T r(t)$
+
+  \item
+  or \alert{maximize the sum of expected rewards $\mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right]$}
+
+  \pause
+  \item
+  Any efficient policy must balance \alert{between exploration and exploitation}:
+  it must explore all arms to discover the best one,
+  while exploiting the arms known to be good so far.
 \end{itemize}
 
 \end{frame}
 
 
-% \subsection{\hfill{}Mesure de performance pour les algorithmes de bandits\hfill{}}
+\subsection{\hfill{}Naive solutions\hfill{}}
 
-\begin{frame}{Mesurer la performance d'un algorithme $\mathcal{A}$ avec son regret (moyen) $R_{\mathcal{A}}(T)$}
+\begin{frame}{Two examples of bad solutions}
 
-\pause
+  \begin{exampleblock}{$i)$ Pure exploration}
+    \begin{itemize}
+      \item
+      Play arm $A(t) \sim \mathcal{U}(\{1,\dots,K\})$ uniformly at random
+      \item
+      $\implies$ Mean expected rewards
+      $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \mu^*$
+    \end{itemize}
+  \end{exampleblock}
+
+  \pause
+
+  \begin{exampleblock}{$ii)$ Pure exploration}
+    \begin{itemize}
+      \item
+        Count the number of samples and the sum of rewards of each arm $N_k(t) = \sum\limits_{s < t} \bold{1}(A(s)=k)$ and $X_k(t) = \sum\limits_{s < t} r(s) \bold{1}(A(s)=k)$
+      \item
+        Estimate the \alert{unknown} mean $\mu_k$ with $\widehat{\mu_k}(t) = X_k(t) / N_k(t)$
+      \item
+        Play the arm of maximum empirical mean : $A(t) = \arg\max_k \widehat{\mu_k}(t)$
+      \item
+        Performance depends on the first draws, and can be very poor!
+    \end{itemize}
+  \end{exampleblock}
+
+  {\tiny
+    Interactive demo
+    $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+  }
+
+\end{frame}
+
+
+\subsection{\hfill{}The \emph{``Upper Confidence Bound''} algorithm\hfill{}}
+
+\begin{frame}{A first solution : the \emph{``Upper Confidence Bound''} algorithm}
+
+  \begin{itemize}
+    \item
+      Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$ \\
+      $=$ an \alert{upper confidence bound} on the \alert{unknown} mean $\mu_k$
+    \item
+      Play the arm of maximal UCB : $A(t) = \arg\max_k \mathrm{UCB}_k(t)$
+      \\
+      $\hookrightarrow$ Principle of ``optimism under uncertainty''
+    \item
+      $\alpha$ balances between \emph{exploitation} ($\alpha\to0$) and \emph{exploration}  ($\alpha\to\infty$)
+
+    \pause
+
+    \item
+      \alert{UCB is efficient}:
+      the best arm is identified correctly (with high probability) if there are enough samples (for $T$ large enough)
+    \item
+      $\implies$
+      Expected rewards attains the maximum
+      ($\forall \alpha>1/2$)
+      \[ \text{For~} T\to\infty, \;\;\; \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \to \max_k \mu_k \]
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Elements of the proof for UCB algorithm}
+
+  \begin{block}{Elements of proof of convergence (for $K$ Bernoulli arms)}
+    \begin{itemize}[<+->]
+      \item
+        Suppose the first arm is the best:
+        $\mu^* = \mu_1 > \mu_2 \geq \ldots \mu_K$
+      \item
+        $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
+      \item
+        Hoeffding's inequality gives
+        $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \propto \frac{1}{t^{2 \alpha}}$\\
+        $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
+      \item
+        And if a suboptimal arm $k>1$ is sampled, it implies
+        $\mathrm{UCB}_k(t) > \mathrm{UCB}_1(t)$, but $\mu_k < \mu_1$:
+        Hoeffding's inequality also proves that ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ are unlikely
+      \item
+        We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
+        $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \mu^* \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
+
+        \alert{At which speed do we have this convergence?}
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\subsection{\hfill{}Regret of a bandit algorithm\hfill{}}
+
+\begin{frame}{Measure the performance of an algorithm $\mathcal{A}$ with its mean regret $R_{\mathcal{A}}(T)$}
 
 \begin{itemize}
   \item
-  Différence de récompenses accumulées entre un ``oracle'' et $\mathcal{A}$
+  Difference in the accumulated rewards between an ``oracle'' and $\mathcal{A}$
 
   \item
-  L'algorithme ``oracle'' joue le meilleur bras $k^* = \arg\max \mu_k$
+  The ``oracle'' algorithm always plays the (unknown) best arm $k^* = \arg\max \mu_k$ (we note the best mean $\mu_{k^*} = \mu^*$)
 
   \item
-  Maximiser les récompenses cumulées
-  $\Longleftrightarrow$ \alert{minimiser le regret}
+  Maximize the sum of expected rewards
+  $\Longleftrightarrow$ \alert{minimize the regret}
   %
-  \[ \alert{ R_{\mathcal{A}}(T) } := \mathbb{E}\left[ \sum\limits_{t=1}^T r_{k^*}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = T \mu_{k^*} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+  \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{k^*}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = T \mu^* - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
 \end{itemize}
 
 \pause
 \vspace*{10pt}
 
-\begin{exampleblock}{Régime typique pour des problèmes stationnaires (borne inf \& sup)}
+\begin{exampleblock}{Typical regime for stationary bandits (lower \& upper bounds)}
   \begin{itemize}
   \item
-  Aucun algorithme ne peut obtenir mieux que
+  No algorithm $\mathcal{A}$ can obtain a regret better than
   \hfill{}
   $R_{\mathcal{A}}(T) \geq \Omega(\log(T))$
 
   \item
-  Et un algorithme efficace $\mathcal{A}$ obtient
+  And an efficient algorithm $\mathcal{A}$ obtains
   \hfill{}
   $R_{\mathcal{A}}(T) \leq \mathcal{O}(\log(T))$
   \end{itemize}
 \end{exampleblock}
 
-\pause
-
-\begin{exampleblock}{Exemple de borne de regret : pour l'algorithme UCB}
-  Pour tout problème avec $K$ bras distribués selon des lois de Bernoulli, de paramètres $\mu_1,\dots,\mu_K \in[0,1]$, de bras optimal $k^*$
-  \begin{small}
-    \[ R_T^{\mathrm{UCB}} \leq \left( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu_{k^*}}} \frac{8}{(\mu_k - \mu_{k^*})^2} \right) \log(T) + o(\log(T)) = \mathcal{O}\left( \alert{C(\mu_1,\dots,\mu_K)} \log(T) \right). \]
-  \end{small}%
-\end{exampleblock}
-
 \end{frame}
 
 
-% \begin{frame}{Contributions principales de ma thèse}
-\begin{frame}{Deux contributions principales de ma thèse}
+\begin{frame}{Regret of the UCB algorithm and another algorithm}
 
-Pour différentes extensions du modèle classique de bandits\ldots{}
+  For any problem with $K$ arms following Bernoulli distributions, of means $\mu_1,\dots,\mu_K \in[0,1]$, and optimal arm $k^*$, then
 
-\begin{itemize}
-  \item
-  Formalisation mathématique
-  \item
-  Nous proposons de nouveaux algorithmes\ldots{}
-  % \item
-  \newline
-  avec une nouvelle analyse théorique, nouvelles bornes de regret\ldots{}
-  % \item
-  \newline
-  validées par des simulations numériques\ldots{}
-  \item
-  $\implies$ Améliore l'état de l'art sur les deux aspects !
-\end{itemize}
+  \begin{exampleblock}{For the UCB algorithm}
+    \begin{small}
+      \[ R_T^{\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu_{k^*}}} \frac{8}{(\mu_k - \mu_{k^*})} ) \log(T) + o(\log(T)) = \mathcal{O}\left( \alert{C(\mu_1,\dots,\mu_K)} \log(T) \right). \]
+    \end{small}%
+  \end{exampleblock}
+
+  \begin{exampleblock}<2->{For the kl-UCB algorithm: a small regret upper-bound}
+    \begin{small}
+      \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \mu_{k^*}}} \frac{(\mu_k - \mu_{k^*})}{\mathrm{kl}(\mu_k, \mu_{k^*})} ) \log(T) + o(\log(T)). \]
+      If $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ is the binary relative entropy (Kullback-Leibler divergence of two Bernoulli of means $x$ and $y$)
+    \end{small}%
+  \end{exampleblock}
+
+\end{frame}
+
+% FIXME !
+
+\begin{frame}{Main contributions of my PhD thesis}
+
+  For different extensions of the classical model of stationary bandits\ldots{}
+
+  \begin{itemize}
+    \item
+      A clean mathematical model
+    \item
+      We propose new algorithms\ldots{}
+      \newline
+      with a new theoretical analysis, we obtain new regret bounds\ldots{}
+      \newline
+      that can verified on numerical simulations\ldots{}
+    \item
+      $\implies$ We improve the state-of-the-art on the two aspects of theoretical and empirical performances!
+  \end{itemize}
 
 \end{frame}
 
