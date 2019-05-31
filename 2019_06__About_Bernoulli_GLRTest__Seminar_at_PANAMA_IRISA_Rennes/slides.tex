@@ -780,8 +780,8 @@
       \item[$\mathcal{H}_0$] The distributions have the same mean \hfill{} (``no break-point'')\\
       $\exists \mu_0, \mathbb{E}[X_1] = \mathbb{E}[X_2] = \ldots \mathbb{E}[X_t] = \mu_0$
 
-      \item[$\mathcal{H}_1$] The distributions have changed mean at time $\tau$ \hfill{} (``break-point at time $\tau$'')\\
-      $\exists \mu_0, \mu_1, \exists \tau, \mathbb{E}[X_1] = \ldots = \mathbb{E}[X_{\tau}] = \mu_0 \text{ and } \mathbb{E}[X_{\tau+1}] = \mathbb{E}[X_{\tau+2}] = \ldots = \mu_1$
+      \item[$\mathcal{H}_1$] The distributions have changed mean at a break-point at time $\tau$ \\
+      $\exists \mu_0, \mu_1, \tau, \mathbb{E}[X_1] = \ldots = \mathbb{E}[X_{\tau}] = \mu_0, \mathbb{E}[X_{\tau+1}] = \mathbb{E}[X_{\tau+2}] = \ldots = \mu_1$
       % $\exists \mu_0, \mu_1, \exists \tau, \forall t \leq \tau, \mathbb{E}[X_t] = \mu_0 \text{ and } \forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$
     \end{itemize}
   \end{itemize}
@@ -903,10 +903,10 @@
     \[ \beta(n,\delta)= 2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n)) \simeq \ln(3n \sqrt{n}/\delta).\]
   \end{block}
 
-  Where $\mathcal{T}(x)$ is a function that verifies $\mathcal{T}(x)\simeq x + \ln(x)$ for $x$ large enough
+  Where $\mathcal{T}(x)$ verifies $\mathcal{T}(x)\simeq x + \ln(x)$ for $x$ large enough
 
   \begin{exampleblock}<2>{Proof ?}
-    Hard to explain in a short time
+    Hard to explain in a short time\ldots\\
     %  we used time-uniform concentration inequalities
     $\hookrightarrow$ pre-print on
     \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
@@ -922,20 +922,13 @@
 
   A good test should detect a break-point ``fast enough'' if there is a break-point to detect, with enough samples before the break-point
 
-  \begin{block}{False alarm}
-    Let $\mathbb{P}_{\mu_0}$ be a probability model under which the observations are $X_t \in[0,1]$
-    and $\bE[X_t] = \mu_0$ for all $t$.
-
-    The \alert{false alarm probability} is $\mathbb{P}_{\mu_0}(\widehat{\tau}_\delta < \infty)$.
-  \end{block}
-
   \begin{block}{Delay of detection}
     Let $\mathbb{P}_{\mu_0,\mu_1,\tau}$ be a probability model under which $X_t \in[0,1]$ and $X_t$ a mean $\mu_0$ for all $t \leq \tau$, and $\mu_1$ for all $t > \tau$,
     with $\mu_0 \neq \mu_1$.
 
     The \alert{gap} of this break-point is $\Delta = |\mu_0 - \mu_1|$.
 
-    The \alert{delay of detection} is $\widehat{\tau}_{\delta} - \tau$.
+    The \alert{delay of detection} is $u = \widehat{\tau}_{\delta} - \tau$.
   \end{block}
 
   \alert{$\implies$ Goal: controlling the delay of detection!} (in high probability)
@@ -947,13 +940,15 @@
   \begin{block}{Controlling the delay of detection}
       On a break-point of amplitude $\Delta = |\mu_1 - \mu_0|$,
       the B-GLRT test satisfies
+      \begin{small}
       \[ \mathbb{P}_{\mu_0,\mu_1,\tau} (\widehat{\tau}_{\delta} \geq \tau + u) \leq \exp\left( -\frac{2\tau u}{\tau + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\tau + u}{2\tau u} \beta(\tau + u,\delta)} \right]\right)^2 \right). \]
+      \end{small}
       with the same threshold function
       $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta)$.
   \end{block}
 
   \begin{exampleblock}{Consequence}
-    In high probability, the delay $\widehat{\tau}_\delta$ of BGLR is $O(\Delta^{-2} \ln(1/\delta))$ if enough samples are observed before the break-point at time $\tau$.
+    In high probability, the delay $\widehat{\tau}_\delta$ of BGLR is $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ if enough samples are observed before the break-point at time $\tau$.
     % (at least) $\Delta^{-2} \ln(1/\delta)$ samples, the detection delay of BGLR has the same magnitude.
   \end{exampleblock}
 
@@ -1217,14 +1212,16 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 \end{frame}
 
 
+\subsection{\hfill{}Comparison with other algorithms\hfill{}}
+
 \begin{frame}{Comparison with other state-of-the-art approaches}
 
-  \begin{block}{Our algorithm (BGLR + kl-UCB)}
+  \begin{exampleblock}{Our algorithm (BGLR + kl-UCB)}
     \begin{itemize}
       \item Hypotheses: bounded rewards, known $T$ and $\Upsilon_T = o(\sqrt{T})$, and long enough stationary sequences
-      \item $R_T = \mathcal{O}(K \sqrt{\Upsilon_T T \log(T)})$
+      \item We obtain $R_T = \mathcal{O}(K \sqrt{\Upsilon_T T \log(T)})$
     \end{itemize}
-  \end{block}
+  \end{exampleblock}
 
   And two recent competitors:
 
@@ -1238,15 +1235,15 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 
   \begin{block}{CUSUM-UCB \hfill{} \textcolor{gray}{[Liu \& Lee \& Shroff, AAAI 2018]}}
     \begin{itemize}
-      \item Hypotheses: like ours, \alert{but prior knowledge of a lower-bound on the problem difficulty}
-      \item $R_T = \mathcal{O}(K \sqrt{\Upsilon_T T \log(T / \Upsilon_T)})$
+      \item Also require \alert{prior knowledge of a lower-bound on the gaps}
+      \item They obtained $R_T = \mathcal{O}(K \sqrt{\Upsilon_T T \log(T / \Upsilon_T)})$
     \end{itemize}
   \end{block}
 
   \begin{block}{M-UCB \hfill{} \textcolor{gray}{[Cao \& Zhen \& Kveton \& Xie, AISTATS 2019]}}
     \begin{itemize}
-      \item Hypotheses: like ours, \alert{but prior knowledge of a lower-bound on the problem difficulty}
-      \item $R_T = \mathcal{O}(K \sqrt{\Upsilon_T T \log(T)})$
+      \item Also require \alert{prior knowledge of a lower-bound on the gaps}
+      \item They obtained $R_T = \mathcal{O}(K \sqrt{\Upsilon_T T \log(T)})$
     \end{itemize}
   \end{block}
 
@@ -1296,6 +1293,8 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 
 \end{frame}
 
+
+\subsection{\hfill{}Setup of the experiments\hfill{}}
 
 \begin{frame}{Numerical simulations}
 
@@ -1371,6 +1370,8 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
   $\implies$ BGLR achieves the best performance among non-oracle algorithms!
 \end{frame}
 
+
+\subsection{\hfill{}Conclusions from the simulations\hfill{}}
 
 \begin{frame}{Interpretation of the simulations (1/2)}
 
