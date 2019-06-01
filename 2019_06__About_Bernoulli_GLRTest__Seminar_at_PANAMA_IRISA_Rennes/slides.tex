@@ -279,6 +279,8 @@
 
 \begin{frame}{Publications associated with this talk}
 
+  Joint work with my advisor Emilie Kaufmann:
+
   \begin{itemize}
     \item
       \href{https://hal.inria.fr/hal-02006471/document}{\emph{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}}\\
@@ -1246,14 +1248,15 @@
     $\Delta^{i} = \max\limits_{k=1,\dots,K} |\mu_k^{i} - \mu_k^{i-1}| >0$.
   \end{itemize}
 
-    \begin{block}{Assumption}
-      Let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
+  \pause
+  \begin{block}{Assumption}
+    Let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
 
-      Assume that all sequences are long enough:
-      \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \tau^{i} - \tau^{i-1} \geq 2\max( d^{i}, d^{i-1} ). \]
-    \end{block}
+    Assume that all sequences are long enough:
+    \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \tau^{i} - \tau^{i-1} \geq 2\max( d^{i}, d^{i-1} ). \]
+  \end{block}
 
-    The minimum length of the $i$-th sequence depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^i$} and \textcolor{darkblue}{$\Delta^{i+1}$})
+  The minimum length of the $i$-th sequence depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^i$} and \textcolor{darkblue}{$\Delta^{i+1}$})
 
 \end{frame}
 
@@ -1263,7 +1266,8 @@
 \begin{frame}{Theoretical result}
 
   Under this hypothesis, we obtained a \emph{finite time}
-  regret upper-bound, with explicit dependency from the problem difficulty.
+  upper-bound on the regret $R_T$,
+  with explicit dependency from the problem difficulty.
 
   The exact bound uses:
   \begin{itemize}
