@@ -1,5 +1,5 @@
-\documentclass[11pt,english,ignorenonframetext,aspectratio=169,]{beamer}
-% \documentclass[11pt,english,ignorenonframetext,]{beamer}
+% \documentclass[11pt,english,ignorenonframetext,aspectratio=169,]{beamer}
+\documentclass[11pt,english,ignorenonframetext,]{beamer}
 
 %%%%%%%%%%%%%%%
 %% Beamer theme
@@ -289,7 +289,9 @@
       $\hookrightarrow$ presented at
       \textbf{GRETSI}, in Lille (France), next August 2019
 
-      $\hookrightarrow$ \href{https://perso.crans.org/besson/articles/BK__GRETSI_2019.pdf}{\textcolor{blue}{\texttt{perso.crans.org/besson/articles/BK\_\_GRETSI\_2019.pdf}}}
+      \begin{footnotesize}
+        $\hookrightarrow$ \href{https://perso.crans.org/besson/articles/BK__GRETSI_2019.pdf}{\textcolor{blue}{\texttt{perso.crans.org/besson/articles/BK\_\_GRETSI\_2019.pdf}}}
+      \end{footnotesize}
 
     \vspace*{30pt}
 
@@ -451,7 +453,6 @@
       \item
       $\implies$ Mean expected rewards
       $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \max_k \mu_k$
-      \dXey{}
     \end{itemize}
   \end{exampleblock}
 
@@ -467,7 +468,6 @@
         Play the arm of maximum empirical mean : $A(t) = \arg\max_k \widehat{\mu_k}(t)$
       \item
         Performance depends on the first draws, and can be very poor!
-        \dXey{}
     \end{itemize}
   \end{exampleblock}
   \vspace*{-10pt}
@@ -486,8 +486,7 @@
 
   \begin{itemize}
     \item
-      Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
-      \hfill{} (for a $\alpha>1/2$)\\
+      Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$\\
       $=$ an \alert{upper confidence bound} on the \alert{unknown} mean $\mu_k$
     \item
       Play the arm of maximal UCB : $A(t) = \arg\max_k \mathrm{UCB}_k(t)$
@@ -500,7 +499,7 @@
 
     \item
       \alert{UCB is efficient}:
-      the best arm is identified correctly (with high probability)\\
+      the best arm is identified correctly (with high probability)
       if there are enough samples (for $T$ large enough)
     \item
       $\implies$
@@ -584,13 +583,13 @@
 
   \begin{exampleblock}{For the UCB algorithm}
     \begin{small}
-      \[ R_T^{\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} ) \log(T) + o(\log(T)). \]
+      \[ R_T^{\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} \log(T) + o(\log(T)). \]
     \end{small}%
   \end{exampleblock}
 
   \begin{exampleblock}<2->{For the kl-UCB algorithm: a smaller regret upper-bound}
     \begin{small}
-      \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq ( \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} ) \log(T) + o(\log(T)) = \mathcal{O}\left( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulty of the problem}}} \log(T) \right). \]
+      \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} \log(T) + o(\log(T)) = \mathcal{O}( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulty of the problem}}} \log(T) ). \]
     \end{small}%
     \begin{footnotesize}
       If $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ is the \emph{binary relative entropy}\\
@@ -648,13 +647,13 @@
 \begin{frame}{Non stationary MAB problems}
 
   \begin{block}{Stationary MAB problems}
-    Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:\\
+    Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:
     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathrm{Bernoulli}(\mu_k)$.
   \end{block}
 
   \pause
   \begin{alertblock}{Non stationary MAB problems?}
-    Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:\\
+    Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:
     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathrm{Bernoulli}(\mu_k\alert{(t)})$.
   \end{alertblock}
 
@@ -809,8 +808,8 @@
 
   \pause
   A \alert{sequential break-point detection} is \alert{\textbf{a stopping time $\widehat{\tau}$}},
-  measurable under $\mathcal{F}_t = \sigma(X_1,\cdots,X_t)$,
-  which rejects the hypothesis \textcolor{deeppurple}{$\mathcal{H}_0$}
+  measurable for $\mathcal{F}_t = \sigma(X_1,\cdots,X_t)$,
+  which rejects hypothesis \textcolor{deeppurple}{$\mathcal{H}_0$}
   when $\widehat{\tau} < \infty$.
 
 \end{frame}
@@ -834,7 +833,9 @@
   \pause
 
   The \alert{Likelihood Ratio statistic} for this hypothesis test, after observing $X_1,\cdots,X_n$, is
-  \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
+  \begin{small}
+    \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
+  \end{small}
   %
   where $\ell(X_1,\cdots,X_n ; \textcolor{deeppurple}{\mu_0})$ (resp. $\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})$) is the likelihood of the observations under a model in \textcolor{deeppurple}{$\mathcal{H}_0$} (resp. \textcolor{gold}{$\mathcal{H}_1$}).
 
@@ -844,7 +845,7 @@
 
 \end{frame}
 
-\begin{frame}{Expression of the Bernoulli Likelihood ratio}
+\begin{frame}{Expression of the (log) Bernoulli Likelihood ratio}
 
   We can rewrite this statistic
   $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
@@ -871,9 +872,9 @@
     \item
     We can extend the Bernoulli likelihood ratio test if the observations are \alert{sub-Bernoulli}.
     \item
-    And any bounded distributions on $[0,1]$ is sub-Bernoulli
+    And any bounded distributions on $[0,1]$ is sub-Bernoulli !
     \item
-    $\implies$ the BGLR test can be applied for any bounded observations \dCooley{} !
+    $\implies$ the BGLR test can be applied for any bounded observations \dCooley{}
   \end{itemize}
 
   % \begin{block}{Sub-Bernoulli distributions}
@@ -929,7 +930,9 @@
     the BGLR test satisfies
     \[ \mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta \]
     with the threshold function
-    \[ \beta(n,\delta)= 2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n)) \simeq \ln(3n \sqrt{n}/\delta) = \mathcal{O}(\log(n/\delta)).\]
+    \begin{small}
+      \[ \beta(n,\delta)= 2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n)) \simeq \ln\left(\frac{3n \sqrt{n}}{\delta}\right) = \mathcal{O}\left(\log\left(\frac{n}{\delta}\right)\right).\]
+    \end{small}
     \begin{footnotesize}
       Where $\mathcal{T}(x)$ verifies $\mathcal{T}(x)\simeq x + \ln(x)$ for $x$ large enough
     \end{footnotesize}
@@ -973,7 +976,10 @@
       On a break-point of amplitude $\Delta = |\mu_1 - \mu_0|$,
       the BGLRT test satisfies
       \begin{small}
-      \[ \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) \leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) = \mathcal{O}(\searrow(u)). \]
+        \begin{align*}
+            \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
+            &= \mathcal{O}(\exp\searrow(u)).
+        \end{align*}
       \end{small}
       with the same threshold function
       $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta)$.
@@ -1010,8 +1016,8 @@
         $\mathbb{P}_{\textcolor{darkpurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta$
       \item
         its \alert{detection delay}:
-        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ decreases exponentially fast wrt $u$\\\
-      (if there are enough samples before and after the break-point)
+        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ decreases exponentially fast wrt $u$
+        (if there are enough samples before and after the break-point)
     \end{itemize}
 
     \item
@@ -1070,7 +1076,7 @@
 
 \subsection{\hfill{}BGRL test + kl-UCB index\hfill{}}
 
-\begin{frame}{Main ideas of our algorithm: BGRL test + kl-UCB index}
+\begin{frame}{Our algorithm combines BGRL test + kl-UCB index}
 
   \begin{block}{Main ideas}
     \begin{itemize}
@@ -1089,8 +1095,7 @@
   \begin{exampleblock}{The kl-UCB indexes}
     \begin{itemize}
       \item $\tau_k(t)$ is the time of last reset of arm $k$ before time $t$,
-      \item $n_k(t)$ counts the the selections
-      \item $\widehat{\mu}_k(t)$ is the empirical means of observations since the last reset of arm $k$,
+      \item $n_k(t)$ counts the selections and $\widehat{\mu}_k(t)$ is the empirical means of observations of arm $k$ since $\tau_k(t)$,
       % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
       % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
       %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
@@ -1101,7 +1106,7 @@
 
 \end{frame}
 
-\begin{frame}{Two details of our algorithm: BGRL test + kl-UCB index}
+\begin{frame}{Two details of our algorithm}
 
   % % \GLRklUCB{} repose sur le calcul d'un \emph{indice} (de type \mathrm{kl}UCB{} \cite{KLUCBJournal}) pour chaque bras,  et choisit en général le bras d'indice le plus élevé.
   % Soit $\tau_i(t)$ l'instant de la dernière réinitialisation pour le bras $i$ avant le temps $t$, $n_i(t) = \sum_{s=\tau_i(t)+1}^{t} \mathbbm{1}(A_s=i)$ le nombre de sélections et $\widehat{\mu}_i(t)$
@@ -1144,11 +1149,10 @@
 \begin{frame}{The \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB} algorithm}
 
 \begin{columns}
-\begin{column}{0.1\textwidth}
+\begin{column}{0.02\textwidth}
   %
 \end{column}
-\begin{column}{0.9\textwidth}  %%<--- here
-
+\begin{column}{0.97\textwidth}
 \begin{footnotesize}
   % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
   % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
@@ -1159,7 +1163,7 @@
       % \RestyleAlgo{boxed}
       % XXX Input, data and output
       \KwData{\emph{Parameters of the problem} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
-      \KwData{\emph{Parameters of the algorithm} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{can depend on $T$ and/or $\Upsilon_T$}}
+      \KwData{\emph{Parameters of the algorithm} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{can use $T$ and $\Upsilon_T$}}
       % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
       % \KwData{Data}
       % \KwResult{Result}
@@ -1267,16 +1271,16 @@
   \pause
   \begin{block}{Assumption}
     Fix the parameters $\alpha$ and $\delta$,
-    and let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$ ($d^0 = 0$).
+    and let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
 
     \alert{\textbf{We assume that all sequences are ``long enough'':}}
     \vspace*{-5pt}
-    \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \tau^{i} - \tau^{i-1} \geq 2\max( d^{i}, d^{i-1} ). \]
+    \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \alert{\tau^{i} - \tau^{i-1}} \geq 2\max( d^{i}, d^{i-1} ). \]
   \end{block}
 
   \pause
   $\hookrightarrow$
-  The minimum length of the $i$-th sequence depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^{i-1}$} and \textcolor{darkblue}{$\Delta^{i}$}).
+  The \alert{minimum length of sequence $i$} depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^{i-1}$} and \textcolor{darkblue}{$\Delta^{i}$}).
 
 \end{frame}
 
@@ -1298,12 +1302,12 @@
     the gaps $\Delta^{i}$
     account for the difficulty of detecting break-point $i$,
   \end{itemize}
-  as well as
+  as well as the two parameters
   \begin{itemize}
     \item
-    the parameter $\alpha$ : probability of forced exploration,
+    $\alpha$ the probability of forced exploration,
     \item
-    and the parameter $\delta$ : confidence level of the break-point detection algorithm.
+    and $\delta$ the confidence level of the break-point detection test.
   \end{itemize}
 
 \end{frame}
@@ -1324,11 +1328,11 @@
       \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{gold}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{deeppurple}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
       \begin{itemize}\tightlist
         \item
-        with $\textcolor{gold}{\Delta^{\text{change}}} = \min_{i} \Delta^{i} =$ \textcolor{gold}{the smallest detection gap between two stationary segments}\\
+        with $\textcolor{gold}{\Delta^{\text{change}}} = \min_{i} \Delta^{i} =$ \textcolor{gold}{the smallest detection gap between two stationary segments}
         $=$ \textcolor{gold}{Difficulty of the break-point detection problems!}
         \item
         and $\textcolor{deeppurple}{\Delta^{\text{opt}}} =$
-        \textcolor{deeppurple}{the smallest value of sub-optimality gap on a stationary segment}\\
+        \textcolor{deeppurple}{the smallest value of sub-optimality gap on a stationary segment}
         $=$ \textcolor{deeppurple}{Difficulty of the stationary bandit problems!}
       \end{itemize}
       % ($\min_{k: \mu_k(t) < \mu_{k^*(t)}(t)} \mu_{k^*(t)}(t) - \mu_k(t)$)
@@ -1367,13 +1371,13 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 
   \begin{block}{CUSUM-UCB \hfill{} \textcolor{gray}{[Liu \& Lee \& Shroff, AAAI 2018]}}
     \begin{itemize}
-      \item They obtained $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T / \Upsilon_T)})$
+      \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T / \Upsilon_T)})$
     \end{itemize}
   \end{block}
 
   \begin{block}{M-UCB \hfill{} \textcolor{gray}{[Cao \& Zhen \& Kveton \& Xie, AISTATS 2019]}}
     \begin{itemize}
-      \item They obtained $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+      \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
     \end{itemize}
   \end{block}
 
@@ -1448,7 +1452,7 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
     \begin{itemize}
       \item
       We used my open-source Python library for simulations of multi-armed bandits problems, \textbf{SMPyBandits}
-      \hfill{}
+      \\
       $\hookrightarrow$ Published online at \href{https://SMPyBandits.GitHub.io}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
       \item
       More experiments are included in the long version of the paper!\\
@@ -1520,7 +1524,7 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
         \item
         it has a \alert{small delay} if the stationary sequences are long enough.
       \end{itemize}
-      And this is true even if the hypotheses of our analysis are not satisfied
+      And this is true even outside of the hypotheses of our analysis
       \item
       Using the kl-UCB indexes policy gives good performance \dCooley{}
     \end{itemize}
@@ -1544,10 +1548,10 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 
   \begin{alertblock}<2->{Time: slow \dSadey{} !}
     But it is too slow!
-    Time cost $= \mathcal{O}(K t d_{\max})$
+    Time cost $= \mathcal{O}(K d_{\max} \alert{\times t})$
     at every time step $t$,
     % for $K$ arms.
-    so $\mathcal{O}(K T^2 d_{\max})$ in total.
+    so $\mathcal{O}(K d_{\max} \alert{T^2})$ in total.
     %  and horizon $T$.
 
     $\hookrightarrow$ we proposed two numerical tweaks to speed it up
@@ -1558,7 +1562,10 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
     % \hfill{} See the long version on \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}} and \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
   \end{alertblock}
 
-  ($d_{\max} = \max\limits_i \tau^i - \tau^{i+1} =$ duration of the longer stationary sequence, $T \leq (1+\Upsilon_T) d_{\max}$)
+  \begin{small}
+    ($d_{\max} = \max\limits_i \tau^i - \tau^{i+1} =$ duration of the longer stationary sequence)
+    % , $T \leq (1+\Upsilon_T) d_{\max}$)
+  \end{small}
 
 \end{frame}
 
@@ -1572,9 +1579,11 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
   What we just presented\ldots{}
   \begin{itemize}
     \item
-    Stationary or \alert{piece-wise stationary} Multi-Armed Bandits problems (MAB)
+    Stationary or \alert{piece-wise stationary} Multi-Armed Bandits problems
+    %  (MAB)
     \item
-    The efficient Bernoulli Generalized Likelihood Ratio test \dCooley{} (BGLR-T)
+    The efficient Bernoulli Generalized Likelihood Ratio test \dCooley{}
+    % (BGLR-T)
     \begin{itemize}\tightlist
       \item
       to detect break-points with \alert{no false alarm} and \alert{low delay}
