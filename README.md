@@ -41,6 +41,8 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [December 2018 : "5 useful tools as a Christmas gift", traning session (CentraleSupélec Rennes)](https://perso.crans.org/besson/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2018_12__Four_useful_and_various_tools_as_a_Christmas_gift__GouTP_at_CentraleSupelec/slides_169.pdf)), in collaboration with [Bastien Trotobas](https://github.com/BastienTr/), Nabil Zaraneh and [Pierre Haessig](http://pierreh.eu/).
 - [April 2019 : "GNU Radio Implementation of Multi-Armed bandits Learning for Internet-of-things Networks", talk at the IEEE WCNC 2019 conference](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__Demo_ICT_2018/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__Demo_ICT_2018/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006825).
 - [April 2019 : "Upper-Confidence Bound for Channel Selection in LPWA Networks with Retransmissions", talk at the MoTION Workshop at IEEE WCNC 2019 conference](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02049824).
+- [May 2019 : slides for the oral presentation given to apply for a teaching-and-research position in Computer Science at ENS de Rennes (29-05-2019)](https://perso.crans.org/besson/publis/slides/2019_05__Audition_AGPR__ENS_de_Rennes/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_05__Audition_AGPR__ENS_de_Rennes/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006471).
+- [June 2019 : "The Bernoulli Generalized Likelihood Ratio test (B-GLR) for Non-Stationary Multi-Armed Bandits", talk at the monthly research seminar at the PANAMA team, at IRISA lab in Rennes](https://perso.crans.org/besson/publis/slides/2019_06__About_Bernoulli_GLRTest__Seminar_at_PANAMA_IRISA_Rennes/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_06__About_Bernoulli_GLRTest__Seminar_at_PANAMA_IRISA_Rennes/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006471).
 
 ### :arrow_forward: 2. View the slides on-line as HTML pages ?
 > These versions are experimental and should not be used.
@@ -65,7 +67,7 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [2019_04__Presentation_IEEE_WCNC__MoTION_Workshop](https://Naereen.GitHub.io/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides.html).
 - For other slides, if I forgot one, use this URL: `https://Naereen.GitHub.io/slides/NAME_OF_THE_SLIDE/slides.html`.
 
-> Note: I have stopped writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless. Tell me if you want them!
+> Note: I have **stopped** writing these web versions from March 2018, I saw that nobody every visited the previous ones and they appear useless. Tell me if you want them?
 
 ### :arrows_counterclockwise: 3. View the slides locally ?
 - You can also clone this repository, and browse locally the slides.

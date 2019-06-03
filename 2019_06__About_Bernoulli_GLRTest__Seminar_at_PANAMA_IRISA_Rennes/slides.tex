@@ -1,5 +1,5 @@
-% \documentclass[12pt,english,ignorenonframetext,aspectratio=169,]{beamer}
-\documentclass[11pt,english,ignorenonframetext,]{beamer}
+\documentclass[11pt,english,ignorenonframetext,aspectratio=169,]{beamer}
+% \documentclass[11pt,english,ignorenonframetext,]{beamer}
 
 %%%%%%%%%%%%%%%
 %% Beamer theme
@@ -103,22 +103,19 @@
 %% Color definition
 \usepackage{xcolor}
 %% WARNING attention when changing the colors, change both the {RGB}{r,g,b} and % rgb(r,g,b)
-\definecolor{blackblue}{RGB}{19,19,59}  % rgb(48,48,150)
+\definecolor{blackblue}{RGB}{19,19,59}     % rgb(48,48,150)
 \definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
 \definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
 \definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
 \definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
 \definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
-\definecolor{gold}{RGB}{255,180,0}         % rgb(255,180,0)
-\definecolor{meca}{RGB}{255,110,0}         % rgb(255,110,0)
+\definecolor{lightgold}{RGB}{255,180,0}    % rgb(255,180,0)
+\definecolor{gold}{RGB}{255,110,0}         % rgb(255,110,0)
 \definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
 \definecolor{normalred}{RGB}{204,0,0}      % rgb(204,0,0)
 \definecolor{darkred}{RGB}{174,0,0}        % rgb(174,0,0)
-\definecolor{info}{RGB}{174,0,0}        % rgb(174,0,0)
-\definecolor{darkblue}{RGB}{0,0,174}        % rgb(0,0,174)
-\definecolor{maths}{RGB}{0,0,174}        % rgb(0,0,174)
+\definecolor{darkblue}{RGB}{0,0,174}       % rgb(0,0,174)
 \definecolor{darkpurple}{RGB}{114,0,114}   % rgb(114,0,114)
-\definecolor{ml}{RGB}{114,0,114}   % rgb(114,0,114)
 
 \usepackage{amssymb,amsmath}
 \usepackage{bbm,bm}  % bold maths symbols
@@ -279,7 +276,7 @@
 
 \begin{frame}{Publications associated with this talk}
 
-  Joint work with my advisor Emilie Kaufmann:
+  Joint work with my advisor Émilie Kaufmann:
 
   \begin{itemize}
     \item
@@ -786,7 +783,7 @@
       \item[\textcolor{deeppurple}{$\mathcal{H}_0$}] \textcolor{deeppurple}{The distributions have the same mean \hfill{} (``no break-point'')\\
       $\exists \mu_0, \mathbb{E}[X_1] = \mathbb{E}[X_2] = \ldots = \mathbb{E}[X_t] = \mu_0$}
 
-      \item[\textcolor{meca}{$\mathcal{H}_1$}] \textcolor{meca}{The distributions have changed mean at a break-point at time $\tau$ \\
+      \item[\textcolor{gold}{$\mathcal{H}_1$}] \textcolor{gold}{The distributions have changed mean at a break-point at time $\tau$ \\
       $\exists \mu_0, \mu_1, \tau, \mathbb{E}[X_1] = \ldots = \mathbb{E}[X_{\tau}] = \mu_0, \mathbb{E}[X_{\tau+1}] = \mathbb{E}[X_{\tau+2}] = \ldots = \mu_1$}
       % $\exists \mu_0, \mu_1, \exists \tau, \forall t \leq \tau, \mathbb{E}[X_t] = \mu_0 \text{ and } \forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$
     \end{itemize}
@@ -812,27 +809,27 @@
     \item[\textcolor{deeppurple}{$\mathcal{H}_0$}:]
     \textcolor{deeppurple}{$(\exists \mu_0 : \forall i\in\mathbb{N}^*, X_i \overset{\text{i.i.d.}}{\sim} \cB(\mu_0))$},
     against the alternative
-    \item[\textcolor{meca}{$\mathcal{H}_1$}:]
-    \textcolor{meca}{$(\exists \mu_0 \neq \mu_1, \tau > 1 : X_1, \ldots, X_\tau \overset{\text{i.i.d.}}{\sim} \cB(\mu_0) \text{~et~} X_{\tau+1}, \ldots \overset{\text{i.i.d.}}{\sim} \cB(\mu_1))$}.
+    \item[\textcolor{gold}{$\mathcal{H}_1$}:]
+    \textcolor{gold}{$(\exists \mu_0 \neq \mu_1, \tau > 1 : X_1, \ldots, X_\tau \overset{\text{i.i.d.}}{\sim} \cB(\mu_0) \text{~et~} X_{\tau+1}, \ldots \overset{\text{i.i.d.}}{\sim} \cB(\mu_1))$}.
   \end{itemize}
 
   \pause
 
   The \alert{Likelihood Ratio statistic} for this hypothesis test, after observing $X_1,\dots,X_n$, is given by
-  \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{meca}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\dots,X_n ; \textcolor{meca}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\dots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
+  \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\dots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\dots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
   %
-  where $\ell(X_1,\dots,X_n ; \textcolor{deeppurple}{\mu_0})$ (resp. $\ell(X_1,\dots,X_n ; \textcolor{meca}{\mu_0,\mu_1,\tau})$) is the likelihood of the observations under a model in \textcolor{deeppurple}{$\mathcal{H}_0$} (resp. \textcolor{meca}{$\mathcal{H}_1$}).
+  where $\ell(X_1,\dots,X_n ; \textcolor{deeppurple}{\mu_0})$ (resp. $\ell(X_1,\dots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})$) is the likelihood of the observations under a model in \textcolor{deeppurple}{$\mathcal{H}_0$} (resp. \textcolor{gold}{$\mathcal{H}_1$}).
 
   \pause
 
-  \alert{$\hookrightarrow$ High values of this statistic tends to reject \textcolor{deeppurple}{$\mathcal{H}_0$} over \textcolor{meca}{$\mathcal{H}_1$}.}
+  \alert{$\hookrightarrow$ High values of this statistic tends to reject \textcolor{deeppurple}{$\mathcal{H}_0$} over \textcolor{gold}{$\mathcal{H}_1$}.}
 
 \end{frame}
 
 \begin{frame}{Expression of the Bernoulli Likelihood ratio}
 
   We can rewrite this statistic
-  $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{meca}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\dots,X_n ; \textcolor{meca}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\dots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
+  $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\dots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\dots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
   by using Bernoulli likelihood, and shifting means $\widehat{\mu}_{k:k'} = \frac{1}{k'-k+1} \sum\limits_{s=k}^{k'} X_s$ :
 
   \begin{align*}
@@ -931,7 +928,7 @@
   A good test should detect a break-point ``fast enough'' if there is a break-point to detect, with enough samples before the break-point
 
   \begin{block}{Delay of detection}
-    Let $\mathbb{P}_{\textcolor{meca}{\mu_0,\mu_1,\tau}}$ be a probability model under which $X_t \in[0,1]$ and \textcolor{meca}{$X_t$ a mean $\mu_0$ for all $t \leq \tau$, and $\mu_1$ for all $t > \tau$,
+    Let $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ be a probability model under which $X_t \in[0,1]$ and \textcolor{gold}{$X_t$ a mean $\mu_0$ for all $t \leq \tau$, and $\mu_1$ for all $t > \tau$,
     with $\mu_0 \neq \mu_1$}.
 
     The \alert{gap} of this break-point is $\Delta = |\mu_0 - \mu_1|$.
@@ -949,7 +946,7 @@
       On a break-point of amplitude $\Delta = |\mu_1 - \mu_0|$,
       the B-GLRT test satisfies
       \begin{small}
-      \[ \mathbb{P}_{\textcolor{meca}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{meca}{\tau} + u) \leq \exp\left( -\frac{2\textcolor{meca}{\tau} u}{\textcolor{meca}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{meca}{\tau} + u}{2\textcolor{meca}{\tau} u} \beta(\textcolor{meca}{\tau} + u,\delta)} \right]\right)^2 \right). \]
+      \[ \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) \leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right). \]
       \end{small}
       with the same threshold function
       $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta)$.
@@ -984,7 +981,7 @@
         $\mathbb{P}_{\textcolor{darkpurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta$
       \item
         its \alert{detection delay}:
-        $\mathbb{P}_{\textcolor{meca}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ decreases exponentially fast wrt $u$
+        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ decreases exponentially fast wrt $u$
       (if there are enough samples before and after the break-point).
     \end{itemize}
 
@@ -1299,12 +1296,12 @@
       \item
       Then the regret of our algorithm, with parameters $\alpha$ and $\delta$, satisfies
       %
-      \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{deeppurple}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{meca}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
+      \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{deeppurple}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{gold}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
       \item
       with $\textcolor{deeppurple}{\Delta^{\text{change}}} = \min_{i} \Delta^{i}$ \textcolor{deeppurple}{the smallest detection gap between two stationary segments},
       \item
-      $\textcolor{meca}{\Delta^{\text{opt}}}$
-      \textcolor{meca}{the smallest value of sub-optimality gap on a stationary segment}.
+      $\textcolor{gold}{\Delta^{\text{opt}}}$
+      \textcolor{gold}{the smallest value of sub-optimality gap on a stationary segment}.
       % ($\min_{k: \mu_k(t) < \mu_{k^*(t)}(t)} \mu_{k^*(t)}(t) - \mu_k(t)$)
     \end{itemize}
   \end{block}
