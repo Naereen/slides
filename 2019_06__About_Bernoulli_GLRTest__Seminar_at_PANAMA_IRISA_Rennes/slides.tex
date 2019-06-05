@@ -110,7 +110,7 @@
 \definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
 \definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
 \definecolor{lightgold}{RGB}{255,180,0}    % rgb(255,180,0)
-\definecolor{gold}{RGB}{205,110,0}         % rgb(205,110,0)
+\definecolor{gold}{RGB}{175,100,0}         % rgb(175,100,0)
 \definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
 \definecolor{normalred}{RGB}{204,0,0}      % rgb(204,0,0)
 \definecolor{darkred}{RGB}{174,0,0}        % rgb(174,0,0)
@@ -508,31 +508,33 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Elements of the proof for UCB algorithm}
+\begin{frame}{UCB algorithm converges to the best arm}
+
+  We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
+  $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \textcolor{deeppurple}{\mu^*} \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
+  \dLaughey{}
+
+  \alert{But\ldots{} at which speed do we have this convergence?}
 
   \begin{block}{Elements of proof of convergence (for $K$ Bernoulli arms)}
-    \begin{itemize}[<+->]
-      \item
-        Suppose the first arm is the best:
-        $\textcolor{deeppurple}{\mu^*} = \textcolor{deeppurple}{\mu_1} > \mu_2 \geq \ldots \geq \mu_K$
-      \item
-        $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
-      \item
-        Hoeffding's inequality gives
-        $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \leq \mathcal{O}(\frac{1}{t^{2 \alpha}})$\\
-        $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
-      \item
-        And if a suboptimal arm $k>\textcolor{deeppurple}{1}$ is sampled, it implies
-        $\mathrm{UCB}_k(t) > \mathrm{UCB}_{\textcolor{deeppurple}{1}}(t)$, but $\mu_k < \textcolor{deeppurple}{\mu_1}$:
-        Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
-      \item
-        We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
-        $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \textcolor{deeppurple}{\mu^*} \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
-        \dLaughey{}
-
-        \alert{But\ldots{} at which speed do we have this convergence?}
-    \end{itemize}
-  \end{block}
+    \begin{small}
+      \begin{itemize}
+        \item
+          Suppose the first arm is the best:
+          $\textcolor{deeppurple}{\mu^*} = \textcolor{deeppurple}{\mu_1} > \mu_2 \geq \ldots \geq \mu_K$
+        \item
+          $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
+        \item
+          Hoeffding's inequality gives
+          $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \leq \mathcal{O}(\frac{1}{t^{2 \alpha}})$\\
+          $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
+        \item
+          And if a suboptimal arm $k>\textcolor{deeppurple}{1}$ is sampled, it implies
+          $\mathrm{UCB}_k(t) > \mathrm{UCB}_{\textcolor{deeppurple}{1}}(t)$, but $\mu_k < \textcolor{deeppurple}{\mu_1}$:
+          Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
+        \end{itemize}
+      \end{small}
+    \end{block}
 
 \end{frame}
 
@@ -577,7 +579,7 @@
 
 \subsection{\hfill{}Regret of two UCB algorithms\hfill{}}
 
-\begin{frame}{Regret of the UCB algorithm and another algorithm}
+\begin{frame}{Regret of UCB and kl-UCB algorithms}
 
   For any problem with $K$ arms following Bernoulli distributions, of means $\mu_1,\dots,\mu_K \in[0,1]$, and \textcolor{deeppurple}{optimal mean $\mu^*$}, then
 
@@ -712,7 +714,7 @@
   The ``oracle'' algorithm know plays the (unknown) best arm $k^*(t) = \arg\max \mu_k(t)$
   (which changes between stationary sequences)
   %
-  \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{k^*(t)}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+  \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
 \pause
 \vspace*{10pt}
@@ -819,7 +821,7 @@
 
 \begin{frame}{Bernoulli likelihood ratio test}
 
-  \textbf{Hypothesis}: all distributions are Bernoulli
+  \textbf{Hypothesis}: all distributions are Bernoulli ($\nu_k = \mathcal{B}(\mu_k)$)
 
   The problem boils down to distinguishing
   \begin{itemize}
@@ -836,7 +838,7 @@
   \begin{small}
     \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
   \end{small}
-  %
+
   where $\ell(X_1,\cdots,X_n ; \textcolor{deeppurple}{\mu_0})$ (resp. $\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})$) is the likelihood of the observations under a model in \textcolor{deeppurple}{$\mathcal{H}_0$} (resp. \textcolor{gold}{$\mathcal{H}_1$}).
 
   \pause
@@ -857,9 +859,9 @@
       + & (n-s) \times \mathrm{kl} (\underbrace{\widehat{\mu}_{s+1:n}}_{\text{after change}},\underbrace{\widehat{\mu}_{1:n}}_{\text{all data}} ) \bigr].
   \end{align*}
 
-  \begin{tiny}
-    Where $\mathrm{kl}(x,y) =x \ln\bigl(x/y\bigr) + (1-x)\ln\bigl((1-x)/(1-y)\bigr)$ is the binary relative entropy
-  \end{tiny}
+  \begin{small}
+    \textcolor{gray}{Where $\mathrm{kl}(x,y) =x \ln\bigl(\frac{x}{y}\bigr) + (1-x)\ln\bigl(\frac{1-x}{1-y}\bigr)$ is the binary relative entropy}
+  \end{small}
 
 \end{frame}
 
@@ -931,10 +933,10 @@
     \[ \mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta \]
     with the threshold function
     \begin{small}
-      \[ \beta(n,\delta)= 2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n)) \simeq \ln\left(\frac{3n \sqrt{n}}{\delta}\right) = \mathcal{O}\left(\log\left(\frac{n}{\delta}\right)\right).\]
+      \[ \beta(n,\delta) = \textcolor{gray}{2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n))} \simeq \ln\left(\frac{3n \sqrt{n}}{\delta}\right) = \mathcal{O}\left(\log\left(\frac{n}{\delta}\right)\right).\]
     \end{small}
     \begin{footnotesize}
-      Where $\mathcal{T}(x)$ verifies $\mathcal{T}(x)\simeq x + \ln(x)$ for $x$ large enough
+      \textcolor{gray}{Where $\mathcal{T}(x)$ verifies $\mathcal{T}(x)\simeq x + \ln(x)$ for $x$ large enough}
     \end{footnotesize}
   \end{block}
 
@@ -978,7 +980,8 @@
       \begin{small}
         \begin{align*}
             \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
-            &= \mathcal{O}(\exp\searrow(u)).
+            &= \mathcal{O}(\text{decreasing exponential of~} u)
+            = \mathcal{O}(\exp\searrow(u)).
         \end{align*}
       \end{small}
       with the same threshold function
@@ -1121,12 +1124,12 @@
   \begin{exampleblock}{$i)$ How do we use the BGLR test? \hfill{} (parameter $\delta$)}
     From observations $Z_1,\cdots,Z_n$
     % $\mbox{BGLRT}_\delta(Z_1,\dots,Z_n) = \mathrm{True}$
-    we detect a break-point
+    we use the BGLR test to detect a break-point
     with confidence level $\delta$
     when
     % \begin{footnotesize}
       \[
-        \sup_{1 < s < n} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
+        \sup_{2 \leq s \leq n-1} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
         \]
     % \end{footnotesize}%
     % We use $\beta(n,\delta) \simeq \ln(3n^{3/2}/\delta)$
@@ -1313,7 +1316,7 @@
 \end{frame}
 
 
-\begin{frame}{Simplified form of the regret upper-bound for \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
+\begin{frame}{Simplified form of the result for \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
 
   \begin{block}{Regret upper bound for BGLR + kl-UCB \dCooley{}}
     \begin{itemize}
@@ -1328,7 +1331,9 @@
       \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{gold}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{deeppurple}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
       \begin{itemize}\tightlist
         \item
-        with $\textcolor{gold}{\Delta^{\text{change}}} = \min_{i} \Delta^{i} =$ \textcolor{gold}{the smallest detection gap between two stationary segments}
+        with $\textcolor{gold}{\Delta^{\text{change}}} =$
+        %  $\min_{i} \Delta^{i} =$
+        \textcolor{gold}{the smallest detection gap between two stationary segments}
         $=$ \textcolor{gold}{Difficulty of the break-point detection problems!}
         \item
         and $\textcolor{deeppurple}{\Delta^{\text{opt}}} =$
@@ -1542,8 +1547,7 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 
   \begin{block}{Memory: efficient \dSmiley}
     Our algorithm is as efficient as other state-of-the-art strategies!\\
-    Memory cost $= \mathcal{O}(K d_{\max})$
-    for $K$ arms.
+    \textcolor{gray}{Memory cost $= \mathcal{O}(K d_{\max})$ for $K$ arms.}
   \end{block}
 
   \begin{alertblock}<2->{Time: slow \dSadey{} !}
