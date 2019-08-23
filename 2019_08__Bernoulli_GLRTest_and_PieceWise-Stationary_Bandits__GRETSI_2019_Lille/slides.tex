@@ -936,71 +936,69 @@
 
 \end{frame}
 
-\begin{frame}{First result for the BGLR test \dSmiley{}}
+\begin{frame}{Premier résultat pour le test BGLR \dSmiley{}}
 
-  \begin{block}{Controlling the false alarm probability}
-    For any \alert{confidence level} $0<\delta<1$,
-    the BGLR test satisfies
+  \begin{block}{Contrôler la probabilité de fausse alarme}
+    Pour n'importe quel \alert{niveau de confiance} $0<\delta<1$,
+    le test BGLR satisfait
     \[ \mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta \]
-    with the threshold function
+    avec la fonction seuil
     \begin{small}
       \[ \beta(n,\delta) = \textcolor{gray}{2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n))} \simeq \ln\left(\frac{3n \sqrt{n}}{\delta}\right) = \mathcal{O}\left(\log\left(\frac{n}{\delta}\right)\right).\]
     \end{small}
     \begin{footnotesize}
-      \textcolor{gray}{Where $\mathcal{T}(x)$ verifies $\mathcal{T}(x)\simeq x + \ln(x)$ for $x$ large enough}
+      \textcolor{gray}{Où $\mathcal{T}(x)$ vérifie $\mathcal{T}(x)\simeq x + \ln(x)$ pour $x$ assez grand}
     \end{footnotesize}
   \end{block}
 
 
-  \begin{exampleblock}<2>{Proof ?}
-    Hard to explain in a short time\ldots\\
-    %  we used time-uniform concentration inequalities
-    $\hookrightarrow$ see the article, on
+  \begin{exampleblock}<2>{Preuve ?}
+    Voir la version longue
     \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
-    and
+    et
     \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
   \end{exampleblock}
 
 \end{frame}
 
-\subsection{\hfill{}Delay of detection\hfill{}}
+\subsection{\hfill{}Délai de détection\hfill{}}
 
-\begin{frame}{Delay of detection}
+\begin{frame}{Délai de détection}
 
-  A good test should detect a break-point ``fast enough'' if there is a break-point to detect, with enough samples before the break-point\ldots
+  Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
 
   \pause
-  \begin{block}{Definition: Delay of detection}
-    Let $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ be a probability model under which $\forall t, X_t \in[0,1]$ and \textcolor{gold}{$\forall t \leq \tau, \mathbb{E}[X_t] = \mu_0$ and $\forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$,
-    with $\mu_0 \neq \mu_1$}.
+  \begin{block}{Definition : délai de détection}
+    Soit $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ un modèle de probabilité selon lequel $\forall t, X_t \in[0,1]$ et \textcolor{gold}{$\forall t \leq \tau, \mathbb{E}[X_t] = \mu_0$ et $\forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$,
+    avec $\mu_0 \neq \mu_1$}.
 
-    The \alert{gap} of this break-point is $\Delta = |\mu_0 - \mu_1|$.
+    L'\alert{écart} de cette rupture est $\Delta = |\mu_0 - \mu_1|$.
 
-    The \alert{delay of detection} is $u = \widehat{\tau}_{\delta} - \tau \in\mathbb{N}$.
+    Le \alert{délai de détection} est $u = \widehat{\tau}_{\delta} - \tau \in\mathbb{N}$.
   \end{block}
 
-  \alert{$\implies$ Goal: controlling the delay of detection!} (in high probability)
+  \alert{$\implies$ But : contrôler le délai de détection!} (en forte probabilité)
 
 \end{frame}
 
-\begin{frame}{Second result for the BGLR test \dSmiley{}}
+\begin{frame}{Second résultat pour le test BGLR \dSmiley{}}
 
-  \begin{block}{Controlling the delay of detection}
-      On a break-point of amplitude $\Delta = |\mu_1 - \mu_0|$,
-      the BGLRT test satisfies
+  \begin{block}{Contrôler le délai de détection}
+      Pour une rupture d'amplitude $\Delta = |\mu_1 - \mu_0|$,
+      le test BGLR satisfait
       \begin{small}
         \begin{align*}
             \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
-            &= \mathcal{O}(\text{decreasing exponential of~} u)
+            &= \mathcal{O}(\text{décroissance exponentielle en~} u)
             = \mathcal{O}(\exp\searrow(u)).
         \end{align*}
       \end{small}
-      with the same threshold function
+      avec la même fonction de seuil
       $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta)$.
   \end{block}
 
-  \begin{exampleblock}{Consequence}
-    In high probability, \alert{the delay $\widehat{\tau}_\delta$ of BGLR is bounded} by $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ \alert{if enough samples are observed before the break-point} at time $\tau$.
+  \begin{exampleblock}{Conséquence}
+    En forte probabilité, \alert{le délai $\widehat{\tau}_\delta$ du BGLR est borné} par $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ \alert{si assez d'échantillons sont observés avant la rupture} au temps $\tau$.
     % (at least $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ samples.
     % the detection delay of BGLR has the same magnitude.
   \end{exampleblock}
@@ -1008,39 +1006,39 @@
 \end{frame}
 
 
-\subsection{\hfill{}Summary of results for B-GLRT\hfill{}}
+\subsection{\hfill{}Résumé des résultats du B-GLRT\hfill{}}
 
-\begin{frame}{BGLR is an efficient break-point detection test \dCooley{} !}
+\begin{frame}{BGLR est un test de détection de rupture efficace \dCooley{} !}
 
   \begin{itemize}
     \item
-    We just saw that by choosing
+    On a vu qu'en choisissant
     \begin{itemize}\tightlist
       \item
-      a confidence level $\delta$,
+      un niveau de confiance $\delta$,
       \item
-      and a good threshold function $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta) = \mathcal{O}(\log(n/\delta))$
+      et une bonne fonction de seuil $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta) = \mathcal{O}(\log(n/\delta))$
     \end{itemize}
     \pause
     \item
-    we can control the two properties of the BGLR test:
+    on peut contrôler les deux propriétés du test BGLR :
     \begin{itemize}\tightlist
       \item
-        its \alert{false alarm probability}:
+        sa \alert{probabilité de fausse alarme} :
         $\mathbb{P}_{\textcolor{darkpurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta$
       \item
-        its \alert{detection delay}:
-        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ decreases exponentially fast wrt $u$
-        (if there are enough samples before and after the break-point)
+        son \alert{délai de détection} :
+        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ décroît exponentiellement rapidement en $u$
+        (s'il y a assez d'observations avant et après la rupture)
     \end{itemize}
 
     \item
-    $\implies$ The BGLR is an efficient break-point detection test \dCooley{}
+    $\implies$ Le test BGLR détecte les ruptures efficacement \dCooley{}
   \end{itemize}
 
   \pause
-  \begin{block}{Finite time guarantees \dCooley{} \hfill{} \tiny{\textcolor{gray}{[Maillard, ALT, 2019]} \textcolor{gray}{[Lai \& Xing, Sequential Analysis, 2010]}}}
-    Such \alert{finite time} (non asymptotic) guarantees are recent results!
+  \begin{block}{Garanties non asymptotiques \dCooley{} \hfill{} \tiny{\textcolor{gray}{[Maillard, ALT, 2019]} \textcolor{gray}{[Lai \& Xing, Sequential Analysis, 2010]}}}
+    De telles garanties \alert{non asymptotiques} sont des résultats assez récents !
   \end{block}
 
 \end{frame}
@@ -1088,39 +1086,39 @@
 
 \end{frame}
 
-\subsection{\hfill{}BGRL test + kl-UCB index\hfill{}}
+\subsection{\hfill{}Le test BGRL + les indices kl-UCB\hfill{}}
 
-\begin{frame}{Our algorithm combines BGRL test + kl-UCB index}
+\begin{frame}{Notre algorithme combine le test BGRL + les indices kl-UCB}
 
-  \begin{block}{Main ideas}
+  \begin{block}{Idées principales}
     \begin{itemize}
       % \item Forced uniform random exploration with probability $\alpha$
-      \item We compute a UCB index on each arm $k$
+      \item On calcule un indice UCB sur chaque bras $k$
         % $\mbox{kl-UCB}_k(t)$
-      \item Most of the times, we select
+      \item La plupart du temps, on joue le bras
       $A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$
-      \item We use a BGLR test \alert{to detect changes on the played arm $A(t)$}
-      \item If a break-point is detected, \alert{we reset the memories of \emph{all arms}}
+      \item On utilise le test BGLR \alert{pour détecter les ruptures sur le bras joué $A(t)$}
+      \item Si une rupture est détectée, \alert{on efface la mémoire des observations de \emph{tous les} bras}
     \end{itemize}
   \end{block}
 
   \pause
 
-  \begin{exampleblock}{The kl-UCB indexes}
+  \begin{exampleblock}{Les indices kl-UCB}
     \begin{itemize}
-      \item $\tau_k(t)$ is the time of last reset of arm $k$ before time $t$,
-      \item $n_k(t)$ counts the selections and $\widehat{\mu}_k(t)$ is the empirical means of observations of arm $k$ since $\tau_k(t)$,
+      \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$ before time $t$,
+      \item $n_k(t)$ compte les sélections et $\widehat{\mu}_k(t)$ et la moyenne empirique des observations du bras $k$ depuis $\tau_k(t)$,
       % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
       % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
       %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
-      \item Let {\small $\mbox{kl-UCB}_k(t) = \max \bigl\{ q\in[0,1] : n_k(t) \times \mathrm{kl}\left(\widehat{\mu}_k(t),q\right) \leq f(t - \tau_k(t)) \bigr\}$ }
-      \item $f(t) = \ln(t) + 3 \ln(\ln(t))$ controls the width of the UCB.
+      \item Soit {\small $\mbox{kl-UCB}_k(t) = \max \bigl\{ q\in[0,1] : n_k(t) \times \mathrm{kl}\left(\widehat{\mu}_k(t),q\right) \leq f(t - \tau_k(t)) \bigr\}$ }
+      \item $f(t) = \ln(t) + 3 \ln(\ln(t))$ contrôle l'amplitude de la borne de confiance supérieure (UCB).
     \end{itemize}
   \end{exampleblock}
 
 \end{frame}
 
-\begin{frame}{Two details of our algorithm}
+\begin{frame}{Deux détails sur notre algorithme}
 
   % % \GLRklUCB{} repose sur le calcul d'un \emph{indice} (de type \mathrm{kl}UCB{} \cite{KLUCBJournal}) pour chaque bras,  et choisit en général le bras d'indice le plus élevé.
   % Soit $\tau_i(t)$ l'instant de la dernière réinitialisation pour le bras $i$ avant le temps $t$, $n_i(t) = \sum_{s=\tau_i(t)+1}^{t} \mathbbm{1}(A_s=i)$ le nombre de sélections et $\widehat{\mu}_i(t)$
@@ -1132,12 +1130,12 @@
   % % La détection d'une rupture sur le bras qui vient d'être joué
   % % produit une réinitialisation (l. $12$),
 
-  \begin{exampleblock}{$i)$ How do we use the BGLR test? \hfill{} (parameter $\delta$)}
-    From observations $Z_1,\cdots,Z_n$
+  \begin{exampleblock}{$i)$ Comment est utilisé le test BGLR ? \hfill{} (paramètre $\delta$)}
+    Avec les observations $Z_1,\cdots,Z_n$
     % $\mbox{BGLRT}_\delta(Z_1,\dots,Z_n) = \mathrm{True}$
-    we use the BGLR test to detect a break-point
-    with confidence level $\delta$
-    when
+    on utilise le test BGLR pour détecter une rupture
+    avec un niveau de confiance $\delta$
+    quand
     % \begin{footnotesize}
       \[
         \sup_{2 \leq s \leq n-1} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
@@ -1148,19 +1146,19 @@
 
   \pause
 
-  \begin{exampleblock}{$ii)$ Forced exploration \hfill{} (parameter $\alpha$)}
+  \begin{exampleblock}{$ii)$ Exploration forcée \hfill{} (paramètre $\alpha$)}
     \begin{itemize}
-      \item We use a forced exploration uniformly on all arms\ldots\\
-        \emph{ie}, in average, arm $k$ is forced to be sampled at least $T \times \alpha / K$ times
-      \item $\implies$ so we can detect break-points on all the arms
-      \item and not only on the arm played by the kl-UCB indexes
+      \item On utilise une exploration forcée sur tous les bras\ldots\\
+        \emph{ie}, en moyenne, le bras $k$ est forcé à être joué au moins $T \times \alpha / K$ fois
+      \item $\implies$ dans le but de pouvoir détecter les ruptures sur tous les bras
+      \item et pas seulement sur le bras joué par les indices kl-UCB
       % (lignes $5$-$6$), qui assure que chaque bras est suffisamment échantillonné, afin que les ruptures puissent aussi être détectées sur les bras actuellement sous-échantillonnés par l'algorithme de bandit.
     \end{itemize}
   \end{exampleblock}
 
 \end{frame}
 
-\begin{frame}{The \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB} algorithm}
+\begin{frame}{L'algorithme \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
 
 \begin{columns}
 \begin{column}{0.02\textwidth}
@@ -1176,36 +1174,36 @@
       % \LinesNumbered  % XXX Option to number the line
       % \RestyleAlgo{boxed}
       % XXX Input, data and output
-      \KwData{\emph{Parameters of the problem} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
-      \KwData{\emph{Parameters of the algorithm} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{can use $T$ and $\Upsilon_T$}}
+      \KwData{\emph{Paramètre du problème} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
+      \KwData{\emph{Paramètre du algorithme} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
       % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
       % \KwData{Data}
       % \KwResult{Result}
       % XXX Algorithm
-      \textbf{Initialisation : } $\forall k \in \{1,\dots,K\}$, $\tau_k = 0$ and $n_k = 0$ \\
+      \textbf{Initialisation : } $\forall k \in \{1,\dots,K\}$, $\tau_k = 0$ et $n_k = 0$ \\
       \For{$t=1,2,\ldots, T$}{
           \pause
           \uIf{
               $t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor \in \{1,\dots,K\}$
           }{
               $A(t) = t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor$
-              \tcp*[f]{forced exploration} \\
+              \tcp*[f]{exploration forcée} \\
           }
           \uElse{
             \textcolor{deeppurple}{$A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$}
-              \tcp*[f]{\textcolor{deeppurple}{highest UCB index}}
+              \tcp*[f]{\textcolor{deeppurple}{plus grand indice UCB}}
           }
           \pause
-          \mbox{Play arm} $k=A(t)$, and update play count $n_{A(t)} = n_{A(t)} + 1$ \\
-          \mbox{Observe a reward} $X_{A(t),t}$, and store it $Z_{A(t), n_{A(t)}} = X_{A(t),t}$ \\
+          \mbox{Joue le bras} $k=A(t)$, et incrémente le compteur $n_{A(t)} = n_{A(t)} + 1$ \\
+          \mbox{Observe la récompense} $X_{A(t),t}$, et la stocker $Z_{A(t), n_{A(t)}} = X_{A(t),t}$ \\
           \pause
           \uIf{
-            \textcolor{gold}{$\mathrm{BGLRT}_\delta(Z_{A(t),1}, \cdots, Z_{A(t), n_{A(t)}})$ = True}
+            \textcolor{gold}{$\mathrm{BGLRT}_\delta(Z_{A(t),1}, \cdots, Z_{A(t), n_{A(t)}})$ = Vrai}
           }
           {
               % \uSi{Redémarrages \textbf{globaux}}{
-                \textcolor{gold}{$\forall k, \tau_k = t$ and $n_k = 0 $}
-                \tcp*[f]{\textcolor{gold}{reset memories of all arms}}
+                \textcolor{gold}{$\forall k, \tau_k = t$ et $n_k = 0 $}
+                \tcp*[f]{\textcolor{gold}{efface la mémoire de tous les bras}}
                   % \tcp*[f]{redémarrages globaux}
                   % }
               % \Sinon{
@@ -1266,9 +1264,9 @@
 
 \end{frame}
 
-\subsection{\hfill{}Hypotheses\hfill{}}
+\subsection{\hfill{}Hypothèses\hfill{}}
 
-\begin{frame}{Hypotheses of our theoretical analysis}
+\begin{frame}{Hypothèses de notre analyse théorique}
 
   \begin{itemize}
     \item
