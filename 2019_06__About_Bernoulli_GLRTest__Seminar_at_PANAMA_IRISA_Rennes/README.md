@@ -312,7 +312,7 @@ Extending the definition of regret
 
 Regret for piece-wise stationary bandits?
 
-The "oracle" algorithm know plays the (unknown) best arm
+The "oracle" algorithm plays the (unknown) best arm
 $k^*(t) = \arg\max \mu_k(t)$ (which changes between stationary
 sequences)
 $$\alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{k^*(t)}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right].$$
