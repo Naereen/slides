@@ -1,5 +1,5 @@
 % \documentclass[11pt,english,ignorenonframetext,aspectratio=169,]{beamer}
-\documentclass[11pt,english,ignorenonframetext,]{beamer}
+\documentclass[11pt,french,ignorenonframetext,]{beamer}
 
 %%%%%%%%%%%%%%%
 %% Beamer theme
@@ -245,18 +245,18 @@
 \addtobeamertemplate{description item}{}{\justifying}
 
 
-\title[BGLR test and Non-Stationary MAB]{The Bernoulli Generalized Likelihood Ratio test (BGLR) for Non-Stationary Multi-Armed Bandits}
-\subtitle{Research Seminar at PANAMA, IRISA lab, Rennes}
+\title[Test BGLR et bandits non-stationnaires]{Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires}
+\subtitle{Conférence GRETSI @ Lille, Août 2019}
 
 \author[Lilian Besson]{\Large \textbf{Lilian Besson}}
 
 \institute[]{{\large
-  PhD Student}{\newline
+  Doctorant}{\newline
   % \normalsize
-  \newline SCEE team, IETR laboratory, CentraleSupélec in Rennes
-  \newline \& SequeL team, CRIStAL laboratory, Inria in Lille}}
+  \newline Équipe SCEE, labo IETR, CentraleSupélec à Rennes
+  \newline \& Équipe SequeL, labo CRIStAL, Inria à Lille}}
 
-\date{Thursday $6^{\text{th}}$ of June, $2019$}
+\date{Jeudi $29$ Août $2019$}
 
 \begin{document}
 \justifying
@@ -274,9 +274,9 @@
 \end{frame}
 
 
-\begin{frame}{Publications associated with this talk}
+\begin{frame}{Publications associée à cet exposé}
 
-  Joint work with my advisor Émilie Kaufmann
+  Deux travaux en collaboration avec mon encadrante de thèse Émilie Kaufmann
   \dInnocey{} :
 
   \begin{itemize}
@@ -285,13 +285,6 @@
       by \textbf{Lilian Besson} \&
       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{Émilie
       Kaufmann}
-
-      $\hookrightarrow$ presented at
-      \textbf{GRETSI}, in Lille (France), next August 2019
-
-      \begin{footnotesize}
-        $\hookrightarrow$ \href{https://perso.crans.org/besson/articles/BK__GRETSI_2019.pdf}{\textcolor{blue}{\texttt{perso.crans.org/besson/articles/BK\_\_GRETSI\_2019.pdf}}}
-      \end{footnotesize}
 
     \vspace*{30pt}
 
@@ -311,86 +304,104 @@
 \end{frame}
 
 
-\section{\hfill{}Outline of the talk\hfill{}}
+\section{\hfill{}Plan\hfill{}}
 
-\begin{frame}{Outline of the talk}
+\begin{frame}{Plan}
 
   \begin{enumerate}
     \item
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     \vspace*{15pt}
 
     \item
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     \vspace*{15pt}
 
     \item
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     \vspace*{15pt}
 
     \item
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     \vspace*{15pt}
 
     \item
-      Regret analysis
+      Analyse du regret
     \vspace*{15pt}
 
     \item
-      Numerical simulations
+      Simulations numériques
   \end{enumerate}
 
 \end{frame}
 
 
-\section{\hfill{}1. (Stationary) Multi-armed bandits problems\hfill{}}
+\section{\hfill{}1. Problèmes de bandits multi-bras (stationnaires)\hfill{}}
 
-\begin{frame}{1. (Stationary) Multi-armed bandits problems}
+\begin{frame}{1. Problèmes de bandits multi-bras (stationnaires)}
 
   \begin{enumerate}
     \item
     \alert{\textbf{%
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     }}
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Regret analysis
+      Analyse du regret
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Numerical simulations
+      Simulations numériques
     }
   \end{enumerate}
 
 \end{frame}
 
-\subsection{\hfill{}What is a bandit problem?\hfill{}}
+\subsection{\hfill{}Qu'est-ce qu'un problème de bandits ?\hfill{}}
 
-\begin{frame}{Multi-armed bandits}
 
-  $=$ Sequential decision making problems in uncertain environments :
+\begin{frame}{Bandits manchot}
+
+  Un autre nom pour une machine à sous :
+
+  \begin{center}
+    % \centering
+    \includegraphics[height=0.55\textheight]{figures/Lucky_Luke__Le_Bandit_Manchot.jpg}
+  \end{center}
+
+  \begin{tiny}
+  $\hookrightarrow$ Source
+    \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18, \textcopyright{} Dargaud.}}
+  \end{tiny}
+
+\end{frame}
+
+
+\begin{frame}{Bandits multi-bras}
+
+  $=$ Problème de prise de décision séquentielle face à des environnements incertains :
 
   \begin{center}
     % \centering
@@ -398,161 +409,161 @@
   \end{center}
 
   \begin{tiny}
-  $\hookrightarrow$ Interactive demo
+  $\hookrightarrow$ Démo interactive
     \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}\\
-    Ref: [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
-    on \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
+    Réf : [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
+    sur \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
   \end{tiny}
 
 \end{frame}
 
 
-\subsection{\hfill{}Mathematical model\hfill{}}
+\subsection{\hfill{}Modèle mathématique\hfill{}}
 
-\begin{frame}{Mathematical model}
+\begin{frame}{Modèle mathématique}
 
 \begin{itemize}
   \item
-  Discrete time steps $t = 1, \dots, T$\\
-  The \emph{horizon} $T$ is fixed and usually unknown
+  Étapes de temps discret $t = 1, \dots, T$\\
+  L'\emph{horizon} $T$ est fixé et généralement inconnu
 
   \item
-  At time $t$, an \emph{agent plays the arm} $A(t)\in\{1,\dots,K\}$,\\
-  then she observes the \emph{iid random reward} $r(t) \sim \nu_k$, $r(t)\in\mathbb{R}$
-
-  \pause
-  \item
-  Usually, we focus on Bernoulli arms $\nu_k = \mathrm{Bernoulli}(\mu_k)$, of mean $\mu_k\in[0,1]$,
-  giving binary rewards $r(t) \in\{0,1\}$.
+  Au temps $t$, une \emph{joueuse choisit le bras} $A(t)\in\{1,\dots,K\}$,\\
+  et elle observe \emph{une récompense aléatoire iid} $r(t) \sim \nu_k$, $r(t)\in\mathbb{R}$
 
   \pause
   \item
-  \textbf{Goal} : maximize the sum of rewards $\sum\limits_{t=1}^T r(t)$
-
-  \item
-  or \alert{maximize the sum of expected rewards $\mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right]$}
+  On se restreint souvent à des bras de Bernoulli $\nu_k = \mathrm{Bernoulli}(\mu_k)$, de moyenne $\mu_k\in[0,1]$,
+  qui donnent des récompenses binaires $r(t) \in\{0,1\}$.
 
   \pause
   \item
-  Any efficient policy must balance \alert{between exploration and exploitation}:
-  explore all arms to discover the best one,
-  while exploiting the arms known to be good so far.
+  \textbf{But} : maximiser la somme des récompenses $\sum\limits_{t=1}^T r(t)$
+
+  \item
+  ou \alert{maximiser la somme des récompenses \emph{moyennes} $\mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right]$}
+
+  \pause
+  \item
+  Une stratégie efficace doit résoudre le \alert{compromis entre exploration et exploitation} :
+  explorer tous les bras pour découvrir le meilleur,
+  tout en exploitant le meilleur bras courant.
 \end{itemize}
 
 \end{frame}
 
 
-\subsection{\hfill{}Naive solutions\hfill{}}
+% \subsection{\hfill{}Naive solutions\hfill{}}
 
-\begin{frame}{Two examples of bad solutions}
+% \begin{frame}{Two examples of bad solutions}
 
-  \begin{exampleblock}{$i)$ Pure exploration \dXey{}}
-    \begin{itemize}
-      \item
-      Play arm $A(t) \sim \mathcal{U}(\{1,\dots,K\})$ uniformly at random
-      \item
-      $\implies$ Mean expected rewards
-      $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \max_k \mu_k$
-    \end{itemize}
-  \end{exampleblock}
+%   \begin{exampleblock}{$i)$ Pure exploration \dXey{}}
+%     \begin{itemize}
+%       \item
+%       Play arm $A(t) \sim \mathcal{U}(\{1,\dots,K\})$ uniformly at random
+%       \item
+%       $\implies$ Mean expected rewards
+%       $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \max_k \mu_k$
+%     \end{itemize}
+%   \end{exampleblock}
 
-  \pause
+%   \pause
 
-  \begin{exampleblock}{$ii)$ Pure exploitation \dXey{}}
-    \begin{itemize}
-      \item
-        Count the number of samples and the sum of rewards of each arm $N_k(t) = \sum\limits_{s < t} \mathbbm{1}(A(s)=k)$ and $X_k(t) = \sum\limits_{s < t} r(s) \mathbbm{1}(A(s)=k)$
-      \item
-        Estimate the \alert{unknown} mean $\mu_k$ with $\widehat{\mu_k}(t) = X_k(t) / N_k(t)$
-      \item
-        Play the arm of maximum empirical mean : $A(t) = \arg\max_k \widehat{\mu_k}(t)$
-      \item
-        Performance depends on the first draws, and can be very poor!
-    \end{itemize}
-  \end{exampleblock}
-  \vspace*{-10pt}
-  \begin{tiny}
-    $\hookrightarrow$
-    Interactive demo
-    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
-  \end{tiny}
+%   \begin{exampleblock}{$ii)$ Pure exploitation \dXey{}}
+%     \begin{itemize}
+%       \item
+%         Count the number of samples and the sum of rewards of each arm $N_k(t) = \sum\limits_{s < t} \mathbbm{1}(A(s)=k)$ and $X_k(t) = \sum\limits_{s < t} r(s) \mathbbm{1}(A(s)=k)$
+%       \item
+%         Estimate the \alert{unknown} mean $\mu_k$ with $\widehat{\mu_k}(t) = X_k(t) / N_k(t)$
+%       \item
+%         Play the arm of maximum empirical mean : $A(t) = \arg\max_k \widehat{\mu_k}(t)$
+%       \item
+%         Performance depends on the first draws, and can be very poor!
+%     \end{itemize}
+%   \end{exampleblock}
+%   \vspace*{-10pt}
+%   \begin{tiny}
+%     $\hookrightarrow$
+%     Interactive demo
+%     \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+%   \end{tiny}
 
-\end{frame}
-
-
-\subsection{\hfill{}The \emph{``Upper Confidence Bound''} algorithm\hfill{}}
-
-\begin{frame}{A first solution: \emph{``Upper Confidence Bound''} algorithm}
-
-  \begin{itemize}
-    \item
-      Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$\\
-      $=$ an \alert{upper confidence bound} on the \alert{unknown} mean $\mu_k$
-    \item
-      Play the arm of maximal UCB : $A(t) = \arg\max_k \mathrm{UCB}_k(t)$
-      \\
-      $\hookrightarrow$ Principle of ``optimism under uncertainty''
-    \item
-      $\alpha$ balances between \emph{exploitation} ($\alpha\to0$) and \emph{exploration}  ($\alpha\to\infty$)
-
-    \pause
-
-    \item
-      \alert{UCB is efficient}:
-      the best arm is identified correctly (with high probability)
-      if there are enough samples (for $T$ large enough)
-    \item
-      $\implies$
-      Expected rewards attains the maximum \dLaughey{}
-      \[ \text{For~} T\to\infty, \;\;\; \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \to \max_k \mu_k \]
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{UCB algorithm converges to the best arm}
-
-  We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
-  $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \textcolor{deeppurple}{\mu^*} \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
-  \dLaughey{}
-
-  \alert{But\ldots{} at which speed do we have this convergence?}
-
-  \begin{block}{Elements of proof of convergence (for $K$ Bernoulli arms)}
-    \begin{small}
-      \begin{itemize}
-        \item
-          Suppose the first arm is the best:
-          $\textcolor{deeppurple}{\mu^*} = \textcolor{deeppurple}{\mu_1} > \mu_2 \geq \ldots \geq \mu_K$
-        \item
-          $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
-        \item
-          Hoeffding's inequality gives
-          $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \leq \mathcal{O}(\frac{1}{t^{2 \alpha}})$\\
-          $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
-        \item
-          And if a suboptimal arm $k>\textcolor{deeppurple}{1}$ is sampled, it implies
-          $\mathrm{UCB}_k(t) > \mathrm{UCB}_{\textcolor{deeppurple}{1}}(t)$, but $\mu_k < \textcolor{deeppurple}{\mu_1}$:
-          Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
-        \end{itemize}
-      \end{small}
-    \end{block}
-
-\end{frame}
+% \end{frame}
 
 
-\subsection{\hfill{}Regret of a bandit algorithm\hfill{}}
+% \subsection{\hfill{}The \emph{``Upper Confidence Bound''} algorithm\hfill{}}
 
-\begin{frame}{Measure the performance of algorithm $\mathcal{A}$ by its mean regret $R_{\mathcal{A}}(T)$}
+% \begin{frame}{A first solution: \emph{``Upper Confidence Bound''} algorithm}
+
+%   \begin{itemize}
+%     \item
+%       Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$\\
+%       $=$ an \alert{upper confidence bound} on the \alert{unknown} mean $\mu_k$
+%     \item
+%       Play the arm of maximal UCB : $A(t) = \arg\max_k \mathrm{UCB}_k(t)$
+%       \\
+%       $\hookrightarrow$ Principle of ``optimism under uncertainty''
+%     \item
+%       $\alpha$ balances between \emph{exploitation} ($\alpha\to0$) and \emph{exploration}  ($\alpha\to\infty$)
+
+%     \pause
+
+%     \item
+%       \alert{UCB is efficient}:
+%       the best arm is identified correctly (with high probability)
+%       if there are enough samples (for $T$ large enough)
+%     \item
+%       $\implies$
+%       Expected rewards attains the maximum \dLaughey{}
+%       \[ \text{For~} T\to\infty, \;\;\; \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \to \max_k \mu_k \]
+%   \end{itemize}
+% \end{frame}
+
+% \begin{frame}{UCB algorithm converges to the best arm}
+
+%   We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
+%   $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \textcolor{deeppurple}{\mu^*} \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
+%   \dLaughey{}
+
+%   \alert{But\ldots{} at which speed do we have this convergence?}
+
+%   \begin{block}{Elements of proof of convergence (for $K$ Bernoulli arms)}
+%     \begin{small}
+%       \begin{itemize}
+%         \item
+%           Suppose the first arm is the best:
+%           $\textcolor{deeppurple}{\mu^*} = \textcolor{deeppurple}{\mu_1} > \mu_2 \geq \ldots \geq \mu_K$
+%         \item
+%           $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
+%         \item
+%           Hoeffding's inequality gives
+%           $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \leq \mathcal{O}(\frac{1}{t^{2 \alpha}})$\\
+%           $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
+%         \item
+%           And if a suboptimal arm $k>\textcolor{deeppurple}{1}$ is sampled, it implies
+%           $\mathrm{UCB}_k(t) > \mathrm{UCB}_{\textcolor{deeppurple}{1}}(t)$, but $\mu_k < \textcolor{deeppurple}{\mu_1}$:
+%           Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
+%         \end{itemize}
+%       \end{small}
+%     \end{block}
+
+% \end{frame}
+
+
+\subsection{\hfill{}Regret d'un algorithme de bandit\hfill{}}
+
+\begin{frame}{Mesurer la performance d'un algorithme $\mathcal{A}$ par son regret moyenne $R_{\mathcal{A}}(T)$}
 
 \begin{itemize}
   \item
-  Difference in the accumulated rewards between an ``oracle'' and $\mathcal{A}$
+  Différence entre les récompenses accumulées par un ``oracle'' et $\mathcal{A}$
 
   \item
-  The ``oracle'' algorithm always plays \textcolor{deeppurple}{the (unknown) best arm $k^* = \arg\max_k \mu_k$} (we note the best mean \textcolor{deeppurple}{$\mu_{k^*} = \mu^*$})
+  L'algorithme ``oracle'' joue toujours \textcolor{deeppurple}{le meilleur bras (inconnu) $k^* = \arg\max_k \mu_k$} (la meilleure moyenne est notée \textcolor{deeppurple}{$\mu_{k^*} = \mu^*$})
 
   \item
-  Maximize the sum of expected rewards
-  $\Longleftrightarrow$ \alert{minimize the regret}
+  Maximiser la somme des récompenses moyennes
+  $\Longleftrightarrow$ \alert{minimiser le regret}
   %
   \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T \textcolor{deeppurple}{r_{k^*}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = T \textcolor{deeppurple}{\mu^*} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
@@ -561,15 +572,15 @@
 \pause
 \vspace*{10pt}
 
-\begin{exampleblock}{Typical regime for stationary bandits (lower \& upper bounds)}
+\begin{exampleblock}{Régime typique pour des bandits stationnaires (bornes inf \& sup)}
   \begin{itemize}
   \item
-  No algorithm $\mathcal{A}$ can obtain a regret better than
+  Aucun algorithme $\mathcal{A}$ ne peut atteindre un regret meilleur que
   \hfill{}
   $R_{\mathcal{A}}(T) \geq \Omega(\log(T))$
 
   \item
-  And an efficient algorithm $\mathcal{A}$ obtains
+  Et un algorithme efficace $\mathcal{A}$ obtient
   \hfill{}
   $R_{\mathcal{A}}(T) \leq \mathcal{O}(\log(T))$
   \end{itemize}
@@ -577,94 +588,94 @@
 
 \end{frame}
 
-\subsection{\hfill{}Regret of two UCB algorithms\hfill{}}
+\subsection{\hfill{}Regret de deux algorithmes de type UCB\hfill{}}
 
-\begin{frame}{Regret of UCB and kl-UCB algorithms}
+\begin{frame}{Regret des algorithmes UCB et kl-UCB}
 
-  For any problem with $K$ arms following Bernoulli distributions, of means $\mu_1,\dots,\mu_K \in[0,1]$, and \textcolor{deeppurple}{optimal mean $\mu^*$}, then
+  Pour n'importe quel problème avec $K$ bras de Bernoulli, de moyennes $\mu_1,\dots,\mu_K \in[0,1]$, et de \textcolor{deeppurple}{bras optimal $\mu^*$} :
 
-  \begin{exampleblock}{For the UCB algorithm}
+  \begin{exampleblock}{Pour l'algorithme UCB}
     \begin{small}
       \[ R_T^{\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} \log(T) + o(\log(T)). \]
     \end{small}%
   \end{exampleblock}
 
-  \begin{exampleblock}<2->{For the kl-UCB algorithm: a smaller regret upper-bound}
+  \begin{exampleblock}<2->{Pour l'algorithme kl-UCB : une meilleure borne}
     \begin{small}
       \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} \log(T) + o(\log(T)) = \mathcal{O}( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulty of the problem}}} \log(T) ). \]
     \end{small}%
     \begin{footnotesize}
-      If $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ is the \emph{binary relative entropy}\\
-      (\emph{ie}, Kullback-Leibler divergence of two Bernoulli of means $x$ and $y$)
+      Avec $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ l'\emph{entropie binaire relative}\\
+      (\emph{ie}, la divergence de Kullback-Leibler de deux lois de Bernoulli de moyennes $x$ et $y$)
     \end{footnotesize}%
   \end{exampleblock}
 
 \end{frame}
 
 
-\section{\hfill{}2. Piece-wise stationary multi-armed bandits problems\hfill{}}
+\section{\hfill{}2. Problèmes de bandits multi-bras stationnaires par morceaux\hfill{}}
 
-\begin{frame}{2. Piece-wise stationary MAB problems}
+\begin{frame}{2. Bandits stationnaires par morceaux}
 
   \begin{enumerate}
     \item
     \textcolor{gray}{
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     }
     \vspace*{15pt}
 
     \item
     \alert{\textbf{%
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     }}
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Regret analysis
+      Analyse du regret
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Numerical simulations
+      Simulations numériques
     }
   \end{enumerate}
 
 \end{frame}
 
 
-\begin{frame}{Non stationary MAB problems}
+\begin{frame}{Problèmes de bandits non stationnaires}
 
-  \begin{block}{Stationary MAB problems}
-    Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:
+  \begin{block}{Problèmes de bandits stationnaires}
+    Le bras $k$ tire une récompense selon \textcolor{blue}{la même distribution} pour chaque instant :
     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathrm{Bernoulli}(\mu_k)$.
   \end{block}
 
   \pause
-  \begin{alertblock}{Non stationary MAB problems?}
-    Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:
+  \begin{alertblock}{Problèmes de bandits \emph{non} stationnaires}
+    Le bras $k$ tire une récompense selon \alert{une distribution différente à chaque instant} :
     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathrm{Bernoulli}(\mu_k\alert{(t)})$.
   \end{alertblock}
 
-  $\implies$ \dXey{} harder problem!
-  And very hard if $\mu_k(t)$ can change at any step!
+  $\implies$ \dXey{} problème plus difficile !
+  Et très difficile si $\mu_k(t)$ peut changer n'importe quand !
 
   \pause
-  \begin{block}{\textbf{Piece-wise stationary} problems!}
-    $\hookrightarrow$ we focus on the easier case when there are at most $o(\sqrt{T})$ intervals on which the means are all stationary (= \textbf{sequence})
+  \begin{block}{Problèmes de bandits \textbf{stationnaires par morceaux}}
+    $\hookrightarrow$ on se concentre sur le cas où il y a au plus $o(\sqrt{T})$ intervals on which the means are all stationary (= \textbf{sequence})
   \end{block}
 \end{frame}
 
@@ -741,44 +752,44 @@
 \end{frame}
 
 
-\section{\hfill{}3. The BGLR test and its finite time properties\hfill{}}
+\section{\hfill{}3. Le test BGLR et ses propriétés à horizon fini\hfill{}}
 
-\begin{frame}{3. The BGLR test and its finite time properties}
+\begin{frame}{3. Le test BGLR et ses propriétés à horizon fini}
 
   \begin{enumerate}
     \item
     \textcolor{gray}{
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     }
     \vspace*{15pt}
 
     \item
     \alert{\textbf{%
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     }}
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Regret analysis
+      Analyse du regret
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Numerical simulations
+      Simulations numériques
     }
   \end{enumerate}
 
@@ -1034,44 +1045,44 @@
 
 \end{frame}
 
-\section{\hfill{}4. The BGLR-T + klUCB algorithm\hfill{}}
+\section{\hfill{}4. L'algorithme BGLR-T + klUCB
 
-\begin{frame}{4. The BGLR-T + klUCB algorithm}
+\begin{frame}{4. L'algorithme BGLR-T + klUCB
 
   \begin{enumerate}
     \item
     \textcolor{gray}{
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     }
     \vspace*{15pt}
 
     \item
     \alert{\textbf{%
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     }}
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Regret analysis
+      Analyse du regret
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Numerical simulations
+      Simulations numériques
     }
   \end{enumerate}
 
@@ -1212,44 +1223,44 @@
 \end{frame}
 
 
-\section{\hfill{}5. Regret analysis\hfill{}}
+\section{\hfill{}5. Analyse du regret\hfill{}}
 
-\begin{frame}{5. Regret analysis}
+\begin{frame}{5. Analyse du regret}
 
   \begin{enumerate}
     \item
     \textcolor{gray}{
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     }
     \vspace*{15pt}
 
     \item
     \alert{\textbf{%
-      Regret analysis
+      Analyse du regret
     }}
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Numerical simulations
+      Simulations numériques
     }
   \end{enumerate}
 
@@ -1389,44 +1400,44 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 \end{frame}
 
 
-\section{\hfill{}6. Numerical simulations\hfill{}}
+\section{\hfill{}6. Simulations numériques\hfill{}}
 
-\begin{frame}{6. Numerical simulations}
+\begin{frame}{6. Simulations numériques}
 
   \begin{enumerate}
     \item
     \textcolor{gray}{
-      (Stationary) Multi-armed bandits problems
+      Problèmes de bandits multi-bras (stationnaires)
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Piece-wise stationary multi-armed bandits problems
+      Problèmes de bandits multi-bras stationnaires par morceaux
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR test and its finite time properties
+      Le test BGLR et ses propriétés à horizon fini
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      The BGLR-T + klUCB algorithm
+      L'algorithme BGLR-T + klUCB
     }
     \vspace*{15pt}
 
     \item
     \textcolor{gray}{
-      Regret analysis
+      Analyse du regret
     }
     \vspace*{15pt}
 
     \item
     \alert{\textbf{%
-      Numerical simulations
+      Simulations numériques
     }}
   \end{enumerate}
 
@@ -1435,7 +1446,7 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 
 \subsection{\hfill{}Setup of the experiments\hfill{}}
 
-\begin{frame}{Numerical simulations}
+\begin{frame}{Simulations numériques}
 
   \begin{block}{We consider three problems with}
     \begin{itemize}
@@ -1602,7 +1613,7 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
     \item
     Its regret bound is $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$  \dCooley{} (state-of-the-art)
     \item
-    Our algorithm outperforms other efficient policies on numerical simulations \dCooley\\
+    Our algorithm outperforms other efficient policies on Simulations numériques \dCooley\\
     and BGLR + kl-UCB can be as fast as its best competitors.
   \end{itemize}
 
