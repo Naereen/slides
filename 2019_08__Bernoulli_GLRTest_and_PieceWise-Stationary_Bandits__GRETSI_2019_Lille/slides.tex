@@ -274,66 +274,66 @@
 \end{frame}
 
 
-\begin{frame}{Publications associée à cet exposé}
+% \begin{frame}{Publications associée à cet exposé}
 
-  Travaux en collaboration avec mon encadrante de thèse Émilie Kaufmann
-  \dInnocey{} :
+%   Travaux en collaboration avec mon encadrante de thèse Émilie Kaufmann
+%   \dInnocey{} :
 
-  \begin{itemize}
-    \item
-      \href{https://hal.inria.fr/hal-02006471/document}{\emph{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}}\\
-      by \textbf{Lilian Besson} \&
-      \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{Émilie
-      Kaufmann}
+%   \begin{itemize}
+%     \item
+%       \href{https://hal.inria.fr/hal-02006471/document}{\emph{``Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires''}}\\
+%       by \textbf{Lilian Besson} \&
+%       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{Émilie
+%       Kaufmann}
 
-    \vspace*{30pt}
+%     \vspace*{30pt}
 
-    \item
-      \href{https://hal.inria.fr/hal-02006471/document}{\emph{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}}\\
-      by \textbf{Lilian Besson} \&
-      \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{Émilie
-      Kaufmann}\\
-      % February 2019,
-      Pre-print on
-      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
-      and
-      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+%     \item
+%       \href{https://hal.inria.fr/hal-02006471/document}{\emph{``The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits''}}\\
+%       by \textbf{Lilian Besson} \&
+%       \href{http://chercheurs.lille.inria.fr/ekaufman/research.html}{Émilie
+%       Kaufmann}\\
+%       % February 2019,
+%       Pre-print on
+%       \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
+%       and
+%       \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
 
-  \end{itemize}
+%   \end{itemize}
 
-\end{frame}
+% \end{frame}
 
 
-\section{\hfill{}Plan\hfill{}}
+% \section{\hfill{}Plan\hfill{}}
 
-\begin{frame}{Plan}
+% \begin{frame}{Plan}
 
-  \begin{enumerate}
-    \item
-      Problèmes de bandits multi-bras (stationnaires)
-    \vspace*{15pt}
+%   \begin{enumerate}
+%     \item
+%       Problèmes de bandits multi-bras (stationnaires)
+%     \vspace*{15pt}
 
-    \item
-      Problèmes de bandits multi-bras stationnaires par morceaux
-    \vspace*{15pt}
+%     \item
+%       Problèmes de bandits multi-bras stationnaires par morceaux
+%     \vspace*{15pt}
 
-    \item
-      Le test BGLR et ses propriétés à horizon fini
-    \vspace*{15pt}
+%     \item
+%       Le test BGLR et ses propriétés à horizon fini
+%     \vspace*{15pt}
 
-    \item
-      L'algorithme B-GLRT + klUCB
-    \vspace*{15pt}
+%     \item
+%       L'algorithme B-GLRT + klUCB
+%     \vspace*{15pt}
 
-    % \item
-    %   Analyse du regret
-    % \vspace*{15pt}
+%     % \item
+%     %   Analyse du regret
+%     % \vspace*{15pt}
 
-    \item
-      Simulations numériques
-  \end{enumerate}
+%     \item
+%       Simulations numériques
+%   \end{enumerate}
 
-\end{frame}
+% \end{frame}
 
 
 \section{\hfill{}1. Problèmes de bandits multi-bras (stationnaires)\hfill{}}
@@ -588,29 +588,29 @@
 
 \end{frame}
 
-\subsection{\hfill{}Regret de deux algorithmes de type UCB\hfill{}}
+% \subsection{\hfill{}Regret de deux algorithmes de type UCB\hfill{}}
 
-\begin{frame}{Regret des algorithmes UCB et kl-UCB}
+% \begin{frame}{Regret des algorithmes UCB et kl-UCB}
 
-  Pour n'importe quel problème avec $K$ bras de Bernoulli, de moyennes $\mu_1,\dots,\mu_K \in[0,1]$, et de \textcolor{deeppurple}{bras optimal $\mu^*$} :
+%   Pour n'importe quel problème avec $K$ bras de Bernoulli, de moyennes $\mu_1,\dots,\mu_K \in[0,1]$, et de \textcolor{deeppurple}{bras optimal $\mu^*$} :
 
-  \begin{exampleblock}{Pour l'algorithme UCB}
-    \begin{small}
-      \[ R_T^{\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} \log(T) + o(\log(T)). \]
-    \end{small}%
-  \end{exampleblock}
+%   \begin{exampleblock}{Pour l'algorithme UCB}
+%     \begin{small}
+%       \[ R_T^{\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} \log(T) + o(\log(T)). \]
+%     \end{small}%
+%   \end{exampleblock}
 
-  \begin{exampleblock}<2->{Pour l'algorithme kl-UCB : une meilleure borne}
-    \begin{small}
-      \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} \log(T) + o(\log(T)) = \mathcal{O}( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulté du problème}}} \log(T) ). \]
-    \end{small}%
-    \begin{footnotesize}
-      Avec $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ l'\emph{entropie binaire relative}\\
-      (\emph{ie}, la divergence de Kullback-Leibler de deux lois de Bernoulli de moyennes $x$ et $y$)
-    \end{footnotesize}%
-  \end{exampleblock}
+%   \begin{exampleblock}<2->{Pour l'algorithme kl-UCB : une meilleure borne}
+%     \begin{small}
+%       \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} \log(T) + o(\log(T)) = \mathcal{O}( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulté du problème}}} \log(T) ). \]
+%     \end{small}%
+%     \begin{footnotesize}
+%       Avec $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ l'\emph{entropie binaire relative}\\
+%       (\emph{ie}, la divergence de Kullback-Leibler de deux lois de Bernoulli de moyennes $x$ et $y$)
+%     \end{footnotesize}%
+%   \end{exampleblock}
 
-\end{frame}
+% \end{frame}
 
 
 \section{\hfill{}2. Problèmes de bandits multi-bras stationnaires par morceaux\hfill{}}
@@ -799,7 +799,7 @@
 
 \begin{frame}{Le problème de détection de rupture}
 
-  Imaginez le problème suivants\ldots
+  Imaginez le problème suivant\ldots
 
   \begin{itemize}
     \item Vous observez des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
@@ -1088,7 +1088,7 @@
 
 \subsection{\hfill{}Le test BGRL + les indices kl-UCB\hfill{}}
 
-\begin{frame}{Notre algorithme combine le test BGRL + les indices kl-UCB}
+\begin{frame}{On combine le test BGRL + les indices kl-UCB}
 
   \begin{block}{Idées principales}
     \begin{itemize}
@@ -1498,7 +1498,7 @@
 \end{frame}
 
 
-\begin{frame}[plain]{Problème 2 : only global changes}
+\begin{frame}[plain]{Problème 2 : seulement des changements globaux}
   \centering
   \includegraphics[width=1.00\textwidth]{figures/Problem_2.pdf}
 \end{frame}
