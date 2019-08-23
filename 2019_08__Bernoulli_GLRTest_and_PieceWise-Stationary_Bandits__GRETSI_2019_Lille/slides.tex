@@ -276,7 +276,7 @@
 
 \begin{frame}{Publications associée à cet exposé}
 
-  Deux travaux en collaboration avec mon encadrante de thèse Émilie Kaufmann
+  Travaux en collaboration avec mon encadrante de thèse Émilie Kaufmann
   \dInnocey{} :
 
   \begin{itemize}
@@ -325,9 +325,9 @@
       L'algorithme B-GLRT + klUCB
     \vspace*{15pt}
 
-    \item
-      Analyse du regret
-    \vspace*{15pt}
+    % \item
+    %   Analyse du regret
+    % \vspace*{15pt}
 
     \item
       Simulations numériques
@@ -365,11 +365,11 @@
     }
     \vspace*{15pt}
 
-    \item
-    \textcolor{gray}{
-      Analyse du regret
-    }
-    \vspace*{15pt}
+    % \item
+    % \textcolor{gray}{
+    %   Analyse du regret
+    % }
+    % \vspace*{15pt}
 
     \item
     \textcolor{gray}{
@@ -642,11 +642,11 @@
     }
     \vspace*{15pt}
 
-    \item
-    \textcolor{gray}{
-      Analyse du regret
-    }
-    \vspace*{15pt}
+    % \item
+    % \textcolor{gray}{
+    %   Analyse du regret
+    % }
+    % \vspace*{15pt}
 
     \item
     \textcolor{gray}{
@@ -709,7 +709,7 @@
 
 \begin{frame}[plain]{Exemple d'un problème de bandits stationnaire p.m.}
   On affiche les moyennes \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
-  des $K=3$ bras.
+  des $K=3$ bras.\\
   Il y a $\Upsilon_T=4$ ruptures, et $5$ séquences entre $t=1$ et $T=5000$ :
   \begin{center}
     \includegraphics[width=1.00\textwidth]{figures/Problem_1.pdf}
@@ -780,11 +780,11 @@
     }
     \vspace*{15pt}
 
-    \item
-    \textcolor{gray}{
-      Analyse du regret
-    }
-    \vspace*{15pt}
+    % \item
+    % \textcolor{gray}{
+    %   Analyse du regret
+    % }
+    % \vspace*{15pt}
 
     \item
     \textcolor{gray}{
@@ -857,7 +857,7 @@
 
 \end{frame}
 
-\begin{frame}{Expression du (log) rapport de vraisemblance de Bernoulli}
+\begin{frame}{(log) Rapport de vraisemblance de Bernoulli}
 
   On peut réécrire cette statistique
   $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
@@ -882,8 +882,8 @@
 
   \begin{itemize}
     \item
-    On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.
-    ($=$ la fonction génératrice des moments est bornée par celle d'une loi de Bernoulli)
+    On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.\\
+    (fonction génératrice des moments bornée par celle d'une loi de Bernoulli)
     \item
     Et toute distribution à support borné dans $[0,1]$ est sous-Bernoulli !
     \item
@@ -932,7 +932,7 @@
     La \alert{probabilité de fausse alarme} est $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty)$.
   \end{block}
 
-  \alert{$\implies$ But : contrôler l'événement de fausse alarme !} (en forte probabilité)
+  \alert{$\implies$ But : contrôler l'événement de fausse alarme !} (en forte proba)
 
 \end{frame}
 
@@ -1072,11 +1072,11 @@
     }}
     \vspace*{15pt}
 
-    \item
-    \textcolor{gray}{
-      Analyse du regret
-    }
-    \vspace*{15pt}
+    % \item
+    % \textcolor{gray}{
+    %   Analyse du regret
+    % }
+    % \vspace*{15pt}
 
     \item
     \textcolor{gray}{
@@ -1097,7 +1097,7 @@
         % $\mbox{kl-UCB}_k(t)$
       \item La plupart du temps, on joue le bras
       $A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$
-      \item On utilise le test BGLR \alert{pour détecter les ruptures sur le bras joué $A(t)$}
+      \item On utilise le test BGLR \alert{pour détecter les ruptures sur le bras joué}
       \item Si une rupture est détectée, \alert{on efface la mémoire des observations de \emph{tous les} bras}
     \end{itemize}
   \end{block}
@@ -1106,7 +1106,7 @@
 
   \begin{exampleblock}{Les indices kl-UCB}
     \begin{itemize}
-      \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$ before time $t$,
+      \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$ avant le temps $t$,
       \item $n_k(t)$ compte les sélections et $\widehat{\mu}_k(t)$ et la moyenne empirique des observations du bras $k$ depuis $\tau_k(t)$,
       % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
       % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
@@ -1175,7 +1175,7 @@
       % \RestyleAlgo{boxed}
       % XXX Input, data and output
       \KwData{\emph{Paramètre du problème} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
-      \KwData{\emph{Paramètre du algorithme} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
+      \KwData{\emph{Paramètre} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
       % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
       % \KwData{Data}
       % \KwResult{Result}
@@ -1221,9 +1221,186 @@
 \end{frame}
 
 
-\section{\hfill{}5. Analyse du regret\hfill{}}
+% \section{\hfill{}5. Analyse du regret\hfill{}}
 
-\begin{frame}{5. Analyse du regret}
+% \begin{frame}{5. Analyse du regret}
+
+%   \begin{enumerate}
+%     \item
+%     \textcolor{gray}{
+%       Problèmes de bandits multi-bras (stationnaires)
+%     }
+%     \vspace*{15pt}
+
+%     \item
+%     \textcolor{gray}{
+%       Problèmes de bandits multi-bras stationnaires par morceaux
+%     }
+%     \vspace*{15pt}
+
+%     \item
+%     \textcolor{gray}{
+%       Le test BGLR et ses propriétés à horizon fini
+%     }
+%     \vspace*{15pt}
+
+%     \item
+%     \textcolor{gray}{
+%       L'algorithme B-GLRT + klUCB
+%     }
+%     \vspace*{15pt}
+
+%     \item
+%     \alert{\textbf{%
+%       Analyse du regret
+%     }}
+%     \vspace*{15pt}
+
+%     \item
+%     \textcolor{gray}{
+%       Simulations numériques
+%     }
+%   \end{enumerate}
+
+% \end{frame}
+
+% \subsection{\hfill{}Hypothèses\hfill{}}
+
+% \begin{frame}{Hypothèses de notre analyse théorique}
+
+%   \begin{itemize}
+%     \item
+%     Denote $\tau^{i}$ the position of break-point $i$ ($\tau^0 = 0$)
+%     \item
+%     and $\mu_k^{i}$ the mean of arm $k$ on the segment $[\tau^i, \tau^{i+1}]$
+%     \item
+%     and $b(i) \in \arg\max_k \mu_k^{i}$ (one of) the best arm(s) on the $i$-th segment
+%     \item
+%     and the largest gap at break-point $i$ is
+%     $\Delta^{i} = \max\limits_{k=1,\dots,K} |\mu_k^{i} - \mu_k^{i-1}| >0$
+%   \end{itemize}
+
+%   \pause
+%   \begin{block}{Assumption}
+%     Fix the parameters $\alpha$ and $\delta$,
+%     and let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
+
+%     \alert{\textbf{We assume that all sequences are ``long enough'':}}
+%     \vspace*{-5pt}
+%     \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \alert{\tau^{i} - \tau^{i-1}} \geq 2\max( d^{i}, d^{i-1} ). \]
+%   \end{block}
+
+%   \pause
+%   $\hookrightarrow$
+%   The \alert{minimum length of sequence $i$} depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^{i-1}$} and \textcolor{darkblue}{$\Delta^{i}$}).
+
+% \end{frame}
+
+
+% \subsection{\hfill{}Regret upper-bound\hfill{}}
+
+% \begin{frame}{Theoretical result}
+
+%   Under this hypothesis, we obtained a \emph{finite time}
+%   upper-bound on the regret $R_T$,
+%   with explicit dependency from the problem difficulty.
+
+%   The exact bound uses:
+%   \begin{itemize}
+%     \item
+%     the divergences $\mathrm{kl}(\mu_{k}^{i},\mu_{b(i)}^{i})$
+%     account for the difficulty of the stationary problem on sequence $i$,
+%     \item
+%     the gaps $\Delta^{i}$
+%     account for the difficulty of detecting break-point $i$,
+%   \end{itemize}
+%   as well as the two parameters
+%   \begin{itemize}
+%     \item
+%     $\alpha$ the probability of forced exploration,
+%     \item
+%     and $\delta$ the confidence level of the break-point detection test.
+%   \end{itemize}
+
+% \end{frame}
+
+
+% \begin{frame}{Simplified form of the result for \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
+
+%   \begin{block}{Regret upper bound for BGLR + kl-UCB \dCooley{}}
+%     \begin{itemize}
+%       \item
+%       On a problem satisfying our assumption\ldots
+%       \item
+%       let $\alpha = \sqrt{\Upsilon_T \ln(T) / T}$ and $\delta = 1 / \sqrt{T \Upsilon_T}$ (if $T$ and $\Upsilon_T$ are known),
+%       \pause
+%       \item
+%       then if BGLR + kl-UCB uses parameters $\alpha$ and $\delta$, its regret satisfies
+%       %
+%       \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{gold}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{deeppurple}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
+%       \begin{itemize}\tightlist
+%         \item
+%         with $\textcolor{gold}{\Delta^{\text{change}}} =$
+%         %  $\min_{i} \Delta^{i} =$
+%         \textcolor{gold}{the smallest detection gap between two stationary segments}
+%         $=$ \textcolor{gold}{Difficulty of the break-point detection problems!}
+%         \item
+%         and $\textcolor{deeppurple}{\Delta^{\text{opt}}} =$
+%         \textcolor{deeppurple}{the smallest value of sub-optimality gap on a stationary segment}
+%         $=$ \textcolor{deeppurple}{Difficulty of the stationary bandit problems!}
+%       \end{itemize}
+%       % ($\min_{k: \mu_k(t) < \mu_{k^*(t)}(t)} \mu_{k^*(t)}(t) - \mu_k(t)$)
+%     \end{itemize}
+%   \end{block}
+
+% \pause
+% $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dependency on the gaps.
+
+% \end{frame}
+
+
+% \subsection{\hfill{}Comparison with other algorithms\hfill{}}
+
+% \begin{frame}{Comparison with other state-of-the-art approaches}
+
+%   \begin{exampleblock}{Our algorithm (BGLR + kl-UCB)}
+%     \begin{itemize}
+%       \item Hypotheses: bounded rewards, known $T$, known $\Upsilon_T = o(\sqrt{T})$, and ``long enough'' stationary sequences
+%       \item We obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+%     \end{itemize}
+%   \end{exampleblock}
+
+%   \pause
+%   Two recent competitors
+%   use a similar assumption
+%   \alert{but they both require prior knowledge of a lower-bound on the gaps}
+
+%   % \begin{block}{Exp3.S \hfill{} \textcolor{gray}{[Auer et al, 2002]}}
+%   %   \begin{itemize}
+%   %     \item Hypotheses: just bounded rewards
+%   %     \item $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T})$
+%   %     \item But usually poor in practice
+%   %   \end{itemize}
+%   % \end{block}
+
+%   \begin{block}{CUSUM-UCB \hfill{} \textcolor{gray}{[Liu \& Lee \& Shroff, AAAI 2018]}}
+%     \begin{itemize}
+%       \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T / \Upsilon_T)})$
+%     \end{itemize}
+%   \end{block}
+
+%   \begin{block}{M-UCB \hfill{} \textcolor{gray}{[Cao \& Zhen \& Kveton \& Xie, AISTATS 2019]}}
+%     \begin{itemize}
+%       \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+%     \end{itemize}
+%   \end{block}
+
+% \end{frame}
+
+
+\section{\hfill{}5. Simulations numériques\hfill{}}
+
+\begin{frame}{5. Simulations numériques}
 
   \begin{enumerate}
     \item
@@ -1250,188 +1427,11 @@
     }
     \vspace*{15pt}
 
-    \item
-    \alert{\textbf{%
-      Analyse du regret
-    }}
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      Simulations numériques
-    }
-  \end{enumerate}
-
-\end{frame}
-
-\subsection{\hfill{}Hypothèses\hfill{}}
-
-\begin{frame}{Hypothèses de notre analyse théorique}
-
-  \begin{itemize}
-    \item
-    Denote $\tau^{i}$ the position of break-point $i$ ($\tau^0 = 0$)
-    \item
-    and $\mu_k^{i}$ the mean of arm $k$ on the segment $[\tau^i, \tau^{i+1}]$
-    \item
-    and $b(i) \in \arg\max_k \mu_k^{i}$ (one of) the best arm(s) on the $i$-th segment
-    \item
-    and the largest gap at break-point $i$ is
-    $\Delta^{i} = \max\limits_{k=1,\dots,K} |\mu_k^{i} - \mu_k^{i-1}| >0$
-  \end{itemize}
-
-  \pause
-  \begin{block}{Assumption}
-    Fix the parameters $\alpha$ and $\delta$,
-    and let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
-
-    \alert{\textbf{We assume that all sequences are ``long enough'':}}
-    \vspace*{-5pt}
-    \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \alert{\tau^{i} - \tau^{i-1}} \geq 2\max( d^{i}, d^{i-1} ). \]
-  \end{block}
-
-  \pause
-  $\hookrightarrow$
-  The \alert{minimum length of sequence $i$} depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^{i-1}$} and \textcolor{darkblue}{$\Delta^{i}$}).
-
-\end{frame}
-
-
-\subsection{\hfill{}Regret upper-bound\hfill{}}
-
-\begin{frame}{Theoretical result}
-
-  Under this hypothesis, we obtained a \emph{finite time}
-  upper-bound on the regret $R_T$,
-  with explicit dependency from the problem difficulty.
-
-  The exact bound uses:
-  \begin{itemize}
-    \item
-    the divergences $\mathrm{kl}(\mu_{k}^{i},\mu_{b(i)}^{i})$
-    account for the difficulty of the stationary problem on sequence $i$,
-    \item
-    the gaps $\Delta^{i}$
-    account for the difficulty of detecting break-point $i$,
-  \end{itemize}
-  as well as the two parameters
-  \begin{itemize}
-    \item
-    $\alpha$ the probability of forced exploration,
-    \item
-    and $\delta$ the confidence level of the break-point detection test.
-  \end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{Simplified form of the result for \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
-
-  \begin{block}{Regret upper bound for BGLR + kl-UCB \dCooley{}}
-    \begin{itemize}
-      \item
-      On a problem satisfying our assumption\ldots
-      \item
-      let $\alpha = \sqrt{\Upsilon_T \ln(T) / T}$ and $\delta = 1 / \sqrt{T \Upsilon_T}$ (if $T$ and $\Upsilon_T$ are known),
-      \pause
-      \item
-      then if BGLR + kl-UCB uses parameters $\alpha$ and $\delta$, its regret satisfies
-      %
-      \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{gold}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{deeppurple}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
-      \begin{itemize}\tightlist
-        \item
-        with $\textcolor{gold}{\Delta^{\text{change}}} =$
-        %  $\min_{i} \Delta^{i} =$
-        \textcolor{gold}{the smallest detection gap between two stationary segments}
-        $=$ \textcolor{gold}{Difficulty of the break-point detection problems!}
-        \item
-        and $\textcolor{deeppurple}{\Delta^{\text{opt}}} =$
-        \textcolor{deeppurple}{the smallest value of sub-optimality gap on a stationary segment}
-        $=$ \textcolor{deeppurple}{Difficulty of the stationary bandit problems!}
-      \end{itemize}
-      % ($\min_{k: \mu_k(t) < \mu_{k^*(t)}(t)} \mu_{k^*(t)}(t) - \mu_k(t)$)
-    \end{itemize}
-  \end{block}
-
-\pause
-$\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dependency on the gaps.
-
-\end{frame}
-
-
-\subsection{\hfill{}Comparison with other algorithms\hfill{}}
-
-\begin{frame}{Comparison with other state-of-the-art approaches}
-
-  \begin{exampleblock}{Our algorithm (BGLR + kl-UCB)}
-    \begin{itemize}
-      \item Hypotheses: bounded rewards, known $T$, known $\Upsilon_T = o(\sqrt{T})$, and ``long enough'' stationary sequences
-      \item We obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
-    \end{itemize}
-  \end{exampleblock}
-
-  \pause
-  Two recent competitors
-  use a similar assumption
-  \alert{but they both require prior knowledge of a lower-bound on the gaps}
-
-  % \begin{block}{Exp3.S \hfill{} \textcolor{gray}{[Auer et al, 2002]}}
-  %   \begin{itemize}
-  %     \item Hypotheses: just bounded rewards
-  %     \item $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T})$
-  %     \item But usually poor in practice
-  %   \end{itemize}
-  % \end{block}
-
-  \begin{block}{CUSUM-UCB \hfill{} \textcolor{gray}{[Liu \& Lee \& Shroff, AAAI 2018]}}
-    \begin{itemize}
-      \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T / \Upsilon_T)})$
-    \end{itemize}
-  \end{block}
-
-  \begin{block}{M-UCB \hfill{} \textcolor{gray}{[Cao \& Zhen \& Kveton \& Xie, AISTATS 2019]}}
-    \begin{itemize}
-      \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
-    \end{itemize}
-  \end{block}
-
-\end{frame}
-
-
-\section{\hfill{}6. Simulations numériques\hfill{}}
-
-\begin{frame}{6. Simulations numériques}
-
-  \begin{enumerate}
-    \item
-    \textcolor{gray}{
-      Problèmes de bandits multi-bras (stationnaires)
-    }
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      Problèmes de bandits multi-bras stationnaires par morceaux
-    }
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      Le test BGLR et ses propriétés à horizon fini
-    }
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      L'algorithme B-GLRT + klUCB
-    }
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      Analyse du regret
-    }
-    \vspace*{15pt}
+    % \item
+    % \textcolor{gray}{
+    %   Analyse du regret
+    % }
+    % \vspace*{15pt}
 
     \item
     \alert{\textbf{%
@@ -1442,37 +1442,37 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 \end{frame}
 
 
-\subsection{\hfill{}Setup of the experiments\hfill{}}
+\subsection{\hfill{}Détails des expériences\hfill{}}
 
 \begin{frame}{Simulations numériques}
 
-  \begin{block}{We consider three problems with}
+  \begin{block}{On considère trois problèmes avec}
     \begin{itemize}
       \item
-      $K=3$ arms, Bernoulli distributed
+      $K=3$ bras de Bernoulli
       \item
-      $T=5000$ time steps (fixed horizon)
+      $T=5000$ étapes de temps (horizon fini)
       \item
-      $\Upsilon_T=4$ break-points ($=5$ stationary sequences)\\
-      Algorithms can use this prior knowledge of $T$ and $\Upsilon_T$
+      $\Upsilon_T=4$ ruptures ($=5$ séquences stationnaires)\\
+      Les algorithmes peuvent utiliser cette connaissance de $T$ et $\Upsilon_T$
       \item
-      $1000$ independent runs, we plot the average regret
+      $1000$ simulations indépendantes, on affiche le regret moyen
     \end{itemize}
   \end{block}
 
   \pause
 
-  \begin{exampleblock}{Reference}
+  \begin{exampleblock}{Référence}
     \begin{itemize}
       \item
-      We used my open-source Python library for simulations of multi-armed bandits problems, \textbf{SMPyBandits}
+      On utilise ma bibliothèque open-source en Python pour la simulation de problèmes de bandits, \textbf{SMPyBandits}
       \\
-      $\hookrightarrow$ Published online at \href{https://SMPyBandits.GitHub.io}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
+      $\hookrightarrow$ Publiée en ligne à \href{https://SMPyBandits.GitHub.io}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
       \item
-      More experiments are included in the long version of the paper!\\
-      $\hookrightarrow$ pre-print on
+      Plus d'expériences dans la version longue de l'article !\\
+      $\hookrightarrow$ sur
       \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
-      and
+      et
       \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
     \end{itemize}
   \end{exampleblock}
@@ -1480,139 +1480,142 @@ $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dep
 \end{frame}
 
 
-\begin{frame}[plain]{Problem 1: only local changes}
+\begin{frame}[plain]{Problème 1 : seulement des changements locaux}
   \centering
   \includegraphics[width=1.00\textwidth]{figures/Problem_1.pdf}
 
-  We plots the means:
+  On affiche les moyennes :
   \textcolor{red}{$\mu_1(t)$},
   \textcolor{green}{$\mu_2(t)$},
   \textcolor{blue}{$\mu_3(t)$}.
 \end{frame}
 
-\begin{frame}[plain]{Results on problem 1}
+\begin{frame}[plain]{Résultats pour le problème 1}
   \centering
   \includegraphics[width=1.05\textwidth]{figures/regret_problem1.png}
 
-  $\implies$ BGLR achieves the best performance among non-oracle algorithms \dCooley{} !
+  $\implies$ BGLR atteint les meilleures performances parmi les algorithmes non-oracles \dCooley{} !
 \end{frame}
 
 
-\begin{frame}[plain]{Problem 2: only global changes}
+\begin{frame}[plain]{Problème 2 : only global changes}
   \centering
   \includegraphics[width=1.00\textwidth]{figures/Problem_2.pdf}
 \end{frame}
 
-\begin{frame}[plain]{Results on problem 2}
+\begin{frame}[plain]{Résultats pour le problème 2}
   \centering
   \includegraphics[width=1.05\textwidth]{figures/regret_problem2.pdf}
 
-  $\implies$ BGLR again achieves the best performance \dCooley{} !
+  $\implies$ BGLR atteint encore les meilleures performances \dCooley{} !
 \end{frame}
 
 
-\begin{frame}[plain]{Pb 3: non-uniform lenghts of stationary sequences}
+\begin{frame}[plain]{Pb 3 : longueurs non uniformes des séquences}
   \centering
   \includegraphics[width=1.00\textwidth]{figures/Problem_4.pdf}
 \end{frame}
 
-\begin{frame}[plain]{Results on problem 3}
+\begin{frame}[plain]{Résultats pour le problème 3}
   \centering
   \includegraphics[width=1.05\textwidth]{figures/regret_problem4.pdf}
 
-  $\implies$ BGLR achieves the best performance among non-oracle algorithms \dCooley{} !
+  $\implies$ BGLR atteint les meilleures performances parmi les algorithmes non-oracles \dCooley{} !
 \end{frame}
 
 
-\subsection{\hfill{}Conclusions from the simulations\hfill{}}
+\subsection{\hfill{}Conclusions des simulations\hfill{}}
 
-\begin{frame}{Interpretation of the simulations (1/2)}
+% \begin{frame}{Interprétation des simulations (1/2)}
+\begin{frame}{Interprétation des simulations}
 
-  \begin{block}{Conclusions in terms of regret}
+  \begin{block}{Conclusions pour le regret}
     \begin{itemize}
       \item
-      Empirically we can check that the \alert{BGLR test is efficient} \dCooley{} :
+      En pratique, on vérifie que le \alert{test BGLR est efficace} \dCooley{} :
       \begin{itemize}\tightlist
         \item
-        it has a \alert{low false alarm probability},
+        il a une \alert{faible probabilité de fausse alarme},
         \item
-        it has a \alert{small delay} if the stationary sequences are long enough.
+        il a un \alert{faible délai} si les séquences stationnaires sont assez longues.
       \end{itemize}
-      And this is true even outside of the hypotheses of our analysis
+      Et cela est aussi le cas hors des hypothèses de notre analyse
       \item
-      Using the kl-UCB indexes policy gives good performance \dCooley{}
+      Utiliser les indices kl-UCB donnent une bonne performance \dCooley{}
     \end{itemize}
-    $\implies$ Our algorithm (BGLR test + kl-UCB) is efficient
+    $\implies$ Notre algorithme (test BGLR + kl-UCB) est efficace
 
-    $\implies$ We verified that it obtains state-of-the-art performance!
+    $\implies$ On vérifie qu'il obtient des bonnes performances.
+    %  similaires à l'état de l'art !
   \end{block}
 
 \end{frame}
 
 
-\begin{frame}{Interpretation of the simulations (2/2)}
+% \begin{frame}{Interprétation des simulations (2/2)}
 
-  What about the efficiency in terms of \textcolor{blue}{memory} and \alert{time} complexity?
+%   Qu'en est-il de son efficacité en \textcolor{blue}{mémoire} et en \alert{temps} ?
 
-  \begin{block}{Memory: efficient \dSmiley}
-    Our algorithm is as efficient as other state-of-the-art strategies!\\
-    \textcolor{gray}{Memory cost $= \mathcal{O}(K d_{\max})$ for $K$ arms.}
-  \end{block}
+%   \begin{block}{Mémoire : efficace \dSmiley}
+%     Notre algorithme est aussi efficace que le reste de l'état de l'art !\\
+%     \textcolor{gray}{Coût en mémoire $= \mathcal{O}(K d_{\max})$ pour $K$ bras.}
+%   \end{block}
 
-  \begin{alertblock}<2->{Time: slow \dSadey{} !}
-    But it is too slow!
-    Time cost $= \mathcal{O}(K d_{\max} \alert{\times t})$
-    at every time step $t$,
-    % for $K$ arms.
-    so $\mathcal{O}(K d_{\max} \alert{T^2})$ in total.
-    %  and horizon $T$.
+%   \begin{alertblock}<2->{Temps : lent \dSadey{} !}
+%     Mais il est très lent !
+%     Coût en temps $= \mathcal{O}(K d_{\max} \alert{\times t})$
+%     à chaque étape $t$,
+%     % for $K$ arms.
+%     donc $\mathcal{O}(K d_{\max} \alert{T^2})$ en tout.
+%     %  and horizon $T$.
 
-    $\hookrightarrow$ we proposed two numerical tweaks to speed it up
+%     $\hookrightarrow$ on a proposé deux astuces pour l'accélerer !
 
-    $\implies$ BGLR test + kl-UCB can be as fast as M-UCB or CUSUM-UCB
-    % , the two algorithms that perform as well in terms of regret
+%     $\implies$ Notre algorithme (test BGLR + kl-UCB) peut être aussi rapide que M-UCB ou CUSUM-UCB.
+%     % , the two algorithms that perform as well in terms of regret
 
-    % \hfill{} See the long version on \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}} and \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
-  \end{alertblock}
+%     % \hfill{} See the long version on \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}} and \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+%   \end{alertblock}
 
-  \begin{small}
-    ($d_{\max} = \max\limits_i \tau^i - \tau^{i+1} =$ duration of the longer stationary sequence)
-    % , $T \leq (1+\Upsilon_T) d_{\max}$)
-  \end{small}
+%   \begin{small}
+%     ($d_{\max} = \max\limits_i \tau^i - \tau^{i+1} =$ longueur de la plus longue séquence stationnaire)
+%     % , $T \leq (1+\Upsilon_T) d_{\max}$)
+%   \end{small}
 
-\end{frame}
+% \end{frame}
 
 
 
 \section{\hfill{}Conclusion\hfill{}}
-\subsection{Summary}
+\subsection{Résumé}
 
-\begin{frame}{Summary}
+\begin{frame}{Résumé}
 
-  What we just presented\ldots{}
+  On a présenté\ldots{}
   \begin{itemize}
     \item
-    Stationary or \alert{piece-wise stationary} Multi-Armed Bandits problems
+    Les problèmes de bandits multi-bras stationnaires ou \alert{stationnaires par morceaux}
     %  (MAB)
     \item
-    The efficient Bernoulli Generalized Likelihood Ratio test \dCooley{}
+    Le très efficace test généralisé de rapport de vraisemblance de Bernoulli (T-BGLR) \dCooley{}
     % (B-GLRT)
     \begin{itemize}\tightlist
       \item
-      to detect break-points with \alert{no false alarm} and \alert{low delay}
+      pour détecter les ruptures \alert{sans fausse alarme} et \alert{faible délai}
       \item
-      for Bernoulli data, and can also be used for sub-Bernoulli data (any bounded distributions),
+      pour des données de Bernoulli, et aussi des données sous-Bernoulli (n'importe quelle distribution bornée !),
       \item
-      and does \emph{not} need to know the amplitude of the break-point
+      et n'a \emph{pas} besoin de connaître l'amplitude des ruptures
     \end{itemize}
     \item
-    We can combine it with an efficient MAB policy:
+    On peut le combiner avec une stratégie de bandit efficace :
     \alert{BGLR + kl-UCB}  \dCooley{}
     \item
-    Its regret bound is $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$  \dCooley{} (state-of-the-art)
+    Sa borne de regret est $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$  \dCooley{} (état de l'art)
     \item
-    Our algorithm outperforms other efficient policies on numerical simulations \dCooley\\
-    and BGLR + kl-UCB can be as fast as its best competitors.
+    Notre algorithme est compétitif avec le reste de l'état de l'art sur nos simulations numériques\dCooley
+    % \\
+    % et BGLR + kl-UCB peut être aussi rapide que ses meilleurs compétiteurs.
   \end{itemize}
 
 \end{frame}
