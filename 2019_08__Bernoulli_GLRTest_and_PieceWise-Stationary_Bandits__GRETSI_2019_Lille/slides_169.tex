@@ -1,5 +1,5 @@
-% \documentclass[11pt,french,ignorenonframetext,aspectratio=169,]{beamer}
-\documentclass[11pt,french,ignorenonframetext,]{beamer}
+\documentclass[11pt,french,ignorenonframetext,aspectratio=169,]{beamer}
+% \documentclass[11pt,french,ignorenonframetext,]{beamer}
 
 %%%%%%%%%%%%%%%
 %% Beamer theme
@@ -388,7 +388,7 @@
 
   \begin{center}
     % \centering
-    \includegraphics[height=0.65\textheight]{figures/Lucky_Luke__Le_Bandit_Manchot.jpg}
+    \includegraphics[height=0.60\textheight]{figures/Lucky_Luke__Le_Bandit_Manchot.jpg}
   \end{center}
 
   \begin{tiny}
@@ -657,13 +657,13 @@
 \begin{frame}{Problèmes de bandits non stationnaires}
 
   \begin{block}{Problèmes de bandits stationnaires}
-    Le bras $k$ donne une récompense selon \textcolor{blue}{la même distribution pour chaque instant} :
+    Le bras $k$ tire une récompense selon \textcolor{blue}{la même distribution} pour chaque instant :\\
     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
   \end{block}
 
   \pause
   \begin{alertblock}{Problèmes de bandits \emph{non} stationnaires}
-    Le bras $k$ donne une récompense selon \alert{une distribution différente à chaque instant} :
+    Le bras $k$ tire une récompense selon \alert{une distribution différente à chaque instant} :\\
     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
   \end{alertblock}
 
@@ -684,11 +684,11 @@
 
   \begin{itemize}
     \item
-    Le nombre de rupture\\
+    Le nombre de rupture
     $\Upsilon_T = \sum\limits_{t=1}^{T-1} \mathbbm{1}(\exists k\in \{1,\dots,K\}$ $:$ $\mu_k(t) \neq \mu_k(t+1) )$
 
     \item
-    Le $i$ème point d'arrêt\\
+    Le $i$ème point d'arrêt
     $\tau^{i} = \inf\{t > \tau^{i-1} : \exists k : \mu_k(t) \neq \mu_k(t+1)\}$
     \hfill{} (avec $\tau^0=0$)
   \end{itemize}
@@ -831,13 +831,13 @@
   \textbf{Hypothèses} : toutes les distributions sont Bernoulli ($\nu_k = \mathcal{B}(\mu_k)$)
 
   Le problème se résume à distinguer
-  \begin{itemize}
-    \item[\textcolor{deeppurple}{$\mathcal{H}_0$}:]
-    \textcolor{deeppurple}{$(\exists \mu_0 : \forall i\in\mathbb{N}^*, X_i \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0))$},
-    contre l'alternative
-    \item[\textcolor{gold}{$\mathcal{H}_1$}:]
-    \textcolor{gold}{$(\exists \mu_0 \neq \mu_1, \tau > 1 : X_1, \cdots, X_\tau \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0) \text{~et~} X_{\tau+1}, \cdots \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_1))$}.
-  \end{itemize}
+    \begin{itemize}
+      \item[\textcolor{deeppurple}{$\mathcal{H}_0$}:]
+      \textcolor{deeppurple}{$(\exists \mu_0 : \forall i\in\mathbb{N}^*, X_i \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0))$},
+      contre l'alternative
+      \item[\textcolor{gold}{$\mathcal{H}_1$}:]
+      \textcolor{gold}{$(\exists \mu_0 \neq \mu_1, \tau > 1 : X_1, \cdots, X_\tau \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0) \text{~et~} X_{\tau+1}, \cdots \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_1))$}.
+    \end{itemize}
 
   \pause
 
@@ -1499,7 +1499,7 @@
 
 \begin{frame}[plain]{Problème 2 : seulement des changements globaux}
   \centering
-  \includegraphics[width=1.00\textwidth]{figures/Problem_2.pdf}
+  \includegraphics[width=1.10\textwidth]{figures/Problem_2.pdf}
 \end{frame}
 
 \begin{frame}[plain]{Résultats pour le problème 2}
@@ -1512,7 +1512,7 @@
 
 \begin{frame}[plain]{Pb 3 : longueurs non uniformes des séquences}
   \centering
-  \includegraphics[width=1.00\textwidth]{figures/Problem_4.pdf}
+  \includegraphics[width=1.10\textwidth]{figures/Problem_4.pdf}
 \end{frame}
 
 \begin{frame}[plain]{Résultats pour le problème 3}

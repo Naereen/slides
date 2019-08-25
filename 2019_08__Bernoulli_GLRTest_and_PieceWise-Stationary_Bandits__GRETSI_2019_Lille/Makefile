@@ -4,7 +4,7 @@ SHELL=/usr/bin/env /bin/bash
 default: all
 
 talk:
-	clear ; pokemonsay "Good luck Lilian :-)" ; make show_pandoc ; clear ; pokemonsay 'You rock!'
+	clear ; pokemonsay "Good luck Lilian :-)" ; make show_pandoc ; clear ; pokemonsay "You rock!"
 
 all:	pandoctex pandocpdf clean show
 all169:	pandoctex169 pandocpdf169 clean show169
