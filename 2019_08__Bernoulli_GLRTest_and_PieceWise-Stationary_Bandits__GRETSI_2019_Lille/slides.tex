@@ -336,6 +336,7 @@
 % \end{frame}
 
 
+
 \section{\hfill{}1. Problèmes de bandits multi-bras (stationnaires)\hfill{}}
 
 \begin{frame}{1. Problèmes de bandits multi-bras (stationnaires)}
@@ -365,12 +366,6 @@
     }
     \vspace*{15pt}
 
-    % \item
-    % \textcolor{gray}{
-    %   Analyse du regret
-    % }
-    % \vspace*{15pt}
-
     \item
     \textcolor{gray}{
       Simulations numériques
@@ -379,8 +374,8 @@
 
 \end{frame}
 
-\subsection{\hfill{}Qu'est-ce qu'un problème de bandits ?\hfill{}}
 
+\subsection{\hfill{}Qu'est-ce qu'un problème de bandits ?\hfill{}}
 
 \begin{frame}{Bandits manchots ? ($=$ un bras)}
 
@@ -388,8 +383,10 @@
 
   \begin{center}
     % \centering
-    \includegraphics[height=0.65\textheight]{figures/Lucky_Luke__Le_Bandit_Manchot.jpg}
+    \includegraphics[height=0.55\textheight]{figures/Lucky_Luke__Le_Bandit_Manchot.jpg}
   \end{center}
+
+  Ces travaux sont en collaboration avec mon encadrante de thèse \textbf{Émilie Kaufmann}, cf. sa conférence plénière de mardi 27 août !
 
   \begin{tiny}
   $\hookrightarrow$ Source
@@ -410,15 +407,345 @@
 
   \begin{tiny}
   $\hookrightarrow$ Démo interactive
-    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}\\
-    Réf : [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
-    sur \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
+    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+    % Réf : [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
+    % sur \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
   \end{tiny}
 
 \end{frame}
 
 
-\subsection{\hfill{}Modèle mathématique\hfill{}}
+\begin{frame}{Bandits multi-bras : stationnaires vs non-stationnaires}
+
+  \begin{block}{Stationnaires : résolu}
+    Des algorithmes comme UCB peuvent bien résoudre les problèmes stationnaires.
+  \end{block}
+
+  \pause
+
+  \begin{alertblock}{Non stationnaires : plus difficile}
+    \begin{itemize}
+      \item Si l'environnement change à chaque instant : trop difficile !
+      \item Si moins fluctuant : on peut le résoudre.
+      \item Notre cadre : stationnaire par morceau !
+    \end{itemize}
+  \end{alertblock}
+
+  \pause
+
+  \begin{block}{Notre direction de résolution}
+    On combine\ldots{}
+    \begin{itemize}
+      \item un \alert{algorithme classique} (kl-UCB) pour sélectionner les bras,
+      \item et \alert{on détecte les ruptures activement grâce à un test statistique} effectué sur chaque bras.
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+\subsection{\hfill{}Détection de rupture\hfill{}}
+
+\begin{frame}{Le problème de détection de rupture}
+
+  Imaginez le jeu suivant\ldots
+
+  \begin{itemize}
+    \item On observe des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
+    \item On sait que $X_t$ est généré par une distribution \alert{inconnue}\ldots
+
+    \pause
+    \item \alert{Le but} est de distinguer entre deux hypothèses :
+    \begin{itemize}
+      \item[\textcolor{deeppurple}{$\mathcal{H}_0$}] \textcolor{deeppurple}{Les distributions \textbf{ont toutes la même moyenne} \hfill{} (``pas de rupture'')\\
+      $\exists \mu_0, \mathbb{E}[X_1] = \mathbb{E}[X_2] = \cdots = \mathbb{E}[X_t] = \mu_0$}
+
+      \item[\textcolor{gold}{$\mathcal{H}_1$}] \textcolor{gold}{Les distributions ont \textbf{changé de moyennes au temps $\tau$} \\
+      $\exists \mu_0, \mu_1, \tau, \mathbb{E}[X_1] = \cdots = \mathbb{E}[X_{\tau}] = \mu_0, \; \mu_0 \neq \mu_1, \; \mathbb{E}[X_{\tau+1}] = \mathbb{E}[X_{\tau+2}] = \cdots = \mu_1$}
+      % $\exists \mu_0, \mu_1, \exists \tau, \forall t \leq \tau, \mathbb{E}[X_t] = \mu_0 \text{ and } \forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$
+    \end{itemize}
+    \item On s'arrête au temps $\widehat{\tau}$, dès qu'on détecte une rupture
+  \end{itemize}
+
+  \pause
+  Un \alert{détecteur de rupture séquentiel} est un \alert{\textbf{temps d'arrêt $\widehat{\tau}$}},
+  mesurable selon $\mathcal{F}_t = \sigma(X_1,\cdots,X_t)$,
+  qui rejette l'hypothèse \textcolor{deeppurple}{$\mathcal{H}_0$}
+  lorsque $\widehat{\tau} < \infty$.
+
+\end{frame}
+
+\begin{frame}{Qu'est-ce qu'un bon test de détection de rupture ?}
+
+  Deux propriétés essentielles :
+
+  \begin{block}{1. Pas de \textbf{fausse alarme}}
+    1. Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
+
+    \visible<2>{
+      Premier extrême : aucune fausse alarme si on détecte \emph{jamais} \dXey{}
+    }
+  \end{block}
+
+  \begin{block}{2. Un \textbf{délai de détection} court}
+    2. Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
+
+    \visible<2>{
+      Autre extrême : délai nul si on détecte \emph{tout le temps} \dXey{}
+    }
+  \end{block}
+
+  \visible<2>{
+    $\implies$ résoudre le compromis entre les deux !
+  }
+
+\end{frame}
+
+
+\subsection{\hfill{}Test de rapport de vraisemblances pour des données de Bernoulli\hfill{}}
+
+\begin{frame}{Test de rapport de vraisemblances de Bernoulli}
+
+  \textbf{Hypothèses} : toutes les distributions sont Bernoulli ($\nu_k = \mathcal{B}(\mu_k)$)
+
+  Le problème se résume à distinguer
+  \begin{itemize}
+    \item[\textcolor{deeppurple}{$\mathcal{H}_0$}:]
+    \textcolor{deeppurple}{$(\exists \mu_0 : \forall i\in\mathbb{N}^*, X_i \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0))$},
+    contre l'alternative
+    \item[\textcolor{gold}{$\mathcal{H}_1$}:]
+    \textcolor{gold}{$(\exists \mu_0 \neq \mu_1, \tau > 1 : X_1, \cdots, X_\tau \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0) \text{~et~} X_{\tau+1}, \cdots \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_1))$}.
+  \end{itemize}
+
+  \pause
+
+  Après avoir observé $X_1,\cdots,X_n$, la statistique du \alert{test de rapport de vraisemblances} pour cette hypothèse est
+  \begin{small}
+    \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
+  \end{small}
+
+  où $\ell(X_1,\cdots,X_n ; \textcolor{deeppurple}{\mu_0})$ et $\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})$ sont les vraisemblances des observations selon les modèles \textcolor{deeppurple}{$\mathcal{H}_0$} et \textcolor{gold}{$\mathcal{H}_1$}.
+
+  \pause
+
+  \alert{$\hookrightarrow$ De grandes valeurs de $\mathcal{L}(n)$ tendent à rejeter \textcolor{deeppurple}{$\mathcal{H}_0$} en faveur de \textcolor{gold}{$\mathcal{H}_1$}.}
+
+\end{frame}
+
+\begin{frame}{(log) Rapport de vraisemblances de Bernoulli}
+
+  On peut réécrire cette statistique
+  $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
+  en utilisant les vraisemblances de Bernoulli, et les moyennes glissantes $\widehat{\mu}_{k:k'} = \frac{1}{k'-k+1} \sum\limits_{s=k}^{k'} X_s$ :
+
+  \begin{align*}
+    \log \mathcal{L}(n) = \alert{\max_{s \in \{1,\cdots,n-1\}}} \bigl[
+      & s \times \mathrm{kl} (\underbrace{\widehat{\mu}_{1:s}}_{\text{avant rupture}},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \\
+      + & (n-s) \times \mathrm{kl} (\underbrace{\widehat{\mu}_{s+1:n}}_{\text{après rupture}},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \bigr].
+  \end{align*}
+
+  \begin{small}
+    \textcolor{gray}{Où $\mathrm{kl}(x,y) =x \ln\bigl(\frac{x}{y}\bigr) + (1-x)\ln\bigl(\frac{1-x}{1-y}\bigr)$ est l'entropie relative binaire}
+  \end{small}
+
+\end{frame}
+
+
+\subsection{\hfill{}Le B-GLRT\hfill{}}
+
+\begin{frame}{Généralisable à des observations bornées \dCooley{}}
+
+  \begin{itemize}
+    \item
+    On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.
+    \item
+    Et toute distribution $\mathcal{D}$ à support borné dans $[0,1]$ est sous-Bernoulli !
+    \item
+    $\implies$ le test B-GLR peut être appliqué à n'importe quelles observations bornées \dCooley{}
+  \end{itemize}
+
+  % \begin{block}{Sub-Bernoulli distributions}
+  \begin{tiny}
+    % If $\nu$ is supported in $[0,1]$,
+    % $\nu$ is \emph{sub-Bernoulli} if it verifies
+    $\mathcal{D}$ sous-Bernoulli \\
+    $\Leftrightarrow$
+    fonction génératrice des moments de $\mathcal{D}$ $\phi_{\mathcal{D}} \leq \phi_{\mathcal{B}}$ celle d'une Bernoulli $\mathcal{B}$ \\
+    $\Leftrightarrow$
+    $\forall \lambda, \mathbb{E}_{X\sim\nu}\left[e^{\lambda X}\right] \leq  1-\mu + \mu e^\lambda = \mathbb{E}_{X\sim \mathcal{B}(\mu)} [e^{\lambda X}]$.
+    % where $\mathcal{B}(\mu)$ est la loi de Bernoulli de moyenne $\mu$.
+  \end{tiny}
+  % \end{block}
+
+\end{frame}
+
+\begin{frame}{Le test généralisé de rapport de vraisemblances de Bernoulli (B-GLRT)}
+
+  % \begin{block}{Le test de détection séquentielle de rupture B-GRLT}
+    Le \alert{B-GLRT} est le temps d'arrêt définit par
+    \begin{small}
+    \[ \widehat{\tau}_{\delta} = \inf \bigl\{ n \in \mathbb{N}^* : \max_{s \in \{1,\cdots,n-1\}} \bigl[s \, \mathrm{kl}\left(\widehat{\mu}_{1:s},\widehat{\mu}_{1:n}\right) + (n-s) \, \mathrm{kl}\left(\widehat{\mu}_{s+1:n},\widehat{\mu}_{1:n}\right)\bigr] \geq \beta(n,\delta) \bigr\} \]
+    \vspace*{-10pt}
+    \end{small}%
+    \begin{itemize}\tightlist
+      \item avec une \alert{function seuil} $\beta(n,\delta)$ spécifiée plus tard,
+      \item $n$ est le nombre d'observations ($X_1,\dots,X_n$),
+      \item $\delta$ est le niveau de confiance ($\delta\in(0,1)$).
+    \end{itemize}%
+  % \end{block}
+
+\end{frame}
+
+
+\subsection{\hfill{}Fausse alarme\hfill{}}
+
+\begin{frame}{Probabilité de fausse alarme}
+
+  1. Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
+
+  \pause
+  \begin{block}{Définition : fausse alarme}
+    Le temps d'arrêt est $\widehat{\tau}_\delta$,
+    et une rupture est détectée si $\widehat{\tau}_\delta < \infty$.
+
+    Soit $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}$ un modèle de probabilité selon lequel les observations sont $\forall t, X_t \in[0,1]$
+    et \textcolor{deeppurple}{$\forall t, \mathbb{E}[X_t] = \mu_0$}.
+
+    La \alert{probabilité de fausse alarme} est $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty)$.
+  \end{block}
+
+  \alert{$\implies$ But : contrôler l'événement de fausse alarme !} (en forte proba)
+
+\end{frame}
+
+\begin{frame}{Premier résultat pour le test BGLR \dSmiley{}}
+
+  \begin{block}{Contrôler la probabilité de fausse alarme}
+    Pour n'importe quel \alert{niveau de confiance} $0<\delta<1$,
+    le test BGLR satisfait
+    \[ \mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta \]
+    avec la fonction seuil
+    \begin{small}
+      \[ \beta(n,\delta) = \textcolor{gray}{2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n))} \simeq \ln\left(\frac{3n \sqrt{n}}{\delta}\right) = \mathcal{O}\left(\log\left(\frac{n}{\delta}\right)\right).\]
+    \end{small}
+    \begin{footnotesize}
+      \textcolor{gray}{Où $\mathcal{T}(x)$ vérifie $\mathcal{T}(x)\simeq x + \ln(x)$ pour $x$ assez grand}
+    \end{footnotesize}
+  \end{block}
+
+  \begin{small}
+    \begin{exampleblock}<2>{Preuve ?}
+      $\hookrightarrow$ la version longue de notre article
+      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
+      et
+      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+    \end{exampleblock}
+  \end{small}
+
+\end{frame}
+
+\subsection{\hfill{}Délai de détection\hfill{}}
+
+\begin{frame}{Délai de détection}
+
+  2. Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
+
+  \pause
+  \begin{block}{Definition : délai de détection}
+    Soit $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ un modèle de probabilité selon lequel $\forall t, X_t \in[0,1]$ et \textcolor{gold}{$\forall t \leq \tau, \mathbb{E}[X_t] = \mu_0$ et $\forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$,
+    avec $\mu_0 \neq \mu_1$}.
+
+    L'\alert{écart} de cette rupture est $\Delta = |\mu_0 - \mu_1|$.
+
+    Le \alert{délai de détection} est définit par $u = \widehat{\tau}_{\delta} - \tau \in\mathbb{N}$.
+  \end{block}
+
+  \alert{$\implies$ But : contrôler le délai de détection !} (en forte probabilité)
+
+\end{frame}
+
+\begin{frame}{Second résultat pour le test BGLR \dSmiley{}}
+
+  \begin{block}{Contrôler le délai de détection}
+      Pour une rupture d'amplitude $\Delta = |\mu_1 - \mu_0|$,
+      le test BGLR satisfait
+      \begin{small}
+        \begin{align*}
+            \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
+            &= \mathcal{O}(\text{décroissance exponentielle en~} u)
+            = \mathcal{O}(\exp\searrow(u)).
+        \end{align*}
+      \end{small}
+      avec la même fonction de seuil
+      $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta)$.
+  \end{block}
+
+  \begin{exampleblock}{Conséquence}
+    En forte probabilité, \alert{le délai $\widehat{\tau}_\delta$ du BGLR est borné} par $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ \alert{si assez d'échantillons sont observés avant la rupture} au temps $\tau$.
+    % (at least $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ samples.
+    % the detection delay of BGLR has the same magnitude.
+  \end{exampleblock}
+
+\end{frame}
+
+
+\subsection{\hfill{}Résumé des résultats du B-GLRT\hfill{}}
+
+\begin{frame}{BGLR est un test de détection de rupture efficace \dCooley{} !}
+
+  \begin{itemize}
+    \item
+    On a vu qu'en choisissant
+    \begin{itemize}\tightlist
+      \item
+      un niveau de confiance $\delta$,
+      \item
+      et une bonne fonction de seuil $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta) = \mathcal{O}(\log(n/\delta))$,
+    \end{itemize}
+    \pause
+    \item
+    on peut contrôler les deux propriétés du test BGLR :
+    \begin{itemize}\tightlist
+      \item
+        sa \alert{probabilité de fausse alarme} :
+        $\mathbb{P}_{\textcolor{darkpurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta$,
+      \item
+        son \alert{délai de détection} :
+        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ décroît exponentiellement rapidement en $u$
+        (s'il y a assez d'observations avant et après la rupture).
+    \end{itemize}
+
+    \item
+    $\implies$ Le test BGLR détecte les ruptures efficacement \dCooley{}
+  \end{itemize}
+
+  % \pause
+  % \begin{block}{Garanties non asymptotiques \dCooley{} \hfill{} \tiny{\textcolor{gray}{[Maillard, ALT, 2019]} \textcolor{gray}{[Lai \& Xing, Sequential Analysis, 2010]}}}
+  %   De telles garanties \alert{non asymptotiques} sont des résultats assez récents !
+  % \end{block}
+
+\end{frame}
+
+
+\subsection{\hfill{}Modèle mathématique de bandits\hfill{}}
+
+
+\begin{frame}{Bandits multi-bras}
+
+  $=$ Prise de décisions séquentielles face à des environnements incertains :
+
+  \begin{center}
+    % \centering
+    \includegraphics[height=0.65\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
+  \end{center}
+
+  \begin{tiny}
+  $\hookrightarrow$ Démo interactive
+    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+  \end{tiny}
+
+\end{frame}
+
 
 \begin{frame}{Modèle mathématique}
 
@@ -639,12 +966,6 @@
     }
     \vspace*{15pt}
 
-    % \item
-    % \textcolor{gray}{
-    %   Analyse du regret
-    % }
-    % \vspace*{15pt}
-
     \item
     \textcolor{gray}{
       Simulations numériques
@@ -748,300 +1069,6 @@
 \end{frame}
 
 
-\section{\hfill{}3. Le test BGLR et ses propriétés à horizon fini\hfill{}}
-
-\begin{frame}{3. Le test BGLR et ses propriétés à horizon fini}
-
-  \begin{enumerate}
-    \item
-    \textcolor{gray}{
-      Problèmes de bandits multi-bras (stationnaires)
-    }
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      Problèmes de bandits multi-bras stationnaires par morceaux
-    }
-    \vspace*{15pt}
-
-    \item
-    \alert{\textbf{%
-      Le test BGLR et ses propriétés à horizon fini
-    }}
-    \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      L'algorithme B-GLRT + klUCB
-    }
-    \vspace*{15pt}
-
-    % \item
-    % \textcolor{gray}{
-    %   Analyse du regret
-    % }
-    % \vspace*{15pt}
-
-    \item
-    \textcolor{gray}{
-      Simulations numériques
-    }
-  \end{enumerate}
-
-\end{frame}
-
-
-\subsection{\hfill{}Détection de rupture\hfill{}}
-
-\begin{frame}{Le problème de détection de rupture}
-
-  Imaginez le jeu suivant\ldots
-
-  \begin{itemize}
-    \item Vous observez des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
-    \item Vous savez que $X_t$ est généré par une certaine distribution \alert{inconnue}\ldots
-
-    \pause
-    \item \alert{Votre but} est de distinguer entre deux hypothèses :
-    \begin{itemize}
-      \item[\textcolor{deeppurple}{$\mathcal{H}_0$}] \textcolor{deeppurple}{Les distributions \textbf{ont toutes la même moyenne} \hfill{} (``pas de rupture'')\\
-      $\exists \mu_0, \mathbb{E}[X_1] = \mathbb{E}[X_2] = \cdots = \mathbb{E}[X_t] = \mu_0$}
-
-      \item[\textcolor{gold}{$\mathcal{H}_1$}] \textcolor{gold}{Les distributions ont \textbf{changé de moyennes au temps $\tau$} \\
-      $\exists \mu_0, \mu_1, \tau, \mathbb{E}[X_1] = \cdots = \mathbb{E}[X_{\tau}] = \mu_0, \; \mu_0 \neq \mu_1, \; \mathbb{E}[X_{\tau+1}] = \mathbb{E}[X_{\tau+2}] = \cdots = \mu_1$}
-      % $\exists \mu_0, \mu_1, \exists \tau, \forall t \leq \tau, \mathbb{E}[X_t] = \mu_0 \text{ and } \forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$
-    \end{itemize}
-    \item Vous arrêtez au temps $\widehat{\tau}$, dès que vous détectez une rupture
-  \end{itemize}
-
-  \pause
-  Un \alert{détecteur de rupture séquentiel} est un \alert{\textbf{temps d'arrêt $\widehat{\tau}$}},
-  mesurable selon $\mathcal{F}_t = \sigma(X_1,\cdots,X_t)$,
-  qui rejette l'hypothèse \textcolor{deeppurple}{$\mathcal{H}_0$}
-  lorsque $\widehat{\tau} < \infty$.
-
-\end{frame}
-
-
-\subsection{\hfill{}Test de rapport de vraisemblances pour des données de Bernoulli\hfill{}}
-
-\begin{frame}{Test de rapport de vraisemblances de Bernoulli}
-
-  \textbf{Hypothèses} : toutes les distributions sont Bernoulli ($\nu_k = \mathcal{B}(\mu_k)$)
-
-  Le problème se résume à distinguer
-  \begin{itemize}
-    \item[\textcolor{deeppurple}{$\mathcal{H}_0$}:]
-    \textcolor{deeppurple}{$(\exists \mu_0 : \forall i\in\mathbb{N}^*, X_i \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0))$},
-    contre l'alternative
-    \item[\textcolor{gold}{$\mathcal{H}_1$}:]
-    \textcolor{gold}{$(\exists \mu_0 \neq \mu_1, \tau > 1 : X_1, \cdots, X_\tau \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_0) \text{~et~} X_{\tau+1}, \cdots \overset{\text{i.i.d.}}{\sim} \mathcal{B}(\mu_1))$}.
-  \end{itemize}
-
-  \pause
-
-  Après avoir observé $X_1,\cdots,X_n$, la statistique du \alert{test de rapport de vraisemblances} pour cette hypothèse est
-  \begin{small}
-    \[ \mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})},\]
-  \end{small}
-
-  où $\ell(X_1,\cdots,X_n ; \textcolor{deeppurple}{\mu_0})$ et $\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})$ sont les vraisemblances des observations selon les modèles \textcolor{deeppurple}{$\mathcal{H}_0$} et \textcolor{gold}{$\mathcal{H}_1$}.
-
-  \pause
-
-  \alert{$\hookrightarrow$ De grandes valeurs de $\mathcal{L}(n)$ tendent à rejeter \textcolor{deeppurple}{$\mathcal{H}_0$} en faveur de \textcolor{gold}{$\mathcal{H}_1$}.}
-
-\end{frame}
-
-\begin{frame}{(log) Rapport de vraisemblances de Bernoulli}
-
-  On peut réécrire cette statistique
-  $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
-  en utilisant les vraisemblances de Bernoulli, et les moyennes glissantes $\widehat{\mu}_{k:k'} = \frac{1}{k'-k+1} \sum\limits_{s=k}^{k'} X_s$ :
-
-  \begin{align*}
-    \log \mathcal{L}(n) = \alert{\max_{s \in \{1,\cdots,n-1\}}} \bigl[
-      & s \times \mathrm{kl} (\underbrace{\widehat{\mu}_{1:s}}_{\text{avant rupture}},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \\
-      + & (n-s) \times \mathrm{kl} (\underbrace{\widehat{\mu}_{s+1:n}}_{\text{après rupture}},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \bigr].
-  \end{align*}
-
-  \begin{small}
-    \textcolor{gray}{Où $\mathrm{kl}(x,y) =x \ln\bigl(\frac{x}{y}\bigr) + (1-x)\ln\bigl(\frac{1-x}{1-y}\bigr)$ est l'entropie relative binaire}
-  \end{small}
-
-\end{frame}
-
-
-\subsection{\hfill{}Le B-GLRT\hfill{}}
-
-\begin{frame}{Le test généralisé de rapport de vraisemblances de Bernoulli (B-GLRT)}
-
-  \begin{itemize}
-    \item
-    On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.\\
-    (fonction génératrice $\phi$ des moments bornée par celle d'une loi de Bernoulli $\phi_{\mathcal{B}}$)
-    \item
-    Et toute distribution à support borné dans $[0,1]$ est sous-Bernoulli !
-    \item
-    $\implies$ le test B-GLR peut être appliqué à n'importe quelles observations bornées \dCooley{}
-  \end{itemize}
-
-  % \begin{block}{Sub-Bernoulli distributions}
-  %   If $\nu$ is supported in $[0,1]$,
-  %   $\nu$ is \emph{sub-Bernoulli} if it verifies
-  %   $\mathbb{E}_{X\sim\nu}\left[e^{\lambda X}\right] \leq  1-\mu + \mu e^\lambda = \mathbb{E}_{X\sim \mathcal{B}(\mu)} [e^{\lambda X}]$.
-  %   % where $\mathcal{B}(\mu)$ est la loi de Bernoulli de moyenne $\mu$.
-  % \end{block}
-
-  \pause
-
-  \begin{block}{Le test de détection séquentielle de rupture B-GRLT}
-    Le \alert{B-GLRT} est le temps d'arrêt définit par
-    \begin{small}
-    \[ \widehat{\tau}_{\delta} = \inf \bigl\{ n \in \mathbb{N}^* : \max_{s \in \{1,\cdots,n-1\}} \bigl[s \, \mathrm{kl}\left(\widehat{\mu}_{1:s},\widehat{\mu}_{1:n}\right) + (n-s) \, \mathrm{kl}\left(\widehat{\mu}_{s+1:n},\widehat{\mu}_{1:n}\right)\bigr] \geq \beta(n,\delta) \bigr\} \]
-    \vspace*{-10pt}
-    \end{small}%
-    \begin{itemize}\tightlist
-      \item avec une \alert{function seuil} $\beta(n,\delta)$ spécifiée plus tard,
-      \item $n$ est le nombre d'observations ($X_1,\dots,X_n$),
-      \item $\delta$ est le niveau de confiance ($\delta\in(0,1)$).
-    \end{itemize}%
-  \end{block}
-
-\end{frame}
-
-
-\subsection{\hfill{}Fausse alarme\hfill{}}
-
-\begin{frame}{Probabilité de fausse alarme}
-
-  Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
-
-  \pause
-  \begin{block}{Définition : fausse alarme}
-    Le temps d'arrêt est $\widehat{\tau}_\delta$,
-    et une rupture est détectée si $\widehat{\tau}_\delta < \infty$.
-
-    Soit $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}$ un modèle de probabilité selon lequel les observations sont $\forall t, X_t \in[0,1]$
-    et \textcolor{deeppurple}{$\forall t, \mathbb{E}[X_t] = \mu_0$}.
-
-    La \alert{probabilité de fausse alarme} est $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty)$.
-  \end{block}
-
-  \alert{$\implies$ But : contrôler l'événement de fausse alarme !} (en forte proba)
-
-\end{frame}
-
-\begin{frame}{Premier résultat pour le test BGLR \dSmiley{}}
-
-  \begin{block}{Contrôler la probabilité de fausse alarme}
-    Pour n'importe quel \alert{niveau de confiance} $0<\delta<1$,
-    le test BGLR satisfait
-    \[ \mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta \]
-    avec la fonction seuil
-    \begin{small}
-      \[ \beta(n,\delta) = \textcolor{gray}{2\,\mathcal{T}\left(\frac{\ln(3n\sqrt{n}/\delta)}{2}\right) + 6\ln(1+\ln(n))} \simeq \ln\left(\frac{3n \sqrt{n}}{\delta}\right) = \mathcal{O}\left(\log\left(\frac{n}{\delta}\right)\right).\]
-    \end{small}
-    \begin{footnotesize}
-      \textcolor{gray}{Où $\mathcal{T}(x)$ vérifie $\mathcal{T}(x)\simeq x + \ln(x)$ pour $x$ assez grand}
-    \end{footnotesize}
-  \end{block}
-
-
-  \begin{small}
-    \begin{exampleblock}<2>{Preuve ?}
-      Voir la version longue de notre article
-      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
-      et
-      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
-    \end{exampleblock}
-  \end{small}
-
-\end{frame}
-
-\subsection{\hfill{}Délai de détection\hfill{}}
-
-\begin{frame}{Délai de détection}
-
-  Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
-
-  \pause
-  \begin{block}{Definition : délai de détection}
-    Soit $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ un modèle de probabilité selon lequel $\forall t, X_t \in[0,1]$ et \textcolor{gold}{$\forall t \leq \tau, \mathbb{E}[X_t] = \mu_0$ et $\forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$,
-    avec $\mu_0 \neq \mu_1$}.
-
-    L'\alert{écart} de cette rupture est $\Delta = |\mu_0 - \mu_1|$.
-
-    Le \alert{délai de détection} est définit par $u = \widehat{\tau}_{\delta} - \tau \in\mathbb{N}$.
-  \end{block}
-
-  \alert{$\implies$ But : contrôler le délai de détection !} (en forte probabilité)
-
-\end{frame}
-
-\begin{frame}{Second résultat pour le test BGLR \dSmiley{}}
-
-  \begin{block}{Contrôler le délai de détection}
-      Pour une rupture d'amplitude $\Delta = |\mu_1 - \mu_0|$,
-      le test BGLR satisfait
-      \begin{small}
-        \begin{align*}
-            \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
-            &= \mathcal{O}(\text{décroissance exponentielle en~} u)
-            = \mathcal{O}(\exp\searrow(u)).
-        \end{align*}
-      \end{small}
-      avec la même fonction de seuil
-      $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta)$.
-  \end{block}
-
-  \begin{exampleblock}{Conséquence}
-    En forte probabilité, \alert{le délai $\widehat{\tau}_\delta$ du BGLR est borné} par $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ \alert{si assez d'échantillons sont observés avant la rupture} au temps $\tau$.
-    % (at least $\mathcal{O}(\Delta^{-2} \ln(1/\delta))$ samples.
-    % the detection delay of BGLR has the same magnitude.
-  \end{exampleblock}
-
-\end{frame}
-
-
-\subsection{\hfill{}Résumé des résultats du B-GLRT\hfill{}}
-
-\begin{frame}{BGLR est un test de détection de rupture efficace \dCooley{} !}
-
-  \begin{itemize}
-    \item
-    On a vu qu'en choisissant
-    \begin{itemize}\tightlist
-      \item
-      un niveau de confiance $\delta$,
-      \item
-      et une bonne fonction de seuil $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta) = \mathcal{O}(\log(n/\delta))$,
-    \end{itemize}
-    \pause
-    \item
-    on peut contrôler les deux propriétés du test BGLR :
-    \begin{itemize}\tightlist
-      \item
-        sa \alert{probabilité de fausse alarme} :
-        $\mathbb{P}_{\textcolor{darkpurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta$,
-      \item
-        son \alert{délai de détection} :
-        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ décroît exponentiellement rapidement en $u$
-        (s'il y a assez d'observations avant et après la rupture).
-    \end{itemize}
-
-    \item
-    $\implies$ Le test BGLR détecte les ruptures efficacement \dCooley{}
-  \end{itemize}
-
-  \pause
-  \begin{block}{Garanties non asymptotiques \dCooley{} \hfill{} \tiny{\textcolor{gray}{[Maillard, ALT, 2019]} \textcolor{gray}{[Lai \& Xing, Sequential Analysis, 2010]}}}
-    De telles garanties \alert{non asymptotiques} sont des résultats assez récents !
-  \end{block}
-
-\end{frame}
-
 \section{\hfill{}4. L'algorithme B-GLRT + klUCB\hfill{}}
 
 \begin{frame}{4. L'algorithme B-GLRT + klUCB}
@@ -1071,12 +1098,6 @@
     }}
     \vspace*{15pt}
 
-    % \item
-    % \textcolor{gray}{
-    %   Analyse du regret
-    % }
-    % \vspace*{15pt}
-
     \item
     \textcolor{gray}{
       Simulations numériques
@@ -1089,135 +1110,138 @@
 
 \begin{frame}{On combine le test BGRL + les indices kl-UCB}
 
-  \begin{block}{Idées principales}
-    \begin{itemize}
-      % \item Forced uniform random exploration with probability $\alpha$
-      \item Calculer un indice UCB sur chaque bras $k$ (Borne Sup. Confiance)
-        % $\mbox{kl-UCB}_k(t)$
-      \item Presque tout le temps, jouer le bras $A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$
-      \item Utiliser le test BGLR \alert{pour détecter les ruptures sur le bras joué}
-      \item Si une rupture est détectée, \alert{effacer la mémoire des observations de \emph{tous les} bras}
-    \end{itemize}
-  \end{block}
+  Idées principales :
 
-  \pause
+  \begin{itemize}
+    % \item Forced uniform random exploration with probability $\alpha$
+    \item Calculer un indice UCB sur chaque bras $k$ (Borne Sup. Confiance)
+    \pause
+    % $\mbox{kl-UCB}_k(t)$
+    \item Presque tout le temps, jouer le bras $A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$
+    \item Quelques instants, forcer une exploration de chaque bras
+    \pause
+    \item Utiliser le test BGLR \alert{pour détecter les ruptures sur le bras joué}
+    \item Si une rupture est détectée, \alert{effacer la mémoire des observations de \emph{tous les} bras}
+  \end{itemize}
 
-  \begin{exampleblock}{Les indices kl-UCB}
-    \begin{itemize}
-      \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$,
-      % avant le temps $t$,
-      \item $n_k(t)$ compte les sélections et $\widehat{\mu}_k(t)$ est la moyenne empirique des observations du bras $k$ depuis $\tau_k(t)$,
-      % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
-      % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
-      %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
-      \item Soit {\small $\mbox{kl-UCB}_k(t) = \max \bigl\{ q\in[0,1] : n_k(t) \times \mathrm{kl}\left(\widehat{\mu}_k(t),q\right) \leq f(t - \tau_k(t)) \bigr\}$ }
-      \item $f(t) = \ln(t) + 3 \ln(\ln(t))$ contrôle l'amplitude de la Borne Sup. de Confiance (UCB).
-    \end{itemize}
-  \end{exampleblock}
+  % \pause
 
-\end{frame}
-
-\begin{frame}{Deux détails sur notre algorithme}
-
-  % % \GLRklUCB{} repose sur le calcul d'un \emph{indice} (de type \mathrm{kl}UCB{} \cite{KLUCBJournal}) pour chaque bras,  et choisit en général le bras d'indice le plus élevé.
-  % Soit $\tau_i(t)$ l'instant de la dernière réinitialisation pour le bras $i$ avant le temps $t$, $n_i(t) = \sum_{s=\tau_i(t)+1}^{t} \mathbbm{1}(A_s=i)$ le nombre de sélections et $\widehat{\mu}_i(t)$
-  % %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
-  % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
-
-  % % L'indice du bras $i$ à l'instant $t$ est défini par
-  % % $\UCB_i(t) = \max \bigl\{ q\in[0,1] : n_i(t) \times \mathrm{kl}\left(\widehat{\mu}_i(t),q\right) \leq f(t - \tau_i(t)) \bigr\}$ (l. $6$) avec la fonction d'exploration $f(t) = \ln(t) + 3 \ln(\ln(t))$.
-  % % La détection d'une rupture sur le bras qui vient d'être joué
-  % % produit une réinitialisation (l. $12$),
-
-  \begin{exampleblock}{$i)$ Comment est utilisé le test BGLR ? \hfill{} (paramètre $\delta$)}
-    Avec les observations $Z_1,\cdots,Z_n$
-    % $\mbox{BGLRT}_\delta(Z_1,\dots,Z_n) = \mathrm{True}$
-    on utilise le test BGLR pour détecter une rupture
-    avec un niveau de confiance $\delta$
-    quand
-    % \begin{footnotesize}
-      \[
-        \sup_{1 \leq s \leq n-1} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
-        \]
-    % \end{footnotesize}%
-    % We use $\beta(n,\delta) \simeq \ln(3n^{3/2}/\delta)$
-  \end{exampleblock}
-
-  \pause
-
-  \begin{exampleblock}{$ii)$ Exploration forcée \hfill{} (paramètre $\alpha$)}
-    \begin{itemize}
-      \item On utilise une exploration forcée sur tous les bras\ldots\\
-        \emph{ie}, en moyenne, le bras $k$ est forcé à être joué au moins $T \times \alpha / K$ fois
-      \item $\implies$ dans le but de pouvoir détecter les ruptures sur tous les bras
-      \item et pas seulement sur le bras joué par les indices kl-UCB
-      % (lignes $5$-$6$), qui assure que chaque bras est suffisamment échantillonné, afin que les ruptures puissent aussi être détectées sur les bras actuellement sous-échantillonnés par l'algorithme de bandit.
-    \end{itemize}
-  \end{exampleblock}
+  % \begin{exampleblock}{Les indices kl-UCB}
+  %   \begin{itemize}
+  %     \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$,
+  %     % avant le temps $t$,
+  %     \item $n_k(t)$ compte les sélections et $\widehat{\mu}_k(t)$ est la moyenne empirique des observations du bras $k$ depuis $\tau_k(t)$,
+  %     % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
+  %     % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
+  %     %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
+  %     \item Soit {\small $\mbox{kl-UCB}_k(t) = \max \bigl\{ q\in[0,1] : n_k(t) \times \mathrm{kl}\left(\widehat{\mu}_k(t),q\right) \leq f(t - \tau_k(t)) \bigr\}$ }
+  %     \item $f(t) = \ln(t) + 3 \ln(\ln(t))$ contrôle l'amplitude de la Borne Sup. de Confiance (UCB).
+  %   \end{itemize}
+  % \end{exampleblock}
 
 \end{frame}
 
-\begin{frame}{L'algorithme \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
+% \begin{frame}{Deux détails sur notre algorithme}
 
-\begin{columns}
-\begin{column}{0.02\textwidth}
-  %
-\end{column}
-\begin{column}{0.97\textwidth}
-\begin{footnotesize}
-  % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
-  % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
-  % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
-  \begin{algorithm}[H]
-      % XXX Options
-      % \LinesNumbered  % XXX Option to number the line
-      % \RestyleAlgo{boxed}
-      % XXX Input, data and output
-      \KwData{\emph{Paramètre du problème} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
-      \KwData{\emph{Paramètre} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
-      % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
-      % \KwData{Data}
-      % \KwResult{Result}
-      % XXX Algorithm
-      \textbf{Initialisation : } $\forall k \in \{1,\dots,K\}$, $\tau_k = 0$ et $n_k = 0$ \\
-      \For{$t=1,2,\ldots, T$}{
-          \pause
-          \uIf{
-              $t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor \in \{1,\dots,K\}$
-          }{
-              $A(t) = t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor$
-              \tcp*[f]{exploration forcée} \\
-          }
-          \uElse{
-            \textcolor{deeppurple}{$A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$}
-              \tcp*[f]{\textcolor{deeppurple}{plus grand indice UCB}}
-          }
-          \pause
-          \mbox{Joue le bras} $k=A(t)$, et incrémente le compteur $n_{A(t)} = n_{A(t)} + 1$ \\
-          \mbox{Observe la récompense} $X_{A(t),t}$, et la stocker $Z_{A(t), n_{A(t)}} = X_{A(t),t}$ \\
-          \pause
-          \uIf{
-            \textcolor{gold}{$\mathrm{BGLRT}_\delta(Z_{A(t),1}, \cdots, Z_{A(t), n_{A(t)}})$ = Vrai}
-          }
-          {
-              % \uSi{Redémarrages \textbf{globaux}}{
-                \textcolor{gold}{$\forall k, \tau_k = t$ et $n_k = 0 $}
-                \tcp*[f]{\textcolor{gold}{efface la mémoire de tous les bras}}
-                  % \tcp*[f]{redémarrages globaux}
-                  % }
-              % \Sinon{
-                  % $\tau_{A(t)} = t$ and $n_{A(t)} = 0$
-                  % \tcp*[f]{redémarrage local}
-              % }
-          }
-      }
-  \end{algorithm}
-\end{footnotesize}
+%   % % \GLRklUCB{} repose sur le calcul d'un \emph{indice} (de type \mathrm{kl}UCB{} \cite{KLUCBJournal}) pour chaque bras,  et choisit en général le bras d'indice le plus élevé.
+%   % Soit $\tau_i(t)$ l'instant de la dernière réinitialisation pour le bras $i$ avant le temps $t$, $n_i(t) = \sum_{s=\tau_i(t)+1}^{t} \mathbbm{1}(A_s=i)$ le nombre de sélections et $\widehat{\mu}_i(t)$
+%   % %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
+%   % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
 
-\end{column}
-\end{columns}
+%   % % L'indice du bras $i$ à l'instant $t$ est défini par
+%   % % $\UCB_i(t) = \max \bigl\{ q\in[0,1] : n_i(t) \times \mathrm{kl}\left(\widehat{\mu}_i(t),q\right) \leq f(t - \tau_i(t)) \bigr\}$ (l. $6$) avec la fonction d'exploration $f(t) = \ln(t) + 3 \ln(\ln(t))$.
+%   % % La détection d'une rupture sur le bras qui vient d'être joué
+%   % % produit une réinitialisation (l. $12$),
 
-\end{frame}
+%   \begin{exampleblock}{$i)$ Comment est utilisé le test BGLR ? \hfill{} (paramètre $\delta$)}
+%     Avec les observations $Z_1,\cdots,Z_n$
+%     % $\mbox{BGLRT}_\delta(Z_1,\dots,Z_n) = \mathrm{True}$
+%     on utilise le test BGLR pour détecter une rupture
+%     avec un niveau de confiance $\delta$
+%     quand
+%     % \begin{footnotesize}
+%       \[
+%         \sup_{1 \leq s \leq n-1} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
+%         \]
+%     % \end{footnotesize}%
+%     % We use $\beta(n,\delta) \simeq \ln(3n^{3/2}/\delta)$
+%   \end{exampleblock}
+
+%   \pause
+
+%   \begin{exampleblock}{$ii)$ Exploration forcée \hfill{} (paramètre $\alpha$)}
+%     \begin{itemize}
+%       \item On utilise une exploration forcée sur tous les bras\ldots\\
+%         \emph{ie}, en moyenne, le bras $k$ est forcé à être joué au moins $T \times \alpha / K$ fois
+%       \item $\implies$ dans le but de pouvoir détecter les ruptures sur tous les bras
+%       \item et pas seulement sur le bras joué par les indices kl-UCB
+%       % (lignes $5$-$6$), qui assure que chaque bras est suffisamment échantillonné, afin que les ruptures puissent aussi être détectées sur les bras actuellement sous-échantillonnés par l'algorithme de bandit.
+%     \end{itemize}
+%   \end{exampleblock}
+
+% \end{frame}
+
+% \begin{frame}{L'algorithme \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
+
+% \begin{columns}
+% \begin{column}{0.02\textwidth}
+%   %
+% \end{column}
+% \begin{column}{0.97\textwidth}
+% \begin{footnotesize}
+%   % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+%   % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+%   % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+%   \begin{algorithm}[H]
+%       % XXX Options
+%       % \LinesNumbered  % XXX Option to number the line
+%       % \RestyleAlgo{boxed}
+%       % XXX Input, data and output
+%       \KwData{\emph{Paramètre du problème} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
+%       \KwData{\emph{Paramètre} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
+%       % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
+%       % \KwData{Data}
+%       % \KwResult{Result}
+%       % XXX Algorithm
+%       \textbf{Initialisation : } $\forall k \in \{1,\dots,K\}$, $\tau_k = 0$ et $n_k = 0$ \\
+%       \For{$t=1,2,\ldots, T$}{
+%           \pause
+%           \uIf{
+%               $t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor \in \{1,\dots,K\}$
+%           }{
+%               $A(t) = t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor$
+%               \tcp*[f]{exploration forcée} \\
+%           }
+%           \uElse{
+%             \textcolor{deeppurple}{$A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$}
+%               \tcp*[f]{\textcolor{deeppurple}{plus grand indice UCB}}
+%           }
+%           \pause
+%           \mbox{Joue le bras} $k=A(t)$, et incrémente le compteur $n_{A(t)} = n_{A(t)} + 1$ \\
+%           \mbox{Observe la récompense} $X_{A(t),t}$, et la stocker $Z_{A(t), n_{A(t)}} = X_{A(t),t}$ \\
+%           \pause
+%           \uIf{
+%             \textcolor{gold}{$\mathrm{BGLRT}_\delta(Z_{A(t),1}, \cdots, Z_{A(t), n_{A(t)}})$ = Vrai}
+%           }
+%           {
+%               % \uSi{Redémarrages \textbf{globaux}}{
+%                 \textcolor{gold}{$\forall k, \tau_k = t$ et $n_k = 0 $}
+%                 \tcp*[f]{\textcolor{gold}{efface la mémoire de tous les bras}}
+%                   % \tcp*[f]{redémarrages globaux}
+%                   % }
+%               % \Sinon{
+%                   % $\tau_{A(t)} = t$ and $n_{A(t)} = 0$
+%                   % \tcp*[f]{redémarrage local}
+%               % }
+%           }
+%       }
+%   \end{algorithm}
+% \end{footnotesize}
+
+% \end{column}
+% \end{columns}
+
+% \end{frame}
 
 
 % \section{\hfill{}5. Analyse du regret\hfill{}}
@@ -1426,12 +1450,6 @@
     }
     \vspace*{15pt}
 
-    % \item
-    % \textcolor{gray}{
-    %   Analyse du regret
-    % }
-    % \vspace*{15pt}
-
     \item
     \alert{\textbf{%
       Simulations numériques
@@ -1478,6 +1496,12 @@
 
 \end{frame}
 
+\begin{frame}[plain]{Pour les curieux : SMPyBandits est sur GitHub et PyPI}
+  \centering
+  \includegraphics[width=1.05\textwidth]{figures/overview_documentation_1.png}
+\end{frame}
+
+
 
 \begin{frame}[plain]{Problème 1 : seulement des changements locaux}
   \centering
@@ -1487,6 +1511,14 @@
   \textcolor{red}{$\mu_1(t)$},
   \textcolor{green}{$\mu_2(t)$},
   \textcolor{blue}{$\mu_3(t)$}.
+\end{frame}
+
+\begin{frame}[plain]{Exemple de détections de ruptures pour le problème 1}
+  \centering
+  \includegraphics[width=1.05\textwidth]{figures/Visualizing_locations_of_change_points_for_different_algorithms__4algs_Pb1.pdf}
+
+  $\implies$ Notre test est efficace !
+  (sur un exemple)
 \end{frame}
 
 \begin{frame}[plain]{Résultats pour le problème 1}
@@ -1500,6 +1532,14 @@
 \begin{frame}[plain]{Problème 2 : seulement des changements globaux}
   \centering
   \includegraphics[width=1.00\textwidth]{figures/Problem_2.pdf}
+\end{frame}
+
+\begin{frame}[plain]{Exemple de détections de ruptures pour le problème 2}
+  \centering
+  \includegraphics[width=1.05\textwidth]{figures/Visualizing_locations_of_change_points_for_different_algorithms__4algs_Pb2.pdf}
+
+  $\implies$ Notre test est efficace !
+  (sur un exemple)
 \end{frame}
 
 \begin{frame}[plain]{Résultats pour le problème 2}
