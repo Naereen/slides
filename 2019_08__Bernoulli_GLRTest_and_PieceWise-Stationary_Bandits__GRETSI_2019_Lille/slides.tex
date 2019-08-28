@@ -377,9 +377,9 @@
 
 \subsection{\hfill{}Qu'est-ce qu'un problème de bandits ?\hfill{}}
 
-\begin{frame}{Bandits manchots ? ($=$ un bras)}
+\begin{frame}{Bandits manchots ?}
 
-  Un autre nom pour une machine à sous :
+  Un vieux nom pour une machine à sous :
 
   \begin{center}
     % \centering
@@ -426,8 +426,8 @@
   \begin{alertblock}{Non stationnaires : plus difficile}
     \begin{itemize}
       \item Si l'environnement change à chaque instant : trop difficile !
-      \item Si moins fluctuant : on peut le résoudre.
-      \item Notre cadre : stationnaire par morceau !
+      \item Si l'environnement change de temps en temps : on peut espérer résoudre le problème !
+      \item Notre cadre : stationnaire par morceau, peu de morceaux !
     \end{itemize}
   \end{alertblock}
 
@@ -483,7 +483,7 @@
     1. Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
 
     \visible<2>{
-      Premier extrême : aucune fausse alarme si on détecte \emph{jamais} \dXey{}
+      \alert{Premier extrême} : aucune fausse alarme si on détecte \emph{jamais} \dXey{}
     }
   \end{block}
 
@@ -491,12 +491,12 @@
     2. Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
 
     \visible<2>{
-      Autre extrême : délai nul si on détecte \emph{tout le temps} \dXey{}
+      \alert{Autre extrême} : délai nul si on détecte \emph{tout le temps} \dXey{}
     }
   \end{block}
 
   \visible<2>{
-    $\implies$ résoudre le compromis entre les deux !
+    $\implies$ résoudre le compromis entre \alert{les deux extrêmes} !
   }
 
 \end{frame}
@@ -559,23 +559,25 @@
     \item
     On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.
     \item
-    Et toute distribution $\mathcal{D}$ à support borné dans $[0,1]$ est sous-Bernoulli !
+    Toute distribution $\nu$ à support borné dans $[0,1]$ est sous-Bernoulli !
     \item
     $\implies$ le test B-GLR peut être appliqué à n'importe quelles observations bornées \dCooley{}
   \end{itemize}
 
-  % \begin{block}{Sub-Bernoulli distributions}
-  \begin{tiny}
+  \begin{small}
+  \begin{exampleblock}{Distributions sous-Bernoulli}
     % If $\nu$ is supported in $[0,1]$,
     % $\nu$ is \emph{sub-Bernoulli} if it verifies
-    $\mathcal{D}$ sous-Bernoulli \\
+    $\nu$ sous-Bernoulli \\
     $\Leftrightarrow$
-    fonction génératrice des moments de $\mathcal{D}$ $\phi_{\mathcal{D}} \leq \phi_{\mathcal{B}}$ celle d'une Bernoulli $\mathcal{B}$ \\
+    sa fonction génératrice des moments de $\nu$ est bornée par celle d'une Bernoulli $\mathcal{B}$ \\
+    $\Leftrightarrow$
+    $\phi_{\nu} \leq \phi_{\mathcal{B}}$
     $\Leftrightarrow$
     $\forall \lambda, \mathbb{E}_{X\sim\nu}\left[e^{\lambda X}\right] \leq  1-\mu + \mu e^\lambda = \mathbb{E}_{X\sim \mathcal{B}(\mu)} [e^{\lambda X}]$.
     % where $\mathcal{B}(\mu)$ est la loi de Bernoulli de moyenne $\mu$.
-  \end{tiny}
-  % \end{block}
+  \end{exampleblock}
+\end{small}
 
 \end{frame}
 
@@ -590,7 +592,7 @@
     \begin{itemize}\tightlist
       \item avec une \alert{function seuil} $\beta(n,\delta)$ spécifiée plus tard,
       \item $n$ est le nombre d'observations ($X_1,\dots,X_n$),
-      \item $\delta$ est le niveau de confiance ($\delta\in(0,1)$).
+      \item $\delta$ est le niveau de confiance $0 < \delta < 1$).
     \end{itemize}%
   % \end{block}
 
@@ -601,9 +603,9 @@
 
 \begin{frame}{Probabilité de fausse alarme}
 
-  1. Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
+  % 1. Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
 
-  \pause
+  % \pause
   \begin{block}{Définition : fausse alarme}
     Le temps d'arrêt est $\widehat{\tau}_\delta$,
     et une rupture est détectée si $\widehat{\tau}_\delta < \infty$.
@@ -648,9 +650,9 @@
 
 \begin{frame}{Délai de détection}
 
-  2. Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
+  % 2. Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
 
-  \pause
+  % \pause
   \begin{block}{Definition : délai de détection}
     Soit $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ un modèle de probabilité selon lequel $\forall t, X_t \in[0,1]$ et \textcolor{gold}{$\forall t \leq \tau, \mathbb{E}[X_t] = \mu_0$ et $\forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$,
     avec $\mu_0 \neq \mu_1$}.
@@ -1029,8 +1031,9 @@
   On affiche les moyennes \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
   des $K=3$ bras.\\
   Il y a $\Upsilon_T=4$ ruptures, et $5$ séquences entre $t=1$ et $T=5000$ :
+  \vspace*{-20pt} % WARNING
   \begin{center}
-    \includegraphics[width=1.00\textwidth]{figures/Problem_1.pdf}
+    \includegraphics[width=1.10\textwidth]{figures/Problem_1.pdf}
   \end{center}
 \end{frame}
 
@@ -1123,6 +1126,8 @@
     \item Utiliser le test BGLR \alert{pour détecter les ruptures sur le bras joué}
     \item Si une rupture est détectée, \alert{effacer la mémoire des observations de \emph{tous les} bras}
   \end{itemize}
+
+  $\hookrightarrow$ Algorithme BGRL + kl-UCB détaillé dans l'article
 
   % \pause
 
@@ -1480,18 +1485,18 @@
   \pause
 
   \begin{exampleblock}{Référence}
-    \begin{itemize}
-      \item
+    % \begin{itemize}
+    %   \item
       On utilise ma bibliothèque open-source en Python pour la simulation de problèmes de bandits, \textbf{SMPyBandits}
       \\
       $\hookrightarrow$ Publiée en ligne à \href{https://SMPyBandits.GitHub.io}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
-      \item
-      Plus d'expériences dans la version longue de l'article !\\
-      $\hookrightarrow$ sur
-      \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
-      et
-      \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
-    \end{itemize}
+    %   \item
+    %   Plus d'expériences dans la version longue de l'article !\\
+    %   $\hookrightarrow$ sur
+    %   \href{https://hal.inria.fr/hal-02006471}{\textcolor{blue}{HAL-02006471}}
+    %   et
+    %   \href{https://arxiv.org/abs/1902.01575}{\textcolor{blue}{arXiv:1902.01575}}
+    % \end{itemize}
   \end{exampleblock}
 
 \end{frame}
@@ -1632,13 +1637,13 @@
 
 \begin{frame}{Résumé}
 
-  On a présenté\ldots{}
+  % On a présenté\ldots{}
   \begin{itemize}
+    % \item
+    % Les problèmes de bandits multi-bras stationnaires ou \alert{stationnaires par morceaux}
+    % %  (MAB)
     \item
-    Les problèmes de bandits multi-bras stationnaires ou \alert{stationnaires par morceaux}
-    %  (MAB)
-    \item
-    Le très efficace test généralisé de rapport de vraisemblances de Bernoulli (T-BGLR) \dCooley{}
+    Le test généralisé de rapport de vraisemblances de Bernoulli (T-BGLR) est très efficace \dCooley{}
     % (B-GLRT)
     \begin{itemize}\tightlist
       \item
@@ -1646,7 +1651,7 @@
       \item
       pour des données de Bernoulli, et aussi des données sous-Bernoulli (n'importe quelle distribution bornée !),
       \item
-      et n'a \emph{pas} besoin de connaître l'amplitude des ruptures
+      et n'a \emph{pas} besoin de connaître l'amplitude des ruptures $\Delta$
     \end{itemize}
     \item
     On peut le combiner avec une stratégie de bandit efficace :
@@ -1654,7 +1659,7 @@
     \item
     Sa borne de regret est $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$  \dCooley{} (état de l'art)
     \item
-    Notre algorithme est compétitif avec le reste de l'état de l'art sur nos simulations numériques\dCooley
+    Notre algorithme est compétitif avec le reste de l'état de l'art sur nos simulations numériques \dCooley{}
     % \\
     % et BGLR + kl-UCB peut être aussi rapide que ses meilleurs compétiteurs.
   \end{itemize}
@@ -1666,7 +1671,7 @@
 
 \begin{center}
   \begin{Large}
-    {\Fontify Merci de votre attention.}
+    {\Fontify Merci  de  votre  attention}
     \Innocey[1.2]
   \end{Large}
 \end{center}
