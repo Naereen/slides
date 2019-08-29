@@ -460,7 +460,10 @@
   \only<4>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps4.pdf}}
   \only<5>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps5.pdf}}
   \only<6>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps6.pdf}}
-  \only<7>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps10.pdf}}
+  \only<7>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps7.pdf}}
+  \only<8>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps8.pdf}}
+  \only<9>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps9.pdf}}
+  \only<10>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps10.pdf}}
 \end{frame}
 
 
@@ -469,11 +472,12 @@
 
   % Imaginez le jeu suivant\ldots
 
-  \begin{itemize}
+  % \begin{itemize}
     % \item On observe des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
     % \item On sait que $X_t$ est générée par une distribution \alert{inconnue}\ldots
 
-    \item \alert{Le but} est de distinguer entre deux hypothèses :
+    % \item
+    \alert{Le but} est de distinguer entre deux hypothèses :
     \begin{itemize}
       \item[\textcolor{deeppurple}{$\mathcal{H}_0$}] \textcolor{deeppurple}{Les distributions \textbf{ont toutes la même moyenne} \hfill{} (``pas de rupture'')\\
       $\exists \mu_0, \mathbb{E}[X_1] = \mathbb{E}[X_2] = \cdots = \mathbb{E}[X_t] = \mu_0$}
@@ -482,8 +486,9 @@
       $\exists \mu_0, \mu_1, \tau, \mathbb{E}[X_1] = \cdots = \mathbb{E}[X_{\tau}] = \mu_0, \; \mu_0 \neq \mu_1, \; \mathbb{E}[X_{\tau+1}] = \mathbb{E}[X_{\tau+2}] = \cdots = \mu_1$}
       % $\exists \mu_0, \mu_1, \exists \tau, \forall t \leq \tau, \mathbb{E}[X_t] = \mu_0 \text{ and } \forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$
     \end{itemize}
-    \item On s'arrête au temps $\widehat{\tau}$, dès qu'on détecte une rupture
-  \end{itemize}
+    % \item
+    On s'arrête au temps $\widehat{\tau}$, dès qu'on détecte une rupture
+  % \end{itemize}
 
   \vspace*{20pt}
 
@@ -658,8 +663,8 @@
 
   \begin{align*}
     \log \mathcal{L}(n) = \alert{\max_{s \in \{1,\cdots,n-1\}}} \bigl[
-      & s \times \mathrm{kl} (\underbrace{\widehat{\mu}_{1:s}}_{\text{avant rupture}},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \\
-      + & (n-s) \times \mathrm{kl} (\underbrace{\widehat{\mu}_{s+1:n}}_{\text{après rupture}},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \bigr].
+      & s \times \mathrm{kl} (\underbrace{\widehat{\mu}_{1:s}}_{\text{avant } s},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \\
+      + & (n-s) \times \mathrm{kl} (\underbrace{\widehat{\mu}_{s+1:n}}_{\text{après } s},\underbrace{\widehat{\mu}_{1:n}}_{\text{tout}} ) \bigr].
   \end{align*}
 
   \begin{small}
@@ -671,33 +676,33 @@
 
 \subsection{\hfill{}Le T-BGLR\hfill{}}
 
-\begin{frame}{Généralisable à des observations bornées \dCooley{}}
+% \begin{frame}{Généralisable à des observations bornées \dCooley{}}
 
-  \begin{itemize}
-    \item
-    On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.
-    \item
-    Toute distribution $\nu$ à support borné dans $[0,1]$ est sous-Bernoulli !
-    \item
-    $\implies$ le test B-GLR peut être appliqué à n'importe quelles observations bornées \dCooley{}
-  \end{itemize}
+%   \begin{itemize}
+%     \item
+%     On peut étendre ce test si les observations sont \alert{sous-Bernoulli}.
+%     \item
+%     Toute distribution $\nu$ à support borné dans $[0,1]$ est sous-Bernoulli !
+%     \item
+%     $\implies$ le test B-GLR peut être appliqué à n'importe quelles observations bornées \dCooley{}
+%   \end{itemize}
 
-  \begin{small}
-  \begin{exampleblock}{Distributions sous-Bernoulli}
-    % If $\nu$ is supported in $[0,1]$,
-    % $\nu$ is \emph{sub-Bernoulli} if it verifies
-    $\nu$ sous-Bernoulli \\
-    $\Leftrightarrow$
-    sa fonction génératrice des moments est bornée par celle d'une Bernoulli $\mathcal{B}$ \\
-    $\Leftrightarrow$
-    $\phi_{\nu} \leq \phi_{\mathcal{B}}$
-    $\Leftrightarrow$
-    $\forall \lambda, \mathbb{E}_{X\sim\nu}\left[e^{\lambda X}\right] \leq  1-\mu + \mu e^\lambda = \mathbb{E}_{X\sim \mathcal{B}(\mu)} [e^{\lambda X}]$.
-    % where $\mathcal{B}(\mu)$ est la loi de Bernoulli de moyenne $\mu$.
-  \end{exampleblock}
-\end{small}
+%   \begin{small}
+%   \begin{exampleblock}{Distributions sous-Bernoulli}
+%     % If $\nu$ is supported in $[0,1]$,
+%     % $\nu$ is \emph{sub-Bernoulli} if it verifies
+%     $\nu$ sous-Bernoulli \\
+%     $\Leftrightarrow$
+%     sa fonction génératrice des moments est bornée par celle d'une Bernoulli $\mathcal{B}$ \\
+%     $\Leftrightarrow$
+%     $\phi_{\nu} \leq \phi_{\mathcal{B}}$
+%     $\Leftrightarrow$
+%     $\forall \lambda, \mathbb{E}_{X\sim\nu}\left[e^{\lambda X}\right] \leq  1-\mu + \mu e^\lambda = \mathbb{E}_{X\sim \mathcal{B}(\mu)} [e^{\lambda X}]$.
+%     % where $\mathcal{B}(\mu)$ est la loi de Bernoulli de moyenne $\mu$.
+%   \end{exampleblock}
+% \end{small}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}{Le test généralisé de rapport de vraisemblances de Bernoulli (T-BGLR)}
 
