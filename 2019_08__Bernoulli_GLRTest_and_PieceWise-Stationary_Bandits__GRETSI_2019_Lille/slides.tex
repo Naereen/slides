@@ -414,35 +414,26 @@
 
 \end{frame}
 
-
 \begin{frame}{Bandits multi-bras : stationnaires vs non-stationnaires}
-
   \begin{block}{Stationnaires}
-    OK
-    % Des algorithmes comme UCB peuvent bien résoudre les problèmes stationnaires.
+    Ok !
   \end{block}
 
   \pause
 
   \begin{alertblock}{Non stationnaires}
-    Plus difficile !
-    % \begin{itemize}
-    %   \item Si l'environnement change à chaque instant : trop difficile !
-    %   \item Si l'environnement change de temps en temps : on peut espérer résoudre le problème !
-    %   \item Notre cadre : stationnaire par morceau, peu de morceaux !
-    % \end{itemize}
+    Difficile !
   \end{alertblock}
 
   \pause
 
   \begin{block}{Notre direction de résolution}
-    On combine\ldots{}
+    On combine :
     \begin{itemize}
       \item un \alert{algorithme classique} (kl-UCB) pour sélectionner les bras,
       \item et \alert{on détecte les ruptures activement grâce à un test statistique} effectué sur chaque bras.
     \end{itemize}
   \end{block}
-
 \end{frame}
 
 
@@ -465,7 +456,6 @@
   \only<9>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps9.pdf}}
   \only<10>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps10.pdf}}
 \end{frame}
-
 
 
 \begin{frame}{Le problème de détection de rupture}
@@ -659,7 +649,8 @@
 
   On peut réécrire cette statistique
   $\mathcal{L}(n) = \frac{\sup\limits_{\textcolor{gold}{\mu_0,\mu_1,\tau < n}}\ell(X_1,\cdots,X_n ; \textcolor{gold}{\mu_0,\mu_1,\tau})}{\sup\limits_{\textcolor{deeppurple}{\mu_0}}\ell(X_1,\cdots,X_n ;\textcolor{deeppurple}{\mu_0})}$,
-  en utilisant les vraisemblances de Bernoulli, et les moyennes glissantes $\widehat{\mu}_{k:k'} = \frac{1}{k'-k+1} \sum\limits_{s=k}^{k'} X_s$ :
+  % en utilisant les vraisemblances de Bernoulli, et les
+  avec les moyennes glissantes $\widehat{\mu}_{k:k'} = \frac{1}{k'-k+1} \sum\limits_{s=k}^{k'} X_s$ :
 
   \begin{align*}
     \log \mathcal{L}(n) = \alert{\max_{s \in \{1,\cdots,n-1\}}} \bigl[
@@ -800,7 +791,7 @@
       le test BGLR satisfait
       \begin{small}
         \begin{align*}
-            \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
+            \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \textcolor{gray}{\exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right)} \\
             &= \mathcal{O}(\text{décroissance exponentielle en~} u) \\
             &= \mathcal{O}(\exp\searrow(u)).
         \end{align*}
@@ -841,8 +832,8 @@
         $\mathbb{P}_{\textcolor{darkpurple}{\mu_0}}(\widehat{\tau}_\delta < \infty) \leq \delta$,
       \item
         son \alert{délai de détection} :
-        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ décroît exponentiellement rapidement en $u$
-        (s'il y a assez d'observations avant et après la rupture).
+        $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \tau + u)$ décroît exponentiellement rapidement en $u$ \\
+        (s'il y a assez d'observations avant et après la rupture)
     \end{itemize}
 
     \vspace*{10pt}
@@ -1661,48 +1652,47 @@
   \centering
   \includegraphics[width=1.05\textwidth]{figures/regret_problem1.png}
 
-  $\implies$ BGLR atteint les meilleures performances parmi les algorithmes non-oracles \dCooley{} !
+  $\implies$ BGLR atteint les meilleures performances (hors non-oracles) \dCooley{} !
 \end{frame}
 
 
-\begin{frame}[plain]{Problème 2 : seulement des changements globaux}
-  \centering
-  \includegraphics[width=1.00\textwidth]{figures/Problem_2.pdf}
-\end{frame}
+% \begin{frame}[plain]{Problème 2 : seulement des changements globaux}
+%   \centering
+%   \includegraphics[width=1.00\textwidth]{figures/Problem_2.pdf}
+% \end{frame}
 
-\begin{frame}[plain]{Exemple de détections de ruptures pour le problème 2}
-  \centering
-  \includegraphics[width=1.05\textwidth]{figures/Visualizing_locations_of_change_points_for_different_algorithms__4algs_Pb2.pdf}
+% \begin{frame}[plain]{Exemple de détections de ruptures pour le problème 2}
+%   \centering
+%   \includegraphics[width=1.05\textwidth]{figures/Visualizing_locations_of_change_points_for_different_algorithms__4algs_Pb2.pdf}
 
-  $\implies$ Notre test est efficace !
-  (sur un exemple)
-\end{frame}
+%   $\implies$ Notre test est efficace !
+%   (sur un exemple)
+% \end{frame}
 
-\begin{frame}[plain]{Résultats pour le problème 2}
-  \centering
-  \includegraphics[width=1.05\textwidth]{figures/regret_problem2.pdf}
+% \begin{frame}[plain]{Résultats pour le problème 2}
+%   \centering
+%   \includegraphics[width=1.05\textwidth]{figures/regret_problem2.pdf}
 
-  $\implies$ BGLR atteint encore les meilleures performances \dCooley{} !
-\end{frame}
+%   $\implies$ BGLR atteint encore les meilleures performances \dCooley{} !
+% \end{frame}
 
 
-\begin{frame}[plain]{Pb 3 : longueurs non uniformes des séquences}
-  \centering
-  \includegraphics[width=1.00\textwidth]{figures/Problem_4.pdf}
-\end{frame}
+% \begin{frame}[plain]{Pb 3 : longueurs non uniformes des séquences}
+%   \centering
+%   \includegraphics[width=1.00\textwidth]{figures/Problem_4.pdf}
+% \end{frame}
 
-\begin{frame}[plain]{Résultats pour le problème 3}
-  \centering
-  \includegraphics[width=1.05\textwidth]{figures/regret_problem4.pdf}
+% \begin{frame}[plain]{Résultats pour le problème 3}
+%   \centering
+%   \includegraphics[width=1.05\textwidth]{figures/regret_problem4.pdf}
 
-  $\implies$ BGLR atteint les meilleures performances parmi les algorithmes non-oracles \dCooley{} !
-\end{frame}
+%   $\implies$ BGLR atteint les meilleures performances parmi les algorithmes non-oracles \dCooley{} !
+% \end{frame}
 
 
 % \subsection{\hfill{}Conclusions des simulations\hfill{}}
 
 % % \begin{frame}{Interprétation des simulations (1/2)}
-% \begin{frame}{Interprétation des simulations}
 
 %   \begin{block}{Conclusions pour le regret}
 %     \begin{itemize}
@@ -1799,29 +1789,29 @@
 
 \begin{frame}{Conclusion}
 
-\begin{center}
-  \begin{Large}
-    {\Fontify Merci  de  votre  attention}
-    \Innocey[1.2]
-  \end{Large}
-\end{center}
+  \begin{center}
+    \begin{Large}
+      {\Fontify Merci  de  votre  attention}
+      \Innocey[1.2]
+    \end{Large}
+  \end{center}
 
-\vspace*{20pt}
+  \vspace*{20pt}
 
-\begin{center}
-  \begin{Large}
-    Questions \& Discussion ?
-  \end{Large}
-\end{center}
+  \begin{center}
+    \begin{Large}
+      Questions \& Discussion ?
+    \end{Large}
+  \end{center}
 
-\vspace*{20pt}
+  \vspace*{20pt}
 
-\begin{center}
-  \begin{Large}
-    Si besoin :
-    \texttt{Lilian.Besson{@}CentraleSupelec.fr}
-  \end{Large}
-\end{center}
+  \begin{center}
+    \begin{Large}
+      Si besoin :
+      \texttt{Lilian.Besson{@}CentraleSupelec.fr}
+    \end{Large}
+  \end{center}
 
 \end{frame}
 
