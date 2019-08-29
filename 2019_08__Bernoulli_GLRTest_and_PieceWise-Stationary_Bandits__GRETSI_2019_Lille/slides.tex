@@ -480,10 +480,10 @@
   Deux propriétés essentielles :
 
   \begin{block}{1. Pas de \textbf{fausse alarme}}
-    1. Un bon test ne doit pas détecter de rupture s'il n'y a pas de rupture à détecter\ldots
+    1. Un bon test ne doit rien détecter s'il n'y a pas de rupture à détecter\ldots
 
     \visible<2>{
-      \alert{Premier extrême} : aucune fausse alarme si on détecte \emph{jamais} \dXey{}
+      \hfill{} \alert{Premier extrême} : aucune fausse alarme si on détecte \emph{jamais} \dXey{}
     }
   \end{block}
 
@@ -491,7 +491,7 @@
     2. Un bon test devrait détecter une rupture ``assez vite'' s'il y a une rupture à détecter, avec assez d'échantillons avant la rupture\ldots
 
     \visible<2>{
-      \alert{Autre extrême} : délai nul si on détecte \emph{tout le temps} \dXey{}
+      \hfill{} \alert{Autre extrême} : délai nul si on détecte \emph{tout le temps} \dXey{}
     }
   \end{block}
 
@@ -570,7 +570,7 @@
     % $\nu$ is \emph{sub-Bernoulli} if it verifies
     $\nu$ sous-Bernoulli \\
     $\Leftrightarrow$
-    sa fonction génératrice des moments de $\nu$ est bornée par celle d'une Bernoulli $\mathcal{B}$ \\
+    sa fonction génératrice des moments est bornée par celle d'une Bernoulli $\mathcal{B}$ \\
     $\Leftrightarrow$
     $\phi_{\nu} \leq \phi_{\mathcal{B}}$
     $\Leftrightarrow$
@@ -584,15 +584,15 @@
 \begin{frame}{Le test généralisé de rapport de vraisemblances de Bernoulli (T-BGLR)}
 
   % \begin{block}{Le test de détection séquentielle de rupture B-GRLT}
-    Le \alert{T-BGLR} est le temps d'arrêt définit par
+    Le \alert{T-BGLR} est le temps d'arrêt $\widehat{\tau}_{\delta}$ définit par
     \begin{small}
     \[ \widehat{\tau}_{\delta} = \inf \bigl\{ n \in \mathbb{N}^* : \max_{s \in \{1,\cdots,n-1\}} \bigl[s \, \mathrm{kl}\left(\widehat{\mu}_{1:s},\widehat{\mu}_{1:n}\right) + (n-s) \, \mathrm{kl}\left(\widehat{\mu}_{s+1:n},\widehat{\mu}_{1:n}\right)\bigr] \geq \beta(n,\delta) \bigr\} \]
     \vspace*{-10pt}
     \end{small}%
     \begin{itemize}\tightlist
       \item avec une \alert{function seuil} $\beta(n,\delta)$ spécifiée plus tard,
-      \item $n$ est le nombre d'observations ($X_1,\dots,X_n$),
-      \item $\delta$ est le niveau de confiance $0 < \delta < 1$).
+      \item $n \in \mathbb{N}^*$ est le nombre d'observations ($X_1,\dots,X_n$),
+      \item $0 < \delta < 1$ est le niveau de confiance.
     \end{itemize}%
   % \end{block}
 
@@ -607,11 +607,13 @@
 
   % \pause
   \begin{block}{Définition : fausse alarme}
-    Le temps d'arrêt est $\widehat{\tau}_\delta$,
-    et une rupture est détectée si $\widehat{\tau}_\delta < \infty$.
+    % Le temps d'arrêt est $\widehat{\tau}_\delta$,
+    Une rupture est détectée si $\widehat{\tau}_\delta < \infty$.
+    \vspace*{10pt}
 
     Soit $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}$ un modèle de probabilité selon lequel les observations sont $\forall t, X_t \in[0,1]$
     et \textcolor{deeppurple}{$\forall t, \mathbb{E}[X_t] = \mu_0$}.
+    \vspace*{10pt}
 
     La \alert{probabilité de fausse alarme} est $\mathbb{P}_{\textcolor{deeppurple}{\mu_0}}(\widehat{\tau}_\delta < \infty)$.
   \end{block}
@@ -656,10 +658,12 @@
   \begin{block}{Definition : délai de détection}
     Soit $\mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}}$ un modèle de probabilité selon lequel $\forall t, X_t \in[0,1]$ et \textcolor{gold}{$\forall t \leq \tau, \mathbb{E}[X_t] = \mu_0$ et $\forall t \geq \tau + 1, \mathbb{E}[X_t] = \mu_1$,
     avec $\mu_0 \neq \mu_1$}.
+    \vspace*{10pt}
 
-    L'\alert{écart} de cette rupture est $\Delta = |\mu_0 - \mu_1|$.
+    % L'\alert{écart} de cette rupture est $\Delta = |\mu_0 - \mu_1|$.
+    % \vspace*{10pt}
 
-    Le \alert{délai de détection} est définit par $u = \widehat{\tau}_{\delta} - \tau \in\mathbb{N}$.
+    Le \alert{délai de détection} est définit par la variable aléatoire $u = \widehat{\tau}_{\delta} - \tau \in\mathbb{N}$.
   \end{block}
 
   \alert{$\implies$ But : contrôler le délai de détection !} (en forte probabilité)
@@ -674,8 +678,8 @@
       \begin{small}
         \begin{align*}
             \mathbb{P}_{\textcolor{gold}{\mu_0,\mu_1,\tau}} (\widehat{\tau}_{\delta} \geq \textcolor{gold}{\tau} + u) &\leq \exp\left( -\frac{2\textcolor{gold}{\tau} u}{\textcolor{gold}{\tau} + u}\left(\max\left[ 0, \Delta - \sqrt{\frac{\textcolor{gold}{\tau} + u}{2\textcolor{gold}{\tau} u} \beta(\textcolor{gold}{\tau} + u,\delta)} \right]\right)^2 \right) \\
-            &= \mathcal{O}(\text{décroissance exponentielle en~} u)
-            = \mathcal{O}(\exp\searrow(u)).
+            &= \mathcal{O}(\text{décroissance exponentielle en~} u) \\
+            &= \mathcal{O}(\exp\searrow(u)).
         \end{align*}
       \end{small}
       avec la même fonction de seuil
@@ -705,6 +709,7 @@
       et une bonne fonction de seuil $\beta(n,\delta) \simeq \ln(3n \sqrt{n}/\delta) = \mathcal{O}(\log(n/\delta))$,
     \end{itemize}
     \pause
+    \vspace*{10pt}
     \item
     on peut contrôler les deux propriétés du test BGLR :
     \begin{itemize}\tightlist
@@ -717,6 +722,7 @@
         (s'il y a assez d'observations avant et après la rupture).
     \end{itemize}
 
+    \vspace*{10pt}
     \item
     $\implies$ Le test BGLR détecte les ruptures efficacement \dCooley{}
   \end{itemize}
@@ -1700,10 +1706,12 @@
 \begin{frame}[plain]{Crise climatique ?}
 
   \begin{center}
-    \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+    \includegraphics[height=0.85\textheight]{../common/TalkAboutGlobalWarmingNow.png}
 
-      \textcopyright{} Jeph Jacques, 2015,
-      \texttt{QuestionableContent.net/view.php?comic=3074}
+      \begin{tiny}
+        \textcopyright{} Jeph Jacques, 2015,
+        \texttt{QuestionableContent.net/view.php?comic=3074}
+      \end{tiny}
   \end{center}
 
 \end{frame}
@@ -1712,7 +1720,7 @@
 \begin{frame}[plain]{Parlons d'action contre la crise climatique !}
 
   \begin{center}
-    \includegraphics[height=0.35\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+    \includegraphics[height=0.30\textheight]{../common/TalkAboutGlobalWarmingNow.png}
   \end{center}
 
   \begin{alertblock}{Nous sommes scientifiques\ldots}
