@@ -322,7 +322,7 @@
 %     \vspace*{15pt}
 
 %     \item
-%       L'algorithme B-GLRT + klUCB
+%       L'algorithme T-BGLR + klUCB
 %     \vspace*{15pt}
 
 %     % \item
@@ -362,7 +362,7 @@
 
 %     \item
 %     \textcolor{gray}{
-%       L'algorithme B-GLRT + klUCB
+%       L'algorithme T-BGLR + klUCB
 %     }
 %     \vspace*{15pt}
 
@@ -452,7 +452,7 @@
 
   \begin{itemize}
     \item On observe des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
-    \item On sait que $X_t$ est généré par une distribution \alert{inconnue}\ldots
+    \item On sait que $X_t$ est générée par une distribution \alert{inconnue}\ldots
 
     \pause
     \item \alert{Le but} est de distinguer entre deux hypothèses :
@@ -551,7 +551,7 @@
 \end{frame}
 
 
-\subsection{\hfill{}Le B-GLRT\hfill{}}
+\subsection{\hfill{}Le T-BGLR\hfill{}}
 
 \begin{frame}{Généralisable à des observations bornées \dCooley{}}
 
@@ -581,10 +581,10 @@
 
 \end{frame}
 
-\begin{frame}{Le test généralisé de rapport de vraisemblances de Bernoulli (B-GLRT)}
+\begin{frame}{Le test généralisé de rapport de vraisemblances de Bernoulli (T-BGLR)}
 
   % \begin{block}{Le test de détection séquentielle de rupture B-GRLT}
-    Le \alert{B-GLRT} est le temps d'arrêt définit par
+    Le \alert{T-BGLR} est le temps d'arrêt définit par
     \begin{small}
     \[ \widehat{\tau}_{\delta} = \inf \bigl\{ n \in \mathbb{N}^* : \max_{s \in \{1,\cdots,n-1\}} \bigl[s \, \mathrm{kl}\left(\widehat{\mu}_{1:s},\widehat{\mu}_{1:n}\right) + (n-s) \, \mathrm{kl}\left(\widehat{\mu}_{s+1:n},\widehat{\mu}_{1:n}\right)\bigr] \geq \beta(n,\delta) \bigr\} \]
     \vspace*{-10pt}
@@ -691,7 +691,7 @@
 \end{frame}
 
 
-\subsection{\hfill{}Résumé des résultats du B-GLRT\hfill{}}
+\subsection{\hfill{}Résumé des résultats du T-BGLR\hfill{}}
 
 \begin{frame}{BGLR est un test de détection de rupture efficace \dCooley{} !}
 
@@ -964,7 +964,7 @@
 
 %     \item
 %     \textcolor{gray}{
-%       L'algorithme B-GLRT + klUCB
+%       L'algorithme T-BGLR + klUCB
 %     }
 %     \vspace*{15pt}
 
@@ -1072,9 +1072,9 @@
 \end{frame}
 
 
-\section{\hfill{}L'algorithme B-GLRT + klUCB\hfill{}}
+\section{\hfill{}L'algorithme T-BGLR + klUCB\hfill{}}
 
-% \begin{frame}{4. L'algorithme B-GLRT + klUCB}
+% \begin{frame}{4. L'algorithme T-BGLR + klUCB}
 
 %   \begin{enumerate}
 %     \item
@@ -1097,7 +1097,7 @@
 
 %     \item
 %     \alert{\textbf{%
-%       L'algorithme B-GLRT + klUCB
+%       L'algorithme T-BGLR + klUCB
 %     }}
 %     \vspace*{15pt}
 
@@ -1274,7 +1274,7 @@
 
 %     \item
 %     \textcolor{gray}{
-%       L'algorithme B-GLRT + klUCB
+%       L'algorithme T-BGLR + klUCB
 %     }
 %     \vspace*{15pt}
 
@@ -1451,7 +1451,7 @@
 
 %     \item
 %     \textcolor{gray}{
-%       L'algorithme B-GLRT + klUCB
+%       L'algorithme T-BGLR + klUCB
 %     }
 %     \vspace*{15pt}
 
@@ -1644,7 +1644,7 @@
     % %  (MAB)
     \item
     Le test généralisé de rapport de vraisemblances de Bernoulli (T-BGLR) est très efficace \dCooley{}
-    % (B-GLRT)
+    % (T-BGLR)
     \begin{itemize}\tightlist
       \item
       pour détecter les ruptures \alert{sans fausse alarme} et \alert{faible délai}
@@ -1667,6 +1667,7 @@
 \end{frame}
 
 \subsection{Merci}
+
 \begin{frame}{Conclusion}
 
 \begin{center}
@@ -1692,6 +1693,38 @@
     \texttt{Lilian.Besson{@}CentraleSupelec.fr}
   \end{Large}
 \end{center}
+
+\end{frame}
+
+
+\begin{frame}[plain]{Crise climatique ?}
+
+  \begin{center}
+    \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+
+      \textcopyright{} Jeph Jacques, 2015,
+      \texttt{QuestionableContent.net/view.php?comic=3074}
+  \end{center}
+
+\end{frame}
+
+
+\begin{frame}[plain]{Parlons d'action contre la crise climatique !}
+
+  \begin{center}
+    \includegraphics[height=0.35\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+  \end{center}
+
+  \begin{alertblock}{Nous sommes scientifiques\ldots}
+    Buts : \alert{s'informer, réfléchir, résoudre, transmettre} !
+    \begin{itemize}
+      \item \alert{Informons nous} des \alert{causes} et \alert{conséquences} de la crise climatique,
+      \item \alert{Réfléchissons} aux problèmes, à l'échelle politique, locale et individuelle,
+      \item \alert{Trouvons} des solutions simples !\\
+        $\implies$ Viser la sobriété : transports, tourisme, vêtements, alimentation, calculs informatique, lutte contre le tabagisme, etc.
+      \item \alert{Transmettons} notre prise de conscience, et nos actions.
+    \end{itemize}
+  \end{alertblock}
 
 \end{frame}
 
