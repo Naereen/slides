@@ -379,14 +379,14 @@
 
 \begin{frame}{Bandits manchots ?}
 
-  Un vieux nom pour une machine à sous :
+  Un vieux nom pour une machine à sous !
 
   \begin{center}
     % \centering
     \includegraphics[height=0.55\textheight]{figures/Lucky_Luke__Le_Bandit_Manchot.jpg}
   \end{center}
 
-  Ces travaux sont en collaboration avec mon encadrante de thèse \textbf{Émilie Kaufmann}, cf. sa conférence plénière de mardi 27 août !
+  Collaboration avec mon encadrante de thèse \textbf{Émilie Kaufmann}, cf. sa conférence plénière de mardi 27 août !
 
   \begin{tiny}
   $\hookrightarrow$ Source
@@ -417,18 +417,20 @@
 
 \begin{frame}{Bandits multi-bras : stationnaires vs non-stationnaires}
 
-  \begin{block}{Stationnaires : résolu}
-    Des algorithmes comme UCB peuvent bien résoudre les problèmes stationnaires.
+  \begin{block}{Stationnaires}
+    OK
+    % Des algorithmes comme UCB peuvent bien résoudre les problèmes stationnaires.
   \end{block}
 
   \pause
 
-  \begin{alertblock}{Non stationnaires : plus difficile}
-    \begin{itemize}
-      \item Si l'environnement change à chaque instant : trop difficile !
-      \item Si l'environnement change de temps en temps : on peut espérer résoudre le problème !
-      \item Notre cadre : stationnaire par morceau, peu de morceaux !
-    \end{itemize}
+  \begin{alertblock}{Non stationnaires}
+    Plus difficile !
+    % \begin{itemize}
+    %   \item Si l'environnement change à chaque instant : trop difficile !
+    %   \item Si l'environnement change de temps en temps : on peut espérer résoudre le problème !
+    %   \item Notre cadre : stationnaire par morceau, peu de morceaux !
+    % \end{itemize}
   \end{alertblock}
 
   \pause
@@ -447,14 +449,30 @@
 \subsection{\hfill{}Détection de rupture\hfill{}}
 
 \begin{frame}{Le problème de détection de rupture}
-
   Imaginez le jeu suivant\ldots
-
   \begin{itemize}
     \item On observe des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
     \item On sait que $X_t$ est générée par une distribution \alert{inconnue}\ldots
+  \end{itemize}
+  \only<1>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps1.pdf}}
+  \only<2>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps2.pdf}}
+  \only<3>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps3.pdf}}
+  \only<4>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps4.pdf}}
+  \only<5>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps5.pdf}}
+  \only<6>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps6.pdf}}
+  \only<7>{\includegraphics[width=0.90\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu__temps10.pdf}}
+\end{frame}
 
-    \pause
+
+
+\begin{frame}{Le problème de détection de rupture}
+
+  % Imaginez le jeu suivant\ldots
+
+  \begin{itemize}
+    % \item On observe des données $X_1,X_2,\cdots,X_t,\cdots \in[0,1]$\ldots
+    % \item On sait que $X_t$ est générée par une distribution \alert{inconnue}\ldots
+
     \item \alert{Le but} est de distinguer entre deux hypothèses :
     \begin{itemize}
       \item[\textcolor{deeppurple}{$\mathcal{H}_0$}] \textcolor{deeppurple}{Les distributions \textbf{ont toutes la même moyenne} \hfill{} (``pas de rupture'')\\
@@ -467,6 +485,8 @@
     \item On s'arrête au temps $\widehat{\tau}$, dès qu'on détecte une rupture
   \end{itemize}
 
+  \vspace*{20pt}
+
   \pause
   Un \alert{détecteur de rupture séquentiel} est un \alert{\textbf{temps d'arrêt $\widehat{\tau}$}},
   mesurable selon $\mathcal{F}_t = \sigma(X_1,\cdots,X_t)$,
@@ -474,6 +494,104 @@
   lorsque $\widehat{\tau} < \infty$.
 
 \end{frame}
+
+
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_facile_inconnu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_facile_connu.pdf}
+%   \end{center}
+% \end{frame}
+\begin{frame}[plain]{Exemple facile de détection de rupture}
+  \begin{center}
+    \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_moyen_inconnu.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}[plain]{Exemple facile de détection de rupture}
+  \begin{center}
+    \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_moyen_connu.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}[plain]{Difficile avec peu d'échantillons ?}
+  \begin{center}
+    \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_inconnu.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}[plain]{Difficile avec peu d'échantillons ?}
+  \begin{center}
+    \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_facile__T_difficile_connu.pdf}
+  \end{center}
+\end{frame}
+
+
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_moyen__T_facile_inconnu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_moyen__T_facile_connu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_moyen__T_moyen_inconnu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_moyen__T_moyen_connu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_moyen__T_difficile_inconnu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_moyen__T_difficile_connu.pdf}
+%   \end{center}
+% \end{frame}
+
+
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_difficile__T_facile_inconnu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_difficile__T_facile_connu.pdf}
+%   \end{center}
+% \end{frame}
+\begin{frame}[plain]{Difficile avec des moyennes trop proches ?}
+  \begin{center}
+    \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_difficile__T_moyen_inconnu.pdf}
+  \end{center}
+\end{frame}
+\begin{frame}[plain]{Difficile avec des moyennes trop proches ?}
+  \begin{center}
+    \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_difficile__T_moyen_connu.pdf}
+  \end{center}
+\end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_difficile__T_difficile_inconnu.pdf}
+%   \end{center}
+% \end{frame}
+% \begin{frame}[plain]{Exemples de détection de rupture}
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures_exemple_rupture/exemple_rupture__mu_difficile__T_difficile_connu.pdf}
+%   \end{center}
+% \end{frame}
+
 
 \begin{frame}{Qu'est-ce qu'un bon test de détection de rupture ?}
 
@@ -735,701 +853,701 @@
 \end{frame}
 
 
-\subsection{\hfill{}Modèle mathématique de bandits\hfill{}}
+% \subsection{\hfill{}Modèle mathématique de bandits\hfill{}}
 
 
-\begin{frame}{Bandits multi-bras}
+% \begin{frame}{Bandits multi-bras}
 
-  $=$ Prise de décisions séquentielles face à des environnements incertains :
+%   $=$ Prise de décisions séquentielles face à des environnements incertains :
 
-  \begin{center}
-    % \centering
-    \includegraphics[height=0.65\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
-  \end{center}
+%   \begin{center}
+%     % \centering
+%     \includegraphics[height=0.65\textheight]{figures/example_of_a_5_arm_bandit_problem.png}
+%   \end{center}
 
-  \begin{tiny}
-  $\hookrightarrow$ Démo interactive
-    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
-  \end{tiny}
-
-\end{frame}
-
-
-\begin{frame}{Modèle mathématique}
-
-\begin{itemize}[<+->]
-  \item
-  Étapes de temps discret $t = 1, \dots, T$\\
-  L'\emph{horizon} $T$ est fixé et généralement inconnu
-
-  \item
-  Au temps $t$, une joueuse \emph{choisit le bras} $A(t)\in\{1,\dots,K\}$,\\
-  et elle observe \emph{une récompense aléatoire iid} : $r(t) \sim \nu_k$, $r(t)\in\mathbb{R}$
-
-  \item
-  On se restreint souvent à des bras de Bernoulli $\nu_k = \mathcal{B}(\mu_k)$, de moyenne $\mu_k\in[0,1]$,
-  qui donnent des récompenses binaires $r(t) \in\{0,1\}$.
-
-  \item
-  \textbf{But} : maximiser la somme des récompenses $\sum\limits_{t=1}^T r(t)$
-
-  \item
-  ou \alert{maximiser la somme des récompenses \emph{moyennes} $\mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right]$}
-
-  \item
-  Une stratégie efficace doit résoudre le \alert{compromis entre exploration et exploitation} :
-  explorer tous les bras pour découvrir le meilleur,
-  tout en exploitant le meilleur bras courant.
-\end{itemize}
-
-\end{frame}
-
-
-% \subsection{\hfill{}Naive solutions\hfill{}}
-
-% \begin{frame}{Two examples of bad solutions}
-
-%   \begin{exampleblock}{$i)$ Pure exploration \dXey{}}
-%     \begin{itemize}
-%       \item
-%       Play arm $A(t) \sim \mathcal{U}(\{1,\dots,K\})$ uniformly at random
-%       \item
-%       $\implies$ Mean expected rewards
-%       $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \max_k \mu_k$
-%     \end{itemize}
-%   \end{exampleblock}
-
-%   \pause
-
-%   \begin{exampleblock}{$ii)$ Pure exploitation \dXey{}}
-%     \begin{itemize}
-%       \item
-%         Count the number of samples and the sum of rewards of each arm $N_k(t) = \sum\limits_{s < t} \mathbbm{1}(A(s)=k)$ and $X_k(t) = \sum\limits_{s < t} r(s) \mathbbm{1}(A(s)=k)$
-%       \item
-%         Estimate the \alert{unknown} mean $\mu_k$ with $\widehat{\mu_k}(t) = X_k(t) / N_k(t)$
-%       \item
-%         Play the arm of maximum empirical mean : $A(t) = \arg\max_k \widehat{\mu_k}(t)$
-%       \item
-%         Performance depends on the first draws, and can be very poor!
-%     \end{itemize}
-%   \end{exampleblock}
-%   \vspace*{-10pt}
 %   \begin{tiny}
-%     $\hookrightarrow$
-%     Interactive demo
+%   $\hookrightarrow$ Démo interactive
 %     \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
 %   \end{tiny}
 
 % \end{frame}
 
 
-% \subsection{\hfill{}The \emph{``Upper Confidence Bound''} algorithm\hfill{}}
+% \begin{frame}{Modèle mathématique}
 
-% \begin{frame}{A first solution: \emph{``Upper Confidence Bound''} algorithm}
+% \begin{itemize}[<+->]
+%   \item
+%   Étapes de temps discret $t = 1, \dots, T$\\
+%   L'\emph{horizon} $T$ est fixé et généralement inconnu
 
-%   \begin{itemize}
-%     \item
-%       Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$\\
-%       $=$ an \alert{upper confidence bound} on the \alert{unknown} mean $\mu_k$
-%     \item
-%       Play the arm of maximal UCB : $A(t) = \arg\max_k \mathrm{UCB}_k(t)$
-%       \\
-%       $\hookrightarrow$ Principle of ``optimism under uncertainty''
-%     \item
-%       $\alpha$ balances between \emph{exploitation} ($\alpha\to0$) and \emph{exploration}  ($\alpha\to\infty$)
+%   \item
+%   Au temps $t$, une joueuse \emph{choisit le bras} $A(t)\in\{1,\dots,K\}$,\\
+%   et elle observe \emph{une récompense aléatoire iid} : $r(t) \sim \nu_k$, $r(t)\in\mathbb{R}$
 
-%     \pause
+%   \item
+%   On se restreint souvent à des bras de Bernoulli $\nu_k = \mathcal{B}(\mu_k)$, de moyenne $\mu_k\in[0,1]$,
+%   qui donnent des récompenses binaires $r(t) \in\{0,1\}$.
 
-%     \item
-%       \alert{UCB is efficient}:
-%       the best arm is identified correctly (with high probability)
-%       if there are enough samples (for $T$ large enough)
-%     \item
-%       $\implies$
-%       Expected rewards attains the maximum \dLaughey{}
-%       \[ \text{For~} T\to\infty, \;\;\; \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \to \max_k \mu_k \]
-%   \end{itemize}
-% \end{frame}
+%   \item
+%   \textbf{But} : maximiser la somme des récompenses $\sum\limits_{t=1}^T r(t)$
 
-% \begin{frame}{UCB algorithm converges to the best arm}
+%   \item
+%   ou \alert{maximiser la somme des récompenses \emph{moyennes} $\mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right]$}
 
-%   We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
-%   $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \textcolor{deeppurple}{\mu^*} \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
-%   \dLaughey{}
-
-%   \alert{But\ldots{} at which speed do we have this convergence?}
-
-%   \begin{block}{Elements of proof of convergence (for $K$ Bernoulli arms)}
-%     \begin{small}
-%       \begin{itemize}
-%         \item
-%           Suppose the first arm is the best:
-%           $\textcolor{deeppurple}{\mu^*} = \textcolor{deeppurple}{\mu_1} > \mu_2 \geq \ldots \geq \mu_K$
-%         \item
-%           $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
-%         \item
-%           Hoeffding's inequality gives
-%           $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \leq \mathcal{O}(\frac{1}{t^{2 \alpha}})$\\
-%           $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
-%         \item
-%           And if a suboptimal arm $k>\textcolor{deeppurple}{1}$ is sampled, it implies
-%           $\mathrm{UCB}_k(t) > \mathrm{UCB}_{\textcolor{deeppurple}{1}}(t)$, but $\mu_k < \textcolor{deeppurple}{\mu_1}$:
-%           Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
-%         \end{itemize}
-%       \end{small}
-%     \end{block}
+%   \item
+%   Une stratégie efficace doit résoudre le \alert{compromis entre exploration et exploitation} :
+%   explorer tous les bras pour découvrir le meilleur,
+%   tout en exploitant le meilleur bras courant.
+% \end{itemize}
 
 % \end{frame}
 
 
-\subsection{\hfill{}Regret d'un algorithme de bandit\hfill{}}
+% % \subsection{\hfill{}Naive solutions\hfill{}}
+
+% % \begin{frame}{Two examples of bad solutions}
+
+% %   \begin{exampleblock}{$i)$ Pure exploration \dXey{}}
+% %     \begin{itemize}
+% %       \item
+% %       Play arm $A(t) \sim \mathcal{U}(\{1,\dots,K\})$ uniformly at random
+% %       \item
+% %       $\implies$ Mean expected rewards
+% %       $ \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] = \frac{1}{K} \sum\limits_{k=1}^K \mu_k \ll \max_k \mu_k$
+% %     \end{itemize}
+% %   \end{exampleblock}
+
+% %   \pause
+
+% %   \begin{exampleblock}{$ii)$ Pure exploitation \dXey{}}
+% %     \begin{itemize}
+% %       \item
+% %         Count the number of samples and the sum of rewards of each arm $N_k(t) = \sum\limits_{s < t} \mathbbm{1}(A(s)=k)$ and $X_k(t) = \sum\limits_{s < t} r(s) \mathbbm{1}(A(s)=k)$
+% %       \item
+% %         Estimate the \alert{unknown} mean $\mu_k$ with $\widehat{\mu_k}(t) = X_k(t) / N_k(t)$
+% %       \item
+% %         Play the arm of maximum empirical mean : $A(t) = \arg\max_k \widehat{\mu_k}(t)$
+% %       \item
+% %         Performance depends on the first draws, and can be very poor!
+% %     \end{itemize}
+% %   \end{exampleblock}
+% %   \vspace*{-10pt}
+% %   \begin{tiny}
+% %     $\hookrightarrow$
+% %     Interactive demo
+% %     \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+% %   \end{tiny}
+
+% % \end{frame}
+
+
+% % \subsection{\hfill{}The \emph{``Upper Confidence Bound''} algorithm\hfill{}}
+
+% % \begin{frame}{A first solution: \emph{``Upper Confidence Bound''} algorithm}
+
+% %   \begin{itemize}
+% %     \item
+% %       Compute $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$\\
+% %       $=$ an \alert{upper confidence bound} on the \alert{unknown} mean $\mu_k$
+% %     \item
+% %       Play the arm of maximal UCB : $A(t) = \arg\max_k \mathrm{UCB}_k(t)$
+% %       \\
+% %       $\hookrightarrow$ Principle of ``optimism under uncertainty''
+% %     \item
+% %       $\alpha$ balances between \emph{exploitation} ($\alpha\to0$) and \emph{exploration}  ($\alpha\to\infty$)
+
+% %     \pause
+
+% %     \item
+% %       \alert{UCB is efficient}:
+% %       the best arm is identified correctly (with high probability)
+% %       if there are enough samples (for $T$ large enough)
+% %     \item
+% %       $\implies$
+% %       Expected rewards attains the maximum \dLaughey{}
+% %       \[ \text{For~} T\to\infty, \;\;\; \frac{1}{T} \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \to \max_k \mu_k \]
+% %   \end{itemize}
+% % \end{frame}
+
+% % \begin{frame}{UCB algorithm converges to the best arm}
+
+% %   We can prove that suboptimal arms $k$ are sampled about $o(T)$ times\\
+% %   $\implies \mathbb{E}\left[ \sum\limits_{t=1}^T r(t) \right] \underset{T\to\infty}{\to} \textcolor{deeppurple}{\mu^*} \times \mathcal{O}(T) + \sum\limits_{k: \Delta_k>0} \mu_k \times o(T)$
+% %   \dLaughey{}
+
+% %   \alert{But\ldots{} at which speed do we have this convergence?}
+
+% %   \begin{block}{Elements of proof of convergence (for $K$ Bernoulli arms)}
+% %     \begin{small}
+% %       \begin{itemize}
+% %         \item
+% %           Suppose the first arm is the best:
+% %           $\textcolor{deeppurple}{\mu^*} = \textcolor{deeppurple}{\mu_1} > \mu_2 \geq \ldots \geq \mu_K$
+% %         \item
+% %           $\mathrm{UCB}_k(t) = X_k(t) / N_k(t) + \sqrt{\alpha \log(t) / N_k(t)}$
+% %         \item
+% %           Hoeffding's inequality gives
+% %           $\mathbb{P}(\mathrm{UCB}_k(t) < \mu_k(t)) \leq \mathcal{O}(\frac{1}{t^{2 \alpha}})$\\
+% %           $\implies$ the different $\mathrm{UCB}_k(t)$ are true ``Upper Confidence Bounds'' on the (unknown) $\mu_k$ (most of the times)
+% %         \item
+% %           And if a suboptimal arm $k>\textcolor{deeppurple}{1}$ is sampled, it implies
+% %           $\mathrm{UCB}_k(t) > \mathrm{UCB}_{\textcolor{deeppurple}{1}}(t)$, but $\mu_k < \textcolor{deeppurple}{\mu_1}$:
+% %           Hoeffding's inequality also proves that any ``wrong ordering'' of the $\mathrm{UCB}_k(t)$ is unlikely
+% %         \end{itemize}
+% %       \end{small}
+% %     \end{block}
+
+% % \end{frame}
+
+
+% \subsection{\hfill{}Regret d'un algorithme de bandit\hfill{}}
+
+% \begin{frame}{Mesurer la performance d'un algorithme $\mathcal{A}$ par son regret moyen $R_{\mathcal{A}}(T)$}
+
+% \begin{itemize}[<+->]
+%   \item
+%   Différence entre les récompenses accumulées par un ``oracle'' et $\mathcal{A}$
 
-\begin{frame}{Mesurer la performance d'un algorithme $\mathcal{A}$ par son regret moyen $R_{\mathcal{A}}(T)$}
+%   \item
+%   L'algorithme ``oracle'' joue toujours \textcolor{deeppurple}{le meilleur bras (inconnu) $k^* = \arg\max_k \mu_k$} (la meilleure moyenne est notée \textcolor{deeppurple}{$\mu_{k^*} = \mu^*$})
 
-\begin{itemize}[<+->]
-  \item
-  Différence entre les récompenses accumulées par un ``oracle'' et $\mathcal{A}$
-
-  \item
-  L'algorithme ``oracle'' joue toujours \textcolor{deeppurple}{le meilleur bras (inconnu) $k^* = \arg\max_k \mu_k$} (la meilleure moyenne est notée \textcolor{deeppurple}{$\mu_{k^*} = \mu^*$})
-
-  \item
-  But équivalent : maximiser la somme des récompenses moyennes
-  $\Longleftrightarrow$ \alert{minimiser le regret moyen}
-  %
-  \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T \textcolor{deeppurple}{r_{k^*}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = T \textcolor{deeppurple}{\mu^*} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
-
-\end{itemize}
-
-\pause
-\vspace*{10pt}
-
-\begin{exampleblock}{Régime typique pour des bandits stationnaires (bornes inf \& sup)}
-  \begin{itemize}
-  \item
-  Aucun algorithme $\mathcal{A}$ ne peut atteindre un regret meilleur que
-  \hfill{}
-  $R_{\mathcal{A}}(T) \geq \Omega(\log(T))$
-
-  \item
-  Et un algorithme efficace $\mathcal{A}$ obtient
-  \hfill{}
-  $R_{\mathcal{A}}(T) \leq \mathcal{O}(\log(T))$
-  \end{itemize}
-\end{exampleblock}
-
-\end{frame}
-
-% \subsection{\hfill{}Regret de deux algorithmes de type UCB\hfill{}}
-
-% \begin{frame}{Regret des algorithmes UCB et kl-UCB}
-
-%   Pour n'importe quel problème avec $K$ bras de Bernoulli, de moyennes $\mu_1,\dots,\mu_K \in[0,1]$, et de \textcolor{deeppurple}{bras optimal $\mu^*$} :
-
-%   \begin{exampleblock}{Pour l'algorithme UCB}
-%     \begin{small}
-%       \[ R_T^{\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} \log(T) + o(\log(T)). \]
-%     \end{small}%
-%   \end{exampleblock}
-
-%   \begin{exampleblock}<2->{Pour l'algorithme kl-UCB : une meilleure borne}
-%     \begin{small}
-%       \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} \log(T) + o(\log(T)) = \mathcal{O}( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulté du problème}}} \log(T) ). \]
-%     \end{small}%
-%     \begin{footnotesize}
-%       Avec $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ l'\emph{entropie binaire relative}\\
-%       (\emph{ie}, la divergence de Kullback-Leibler de deux lois de Bernoulli de moyennes $x$ et $y$)
-%     \end{footnotesize}%
-%   \end{exampleblock}
-
-% \end{frame}
-
-
-\section{\hfill{}Problèmes de bandits multi-bras stationnaires par morceaux\hfill{}}
-
-% \begin{frame}{2. Bandits stationnaires par morceaux}
-
-%   \begin{enumerate}
-%     \item
-%     \textcolor{gray}{
-%       Problèmes de bandits multi-bras (stationnaires)
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \alert{\textbf{%
-%       Problèmes de bandits multi-bras stationnaires par morceaux
-%     }}
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Le test BGLR et ses propriétés à horizon fini
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       L'algorithme T-BGLR + klUCB
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Simulations numériques
-%     }
-%   \end{enumerate}
-
-% \end{frame}
-
-
-\begin{frame}{Problèmes de bandits non stationnaires}
-
-  \begin{block}{Problèmes de bandits stationnaires}
-    Le bras $k$ donne une récompense selon \textcolor{blue}{la même distribution pour chaque instant} :
-    $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
-  \end{block}
-
-  \pause
-  \begin{alertblock}{Problèmes de bandits \emph{non} stationnaires}
-    Le bras $k$ donne une récompense selon \alert{une distribution différente à chaque instant} :
-    $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
-  \end{alertblock}
-
-  $\implies$ \dXey{} problème plus difficile !
-  Et très difficile si $\mu_k(t)$ peut changer n'importe quand !
-
-  \pause
-  \begin{block}{Problèmes de bandits \textbf{stationnaires par morceaux}}
-    $\hookrightarrow$ on se concentre sur le cas où il y a au plus $o(\sqrt{T})$ intervalles sur lesquels les moyennes sont toutes stationnaires (= \textbf{séquences})
-  \end{block}
-\end{frame}
-
-\subsection{\hfill{}Définitions\hfill{}}
-
-\begin{frame}{Ruptures et séquences stationnaires}
-
-  On définit
-
-  \begin{itemize}
-    \item
-    Le nombre de rupture\\
-    $\Upsilon_T = \sum\limits_{t=1}^{T-1} \mathbbm{1}(\exists k\in \{1,\dots,K\}$ $:$ $\mu_k(t) \neq \mu_k(t+1) )$
-
-    \item
-    Le $i$ème point d'arrêt\\
-    $\tau^{i} = \inf\{t > \tau^{i-1} : \exists k : \mu_k(t) \neq \mu_k(t+1)\}$
-    \hfill{} (avec $\tau^0=0$)
-  \end{itemize}
-
-  \begin{block}<2->{\textbf{Hypothèses} sur les problèmes stationnaires par morceaux (p.m.)}
-    \begin{itemize}\tightlist
-      \item Les récompenses $r_k(t)$ générées par chaque bras $k$ sont \alert{\emph{iid} sur chaque intervale} $[ \tau^{i} + 1, \tau^{i+1} ]$ (la $i$ème séquence)
-      \item Il y a $\Upsilon_T = o(\sqrt{T})$ ruptures
-      \item Et \alert{$\Upsilon_T$ peut être connu à l'avance}
-      \item Les séquences sont toutes ``assez longues``
-  \end{itemize}
-\end{block}
-\end{frame}
-
-
-\begin{frame}[plain]{Exemple d'un problème de bandits stationnaire p.m.}
-  On affiche les moyennes \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
-  des $K=3$ bras.\\
-  Il y a $\Upsilon_T=4$ ruptures, et $5$ séquences entre $t=1$ et $T=5000$ :
-  \vspace*{-20pt} % WARNING
-  \begin{center}
-    \includegraphics[width=1.10\textwidth]{figures/Problem_1.pdf}
-  \end{center}
-\end{frame}
-
-
-\subsection{\hfill{}Étendre la définition du regret\hfill{}}
-
-\begin{frame}{Regret pour les bandits stationnaires par morceaux ?}
-
-  L'algorithme ``oracle'' joue le meilleur bras (inconnu) $k^*(t) = \arg\max \mu_k(t)$
-  (qui change entre chaque séquence stationnaire)
-  %
-  \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
-
-\pause
-\vspace*{10pt}
-
-\begin{exampleblock}{Régimes typiques pour les bandits stationnaires par morceaux}
-  \begin{itemize}
-  \item
-  La borne inférieure est
-  $R_{\mathcal{A}}(T) \geq \Omega(\sqrt{K T \Upsilon_T})$
-
-  \item
-  Actuellement, les meilleurs algorithmes $\mathcal{A}$  obtiennent
-    \begin{itemize}\tightlist
-      \item
-      $R_{\mathcal{A}}(T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
-      si $T$ et $\Upsilon_T$ sont connus
-      \item
-      $R_{\mathcal{A}}(T) = \mathcal{O}(K \alert{\Upsilon_T} \sqrt{T \log(T)})$
-      si $T$ et $\Upsilon_T$ sont inconnus
-    \end{itemize}
-  \end{itemize}
-\end{exampleblock}
-
-\end{frame}
-
-
-\section{\hfill{}L'algorithme T-BGLR + klUCB\hfill{}}
-
-% \begin{frame}{4. L'algorithme T-BGLR + klUCB}
-
-%   \begin{enumerate}
-%     \item
-%     \textcolor{gray}{
-%       Problèmes de bandits multi-bras (stationnaires)
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Problèmes de bandits multi-bras stationnaires par morceaux
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Le test BGLR et ses propriétés à horizon fini
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \alert{\textbf{%
-%       L'algorithme T-BGLR + klUCB
-%     }}
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Simulations numériques
-%     }
-%   \end{enumerate}
-
-% \end{frame}
-
-\subsection{\hfill{}Le test BGRL + les indices kl-UCB\hfill{}}
-
-\begin{frame}{On combine le test BGRL + les indices kl-UCB}
-
-  Idées principales :
-
-  \begin{itemize}
-    % \item Forced uniform random exploration with probability $\alpha$
-    \item Calculer un indice UCB sur chaque bras $k$ (Borne Sup. Confiance)
-    \pause
-    % $\mbox{kl-UCB}_k(t)$
-    \item Presque tout le temps, jouer le bras $A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$
-    \item Quelques instants, forcer une exploration de chaque bras
-    \pause
-    \item Utiliser le test BGLR \alert{pour détecter les ruptures sur le bras joué}
-    \item Si une rupture est détectée, \alert{effacer la mémoire des observations de \emph{tous les} bras}
-  \end{itemize}
-
-  $\hookrightarrow$ Algorithme BGRL + kl-UCB détaillé dans l'article
-
-  % \pause
-
-  % \begin{exampleblock}{Les indices kl-UCB}
-  %   \begin{itemize}
-  %     \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$,
-  %     % avant le temps $t$,
-  %     \item $n_k(t)$ compte les sélections et $\widehat{\mu}_k(t)$ est la moyenne empirique des observations du bras $k$ depuis $\tau_k(t)$,
-  %     % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
-  %     % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
-  %     %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
-  %     \item Soit {\small $\mbox{kl-UCB}_k(t) = \max \bigl\{ q\in[0,1] : n_k(t) \times \mathrm{kl}\left(\widehat{\mu}_k(t),q\right) \leq f(t - \tau_k(t)) \bigr\}$ }
-  %     \item $f(t) = \ln(t) + 3 \ln(\ln(t))$ contrôle l'amplitude de la Borne Sup. de Confiance (UCB).
-  %   \end{itemize}
-  % \end{exampleblock}
-
-\end{frame}
-
-% \begin{frame}{Deux détails sur notre algorithme}
-
-%   % % \GLRklUCB{} repose sur le calcul d'un \emph{indice} (de type \mathrm{kl}UCB{} \cite{KLUCBJournal}) pour chaque bras,  et choisit en général le bras d'indice le plus élevé.
-%   % Soit $\tau_i(t)$ l'instant de la dernière réinitialisation pour le bras $i$ avant le temps $t$, $n_i(t) = \sum_{s=\tau_i(t)+1}^{t} \mathbbm{1}(A_s=i)$ le nombre de sélections et $\widehat{\mu}_i(t)$
-%   % %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
-%   % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
-
-%   % % L'indice du bras $i$ à l'instant $t$ est défini par
-%   % % $\UCB_i(t) = \max \bigl\{ q\in[0,1] : n_i(t) \times \mathrm{kl}\left(\widehat{\mu}_i(t),q\right) \leq f(t - \tau_i(t)) \bigr\}$ (l. $6$) avec la fonction d'exploration $f(t) = \ln(t) + 3 \ln(\ln(t))$.
-%   % % La détection d'une rupture sur le bras qui vient d'être joué
-%   % % produit une réinitialisation (l. $12$),
-
-%   \begin{exampleblock}{$i)$ Comment est utilisé le test BGLR ? \hfill{} (paramètre $\delta$)}
-%     Avec les observations $Z_1,\cdots,Z_n$
-%     % $\mbox{BGLRT}_\delta(Z_1,\dots,Z_n) = \mathrm{True}$
-%     on utilise le test BGLR pour détecter une rupture
-%     avec un niveau de confiance $\delta$
-%     quand
-%     % \begin{footnotesize}
-%       \[
-%         \sup_{1 \leq s \leq n-1} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
-%         \]
-%     % \end{footnotesize}%
-%     % We use $\beta(n,\delta) \simeq \ln(3n^{3/2}/\delta)$
-%   \end{exampleblock}
-
-%   \pause
-
-%   \begin{exampleblock}{$ii)$ Exploration forcée \hfill{} (paramètre $\alpha$)}
-%     \begin{itemize}
-%       \item On utilise une exploration forcée sur tous les bras\ldots\\
-%         \emph{ie}, en moyenne, le bras $k$ est forcé à être joué au moins $T \times \alpha / K$ fois
-%       \item $\implies$ dans le but de pouvoir détecter les ruptures sur tous les bras
-%       \item et pas seulement sur le bras joué par les indices kl-UCB
-%       % (lignes $5$-$6$), qui assure que chaque bras est suffisamment échantillonné, afin que les ruptures puissent aussi être détectées sur les bras actuellement sous-échantillonnés par l'algorithme de bandit.
-%     \end{itemize}
-%   \end{exampleblock}
-
-% \end{frame}
-
-% \begin{frame}{L'algorithme \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
-
-% \begin{columns}
-% \begin{column}{0.02\textwidth}
+%   \item
+%   But équivalent : maximiser la somme des récompenses moyennes
+%   $\Longleftrightarrow$ \alert{minimiser le regret moyen}
 %   %
-% \end{column}
-% \begin{column}{0.97\textwidth}
-% \begin{footnotesize}
-%   % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
-%   % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
-%   % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
-%   \begin{algorithm}[H]
-%       % XXX Options
-%       % \LinesNumbered  % XXX Option to number the line
-%       % \RestyleAlgo{boxed}
-%       % XXX Input, data and output
-%       \KwData{\emph{Paramètre du problème} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
-%       \KwData{\emph{Paramètre} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
-%       % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
-%       % \KwData{Data}
-%       % \KwResult{Result}
-%       % XXX Algorithm
-%       \textbf{Initialisation : } $\forall k \in \{1,\dots,K\}$, $\tau_k = 0$ et $n_k = 0$ \\
-%       \For{$t=1,2,\ldots, T$}{
-%           \pause
-%           \uIf{
-%               $t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor \in \{1,\dots,K\}$
-%           }{
-%               $A(t) = t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor$
-%               \tcp*[f]{exploration forcée} \\
-%           }
-%           \uElse{
-%             \textcolor{deeppurple}{$A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$}
-%               \tcp*[f]{\textcolor{deeppurple}{plus grand indice UCB}}
-%           }
-%           \pause
-%           \mbox{Joue le bras} $k=A(t)$, et incrémente le compteur $n_{A(t)} = n_{A(t)} + 1$ \\
-%           \mbox{Observe la récompense} $X_{A(t),t}$, et la stocker $Z_{A(t), n_{A(t)}} = X_{A(t),t}$ \\
-%           \pause
-%           \uIf{
-%             \textcolor{gold}{$\mathrm{BGLRT}_\delta(Z_{A(t),1}, \cdots, Z_{A(t), n_{A(t)}})$ = Vrai}
-%           }
-%           {
-%               % \uSi{Redémarrages \textbf{globaux}}{
-%                 \textcolor{gold}{$\forall k, \tau_k = t$ et $n_k = 0 $}
-%                 \tcp*[f]{\textcolor{gold}{efface la mémoire de tous les bras}}
-%                   % \tcp*[f]{redémarrages globaux}
-%                   % }
-%               % \Sinon{
-%                   % $\tau_{A(t)} = t$ and $n_{A(t)} = 0$
-%                   % \tcp*[f]{redémarrage local}
-%               % }
-%           }
-%       }
-%   \end{algorithm}
-% \end{footnotesize}
+%   \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T \textcolor{deeppurple}{r_{k^*}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = T \textcolor{deeppurple}{\mu^*} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
-% \end{column}
-% \end{columns}
-
-% \end{frame}
-
-
-% \section{\hfill{}5. Analyse du regret\hfill{}}
-
-% \begin{frame}{5. Analyse du regret}
-
-%   \begin{enumerate}
-%     \item
-%     \textcolor{gray}{
-%       Problèmes de bandits multi-bras (stationnaires)
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Problèmes de bandits multi-bras stationnaires par morceaux
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Le test BGLR et ses propriétés à horizon fini
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       L'algorithme T-BGLR + klUCB
-%     }
-%     \vspace*{15pt}
-
-%     \item
-%     \alert{\textbf{%
-%       Analyse du regret
-%     }}
-%     \vspace*{15pt}
-
-%     \item
-%     \textcolor{gray}{
-%       Simulations numériques
-%     }
-%   \end{enumerate}
-
-% \end{frame}
-
-% \subsection{\hfill{}Hypothèses\hfill{}}
-
-% \begin{frame}{Hypothèses de notre analyse théorique}
-
-%   \begin{itemize}
-%     \item
-%     Denote $\tau^{i}$ the position of break-point $i$ ($\tau^0 = 0$)
-%     \item
-%     and $\mu_k^{i}$ the mean of arm $k$ on the segment $[\tau^i, \tau^{i+1}]$
-%     \item
-%     and $b(i) \in \arg\max_k \mu_k^{i}$ (one of) the best arm(s) on the $i$-th segment
-%     \item
-%     and the largest gap at break-point $i$ is
-%     $\Delta^{i} = \max\limits_{k=1,\dots,K} |\mu_k^{i} - \mu_k^{i-1}| >0$
-%   \end{itemize}
-
-%   \pause
-%   \begin{block}{Assumption}
-%     Fix the parameters $\alpha$ and $\delta$,
-%     and let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
-
-%     \alert{\textbf{We assume that all sequences are ``long enough'':}}
-%     \vspace*{-5pt}
-%     \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \alert{\tau^{i} - \tau^{i-1}} \geq 2\max( d^{i}, d^{i-1} ). \]
-%   \end{block}
-
-%   \pause
-%   $\hookrightarrow$
-%   The \alert{minimum length of sequence $i$} depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^{i-1}$} and \textcolor{darkblue}{$\Delta^{i}$}).
-
-% \end{frame}
-
-
-% \subsection{\hfill{}Regret upper-bound\hfill{}}
-
-% \begin{frame}{Theoretical result}
-
-%   Under this hypothesis, we obtained a \emph{finite time}
-%   upper-bound on the regret $R_T$,
-%   with explicit dependency from the problem difficulty.
-
-%   The exact bound uses:
-%   \begin{itemize}
-%     \item
-%     the divergences $\mathrm{kl}(\mu_{k}^{i},\mu_{b(i)}^{i})$
-%     account for the difficulty of the stationary problem on sequence $i$,
-%     \item
-%     the gaps $\Delta^{i}$
-%     account for the difficulty of detecting break-point $i$,
-%   \end{itemize}
-%   as well as the two parameters
-%   \begin{itemize}
-%     \item
-%     $\alpha$ the probability of forced exploration,
-%     \item
-%     and $\delta$ the confidence level of the break-point detection test.
-%   \end{itemize}
-
-% \end{frame}
-
-
-% \begin{frame}{Simplified form of the result for \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
-
-%   \begin{block}{Regret upper bound for BGLR + kl-UCB \dCooley{}}
-%     \begin{itemize}
-%       \item
-%       On a problem satisfying our assumption\ldots
-%       \item
-%       let $\alpha = \sqrt{\Upsilon_T \ln(T) / T}$ and $\delta = 1 / \sqrt{T \Upsilon_T}$ (if $T$ and $\Upsilon_T$ are known),
-%       \pause
-%       \item
-%       then if BGLR + kl-UCB uses parameters $\alpha$ and $\delta$, its regret satisfies
-%       %
-%       \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{gold}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{deeppurple}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
-%       \begin{itemize}\tightlist
-%         \item
-%         with $\textcolor{gold}{\Delta^{\text{change}}} =$
-%         %  $\min_{i} \Delta^{i} =$
-%         \textcolor{gold}{the smallest detection gap between two stationary segments}
-%         $=$ \textcolor{gold}{Difficulty of the break-point detection problems!}
-%         \item
-%         and $\textcolor{deeppurple}{\Delta^{\text{opt}}} =$
-%         \textcolor{deeppurple}{the smallest value of sub-optimality gap on a stationary segment}
-%         $=$ \textcolor{deeppurple}{Difficulty of the stationary bandit problems!}
-%       \end{itemize}
-%       % ($\min_{k: \mu_k(t) < \mu_{k^*(t)}(t)} \mu_{k^*(t)}(t) - \mu_k(t)$)
-%     \end{itemize}
-%   \end{block}
+% \end{itemize}
 
 % \pause
-% $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dependency on the gaps.
+% \vspace*{10pt}
+
+% \begin{exampleblock}{Régime typique pour des bandits stationnaires (bornes inf \& sup)}
+%   \begin{itemize}
+%   \item
+%   Aucun algorithme $\mathcal{A}$ ne peut atteindre un regret meilleur que
+%   \hfill{}
+%   $R_{\mathcal{A}}(T) \geq \Omega(\log(T))$
+
+%   \item
+%   Et un algorithme efficace $\mathcal{A}$ obtient
+%   \hfill{}
+%   $R_{\mathcal{A}}(T) \leq \mathcal{O}(\log(T))$
+%   \end{itemize}
+% \end{exampleblock}
 
 % \end{frame}
 
+% % \subsection{\hfill{}Regret de deux algorithmes de type UCB\hfill{}}
 
-% \subsection{\hfill{}Comparison with other algorithms\hfill{}}
+% % \begin{frame}{Regret des algorithmes UCB et kl-UCB}
 
-% \begin{frame}{Comparison with other state-of-the-art approaches}
+% %   Pour n'importe quel problème avec $K$ bras de Bernoulli, de moyennes $\mu_1,\dots,\mu_K \in[0,1]$, et de \textcolor{deeppurple}{bras optimal $\mu^*$} :
 
-%   \begin{exampleblock}{Our algorithm (BGLR + kl-UCB)}
-%     \begin{itemize}
-%       \item Hypotheses: bounded rewards, known $T$, known $\Upsilon_T = o(\sqrt{T})$, and ``long enough'' stationary sequences
-%       \item We obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
-%     \end{itemize}
-%   \end{exampleblock}
+% %   \begin{exampleblock}{Pour l'algorithme UCB}
+% %     \begin{small}
+% %       \[ R_T^{\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{8}{(\mu_k - \textcolor{deeppurple}{\mu^*})} \log(T) + o(\log(T)). \]
+% %     \end{small}%
+% %   \end{exampleblock}
+
+% %   \begin{exampleblock}<2->{Pour l'algorithme kl-UCB : une meilleure borne}
+% %     \begin{small}
+% %       \[ R_T^{\mathrm{kl}\text{-}\mathrm{UCB}} \leq \sum_{\substack{k=1,\dots,K \\ \mu_k < \textcolor{deeppurple}{\mu^*}}} \frac{(\mu_k - \textcolor{deeppurple}{\mu^*})}{\mathrm{kl}(\textcolor{deeppurple}{\mu^*}, \mu_k)} \log(T) + o(\log(T)) = \mathcal{O}( \alert{\underbrace{C(\mu_1,\dots,\mu_K)}_{\text{Difficulté du problème}}} \log(T) ). \]
+% %     \end{small}%
+% %     \begin{footnotesize}
+% %       Avec $\mathrm{kl}(x, y) = x \log(x/y) + (1-x) \log((1-x)/(1-y))$ l'\emph{entropie binaire relative}\\
+% %       (\emph{ie}, la divergence de Kullback-Leibler de deux lois de Bernoulli de moyennes $x$ et $y$)
+% %     \end{footnotesize}%
+% %   \end{exampleblock}
+
+% % \end{frame}
+
+
+% \section{\hfill{}Problèmes de bandits multi-bras stationnaires par morceaux\hfill{}}
+
+% % \begin{frame}{2. Bandits stationnaires par morceaux}
+
+% %   \begin{enumerate}
+% %     \item
+% %     \textcolor{gray}{
+% %       Problèmes de bandits multi-bras (stationnaires)
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \alert{\textbf{%
+% %       Problèmes de bandits multi-bras stationnaires par morceaux
+% %     }}
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Le test BGLR et ses propriétés à horizon fini
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       L'algorithme T-BGLR + klUCB
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Simulations numériques
+% %     }
+% %   \end{enumerate}
+
+% % \end{frame}
+
+
+% \begin{frame}{Problèmes de bandits non stationnaires}
+
+%   \begin{block}{Problèmes de bandits stationnaires}
+%     Le bras $k$ donne une récompense selon \textcolor{blue}{la même distribution pour chaque instant} :
+%     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
+%   \end{block}
 
 %   \pause
-%   Two recent competitors
-%   use a similar assumption
-%   \alert{but they both require prior knowledge of a lower-bound on the gaps}
+%   \begin{alertblock}{Problèmes de bandits \emph{non} stationnaires}
+%     Le bras $k$ donne une récompense selon \alert{une distribution différente à chaque instant} :
+%     $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
+%   \end{alertblock}
 
-%   % \begin{block}{Exp3.S \hfill{} \textcolor{gray}{[Auer et al, 2002]}}
-%   %   \begin{itemize}
-%   %     \item Hypotheses: just bounded rewards
-%   %     \item $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T})$
-%   %     \item But usually poor in practice
-%   %   \end{itemize}
-%   % \end{block}
+%   $\implies$ \dXey{} problème plus difficile !
+%   Et très difficile si $\mu_k(t)$ peut changer n'importe quand !
 
-%   \begin{block}{CUSUM-UCB \hfill{} \textcolor{gray}{[Liu \& Lee \& Shroff, AAAI 2018]}}
-%     \begin{itemize}
-%       \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T / \Upsilon_T)})$
-%     \end{itemize}
+%   \pause
+%   \begin{block}{Problèmes de bandits \textbf{stationnaires par morceaux}}
+%     $\hookrightarrow$ on se concentre sur le cas où il y a au plus $o(\sqrt{T})$ intervalles sur lesquels les moyennes sont toutes stationnaires (= \textbf{séquences})
 %   \end{block}
+% \end{frame}
 
-%   \begin{block}{M-UCB \hfill{} \textcolor{gray}{[Cao \& Zhen \& Kveton \& Xie, AISTATS 2019]}}
-%     \begin{itemize}
-%       \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+% \subsection{\hfill{}Définitions\hfill{}}
+
+% \begin{frame}{Ruptures et séquences stationnaires}
+
+%   On définit
+
+%   \begin{itemize}
+%     \item
+%     Le nombre de rupture\\
+%     $\Upsilon_T = \sum\limits_{t=1}^{T-1} \mathbbm{1}(\exists k\in \{1,\dots,K\}$ $:$ $\mu_k(t) \neq \mu_k(t+1) )$
+
+%     \item
+%     Le $i$ème point d'arrêt\\
+%     $\tau^{i} = \inf\{t > \tau^{i-1} : \exists k : \mu_k(t) \neq \mu_k(t+1)\}$
+%     \hfill{} (avec $\tau^0=0$)
+%   \end{itemize}
+
+%   \begin{block}<2->{\textbf{Hypothèses} sur les problèmes stationnaires par morceaux (p.m.)}
+%     \begin{itemize}\tightlist
+%       \item Les récompenses $r_k(t)$ générées par chaque bras $k$ sont \alert{\emph{iid} sur chaque intervale} $[ \tau^{i} + 1, \tau^{i+1} ]$ (la $i$ème séquence)
+%       \item Il y a $\Upsilon_T = o(\sqrt{T})$ ruptures
+%       \item Et \alert{$\Upsilon_T$ peut être connu à l'avance}
+%       \item Les séquences sont toutes ``assez longues``
+%   \end{itemize}
+% \end{block}
+% \end{frame}
+
+
+% \begin{frame}[plain]{Exemple d'un problème de bandits stationnaire p.m.}
+%   On affiche les moyennes \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
+%   des $K=3$ bras.\\
+%   Il y a $\Upsilon_T=4$ ruptures, et $5$ séquences entre $t=1$ et $T=5000$ :
+%   \vspace*{-20pt} % WARNING
+%   \begin{center}
+%     \includegraphics[width=1.10\textwidth]{figures/Problem_1.pdf}
+%   \end{center}
+% \end{frame}
+
+
+% \subsection{\hfill{}Étendre la définition du regret\hfill{}}
+
+% \begin{frame}{Regret pour les bandits stationnaires par morceaux ?}
+
+%   L'algorithme ``oracle'' joue le meilleur bras (inconnu) $k^*(t) = \arg\max \mu_k(t)$
+%   (qui change entre chaque séquence stationnaire)
+%   %
+%   \[ \alert{ R_{\mathcal{A}}(T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+
+% \pause
+% \vspace*{10pt}
+
+% \begin{exampleblock}{Régimes typiques pour les bandits stationnaires par morceaux}
+%   \begin{itemize}
+%   \item
+%   La borne inférieure est
+%   $R_{\mathcal{A}}(T) \geq \Omega(\sqrt{K T \Upsilon_T})$
+
+%   \item
+%   Actuellement, les meilleurs algorithmes $\mathcal{A}$  obtiennent
+%     \begin{itemize}\tightlist
+%       \item
+%       $R_{\mathcal{A}}(T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+%       si $T$ et $\Upsilon_T$ sont connus
+%       \item
+%       $R_{\mathcal{A}}(T) = \mathcal{O}(K \alert{\Upsilon_T} \sqrt{T \log(T)})$
+%       si $T$ et $\Upsilon_T$ sont inconnus
 %     \end{itemize}
-%   \end{block}
+%   \end{itemize}
+% \end{exampleblock}
 
 % \end{frame}
+
+
+% \section{\hfill{}L'algorithme T-BGLR + klUCB\hfill{}}
+
+% % \begin{frame}{4. L'algorithme T-BGLR + klUCB}
+
+% %   \begin{enumerate}
+% %     \item
+% %     \textcolor{gray}{
+% %       Problèmes de bandits multi-bras (stationnaires)
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Problèmes de bandits multi-bras stationnaires par morceaux
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Le test BGLR et ses propriétés à horizon fini
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \alert{\textbf{%
+% %       L'algorithme T-BGLR + klUCB
+% %     }}
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Simulations numériques
+% %     }
+% %   \end{enumerate}
+
+% % \end{frame}
+
+% \subsection{\hfill{}Le test BGRL + les indices kl-UCB\hfill{}}
+
+% \begin{frame}{On combine le test BGRL + les indices kl-UCB}
+
+%   Idées principales :
+
+%   \begin{itemize}
+%     % \item Forced uniform random exploration with probability $\alpha$
+%     \item Calculer un indice UCB sur chaque bras $k$ (Borne Sup. Confiance)
+%     \pause
+%     % $\mbox{kl-UCB}_k(t)$
+%     \item Presque tout le temps, jouer le bras $A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$
+%     \item Quelques instants, forcer une exploration de chaque bras
+%     \pause
+%     \item Utiliser le test BGLR \alert{pour détecter les ruptures sur le bras joué}
+%     \item Si une rupture est détectée, \alert{effacer la mémoire des observations de \emph{tous les} bras}
+%   \end{itemize}
+
+%   $\hookrightarrow$ Algorithme BGRL + kl-UCB détaillé dans l'article
+
+%   % \pause
+
+%   % \begin{exampleblock}{Les indices kl-UCB}
+%   %   \begin{itemize}
+%   %     \item $\tau_k(t)$ est le temps depuis le dernier redémarrage du bras $k$,
+%   %     % avant le temps $t$,
+%   %     \item $n_k(t)$ compte les sélections et $\widehat{\mu}_k(t)$ est la moyenne empirique des observations du bras $k$ depuis $\tau_k(t)$,
+%   %     % = \sum\limits_{s=\tau_k(t)+1}^{t} \mathbbm{1}(A_s=k)$
+%   %     % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
+%   %     %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
+%   %     \item Soit {\small $\mbox{kl-UCB}_k(t) = \max \bigl\{ q\in[0,1] : n_k(t) \times \mathrm{kl}\left(\widehat{\mu}_k(t),q\right) \leq f(t - \tau_k(t)) \bigr\}$ }
+%   %     \item $f(t) = \ln(t) + 3 \ln(\ln(t))$ contrôle l'amplitude de la Borne Sup. de Confiance (UCB).
+%   %   \end{itemize}
+%   % \end{exampleblock}
+
+% \end{frame}
+
+% % \begin{frame}{Deux détails sur notre algorithme}
+
+% %   % % \GLRklUCB{} repose sur le calcul d'un \emph{indice} (de type \mathrm{kl}UCB{} \cite{KLUCBJournal}) pour chaque bras,  et choisit en général le bras d'indice le plus élevé.
+% %   % Soit $\tau_i(t)$ l'instant de la dernière réinitialisation pour le bras $i$ avant le temps $t$, $n_i(t) = \sum_{s=\tau_i(t)+1}^{t} \mathbbm{1}(A_s=i)$ le nombre de sélections et $\widehat{\mu}_i(t)$
+% %   % %= (\sum_{s=\tau_i(t)+1}^{t}X_{i,s} \mathbbm{1}(A_s=i))/n_i(t)$ (si $n_i(t)\neq0$)
+% %   % la moyenne empirique des récompenses obtenues entre la dernière réinitialisation et l'instant $t$.
+
+% %   % % L'indice du bras $i$ à l'instant $t$ est défini par
+% %   % % $\UCB_i(t) = \max \bigl\{ q\in[0,1] : n_i(t) \times \mathrm{kl}\left(\widehat{\mu}_i(t),q\right) \leq f(t - \tau_i(t)) \bigr\}$ (l. $6$) avec la fonction d'exploration $f(t) = \ln(t) + 3 \ln(\ln(t))$.
+% %   % % La détection d'une rupture sur le bras qui vient d'être joué
+% %   % % produit une réinitialisation (l. $12$),
+
+% %   \begin{exampleblock}{$i)$ Comment est utilisé le test BGLR ? \hfill{} (paramètre $\delta$)}
+% %     Avec les observations $Z_1,\cdots,Z_n$
+% %     % $\mbox{BGLRT}_\delta(Z_1,\dots,Z_n) = \mathrm{True}$
+% %     on utilise le test BGLR pour détecter une rupture
+% %     avec un niveau de confiance $\delta$
+% %     quand
+% %     % \begin{footnotesize}
+% %       \[
+% %         \sup_{1 \leq s \leq n-1} \left[s \times \mathrm{kl} \left( \widehat{Z}_{1:s}, \widehat{Z}_{1:n}\right) + (n-s) \times \mathrm{kl} \left( \widehat{Z}_{s+1:n}, \widehat{Z}_{1:n} \right) \right] \geq \beta(n,\delta)
+% %         \]
+% %     % \end{footnotesize}%
+% %     % We use $\beta(n,\delta) \simeq \ln(3n^{3/2}/\delta)$
+% %   \end{exampleblock}
+
+% %   \pause
+
+% %   \begin{exampleblock}{$ii)$ Exploration forcée \hfill{} (paramètre $\alpha$)}
+% %     \begin{itemize}
+% %       \item On utilise une exploration forcée sur tous les bras\ldots\\
+% %         \emph{ie}, en moyenne, le bras $k$ est forcé à être joué au moins $T \times \alpha / K$ fois
+% %       \item $\implies$ dans le but de pouvoir détecter les ruptures sur tous les bras
+% %       \item et pas seulement sur le bras joué par les indices kl-UCB
+% %       % (lignes $5$-$6$), qui assure que chaque bras est suffisamment échantillonné, afin que les ruptures puissent aussi être détectées sur les bras actuellement sous-échantillonnés par l'algorithme de bandit.
+% %     \end{itemize}
+% %   \end{exampleblock}
+
+% % \end{frame}
+
+% % \begin{frame}{L'algorithme \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
+
+% % \begin{columns}
+% % \begin{column}{0.02\textwidth}
+% %   %
+% % \end{column}
+% % \begin{column}{0.97\textwidth}
+% % \begin{footnotesize}
+% %   % Documentation at http://mirror.ctan.org/tex-archive/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf if needed
+% %   % Or https://en.wikibooks.org/wiki/LaTeX/Algorithms#Typesetting_using_the_algorithm2e_package
+% %   % \removelatexerror% Nullify \@latex@error % Cf. http://tex.stackexchange.com/a/82272/
+% %   \begin{algorithm}[H]
+% %       % XXX Options
+% %       % \LinesNumbered  % XXX Option to number the line
+% %       % \RestyleAlgo{boxed}
+% %       % XXX Input, data and output
+% %       \KwData{\emph{Paramètre du problème} : $T\in\mathbb{N}^*$, $K\in\mathbb{N}^*$}
+% %       \KwData{\emph{Paramètre} : $\alpha \in (0, 1)$, $\delta>0$ \tcp*[f]{peut utiliser $T$ et $\Upsilon_T$}}
+% %       % \KwData{\emph{Option} : redémarrages \textbf{Locaux} ou \textbf{Globaux}\;}
+% %       % \KwData{Data}
+% %       % \KwResult{Result}
+% %       % XXX Algorithm
+% %       \textbf{Initialisation : } $\forall k \in \{1,\dots,K\}$, $\tau_k = 0$ et $n_k = 0$ \\
+% %       \For{$t=1,2,\ldots, T$}{
+% %           \pause
+% %           \uIf{
+% %               $t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor \in \{1,\dots,K\}$
+% %           }{
+% %               $A(t) = t \mod \left\lfloor \frac{K}{\alpha}\right\rfloor$
+% %               \tcp*[f]{exploration forcée} \\
+% %           }
+% %           \uElse{
+% %             \textcolor{deeppurple}{$A(t) = \arg\max\limits_{k\in \{1,\dots,K\}} \mbox{kl-UCB}_k(t)$}
+% %               \tcp*[f]{\textcolor{deeppurple}{plus grand indice UCB}}
+% %           }
+% %           \pause
+% %           \mbox{Joue le bras} $k=A(t)$, et incrémente le compteur $n_{A(t)} = n_{A(t)} + 1$ \\
+% %           \mbox{Observe la récompense} $X_{A(t),t}$, et la stocker $Z_{A(t), n_{A(t)}} = X_{A(t),t}$ \\
+% %           \pause
+% %           \uIf{
+% %             \textcolor{gold}{$\mathrm{BGLRT}_\delta(Z_{A(t),1}, \cdots, Z_{A(t), n_{A(t)}})$ = Vrai}
+% %           }
+% %           {
+% %               % \uSi{Redémarrages \textbf{globaux}}{
+% %                 \textcolor{gold}{$\forall k, \tau_k = t$ et $n_k = 0 $}
+% %                 \tcp*[f]{\textcolor{gold}{efface la mémoire de tous les bras}}
+% %                   % \tcp*[f]{redémarrages globaux}
+% %                   % }
+% %               % \Sinon{
+% %                   % $\tau_{A(t)} = t$ and $n_{A(t)} = 0$
+% %                   % \tcp*[f]{redémarrage local}
+% %               % }
+% %           }
+% %       }
+% %   \end{algorithm}
+% % \end{footnotesize}
+
+% % \end{column}
+% % \end{columns}
+
+% % \end{frame}
+
+
+% % \section{\hfill{}5. Analyse du regret\hfill{}}
+
+% % \begin{frame}{5. Analyse du regret}
+
+% %   \begin{enumerate}
+% %     \item
+% %     \textcolor{gray}{
+% %       Problèmes de bandits multi-bras (stationnaires)
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Problèmes de bandits multi-bras stationnaires par morceaux
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Le test BGLR et ses propriétés à horizon fini
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       L'algorithme T-BGLR + klUCB
+% %     }
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \alert{\textbf{%
+% %       Analyse du regret
+% %     }}
+% %     \vspace*{15pt}
+
+% %     \item
+% %     \textcolor{gray}{
+% %       Simulations numériques
+% %     }
+% %   \end{enumerate}
+
+% % \end{frame}
+
+% % \subsection{\hfill{}Hypothèses\hfill{}}
+
+% % \begin{frame}{Hypothèses de notre analyse théorique}
+
+% %   \begin{itemize}
+% %     \item
+% %     Denote $\tau^{i}$ the position of break-point $i$ ($\tau^0 = 0$)
+% %     \item
+% %     and $\mu_k^{i}$ the mean of arm $k$ on the segment $[\tau^i, \tau^{i+1}]$
+% %     \item
+% %     and $b(i) \in \arg\max_k \mu_k^{i}$ (one of) the best arm(s) on the $i$-th segment
+% %     \item
+% %     and the largest gap at break-point $i$ is
+% %     $\Delta^{i} = \max\limits_{k=1,\dots,K} |\mu_k^{i} - \mu_k^{i-1}| >0$
+% %   \end{itemize}
+
+% %   \pause
+% %   \begin{block}{Assumption}
+% %     Fix the parameters $\alpha$ and $\delta$,
+% %     and let $d^{i} = d^{i}(\alpha,\delta) = \lceil \frac{4K}{\alpha(\Delta^{i})^2}\beta(T,\delta) + \frac{K}{\alpha} \rceil$.
+
+% %     \alert{\textbf{We assume that all sequences are ``long enough'':}}
+% %     \vspace*{-5pt}
+% %     \[ \forall i \in \{1,\dots,\Upsilon_T\}, \;\;\;\; \alert{\tau^{i} - \tau^{i-1}} \geq 2\max( d^{i}, d^{i-1} ). \]
+% %   \end{block}
+
+% %   \pause
+% %   $\hookrightarrow$
+% %   The \alert{minimum length of sequence $i$} depends on the amplitude of the changes at \textcolor{darkred}{the beginning} and \textcolor{darkblue}{the end} of the sequence (\textcolor{darkred}{$\Delta^{i-1}$} and \textcolor{darkblue}{$\Delta^{i}$}).
+
+% % \end{frame}
+
+
+% % \subsection{\hfill{}Regret upper-bound\hfill{}}
+
+% % \begin{frame}{Theoretical result}
+
+% %   Under this hypothesis, we obtained a \emph{finite time}
+% %   upper-bound on the regret $R_T$,
+% %   with explicit dependency from the problem difficulty.
+
+% %   The exact bound uses:
+% %   \begin{itemize}
+% %     \item
+% %     the divergences $\mathrm{kl}(\mu_{k}^{i},\mu_{b(i)}^{i})$
+% %     account for the difficulty of the stationary problem on sequence $i$,
+% %     \item
+% %     the gaps $\Delta^{i}$
+% %     account for the difficulty of detecting break-point $i$,
+% %   \end{itemize}
+% %   as well as the two parameters
+% %   \begin{itemize}
+% %     \item
+% %     $\alpha$ the probability of forced exploration,
+% %     \item
+% %     and $\delta$ the confidence level of the break-point detection test.
+% %   \end{itemize}
+
+% % \end{frame}
+
+
+% % \begin{frame}{Simplified form of the result for \textcolor{gold}{BGLR} + \textcolor{deeppurple}{kl-UCB}}
+
+% %   \begin{block}{Regret upper bound for BGLR + kl-UCB \dCooley{}}
+% %     \begin{itemize}
+% %       \item
+% %       On a problem satisfying our assumption\ldots
+% %       \item
+% %       let $\alpha = \sqrt{\Upsilon_T \ln(T) / T}$ and $\delta = 1 / \sqrt{T \Upsilon_T}$ (if $T$ and $\Upsilon_T$ are known),
+% %       \pause
+% %       \item
+% %       then if BGLR + kl-UCB uses parameters $\alpha$ and $\delta$, its regret satisfies
+% %       %
+% %       \[ R_T =\mathcal{O}\left( \frac{K}{\left(\textcolor{gold}{\Delta^{\text{change}}}\right)^2}\sqrt{T \Upsilon_T \ln(T)} + \frac{(K-1)}{\textcolor{deeppurple}{\Delta^{\text{opt}}}} \Upsilon_T\ln(T) \right),\]
+% %       \begin{itemize}\tightlist
+% %         \item
+% %         with $\textcolor{gold}{\Delta^{\text{change}}} =$
+% %         %  $\min_{i} \Delta^{i} =$
+% %         \textcolor{gold}{the smallest detection gap between two stationary segments}
+% %         $=$ \textcolor{gold}{Difficulty of the break-point detection problems!}
+% %         \item
+% %         and $\textcolor{deeppurple}{\Delta^{\text{opt}}} =$
+% %         \textcolor{deeppurple}{the smallest value of sub-optimality gap on a stationary segment}
+% %         $=$ \textcolor{deeppurple}{Difficulty of the stationary bandit problems!}
+% %       \end{itemize}
+% %       % ($\min_{k: \mu_k(t) < \mu_{k^*(t)}(t)} \mu_{k^*(t)}(t) - \mu_k(t)$)
+% %     \end{itemize}
+% %   \end{block}
+
+% % \pause
+% % $\implies$ $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$ if we hide the dependency on the gaps.
+
+% % \end{frame}
+
+
+% % \subsection{\hfill{}Comparison with other algorithms\hfill{}}
+
+% % \begin{frame}{Comparison with other state-of-the-art approaches}
+
+% %   \begin{exampleblock}{Our algorithm (BGLR + kl-UCB)}
+% %     \begin{itemize}
+% %       \item Hypotheses: bounded rewards, known $T$, known $\Upsilon_T = o(\sqrt{T})$, and ``long enough'' stationary sequences
+% %       \item We obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+% %     \end{itemize}
+% %   \end{exampleblock}
+
+% %   \pause
+% %   Two recent competitors
+% %   use a similar assumption
+% %   \alert{but they both require prior knowledge of a lower-bound on the gaps}
+
+% %   % \begin{block}{Exp3.S \hfill{} \textcolor{gray}{[Auer et al, 2002]}}
+% %   %   \begin{itemize}
+% %   %     \item Hypotheses: just bounded rewards
+% %   %     \item $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T})$
+% %   %     \item But usually poor in practice
+% %   %   \end{itemize}
+% %   % \end{block}
+
+% %   \begin{block}{CUSUM-UCB \hfill{} \textcolor{gray}{[Liu \& Lee \& Shroff, AAAI 2018]}}
+% %     \begin{itemize}
+% %       \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T / \Upsilon_T)})$
+% %     \end{itemize}
+% %   \end{block}
+
+% %   \begin{block}{M-UCB \hfill{} \textcolor{gray}{[Cao \& Zhen \& Kveton \& Xie, AISTATS 2019]}}
+% %     \begin{itemize}
+% %       \item They obtain $R_T = \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+% %     \end{itemize}
+% %   \end{block}
+
+% % \end{frame}
 
 
 \section{\hfill{}Simulations numériques\hfill{}}
