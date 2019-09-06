@@ -19,9 +19,9 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 # Objectifs du cours
 
 - Étude de l'**algorithmique** = science des algorithmes
-  étude théorique et empirique
+  Étude **théorique** et **empirique**
 
-- *Pas* étude de la calculabilité (cf. autre cours)
+- *Pas* une étude de la calculabilité (cf. autre cours)
 
 - Maîtriser trois axes :
   + types abstraits & structures de données
@@ -45,16 +45,15 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
   + actif⋅ve⋅s en TD
   + lire les implémentations proposées pour chaque cours
   + finir les TD à la maison
-  + un DM
-  + un DS
+  + un DM & un DS
 
 ---
 
-# Organisation des cours
+# Organisation des *Cours Magistraux*
 
 - :wave: *Par* : [Lilian Besson](https://GitHub.com/Naereen/slides/) $\hookrightarrow$ `Lilian.Besson @ Inria.fr`
 
-- :school: *Lieu* ? CM : ENS de Rennes, salle 07 ou autre (à voir sur ADE).
+- :school: *Lieu* ? CM : ENS de Rennes, salle 07 ou autre (à voir sur ADE)
 
 - :date: *Date* : les mardis
   + 14h-16h généralement
@@ -62,19 +61,21 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
     (17 sept., 01 & 15 oct., 05 & 12 & 26 nov.)
     :warning: Présence obligatoire aux séminaires (en amphi)
 
-- :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu.
+- :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu
+
+- Support de cours *pas mis en ligne* : :warning: prenez des notes !
 
 ---
 
-# Organisation des TD
+# Organisation des *Travaux Dirigés*
 
 - :wave: *Par* : Raphaël Truffet $\hookrightarrow$ `Raphael.Truffet @ IRISA.fr`
 
-- :school: *Lieu* ? TD : Beaulieu (salle à voir sur ADE).
+- :school: *Lieu* ? TD : Beaulieu (salles à voir sur ADE)
 
 - :date: *Date* : les jeudis, 16h-18h
 
-- :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu.
+- :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu
 
 - Feuille de TD distribuée pendant le TD
 - A terminer pour le TD suivant
@@ -83,13 +84,13 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 # Évaluations
 
-1. **Présence obligatoire en cours *et* en TD**
-2. Un DM écrit $\Longrightarrow$ ==**1/3 de la note du cours**==
+1. **Présence obligatoire à tous les cours *et* les TD**
+2. Un DM écrit $\Longrightarrow$ ==**1/3 de la note**==
    + seul (pas de travail de groupe)
    + sujet donné mi octobre, à rendre début novembre après les vacances de Toussaint
    + des preuves à rédiger sur papier libre (ou en LaTeX)
    + un peu de code à écrire (Python ou OCaml)
-2. Un DS écrit $\Longrightarrow$ ==**2/3 de la note du cours**==
+2. Un DS écrit $\Longrightarrow$ ==**2/3 de la note**==
    + pendant les examens mi décembre
    + des preuves à rédiger sur papier libre (ou en LaTeX)
    + un peu de code à écrire (Python ou OCaml) ou pseudo-code
@@ -105,6 +106,28 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 - **Types de données et algorithmes**, C. Froidevaux, M.-C. Gaudel, M. Soria ; McGraw-Hill-InterEditions.
 
 - **Programmation efficace : Les 128 algorithmes qu'il faut avoir compris et codés dans sa vie**, J.-J. Vie, C. Dürr ; Ellipes. (http://tryalgo.org)
+
+---
+
+# Définitions
+
+## Algorithmes…
+
+## Problème de calcul…
+
+## Efficacité…
+
+## Types de données abstrait *vs* implémentation…
+
+---
+
+# Étude du tri par file de priorité (tri par tas)
+
+## 1. File de priorité ?
+
+## 2. Implémentation par tas binaire
+
+## 3. Tri par tas
 
 ---
 
