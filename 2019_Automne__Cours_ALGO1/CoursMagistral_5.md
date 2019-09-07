@@ -15,7 +15,7 @@ footer: Cours 5/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 - Algorithme de parcours en largeur : distance des plus courts chemins.
 - *(Correction admise)*.
-- Adaptation pour un graphe pondĂŠrĂŠ positivement : algorithme de Dijkstra.
+- Adaptation pour un graphe pondérés positivement : algorithme de Dijkstra.
 - Correction de l'algorithme de Dijkstra.
 - Algorithme A*.
 

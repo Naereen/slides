@@ -15,43 +15,52 @@ C'est en ligne, sur [cette page](https://perso.crans.org/besson/teach/info1_algo
 
 Sur [cette page](https://perso.crans.org/besson/teach/info1_algo1_2019/slides/) (`https://perso.crans.org/besson/teach/info1_algo1_2019/slides/`).
 
-### Cours 1
-- [CoursMagistral_1.pdf](CoursMagistral_1.pdf) (source : [CoursMagistral_1.md](CoursMagistral_1.md))
+### Cours 1 : Introduction + File de priorité
+- [CoursMagistral_1.pdf](CoursMagistral_1.pdf)
+- (source : [CoursMagistral_1.md](CoursMagistral_1.md))
 
-### Cours 2
-- TODO : [CoursMagistral_2.pdf](CoursMagistral_2.pdf) (source : [CoursMagistral_2.md](CoursMagistral_2.md))
+### Cours 2 : Structures de données pour un ensemble
+- TODO : [CoursMagistral_2.pdf](CoursMagistral_2.pdf)
+- (source : [CoursMagistral_2.md](CoursMagistral_2.md))
 
-### Cours 3
-- TODO : [CoursMagistral_3.pdf](CoursMagistral_3.pdf) (source : [CoursMagistral_3.md](CoursMagistral_3.md))
+### Cours 3 : Diviser pour régner
+- TODO : [CoursMagistral_3.pdf](CoursMagistral_3.pdf)
+- (source : [CoursMagistral_3.md](CoursMagistral_3.md))
 
-### Cours 4
-- TODO : [CoursMagistral_4.pdf](CoursMagistral_4.pdf) (source : [CoursMagistral_4.md](CoursMagistral_4.md))
+### Cours 4 : Graphes, et parcours en profondeur
+- TODO : [CoursMagistral_4.pdf](CoursMagistral_4.pdf)
+- (source : [CoursMagistral_4.md](CoursMagistral_4.md))
 
-### Cours 5
-- TODO : [CoursMagistral_5.pdf](CoursMagistral_5.pdf) (source : [CoursMagistral_5.md](CoursMagistral_5.md))
+### Cours 5 : Parcours en largeur
+- TODO : [CoursMagistral_5.pdf](CoursMagistral_5.pdf)
+- (source : [CoursMagistral_5.md](CoursMagistral_5.md))
 
-### Cours 6
-- TODO : [CoursMagistral_6.pdf](CoursMagistral_6.pdf) (source : [CoursMagistral_6.md](CoursMagistral_6.md))
+### Cours 6 : Algorithmes gloutons
+- TODO : [CoursMagistral_6.pdf](CoursMagistral_6.pdf)
+- (source : [CoursMagistral_6.md](CoursMagistral_6.md))
 
-### Cours 7
-- TODO : [CoursMagistral_7.pdf](CoursMagistral_7.pdf) (source : [CoursMagistral_7.md](CoursMagistral_7.md))
+### Cours 7 : Programmation dynamique
+- TODO : [CoursMagistral_7.pdf](CoursMagistral_7.pdf)
+- (source : [CoursMagistral_7.md](CoursMagistral_7.md))
 
-### Cours 8
-- TODO : [CoursMagistral_8.pdf](CoursMagistral_8.pdf) (source : [CoursMagistral_8.md](CoursMagistral_8.md))
+### Cours 8 : Flots
+- TODO : [CoursMagistral_8.pdf](CoursMagistral_8.pdf)
+- (source : [CoursMagistral_8.md](CoursMagistral_8.md))
 
-### Cours 9
-- TODO : [CoursMagistral_9.pdf](CoursMagistral_9.pdf) (source : [CoursMagistral_9.md](CoursMagistral_9.md))
+### Cours 9 : Programmation linéaire
+- TODO : [CoursMagistral_9.pdf](CoursMagistral_9.pdf)
+- (source : [CoursMagistral_9.md](CoursMagistral_9.md))
 
-### Cours 10
-- TODO : [CoursMagistral_10.pdf](CoursMagistral_10.pdf) (source : [CoursMagistral_10.mdd](CoursMagistral_10.pdf))
+### Cours 10 : Algorithmes de recherche de solutions
+- TODO : [CoursMagistral_10.pdf](CoursMagistral_10.pdf)
+- (source : [CoursMagistral_10.mdd](CoursMagistral_10.pdf))
 
 ----
 
 ### :information_desk_person: More information?
-> - More information about [notebooks (on the documentation of IPython)](https://nbviewer.jupiter.org/github/ipython/ipython/blob/3.x/examples/Notebook/Index.ipynb) or [on the FAQ on Jupyter's website](https://nbviewer.jupyter.org/faq).
-> - More information about [mybinder.org](http://mybinder.org/): on [this example repository](https://github.com/binder-project/example-requirements).
+> - More information about [Marp](https://yhatt.github.io/marp/): on [this web page](https://yhatt.github.io/marp/).
 
-## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/ALGO1-Info1-2019.svg)](https://github.com/Naereen/ALGO1-Info1-2019/blob/master/LICENSE)
+## :scroll: License ? [![GitHub license](https://img.shields.io/github/license/Naereen/ALGO1-Info1-2019.svg)](https://github.com/Naereen/ALGO1-Info1-2019/blob/master/LICENSE.txt)
 All the slides in this repository are published under the terms of the [MIT License](https://lbesson.mit-license.org/) (file [LICENSE.txt](LICENSE.txt)).
 © [Lilian Besson](https://GitHub.com/Naereen), 2019.
 
