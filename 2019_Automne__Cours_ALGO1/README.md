@@ -16,34 +16,34 @@ C'est en ligne, sur [cette page](https://perso.crans.org/besson/teach/info1_algo
 Sur [cette page](https://perso.crans.org/besson/teach/info1_algo1_2019/slides/) (`https://perso.crans.org/besson/teach/info1_algo1_2019/slides/`).
 
 ### Cours 1
-- [CoursMagistral_1.pdf](CoursMagistral_1.pdf)
+- [CoursMagistral_1.pdf](CoursMagistral_1.pdf) (source : [CoursMagistral_1.md](CoursMagistral_1.md))
 
 ### Cours 2
-- TODO : [CoursMagistral_2.pdf](CoursMagistral_2.pdf)
+- TODO : [CoursMagistral_2.pdf](CoursMagistral_2.pdf) (source : [CoursMagistral_2.md](CoursMagistral_2.md))
 
 ### Cours 3
-- TODO : [CoursMagistral_3.pdf](CoursMagistral_3.pdf)
+- TODO : [CoursMagistral_3.pdf](CoursMagistral_3.pdf) (source : [CoursMagistral_3.md](CoursMagistral_3.md))
 
 ### Cours 4
-- TODO : [CoursMagistral_4.pdf](CoursMagistral_4.pdf)
+- TODO : [CoursMagistral_4.pdf](CoursMagistral_4.pdf) (source : [CoursMagistral_4.md](CoursMagistral_4.md))
 
 ### Cours 5
-- TODO : [CoursMagistral_5.pdf](CoursMagistral_5.pdf)
+- TODO : [CoursMagistral_5.pdf](CoursMagistral_5.pdf) (source : [CoursMagistral_5.md](CoursMagistral_5.md))
 
 ### Cours 6
-- TODO : [CoursMagistral_6.pdf](CoursMagistral_6.pdf)
+- TODO : [CoursMagistral_6.pdf](CoursMagistral_6.pdf) (source : [CoursMagistral_6.md](CoursMagistral_6.md))
 
 ### Cours 7
-- TODO : [CoursMagistral_7.pdf](CoursMagistral_7.pdf)
+- TODO : [CoursMagistral_7.pdf](CoursMagistral_7.pdf) (source : [CoursMagistral_7.md](CoursMagistral_7.md))
 
 ### Cours 8
-- TODO : [CoursMagistral_8.pdf](CoursMagistral_8.pdf)
+- TODO : [CoursMagistral_8.pdf](CoursMagistral_8.pdf) (source : [CoursMagistral_8.md](CoursMagistral_8.md))
 
 ### Cours 9
-- TODO : [CoursMagistral_9.pdf](CoursMagistral_9.pdf)
+- TODO : [CoursMagistral_9.pdf](CoursMagistral_9.pdf) (source : [CoursMagistral_9.md](CoursMagistral_9.md))
 
 ### Cours 10
-- TODO : [CoursMagistral_10.pdf](CoursMagistral_10.pdf)
+- TODO : [CoursMagistral_10.pdf](CoursMagistral_10.pdf) (source : [CoursMagistral_10.mdd](CoursMagistral_10.pdf))
 
 ----
 
