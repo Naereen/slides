@@ -6,6 +6,7 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
+<link rel="stylesheet" type="text/css" href="../common/marp-90percent-fontsize.css" />
 
 # ALGO1
 <br>
@@ -36,9 +37,11 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 # Organisation du cours
 
-- Page web du cours : [`perso.crans.org/besson/teach/info1_algo1_2019`](https://perso.crans.org/besson/teach/info1_algo1_2019/)
+- Page web du cours
+  [`perso.crans.org/besson/teach/info1_algo1_2019`](https://perso.crans.org/besson/teach/info1_algo1_2019/)
 
-- 10 séances de cours + 10 séances de TD (planning sur ADE).
+- 10 séances de cours + 10 séances de TD
+  (planning sur ADE)
 
 - Votre travail :
   + attentif⋅ve⋅s en cours
@@ -279,6 +282,23 @@ $\hookrightarrow$ implémentation "manuelle" avec deux petites classes
 ## 2. Implémentation par tas binaire
 
 ## 3. Tri par tas
+
+---
+
+# Dans ce cours : des algorithmes…
+
+### … expliqués et prouvés au tableau
+
+### … illustrés sur des exemples
+$\hookrightarrow$ vous pouvez revoir les exemples à la maison sur [`www.cs.usfca.edu/~galles/visualization/Algorithms.html`](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+
+### … codés en Python 3
+- Montrés dans des *notebooks Jupyter* (cf. [`Jupyter.org`](https//www.jupyter.org))
+  - Disponibles sur [la page du cours](https://perso.crans.org/besson/teach/info1_algo1_2019/notebooks) ([`/notebooks`](https://perso.crans.org/besson/teach/info1_algo1_2019/notebooks))
+  - et sur [`GitHub.com/Naereen/ALGO1-Info1-2019/`](https://github.com/Naereen/ALGO1-Info1-2019/)
+- Des fois de façon interactive avec *Python Tutor* (cf. [`PythonTutor.com`](http://pythontutor.com/live.html#mode=edit))
+
+- Étude empirique de complexités temps/mémoire etc
 
 ---
 

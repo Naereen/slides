@@ -9,11 +9,13 @@
 .slide {
     /* Use the Palatino font for text */
     font-family: "Palatino", "Palatino Linotype", "Palatino LT STD", "TeX Gyre Pagella", "Book Antiqua", Georgia, serif;
+    font-size: 95%;
 }
 
 .slide code, .slide pre {
     /* Use the Fira Code font for code */
     font-family: "Fira Code", "DejaVu Sans Mono", "Ubuntu Mono", "DejaVu Sans Mono Book", "Courier New", Courier, monospace;
+    font-size: 85%;
 }
 
 /* Enable all text ligatures in all the slides */
@@ -62,7 +64,7 @@
 
 /* Increase font-size for footer */
 .slide .slide_footer {
-    font-size: 22px !important;
+    font-size: 95% !important;
 }
 
 /* Use my own Hand-Written font for the "thank you" message at the end */

@@ -1,0 +1,16 @@
+/* Custom CSS for slides written in Markdown with Marp: change font-size to 85%
+
+- Ref: https://github.com/yhatt/marp/#customizing-slide-css
+- Marp: https://github.com/yhatt/marp
+- Author: Lilian Besson (Naereen) https://github.com/Naereen/
+- License: MIT (https://lbesson.mit-license.org/)
+*/
+
+.slide {
+    font-size: 85%;
+}
+
+.slide code, .slide pre {
+    font-family: "Fira Code", "DejaVu Sans Mono", "Ubuntu Mono", "DejaVu Sans Mono Book", "Courier New", Courier, monospace;
+    font-size: 85%;
+}
