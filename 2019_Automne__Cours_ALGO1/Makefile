@@ -1,7 +1,7 @@
 # Quick Makefile to easily compile the slides (make pdf) and run the slide (make show)
 SHELL=/usr/bin/env /bin/bash
 
-default: all
+default: send
 
 send:	send_zamok
 send_zamok:

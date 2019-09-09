@@ -2,7 +2,7 @@
 $theme: default
 $size: 4:3
 page_number: true
-footer: Cours 10/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
+footer: Cours 10/10 - ALGO1 - ENS de Rennes - Lilian Besson - 3 décembre 2019
 -->
 
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />

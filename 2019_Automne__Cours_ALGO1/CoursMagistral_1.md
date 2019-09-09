@@ -141,7 +141,7 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 <br>
 
-# :pencil: Illustrations des exemples en cours ?
+# :pencil: Illustrations des exemples en TD/exam ?
 
 ## $\rightarrow$ en pseudo code
 
@@ -151,7 +151,7 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 # Rappels sur les types de bases
 
-Domaine $D$, représentation, etc
+Domaine $D$, représentation, taille de stockage, etc
 
 - Booléen : $D = \{\text{true}, \text{false}\}$, 1 bit
 - Entiers : $D = \mathbb{Z}$ ou $D = \mathbb{N}$, 32 ou 64 bits
@@ -165,7 +165,7 @@ Domaine $D$, représentation, etc
 
 ---
 
-# Représentations non exactes… des entiers
+# :warning: Représentations non exactes… des entiers
 - En C, C++, Javascript, OCaml : les entiers bouclent !
 - Les opérations de bases ne sont pas associatives ! Et pas exactes !
 ```ocaml
@@ -182,7 +182,7 @@ Domaine $D$, représentation, etc
 
 ---
 
-# Représentations non exactes… des flottants
+# :warning: Représentations non exactes… des flottants
 - En C, C++, Javascript, OCaml, Python : les flottants utilisent la norme IEEE 754, qui donne plein d'erreurs possibles
 - Les opérations de bases ne sont pas associatives ! Et pas exactes !
 - Les tests d'égalités sur les flottants ne sont pas "fiables" !
@@ -207,7 +207,7 @@ True
 
 - Contient des données généralement d'un même type
   + obligatoire en OCaml (typage statique)
-    types `'a array`, `'a list`
+    types `'a array`, `'a list`, etc (`'a arbre`)
   + aucune limitation en Python (typage dynamique)
 
 - En pratique :
@@ -218,7 +218,7 @@ True
 
 ---
 
-## Tableau (statique) `T`
+# Tableau (statique)
 - :boom: Construction avec $n$ valeurs en $\mathcal{O}(n)$ (taille connue à l'avance)
 - :rocket: Accès au `i`ème élément en $\mathcal{O}(1)$
 
@@ -238,7 +238,7 @@ val t : int array = [|0; 1; 2; 3|]
 
 ---
 
-## Liste simplement chainée `L`
+# Liste simplement chaînée
 - Taille *dynamique*
 - :rocket: Construction initiale en $\mathcal{O}(1)$
 - :rocket: Ajout de $1$ élément en tête de liste en $\mathcal{O}(1)$
