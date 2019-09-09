@@ -50,6 +50,8 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
   + finir les TD à la maison
   + un DM & un DS
 
+- ==Présence obligatoire== aux CM et TD !
+
 ---
 
 # Organisation des *Cours Magistraux*
@@ -59,10 +61,10 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 - :school: *Lieu* ? CM : ENS de Rennes, salle 07 ou autre (à voir sur ADE)
 
 - :date: *Date* : les mardis
-  + 14h-16h généralement
-  + ou 13h30-15h30 quand il y a un séminaire du département
+  + 14h - 16h généralement
+  + ou 13h30 - 15h30 *quand il y a un séminaire du département*
     (17 sept., 01 & 15 oct., 05 & 12 & 26 nov.)
-    :warning: Présence obligatoire aux séminaires (en amphi)
+    :warning: ==Présence obligatoire aux séminaires (en amphi)==
 
 - :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu
 
@@ -76,7 +78,7 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 - :school: *Lieu* ? TD : Beaulieu (salles à voir sur ADE)
 
-- :date: *Date* : les jeudis, 16h-18h
+- :date: *Date* : les jeudis, 16h15 - 18h15
 
 - :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu
 
@@ -304,4 +306,5 @@ $\hookrightarrow$ vous pouvez revoir les exemples à la maison sur [`www.cs.usfc
 
 # Fin du cours 1/10
 
+<br><br><br><br>
 <span class="fontify">Merci de votre attention .</span>
