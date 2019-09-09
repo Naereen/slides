@@ -8,12 +8,13 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 <link rel="stylesheet" type="text/css" href="../common/marp-naereen.css" />
 <link rel="stylesheet" type="text/css" href="../common/marp-90percent-fontsize.css" />
 
-# ALGO1
+# ALGO1 :rocket:
 <br>
 
-## Bienvenue au cours d'algorithmique !
+## Bienvenue au cours d'algorithmique :smiley: !
 
-## $\hookrightarrow$ Remplissez le sondage svp
+<br><br><br>
+## $\hookrightarrow$ :pencil: Remplissez le sondage svp :pray:
 
 ---
 
@@ -24,41 +25,42 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 - *Pas* une étude de la calculabilité (cf. autre cours)
 
-- Maîtriser trois axes :
+- Maîtriser différents axes :
   + types abstraits & structures de données
   + des algorithmes "importants" et typiques
   + paradigmes de conception d'algorithmes
   + spécifications : correction…
   + garanties : terminaison, complexités (temps & mémoire)…
 
-- Algorithmes en pseudo-code et implémentations en Python
+- **Algorithmes** : en pseudo-code et implémentations en Python :snake:
 
 ---
 
 # Organisation du cours
 
-- Page web du cours
+- :scroll: Page web du cours
   [`perso.crans.org/besson/teach/info1_algo1_2019`](https://perso.crans.org/besson/teach/info1_algo1_2019/)
 
 - 10 séances de cours + 10 séances de TD
   (planning sur ADE)
 
 - Votre travail :
-  + attentif⋅ve⋅s en cours
-  + actif⋅ve⋅s en TD
+  + attentif⋅ve⋅s en cours :pencil:
+  + actif⋅ve⋅s en TD :weight_lifting_woman:
   + lire les implémentations proposées pour chaque cours
-  + finir les TD à la maison
-  + un DM & un DS
+  + finir les TD à la maison :house:
+  + un DM & un DS :pencil:
+  + lire les références :books:
 
-- ==Présence obligatoire== aux CM et TD !
+- :warning: ==Présence obligatoire== aux CM et TD !
 
 ---
 
 # Organisation des *Cours Magistraux*
 
-- :wave: *Par* : [Lilian Besson](https://GitHub.com/Naereen/slides/) $\hookrightarrow$ `Lilian.Besson @ Inria.fr`
+- :wave: *Par* : [Lilian Besson](https://GitHub.com/Naereen/slides/) $\hookrightarrow$ `Lilian.Besson @ Inria.fr` :email:
 
-- :school: *Lieu* ? CM : ENS de Rennes, salle 07 ou autre (à voir sur ADE)
+- :school: *Lieu* : ENS de Rennes, salle 07 ou autre (à voir sur ADE)
 
 - :date: *Date* : les mardis
   + 14h - 16h généralement
@@ -68,41 +70,47 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 - :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu
 
+<br><br>
+
 - Support de cours *pas mis en ligne* : :warning: prenez des notes !
 
 ---
 
 # Organisation des *Travaux Dirigés*
 
-- :wave: *Par* : Raphaël Truffet $\hookrightarrow$ `Raphael.Truffet @ IRISA.fr`
+- :wave: *Par* : Raphaël Truffet $\hookrightarrow$ `Raphael.Truffet @ IRISA.fr` :email:
 
-- :school: *Lieu* ? TD : Beaulieu (salles à voir sur ADE)
+- :school: *Lieu* : Beaulieu (salles à voir sur ADE)
 
 - :date: *Date* : les jeudis, 16h15 - 18h15
 
 - :alarm_clock: *Durée* : 2 heures, 5-10 minutes de pause au milieu
+
+<br><br><br>
 
 - Feuille de TD distribuée pendant le TD
 - A terminer pour le TD suivant
 
 ---
 
-# Évaluations
+# :mortar_board: Évaluations
 
-1. **Présence obligatoire à tous les cours *et* les TD**
+1. :warning: **Présence obligatoire à tous les cours *et* les TD** :warning:
+<br>
 2. Un DM écrit $\Longrightarrow$ ==**1/3 de la note**==
-   + seul (pas de travail de groupe)
-   + sujet donné mi octobre, à rendre début novembre après les vacances de Toussaint
-   + des preuves à rédiger sur papier libre (ou en $*$TeX)
+   + :warning: seul (pas de travail de groupe)
+   + sujet donné mi octobre, à rendre début novembre (après Toussaint)
+   + des preuves à rédiger sur papier libre (ou en LaTeX/…)
    + un peu de code à écrire (Python / OCaml)
-2. Un DS écrit $\Longrightarrow$ ==**2/3 de la note**==
+<br>
+3. Un DS écrit $\Longrightarrow$ ==**2/3 de la note**==
    + pendant les examens mi décembre
    + des preuves à rédiger sur papier libre (ou en LaTeX)
    + un peu de code à écrire (pseudo-code, ou Python / OCaml)
 
 ---
 
-# Des références bibliographiques ?
+# :books: Des références bibliographiques ?
 
 - **Introduction à l'algorithmique**, Cormen et al ; Dunod.
 
@@ -122,13 +130,13 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 # Définitions… :pencil: à définir ensemble
 
-## Problème de calcul…
+## - Problème de calcul…
 
-## Algorithmes…
+## - Algorithmes…
 
-## Types de données abstrait *vs* implémentation…
+## - Types de données abstrait *vs* implémentation…
 
-## Mesures de performance…
+## - Mesures de performance…
 - Temps de calcul
 - Mémoire
 - Mais aussi : batterie, bande passante, nombre lecture mémoire etc…
@@ -139,7 +147,7 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 ## $\rightarrow$ en pseudo code (au tableau)
 
-## $\rightarrow$ en Python (sur l'écran)
+## $\rightarrow$ en Python :snake: (sur l'écran :cinema:)
 
 <br>
 
@@ -147,7 +155,7 @@ footer: Cours 1/10 - ALGO1 - ENS de Rennes - Lilian Besson - 10 septembre 2019
 
 ## $\rightarrow$ en pseudo code
 
-## $\rightarrow$ en Python *ou* en OCaml
+## $\rightarrow$ en Python :snake: *ou* en OCaml :camel:
 
 ---
 
@@ -180,12 +188,13 @@ Domaine $D$, représentation, taille de stockage, etc
 ```
 
 - :warning: on va ignorer tout cela dans les algorithmes étudiés en cours.
-- On suppose pouvoir représenter les entiers $\mathbb{Z}$ en $\mathcal{O}(1)$ temps et effecteur des opérations dessus en temps constant $\mathcal{O}(1)$
+- On suppose pouvoir représenter les entiers $\mathbb{Z}$ en $\mathcal{O}(1)$ temps
+  et effectuer des opérations dessus en temps constant $\mathcal{O}(1)$
 
 ---
 
 # :warning: Représentations non exactes… des flottants
-- En C, C++, Javascript, OCaml, Python : les flottants utilisent la norme IEEE 754, qui donne plein d'erreurs possibles
+- En C, C++, Javascript, OCaml, Python : les flottants utilisent la norme IEEE 754, qui donne plein d'erreurs possibles :boom:
 - Les opérations de bases ne sont pas associatives ! Et pas exactes !
 - Les tests d'égalités sur les flottants ne sont pas "fiables" !
 ```python
@@ -198,7 +207,8 @@ True
 ```
 
 - :warning: on va ignorer tout cela dans les algorithmes étudiés en cours.
-- On suppose pouvoir représenter les nombre décimaux $\mathbb{D}$ en $\mathcal{O}(1)$ temps et effecteur des opérations dessus en temps constant $\mathcal{O}(1)$
+- On suppose pouvoir représenter les nombre décimaux $\mathbb{D}$ en $\mathcal{O}(1)$ temps
+  et effectuer des opérations dessus en temps constant $\mathcal{O}(1)$
 
 ---
 
@@ -213,10 +223,9 @@ True
   + aucune limitation en Python (typage dynamique)
 
 - En pratique :
-  + **tableaux statiques**, **dynamiques*
-  + **listes simplement** ou **doublement chaînées**
-  + file, pile, tas… et d'autres
-
+  + **tableaux statiques**, **tableaux dynamiques**
+  + **listes simplement** ou **listes doublement chaînées**
+  + **file**, **pile**, **file de priorité** et d'autres
 
 ---
 
@@ -224,16 +233,16 @@ True
 - :boom: Construction avec $n$ valeurs en $\mathcal{O}(n)$ (taille connue à l'avance)
 - :rocket: Accès au `i`ème élément en $\mathcal{O}(1)$
 
-### En pseudo-code
+### :pencil: En pseudo-code
 Initialisation : $T_{1:n}$, accès $T_i$ ou $T[i]$, écriture $T[i] \leftarrow x$
 
-### En OCaml : accès `t.(i)`, écriture t.(i) <- x
+### :camel: En OCaml : accès `t.(i)`, écriture t.(i) <- x
 ```ocaml
 # let t = [| 0; 1; 2; 3 |];;
 val t : int array = [|0; 1; 2; 3|]
 ```
 
-### En Python : accès `t[i]`, écriture `t[i] = x`
+### :snake: En Python : accès `t[i]`, écriture `t[i] = x`
 ```python
 >>> tableau = [ 0, 1, 2, 3 ]
 ```
@@ -247,18 +256,18 @@ val t : int array = [|0; 1; 2; 3|]
   $\Longrightarrow$ :boom: Ajout de $n$ éléments en $\mathcal{O}(n)$ !
 - :rocket: Accès au `i`ème élément en $\mathcal{O}(i)$
 
-### En OCaml : tête `hd l`, queue `tl l`
+### :camel: En OCaml : tête `hd l`, queue `tl l`
 ```ocaml
 # let l = [ "tete"; "suite"; "de"; "la"; "liste" ];;
 val l : string list = ["tete"; "suite"; "de"; "la"; "liste"]
 ```
 
-### :warning: En Python n'existe pas ! Le type `list` est un mélange entre les tableaux et les listes… (tableau dynamique) :warning:
+### :snake: :warning: En Python n'existe pas ! Le type `list` est un mélange entre les tableaux et les listes… (tableau dynamique) :warning:
 
 ---
 
 # Liste simplement chaînée
-## En Python
+## :snake: En Python
 $\hookrightarrow$ implémentation "manuelle" avec deux petites classes
 
 - Cf. notebook Python sur [`perso.crans.org/besson/info1_algo1_2019/notebooks/`](https://perso.crans.org/besson/info1_algo1_2019/notebooks/)
@@ -266,11 +275,11 @@ $\hookrightarrow$ implémentation "manuelle" avec deux petites classes
 ---
 
 # Liste *doublement* chaînée
-## En OCaml
+## :camel: En OCaml
 - Avec un type paramétrique
 - Vous pouvez essayer à la maison
 
-## En Python
+## :snake: En Python
 $\hookrightarrow$ implémentation "manuelle" avec deux petites classes
 
 - Cf. notebook Python sur [`perso.crans.org/besson/info1_algo1_2019/notebooks/`](https://perso.crans.org/besson/info1_algo1_2019/notebooks/)
@@ -294,13 +303,13 @@ $\hookrightarrow$ implémentation "manuelle" avec deux petites classes
 ### … illustrés sur des exemples
 $\hookrightarrow$ vous pouvez revoir les exemples à la maison sur [`www.cs.usfca.edu/~galles/visualization/Algorithms.html`](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 
-### … codés en Python 3
+### … codés en Python 3 :snake:
 - Montrés dans des *notebooks Jupyter* (cf. [`Jupyter.org`](https//www.jupyter.org))
   - Disponibles sur [la page du cours](https://perso.crans.org/besson/teach/info1_algo1_2019/notebooks) ([`/notebooks`](https://perso.crans.org/besson/teach/info1_algo1_2019/notebooks))
   - et sur [`GitHub.com/Naereen/ALGO1-Info1-2019/`](https://github.com/Naereen/ALGO1-Info1-2019/)
 - Des fois de façon interactive avec *Python Tutor* (cf. [`PythonTutor.com`](http://pythontutor.com/live.html#mode=edit))
 
-- Étude empirique de complexités temps/mémoire etc
+- Étude empirique de complexités temps/mémoire etc.
 
 ---
 
