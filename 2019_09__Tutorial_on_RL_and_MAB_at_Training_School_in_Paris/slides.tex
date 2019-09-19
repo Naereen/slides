@@ -133,7 +133,7 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
 	{{Lilian Besson \& Émilie Kaufmann - Intro to MAB}}\hfill
 	\raisebox{2.5ex}
-	{{23 September, 2019 - \insertframenumber \hspace{5mm} \null }}}
+	{{23 September, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -170,7 +170,7 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
     {\textcolor{white}{Lilian Besson \& Émilie Kaufmann - Intro to MAB}}\hfill
     \raisebox{2.5ex}
-    {\textcolor{white}{23 September, 2019 - \insertframenumber \hspace{5mm} \null }}}
+    {\textcolor{white}{23 September, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 
 \begin{frameO}[What is a \emph{bandit}?]
@@ -179,15 +179,17 @@
   \end{center}
 
   \begin{center}
-    \includegraphics[height=5cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
+    \includegraphics[height=6cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
 
     \begin{tiny}
     $\hookrightarrow$ \textcopyright{} Dargaud,
-    \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}
+    \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
     \end{tiny}
   \end{center}
 \end{frameO}
 
+
+\section{Why Bandits?}
 
 \begin{frameTI}
     \begin{center}
@@ -199,7 +201,7 @@
 
 \begin{frameO}[Make money in a casino?]
     \begin{center}
-        \includegraphics[height=4.5cm]{MABpieuvre}
+        \includegraphics[height=5cm]{MABpieuvre}
     \end{center}
     \begin{center}
         An \blue agent \black facing \red arms \black in a Multi-Armed Bandit.
@@ -261,7 +263,7 @@
 
     \textbf{Opportunistic Spectrum Access}
     \begin{itemize}
-        \item $K$ radio channels (frequency bands)
+        \item $K$ radio channels (orthogonal frequency bands)
 
               \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
         \item In which channel should a radio device send a packet based on the quality of its previous communications?
@@ -275,10 +277,10 @@
 
     \textbf{Communications in presence of a central controller}
     \begin{itemize}
-        \item $K$ assignments from users to antennas
+        \item $K$ assignments from $n$ users to $m$ antennas ($\rightsquigarrow$ \emph{combinatorial} bandit)
 
               \hspace{2.5cm}\includegraphics[height=0.2\paperheight]{assignements}
-        \item How to select the next matching based on the throughput observed in previous communications?
+        \item How to select the next \emph{matching} based on the throughput observed in previous communications?
     \end{itemize}
 
 \end{frameO}
@@ -289,7 +291,7 @@
 
     \vspace{0.4cm}
 
-    \textbf{Numerical experiments}:
+    \textbf{Numerical experiments}: (Gaussian processes + bandits for black-box optimization)
 
     \vspace{-0.3cm}
 
@@ -342,7 +344,18 @@
 
 \begin{frameO}[Outline of this talk]
 
-    FIXME
+    \begin{itemize}
+      \item Why Bandits?
+      \item Multi-armed Bandit
+      \item Performance measure and first strategies
+      \item Best possible regret? Lower bounds
+      \item Mixing Exploration and Exploitation
+      \item The Optimism Principle and Upper Confidence Bounds Algorithms
+      \item Asymptotically Optimal Algorithms
+      \item Worst-case Optimality
+      \item A Bayesian Look at the Multi-Armed Bandit Model
+      \item Summary
+    \end{itemize}
 
 \end{frameO}
 
@@ -357,7 +370,7 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
     {\textcolor{white}{Lilian Besson \& Émilie Kaufmann - Intro to MAB}}\hfill
     \raisebox{2.5ex}
-    {\textcolor{white}{23 September, 2019 - \insertframenumber \hspace{5mm} \null }}}
+    {\textcolor{white}{23 September, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 \section{Multi-armed Bandit}
 
@@ -531,7 +544,6 @@
 
 
 \section{Performance measure and first strategies}
-
 
 \begin{frameTI}
     \begin{center}
@@ -921,6 +933,9 @@
 
 \end{frameO}
 
+
+\section{Best possible regret? Lower bounds}
+
 \begin{frameTI}
     \begin{center}
         {\textcolor{white} {\Huge \textsc{Best possible regret?} }}
@@ -1192,6 +1207,8 @@
 % \end{frameO}
 
 
+\section{Mixing Exploration and Exploitation}
+
 \begin{frameTI}
     \begin{center}
         \textcolor{white}{\Huge \textsc{Mixing Exploration and}}
@@ -1265,6 +1282,9 @@
 
 
 \end{frameO}
+
+
+\section{The Optimism Principle and Upper Confidence Bounds Algorithms}
 
 \begin{frameTI}
     \begin{center}
@@ -1342,6 +1362,7 @@
 
 \end{frameO}
 
+\subsection{Building Confidence Intervals}
 
 \begin{frame}[c]
     \begin{changemargin}{-0.5cm}{-0.5cm}
@@ -1447,6 +1468,8 @@
     \end{center}
 \end{frameO}
 
+
+\subsection{Analysis of UCB($\alpha$)}
 
 \begin{frame}[c]
     \begin{changemargin}{-0.5cm}{-0.5cm}
@@ -1757,11 +1780,13 @@
 % \end{frameO}
 
 
+\section{Asymptotically Optimal Algorithms}
+
 \begin{frameTI}
     \begin{center}
-        \color{white} \Huge \textsc{Asymptotically optimal}
+        \color{white} \Huge \textsc{Asymptotically Optimal}
 
-        \textsc{algorithms}
+        \textsc{Algorithms}
     \end{center}
     \vspace*{-4pt}
 \end{frameTI}
@@ -2013,6 +2038,9 @@
 %
 %  \[\color{gray} \text{[Cappé et al. 13]}\black: \ \ \ \bE_{\bm \mu}[N_k(T)]\leq  \color{blue}\frac{1}{d(\mu_k,\mu_\star)}\color{black}{\ln T} + \mathcal{O}(\sqrt{\ln(T)}).\]}
 
+
+\section{Worst-case Optimality}
+
 \begin{frameTI}
     \begin{center}
         {\textcolor{white} {\Huge \textsc{Worst-case Optimality} }}
@@ -2113,6 +2141,9 @@
     \end{itemize}
 
 \end{frameO}
+
+
+\section{A Bayesian Look at the Multi-Armed Bandit Model}
 
 \begin{frameTI}
     \begin{center}
@@ -2939,7 +2970,6 @@
 
 
 
-
 % \begin{frameTI}
 %     \begin{center}
 %         \color{white} \Huge \textsc{Other randomized}
@@ -3249,6 +3279,468 @@
 % \end{frameO}
 
 
+\section{Other Bandit Models}
+
+\begin{frameTI}
+    \begin{center}
+        {\textcolor{white} {\Huge \textsc{Other Bandit Models} }}
+    \end{center}
+    \vspace*{-4pt}
+\end{frameTI}
+
+
+\subsection{Remove stationary hypothesis: non-stationary bandits}
+
+\begin{frameO}[Remove stationary hypothesis: non-stationary bandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\subsection{Take more than one action at a time: combinatorial bandits}
+
+\begin{frameO}[Take more than one action at a time: combinatorial bandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\begin{frameO}[TS for \emph{structured} stochastic bandits ?]
+  
+  \begin{itemize}
+    \item Arms are edges on a graph
+    \item $\mathcal{M}$ is a set of possible configurations (subsets of edges)
+    \item The agent chooses $m_t \in \mathcal{M}$ at time $t$ and observe a realization of all arms in $\mathcal{M}$
+          %\item Goal: discover the best configuration $m^*\in\mathcal{M}$
+  \end{itemize}
+  
+  
+  \begin{center}
+    \includegraphics[height=3cm]{assignements}
+  \end{center}
+  
+  \textbf{Example}: find a matching between users and channels
+  
+  
+  \hfill \color{gray} Lelarge et al., \emph{Spectrum Bandit Optimization}, ITW 2013
+  
+\end{frameO}
+
+
+\subsection{More than one player at a time: multi-player bandits}
+
+\begin{frameO}[More than one player at a time: multi-player bandits]
+
+    FIXME
+
+\end{frameO}
+
+\section{Beyond the stochastic MAB}
+
+\subsection{Relaxing the i.i.d. assumption}
+
+
+\begin{frame}{A restless bandit example}
+  
+  % orammy: \[(X_{k,t}) \ \ \ \text{is some stochastic process}\]
+  
+  Restless Markov bandit
+  \[\text{for all } k, \ \ (X_{k,t})_{t \in \N} \ \ \text{is a \red Markov chain} \]
+  
+  
+  \underline{\orange Cognitive radio}:
+  \begin{itemize}
+    \item the behavior of primary users is evolving according to a Markovian dynamic
+    \item simple model: state space $\{0,1\}$ occupied/available
+  \end{itemize}
+  
+  \pause
+  
+  \vspace{0.2cm}
+  
+  \textbf{Idea:} If arm $k$ has \textit{stationnary distribution } $\pi_k$, aim to always select the channel
+  \[\red \underset{k \in \{1,\dots,K\}}{\text{argmax}} \ \bE_{X\sim\pi_k} [X]\]
+  
+  \begin{itemize}
+    \item[\ding{220}] may be a bad idea...
+  \end{itemize}
+  
+  
+\end{frame}
+
+
+\begin{frame}{Optimal strategies?}
+  
+  \textbf{Example}: a transition matrix on $\{0,1\}$
+  
+  \vspace{-0.3cm}
+  
+  \[P_{\epsilon} = \left(
+    \begin{array}{cc}
+        1 - \epsilon & \epsilon    \\
+        \epsilon     & 1- \epsilon \\
+      \end{array}
+    \right)\]
+  $P_{\epsilon}$ has invariant measure $\pi_{\epsilon}=[1/2, 1/2]$, with mean $1/2$.
+  
+  \vspace{0.2cm}
+  
+  2-armed bandit:
+  \begin{itemize}
+    \item arm 1 is a Markov chain with transition $P_{\epsilon_1}$
+    \item arm 2 is a Markov chain with transition $P_{\epsilon_2}$
+  \end{itemize}
+  
+  \vspace{0.2cm}
+  
+  \textbf{Strategies}:
+  \begin{itemize}
+    \item static strategy playing a single arm $\rightarrow$ average reward $1/2$
+    \item a much better strategy when $\epsilon_1$ and $\epsilon_2$ are small:
+          
+          switch arm when the current state is 0
+  \end{itemize}
+  
+  
+  \begin{itemize}
+    \item[\ding{220}] regret with respect to the best static action is no longer (always) the right notion
+  \end{itemize}
+  
+  \vspace{-0.3cm}
+  
+  \color{gray} \hfill [Ryabko et al. 2014] \color{black}
+  
+\end{frame}
+
+\begin{frame}{Some tools for restless bandits}
+  
+  
+  \begin{itemize}
+    \item Bayesian approaches based on Whittle indices
+          \color{gray}
+          
+          Liu and Zhao,
+          Indexability of Restless Bandit Problems and Optimality of Whittle Index for Dynamic Multichannel Access. I.T., 2010\color{black}
+          
+    \item Using reinforcement learning algorithms
+          
+          (restless Markov bandit = a Markov Decision Process)
+          
+          \color{gray}
+          
+          Ortner, Ryabko, Auer and Munos, Regret bounds for restless Markov bandits, TCS, 2014\color{black}
+          
+    \item Can we modify the UCB approach?
+          
+          \color{gray}
+          
+          Liu et al, Learning in a Changing World: Restless Multiarmed Bandit With Unknown Dynamics. IEEE I.T., 2013
+          
+  \end{itemize}
+  
+  
+  \underline{\orange Experiments}:
+  
+  \begin{itemize}
+    \item plain UCB may still be robust on some Markovian arms
+  \end{itemize}
+  
+  
+  
+\end{frame}
+
+
+
+\subsection{Relaxing the stochastic assumption}
+
+
+\begin{frame}{A new bandit game}
+  
+  At round $t$
+  
+  \begin{itemize}
+    \item the player chooses arm $A_t$
+    \item simultaneously, an \red adversary\black \ chooses the vector of rewards \[(x_{1,t},\dots,x_{K,t})\]
+    \item the player receives the reward $x_t = x_{A_t,t}$
+  \end{itemize}
+  
+  \vspace{0.3cm}
+  
+  \textbf{Goal}: maximize rewards, or minimize \orange regret\black
+  
+  \[\mathrm{R}(T) = \max_{a} \bE\left[\sum_{t=1}^T x_{a,t}\right] - \bE\left[\sum_{t=1}^T x_{t}\right].\]
+  
+\end{frame}
+
+
+
+\begin{frame}{Exponential Weighted Forecaster}
+  
+  \textbf{The full-information game}: at round $t$
+  
+  \begin{itemize}
+    \item the player chooses arm $A_t$
+    \item simultaneously, an \red adversary\black \ chooses the vector of rewards \[(x_{t,1},\dots,x_{t,K})\]
+    \item the player receives the reward $x_t = x_{A_t,t}$
+    \item \orange and he observes the reward vector $(x_{t,1},\dots,x_{t,K})$
+  \end{itemize}
+  
+  \textbf{The EWF algorithm \color{gray}[Littelstone, Warmuth 1994]}
+  
+  With $\hat{p}_t$ the probability distribution
+  \[\hat{p}_{t}(k) \propto e^{\eta \left(\sum_{s=1}^{t-1} x_{k,s}\right)}\]
+  
+  \vspace{-0.3cm}
+  
+  at round $t$, choose
+  \[\red A_t \sim \hat{p}_{t}\black \]
+  
+  
+  
+\end{frame}
+
+
+\begin{frame}{The EXP3 strategy}
+  
+  We don't have access to the $(x_{k,t})$ for all $k$...
+  
+  \[\red \hat{x}_{k,t} = \frac{x_{k,t}}{\hat{p}_{k,t}}\ind_{(A_t=k)}\]
+  
+  \vspace{-0.3cm}
+  
+  satisfies $\bE[\hat{x}_{k,t}] = x_{a,t}$.
+  
+  \vspace{0.3cm}
+  
+  \textbf{The EXP3 algorithm} %\color{gray}[Auer et al. 2003]\color{black}
+  
+  \vspace{0.2cm}
+  
+  With $\hat{p}_t$ the probability distribution
+  \[\hat{p}_{t}(k) \propto e^{\eta \left(\sum_{s=1}^{t-1} \orange \hat{x}_{k,s}\black\right)}\]
+  
+  \vspace{-0.3cm}
+  
+  at round $t$, choose
+  \[\red A_t \sim \hat{p}_{t} \]
+  
+  \color{gray}
+  
+  Auer, Cesa-Bianchi, Freund, Schapire, \emph{The nonstochastic multiarmed bandit problem}, SIAM J. Comput., 2002
+  
+\end{frame}
+
+
+
+\begin{frame}{Theoretical results}
+  
+  
+  \textbf{The EXP3 strategy} %\color{gray}[Auer et al. 2003]\color{black}
+  
+  \vspace{0.2cm}
+  
+  With $\hat{p}_t$ the probability distribution
+  \[\hat{p}_{t}(k) \propto e^{\eta \left(\sum_{s=1}^{t-1} \orange \hat{x}_{k,s}\black\right)}\]
+  
+  \vspace{-0.3cm}
+  
+  at round $t$, choose
+  \[\red A_t \sim \hat{p}_{t} \]
+  
+  
+  \textbf{Theorem} \color{gray} [Bubeck and Cesa-Bianchi 12]\black
+  
+  EXP3 with \[\eta = \sqrt{\frac{\log(K)}{KT}}\]
+  satisfies
+  \[R(T) \leq  \sqrt{2 \log K}\red \sqrt{KT}\]
+  
+  
+\end{frame}
+
+\section{Bandits for multiple devices}
+
+
+\begin{frame}{Multi-players bandits: setup}
+  
+  \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($M \leq K$)
+  
+  \vspace{0.3cm}
+  
+  At round $t$,
+  \begin{itemize}
+    \item player $m$ selects $A_{m,t}$
+    \item player $m$ \textit{observes} $X_{A_{m,t},t}$
+    \item and receives the reward
+  \end{itemize}
+  
+  \vspace{-0.2cm}
+  
+  \[\red X_{m,t} = \left\{ \begin{array}{cl}
+      X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
+      0             & \text{else}                                  \\\end{array}\right.\]
+  
+  \vspace{-0.3cm}
+  
+  \textbf{Goal:}
+  
+  \begin{itemize}
+    \item maximize $\sum_{m=1}^M \sum_{t=1}^T X_{m,t}$
+    \item ... \orange without communication \black between players
+  \end{itemize}
+  
+  \underline{\orange Cognitive radio}: (OSA) sensing, attempt of transmission if no PU, possible collisions with other SUs
+  
+  
+  
+\end{frame}
+
+
+
+\begin{frame}{Multi-players bandits: algorithms}
+  
+  \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
+  
+  \vspace{0.2cm}
+  
+  \textbf{Example:} \orange UCB1 + $\rho^{\text{rand}}$\black. At round $t$ each player
+  \begin{itemize}
+    \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
+    \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
+    \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
+  \end{itemize}
+  
+  \vspace{0.2cm}
+  
+  
+  \alt<2>{\textbf{Remarks}:
+    
+    \begin{itemize}
+      \item $M$ has to be known $\rightarrow $ try to estimate it
+      \item does not handle an evolving number of devices
+      \item is it a \textit{fair} orthogonalization rule?
+      \item any index policy may be used in place of UCB1
+    \end{itemize}
+  }{
+    \textbf{Early references}:
+    
+    
+    \begin{itemize}
+      \item[] \color{gray}Liu and Zhao, \emph{Distributed Learning in Multi-Armed Bandit with
+              Multiple Players},  IEEE Trans. S. P., 2010
+      \item[] \color{gray}Anandkumar et al., \emph{Distributed Algorithms for Learning and
+              Cognitive Medium Access with Logarithmic Regret}, IEEE Journal on Selected Areas in Communications, 2011
+    \end{itemize}}
+  
+\end{frame}
+
+
+
+\begin{frame}{Multi-players bandits: algorithms}
+  
+  \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
+  
+  \vspace{0.2cm}
+  
+  \textbf{Example:} UCB + $\rho^{\text{rand}}$. At round $t$ each player
+  \begin{itemize}
+    \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
+    \item selects the arm that has the $R_{m,t}$-largest UCB
+    \item if a collision occurs, draws a new rank $R_{t+1} \sim \cU(\{1,\dots,M\})$
+  \end{itemize}
+  
+  \vspace{0.2cm}
+  
+  \textbf{Remarks}:
+  
+  \begin{itemize}
+    \item $M$ has to be known $\rightarrow $ try to estimate it
+    \item does not handle an evolving number of devices
+    \item is it a \textit{fair} orthogonalization rule?
+    \item any index policy may be used in place of UCB1
+  \end{itemize}
+  
+  \begin{itemize}
+    \item[\ding{220}] \orange How does it perform in practice?
+  \end{itemize}
+  
+\end{frame}
+
+
+\subsection{Extension: contextual bandits}
+
+\begin{frameO}[Extension: contextual bandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\subsection{Non discrete actions: continuous-armed bandits}
+
+\begin{frameO}[Non discrete actions: continuous-armed bandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\subsection{Extension: delayed feedback bandits}
+
+\begin{frameO}[Extension: delayed feedback bandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\subsection{Extension: cascading bandits}
+
+\begin{frameO}[Extension: cascading bandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\subsection{Extension: structured bandits (low-rank etc)}
+
+\begin{frameO}[Extension: structured bandits (low-rank etc)]
+
+    FIXME
+
+\end{frameO}
+
+
+\subsection{Extension: bandits with states, (rested/restless) Markov models}
+
+\begin{frameO}[Extension: bandits with states, (rested/restless) Markov models]
+
+    FIXME
+
+\end{frameO}
+
+
+
+\section{Numerical simulations with SMPyBandits}
+
+\begin{frameTI}
+    \begin{center}
+        {\textcolor{white} {\Huge \textsc{Numerical simulations with SMPyBandits} }}
+    \end{center}
+    \vspace*{-4pt}
+\end{frameTI}
+
+\begin{frameO}[Numerical simulations with SMPyBandits]
+
+    FIXME
+
+\end{frameO}
+
+
+\section{Summary}
+
 \begin{frameTI}
     \begin{center}
         {\textcolor{white} {\Huge \textsc{Summary} }}
@@ -3279,8 +3771,6 @@
         \item Bayesian tools
     \end{itemize}
 
-
-
 \end{frameO}
 
 
@@ -3309,27 +3799,27 @@
 \begin{frameO}[Conclusion]
 
 \begin{center}
-  \begin{Huge}
+  \begin{huge}
     \textbf{Thanks for your attention !}
-  \end{Huge}
+  \end{huge}
 \end{center}
 
 \vspace*{10pt}
 
 \begin{center}
-  \begin{Huge}
+  \begin{huge}
     Questions \& Discussion ?
-  \end{Huge}
+  \end{huge}
 \end{center}
 
 \vspace*{10pt}
 \pause
 
 \begin{center}
-  \begin{Huge}
+  \begin{huge}
     $\hookrightarrow$ Break and then next talk by Christophe Moy\\
     \emph{``Decentralized Spectrum Learning for IoT''}
-  \end{Huge}
+  \end{huge}
 \end{center}
 
 \end{frameO}
