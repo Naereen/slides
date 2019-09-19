@@ -996,120 +996,120 @@
 \end{frameO}
 
 
-\begin{frameO}[Behind the lower bound: a change of distribution]
+% \begin{frameO}[Behind the lower bound: a change of distribution]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    Lower bounds rely on \red changes of distributions\black.
+%     Lower bounds rely on \red changes of distributions\black.
 
-    \vspace{0.2cm}
+%     \vspace{0.2cm}
 
-    Fix $\cE \in \cF_t = \sigma(A_1,R_1,\dots,A_t,R_t)$.
-    \begin{align}
-        \bP_{\red\bm\lambda\black}(\blue \cE\black) & =  \int \ind_\cE(r_1,\dots,r_t) \,d\bP_{\bm\lambda}^{R_1,\dots,R_t}(r_1,\dots,r_t)\nonumber                                                                                                    \\
-                                                    & =  \int \ind_\cE(r_1,\dots,r_t) \frac{d\bP_{\bm\lambda}^{R_1,\dots,R_t}(r_1,\dots,r_t)}{d\bP_{\bm\mu}^{R_1,\dots,R_t}(r_1,\dots,r_t)} \,d\bP_{\bm\mu}^{R_1,\dots,R_t}(r_1,\dots,r_t) \nonumber \\
-        % &=  \int \ind_C(x_1,\dots,x_t) \frac{\ell(X_1,\dots,X_t ; \lambda)}{\ell(X_1,\dots,X_t ; \mu)} \,d\bP_{\mu}^{X_1,\dots,X_t}(x_1,\dots,x_t)\nonumber \\
-                                                    & =  \bE_{\red \bm\mu\black}\Big[\blue\ind_{\cE}\black \exp\big(-L_t(\bm\mu,\bm\lambda)\big)\Big]\nonumber,
-    \end{align}
-    where $L_t(\bm\mu,\bm\lambda)$ denotes the log-likelihood ratio of the observations:
-    \[L_t(\bm\mu,\bm\lambda) := \ln \frac{\ell(R_1,\dots,R_t ; \bm\mu)}{\ell(R_1,\dots,R_t ; \bm\lambda)}.\]
+%     Fix $\cE \in \cF_t = \sigma(A_1,R_1,\dots,A_t,R_t)$.
+%     \begin{align}
+%         \bP_{\red\bm\lambda\black}(\blue \cE\black) & =  \int \ind_\cE(r_1,\dots,r_t) \,d\bP_{\bm\lambda}^{R_1,\dots,R_t}(r_1,\dots,r_t)\nonumber                                                                                                    \\
+%                                                     & =  \int \ind_\cE(r_1,\dots,r_t) \frac{d\bP_{\bm\lambda}^{R_1,\dots,R_t}(r_1,\dots,r_t)}{d\bP_{\bm\mu}^{R_1,\dots,R_t}(r_1,\dots,r_t)} \,d\bP_{\bm\mu}^{R_1,\dots,R_t}(r_1,\dots,r_t) \nonumber \\
+%         % &=  \int \ind_C(x_1,\dots,x_t) \frac{\ell(X_1,\dots,X_t ; \lambda)}{\ell(X_1,\dots,X_t ; \mu)} \,d\bP_{\mu}^{X_1,\dots,X_t}(x_1,\dots,x_t)\nonumber \\
+%                                                     & =  \bE_{\red \bm\mu\black}\Big[\blue\ind_{\cE}\black \exp\big(-L_t(\bm\mu,\bm\lambda)\big)\Big]\nonumber,
+%     \end{align}
+%     where $L_t(\bm\mu,\bm\lambda)$ denotes the log-likelihood ratio of the observations:
+%     \[L_t(\bm\mu,\bm\lambda) := \ln \frac{\ell(R_1,\dots,R_t ; \bm\mu)}{\ell(R_1,\dots,R_t ; \bm\lambda)}.\]
 
-    \begin{itemize}
-        \item \textbf{Idea}: relate the probability of the same event ($\blue \cE$) under two different bandit models ($\red \bm \lambda$ and $\red \bm \mu$).
-    \end{itemize}
-
-
-\end{frameO}
+%     \begin{itemize}
+%         \item \textbf{Idea}: relate the probability of the same event ($\blue \cE$) under two different bandit models ($\red \bm \lambda$ and $\red \bm \mu$).
+%     \end{itemize}
 
 
-\begin{frameO}[Behind the lower bound: a change of distribution]
-
-    \vspace{0.3cm}
-
-    \begin{itemize}
-        \item a sophisticated form of change of distribution
-    \end{itemize}
-
-    \begin{alertblock}{Lemma \color{gray}[K., Cappé, Garivier 16]}
-        Let $\bm \mu$ and $\bm \lambda$ be two bandit models. For all event $\cE \in \cF_{T}$,
-
-        \vspace{-0.4cm}
-
-        \[\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) \geq \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE),\bP_{\bm \lambda}(\cE)).\]
-    \end{alertblock}
-
-    \pause
-
-    \textbf{Proof.} 1. Under a parametric bandit model, one can prove that
-
-    \vspace{-0.4cm}
-
-    \[\bE_{\bm \mu}[L_T(\bm \mu,\bm \lambda)] = \sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a).\]
+% \end{frameO}
 
 
-    2. An information-theoretic argument:
+% \begin{frameO}[Behind the lower bound: a change of distribution]
 
-    \vspace{-0.5cm}
+%     \vspace{0.3cm}
 
-    \begin{eqnarray*}
-        \bE_{\bm \mu}[L_T(\bm \mu,\bm \lambda)] & = & \mathrm{KL}\left(\bP_{\bm\mu}^{R_1,\dots,R_T},\bP_{\bm\lambda}^{R_1,\dots,R_T}\right) \\
-        &\geq & \mathrm{kl}_{\text{Ber}}(\bP_{\bm\mu}(\cE),\bP_{\bm \lambda}(\cE)) \ \ \text{for any } \cE \in \cF_{T}
-    \end{eqnarray*}
+%     \begin{itemize}
+%         \item a sophisticated form of change of distribution
+%     \end{itemize}
 
-    \vspace{-0.2cm}
+%     \begin{alertblock}{Lemma \color{gray}[K., Cappé, Garivier 16]}
+%         Let $\bm \mu$ and $\bm \lambda$ be two bandit models. For all event $\cE \in \cF_{T}$,
 
-    \color{gray} \hspace{1.5cm}[Garivier et al. 16]\color{black}
+%         \vspace{-0.4cm}
 
+%         \[\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) \geq \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE),\bP_{\bm \lambda}(\cE)).\]
+%     \end{alertblock}
 
+%     \pause
 
-\end{frameO}
+%     \textbf{Proof.} 1. Under a parametric bandit model, one can prove that
 
+%     \vspace{-0.4cm}
 
-\begin{frameO}[Behind the lower bound: a change of distribution]
-
-    \vspace{0.3cm}
-
-    \begin{itemize}
-        \item How to use it?
-    \end{itemize}
-
-    \vspace{-0.2cm}
+%     \[\bE_{\bm \mu}[L_T(\bm \mu,\bm \lambda)] = \sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a).\]
 
 
-    \begin{alertblock}{Lemma \color{gray}[K., Cappé, Garivier 16]}
-        Let $\bm \mu$ and $\bm \lambda$ be two bandit models. For all event $\cE \in \cF_{T}$,
+%     2. An information-theoretic argument:
 
-        \vspace{-0.4cm}
+%     \vspace{-0.5cm}
 
-        \[\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) \geq \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE),\bP_{\bm \lambda}(\cE)).\]
-    \end{alertblock}
+%     \begin{eqnarray*}
+%         \bE_{\bm \mu}[L_T(\bm \mu,\bm \lambda)] & = & \mathrm{KL}\left(\bP_{\bm\mu}^{R_1,\dots,R_T},\bP_{\bm\lambda}^{R_1,\dots,R_T}\right) \\
+%         &\geq & \mathrm{kl}_{\text{Ber}}(\bP_{\bm\mu}(\cE),\bP_{\bm \lambda}(\cE)) \ \ \text{for any } \cE \in \cF_{T}
+%     \end{eqnarray*}
+
+%     \vspace{-0.2cm}
+
+%     \color{gray} \hspace{1.5cm}[Garivier et al. 16]\color{black}
 
 
-    \vspace{-0.3cm}
 
-    \begin{center}
-        \includegraphics[height=1cm]{changement}
-    \end{center}
+% \end{frameO}
 
-    \vspace{-0.5cm}
 
-    arm 1 is optimal under $\bm \mu$
+% \begin{frameO}[Behind the lower bound: a change of distribution]
 
-    arm $a$ is optimal under $\bm \lambda =(\mu_1,\dots,\mu_{a-1},\blue\mu_1 + \varepsilon\black,\mu_{a+1},\dots,\mu_K)$
+%     \vspace{0.3cm}
 
-    \pause
-    \alt<3>{\[\red \bE_{\bm\mu}[N_a(T)] \gtrsim \frac{\ln(T)}{\kl(\mu_a,\mu_\star + \varepsilon)}\]\vspace{-0.4cm}\begin{center}for large values of $T$                                                                                                                                                                                        \end{center}
-    }{
-    \begin{itemize}
-        \item[\ding{220}]
-              $\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) = \red\bE_{\bm \mu}[N_a(T)] \kl(\mu_a,\mu_1+\varepsilon)$ \\
-        \item[\ding{220}] Picking  $\blue \cE_T = (N_1(T) > T/2)\black$,
-    \end{itemize}
-    \[\red \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE_T),\bP_{\bm \lambda}(\cE_T))\sim \ln(T)\]
-    % \small as $\bP_{\bm \mu}(\cE_T) \sim 1$ and $\bP_{\bm \lambda}(\cE_T) \leq o(T^\alpha)/T$ (uniform efficiency).
-    }
+%     \begin{itemize}
+%         \item How to use it?
+%     \end{itemize}
 
-\end{frameO}
+%     \vspace{-0.2cm}
+
+
+%     \begin{alertblock}{Lemma \color{gray}[K., Cappé, Garivier 16]}
+%         Let $\bm \mu$ and $\bm \lambda$ be two bandit models. For all event $\cE \in \cF_{T}$,
+
+%         \vspace{-0.4cm}
+
+%         \[\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) \geq \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE),\bP_{\bm \lambda}(\cE)).\]
+%     \end{alertblock}
+
+
+%     \vspace{-0.3cm}
+
+%     \begin{center}
+%         \includegraphics[height=1cm]{changement}
+%     \end{center}
+
+%     \vspace{-0.5cm}
+
+%     arm 1 is optimal under $\bm \mu$
+
+%     arm $a$ is optimal under $\bm \lambda =(\mu_1,\dots,\mu_{a-1},\blue\mu_1 + \varepsilon\black,\mu_{a+1},\dots,\mu_K)$
+
+%     \pause
+%     \alt<3>{\[\red \bE_{\bm\mu}[N_a(T)] \gtrsim \frac{\ln(T)}{\kl(\mu_a,\mu_\star + \varepsilon)}\]\vspace{-0.4cm}\begin{center}for large values of $T$                                                                                                                                                                                        \end{center}
+%     }{
+%     \begin{itemize}
+%         \item[\ding{220}]
+%               $\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) = \red\bE_{\bm \mu}[N_a(T)] \kl(\mu_a,\mu_1+\varepsilon)$ \\
+%         \item[\ding{220}] Picking  $\blue \cE_T = (N_1(T) > T/2)\black$,
+%     \end{itemize}
+%     \[\red \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE_T),\bP_{\bm \lambda}(\cE_T))\sim \ln(T)\]
+%     % \small as $\bP_{\bm \mu}(\cE_T) \sim 1$ and $\bP_{\bm \lambda}(\cE_T) \leq o(T^\alpha)/T$ (uniform efficiency).
+%     }
+
+% \end{frameO}
 
 \begin{frameO}[The Lai and Robbins lower bound]
 
@@ -1234,12 +1234,12 @@
 
 \begin{frameO}[A simple strategy: $\varepsilon$\texttt{-greedy}]
 
-    A simple fix:
+    A simple fix: make $\varepsilon$ decreasing!
 
     \begin{orangeblock}{$\varepsilon_t$-greedy strategy}
         At round $t$,
         \begin{itemize}
-            \item with probability $\blue\varepsilon_t :=\min \left(1, \frac{K}{d^2t}\right)$
+            \item with probability $\blue\varepsilon_t :=\min \left(1, \frac{K}{d^2t}\right)$ \hfill{} probability $\searrow$ with $t$
                   \[A_t \sim \cU(\{1,\dots,K\})\]
 
                   \vspace{-0.4cm}
@@ -1352,7 +1352,7 @@
 
             {\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
             \textcolor{darkgray}{\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
-            \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+            % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1457,7 +1457,7 @@
 
             \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
             {\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
-            \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+            % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1497,188 +1497,188 @@
 
 \end{frameO}
 
-\begin{frameO}[Proof : 1/3]
+% \begin{frameO}[Proof : 1/3]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    Assume $\mu_\star=\mu_1$ and $\mu_a<\mu_1$.
-    \begin{eqnarray*}
-        N_a(T) &=& \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)} \\
-        &=&  \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)\cap(\UCB_1(t) \leq \mu_1)} + \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)\cap(\UCB_1(t) > \mu_1)} \\
-        & \leq & \sum_{t=0}^{T-1}\ind_{(\UCB_1(t) \leq \mu_1)} + \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)\cap(\UCB_a(t) > \mu_1)}
-    \end{eqnarray*}
+%     Assume $\mu_\star=\mu_1$ and $\mu_a<\mu_1$.
+%     \begin{eqnarray*}
+%         N_a(T) &=& \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)} \\
+%         &=&  \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)\cap(\UCB_1(t) \leq \mu_1)} + \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)\cap(\UCB_1(t) > \mu_1)} \\
+%         & \leq & \sum_{t=0}^{T-1}\ind_{(\UCB_1(t) \leq \mu_1)} + \sum_{t=0}^{T-1}\ind_{(A_{t+1}=a)\cap(\UCB_a(t) > \mu_1)}
+%     \end{eqnarray*}
 
-    \pause
+%     \pause
 
-    \[\bE_\nu[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \mathrm{UCB}_a(t) > \mu_1)}_{B} \]
+%     \[\bE_\nu[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \mathrm{UCB}_a(t) > \mu_1)}_{B} \]
 
-\end{frameO}
+% \end{frameO}
 
 
-\begin{frameO}[Proof : 2/3]
+% \begin{frameO}[Proof : 2/3]
 
-    \[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1)}_{B} \]
+%     \[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1)}_{B} \]
 
+%     \begin{itemize}
+%         \item \textbf{Term A}: if $\alpha>1$,
+%     \end{itemize}
+
+%     \begin{eqnarray*}
+%         \sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1) & \leq & 1 + \sum_{t=1}^{T-1} \bP\left(\hat{\mu}_1(t) + \sqrt{\frac{\alpha \ln(t)}{N_1(t)}} \leq \mu_1\right) \\
+%         & \leq & 1 + \sum_{t=1}^{T-1} \frac{1}{t^{2\alpha-1}} \\
+%         &\leq& 1+ \zeta(2\alpha -1) :=C_\alpha/2.
+%     \end{eqnarray*}
+
+
+% \end{frameO}
+
+
+% \begin{frameO}[Proof : 3/3]
+
+%     %\[\bE[N_2(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=2, \UCB_2(t) > \mu_1)}_{B} \]
+
+%     \vspace{0.3cm}
+
+%     \begin{itemize}
+%         \item \textbf{Term B:}
+%     \end{itemize}
+
+%     \vspace{-0.6cm}
+
+%     \begin{eqnarray*}
+%         (B) & = &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, \UCB_a(t) > \mu_1\right) \\
+%         & \leq &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, \blue \UCB_a(t) > \mu_1, \mathrm{LCB}_a(t) \leq \mu_a\black\right)  + C_\alpha /2
+%     \end{eqnarray*}
+%     with
+
+%     \vspace{-0.9cm}
+
+%     \[\mathrm{LCB}_a(t) = \hat{\mu}_{a}(t) - \sqrt{\frac{\alpha \ln t}{N_a(t)}}.\]
+
+
+%     \begin{columns}
+%         \begin{column}{5.5cm}
+%             $\blue\mu_1,\mu_a \in \left[\mathrm{LCB}_a(t) ; \UCB_a(t)\right]$
+%             \begin{eqnarray*}
+%                 &\Rightarrow &(\mu_1 - \mu_a) \leq 2 \sqrt{\frac{\alpha \ln(T)}{N_a(t)}} \\
+%                 & \Rightarrow & \ N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)
+%             \end{eqnarray*}
+%         \end{column}
+%         \begin{column}{4.5cm}
+%             \begin{center}
+%                 \includegraphics[height=2.7cm]{illUCB.jpg}
+%             \end{center}
+%         \end{column}
+%     \end{columns}
+
+
+
+
+% \end{frameO}
+
+% \begin{frameO}[Proof : 3/3]
+
+%     %\[\bE[N_2(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=2, \UCB_2(t) > \mu_1)}_{B} \]
+
+%     \begin{itemize}
+%         \item \textbf{Term B:} (continued)
+%     \end{itemize}
+
+%     \vspace{-0.3cm}
+
+%     \begin{eqnarray*}
+%         (B) & \leq &  \sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1, \text{LCB}_a(t) \leq \mu_a) %\\ && \hspace{1.3cm} + \hspace{0.3cm} \sum_{t=0}^{T-1}\bP(\UCB_2(t) \leq \mu_2)
+%         + C_\alpha /2 \\
+%         & \leq &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)\right)+ C_{\alpha}/2 \\
+%         & \leq & \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T) + C_\alpha/2
+%     \end{eqnarray*}
+
+
+%     \begin{itemize}
+%         \item \textbf{Conclusion}:
+%     \end{itemize}
+
+%     \[\bE[N_a(T) ] \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T) + C_\alpha.\]
+
+
+% \end{frameO}
+
+
+% \begin{frameO}[An improved analysis]
+
+%     \alt<3>{\vspace{0.4cm}}{\vspace{0.3cm}}
+
+%     \textbf{Context:} $\sigma^2$ sub-Gaussian rewards
+
+%     \vspace{-0.2cm}
+
+%     \[\UCB_a(t) = \hat{\mu}_a(t) + \sqrt{\frac{2\sigma^2(\ln(t) + c\ln\ln(t))}{N_a(t)}}\]
+
+%     \vspace{-0.2cm}
+
+%     \begin{orangeblock}{Theorem \color{gray}[Cappé et al.'13]}
+%         For $c \geq 3$, the UCB algorithm associated to the above index satisfy
+%         \[\bE[N_a(T)] \leq \frac{2\sigma^2}{(\mu_\star - \mu_a)^2}\ln(T) + C_{\bm\mu}\sqrt{\ln(T)}.\]
+%     \end{orangeblock}
+
+%     \pause
+
+%     \alt<4>{\vspace{-0.3cm}}{}
+
+%     \alt<4>{
+%         \begin{itemize}
+%             \item \underline{Bernoulli rewards:}
+
+%                   \vspace{-0.3cm}
+
+%                   \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \neq\red \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\kl(\mu_a,\mu_\star)}\right)\black \ln(T) \]
+
+%                   \vspace{-0.3cm}
+
+%             \item[\ding{220}] \red not \black matching the Lai and Robbins lower bound
+
+%                   \underline{Pinsker's inequality}: $\blue 2 \Delta_a^2 \leq \kl(\mu_a,\mu_\star)$.
+%         \end{itemize}}{
+%         \alt<3>{
+%             \begin{itemize}
+%                 \item \underline{Bernoulli rewards:}
+
+%                       \vspace{-0.3cm}
+
+%                       \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim\blue \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{2\Delta_a}\right)\black \ln(T) \]
+
+%                       \vspace{-0.3cm}
+
+%                 \item[\ding{220}] optimal ?
+%             \end{itemize}
+%         }
+%         {\begin{itemize}
+%                 \item \underline{Gaussian rewards:}
+
+%                       \vspace{-0.3cm}
+
+%                       \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim \blue \left(\sum_{a : \mu_a < \mu_\star} \frac{2\sigma^2}{\Delta_a}\right)\black \ln(T) .\]
+
+%                       \vspace{-0.3cm}
+
+%                 \item[\ding{220}] matching the Lai and Robbins lower bound! \blue asymptotically optimal \black
+%             \end{itemize}}}
+
+
+
+% \end{frameO}
+
+
+
+\begin{frameO}[The Worst-case Performance of UCB]
     \begin{itemize}
-        \item \textbf{Term A}: if $\alpha>1$,
-    \end{itemize}
-
-    \begin{eqnarray*}
-        \sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1) & \leq & 1 + \sum_{t=1}^{T-1} \bP\left(\hat{\mu}_1(t) + \sqrt{\frac{\alpha \ln(t)}{N_1(t)}} \leq \mu_1\right) \\
-        & \leq & 1 + \sum_{t=1}^{T-1} \frac{1}{t^{2\alpha-1}} \\
-        &\leq& 1+ \zeta(2\alpha -1) :=C_\alpha/2.
-    \end{eqnarray*}
-
-
-\end{frameO}
-
-
-\begin{frameO}[Proof : 3/3]
-
-    %\[\bE[N_2(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=2, \UCB_2(t) > \mu_1)}_{B} \]
-
-    \vspace{0.3cm}
-
-    \begin{itemize}
-        \item \textbf{Term B:}
-    \end{itemize}
-
-    \vspace{-0.6cm}
-
-    \begin{eqnarray*}
-        (B) & = &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, \UCB_a(t) > \mu_1\right) \\
-        & \leq &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, \blue \UCB_a(t) > \mu_1, \mathrm{LCB}_a(t) \leq \mu_a\black\right)  + C_\alpha /2
-    \end{eqnarray*}
-    with
-
-    \vspace{-0.9cm}
-
-    \[\mathrm{LCB}_a(t) = \hat{\mu}_{a}(t) - \sqrt{\frac{\alpha \ln t}{N_a(t)}}.\]
-
-
-    \begin{columns}
-        \begin{column}{5.5cm}
-            $\blue\mu_1,\mu_a \in \left[\mathrm{LCB}_a(t) ; \UCB_a(t)\right]$
-            \begin{eqnarray*}
-                &\Rightarrow &(\mu_1 - \mu_a) \leq 2 \sqrt{\frac{\alpha \ln(T)}{N_a(t)}} \\
-                & \Rightarrow & \ N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)
-            \end{eqnarray*}
-        \end{column}
-        \begin{column}{4.5cm}
-            \begin{center}
-                \includegraphics[height=2.7cm]{illUCB.jpg}
-            \end{center}
-        \end{column}
-    \end{columns}
-
-
-
-
-\end{frameO}
-
-\begin{frameO}[Proof : 3/3]
-
-    %\[\bE[N_2(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=2, \UCB_2(t) > \mu_1)}_{B} \]
-
-    \begin{itemize}
-        \item \textbf{Term B:} (continued)
-    \end{itemize}
-
-    \vspace{-0.3cm}
-
-    \begin{eqnarray*}
-        (B) & \leq &  \sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1, \text{LCB}_a(t) \leq \mu_a) %\\ && \hspace{1.3cm} + \hspace{0.3cm} \sum_{t=0}^{T-1}\bP(\UCB_2(t) \leq \mu_2)
-        + C_\alpha /2 \\
-        & \leq &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)\right)+ C_{\alpha}/2 \\
-        & \leq & \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T) + C_\alpha/2
-    \end{eqnarray*}
-
-
-    \begin{itemize}
-        \item \textbf{Conclusion}:
-    \end{itemize}
-
-    \[\bE[N_a(T) ] \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T) + C_\alpha.\]
-
-
-\end{frameO}
-
-
-\begin{frameO}[An improved analysis]
-
-    \alt<3>{\vspace{0.4cm}}{\vspace{0.3cm}}
-
-    \textbf{Context:} $\sigma^2$ sub-Gaussian rewards
-
-    \vspace{-0.2cm}
-
-    \[\UCB_a(t) = \hat{\mu}_a(t) + \sqrt{\frac{2\sigma^2(\ln(t) + c\ln\ln(t))}{N_a(t)}}\]
-
-    \vspace{-0.2cm}
-
-    \begin{orangeblock}{Theorem \color{gray}[Cappé et al.'13]}
-        For $c \geq 3$, the UCB algorithm associated to the above index satisfy
-        \[\bE[N_a(T)] \leq \frac{2\sigma^2}{(\mu_\star - \mu_a)^2}\ln(T) + C_{\bm\mu}\sqrt{\ln(T)}.\]
-    \end{orangeblock}
-
-    \pause
-
-    \alt<4>{\vspace{-0.3cm}}{}
-
-    \alt<4>{
-        \begin{itemize}
-            \item \underline{Bernoulli rewards:}
-
-                  \vspace{-0.3cm}
-
-                  \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \neq\red \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\kl(\mu_a,\mu_\star)}\right)\black \ln(T) \]
-
-                  \vspace{-0.3cm}
-
-            \item[\ding{220}] \red not \black matching the Lai and Robbins lower bound
-
-                  \underline{Pinsker's inequality}: $\blue 2 \Delta_a^2 \leq \kl(\mu_a,\mu_\star)$.
-        \end{itemize}}{
-        \alt<3>{
-            \begin{itemize}
-                \item \underline{Bernoulli rewards:}
-
-                      \vspace{-0.3cm}
-
-                      \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim\blue \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{2\Delta_a}\right)\black \ln(T) \]
-
-                      \vspace{-0.3cm}
-
-                \item[\ding{220}] optimal ?
-            \end{itemize}
-        }
-        {\begin{itemize}
-                \item \underline{Gaussian rewards:}
-
-                      \vspace{-0.3cm}
-
-                      \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim \blue \left(\sum_{a : \mu_a < \mu_\star} \frac{2\sigma^2}{\Delta_a}\right)\black \ln(T) .\]
-
-                      \vspace{-0.3cm}
-
-                \item[\ding{220}] matching the Lai and Robbins lower bound! \blue asymptotically optimal \black
-            \end{itemize}}}
-
-
-
-\end{frameO}
-
-
-
-\begin{frameO}[The Worst--case Performance of UCB]
-    \begin{itemize}
-        \item UCB worst-case regret:  $O(\blue\sqrt{KT \ln(T)})$
+        \item UCB worst-case regret:  $\mathcal{O}(\blue\sqrt{KT \ln(T)})$
     \end{itemize}
     \begin{eqnarray*}
         \cR_\nu(\texttt{UCB},T) & = &\sum_{a=1}^K \textcolor{red}{\Delta_a\sqrt{\bE[N_a(T)]}}\sqrt{\bE[N_a(T)]} \\
-        &=&\sum_{a=1}^K O(\red{\sqrt{\ln(T)}}\black)\sqrt{\bE[N_a(T)]}\\
-        &\leq& K\sqrt{\frac{1}{K} \sum_{a}\bE[N_a(T)]}O(\sqrt{\ln(T)})\\
-        &=& O(\sqrt{KT \ln(T)})
+        &=&\sum_{a=1}^K \mathcal{O}(\red{\sqrt{\ln(T)}}\black)\sqrt{\bE[N_a(T)]}\\
+        &\leq& K\sqrt{\frac{1}{K} \sum_{a}\bE[N_a(T)]}\mathcal{O}(\sqrt{\ln(T)})\\
+        &=& \mathcal{O}(\sqrt{KT \ln(T)})
     \end{eqnarray*}
     \begin{itemize}
         \item[\ding{220}] not exactly matching the $\blue\sqrt{KT}$ lower bound...
@@ -1688,73 +1688,73 @@
 
 
 
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Optimistic Algorithms}
-            \vspace{1.5cm}
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Optimistic Algorithms}
+%             \vspace{1.5cm}
 
-            \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
-            {\textbf{\Large Other UCB algorithms}\\[0.5cm]}
-        \end{center}
-    \end{changemargin}
-\end{frame}
+%             \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
+%             \textcolor{darkgray}{\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
+%             {\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
 
-\begin{frameO}[UCB-V]
+% \begin{frameO}[UCB-V]
 
-    UCB with empirical \red V\black ariance estimates \gray [Audibert et al. 09] \black selects
-    \[A_{t+1} = \argmax_{a=1,\dots,K} \ \red  \hat\mu_{a}(t) + \sqrt{\frac{2{\hat{\sigma}_a(t)} \ln t^3}{N_a(t)}} + \frac{7\ln t^3}{3{N_a(t)}}\]
-    where $\hat{\sigma}_a(t) =\frac{1}{N_a(t)}\sum_{s=1}^{N_a(t)} \left(Y_{a,s} - \hat{\mu}_a(t)\right)^2$.
+%     UCB with empirical \red V\black ariance estimates \gray [Audibert et al. 09] \black selects
+%     \[A_{t+1} = \argmax_{a=1,\dots,K} \ \red  \hat\mu_{a}(t) + \sqrt{\frac{2{\hat{\sigma}_a(t)} \ln t^3}{N_a(t)}} + \frac{7\ln t^3}{3{N_a(t)}}\]
+%     where $\hat{\sigma}_a(t) =\frac{1}{N_a(t)}\sum_{s=1}^{N_a(t)} \left(Y_{a,s} - \hat{\mu}_a(t)\right)^2$.
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \alt<2>{\begin{orangeblock}{Theorem \gray[Audibert et al. 09]}
-            For a bandit instance with bounded rewards, UCB-V satisfies
-            \[\cR_\nu\left(\texttt{UCB-V},T\right) \leq C \blue\left(\sum_{a : \mu_a < \mu_\star}\frac{\sigma_a^2}{\Delta_a}\right)\black\ln(T)\]
+%     \alt<2>{\begin{orangeblock}{Theorem \gray[Audibert et al. 09]}
+%             For a bandit instance with bounded rewards, UCB-V satisfies
+%             \[\cR_\nu\left(\texttt{UCB-V},T\right) \leq C \blue\left(\sum_{a : \mu_a < \mu_\star}\frac{\sigma_a^2}{\Delta_a}\right)\black\ln(T)\]
 
-            \vspace{-0.3cm}
+%             \vspace{-0.3cm}
 
-            for some constant $C$.
-        \end{orangeblock}
-    }{
-        \begin{alertblock}{Empirical Bernstein Inequality}
-            Let $X_i\in[0,1]$ be $n$ {independent} r.v. with mean $\mu_i = \bE X_i$ and {variance} $\sigma^2$
-            \begin{equation*}
-                \bP\Big(\frac{1}{n}\sum_{i=1}^n \big(X_i - \mu_i\big)  \geq \sqrt{\frac{2\hat \sigma_n^2\ln(2/\delta)}{n}} + \frac{7\ln(2/\delta)}{3n}\Big) \leq \delta
-            \end{equation*}
+%             for some constant $C$.
+%         \end{orangeblock}
+%     }{
+%         \begin{alertblock}{Empirical Bernstein Inequality}
+%             Let $X_i\in[0,1]$ be $n$ {independent} r.v. with mean $\mu_i = \bE X_i$ and {variance} $\sigma^2$
+%             \begin{equation*}
+%                 \bP\Big(\frac{1}{n}\sum_{i=1}^n \big(X_i - \mu_i\big)  \geq \sqrt{\frac{2\hat \sigma_n^2\ln(2/\delta)}{n}} + \frac{7\ln(2/\delta)}{3n}\Big) \leq \delta
+%             \end{equation*}
 
-            \vspace{-0.3cm}
+%             \vspace{-0.3cm}
 
-            where $\hat \sigma_n^2$ is the \blue empirical variance estimate\black.
-        \end{alertblock}
+%             where $\hat \sigma_n^2$ is the \blue empirical variance estimate\black.
+%         \end{alertblock}
 
-    }
+%     }
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[UCB for Gaussian distributions]
+% \begin{frameO}[UCB for Gaussian distributions]
 
-    $\nu_a = \cN(\mu_a, \sigma_a^2)$ with \blue unknown mean AND variance \black.
+%     $\nu_a = \cN(\mu_a, \sigma_a^2)$ with \blue unknown mean AND variance \black.
 
-    \begin{orangeblock}{ISM-Normal \color{gray} [Cowan et al. 17] \black}
-        \[A_{t+1} = \argmax_{a=1,\dots,K} \ \red \hat{\mu}_a(t) + \hat{\sigma}_a(t) \sqrt{t^{\frac{2}{N_a(t) -2}}-1}\black.\]
-    \end{orangeblock}
+%     \begin{orangeblock}{ISM-Normal \color{gray} [Cowan et al. 17] \black}
+%         \[A_{t+1} = \argmax_{a=1,\dots,K} \ \red \hat{\mu}_a(t) + \hat{\sigma}_a(t) \sqrt{t^{\frac{2}{N_a(t) -2}}-1}\black.\]
+%     \end{orangeblock}
 
-    \begin{itemize}
-        \item an \blue asymptotically optimal \black algorithm
-    \end{itemize}
+%     \begin{itemize}
+%         \item an \blue asymptotically optimal \black algorithm
+%     \end{itemize}
 
-    \vspace{-0.4cm}
+%     \vspace{-0.4cm}
 
-    \[\cR_{\nu}(\texttt{ISM},T) \leq (1+\varepsilon)\!\!\!\!\!\!\!\!\underbrace{\blue\sum_{a : \mu_a < \mu_\star} \frac{2}{\ln\left(1+ \frac{\Delta_a^2}{\sigma_a^2}\right)}\black}_{\substack{\text{optimal constant}\\\text{(Burnetas and Katehakis lower bound)}}}\!\!\!\!\!\!\!\!\ln(T) + O_\varepsilon(\ln\ln(T)).\]
+%     \[\cR_{\nu}(\texttt{ISM},T) \leq (1+\varepsilon)\!\!\!\!\!\!\!\!\underbrace{\blue\sum_{a : \mu_a < \mu_\star} \frac{2}{\ln\left(1+ \frac{\Delta_a^2}{\sigma_a^2}\right)}\black}_{\substack{\text{optimal constant}\\\text{(Burnetas and Katehakis lower bound)}}}\!\!\!\!\!\!\!\!\ln(T) + O_\varepsilon(\ln\ln(T)).\]
 
-    \begin{itemize}
-        \item[\ding{220}] asymptotic optimality beyond Gaussian rewards?
-    \end{itemize}
+%     \begin{itemize}
+%         \item[\ding{220}] asymptotic optimality beyond Gaussian rewards?
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
 \begin{frameTI}
@@ -1915,7 +1915,7 @@
     \begin{itemize}
         \item[\ding{220}] follows from  \red two improvements \black in the previous analysis
     \end{itemize}
-    \alt<3>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \blue \text{ a better concentration result}} + \underbrace{\frac{f(T)}{\kl(\mu_a,\mu_1)} + O(\sqrt{f(T)})}_{B : \red\text{ a finer upper bound}} \]}
+    \alt<3>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \blue \text{ a better concentration result}} + \underbrace{\frac{f(T)}{\kl(\mu_a,\mu_1)} + \mathcal{O}(\sqrt{f(T)})}_{B : \red\text{ a finer upper bound}} \]}
     {\alt<2>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red\text{ a better concentration result}} + \underbrace{\sum_{s=1}^{T}\bP(s\times \kl(\hat\mu_{a,s} , \mu_1) \leq f(T))}_{B : \red \text{ a finer upper bound}} \]
         }{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red \text{ a better concentration result}} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1)}_{B : \red \text{ a finer upper bound}} \]}}
 
@@ -1923,57 +1923,57 @@
 \end{frameO}
 
 
-\begin{frameO}[Self-normalized concentration inequalities]
+% \begin{frameO}[Self-normalized concentration inequalities]
 
-    \begin{eqnarray*}
-        \bP(\UCB_1(t) \leq \mu_1) & = & \bP\left( N_1(t)\times \kl^+\!\!\left(\hat{\mu}_1(t),\mu_1\right) > \ln(t) + c\ln\ln(t)\right) \\
-        & \leq & \bP\left(\exists s \leq t : s \times \kl^+(\hat{\mu}_{1,s},\mu_1) > \ln(t) + c\ln\ln(t)\right)
-    \end{eqnarray*}
+%     \begin{eqnarray*}
+%         \bP(\UCB_1(t) \leq \mu_1) & = & \bP\left( N_1(t)\times \kl^+\!\!\left(\hat{\mu}_1(t),\mu_1\right) > \ln(t) + c\ln\ln(t)\right) \\
+%         & \leq & \bP\left(\exists s \leq t : s \times \kl^+(\hat{\mu}_{1,s},\mu_1) > \ln(t) + c\ln\ln(t)\right)
+%     \end{eqnarray*}
 
-    \alt<3>{\textbf{Second idea:} \red peeling trick \black
-    \begin{alertblock}{Lemma \gray[Garivier and Cappé, 2011]}
-        \[\bP\left(\exists s \leq t : s \times \kl^+\left(\hat{\mu}_{1,s},\mu_1\right) > \gamma \right) \leq e \lceil\gamma \ln(t)\rceil  e^{-\gamma}.\]
-    \end{alertblock}
+%     \alt<3>{\textbf{Second idea:} \red peeling trick \black
+%     \begin{alertblock}{Lemma \gray[Garivier and Cappé, 2011]}
+%         \[\bP\left(\exists s \leq t : s \times \kl^+\left(\hat{\mu}_{1,s},\mu_1\right) > \gamma \right) \leq e \lceil\gamma \ln(t)\rceil  e^{-\gamma}.\]
+%     \end{alertblock}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \begin{eqnarray*}
-        \bP(\UCB_1(t) \leq \mu_1) & = & O\left( \frac{\ln^2(t)}{t\ln^c(t)}\right)
-    \end{eqnarray*}
+%     \begin{eqnarray*}
+%         \bP(\UCB_1(t) \leq \mu_1) & = & O\left( \frac{\ln^2(t)}{t\ln^c(t)}\right)
+%     \end{eqnarray*}
 
-    \[\rightsquigarrow \red  \sum_{t=1}^\infty
-        \bP(\UCB_1(t) \leq \mu_1) < \infty \black \ \ \ \text{for } c \geq 3.\]
+%     \[\rightsquigarrow \red  \sum_{t=1}^\infty
+%         \bP(\UCB_1(t) \leq \mu_1) < \infty \black \ \ \ \text{for } c \geq 3.\]
 
 
-    }{
-    \alt<2>{\textbf{Second idea:} \red peeling trick \black
+%     }{
+%     \alt<2>{\textbf{Second idea:} \red peeling trick \black
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    Introducing \blue slices $\cI_k = \{t_{k}, \dots,t_{k+1}\}$\black, with $t_k = \lfloor (1+\eta)^{k-1}\rfloor$.
-    \begin{align*}
-        \hspace{-0.4cm}\bP(\UCB_1(t) \leq \mu_1) & \!\leq\!\!\sum_{k=1}^{\frac{\ln(t)}{\ln(1+\eta)}} \bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\hat{\mu}_{1,s},\mu_1\right)\! > \!\ln(t) + c\ln\ln(t)\right)                                                                                             \\
-                                                 & \leq \!\!  \sum_{k=1}^{\frac{\ln(t)}{\ln(1+\eta)}} \underbrace{\bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\hat{\mu}_{1,s},\mu_1\right)\! > \!\ln(t_{k}) + c\ln\ln(t_{k})\right)}_{\substack{\text{deviation of } \hat{\mu}_{1,s} \text{ from its mean} \\\ \blue \text{uniformly over } s\in\cI_k}} \\
-    \end{align*}
+%     Introducing \blue slices $\cI_k = \{t_{k}, \dots,t_{k+1}\}$\black, with $t_k = \lfloor (1+\eta)^{k-1}\rfloor$.
+%     \begin{align*}
+%         \hspace{-0.4cm}\bP(\UCB_1(t) \leq \mu_1) & \!\leq\!\!\sum_{k=1}^{\frac{\ln(t)}{\ln(1+\eta)}} \bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\hat{\mu}_{1,s},\mu_1\right)\! > \!\ln(t) + c\ln\ln(t)\right)                                                                                             \\
+%                                                  & \leq \!\!  \sum_{k=1}^{\frac{\ln(t)}{\ln(1+\eta)}} \underbrace{\bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\hat{\mu}_{1,s},\mu_1\right)\! > \!\ln(t_{k}) + c\ln\ln(t_{k})\right)}_{\substack{\text{deviation of } \hat{\mu}_{1,s} \text{ from its mean} \\\ \blue \text{uniformly over } s\in\cI_k}} \\
+%     \end{align*}
 
-    \vspace{-1cm}
+%     \vspace{-1cm}
 
-    \[\hspace{4cm} \rightsquigarrow \red  \text{maximal inequalities for martingales}\]
-    }{
-    \textbf{First idea:} union bound + Chernoff inequality
-    \begin{eqnarray*}
-        \bP(\UCB_1(t) \leq \mu_1) & = & \sum_{s=1}^t \bP\left( s\times \kl^+\!\!\left(\hat{\mu}_{1,s},\mu_1\right) > \ln(t) + c\ln\ln(t)\right) \\
-        & \leq & \sum_{s=1}^t \frac{1}{t\ln^c(t)} = \frac{1}{\ln(t)^c}
-    \end{eqnarray*}
+%     \[\hspace{4cm} \rightsquigarrow \red  \text{maximal inequalities for martingales}\]
+%     }{
+%     \textbf{First idea:} union bound + Chernoff inequality
+%     \begin{eqnarray*}
+%         \bP(\UCB_1(t) \leq \mu_1) & = & \sum_{s=1}^t \bP\left( s\times \kl^+\!\!\left(\hat{\mu}_{1,s},\mu_1\right) > \ln(t) + c\ln\ln(t)\right) \\
+%         & \leq & \sum_{s=1}^t \frac{1}{t\ln^c(t)} = \frac{1}{\ln(t)^c}
+%     \end{eqnarray*}
 
-    \[\rightsquigarrow \red  \sum_{t=1}^\infty \bP(\UCB_1(t) < \mu_1) = \infty\]
-    \begin{itemize}
-        \item[\ding{220}] not good enough...
-    \end{itemize}
+%     \[\rightsquigarrow \red  \sum_{t=1}^\infty \bP(\UCB_1(t) < \mu_1) = \infty\]
+%     \begin{itemize}
+%         \item[\ding{220}] not good enough...
+%     \end{itemize}
 
-    }}
+%     }}
 
-\end{frameO}
+% \end{frameO}
 
 \begin{frameO}[\klUCB{} beyond exponential families]
 
@@ -2011,7 +2011,7 @@
 %
 % {\vspace{-0.5cm}
 %
-%  \[\color{gray} \text{[Cappé et al. 13]}\black: \ \ \ \bE_{\bm \mu}[N_k(T)]\leq  \color{blue}\frac{1}{d(\mu_k,\mu_\star)}\color{black}{\ln T} + O(\sqrt{\ln(T)}).\]}
+%  \[\color{gray} \text{[Cappé et al. 13]}\black: \ \ \ \bE_{\bm \mu}[N_k(T)]\leq  \color{blue}\frac{1}{d(\mu_k,\mu_\star)}\color{black}{\ln T} + \mathcal{O}(\sqrt{\ln(T)}).\]}
 
 \begin{frameTI}
     \begin{center}
@@ -2940,313 +2940,313 @@
 
 
 
-\begin{frameTI}
-    \begin{center}
-        \color{white} \Huge \textsc{Other randomized}
+% \begin{frameTI}
+%     \begin{center}
+%         \color{white} \Huge \textsc{Other randomized}
 
-        \textsc{algorithms}
-    \end{center}
-    \vspace*{-4pt}
-\end{frameTI}
+%         \textsc{algorithms}
+%     \end{center}
+%     \vspace*{-4pt}
+% \end{frameTI}
 
-\begin{frameO}[Limitation of existing approaches]
+% \begin{frameO}[Limitation of existing approaches]
 
-    \begin{orangeblock}{Two families of asymptotically optimal algorithms}
-        \begin{itemize}
-            \item Confidence bound algorithms
+%     \begin{orangeblock}{Two families of asymptotically optimal algorithms}
+%         \begin{itemize}
+%             \item Confidence bound algorithms
 
-            \item Thompson Sampling
-        \end{itemize}
-    \end{orangeblock}
+%             \item Thompson Sampling
+%         \end{itemize}
+%     \end{orangeblock}
 
-    \begin{itemize}
-        \item Provably optimal finite-time regret under the assumption that the rewards distribution belong to \blue some class $\cD$\black
-        \item A \rcol{different algorithm for each $\cD$}: TS or \klUCB{} for Bernoulli, Poisson, for Exponential, etc.
-    \end{itemize}
+%     \begin{itemize}
+%         \item Provably optimal finite-time regret under the assumption that the rewards distribution belong to \blue some class $\cD$\black
+%         \item A \rcol{different algorithm for each $\cD$}: TS or \klUCB{} for Bernoulli, Poisson, for Exponential, etc.
+%     \end{itemize}
 
-    \begin{center}
-        Can we build a \red universal algorithm \black that would be asymptotically optimal over different classes $\cD$?
-    \end{center}
-\end{frameO}
+%     \begin{center}
+%         Can we build a \red universal algorithm \black that would be asymptotically optimal over different classes $\cD$?
+%     \end{center}
+% \end{frameO}
 
 
-\begin{frameO}[A Puzzling strategy]
+% \begin{frameO}[A Puzzling strategy]
 
-    \begin{center}
-        \large{\HL{B}est  \HL{E}mpirical \HL{S}ub-sampling \HL{A}verage}
+%     \begin{center}
+%         \large{\HL{B}est  \HL{E}mpirical \HL{S}ub-sampling \HL{A}verage}
 
-        \vspace{0.2cm}
+%         \vspace{0.2cm}
 
-        \textcolor{gray}{"Sub-sampling for multi-armed bandits",\\ Baransi, Maillard, Mannor \textit{ECML}, 2014.}
-    \end{center}
+%         \textcolor{gray}{"Sub-sampling for multi-armed bandits",\\ Baransi, Maillard, Mannor \textit{ECML}, 2014.}
+%     \end{center}
 
-    \begin{orangeblock}{BESA}
-        \begin{itemize}
-            \item Competitive regret against state-of-the-art for various $\cD$.
-            \item Same algorithm for all $\cD$.
-            \item Not relying on upper confidence bounds, not Bayesian...
-            \item ...and extremely simple to implement.
-        \end{itemize}
-    \end{orangeblock}
+%     \begin{orangeblock}{BESA}
+%         \begin{itemize}
+%             \item Competitive regret against state-of-the-art for various $\cD$.
+%             \item Same algorithm for all $\cD$.
+%             \item Not relying on upper confidence bounds, not Bayesian...
+%             \item ...and extremely simple to implement.
+%         \end{itemize}
+%     \end{orangeblock}
 
 
-    \begin{itemize}
-        \item[\ding{220}] How? Optimality? For which distributions ?
-    \end{itemize}
+%     \begin{itemize}
+%         \item[\ding{220}] How? Optimality? For which distributions ?
+%     \end{itemize}
 
 
 
-\end{frameO}
+% \end{frameO}
 
 
 
-\begin{frameO}[Going back to "Follow the leader"]
-    {\bf FTL}
-    \begin{enumerate}
-        \item Play each arm once.
-        \item At time $t$, define $\tilde \mu_{a}(t) = \hat \mu(R_{1:N_{a}(t)}^a)$ for all $a\in\cA$.
-              \begin{itemize}
-                  \item $\hat \mu(\cX)$: empirical average of population $\cX$.
-                  \item $R_{1:N_{a}(t)}^a = \{ R_s : A_s=a, s \leq t\}$
-              \end{itemize}
-        \item Choose (break ties in favor of the smallest $N_a(t)$)
-              \[
-                  A_{t+1} = \argmax_{a'\in\{a,b\}} \tilde \mu_{a'}(t)\,.
-              \]
-    \end{enumerate}
+% \begin{frameO}[Going back to "Follow the leader"]
+%     {\bf FTL}
+%     \begin{enumerate}
+%         \item Play each arm once.
+%         \item At time $t$, define $\tilde \mu_{a}(t) = \hat \mu(R_{1:N_{a}(t)}^a)$ for all $a\in\cA$.
+%               \begin{itemize}
+%                   \item $\hat \mu(\cX)$: empirical average of population $\cX$.
+%                   \item $R_{1:N_{a}(t)}^a = \{ R_s : A_s=a, s \leq t\}$
+%               \end{itemize}
+%         \item Choose (break ties in favor of the smallest $N_a(t)$)
+%               \[
+%                   A_{t+1} = \argmax_{a'\in\{a,b\}} \tilde \mu_{a'}(t)\,.
+%               \]
+%     \end{enumerate}
 
-    \begin{orangeblock}{Properties}
-        \begin{itemize}
-            \item Generally bad: linear regret.
-            \item A variant ($\varepsilon$\texttt{-greedy}) performs ok if well-tuned \gray[Auer et al, 2002]\black.
-        \end{itemize}
-    \end{orangeblock}
+%     \begin{orangeblock}{Properties}
+%         \begin{itemize}
+%             \item Generally bad: linear regret.
+%             \item A variant ($\varepsilon$\texttt{-greedy}) performs ok if well-tuned \gray[Auer et al, 2002]\black.
+%         \end{itemize}
+%     \end{orangeblock}
 
-    \vspace{-5mm}
-\end{frameO}
+%     \vspace{-5mm}
+% \end{frameO}
 
 
-\begin{frameO}[Follow the FAIR leader (aka BESA)]
+% \begin{frameO}[Follow the FAIR leader (aka BESA)]
 
-    \textbf{Idea:} Compare two arms based on "equal opportunity"
+%     \textbf{Idea:} Compare two arms based on "equal opportunity"
 
-    i.e. same number of observations.
+%     i.e. same number of observations.
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \begin{orangeblock}{}
-        {\bf BESA} at time $t$ for two arms $a,b$:
+%     \begin{orangeblock}{}
+%         {\bf BESA} at time $t$ for two arms $a,b$:
 
-        \begin{enumerate}
-            \item Sample two sets of indices $\cI_a(t)\sim {\texttt{Wr}}(N_{a}(t);N_{b}(t))$ and $\cI_b(t)\sim {\texttt{Wr}}(N_{b}(t);N_{a}(t))$.
-                  \begin{itemize}
-                      \item ${\texttt{Wr}}(n,N)$: sample $n$ points from $\{1,\dots,N\}$ without replacement (return all the set if $n\geq N$).
-                  \end{itemize}
-            \item Define $\tilde \mu_{a}(t) = \hat \mu(R_{1:N_{a}(t)}^a(\cI_a(t)))$ and $\tilde \mu_{b}(t) = \hat \mu(R_{1:N_{t,b}}^b(\cI_b(t)))$.
-            \item Choose (break ties in favor of the smallest $N_{a'}(t)$)
-                  \[A_{t+1} = \argmax_{a'\in\{a,b\}} \tilde \mu_{a'}(t)\,.\]
-        \end{enumerate}
-    \end{orangeblock}
+%         \begin{enumerate}
+%             \item Sample two sets of indices $\cI_a(t)\sim {\texttt{Wr}}(N_{a}(t);N_{b}(t))$ and $\cI_b(t)\sim {\texttt{Wr}}(N_{b}(t);N_{a}(t))$.
+%                   \begin{itemize}
+%                       \item ${\texttt{Wr}}(n,N)$: sample $n$ points from $\{1,\dots,N\}$ without replacement (return all the set if $n\geq N$).
+%                   \end{itemize}
+%             \item Define $\tilde \mu_{a}(t) = \hat \mu(R_{1:N_{a}(t)}^a(\cI_a(t)))$ and $\tilde \mu_{b}(t) = \hat \mu(R_{1:N_{t,b}}^b(\cI_b(t)))$.
+%             \item Choose (break ties in favor of the smallest $N_{a'}(t)$)
+%                   \[A_{t+1} = \argmax_{a'\in\{a,b\}} \tilde \mu_{a'}(t)\,.\]
+%         \end{enumerate}
+%     \end{orangeblock}
 
-    \begin{itemize}
-        \item more than two arms? tournament.
-    \end{itemize}
+%     \begin{itemize}
+%         \item more than two arms? tournament.
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
-\begin{frameO}[Example]
+% \begin{frameO}[Example]
 
-    \begin{itemize}
-        \item $\cX=(x_1,\dots,x_N)$,a finite population of $N$ real points.
+%     \begin{itemize}
+%         \item $\cX=(x_1,\dots,x_N)$,a finite population of $N$ real points.
 
-              \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-                  \hline
-                  $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & \dots & $x_{N-2}$ & $x_{N-1}$ & $x_N$ \\
-                  \hline
-              \end{tabular}
+%               \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+%                   \hline
+%                   $x_1$ & $x_2$ & $x_3$ & $x_4$ & $x_5$ & \dots & $x_{N-2}$ & $x_{N-1}$ & $x_N$ \\
+%                   \hline
+%               \end{tabular}
 
-              \bigskip
-        \item Sub-sample of size $n\leq N$ from $\cX$: $X_1,\dots,X_n$ picked uniformly randomly without replacement from $\cX$.
+%               \bigskip
+%         \item Sub-sample of size $n\leq N$ from $\cX$: $X_1,\dots,X_n$ picked uniformly randomly without replacement from $\cX$.
 
-              \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
-                  \hline
-                  $
-                  x_1$ & \cellcolor{blue!25}$X_{n-1}$ & \cellcolor{blue!25}$X_1$ & $x_4$ & \cellcolor{blue!25}$X_2$ & \dots & $x_{N-2}$ & \cellcolor{blue!25}$X_{n}$ & $x_N$ \\
-                  \hline
-              \end{tabular}
+%               \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+%                   \hline
+%                   $
+%                   x_1$ & \cellcolor{blue!25}$X_{n-1}$ & \cellcolor{blue!25}$X_1$ & $x_4$ & \cellcolor{blue!25}$X_2$ & \dots & $x_{N-2}$ & \cellcolor{blue!25}$X_{n}$ & $x_N$ \\
+%                   \hline
+%               \end{tabular}
 
 
-              \bigskip
+%               \bigskip
 
-        \item	Example: $N_{a}(t)=3$ and $N_{b}(t)=10$:
+%         \item	Example: $N_{a}(t)=3$ and $N_{b}(t)=10$:
 
-              $\cI_{a}(t) = \{1,2,3\}$,
+%               $\cI_{a}(t) = \{1,2,3\}$,
 
-              $|\cI_{b}(t)|=3$, sampled without replacement from $\{1,\dots,10\}$.
-    \end{itemize}
+%               $|\cI_{b}(t)|=3$, sampled without replacement from $\{1,\dots,10\}$.
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
-\begin{frameO}[Good practical performance ($T = 20,000$, $N=50,000$)]
+% \begin{frameO}[Good practical performance ($T = 20,000$, $N=50,000$)]
 
-    \vspace{0.2cm}
+%     \vspace{0.2cm}
 
-    \begin{itemize}
-        \item 10 {\bf Bernoulli}$(0.1, 3\{0.05\}, 3\{0.02\}, 3\{0.01\})$
-    \end{itemize}
+%     \begin{itemize}
+%         \item 10 {\bf Bernoulli}$(0.1, 3\{0.05\}, 3\{0.02\}, 3\{0.01\})$
+%     \end{itemize}
 
-    \begin{center}
-        \begin{tabular}{|c|ccccc|}
-            \hline
-                      & \HL{BESA}  & kl-UCB & kl-UCB+    & TS    & Others  \\
-            \hline
-            Regret    & {\bf 74.4} & 121.2  & {\bf 72.8} & 83.4  & 100-400 \\
-            Beat BESA & -          & 1.6\%  & 35.4\%     & 3.1\% &         \\
-            Run Rime  & 13.9X      & 2.8X   & 3.1X       & X     &         \\
-            \hline
-        \end{tabular}
+%     \begin{center}
+%         \begin{tabular}{|c|ccccc|}
+%             \hline
+%                       & \HL{BESA}  & kl-UCB & kl-UCB+    & TS    & Others  \\
+%             \hline
+%             Regret    & {\bf 74.4} & 121.2  & {\bf 72.8} & 83.4  & 100-400 \\
+%             Beat BESA & -          & 1.6\%  & 35.4\%     & 3.1\% &         \\
+%             Run Rime  & 13.9X      & 2.8X   & 3.1X       & X     &         \\
+%             \hline
+%         \end{tabular}
 
-        \vspace{0.3cm}
+%         \vspace{0.3cm}
 
-        \includegraphics[width=\textwidth]{BESA1}
+%         \includegraphics[width=\textwidth]{BESA1}
 
-    \end{center}
+%     \end{center}
 
-    \vspace{-0.4cm}
+%     \vspace{-0.4cm}
 
-    Others: UCB, Moss, UCB-Tunes, DMED, UCB-V.
+%     Others: UCB, Moss, UCB-Tunes, DMED, UCB-V.
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \flushright{\footnotesize{(Credit: Akram Baransi)}}
+%     \flushright{\footnotesize{(Credit: Akram Baransi)}}
 
-\end{frameO}
+% \end{frameO}
 
 
-\begin{frameO}[Good practical performance ($T = 20,000$, $N=50,000$)]
+% \begin{frameO}[Good practical performance ($T = 20,000$, $N=50,000$)]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \begin{itemize}
-        \item {\bf Exponential}$(\frac{1}{5},\frac{1}{4},\frac{1}{3},\frac{1}{2},1)$
-    \end{itemize}
+%     \begin{itemize}
+%         \item {\bf Exponential}$(\frac{1}{5},\frac{1}{4},\frac{1}{3},\frac{1}{2},1)$
+%     \end{itemize}
 
-    \vspace{-0.5cm}
+%     \vspace{-0.5cm}
 
-    \begin{center}
-        \begin{tabular}{|c|ccccc|}
-            \hline
-                      & \HL{BESA} & KL-UCB-exp & UCB-tuned & FTL 10 & Others      \\
-            \hline
-            Regret    & {\bf	53.3} & 65.7       & 97.6      & 306.5  & 60-110,120+ \\
-            Beat BESA & -         & 5.7\%      & 4.3\%     & -      &             \\
-            Run Rime  & 6X        & 2.8X       & X         & -      &             \\
-            \hline
-        \end{tabular}
+%     \begin{center}
+%         \begin{tabular}{|c|ccccc|}
+%             \hline
+%                       & \HL{BESA} & KL-UCB-exp & UCB-tuned & FTL 10 & Others      \\
+%             \hline
+%             Regret    & {\bf	53.3} & 65.7       & 97.6      & 306.5  & 60-110,120+ \\
+%             Beat BESA & -         & 5.7\%      & 4.3\%     & -      &             \\
+%             Run Rime  & 6X        & 2.8X       & X         & -      &             \\
+%             \hline
+%         \end{tabular}
 
-        \vspace{0.3cm}
+%         \vspace{0.3cm}
 
-        \includegraphics[width=\textwidth]{BESA2}
-    \end{center}
+%         \includegraphics[width=\textwidth]{BESA2}
+%     \end{center}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    Others: UCB, Moss, kl-UCB,UCB-V.
+%     Others: UCB, Moss, kl-UCB,UCB-V.
 
-    \vspace{-5mm}
-    \flushright{\footnotesize{(Credit: Akram Baransi)}}
-\end{frameO}
+%     \vspace{-5mm}
+%     \flushright{\footnotesize{(Credit: Akram Baransi)}}
+% \end{frameO}
 
 
-\begin{frameO}[Good practical performance ($T = 20,000$, $N=50,000$)]
+% \begin{frameO}[Good practical performance ($T = 20,000$, $N=50,000$)]
 
-    \vspace{0.2cm}
+%     \vspace{0.2cm}
 
-    \begin{itemize}
-        \item {\bf Poisson}$(\{\frac{1}{2}+\frac{i}{3}\}_{i=1,\dots,6})$
-    \end{itemize}
+%     \begin{itemize}
+%         \item {\bf Poisson}$(\{\frac{1}{2}+\frac{i}{3}\}_{i=1,\dots,6})$
+%     \end{itemize}
 
-    \begin{center}
-        %\hspace{-1cm}
-        \begin{tabular}{|c|cccc|}
-            \hline
-                      & \HL{BESA} & KL-UCB-Poisson & kl-UCB & FTL 10 \\
-            \hline
-            Regret    & \bf{19.4} & 25.1           & 150.6  & 144.6  \\
-            Beat BESA & -         & 4.1\%          & 0.7\%  & -      \\
-            Run Rime  & 3.5X      & 1.2X           & X      & -      \\
-            \hline
-        \end{tabular}
+%     \begin{center}
+%         %\hspace{-1cm}
+%         \begin{tabular}{|c|cccc|}
+%             \hline
+%                       & \HL{BESA} & KL-UCB-Poisson & kl-UCB & FTL 10 \\
+%             \hline
+%             Regret    & \bf{19.4} & 25.1           & 150.6  & 144.6  \\
+%             Beat BESA & -         & 4.1\%          & 0.7\%  & -      \\
+%             Run Rime  & 3.5X      & 1.2X           & X      & -      \\
+%             \hline
+%         \end{tabular}
 
-        \vspace{0.3cm}
+%         \vspace{0.3cm}
 
-        \includegraphics[width=\textwidth]{BESA3}
-    \end{center}
+%         \includegraphics[width=\textwidth]{BESA3}
+%     \end{center}
 
 
 
-    \vspace{-5mm}
-    \flushright{\footnotesize{(Credit: Akram Baransi)}}
+%     \vspace{-5mm}
+%     \flushright{\footnotesize{(Credit: Akram Baransi)}}
 
-    \vspace{-8mm}
-\end{frameO}
+%     \vspace{-8mm}
+% \end{frameO}
 
 
 
-\begin{frameO}[Regret bound  (slightly simplified statement)]
+% \begin{frameO}[Regret bound  (slightly simplified statement)]
 
-    With two arms $\{\star,a\}$, define
+%     With two arms $\{\star,a\}$, define
 
-    \vspace{-0.5cm}
+%     \vspace{-0.5cm}
 
-    \[
-        \alpha(M,n) =\bE_{Z^\star\sim \nu_{\star,n}}\Bigg[ \bigg(\bP_{Z\sim\nu_{a,n}}(Z>Z^\star)
-            + {\color{gray}\frac{1}{2}\bP_{Z\sim\nu_{a,n}}(Z=Z^\star)}\bigg)^M\Bigg]\,.
-    \]
+%     \[
+%         \alpha(M,n) =\bE_{Z^\star\sim \nu_{\star,n}}\Bigg[ \bigg(\bP_{Z\sim\nu_{a,n}}(Z>Z^\star)
+%             + {\color{gray}\frac{1}{2}\bP_{Z\sim\nu_{a,n}}(Z=Z^\star)}\bigg)^M\Bigg]\,.
+%     \]
 
-    \vspace{-5mm}
+%     \vspace{-5mm}
 
-    \begin{orangeblock}{Theorem \gray[Baransi et al. 14]}
-        If $\exists \alpha \in(0,1), c>0$ such that $\alpha(M,1) \leq c\alpha^M$, then
-        \[
-            \cR_{\nu}(\texttt{BESA},T) \leq \frac{11\ln(T)}{\mu_\star-\mu_a} + C_{\nu} + O(1)\,.
-        \]
-    \end{orangeblock}
-    %
+%     \begin{orangeblock}{Theorem \gray[Baransi et al. 14]}
+%         If $\exists \alpha \in(0,1), c>0$ such that $\alpha(M,1) \leq c\alpha^M$, then
+%         \[
+%             \cR_{\nu}(\texttt{BESA},T) \leq \frac{11\ln(T)}{\mu_\star-\mu_a} + C_{\nu} + \mathcal{O}(1)\,.
+%         \]
+%     \end{orangeblock}
+%     %
 
-    \begin{redblock}{Example}
-        \begin{itemize}
-            \item Bernoulli $\mu_a,\mu_\star$: $\alpha(M,1) =O\Big(\big(\frac{\mu_a  \vee (1-\mu_a)}{2}\big)^M\Big)$
-        \end{itemize}
-    \end{redblock}
+%     \begin{redblock}{Example}
+%         \begin{itemize}
+%             \item Bernoulli $\mu_a,\mu_\star$: $\alpha(M,1) =O\Big(\big(\frac{\mu_a  \vee (1-\mu_a)}{2}\big)^M\Big)$
+%         \end{itemize}
+%     \end{redblock}
 
-    \textbf{Future work:} understand when BESA fails, and whether it can be asymptotically optimal in some cases...
-\end{frameO}
+%     \textbf{Future work:} understand when BESA fails, and whether it can be asymptotically optimal in some cases...
+% \end{frameO}
 
 
 
-\begin{frameO}[Adversarial bandits]
+% \begin{frameO}[Adversarial bandits]
 
-    Another class of (randomized) bandit algorithms that do not exploit any assumption on $\cD$ is that of \red adversarial bandit algorithms\black.
+%     Another class of (randomized) bandit algorithms that do not exploit any assumption on $\cD$ is that of \red adversarial bandit algorithms\black.
 
-    \begin{center}\gray [Auer, Cesa-Bianchi, Freund, Shapire,
+%     \begin{center}\gray [Auer, Cesa-Bianchi, Freund, Shapire,
 
-            \textit{The non-stochastic multi-armed bandit}, 2002]
-    \end{center}
+%             \textit{The non-stochastic multi-armed bandit}, 2002]
+%     \end{center}
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \begin{center}
-        {\Large Can we achieve $O(\sqrt{KT})$ regret with respect to the best static action if the rewards are arbitrarily generated?}
-    \end{center}
+%     \begin{center}
+%         {\Large Can we achieve $\mathcal{O}(\sqrt{KT})$ regret with respect to the best static action if the rewards are arbitrarily generated?}
+%     \end{center}
 
 
-    \vspace{0.4cm}
+%     \vspace{0.4cm}
 
-    \hfill Some answers in the next classes and practical sessions!
-\end{frameO}
+%     \hfill Some answers in the next classes and practical sessions!
+% \end{frameO}
 
 
 \begin{frameTI}
@@ -3275,7 +3275,7 @@
     \begin{itemize}
         \item performance lower bounds, guiding the design of algorithms
         \item Kullback-Leibler divergence to measure deviations
-        \item self-normalized concentration inequalities
+        \item applications of self-normalized concentration inequalities
         \item Bayesian tools
     \end{itemize}
 
@@ -3283,33 +3283,6 @@
 
 \end{frameO}
 
-
-\begin{frameO}[First practical session]
-
-    \textbf{Objective:} run UCB, \klUCB{}, Thompson Sampling and some tweaks of those algorithms, and see what performs best (on simulated data).
-
-    \vspace{0.3cm}
-
-    \begin{minipage}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\textwidth]{3algos}
-    \end{minipage}
-    \begin{minipage}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\textwidth]{1algos}
-    \end{minipage}
-
-    \begin{itemize}
-        \item visualize expected regret \emph{averaged over multiple runs} /
-
-              distribution of the regret
-    \end{itemize}
-
-    \vspace{0.3cm}
-
-    \textbf{Files:} link on the RLSS webpage.
-
-\end{frameO}
 
 \begin{frameO}[Where to know more?]
 
@@ -3327,7 +3300,7 @@
 
     \vspace{0.3cm}
 
-    \normalsize \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
+    \normalsize $\hookrightarrow$ \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
 
 
 \end{frameO}
@@ -3336,27 +3309,27 @@
 \begin{frameO}[Conclusion]
 
 \begin{center}
-  \begin{Large}
+  \begin{Huge}
     \textbf{Thanks for your attention !}
-  \end{Large}
+  \end{Huge}
 \end{center}
 
 \vspace*{10pt}
 
 \begin{center}
-  \begin{Large}
+  \begin{Huge}
     Questions \& Discussion ?
-  \end{Large}
+  \end{Huge}
 \end{center}
 
 \vspace*{10pt}
 \pause
 
 \begin{center}
-  \begin{Large}
+  \begin{Huge}
     $\hookrightarrow$ Break and then next talk by Christophe Moy\\
     \emph{``Decentralized Spectrum Learning for IoT''}
-  \end{Large}
+  \end{Huge}
 \end{center}
 
 \end{frameO}
@@ -3433,7 +3406,7 @@
             \item Berry, D. and Fristedt, B. Bandit Problems (1985). Sequential allocation of experiments. \emph{Chapman and Hall}.
             \item Lai, T. and Robbins, H. (1985). Asymptotically efficient adaptive allocation rules. \emph{Advances in Applied Mathematics}.
             \item Lai, T. (1987). Adaptive treatment allocation and the multi-armed bandit problem. \emph{Annals of Statistics}.
-            \item Agrawal, R. (1995). Sample mean based index policies with O(log n) regret for the multi-armed bandit problem. \emph{Advances in Applied Probability}.
+            \item Agrawal, R. (1995). Sample mean based index policies with $\mathcal{O}(\log n)$ regret for the multi-armed bandit problem. \emph{Advances in Applied Probability}.
         \end{itemize}
     }
 
