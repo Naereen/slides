@@ -1,0 +1,220 @@
+% INRIA Template
+\usepackage{dsfont} %mathds
+\usepackage{pifont} %\ding
+\usepackage{bm}
+
+% Spaces
+\newcommand{\Na}{{\mathbb N}}
+\renewcommand{\Re}{{\mathbb R}}
+
+
+% Other symbols
+%\newcommand{\eps}{\epsilon}
+
+% Calligraphic symbols
+\newcommand{\cR}{{\cal R}}
+\newcommand{\cA}{{\cal A}}
+\newcommand{\cB}{{\cal B}}
+\newcommand{\cD}{{\cal D}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\cI}{{\mathcal I}}
+\newcommand{\cE}{{\mathcal E}}
+\newcommand{\cF}{{\mathcal F}}
+\newcommand{\cL}{{\mathcal L}}
+\newcommand{\cK}{{\mathcal K}}
+\newcommand{\cC}{{\mathcal C}}
+\newcommand{\cP}{{\mathcal P}}
+\newcommand{\cU}{{\mathcal U}}
+\newcommand{\cX}{{\mathcal X}}
+\newcommand{\cS}{{\mathcal S}}
+\newcommand{\cT}{{\mathcal T}}
+
+\newcommand{\Outline}{\begin{frameO}[Outline]
+\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded]
+\end{frameO}}
+
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\bE}{{\mathbb E}}
+\newcommand{\bP}{{\mathbb P}}
+
+\newcommand{\eqdef}{:=}
+\def \ind{\mathds{1}}
+
+\theoremstyle{theorem}
+
+% Hat notation
+\newcommand{\hPi}{{\widehat{\Pi}}}
+\newcommand{\hT}{{\widehat{\T}}}
+\newcommand{\hP}{{\widehat{P}}}
+\newcommand{\halpha}{{\hat \alpha}}
+\newcommand{\hrho}{{\hat \rho}}
+\newcommand{\hmu}{\hat{\mu}}
+\newcommand{\hvar}{\hat{\sigma}^2}
+\newcommand{\hp}{\hat{p}}
+\newcommand{\hq}{\hat{q}}
+\newcommand{\bhp}{\bold{\hat p}}
+\newcommand{\bhq}{\bold{\hat q}}
+%\newcommand{\wh}{\widehat}
+%\newcommand{\wt}{\widetilde}
+\newcommand{\hy}{\hat y}
+\newcommand{\hsigma}{\hat \sigma}
+%\newcommand{\hvar}{\hsigma^2}
+\newcommand{\hR}{\widehat{R}}
+
+% Tilde notation
+\newcommand{\tQ}{{\widetilde{Q}}}
+\newcommand{\tmu}{\tilde{\mu}}
+
+% Max values
+\newcommand{\Vmax}{{V_{\max}}}
+\newcommand{\Qmax}{{Q_{\max}}}
+\newcommand{\Rmax}{{R_{\max}}}
+\newcommand{\rmax}{{r_{\max}}}
+
+% Statistics
+\renewcommand{\P}{{\mathbb P}}
+\newcommand{\E}{{\mathbb E}}
+%\newcommand{\Var}{{\mathbb V}}
+\newcommand{\var}{{\sigma^2}}
+\newcommand{\1}{{\mathbb I}}
+
+% Equations shortcuts
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+
+\newcommand{\beqan}{\begin{eqnarray*}}
+\newcommand{\eeqan}{\end{eqnarray*}}
+
+\newcommand{\balign}{\begin{align}}
+\newcommand{\ealign}{\end{align}}
+
+\newcommand{\balignn}{\begin{align*}}
+\newcommand{\ealignn}{\end{align*}}
+
+% Theorems, definitions, assumptions, etc.
+\theoremstyle{theorem}
+\newtheorem{defn}{Definition}
+%\newtheorem{lemma}{Lemma}
+\newtheorem{exmp}{Example}
+\newtheorem{thm}{Theorem}
+\newtheorem*{prob}{Problem}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+%\newtheorem*{note}{Note}
+\newtheorem*{exer}{Exercise}
+\newtheorem{proposition}{Proposition}
+\newtheorem{algdef}{Algorithm Definition}
+
+\newcommand{\fpropositionxx}[1]{
+\par\medskip\noindent
+\thmbox[\columnwidth]{
+\begin{minipage}{0.93\columnwidth} \begin{proposition}{#1}\end{proposition} \end{minipage} } \par\medskip }
+
+\newenvironment{fproposition}
+  {\begin{mdframed}\begin{proposition}}
+  {\end{proposition}\end{mdframed}}
+
+\newenvironment{falgdef}
+  {\begin{mdframed}\begin{algdef}}
+  {\end{algdef}\end{mdframed}}
+
+% Misc
+\newcommand{\TODO}[1]{(\textbf{TODO: {#1}})}
+
+% Box for algorithms, theorems, etc.
+\newlength{\minipagewidth}
+\newlength{\minipagewidthx}
+\setlength{\minipagewidth}{\columnwidth}
+\setlength{\minipagewidthx}{\columnwidth}
+\setlength{\fboxsep}{5mm}
+\addtolength{\minipagewidth}{-\fboxrule}
+\addtolength{\minipagewidth}{-\fboxrule}
+\addtolength{\minipagewidth}{-\fboxsep}
+\addtolength{\minipagewidth}{-\fboxsep}
+\addtolength{\minipagewidthx}{+\fboxsep}
+\newcommand{\bookbox}[1]{\small
+\par\medskip\noindent
+\framebox[\columnwidth]{
+\begin{minipage}{\minipagewidth} {#1} \end{minipage} } \par\medskip }
+
+\newcommand{\bookboxx}[1]{\small
+\par\medskip\noindent
+\framebox[\columnwidth]{
+\begin{minipage}{0.95\columnwidth} {#1} \end{minipage} } \par\medskip }
+
+% Colors for slides
+\definecolor{rouge1}{RGB}{226,0,38}  % red P
+\definecolor{orange1}{RGB}{243,154,38}  % orange P
+\definecolor{jaune}{RGB}{254,205,27}  % jaune P
+\definecolor{blanc}{RGB}{255,255,255} % blanc P
+
+\definecolor{rouge2}{RGB}{230,68,57}  % red S
+\definecolor{orange2}{RGB}{236,117,40}  % orange S
+\definecolor{taupe}{RGB}{134,113,127} % taupe S
+\definecolor{gris}{RGB}{91,94,111} % gris S
+\definecolor{bleu1}{RGB}{38,109,131} % bleu S
+\definecolor{bleu2}{RGB}{28,50,114} % bleu S
+\definecolor{vert1}{RGB}{133,146,66} % vert S
+\definecolor{vert3}{RGB}{20,200,66} % vert S
+\definecolor{vert2}{RGB}{157,193,7} % vert S
+\definecolor{vert4}{RGB}{20,200,20} % vert S
+\definecolor{darkyellow}{RGB}{233,165,0}  % orange S
+\definecolor{lightgray}{rgb}{0.9,0.9,0.9}
+\definecolor{darkgray}{rgb}{0.5,0.5,0.5}
+
+% Highlights for slides
+\newcommand{\rcol}[1]{\textcolor{red}{\textit{#1}}}
+\newcommand{\eqrcol}[1]{\textcolor{red}{#1}}
+\newcommand{\gcol}[1]{\textcolor{vert3}{\textit{#1}}}
+\newcommand{\eqgcol}[1]{\textcolor{vert3}{#1}}
+\newcommand{\bcol}[1]{\textcolor{blue}{\textit{#1}}}
+\newcommand{\eqbcol}[1]{\textcolor{blue}{#1}}
+\newcommand{\ycol}[1]{\textcolor{darkyellow}{\textit{#1}}}
+\newcommand{\eqycol}[1]{\textcolor{darkyellow}{#1}}
+
+\newcommand{\rcolb}[1]{\textcolor{red}{\textit{\textbf{#1}}}}
+\newcommand{\gcolb}[1]{\textcolor{vert3}{\textit{\textbf{#1}}}}
+\newcommand{\bcolb}[1]{\textcolor{blue}{\textit{\textbf{#1}}}}
+\newcommand{\ycolb}[1]{\textcolor{darkyellow}{\textit{\textbf{#1}}}}
+
+% Change margins for slides
+\newenvironment{changemargin}[2]{%
+  \begin{list}{}{%
+    \setlength{\topsep}{0pt}%
+    \setlength{\leftmargin}{#1}%
+    \setlength{\rightmargin}{#2}%
+    \setlength{\listparindent}{\parindent}%
+    \setlength{\itemindent}{\parindent}%
+    \setlength{\parsep}{\parskip}%
+  }%
+  \item[]}{\end{list}}
+
+\newcommand{\argmax}{\mathop{\mathrm{argmax}}}
+\renewcommand{\max}{\mathop{\mathrm{max}}}
+\newcommand{\Argmax}{\mathop{\mathrm{Argmax}}}
+\newcommand{\argmin}{\mathop{\mathrm{argmin}}}
+\newcommand{\argsup}{\mathop{\mathrm{argsup}}}
+\newcommand{\arginf}{\mathop{\mathrm{arginf}}}
+\newcommand{\bA}{\mathbb{A}}
+
+\newcommand{\RAUCB}{\texttt{RA-UCB}}
+\newcommand{\klUCB}{$\mathrm{kl}$-UCB}
+\newcommand{\KLUCB}{{\texttt{KL-ucb}}}
+\newcommand{\KLUCBp}{{\texttt{KL-ucb+}}}
+\newcommand{\TS}{{\texttt{TS}}}
+\newcommand{\KL}{\mathrm{KL}}
+\newcommand{\kl}{\mathrm{kl}}
+\newcommand{\UCB}{{\mathrm{UCB}}}
+\newcommand{\UCBonB}{\UCB\ on $\cB$}
+\newcommand{\UCBonC}{\UCB\ on $\cC$}
+\newcommand{\KnownDUCB}{{\bf \texttt{Multiple}\texttt{-K-UCB}}}
+\newcommand{\SKnownDUCB}{{\bf \texttt{Single}\texttt{-K-UCB}}}
+\newcommand{\Name}{{\bf \texttt{A-UCB}}}
+\newcommand{\supp}{\text{supp}}
+
+\newcommand{\meas}{\kM_1(\Real)}

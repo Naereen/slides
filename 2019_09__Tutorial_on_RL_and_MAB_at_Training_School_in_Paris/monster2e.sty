@@ -1,0 +1,84 @@
+% monster.clo
+%
+% Gigantic fonts, intended for posters.  This version for LaTeX2e
+%
+%       The new font sizes are:
+%
+%       \HUGE           30pt characters         36pt \baselineskip
+%       \monster        43pt characters         52pt \baselineskip
+%       \Monster        62pt characters         75pt \baselineskip
+%       \MONSTER        89pt characters         107pt \baselineskip
+%       \screamer       128pt characters        154pt \baselineskip
+%       \Screamer       185pt characters        222pt \baselineskip
+%       \SCREAMER       266pt characters        319pt \baselineskip
+%
+% Harry Payne                       Internet: payne@stsci.edu
+% Space Telescope Science Institute     SPAN: SCIVAX::PAYNE (6549::PAYNE)
+% 3700 San Martin Drive                Phone: (410) 338-4539
+% Baltimore, MD 21218                   ICBM: 76 37' 30"W  39 20' 00"N
+%
+
+\ProvidesFile{monster.clo}[1997/01/24 v1.0 monster sized fonts]
+
+% The point sizes for the fonts:
+
+\newcommand\@xxxpt{39.00}		% 10pt at \@magscale6
+\newcommand\@xxxxiiipt{43.00}		% 10pt at \@magscale8
+\newcommand\@lxiipt{61.92}		% 10pt at \@magscale10
+\newcommand\@lxxxixpt{89.16}		% 10pt at \@magscale12
+\newcommand\@cxxviiipt{128.39}		% 10pt at \@magscale14
+\newcommand\@clxxxvpt{184.88}		% 10pt at \@magscale16
+\newcommand\@cclxvipt{266.23}		% 10pt at \@magscale18
+
+% Name the sizes:
+
+\newcommand\HUGE{\@setfontsize\HUGE\@xxxpt{46}}
+\newcommand\monster{\@setfontsize\monster\@xxxxiiipt{52}}
+\newcommand\Monster{\@setfontsize\Monster\@lxiipt{75}}
+\newcommand\MONSTER{\@setfontsize\MONSTER\@lxxxixpt{107}}
+\newcommand\screamer{\@setfontsize\screamer\@cxxviiipt{154}}
+\newcommand\Screamer{\@setfontsize\Screamer\@clxxxvpt{222}}
+\newcommand\SCREAMER{\@setfontsize\SCREAMER\@cclxvipt{266}}
+
+% Corresponding mathsizes
+
+\DeclareMathSizes{\@xxxpt}{\@xxxpt}{\@xxvpt}{\@xxpt}
+\DeclareMathSizes{\@xxxxiiipt}{\@xxxxiiipt}{\@xxxpt}{\@xxvpt}
+\DeclareMathSizes{\@lxiipt}{\@lxiipt}{\@xxxxiiipt}{\@xxxpt}
+\DeclareMathSizes{\@lxxxixpt}{\@lxxxixpt}{\@lxiipt}{\@xxxxiiipt}
+\DeclareMathSizes{\@cxxviiipt}{\@cxxviiipt}{\@lxxxixpt}{\@lxiipt}
+\DeclareMathSizes{\@clxxxvpt}{\@clxxxvpt}{\@cxxviiipt}{\@lxxxixpt}
+\DeclareMathSizes{\@cclxvipt}{\@cclxvipt}{\@clxxxvpt}{\@cxxviiipt}
+
+% Redefine Symbol font and Math italic font, to allow for larger sizes
+
+\DeclareFontShape{OMS}{cmsy}{m}{n}{%
+      <5> <6> <7> <8> <9> <10> gen * cmsy
+      <10.95> <12> <14.4> <17.28> <20.74> <24.88> <29.87> <43.00>
+      <61.92> <89.16> <128.39> <184.88> <266.23> cmsy10
+      }{}
+\DeclareFontShape{OMS}{cmsy}{b}{n}{%
+      <5> <6> <7> <8> <9> gen * cmbsy
+      <10> <10.95> <12> <14.4> <17.28> <20.74> <24.88>
+      <29.87> <43.00> <61.92> <89.16> <128.39> <184.88> <266.23>cmbsy10
+      }{}
+
+\DeclareFontShape{OML}{cmm}{m}{it}
+    { <5> <6> <7> <8> <9> gen * cmmi
+      <10><10.95>cmmi10
+      <12><14.4><17.28><20.74><24.88><29.87> <43.00> <61.92> <89.16>
+      <128.39> <184.88> <266.23> cmmi12
+      }{}
+\DeclareFontShape{OML}{cmm}{b}{it}{%
+      <5> <6> <7> <8> <9> gen * cmmib
+      <10><10.95><12><14.4><17.28><20.74><24.88><29.87><43.00>%
+      <61.92><89.16><128.39><184.88><266.23> cmmib10
+      }{}
+\DeclareFontShape{OT1}{cmr}{m}{n}
+   {  <5> <6> <7> <8> <9> <10> <12> gen * cmr
+      <10.95> cmr10
+      <14.4>  cmr12
+      <17.28><20.74><24.88><29.87><43.00>%
+      <61.92><89.16><128.39><184.88><266.23> cmr17
+      }{}
+      
