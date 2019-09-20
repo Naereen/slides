@@ -972,7 +972,7 @@
 
     \end{orangeblock}
     \begin{orangeblock}{Theorem \color{gray} [Lai and Robbins, 1985]}
-        For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=\mathcal{o}(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
+        For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=o(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
 
         \vspace{-0.4cm}
 
@@ -1175,7 +1175,7 @@
     \end{orangeblock}
 
     \begin{itemize}
-        \item worse-case model:
+        \item worst-case model (Bernoulli):
               \[\left\{\begin{array}{ccl}
                       \nu_a & = & \cB(1/2) \ \ \text{for all} \ \ a\neq i \\
                       \nu_i & = & \cB(1/2+\varepsilon)
@@ -2081,7 +2081,7 @@
             \item[\ding{220}] \blue far from optimal \black in a problem-dependent sense
         \end{itemize}}{
         \begin{itemize}
-            \item[\ding{220}] matching the worse-case lower bound!
+            \item[\ding{220}] matching the worst-case lower bound!
         \end{itemize}}
 
 
@@ -2092,7 +2092,7 @@
 
     \vspace{0.3cm}
 
-    \textbf{Idea:} ``switch'' between KL-UCB and MOSS in order to be simultaneously \blue optimal \black in a problem-dependent and worse-case sense.
+    \textbf{Idea:} ``switch'' between KL-UCB and MOSS in order to be simultaneously \blue optimal \black in a problem-dependent and worst-case sense.
 
     \hfill\gray [Garivier et al., 2018]\black
 
