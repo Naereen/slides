@@ -664,7 +664,7 @@
     $\Delta_a \eqdef \mu_\star -\mu_a$ : sub-optimality gap of arm $a$
 
     \begin{orangeblock}{Regret decomposition}
-        \[\red\cR_\nu(\cA,T) = \sum_{a=1}^K \Delta_a \bE\left[N_a(T)\right].\]
+        \[\alert<1>{ \cR_\nu(\cA,T) = \sum_{a=1}^K \Delta_a \bE\left[N_a(T)\right] }.\]
     \end{orangeblock}
     \pause
 
@@ -3768,7 +3768,7 @@
                             if $T$ and \textcolor{orange}{$Y_T$ are unknown}
                   \end{itemize}
             \item
-                  $\hookrightarrow$ our algorithm \textcolor{blue}{BGLR + klUCB} is state-of-the-art!\\
+                  $\hookrightarrow$ our algorithm \textcolor{blue}{klUCB index + BGLR detector} is state-of-the-art!\\
                   \hfill{} \gray [Besson and Kaufmann, 19] \texttt{arXiv:1902.01575}
         \end{itemize}
     \end{orangeblock}
@@ -3783,7 +3783,7 @@
         \includegraphics[width=0.85\textwidth]{regret_problem1.png}
     \end{center}
 
-    \textcolor{blue}{BGLR + klUCB} achieves the best performance (among non-oracle algorithms) !
+    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 \end{frameO}
 
 
@@ -3852,16 +3852,17 @@
                 \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
                 \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
                 \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
-                \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]
                 \item any index policy may be used in place of UCB1
+                \item \alert{their proof was wrong\dots}
+                \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]\black
             \end{itemize}
         \end{orangeblock}
     }
 
     \only<2->{
-        \begin{orangeblock}{\textbf{Example:} our algorithm \textcolor{blue}{klUCB index + MC-Top-M rule}}
+        \begin{orangeblock}{\textbf{Example:} our algorithm \textcolor{blue}{klUCB index + MC-TopM rule}}
             \begin{itemize}
-                \only<2->{
+                \only<2>{
                 \item more complicated behavior (musical chair game)
                 \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
                 \item lower bound is $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
@@ -3875,8 +3876,10 @@
     \only<3>{
         \textbf{Remarks}:
         \begin{itemize}
-            \item $M$ has to be known $\rightarrow$ but it is possible to estimate it on the run
-            \item does not handle an evolving number of devices (entering/leaving the network)
+            \item number of players $M$ has to be known\\
+                $\rightarrow$ but it is possible to estimate it on the run
+            \item does not handle an evolving number of devices\\
+                (entering/leaving the network)
             \item is it a \textit{fair} orthogonalization rule?
             \item could players use the collision indicators to communicate? (yes!)
         \end{itemize}
@@ -3888,7 +3891,7 @@
 
     \centering
     \includegraphics[height=0.75\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-    \caption{\footnotesize{For $M=6$ objects, MC-TopM and Rand-TopM largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{blue}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
+    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
 \end{frameO}
 
@@ -3918,7 +3921,8 @@
     \vspace*{-4pt}
 \end{frameTI}
 
-\begin{frameO}[Take-home messages]
+
+\begin{frameO}[Take-home messages \hfill{} ($1/2$)]
 
     Now you are aware of:
     \begin{itemize}
@@ -3929,22 +3933,27 @@
                   \item Bayesian approaches, mostly \red Thompson Sampling \black
               \end{itemize}
     \end{itemize}
-    And you are therefore ready to apply them for solving \blue more complex (structured) bandit problems \black and for \blue Reinforcement Learning\black!
 
-    \vspace{0.5cm}
+    $\implies$ And you are can learn more about \blue more complex bandit problems \black and \blue Reinforcement Learning\black!
+
+\end{frameO}
+
+\begin{frameO}[Take-home messages \hfill{} ($2/2$)]
 
     You also saw a bunch of \red important tools\black:
     \begin{itemize}
         \item performance lower bounds, guiding the design of algorithms
         \item Kullback-Leibler divergence to measure deviations
         \item applications of self-normalized concentration inequalities
-        \item Bayesian tools
+        \item Bayesian tools\dots
     \end{itemize}
+
+    And we presented many extensions of the single-player stationary MAB model.
 
 \end{frameO}
 
 
-\begin{frameO}[Where to know more? (1/3)]
+\begin{frameO}[Where to know more? \hfill{} ($1/3$)]
 
     Check out the
 
@@ -3966,7 +3975,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Where to know more? (2/3)]
+\begin{frameO}[Where to know more? \hfill{} ($2/3$)]
 
     Reach out by email if you have questions
 
@@ -3988,7 +3997,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Where to know more? (3/3)]
+\begin{frameO}[Where to know more? \hfill{} ($3/3$)]
 
     Experiment with bandits by yourself!
 
@@ -4111,7 +4120,7 @@
 \end{frameO}
 
 
-\begin{frameO}[References]
+\begin{frameO}[References ($1/6$)]
 
     {\footnotesize
 
@@ -4129,7 +4138,7 @@
 
 \end{frameO}
 
-\begin{frameO}[References]
+\begin{frameO}[References ($2/6$)]
 
     {\footnotesize
 
@@ -4149,7 +4158,7 @@
 
 \end{frameO}
 
-\begin{frameO}[References]
+\begin{frameO}[References ($3/6$)]
 
     {\footnotesize
 
@@ -4168,7 +4177,7 @@
 
 \end{frameO}
 
-\begin{frameO}[References]
+\begin{frameO}[References ($4/6$)]
 
     {
         \footnotesize
@@ -4186,7 +4195,7 @@
 
 \end{frameO}
 
-\begin{frameO}[References]
+\begin{frameO}[References ($5/6$)]
 
     {\footnotesize
 
@@ -4206,7 +4215,7 @@
 
 \end{frameO}
 
-\begin{frameO}[References]
+\begin{frameO}[References ($6/6$)]
 
     {\footnotesize
         \begin{itemize}
@@ -4216,6 +4225,7 @@
             \item Garivier,A. and Ménard, P. and Stoltz, G. (2018). Explore first, exploite next: the true shape of regret in bandit problems, \emph{Mathematics of Operations Research}
             \item Garivier, A. and Hadiji, H. and Ménard, P. and Stoltz, G. (2018).
                   KL-UCB-switch: optimal regret bounds for stochastic bandits from both a distribution-dependent and a distribution-free viewpoints. \emph{arXiv: 1805.05071}.
+            \item Besson, L., Kaufmann E. (2019). The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits. \emph{Algorithmic Learning Theory}. \emph{arXiv: 1902.01575}.
         \end{itemize}
     }
 
