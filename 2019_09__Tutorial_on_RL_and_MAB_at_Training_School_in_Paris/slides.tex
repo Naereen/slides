@@ -410,6 +410,7 @@
 \begin{frameO}[Outline of this talk]
 
     \begin{itemize}
+      \setlength\itemsep{0.6em}
       % \item Why Bandits?
       \item Multi-armed Bandit
       \item Performance measure (regret) and first strategies
@@ -470,7 +471,7 @@
     At round $t$, an agent:
     \begin{itemize}
         \item chooses an  arm $A_t$
-        \item receives a reward \alt<2>{$R_t = X_{A_t,t}\blue \sim \nu_{A_t}$}{$R_t = X_{A_t,t}$}
+        \item receives a reward \alt<2>{$R_t = X_{A_t,t}\blue \sim \nu_{A_t}$ (i.i.d. from a distribution)}{$R_t = X_{A_t,t}$ (from the environment)}
     \end{itemize}
 
     \vspace{0.2cm}
@@ -776,7 +777,7 @@
 \end{frameO}
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit]
+\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
     \vspace{0.3cm}
     \begin{orangeblock}{}
@@ -816,7 +817,7 @@
 
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit]
+\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
     \vspace{0.3cm}
     \begin{orangeblock}{}
@@ -855,7 +856,7 @@
 \end{frameO}
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit]
+\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
     \vspace{0.3cm}
     \begin{orangeblock}{}
@@ -901,7 +902,7 @@
 
 
 
-\begin{frameO}[Sequential Explore-Then-Commit (2 Gaussian arms)]
+\begin{frameO}[Sequential Explore-Then-Commit (\texttt{S-ETC}) (2 Gaussian arms)]
 
     \vspace{0.3cm}
 
@@ -971,7 +972,7 @@
 
     For two-armed Gaussian bandits,
     \[
-        \cR_\nu(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)  = \mathcal{O}(\frac{1}{\Delta} \log(T))\black.\]
+        \cR_\nu(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
 
     \vspace{-0.3cm}
 
@@ -982,8 +983,8 @@
     \textbf{Observation:} blows up when $\Delta$ tends to zero\dots
     \begin{eqnarray*}
         \cR_\nu(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
-        & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\ln(u^2) , u\right] \\
-        & \leq & \red C \sqrt{T}\black.
+        & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\ln(u^2) , u\right]
+        \leq \red C \sqrt{T}\black.
     \end{eqnarray*}
 
     \vspace{-0.3cm}
@@ -3767,18 +3768,22 @@
         if $T$ and \textcolor{orange}{$Y_T$ are unknown}
       \end{itemize}
     \item
-      $\hookrightarrow$ our algorithm GLR + klUCB is state-of-the-art!\\
+      $\hookrightarrow$ our algorithm \textcolor{blue}{BGLR + klUCB} is state-of-the-art!\\
       \hfill{} \gray [Besson and Kaufmann, 19] \texttt{arXiv:1902.01575}
     \end{itemize}
   \end{orangeblock}
 
 \end{frameO}
 
-\begin{frameO}[Results on problem 1]
-  \centering
-  \includegraphics[width=0.90\textwidth]{regret_problem1.png}
+\begin{frameO}[Results on a piece-wise stationary MAB problem]
 
-  $\implies$ BGLR achieves the best performance among non-oracle algorithms !
+  \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{break-point detector}
+
+  \begin{center}
+    \includegraphics[width=0.90\textwidth]{regret_problem1.png}
+  \end{center}
+
+  \textcolor{blue}{BGLR + klUCB} achieves the best performance (among non-oracle algorithms) !
 \end{frameO}
 
 
@@ -3841,70 +3846,47 @@
 
   \vspace{0.2cm}
 
-    % FIXME talk about MCTopM and not rhoRand !
-
-  \alt<2>{
-    \textbf{Example:} \orange UCB1 + $\rho^{\text{rand}}$\black. At round $t$ each player
+  \only<1>{
+  \begin{orangeblock}{\textbf{Example:} UCB1 + $\rho^{\text{rand}}$. At round $t$ each player}
     \begin{itemize}
       \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
       \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
       \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
       \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]
+      \item any index policy may be used in place of UCB1
     \end{itemize}
-  }{
-    \textbf{Example:} \orange klUCB + MC-Top-M rule\black. At round $t$ each player
+  \end{orangeblock}
+  }
+
+  \only<2>{
+  \begin{orangeblock}{\textbf{Example:} klUCB + MC-Top-M rule}
     \begin{itemize}
-      \item more complicated behavior
+      \item more complicated behavior (musical chair game)
       \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
       \item order optimal, not asymptotically optimal
       \item lower bound is probably $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
       \item \textbf{Recent references}: \color{gray} [Besson and Kaufmann, 18] [Boursier et al, 19]
     \end{itemize}
+  \end{orangeblock}
   }
-
-  \vspace{0.2cm}
-
 
   \textbf{Remarks}:
     \begin{itemize}
-      \item $M$ has to be known $\rightarrow $ try to estimate it
-      \item does not handle an evolving number of devices
+      \item $M$ has to be known $\rightarrow$ but it is possible to estimate it on the run
+      \item does not handle an evolving number of devices (entering/leaving the network)
       \item is it a \textit{fair} orthogonalization rule?
-      \item any index policy may be used in place of UCB1
+      \item could players use the collision indicators to communicate? (yes!)
     \end{itemize}
 
 \end{frameO}
 
-\begin{frameO}[Multi-players bandits: algorithms]
+\begin{frameO}[Results on a multi-player MAB problem]
 
-  \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
-
-  \vspace{0.2cm}
-
-  \textbf{Example:} UCB + $\rho^{\text{rand}}$. At round $t$ each player
-  \begin{itemize}
-    \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
-    \item selects the arm that has the $R_{m,t}$-largest UCB
-    \item if a collision occurs, draws a new rank $R_{t+1} \sim \cU(\{1,\dots,M\})$
-  \end{itemize}
-
-  \vspace{0.2cm}
-
-  \textbf{Remarks}:
-
-  \begin{itemize}
-    \item $M$ has to be known $\rightarrow $ try to estimate it
-    \item does not handle an evolving number of devices
-    \item is it a \textit{fair} orthogonalization rule?
-    \item any index policy may be used in place of UCB1
-  \end{itemize}
-
-  \begin{itemize}
-    \item[$\rightarrow$] \orange How does it perform in practice?
-  \end{itemize}
+  \centering
+  \includegraphics[height=0.75\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
+  \caption{\footnotesize{For $M=6$ objects, MC-TopM and Rand-TopM largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{blue}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
 \end{frameO}
-
 
 
 % \section{Numerical simulations with SMPyBandits}
@@ -4013,8 +3995,8 @@
 
     \vspace{1cm}
 
-    Play with our Python library for simulations of MAB problems\\
-    $\hookrightarrow$ \textbf{SMPyBandits} : \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}  \& \href{https://GitHub.com/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits}}} \\
+    Use our Python library for simulations of MAB problems \textbf{SMPyBandits} \\
+    $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}  \& \href{https://GitHub.com/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits}}} \\
     \begin{itemize}
       \item Install with \texttt{$\$$ pip install SMPyBandits}
       \item Free and open-source (MIT license)
@@ -4023,7 +4005,7 @@
 
 \end{frameO}
 
-\begin{frameO}[\href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}]
+\begin{frameO}[$\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}]
 
   \begin{center}
     \includegraphics[height=0.85\textheight]{overview_documentation_1}
@@ -4098,27 +4080,27 @@
 \begin{frameO}[Main references]
 
   \begin{itemize}
-      \item My PhD thesis\\
-      \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{``Multi-players Bandit Algorithms for Internet of Things Networks''}}, by Lilian Besson\\
+      \item My PhD thesis (Lilian Besson)\\
+      \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{``Multi-players Bandit Algorithms for Internet of Things Networks''}}\\
       $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/}}}\\
       $\hookrightarrow$ \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{\texttt{GitHub.com/Naereen/phd-thesis/}}}
 
     \vspace*{10pt}
 
-      \item \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{The Bandit Book}},
+      \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
+      $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
+
+    \vspace*{10pt}
+
+      \item \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{``The Bandit Book''}},
       by Tor Lattimore and Csaba Szepesvari\\
       $\hookrightarrow$ \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
 
     \vspace*{10pt}
 
-      \item \href{https://arxiv.org/abs/1904.07272}{\textcolor{blue}{Introduction to Multi-Armed Bandits}},
+      \item \href{https://arxiv.org/abs/1904.07272}{\textcolor{blue}{``Introduction to Multi-Armed Bandits''}},
       by Alex Slivkins\\
       $\hookrightarrow$ \href{https://arxiv.org/abs/1904.07272}{{\textcolor{blue}{\texttt{arXiv.org/abs/1904.07272}}}}
-
-    \vspace*{10pt}
-
-      \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
-      $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
 
   \end{itemize}
 
