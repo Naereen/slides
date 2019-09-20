@@ -212,11 +212,11 @@
         {\huge \textsc{Introduction to Multi-Armed Bandits and Reinforcement Learning}}
         \\
         {\large
-            Training School on Machine Learning for Communications\\
-            Paris, 23-25 September 2019\\
-            \vspace*{10pt}
-            \hspace*{10pt}\emph{Thanks to Émilie Kaufmann for most of the slides material!}
-          }
+        Training School on Machine Learning for Communications\\
+        Paris, 23-25 September 2019\\
+        \vspace*{10pt}
+        \hspace*{10pt}\emph{Thanks to Émilie Kaufmann for most of the slides material!}
+        }
         }}
     \end{textblock*}
 
@@ -234,18 +234,18 @@
 
 
 \begin{frameO}[What is a \emph{bandit}?]
-  \begin{center}
-    It's an old name for a casino machine!
-  \end{center}
+    \begin{center}
+        It's an old name for a casino machine!
+    \end{center}
 
-  \begin{center}
-    \includegraphics[height=6cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
+    \begin{center}
+        \includegraphics[height=6cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
 
-    \begin{tiny}
-    $\hookrightarrow$ \textcopyright{} Dargaud,
-    \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
-    \end{tiny}
-  \end{center}
+        \begin{tiny}
+            $\hookrightarrow$ \textcopyright{} Dargaud,
+            \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
+        \end{tiny}
+    \end{center}
 \end{frameO}
 
 
@@ -278,18 +278,18 @@
     \begin{itemize}
         \item $K$ treatments for a given symptom (with unknown effect)
 
-        \includegraphics[width=0.12\linewidth]{medoc1.jpg}
-        \hspace{0.05cm}
-        \includegraphics[width=0.12\linewidth]{medoc4.jpg}
-        \hspace{0.05cm}
-        \includegraphics[width=0.12\linewidth]{medoc3.jpg}
-        \hspace{0.05cm}
-        \includegraphics[width=0.12\linewidth]{medoc2.jpg}
-        \hspace{0.05cm}
-        \includegraphics[width=0.12\linewidth]{medoc5.jpg}
-        \hspace{0.05cm}
-        \includegraphics[width=0.12\linewidth]{medoc6.jpg}
-        \hspace{0.05cm}
+              \includegraphics[width=0.12\linewidth]{medoc1.jpg}
+              \hspace{0.05cm}
+              \includegraphics[width=0.12\linewidth]{medoc4.jpg}
+              \hspace{0.05cm}
+              \includegraphics[width=0.12\linewidth]{medoc3.jpg}
+              \hspace{0.05cm}
+              \includegraphics[width=0.12\linewidth]{medoc2.jpg}
+              \hspace{0.05cm}
+              \includegraphics[width=0.12\linewidth]{medoc5.jpg}
+              \hspace{0.05cm}
+              \includegraphics[width=0.12\linewidth]{medoc6.jpg}
+              \hspace{0.05cm}
 
         \item What treatment should be allocated to the next patient, based on responses observed on previous patients?
     \end{itemize}
@@ -301,16 +301,16 @@
     \textbf{Online advertisement}
     \begin{itemize}
         \item $K$ adds that can be displayed
-        \vspace{0.1cm}
+              \vspace{0.1cm}
 
-        \includegraphics[height=0.15\paperheight]{ad6.jpg}
-        \hspace{0.1cm}
-        \includegraphics[height=0.15\paperheight]{ad2.jpg}
-        \hspace{0.1cm}
-        \includegraphics[height=0.15\paperheight]{ad4.jpg}
-        \hspace{0.1cm}
-        \includegraphics[height=0.15\paperheight]{ad5.jpg}
-        \hspace{0.05cm}
+              \includegraphics[height=0.15\paperheight]{ad6.jpg}
+              \hspace{0.1cm}
+              \includegraphics[height=0.15\paperheight]{ad2.jpg}
+              \hspace{0.1cm}
+              \includegraphics[height=0.15\paperheight]{ad4.jpg}
+              \hspace{0.1cm}
+              \includegraphics[height=0.15\paperheight]{ad5.jpg}
+              \hspace{0.05cm}
 
         \item Which add should be displayed for a user, based on the previous clicks of previous (similar) users?
     \end{itemize}
@@ -327,8 +327,8 @@
 
               \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
         \item In which channel should a radio device send a packet,n based on the quality of its previous communications?
-        \pause
-        $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
+              \pause
+              $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
     \end{itemize}
 
     \vspace{0.1cm}
@@ -402,7 +402,7 @@
         \item bandits have application \red beyond RL \black(i.e. without ``reward'')
 
         \item and bandits have great applications to Cognitive Radio\\
-        $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
+              $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
     \end{itemize}
 \end{frameO}
 
@@ -410,18 +410,18 @@
 \begin{frameO}[Outline of this talk]
 
     \begin{itemize}
-      \setlength\itemsep{0.6em}
-      % \item Why Bandits?
-      \item Multi-armed Bandit
-      \item Performance measure (regret) and first strategies
-      \item Best possible regret? Lower bounds
-      \item Mixing Exploration and Exploitation
-      \item The Optimism Principle and Upper Confidence Bounds (UCB) Algorithms
-      \item Asymptotically Optimal Algorithms
-      % \item Worst-case Optimality
-      \item A Bayesian Look at the Multi-Armed Bandit Model
-      \item Many extensions of the stationary single-player bandit models
-      \item Summary
+        \setlength\itemsep{0.6em}
+              % \item Why Bandits?
+        \item Multi-armed Bandit
+        \item Performance measure (regret) and first strategies
+        \item Best possible regret? Lower bounds
+        \item Mixing Exploration and Exploitation
+        \item The Optimism Principle and Upper Confidence Bounds (UCB) Algorithms
+        \item Asymptotically Optimal Algorithms
+              % \item Worst-case Optimality
+        \item A Bayesian Look at the Multi-Armed Bandit Model
+        \item Many extensions of the stationary single-player bandit models
+        \item Summary
     \end{itemize}
 
 \end{frameO}
@@ -486,16 +486,16 @@
 
 \begin{frameO}[Discover bandits by playing this online demo!]
 
-  \begin{center}
-    \includegraphics[width=0.75\textwidth]{example_of_a_5_arm_bandit_problem.png}
-  \end{center}
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{example_of_a_5_arm_bandit_problem.png}
+    \end{center}
 
-  % \begin{small}
-  $\hookrightarrow$ Interactive demo on this web-page
+    % \begin{small}
+    $\hookrightarrow$ Interactive demo on this web-page
     \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
     % Ref: [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
     % on \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
-  % \end{small}
+    % \end{small}
 
 \end{frameO}
 
@@ -584,13 +584,13 @@
 
         \begin{tabular}{|c||c|c|c|c|c|c|c|}
             \hline
-            Channel $1$ & \cellcolor{blue!25}$X_{1,1}$ & $X_{1,2}$                    & \dots   & $X_{1,t}$                    & \dots   & $X_{1,T}$                    & $\sim \nu_1$ \\
+            Channel $1$ & \cellcolor{blue!25}$X_{1,1}$ & $X_{1,2}$                    & \dots & $X_{1,t}$                    & \dots & $X_{1,T}$                    & $\sim \nu_1$ \\
             \hline
-            Channel $2$ & $X_{2,1}$                    & \cellcolor{blue!25}$X_{2,2}$ & \dots   & $X_{2,t}$                    & \dots   & \cellcolor{blue!25}$X_{2,T}$ & $\sim \nu_2$ \\
+            Channel $2$ & $X_{2,1}$                    & \cellcolor{blue!25}$X_{2,2}$ & \dots & $X_{2,t}$                    & \dots & \cellcolor{blue!25}$X_{2,T}$ & $\sim \nu_2$ \\
             \hline
-            \dots     & \dots                      & \dots                      & \dots & \dots                      & \dots & \dots & \dots \\
+            \dots       & \dots                        & \dots                        & \dots & \dots                        & \dots & \dots                        & \dots        \\
             \hline
-            Channel $K$ & $X_{K,1}$                    & $X_{K,2}$                    & \dots   & \cellcolor{blue!25}$X_{K,t}$ & \dots   & $X_{K,T}$                    & $\sim \nu_K$ \\
+            Channel $K$ & $X_{K,1}$                    & $X_{K,2}$                    & \dots & \cellcolor{blue!25}$X_{K,t}$ & \dots & $X_{K,T}$                    & $\sim \nu_K$ \\
             \hline
         \end{tabular}
     \end{center}
@@ -681,7 +681,7 @@
         \vspace{0.5cm}
 
         \begin{center}
-          \red $\Rightarrow $ Exploration / Exploitation trade-off !
+            \red $\Rightarrow $ Exploration / Exploitation trade-off !
         \end{center}
 
     }
@@ -705,8 +705,8 @@
 
     \begin{itemize}
         \item \textbf{Idea 1 :}
-        \hfill{} \color{red}$\Rightarrow$ EXPLORATION \color{black}
-      \begin{orangeblock}{}Draw each arm $T/K$ times\end{orangeblock}
+              \hfill{} \color{red}$\Rightarrow$ EXPLORATION \color{black}
+              \begin{orangeblock}{}Draw each arm $T/K$ times\end{orangeblock}
     \end{itemize}
 
     \vspace{-0.3cm}
@@ -717,7 +717,7 @@
 
     \begin{itemize}
         \item \textbf{Idea 2 :} Always trust the empirical best arm
-        \hfill{} \color{red}$\Rightarrow$ EXPLOITATION \color{black}
+              \hfill{} \color{red}$\Rightarrow$ EXPLOITATION \color{black}
     \end{itemize}
     \begin{orangeblock}{}
         $A_{t+1}=\underset{a \in \{1,\dots,K\}}{\text{argmax}} \ \blue \widehat{\mu}_a(t)$
@@ -1239,7 +1239,7 @@
     \begin{itemize}
         \item worst-case model (Bernoulli):
               \[\left\{\begin{array}{ccl}
-                      \nu_a & = & \cB(1/2) \ \ \text{for all} \ \ a\neq a^* \\
+                      \nu_a     & = & \cB(1/2) \ \ \text{for all} \ \ a\neq a^* \\
                       \nu_{a^*} & = & \cB(1/2+\varepsilon)
                   \end{array}\right.\]
 
@@ -1522,8 +1522,8 @@
 
               \gray [Katehakis and Robbins, 95]\black
         \item popularized by \color{gray}[Auer et al. 02] \color{black} for bounded rewards:\\
-        \red UCB1, for $\alpha=2$\black
-        \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
+              \red UCB1, for $\alpha=2$\black
+              \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
 
         \item the analysis was UCB($\alpha$) was further refined to hold for $\alpha > 1/2$ in that case \gray [Bubeck, 11, Cappé et al. 13] \black
     \end{itemize}
@@ -1774,7 +1774,7 @@
     \end{eqnarray*}
     \begin{itemize}
         \item[$\rightarrow$] not exactly matching the $\blue\Omega(\sqrt{KT})$ lower bound\dots
-        but close!
+              but close!
     \end{itemize}
 
 \end{frameO}
@@ -2326,17 +2326,17 @@
     \begin{center}
         \begin{tabular}{c|c}
             Frequentist Regret
-            & Bayesian regret
+             & Bayesian regret
             \\
             (\red regret\black)
-            & (\red Bayes risk\black)
+             & (\red Bayes risk\black)
             \\
             \hline
             \\
             $\cR_{\bm\mu}(\cA,T)\! = \mathbb{E}_{\bm\mu}\!\!\left[\!\sum\limits_{t=1}^{T}\left(\mu_\star - \mu_{A_t}\right)\!\right]$
-            & $\texttt{R}^\pi(\cA,T)\! =\mathbb{E}_{\bm{\mu} \alert{\sim \pi}}\!\!\left[\!\sum\limits_{t=1}^{T}\left(\mu_\star - \mu_{A_t}\right)\!\right]$
+             & $\texttt{R}^\pi(\cA,T)\! =\mathbb{E}_{\bm{\mu} \alert{\sim \pi}}\!\!\left[\!\sum\limits_{t=1}^{T}\left(\mu_\star - \mu_{A_t}\right)\!\right]$
             \\
-            & \hspace{25pt} $ = \int \cR_{\bm\mu}(\cA,T) d\pi(\bm{\mu})$
+             & \hspace{25pt} $ = \int \cR_{\bm\mu}(\cA,T) d\pi(\bm{\mu})$
         \end{tabular}
     \end{center}
 
@@ -3394,54 +3394,54 @@
 
 \begin{frameO}[Many other bandits models and problems (1/2)]
 
-  Most famous extensions:
+    Most famous extensions:
 
-  \begin{itemize}[<+->]
-    \setlength\itemsep{1em}
-    \item (centralized) multiple-actions
-      \begin{itemize}
-        \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
-        \item combinatorial : choose a subset of arms $S \sub \{1,\dots,K\}$ (large space)
-      \end{itemize}
-    \item non stationary
-      \begin{itemize}
-        \item \textcolor{blue}{piece-wise stationary / abruptly changing}
-        \item slowly-varying
-        \item adversarial\dots
-      \end{itemize}
-    \item (decentralized) collaborative/communicating bandits over a graph
-    \item \textcolor{blue}{(decentralized) non communicating multi-player bandits}
-  \end{itemize}
+    \begin{itemize}[<+->]
+        \setlength\itemsep{1em}
+        \item (centralized) multiple-actions
+              \begin{itemize}
+                  \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
+                  \item combinatorial : choose a subset of arms $S \sub \{1,\dots,K\}$ (large space)
+              \end{itemize}
+        \item non stationary
+              \begin{itemize}
+                  \item \textcolor{blue}{piece-wise stationary / abruptly changing}
+                  \item slowly-varying
+                  \item adversarial\dots
+              \end{itemize}
+        \item (decentralized) collaborative/communicating bandits over a graph
+        \item \textcolor{blue}{(decentralized) non communicating multi-player bandits}
+    \end{itemize}
 
-  \hspace*{1cm}
-  \hfill{}
-  \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
+    \hspace*{1cm}
+    \hfill{}
+    \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
 
 \end{frameO}
 
 \begin{frameO}[Many other bandits models and problems (2/2)]
 
-  And many more extensions\dots
+    And many more extensions\dots
 
-  \begin{itemize}%[<+->]
-    \setlength\itemsep{0.8em}
-    \item non stochastic, Markov models rested/restless
-    \item best arm identification (vs reward maximization)
-    \begin{itemize}
-      \item fixed budget setting
-      \item fixed confidence setting
-      \item PAC (probably approximately correct) algorithms
+    \begin{itemize}%[<+->]
+        \setlength\itemsep{0.8em}
+        \item non stochastic, Markov models rested/restless
+        \item best arm identification (vs reward maximization)
+              \begin{itemize}
+                  \item fixed budget setting
+                  \item fixed confidence setting
+                  \item PAC (probably approximately correct) algorithms
+              \end{itemize}
+        \item bandits with (differential) privacy constraints
+        \item for some applications (content recommendation)
+              \begin{itemize}
+                  \item contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)
+                  \item cascading bandits
+                  \item delayed feedback bandits
+              \end{itemize}
+        \item structured bandits (low-rank, many-armed, Lipschitz etc)
+        \item $\mathcal{X}$-armed, continuous-armed bandits
     \end{itemize}
-    \item bandits with (differential) privacy constraints
-    \item for some applications (content recommendation)
-    \begin{itemize}
-      \item contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)
-      \item cascading bandits
-      \item delayed feedback bandits
-    \end{itemize}
-    \item structured bandits (low-rank, many-armed, Lipschitz etc)
-    \item $\mathcal{X}$-armed, continuous-armed bandits
-  \end{itemize}
 
 \end{frameO}
 
@@ -3692,18 +3692,18 @@
 
 
 \begin{frame}[c]
-  \begin{changemargin}{-0.5cm}{-0.5cm}
-      \begin{center}
-          \vspace{-0.3in}
-          \textbf{\huge Other Bandit Models}
-          \vspace{1.5cm}
+    \begin{changemargin}{-0.5cm}{-0.5cm}
+        \begin{center}
+            \vspace{-0.3in}
+            \textbf{\huge Other Bandit Models}
+            \vspace{1.5cm}
 
-          \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
-          % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-          \textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }
-          \textcolor{darkgray}{	\textbf{\Large Multi-player bandits}	\\[0.5cm]			}
-      \end{center}
-  \end{changemargin}
+            \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
+            % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
+            \textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }
+            \textcolor{darkgray}{	\textbf{\Large Multi-player bandits}	\\[0.5cm]			}
+        \end{center}
+    \end{changemargin}
 \end{frame}
 
 
@@ -3711,95 +3711,95 @@
 
 \begin{frameO}[Piece-wise stationary bandits]
 
-  \begin{orangeblock}{Stationary MAB problems}
-    Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:
-    $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
-  \end{orangeblock}
+    \begin{orangeblock}{Stationary MAB problems}
+        Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:
+        $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
+    \end{orangeblock}
 
-  \pause
-  \begin{alertblock}{Non stationary MAB problems?}
-    Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:
-    $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
-  \end{alertblock}
+    \pause
+    \begin{alertblock}{Non stationary MAB problems?}
+        Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:
+        $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
+    \end{alertblock}
 
-  $\implies$ harder problem!
-  And very hard if $\mu_k(t)$ can change at any step!
+    $\implies$ harder problem!
+    And very hard if $\mu_k(t)$ can change at any step!
 
-  \pause
-  \begin{orangeblock}{\textbf{Piece-wise stationary} problems!}
-    $\hookrightarrow$ focus on the easier case when there are at most $Y_T = o(\sqrt{T})$ intervals on which the means are all stationary.
-  \end{orangeblock}
+    \pause
+    \begin{orangeblock}{\textbf{Piece-wise stationary} problems!}
+        $\hookrightarrow$ focus on the easier case when there are at most $Y_T = o(\sqrt{T})$ intervals on which the means are all stationary.
+    \end{orangeblock}
 \end{frameO}
 
 \begin{frameO}[Example of a piece-wise stationary MAB problem]
-  We plots the means \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
-  of $K=3$ arms.
-  There are $Y_T=4$ break-points and $5$ sequences
-  between $t=1$ and $t=T=5000$:
-  \begin{center}
-    \includegraphics[width=0.95\textwidth]{Problem_1.pdf}
-  \end{center}
+    We plots the means \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
+    of $K=3$ arms.
+    There are $Y_T=4$ break-points and $5$ sequences
+    between $t=1$ and $t=T=5000$:
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Problem_1.pdf}
+    \end{center}
 \end{frameO}
 
 \begin{frameO}[Regret for piece-wise stationary bandits]
 
-  The ``oracle'' algorithm plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$
-  (which changes between the $Y_T \geq 1$ stationary sequences)
-  %
-  \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+    The ``oracle'' algorithm plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$
+    (which changes between the $Y_T \geq 1$ stationary sequences)
+    %
+    \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
-  \pause
-  \vspace*{10pt}
+    \pause
+    \vspace*{10pt}
 
-  \begin{orangeblock}{Typical regimes for piece-wise stationary bandits}
-    \begin{itemize}
-    \item
-    The lower-bound is
-    $\cR(\cA,T) \geq \Omega(\sqrt{K T Y_T})$
+    \begin{orangeblock}{Typical regimes for piece-wise stationary bandits}
+        \begin{itemize}
+            \item
+                  The lower-bound is
+                  $\cR(\cA,T) \geq \Omega(\sqrt{K T Y_T})$
 
-    \item
-    Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
-      \begin{itemize}\tightlist
-        \item
-        $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T Y_T \log(T)})$
-        if $T$ and $Y_T$ are known
-        \item
-        $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{Y_T} \sqrt{T \log(T)})$
-        if $T$ and \textcolor{orange}{$Y_T$ are unknown}
-      \end{itemize}
-    \item
-      $\hookrightarrow$ our algorithm \textcolor{blue}{BGLR + klUCB} is state-of-the-art!\\
-      \hfill{} \gray [Besson and Kaufmann, 19] \texttt{arXiv:1902.01575}
-    \end{itemize}
-  \end{orangeblock}
+            \item
+                  Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
+                  \begin{itemize}\tightlist
+                      \item
+                            $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T Y_T \log(T)})$
+                            if $T$ and $Y_T$ are known
+                      \item
+                            $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{Y_T} \sqrt{T \log(T)})$
+                            if $T$ and \textcolor{orange}{$Y_T$ are unknown}
+                  \end{itemize}
+            \item
+                  $\hookrightarrow$ our algorithm \textcolor{blue}{BGLR + klUCB} is state-of-the-art!\\
+                  \hfill{} \gray [Besson and Kaufmann, 19] \texttt{arXiv:1902.01575}
+        \end{itemize}
+    \end{orangeblock}
 
 \end{frameO}
 
 \begin{frameO}[Results on a piece-wise stationary MAB problem]
 
-  \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{break-point detector}
+    \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{break-point detector}
 
-  \begin{center}
-    \includegraphics[width=0.90\textwidth]{regret_problem1.png}
-  \end{center}
+    \begin{center}
+        \includegraphics[width=0.85\textwidth]{regret_problem1.png}
+    \end{center}
 
-  \textcolor{blue}{BGLR + klUCB} achieves the best performance (among non-oracle algorithms) !
+    \textcolor{blue}{BGLR + klUCB} achieves the best performance (among non-oracle algorithms) !
 \end{frameO}
 
 
 \begin{frame}[c]
-  \begin{changemargin}{-0.5cm}{-0.5cm}
-      \begin{center}
-          \vspace{-0.3in}
-          \textbf{\huge Other Bandit Models}
-          \vspace{1.5cm}
+    \begin{changemargin}{-0.5cm}{-0.5cm}
+        \begin{center}
+            \vspace{-0.3in}
+            \textbf{\huge Other Bandit Models}
+            \vspace{1.5cm}
 
-          \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
-          % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-          \textcolor{darkgray}{\textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }}
-          \textbf{\Large Multi-player bandits}	\\[0.5cm]
-      \end{center}
-  \end{changemargin}
+            \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
+            % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
+            \textcolor{darkgray}{\textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }}
+            \textbf{\Large Multi-player bandits}	\\[0.5cm]
+        \end{center}
+    \end{changemargin}
 \end{frame}
 
 
@@ -3807,84 +3807,88 @@
 
 \begin{frameO}[Multi-players bandits: setup]
 
-  \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($2 \leq M \leq K$)
-  % with \textbf{no communication} between them
+    \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($2 \leq M \leq K$)
+    % with \textbf{no communication} between them
 
-  \vspace{0.3cm}
+    \vspace{0.3cm}
 
-  At round $t$:
-  \begin{itemize}
-    \item player $m$ selects $A_{m,t}$ ; then \textit{observes} $X_{A_{m,t},t}$
-    \item and receives the reward
-  \end{itemize}
+    At round $t$:
+    \begin{itemize}
+        \item player $m$ selects $A_{m,t}$ ; then \textit{observes} $X_{A_{m,t},t}$
+        \item and receives the reward
+    \end{itemize}
 
-  \vspace{-0.2cm}
+    \vspace{-0.2cm}
 
-  \[\red X_{m,t} = \left\{ \begin{array}{cl}
-      X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
-      0             & \text{else (= collision)}
-    \end{array}\right.\]
+    \[\red X_{m,t} = \left\{ \begin{array}{cl}
+            X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
+            0             & \text{else (= collision)}
+        \end{array}\right.\]
 
-  \vspace{-0.3cm}
+    \vspace{-0.3cm}
 
-  \textbf{Goal:}
+    \textbf{Goal:}
 
-  \begin{itemize}
-    \item maximize centralized rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T X_{m,t}$
-    \item \dots \orange without communication \black between players
-    \item trade off : exploration / exploitation / \alert{and collisions !}
-  \end{itemize}
+    \begin{itemize}
+        \item maximize centralized rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T X_{m,t}$
+        \item \dots \orange without communication \black between players
+        \item trade off : exploration / exploitation / \alert{and collisions !}
+    \end{itemize}
 
-  \underline{\orange Cognitive radio}: (OSA) sensing, attempt of transmission if no PU, possible collisions with other SUs
-  \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
+    \underline{\orange Cognitive radio}: (OSA) sensing, attempt of transmission if no PU, possible collisions with other SUs
+    \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
 
 \end{frameO}
 
 \begin{frameO}[Multi-players bandits: algorithms]
 
-  \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
+    \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
 
-  \vspace{0.2cm}
+    \vspace{0.2cm}
 
-  \only<1>{
-  \begin{orangeblock}{\textbf{Example:} UCB1 + $\rho^{\text{rand}}$. At round $t$ each player}
-    \begin{itemize}
-      \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
-      \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
-      \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
-      \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]
-      \item any index policy may be used in place of UCB1
-    \end{itemize}
-  \end{orangeblock}
-  }
+    \only<1>{
+        \begin{orangeblock}{\textbf{Example:} UCB1 + $\rho^{\text{rand}}$. At round $t$ each player}
+            \begin{itemize}
+                \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
+                \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
+                \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
+                \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]
+                \item any index policy may be used in place of UCB1
+            \end{itemize}
+        \end{orangeblock}
+    }
 
-  \only<2>{
-  \begin{orangeblock}{\textbf{Example:} klUCB + MC-Top-M rule}
-    \begin{itemize}
-      \item more complicated behavior (musical chair game)
-      \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
-      \item order optimal, not asymptotically optimal
-      \item lower bound is probably $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
-      \item \textbf{Recent references}: \color{gray} [Besson and Kaufmann, 18] [Boursier et al, 19]
-    \end{itemize}
-  \end{orangeblock}
-  }
+    \only<2->{
+        \begin{orangeblock}{\textbf{Example:} our algorithm \textcolor{blue}{klUCB index + MC-Top-M rule}}
+            \begin{itemize}
+                \only<2->{
+                \item more complicated behavior (musical chair game)
+                \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
+                \item lower bound is $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
+                \item order optimal, not asymptotically optimal
+                }
+                \item \textbf{Recent references}: \color{gray} [Besson and Kaufmann, 18] [Boursier et al, 19]
+            \end{itemize}
+        \end{orangeblock}
+    }
 
-  \textbf{Remarks}:
-    \begin{itemize}
-      \item $M$ has to be known $\rightarrow$ but it is possible to estimate it on the run
-      \item does not handle an evolving number of devices (entering/leaving the network)
-      \item is it a \textit{fair} orthogonalization rule?
-      \item could players use the collision indicators to communicate? (yes!)
-    \end{itemize}
+    \only<3>{
+        \textbf{Remarks}:
+        \begin{itemize}
+            \item $M$ has to be known $\rightarrow$ but it is possible to estimate it on the run
+            \item does not handle an evolving number of devices (entering/leaving the network)
+            \item is it a \textit{fair} orthogonalization rule?
+            \item could players use the collision indicators to communicate? (yes!)
+        \end{itemize}
+    }
 
 \end{frameO}
 
 \begin{frameO}[Results on a multi-player MAB problem]
 
-  \centering
-  \includegraphics[height=0.75\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-  \caption{\footnotesize{For $M=6$ objects, MC-TopM and Rand-TopM largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{blue}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
+    \centering
+    \includegraphics[height=0.75\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
+    \caption{\footnotesize{For $M=6$ objects, MC-TopM and Rand-TopM largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{blue}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
 \end{frameO}
 
@@ -3998,80 +4002,80 @@
     Use our Python library for simulations of MAB problems \textbf{SMPyBandits} \\
     $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}  \& \href{https://GitHub.com/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits}}} \\
     \begin{itemize}
-      \item Install with \texttt{$\$$ pip install SMPyBandits}
-      \item Free and open-source (MIT license)
-      \item Easy to set up your own bandit experiments, add new algorithms etc.
+        \item Install with \texttt{$\$$ pip install SMPyBandits}
+        \item Free and open-source (MIT license)
+        \item Easy to set up your own bandit experiments, add new algorithms etc.
     \end{itemize}
 
 \end{frameO}
 
 \begin{frameO}[$\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}]
 
-  \begin{center}
-    \includegraphics[height=0.85\textheight]{overview_documentation_1}
-  \end{center}
+    \begin{center}
+        \includegraphics[height=0.85\textheight]{overview_documentation_1}
+    \end{center}
 
 \end{frameO}
 
 
 \begin{frameO}[Conclusion]
 
-\begin{center}
-  \begin{huge}
-    \textbf{Thanks for your attention !}
-  \end{huge}
-\end{center}
+    \begin{center}
+        \begin{huge}
+            \textbf{Thanks for your attention !}
+        \end{huge}
+    \end{center}
 
-\vspace*{10pt}
+    \vspace*{10pt}
 
-\begin{center}
-  \begin{huge}
-    Questions \& Discussion ?
-  \end{huge}
-\end{center}
+    \begin{center}
+        \begin{huge}
+            Questions \& Discussion ?
+        \end{huge}
+    \end{center}
 
-\vspace*{10pt}
-\pause
+    \vspace*{10pt}
+    \pause
 
-\begin{center}
-  \begin{Large}
-    $\hookrightarrow$ \textcolor{blue}{Break and then next talk by Christophe Moy}\\
-    \emph{``Decentralized Spectrum Learning for IoT''}
-  \end{Large}
-\end{center}
+    \begin{center}
+        \begin{Large}
+            $\hookrightarrow$ \textcolor{blue}{Break and then next talk by Christophe Moy}\\
+            \emph{``Decentralized Spectrum Learning for IoT''}
+        \end{Large}
+    \end{center}
 
 \end{frameO}
 
 \begin{frameO}[Climatic crisis ?]
 
-  \begin{center}
-    \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+    \begin{center}
+        \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
 
-      \begin{tiny}
-        \textcopyright{} Jeph Jacques, 2015,
-        \href{https://QuestionableContent.net/view.php?comic=3074}{\textcolor{blue}{\texttt{QuestionableContent.net/view.php?comic=3074}}}
-      \end{tiny}
-  \end{center}
+        \begin{tiny}
+            \textcopyright{} Jeph Jacques, 2015,
+            \href{https://QuestionableContent.net/view.php?comic=3074}{\textcolor{blue}{\texttt{QuestionableContent.net/view.php?comic=3074}}}
+        \end{tiny}
+    \end{center}
 
 \end{frameO}
 
 
 \begin{frameO}[Let's talk about actions against the climatic crisis !]
 
-  \begin{center}
-    \includegraphics[height=0.28\textheight]{../common/TalkAboutGlobalWarmingNow.png}
-  \end{center}
+    \begin{center}
+        \includegraphics[height=0.28\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+    \end{center}
 
-  \begin{alertblock}{We are \emph{scientists}\ldots}
-    Goals: \alert{inform ourselves, think, find, communicate}!
-    \begin{itemize}
-      \item \alert{Inform ourselves} of the \alert{causes} and \alert{consequences} of climatic crisis,
-      \item \alert{Think} of the all the problems, at political, local and individual scales,
-      \item \alert{Find} simple solutions !\\
-        $\implies$ Aim at sobriety: transports, tourism, clothing, food, computations, fighting smoking, etc.
-      \item \alert{Communicate} our awareness, and our actions !
-    \end{itemize}
-  \end{alertblock}
+    \begin{alertblock}{We are \emph{scientists}\ldots}
+        Goals: \alert{inform ourselves, think, find, communicate}!
+        \begin{itemize}
+            \item \alert{Inform ourselves} of the \alert{causes} and \alert{consequences} of climatic crisis,
+            \item \alert{Think} of the all the problems, at political, local and individual scales,
+            \item \alert{Find} simple solutions !\\
+                  $\implies$ Aim at sobriety: transports, tourism, clothing, food, computations, fighting smoking, etc.
+            \item \alert{Communicate} our awareness, and our actions !
+        \end{itemize}
+    \end{alertblock}
 
 \end{frameO}
 
@@ -4079,30 +4083,30 @@
 
 \begin{frameO}[Main references]
 
-  \begin{itemize}
-      \item My PhD thesis (Lilian Besson)\\
-      \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{``Multi-players Bandit Algorithms for Internet of Things Networks''}}\\
-      $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/}}}\\
-      $\hookrightarrow$ \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{\texttt{GitHub.com/Naereen/phd-thesis/}}}
+    \begin{itemize}
+        \item My PhD thesis (Lilian Besson)\\
+              \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{``Multi-players Bandit Algorithms for Internet of Things Networks''}}\\
+              $\hookrightarrow$ \href{https://perso.crans.org/besson/phd/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/}}}\\
+              $\hookrightarrow$ \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{\texttt{GitHub.com/Naereen/phd-thesis/}}}
 
-    \vspace*{10pt}
+              \vspace*{10pt}
 
-      \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
-      $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
+        \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
+              $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
 
-    \vspace*{10pt}
+              \vspace*{10pt}
 
-      \item \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{``The Bandit Book''}},
-      by Tor Lattimore and Csaba Szepesvari\\
-      $\hookrightarrow$ \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
+        \item \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{``The Bandit Book''}},
+              by Tor Lattimore and Csaba Szepesvari\\
+              $\hookrightarrow$ \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
 
-    \vspace*{10pt}
+              \vspace*{10pt}
 
-      \item \href{https://arxiv.org/abs/1904.07272}{\textcolor{blue}{``Introduction to Multi-Armed Bandits''}},
-      by Alex Slivkins\\
-      $\hookrightarrow$ \href{https://arxiv.org/abs/1904.07272}{{\textcolor{blue}{\texttt{arXiv.org/abs/1904.07272}}}}
+        \item \href{https://arxiv.org/abs/1904.07272}{\textcolor{blue}{``Introduction to Multi-Armed Bandits''}},
+              by Alex Slivkins\\
+              $\hookrightarrow$ \href{https://arxiv.org/abs/1904.07272}{{\textcolor{blue}{\texttt{arXiv.org/abs/1904.07272}}}}
 
-  \end{itemize}
+    \end{itemize}
 
 \end{frameO}
 
