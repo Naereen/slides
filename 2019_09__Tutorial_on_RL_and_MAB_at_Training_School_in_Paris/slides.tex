@@ -134,7 +134,7 @@
 % frame for (main) titles
 \NewEnviron{frameT}[1][]{
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{premiere-sc-en}}
-\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson \& Émilie Kaufmann - Intro to MAB \hfill 23 September, 2019}\hspace{2em}\null \vspace*{3pt}}
+\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson \& Émilie Kaufmann - \emph{Introduction to Multi-Armed Bandits} \hfill 23 September, 2019}\hspace{2em}\null \vspace*{3pt}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -150,7 +150,7 @@
 
 \NewEnviron{frameTT}[1][]{
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{premiere-sc-en}}
-\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson \& Émilie Kaufmann - Intro to MAB  \hfill 23 September, 2019}\hspace{2em}\null \vspace*{3pt}}
+\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson \& Émilie Kaufmann - \emph{Introduction to Multi-Armed Bandits}  \hfill 23 September, 2019}\hspace{2em}\null \vspace*{3pt}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -161,7 +161,7 @@
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{fondrouge+tab}}
 
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
-	{{Lilian Besson \& Émilie Kaufmann - Intro to MAB}}\hfill
+	{{Lilian Besson \& Émilie Kaufmann - \emph{Introduction to Multi-Armed Bandits}}}\hfill
 	\raisebox{2.5ex}
 	{{23 September, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 \begin{frame}{#1}
@@ -213,9 +213,7 @@
         \\
         {\large
         Training School on Machine Learning for Communications\\
-        Paris, 23-25 September 2019\\
-        \vspace*{10pt}
-        \hspace*{10pt}\emph{Thanks to Émilie Kaufmann for most of the slides material!}
+        Paris, 23-25 September 2019
         }
         }}
     \end{textblock*}
@@ -228,9 +226,38 @@
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{basrouge}}
 
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
-    {\textcolor{white}{Lilian Besson \& Émilie Kaufmann - Intro to MAB}}\hfill
+    {\textcolor{white}{Lilian Besson \& Émilie Kaufmann - \emph{Introduction to Multi-Armed Bandits}}}\hfill
     \raisebox{2.5ex}
     {\textcolor{white}{23 September, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+
+
+\begin{frameO}[Who am I ?]
+
+    Hi, I'm Lilian Besson
+
+    \begin{itemize}
+        \item finishing my PhD in telecommunication and machine learning
+        \item under supervision of Prof. Christophe Moy at IETR \& CentraleSupélec in Rennes (France)
+        \item and Dr. Émilie Kaufmann in Inria in Lille\\
+        \hfill{} \emph{Thanks to Émilie Kaufmann for most of the slides material!}
+    \end{itemize}
+
+    \vspace*{5pt}
+
+    \begin{itemize}
+        \item \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ Inria.fr}}}
+
+        \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{darkgreen}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{darkgreen}{\texttt{GitHub.com/Naereen}}}}
+    \end{itemize}
+
+  % XXX manual inclusion of logos
+  \begin{center}
+    \includegraphics[height=0.15\textheight]{../common/LogoIETR.png}
+    \includegraphics[height=0.17\textheight]{../common/LogoCS.png}
+    \includegraphics[height=0.15\textheight]{../common/LogoInria.jpg}
+  \end{center}
+\end{frameO}
+
 
 
 \begin{frameO}[What is a \emph{bandit}?]
@@ -435,7 +462,7 @@
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{basrouge}}
 
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
-    {\textcolor{white}{Lilian Besson \& Émilie Kaufmann - Intro to MAB}}\hfill
+    {\textcolor{white}{Lilian Besson \& Émilie Kaufmann - \emph{Introduction to Multi-Armed Bandits}}}\hfill
     \raisebox{2.5ex}
     {\textcolor{white}{23 September, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
@@ -446,7 +473,7 @@
     \alt<2>{\vspace{0.4cm}}{}
 
     \begin{center}
-        $K$ \textbf{arms} $\leftrightarrow$ $K$ \alt<2>{\blue probability distributions \black : $\nu_a$ has mean $\blue\mu_a$}{rewards streams $(X_{a,t})_{t\in\N}$}
+        $K$ \textbf{arms} $\Leftrightarrow$ $K$ \alt<2>{\blue probability distributions \black : $\nu_a$ has mean $\blue\mu_a$}{rewards streams $(X_{a,t})_{t\in\N}$}
     \end{center}
 
     \begin{center}
@@ -479,7 +506,7 @@
     \red Sequential \black sampling strategy (\textbf{bandit algorithm}):
     $\red A_{t+1} = F_t (A_1,R_1,\dots,A_{t},R_{t})\black$.
 
-    \textbf{Goal:} Maximize sum of rewards \alt<2>{$\blue \bE\black\left[\sum_{t=1}^T R_t\right]$}{$\sum_{t=1}^T R_t$}.
+    \textbf{Goal:} Maximize sum of rewards \alt<2>{$\blue \bE\black\left[\sum\limits_{t=1}^T R_t\right]$}{$\sum\limits_{t=1}^T R_t$}.
 
 
 \end{frameO}
@@ -634,14 +661,14 @@
     \textbf{Bandit instance:} $\bm\nu = (\nu_1,\nu_2, \dots,\nu_K)$, mean of arm $a$: $\mu_a = \bE_{X \sim \nu_a}[X]$.
 
     \[\red\mu_\star = \max_{a \in \{1,\dots,K\}} \mu_a \ \ \text{and} \ \ \ a_\star = \argmax_{a \in \{1,\dots,K\}} \mu_a.\]
-    \[\begin{array}{ccl}\text{Maximizing rewards} & \leftrightarrow & \text{selecting } a_\star \text{ as much as possible }         \\
-                                           & \leftrightarrow & \text{minimizing the \blue regret } \gray \text{[Robbins, 52]}
+    \[\begin{array}{ccl}\text{Maximizing rewards} & \Leftrightarrow & \text{selecting } a_\star \text{ as much as possible }         \\
+                                           & \Leftrightarrow & \text{minimizing the \blue regret } \gray \text{[Robbins, 52]}
         \end{array}\]
 
     \vspace{-0.4cm}
 
     \begin{eqnarray*}
-        \blue \cR_\nu(\cA,T) \eqdef \black\underbrace{\blue T \mu_\star}_{\substack{\text{sum of rewards of}\\ \text{an oracle strategy} \\ \text{always selecting } a_\star}} \blue- \black\underbrace{\blue\bE\left[\sum_{t=1}^{T}R_{t}\right]}_{\substack{\text{sum of rewards of}\\\text{the strategy} \cA}}
+        \blue \cR_{\bm\nu}(\cA,T) \eqdef \black\underbrace{\blue T \mu_\star}_{\substack{\text{sum of rewards of}\\ \text{an oracle strategy} \\ \text{always selecting } a_\star}} \blue- \black\underbrace{\blue\bE\left[\sum_{t=1}^{T}R_{t}\right]}_{\substack{\text{sum of rewards of}\\\text{the strategy} \cA}}
     \end{eqnarray*}
 
     \vspace{-0.4cm}
@@ -649,8 +676,8 @@
 
     \begin{orangeblock}{What regret rate can we achieve?}
         \begin{itemize}
-            \item[$\rightarrow$] consistency: \black $\cR_\nu(\cA,T) / T \rightarrow_{T\to\infty} 0$
-            \item[$\rightarrow$] can we be more precise?
+            \item[$\Longrightarrow$] consistency: \black $\cR_{\bm\nu}(\cA,T) / T \Longrightarrow 0$ (when $T\to\infty$)
+            \item[$\Longrightarrow$] can we be more precise?
         \end{itemize}
     \end{orangeblock}
 \end{frameO}
@@ -664,7 +691,7 @@
     $\Delta_a \eqdef \mu_\star -\mu_a$ : sub-optimality gap of arm $a$
 
     \begin{orangeblock}{Regret decomposition}
-        \[\alert<1>{ \cR_\nu(\cA,T) = \sum_{a=1}^K \Delta_a \bE\left[N_a(T)\right] }.\]
+        \[\alert<1>{ \cR_{\bm\nu}(\cA,T) = \sum_{a=1}^K \Delta_a \bE\left[N_a(T)\right] }.\]
     \end{orangeblock}
     \pause
 
@@ -675,13 +702,13 @@
         A strategy with small regret should:
         \begin{itemize}
             \item select not too often arms for which $\Delta_a > 0$ (sub-optimal arms)
-            \item \dots which requires to try all arms to estimate the values of the $\Delta_a$'s
+            \item \dots which requires to try all arms to estimate the values of the $\Delta_a$
         \end{itemize}
 
         \vspace{0.5cm}
 
         \begin{center}
-            \red $\Rightarrow $ Exploration / Exploitation trade-off !
+            \red $\Longrightarrow$ Exploration / Exploitation trade-off !
         \end{center}
 
     }
@@ -691,7 +718,7 @@
         \vspace{-1cm}
 
         \begin{eqnarray*}
-            \cR_\nu(\cA,T) & = & \mu_\star T - \bE \! \left[\sum_{t=1}^T X_{A_t,t}\right] = \mu_\star T - \bE \! \left[\sum_{t=1}^T \mu_{A_t} \right]\\
+            \cR_{\bm\nu}(\cA,T) & = & \mu_\star T - \bE \! \left[\sum_{t=1}^T X_{A_t,t}\right] = \mu_\star T - \bE \! \left[\sum_{t=1}^T \mu_{A_t} \right]\\
             & = & \bE\left[\sum_{t=1}^T (\mu_\star - \mu_{A_t})\right] \\
             &= & \sum_{a =1}^K \underbrace{(\mu_\star- \mu_a)}_{\Delta_a} \, \bE \biggl[ \underbrace{\sum_{t=1}^T\ind(A_t=a)}_{N_a(T)} \biggr]\,.
         \end{eqnarray*}}
@@ -705,19 +732,19 @@
 
     \begin{itemize}
         \item \textbf{Idea 1 :}
-              \hfill{} \color{red}$\Rightarrow$ EXPLORATION \color{black}
+              \hfill{} \color{red}$\Longrightarrow$ EXPLORATION \color{black}
               \begin{orangeblock}{}Draw each arm $T/K$ times\end{orangeblock}
     \end{itemize}
 
     \vspace{-0.3cm}
 
-    \[\hookrightarrow \cR_\nu(\cA,T) = \left(\frac{1}{K}\sum_{a : \mu_a > \mu_\star} \Delta_a\right) T = \alert{\Omega(T)} \]
+    \[\hookrightarrow \cR_{\bm\nu}(\cA,T) = \left(\frac{1}{K}\sum_{a : \mu_a > \mu_\star} \Delta_a\right) T = \alert{\Omega(T)} \]
 
     \pause
 
     \begin{itemize}
         \item \textbf{Idea 2 :} Always trust the empirical best arm
-              \hfill{} \color{red}$\Rightarrow$ EXPLOITATION \color{black}
+              \hfill{} \color{red}$\Longrightarrow$ EXPLOITATION \color{black}
     \end{itemize}
     \begin{orangeblock}{}
         $A_{t+1}=\underset{a \in \{1,\dots,K\}}{\text{argmax}} \ \blue \widehat{\mu}_a(t)$
@@ -728,7 +755,7 @@
 
     \vspace{-0.3cm}
 
-    \[\hspace{1.5cm} \hookrightarrow \cR_\nu(\cA,T) \geq  (1-\mu_1)\times \mu_2 \times (\mu_1 - \mu_2) T  = \alert{\Omega(T)} \]
+    \[\hspace{1.5cm} \hookrightarrow \cR_{\bm\nu}(\cA,T) \geq  (1-\mu_1)\times \mu_2 \times (\mu_1 - \mu_2) T  = \alert{\Omega(T)} \]
     \begin{center}\vspace{-0.2cm}
         \hspace{1.5cm}(with $K=2$ Bernoulli arms of means $\mu_1 \neq \mu_2$)
     \end{center}
@@ -752,7 +779,7 @@
 
                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
         \end{itemize}
-        \color{red}$\Rightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
     \end{orangeblock}
     \pause
 
@@ -763,7 +790,7 @@
 
     \vspace{-0.5cm}
 
-    \begin{eqnarray*}\mathcal{R}_\nu(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
+    \begin{eqnarray*}\mathcal{R}_{\bm\nu}(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
         & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
         & \leq &\Delta m + (\Delta T) \times \alt<3>{\red \bP\left(\widehat{\mu}_{2,m} \geq \widehat{\mu}_{1,m}\right)}{\bP\left(\widehat{\mu}_{2,m} \geq \widehat{\mu}_{1,m}\right)}
     \end{eqnarray*}
@@ -773,7 +800,7 @@
     $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
     $a$
 
-    \alt<3>{\hfill{} \red $\rightarrow$ requires a concentration inequality}{}
+    \alt<3>{\hfill{} \red $\Longrightarrow$ requires a concentration inequality}{}
 \end{frameO}
 
 
@@ -791,7 +818,7 @@
 
                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
         \end{itemize}
-        \color{red}$\Rightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
     \end{orangeblock}
     \vspace{0.2cm}
 
@@ -802,7 +829,7 @@
 
     \vspace{-0.7cm}
 
-    \begin{eqnarray*}\mathcal{R}_\nu(T) & = & \Delta \bE[N_2(T)] \\
+    \begin{eqnarray*}\mathcal{R}_{\bm\nu}(T) & = & \Delta \bE[N_2(T)] \\
         & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
         & \leq &\Delta {m} + (\Delta T) \times \exp(- {m\Delta^2}/{2})
     \end{eqnarray*}
@@ -812,7 +839,7 @@
     $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
     $a$
 
-    \hfill{} $\rightarrow$ \red Hoeffding's inequality
+    \hfill{} $\Longrightarrow$ \red Hoeffding's inequality
 \end{frameO}
 
 
@@ -831,7 +858,7 @@
 
                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
         \end{itemize}
-        \color{red}$\Rightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
     \end{orangeblock}
     \vspace{0.2cm}
 
@@ -842,7 +869,7 @@
 
     \vspace{-0.7cm}
 
-    \begin{eqnarray*}\mathcal{R}_\nu(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
+    \begin{eqnarray*}\mathcal{R}_{\bm\nu}(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
         & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
         & \leq &\Delta \alt<2>{\blue m\black}{m} + (\Delta T) \times \exp(- {\alt<2>{\blue m \black}{m}\Delta^2}/{4\sigma^2})
     \end{eqnarray*}
@@ -852,7 +879,7 @@
     $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
     $a$
 
-    \hfill{} $\rightarrow$ \red Gaussian tail inequality
+    \hfill{} $\Longrightarrow$ \red Gaussian tail inequality
 \end{frameO}
 
 
@@ -870,7 +897,7 @@
 
                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
         \end{itemize}
-        \color{red}$\Rightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
     \end{orangeblock}
     \vspace{0.2cm}
 
@@ -884,7 +911,7 @@
 
     \vspace{-0.3cm}
 
-    \[\cR_\nu(\texttt{ETC},T) \leq \frac{4\sigma^2}{\Delta}\left[\ln\left(\frac{T\Delta^2}{2}\right) + 1\right] = \mathcal{O}(\frac{1}{\Delta} \log(T)).\]
+    \[\cR_{\bm\nu}(\texttt{ETC},T) \leq \frac{4\sigma^2}{\Delta}\left[\ln\left(\frac{T\Delta^2}{2}\right) + 1\right] = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
 
     \vspace{-0.4cm}
 
@@ -932,12 +959,12 @@
     \vspace{-0.2cm}
 
     \[
-        \cR_\nu(\texttt{S-ETC},T)  \leq  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)\black \ + C \sqrt{\ln(T)} = \mathcal{O}(\frac{1}{\Delta} \log(T)).\]
+        \cR_{\bm\nu}(\texttt{S-ETC},T)  \leq  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)\black \ + C \sqrt{\ln(T)} = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
 
     \vspace{-0.3cm}
 
     \begin{itemize}
-        \item[$\rightarrow$] same regret rate, without knowing $\Delta$ \gray [Garivier et al. 2016]
+        \item[$\Longrightarrow$] same regret rate, without knowing $\Delta$ \gray [Garivier et al. 2016]
     \end{itemize}
 
 \end{frameO}
@@ -972,17 +999,17 @@
 
     For two-armed Gaussian bandits,
     \[
-        \cR_\nu(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
+        \cR_{\bm\nu}(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
 
     \vspace{-0.3cm}
 
     \begin{itemize}
-        \item[$\rightarrow$] \alert{problem-dependent logarithmic} regret bound $\cR_\nu(\text{algo}, T) = \mathcal{O}(\log(T))$.
+        \item[$\Longrightarrow$] \alert{problem-dependent logarithmic} regret bound $\cR_{\bm\nu}(\text{algo}, T) = \mathcal{O}(\log(T))$.
     \end{itemize}
 
     \textbf{Observation:} blows up when $\Delta$ tends to zero\dots
     \begin{eqnarray*}
-        \cR_\nu(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
+        \cR_{\bm\nu}(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
         & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\ln(u^2) , u\right]
         \leq \red C \sqrt{T}\black.
     \end{eqnarray*}
@@ -990,7 +1017,7 @@
     \vspace{-0.3cm}
 
     \begin{itemize}
-        \item[$\rightarrow$] \alert{problem-independent square-root} regret bound $\cR_\nu(\text{algo}, T) = \mathcal{O}(\sqrt{T})$.
+        \item[$\Longrightarrow$] \alert{problem-independent square-root} regret bound $\cR_{\bm\nu}(\text{algo}, T) = \mathcal{O}(\sqrt{T})$.
     \end{itemize}
 
 
@@ -1016,7 +1043,7 @@
     \vspace{0.3cm}
 
     \textbf{Context:} a \blue parametric bandit model \black where each arm is parameterized by its mean $\bm\nu =(\nu_{\mu_1},\dots,\nu_{\mu_K})$, $\mu_a \in \cI$.
-    \[\bm\nu \ \ \leftrightarrow \ \ \bm\mu = (\mu_1,\dots,\mu_K)\]
+    \[ \text{distributions } \bm\nu \ \ \Leftrightarrow \ \ \bm\mu = (\mu_1,\dots,\mu_K) \text{ means} \]
 
 
     \textbf{Key tool:} \blue Kullback-Leibler divergence\black.
@@ -1039,7 +1066,7 @@
         \vspace{-0.4cm}
 
         \[
-            \color{red}\mu_a<\mu_\star \Rightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\ln T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}.\color{black}
+            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\Longrightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\ln T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}.\color{black}
         \]
 
         \vspace{-0.3cm}
@@ -1055,19 +1082,19 @@
     \begin{itemize}
         \item For two-armed Gaussian bandits, ETC satisfies
               \[
-                  \cR_\nu(\mathrm{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\black \ln\left(T\Delta^2\right) = \mathcal{O}(\frac{1}{\Delta} \log(T)),\]
+                  \cR_{\bm\nu}(\mathrm{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\black \ln\left(T\Delta^2\right) = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right),\]
               with $\Delta = |\mu_1 - \mu_2|$.
     \end{itemize}
 
     \begin{itemize}
         \item The Lai and Robbins' lower bound yields, for large values of $T$,
               \[
-                  \cR_\nu(\cA,T)  \gtrsim  \red \frac{2\sigma^2}{\Delta}\black \ln\left(T\Delta^2\right) = \Omega(\frac{1}{\Delta} \log(T)),\]
+                  \cR_{\bm\nu}(\cA,T)  \gtrsim  \red \frac{2\sigma^2}{\Delta}\black \ln\left(T\Delta^2\right) = \Omega\left(\frac{1}{\Delta} \log(T)\right),\]
               as $\kl(\mu_1,\mu_2) = \frac{(\mu_1 - \mu_2)^2}{2 \sigma^2}$.
     \end{itemize}
 
     \begin{itemize}
-        \item[$\rightarrow$] Explore-Then-Commit is \alert{not} \blue asymptotically optimal\black.
+        \item[$\Longrightarrow$] Explore-Then-Commit is \alert{not} \blue asymptotically optimal\black.
     \end{itemize}
 
 
@@ -1179,9 +1206,9 @@
 %     \alt<3>{\[\red \bE_{\bm\mu}[N_a(T)] \gtrsim \frac{\ln(T)}{\kl(\mu_a,\mu_\star + \varepsilon)}\]\vspace{-0.4cm}\begin{center}for large values of $T$                                                                                                                                                                                        \end{center}
 %     }{
 %     \begin{itemize}
-%         \item[$\rightarrow$]
+%         \item[$\Longrightarrow$]
 %               $\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) = \red\bE_{\bm \mu}[N_a(T)] \kl(\mu_a,\mu_1+\varepsilon)$ \\
-%         \item[$\rightarrow$] Picking  $\blue \cE_T = (N_1(T) > T/2)\black$,
+%         \item[$\Longrightarrow$] Picking  $\blue \cE_T = (N_1(T) > T/2)\black$,
 %     \end{itemize}
 %     \[\red \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE_T),\bP_{\bm \lambda}(\cE_T))\sim \ln(T)\]
 %     % \small as $\bP_{\bm \mu}(\cE_T) \sim 1$ and $\bP_{\bm \lambda}(\cE_T) \leq o(T^\alpha)/T$ (uniform efficiency).
@@ -1201,7 +1228,7 @@
         \vspace{-0.2cm}
 
         \[
-            \color{red}\mu_a<\mu_\star \Rightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\ln T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}\color{black}
+            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\Longrightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\ln T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}\color{black}
         \]
 
         \vspace{-0.3cm}
@@ -1209,7 +1236,7 @@
     \end{orangeblock}
 
     \begin{itemize}
-        \item[$\rightarrow$] can be extended to cover \blue more general classes of bandit instances \black
+        \item[$\Longrightarrow$] can be extended to cover \blue more general classes of bandit instances \black
     \end{itemize}
 
     \begin{orangeblock}{Burnetas and Katehakis' lower bound \gray[1996]}
@@ -1233,14 +1260,14 @@
 
     \begin{orangeblock}{Theorem \gray[Cesa-Bianchi and Lugosi, 06][Bubeck and Cesa-Bianchi, 12]}
         Fix $T\in \N$. For every bandit algorithm $\cA$, there exists a stochastic bandit model $\nu$ with rewards supported in $[0,1]$ such that
-        \[\cR_\nu(\cA,T) \geq \frac{1}{20}\red \sqrt{KT}\black\]
+        \[\cR_{\bm\nu}(\cA,T) \geq \frac{1}{20}\red \sqrt{KT}\black\]
     \end{orangeblock}
 
     \begin{itemize}
         \item worst-case model (Bernoulli):
               \[\left\{\begin{array}{ccl}
-                      \nu_a     & = & \cB(1/2) \ \ \text{for all} \ \ a\neq a^* \\
-                      \nu_{a^*} & = & \cB(1/2+\varepsilon)
+                      \nu_a     & = & \cB(1/2) \ \ \text{for all} \ \ a\neq a_{\star} \\
+                      \nu_{a_{\star}} & = & \cB(1/2+\varepsilon)
                   \end{array}\right.\]
 
               with $\varepsilon \simeq \sqrt{K/T}$.
@@ -1301,7 +1328,7 @@
     \end{orangeblock}
 
     \begin{itemize}
-        \item[$\rightarrow$] \underline{Linear regret}: $\cR_\nu\left(\varepsilon\texttt{-greedy},T\right) \geq \varepsilon\frac{K - 1}{K}\Delta_{\min} T$.
+        \item[$\Longrightarrow$] \underline{Linear regret}: $\cR_{\bm\nu}\left(\varepsilon\texttt{-greedy},T\right) \geq \varepsilon\frac{K - 1}{K}\Delta_{\min} T$.
 
               \vspace{0.2cm}
 
@@ -1333,13 +1360,13 @@
     \end{orangeblock}
 
     \begin{orangeblock}{Theorem \gray [Auer et al. 02]\black}
-        If $\red 0 < d \leq \Delta_{\min}$, $\cR_\nu\left(\varepsilon_t\texttt{-greedy},T\right) = \mathcal{O}\left(\frac{1}{d^2} K\ln(T)\right)$.
+        If $\red 0 < d \leq \Delta_{\min}$, $\cR_{\bm\nu}\left(\varepsilon_t\texttt{-greedy},T\right) = \mathcal{O}\left(\frac{1}{d^2} K\ln(T)\right)$.
     \end{orangeblock}
 
     \vspace{-0.3cm}
 
     \begin{itemize}
-        \item[$\rightarrow$] requires the knowledge of a lower bound on $\Delta_{\min}$.
+        \item[$\Longrightarrow$] requires the knowledge of a lower bound on $\Delta_{\min}$.
     \end{itemize}
 
 
@@ -1367,7 +1394,7 @@
     \textbf{Step 1:} construct a set of statistically plausible models
 
     \begin{itemize}
-        \item For each arm $a$, build a confidence interval on the mean $\mu_k$ :
+        \item For each arm $a$, build a confidence interval $\cI_a(t)$ on the mean $\mu_a$ :
               \color{red}
               \[ \cI_a(t) = [\mathrm{LCB}_a(t), \mathrm{UCB}_a(t)] \] \color{black}
     \end{itemize}
@@ -1454,7 +1481,7 @@
 
     \vspace{-0.2cm}
 
-    \hfill{} $\rightarrow$ tool: \blue concentration inequalities\black
+    \hfill{} $\Longrightarrow$ tool: \blue concentration inequalities\black
 
     \textbf{Example:} rewards are \red $\sigma^2$ sub-Gaussian\black
 
@@ -1465,7 +1492,7 @@
     \vspace{-0.3cm}
 
     \begin{alertblock}{Hoeffding inequality}
-        $Z_i$ i.i.d. satisfying \eqref{SG}. For all $s\geq 1$
+        $Z_i$ i.i.d. satisfying \eqref{SG}. For all (\textbf{fixed}) $s\geq 1$
         \[\alt<2->{\bP\left(\frac{Z_1 + \dots + Z_s}{s}  \leq \mu - x \right)  \leq e^{-sx^2 / (2\sigma^2)}}{\bP\left(\frac{Z_1 + \dots + Z_s}{s}  \geq \mu + x \right)  \leq e^{- s x^2 / (2\sigma^2)}}\]
     \end{alertblock}
 
@@ -1564,11 +1591,11 @@
 
         \vspace{-0.4cm}
 
-        \[\cR_\nu(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\ln(T) + \left(1+\frac{\pi^2}{3}\right)\left(\sum_{a=1}^K \Delta_a\right).\]
+        \[\cR_{\bm\nu}(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\ln(T) + \left(1+\frac{\pi^2}{3}\right)\left(\sum_{a=1}^K \Delta_a\right).\]
     \end{orangeblock}
 
     % \begin{itemize}
-    %     \item[$\rightarrow$] what we will prove today
+    %     \item[$\Longrightarrow$] what we will prove today
     % \end{itemize}
 
 
@@ -1585,7 +1612,7 @@
 
     \vspace{-0.6cm}
 
-    \[\cR_\nu(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\ln(T) + K C_\alpha\black.\]
+    \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\ln(T) + K C_\alpha\black.\]
 
 \end{frameO}
 
@@ -1602,7 +1629,7 @@
 
 %     \pause
 
-%     \[\bE_\nu[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \mathrm{UCB}_a(t) > \mu_1)}_{B} \]
+%     \[\bE_{\bm\nu}[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \mathrm{UCB}_a(t) > \mu_1)}_{B} \]
 
 % \end{frameO}
 
@@ -1652,8 +1679,8 @@
 %         \begin{column}{5.5cm}
 %             $\blue\mu_1,\mu_a \in \left[\mathrm{LCB}_a(t) ; \UCB_a(t)\right]$
 %             \begin{eqnarray*}
-%                 &\Rightarrow &(\mu_1 - \mu_a) \leq 2 \sqrt{\frac{\alpha \ln(T)}{N_a(t)}} \\
-%                 & \Rightarrow & \ N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)
+%                 &\Longrightarrow &(\mu_1 - \mu_a) \leq 2 \sqrt{\frac{\alpha \ln(T)}{N_a(t)}} \\
+%                 & \Longrightarrow & \ N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)
 %             \end{eqnarray*}
 %         \end{column}
 %         \begin{column}{4.5cm}
@@ -1727,7 +1754,7 @@
 
 %                   \vspace{-0.3cm}
 
-%             \item[$\rightarrow$] \red not \black matching the Lai and Robbins lower bound
+%             \item[$\Longrightarrow$] \red not \black matching the Lai and Robbins lower bound
 
 %                   \underline{Pinsker's inequality}: $\blue 2 \Delta_a^2 \leq \kl(\mu_a,\mu_\star)$.
 %         \end{itemize}}{
@@ -1741,7 +1768,7 @@
 
 %                       \vspace{-0.3cm}
 
-%                 \item[$\rightarrow$] optimal ?
+%                 \item[$\Longrightarrow$] optimal ?
 %             \end{itemize}
 %         }
 %         {\begin{itemize}
@@ -1753,7 +1780,7 @@
 
 %                       \vspace{-0.3cm}
 
-%                 \item[$\rightarrow$] matching the Lai and Robbins lower bound! \blue asymptotically optimal \black
+%                 \item[$\Longrightarrow$] matching the Lai and Robbins lower bound! \blue asymptotically optimal \black
 %             \end{itemize}}}
 
 
@@ -1762,22 +1789,22 @@
 
 
 
-\begin{frameO}[The Worst-case Performance of UCB]
-    \begin{itemize}
-        \item UCB worst-case regret:  $\mathcal{O}(\blue\sqrt{KT \ln(T)})$
-    \end{itemize}
-    \begin{eqnarray*}
-        \cR_\nu(\texttt{UCB},T) & = &\sum_{a=1}^K \textcolor{red}{\Delta_a\sqrt{\bE[N_a(T)]}}\sqrt{\bE[N_a(T)]} \\
-        &=&\sum_{a=1}^K \mathcal{O}(\red{\sqrt{\ln(T)}}\black)\sqrt{\bE[N_a(T)]}\\
-        &\leq& K\sqrt{\frac{1}{K} \sum_{a}\bE[N_a(T)]}\mathcal{O}(\sqrt{\ln(T)})\\
-        &=& \mathcal{O}(\sqrt{KT \ln(T)})
-    \end{eqnarray*}
-    \begin{itemize}
-        \item[$\rightarrow$] not exactly matching the $\blue\Omega(\sqrt{KT})$ lower bound\dots
-              but close!
-    \end{itemize}
+% \begin{frameO}[The Worst-case Performance of UCB]
+%     \begin{itemize}
+%         \item UCB worst-case regret:  $\mathcal{O}(\blue\sqrt{KT \ln(T)})$
+%     \end{itemize}
+%     \begin{eqnarray*}
+%         \cR_{\bm\nu}(\texttt{UCB},T) & = &\sum_{a=1}^K \textcolor{red}{\Delta_a\sqrt{\bE[N_a(T)]}}\sqrt{\bE[N_a(T)]} \\
+%         &=&\sum_{a=1}^K \mathcal{O}(\red{\sqrt{\ln(T)}}\black)\sqrt{\bE[N_a(T)]}\\
+%         &\leq& K\sqrt{\frac{1}{K} \sum_{a}\bE[N_a(T)]}\mathcal{O}(\sqrt{\ln(T)})\\
+%         &=& \mathcal{O}(\sqrt{KT \ln(T)})
+%     \end{eqnarray*}
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] not exactly matching the $\blue\Omega(\sqrt{KT})$ lower bound\dots
+%               but close!
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
 
@@ -1805,7 +1832,7 @@
 
 %     \alt<2>{\begin{orangeblock}{Theorem \gray[Audibert et al. 09]}
 %             For a bandit instance with bounded rewards, UCB-V satisfies
-%             \[\cR_\nu\left(\texttt{UCB-V},T\right) \leq C \blue\left(\sum_{a : \mu_a < \mu_\star}\frac{\sigma_a^2}{\Delta_a}\right)\black\ln(T)\]
+%             \[\cR_{\bm\nu}\left(\texttt{UCB-V},T\right) \leq C \blue\left(\sum_{a : \mu_a < \mu_\star}\frac{\sigma_a^2}{\Delta_a}\right)\black\ln(T)\]
 
 %             \vspace{-0.3cm}
 
@@ -1844,7 +1871,7 @@
 %     \[\cR_{\nu}(\texttt{ISM},T) \leq (1+\varepsilon)\!\!\!\!\!\!\!\!\underbrace{\blue\sum_{a : \mu_a < \mu_\star} \frac{2}{\ln\left(1+ \frac{\Delta_a^2}{\sigma_a^2}\right)}\black}_{\substack{\text{optimal constant}\\\text{(Burnetas and Katehakis lower bound)}}}\!\!\!\!\!\!\!\!\ln(T) + O_\varepsilon(\ln\ln(T)).\]
 
 %     \begin{itemize}
-%         \item[$\rightarrow$] asymptotic optimality beyond Gaussian rewards?
+%         \item[$\Longrightarrow$] asymptotic optimality beyond Gaussian rewards?
 %     \end{itemize}
 
 % \end{frameO}
@@ -1872,13 +1899,13 @@
 
     \begin{itemize}
         \item $\nu_{\theta}$ can be parameterized by its mean $\blue\mu = \dot{b}(\theta)\black$ : $\red \nu^\mu := \nu_{\dot{b}^{-1}(\mu)}\black$
-        \item $\bm\nu \leftrightarrow \bm\mu = (\mu_1,\dots,\mu_K)$
+        \item $\bm\nu \Leftrightarrow \bm\mu = (\mu_1,\dots,\mu_K)$
     \end{itemize}
     \textbf{Examples:} \textit{Bernoulli, Gaussian with known variance, Poisson, Exponential}
     \vspace{0.3cm}
 
     \textbf{Lai and Robbins lower bound:}
-    \[\liminf_{T\rightarrow \infty} \frac{\cR_\nu(\cA,T)}{\ln(T)} \geq \sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\red\kl\black(\mu_a,\mu_\star)}.\]
+    \[\liminf_{T\Longrightarrow \infty} \frac{\cR_{\bm\nu}(\cA,T)}{\ln(T)} \geq \sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\red\kl\black(\mu_a,\mu_\star)}.\]
 
     \textbf{Idea:} algorithms exploiting the KL-divergence associated to that exponential family
     \[\red \kl(\mu,\mu') = \KL\left(\nu^\mu,\nu^{\mu'}\right)\black.\]
@@ -1889,15 +1916,16 @@
 
     \begin{orangeblock}{}
         Fix an exponential family and its divergence function $\kl(\mu,\mu')$.
+        For some parameter $c\geq 0$, use
+        \vspace{-0.5cm}
         \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\ln(t)+c\ln\ln(t)}{N_a(t)}\right\},
         \]
-        for some parameter $c\geq 0$.
     \end{orangeblock}
 
     \vspace{-0.5cm}
 
     \begin{center}
-        \includegraphics[height=3.5cm]{Interval.pdf}
+        \includegraphics[height=4.5cm]{Interval.pdf}
     \end{center}
 
     \vspace{-0.4cm}
@@ -1939,7 +1967,7 @@
             We recover
             \[\blue\UCB_a(t) = \widehat{\mu}_a(t) + \sqrt{\frac{2\sigma^2\left(\ln(t) + c \ln\ln(t)\right)}{N_a(t)}}\black\]
             \begin{itemize}
-                \item[$\rightarrow$] upper-confidence bound on $\mu_a$
+                \item[$\Longrightarrow$] upper-confidence bound on $\mu_a$
             \end{itemize}
 
         }}
@@ -1985,7 +2013,7 @@
 
     \vspace{0.3cm}
 
-    \[\bm\mu = [0.1 \ 0.05 \ 0.05 \ 0.05 \ 0.02 \ 0.02 \ 0.02 \ 0.01 \ 0.01 \ 0.01]\]
+    \[\text{Bernoulli arms } \bm\mu = [0.1 \ 0.05 \ 0.05 \ 0.05 \ 0.02 \ 0.02 \ 0.02 \ 0.01 \ 0.01 \ 0.01]\]
 
     \vspace{-0.5cm}
 
@@ -2002,13 +2030,11 @@
 
     \begin{orangeblock}{Theorem \gray[Cappé et al, 13]} If $c \geq 3$, for every arm such that $\mu_a < \mu_\star$,
         \[\bE_{\bm\mu}[N_a(T)] \leq \frac{1}{\kl(\mu_a,\mu_\star)}\ln(T) + C_{\bm\mu}\sqrt{\ln(T)}.\]
-        \begin{center}
-            \textit{(explicit constant in the paper)}
-        \end{center}
+        \hfill{} \textit{(explicit constant in the paper)}
     \end{orangeblock}
 
     \begin{itemize}
-        \item[$\rightarrow$] follows from  \red two improvements \black in the previous analysis
+        \item[$\Longrightarrow$] follows from  \red two improvements \black in the previous analysis
     \end{itemize}
     \alt<3>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \blue \text{ a better concentration result}} + \underbrace{\frac{f(T)}{\kl(\mu_a,\mu_1)} + \mathcal{O}(\sqrt{f(T)})}_{B : \red\text{ a finer upper bound}} \]}
     {\alt<2>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red\text{ a better concentration result}} + \underbrace{\sum_{s=1}^{T}\bP(s\times \kl(\hat\mu_{a,s} , \mu_1) \leq f(T))}_{B : \red \text{ a finer upper bound}} \]
@@ -2063,7 +2089,7 @@
 
 %     \[\rightsquigarrow \red  \sum_{t=1}^\infty \bP(\UCB_1(t) < \mu_1) = \infty\]
 %     \begin{itemize}
-%         \item[$\rightarrow$] not good enough\dots
+%         \item[$\Longrightarrow$] not good enough\dots
 %     \end{itemize}
 
 %     }}
@@ -2075,8 +2101,8 @@
     \begin{itemize}
         \item \klUCB{} \blue can be used for arbitrary rewards in $[0,1]$ \black with
               \begin{itemize}
-                  \item[$\rightarrow$] the Gaussian divergence $\kl(x,y) = 2(x-y)^2$ (UCB)
-                  \item[$\rightarrow$] the Bernoulli divergence $\kl(x,y) = \KL(\cB(x),\cB(y))$
+                  \item[$\Longrightarrow$] the Gaussian divergence $\kl(x,y) = 2(x-y)^2$ (UCB)
+                  \item[$\Longrightarrow$] the Bernoulli divergence $\kl(x,y) = \KL(\cB(x),\cB(y))$
               \end{itemize}
               with the same theoretical guarantees. \hfill \gray[Cappé et al. 13]\black
 
@@ -2085,17 +2111,17 @@
     \begin{itemize}
         \item variants of kl-UCB for \blue other types of parametric reward distributions \black
               \begin{itemize}
-                  \item[$\rightarrow$] distribution with a finite support \hfill \gray[Maillard et al. 11][Cappé et al. 13]\black
+                  \item[$\Longrightarrow$] distribution with a finite support \hfill \gray[Maillard et al. 11][Cappé et al. 13]\black
 
-                  \item[$\rightarrow$] exponential family with $d > 1$ parameters \hfill  \gray [Maillard, 17]
+                  \item[$\Longrightarrow$] exponential family with $d > 1$ parameters \hfill  \gray [Maillard, 17]
               \end{itemize}
     \end{itemize}
 
     \begin{itemize}
         \item variants that \blue do not exploit parametric assumptions \black that obtain better guarantees for arbitrary rewards
               \begin{itemize}
-                  \item[$\rightarrow$] DMED, IMED \hfill \gray [Honda and Takemura, 10][Honda and Takemura, 16] \black
-                  \item[$\rightarrow$] empirical KL-UCB for bounded rewards \hfill \gray[Cappé et al. 13]\black
+                  \item[$\Longrightarrow$] DMED, IMED \hfill \gray [Honda and Takemura, 10][Honda and Takemura, 16] \black
+                  \item[$\Longrightarrow$] empirical KL-UCB for bounded rewards \hfill \gray[Cappé et al. 13]\black
               \end{itemize}
     \end{itemize}
 
@@ -2138,8 +2164,8 @@
 
 %                   \vspace{-0.2cm}
 
-%                   \[\cR_\nu(\texttt{MOSS},T) \leq \alt<2>{\blue\frac{23K}{\Delta_{\min}}\black}{\frac{23K}{\Delta_{\min}}}\ln\left(\max\left[\frac{110T\red\Delta_{\min}^2\black}{K},10^4\right]\right).\]\alt<2>{\vspace{-0.2cm}}{}
-%             \item It also holds that $\cR_\nu(\texttt{MOSS},T) \leq 25\red \sqrt{KT}\black$.
+%                   \[\cR_{\bm\nu}(\texttt{MOSS},T) \leq \alt<2>{\blue\frac{23K}{\Delta_{\min}}\black}{\frac{23K}{\Delta_{\min}}}\ln\left(\max\left[\frac{110T\red\Delta_{\min}^2\black}{K},10^4\right]\right).\]\alt<2>{\vspace{-0.2cm}}{}
+%             \item It also holds that $\cR_{\bm\nu}(\texttt{MOSS},T) \leq 25\red \sqrt{KT}\black$.
 
 %         \end{enumerate}
 
@@ -2147,10 +2173,10 @@
 %     \end{orangeblock}
 
 %     \alt<2>{\begin{itemize}
-%             \item[$\rightarrow$] \blue far from optimal \black in a problem-dependent sense
+%             \item[$\Longrightarrow$] \blue far from optimal \black in a problem-dependent sense
 %         \end{itemize}}{
 %         \begin{itemize}
-%             \item[$\rightarrow$] matching the worse-case lower bound in $\Omega(\sqrt{KT})$ !
+%             \item[$\Longrightarrow$] matching the worse-case lower bound in $\Omega(\sqrt{KT})$ !
 %         \end{itemize}}
 
 
@@ -2178,7 +2204,7 @@
 %             \begin{enumerate}
 %                 \item For all sub-optimal arm $a$,
 %                       \[\bE_{\nu}[N_a(T)] \leq \blue\frac{\ln(T)}{\kl(\mu_a,\mu_\star)}\black + \mathcal{O}\left(\ln^{2/3}(T)\right)\]
-%                 \item Moreover, $\cR_\nu(\text{KL-UCB-Switch},T) \leq 25\blue\sqrt{KT}\black + (K-1)$.
+%                 \item Moreover, $\cR_{\bm\nu}(\text{KL-UCB-Switch},T) \leq 25\blue\sqrt{KT}\black + (K-1)$.
 %             \end{enumerate}
 %         \end{orangeblock}}{where \begin{orangeblock}{}\vspace{-0.3cm}
 %             \begin{eqnarray*}
@@ -2203,7 +2229,7 @@
     \end{itemize}
 
     \begin{itemize}
-        \item Good concentration inequalities are crucial to build good UCB algorithms!
+        \item Good \alert{concentration inequalities} are crucial to build good UCB algorithms!
     \end{itemize}
 
     \begin{itemize}
@@ -2267,20 +2293,20 @@
 
 
     \begin{minipage}{0.04\textwidth}\hspace{0.5cm}\end{minipage}\begin{minipage}{0.95\textwidth}{\footnotesize\begin{itemize}
-                \item[1933] \blue Thompson: a Bayesian mechanism for clinical trials\black
+                \item[1933] \orange Thompson: a Bayesian mechanism for clinical trials\black
                 \item[1952] Robbins, formulation of the MAB problem
-                \item[1956] \blue Bradt et al, Bellman: optimal solution of a Bayesian MAB problem \black
-                \item[1979] \blue Gittins: first Bayesian index policy \black
+                \item[1956] \orange Bradt et al, Bellman: optimal solution of a Bayesian MAB problem \black
+                \item[1979] \orange Gittins: first Bayesian index policy \black
                 \item[1985] Lai and Robbins: lower bound, first asymptocally optimal algorithm
-                \item[1985] \blue Berry and Fristedt: Bandit Problems, a survey on the Bayesian MAB \black
-                \item[1987] Lai, asymptotic regret of \klUCB{} \blue + study of its Bayesian regret\black
+                \item[1985] \orange Berry and Fristedt: Bandit Problems, a survey on the Bayesian MAB \black
+                \item[1987] Lai, asymptotic regret of \klUCB{} \orange + study of its Bayesian regret\black
                 \item[1995] Agrawal, UCB algorithms
                 \item[1995] Katehakis and Robbins, a UCB algorithm for Gaussian bandits
                 \item[2002] Auer et al: UCB1 with finite-time regret bound
                 \item[2009] UCB-V, MOSS\dots
-                \item[2010] \blue Thompson Sampling is re-discovered \black
+                \item[2010] \orange Thompson Sampling is re-discovered \black
                 \item[2011,13] Cappé et al: finite-time regret bound for \klUCB{}
-                \item[2012,13] \blue Thompson Sampling is asymptotically optimal\black
+                \item[2012,13] \orange Thompson Sampling is asymptotically optimal\black
             \end{itemize}}
     \end{minipage}
 
@@ -2394,7 +2420,7 @@
 
               \vspace{-0.5cm}
 
-        \item[$\rightarrow$] \underline{posterior distribution}:
+        \item[$\Longrightarrow$] \underline{posterior distribution}:
               \vspace{-0.6cm}
 
               \begin{eqnarray*} \pi_a(t) &=& \cL\left(\mu_a | R_1,\dots,R_t \right)\\
@@ -2534,7 +2560,7 @@
 %         \]
 %     }
 
-%     \hfill  $\rightarrow $ \blue Markov Decision Process with state $\Pi^t$
+%     \hfill  $\Longrightarrow $ \blue Markov Decision Process with state $\Pi^t$
 
 % \end{frameO}
 
@@ -2598,7 +2624,7 @@
 %     \end{itemize}
 
 %     \begin{orangeblock}{}
-%         \[G_\gamma(p) = \inf \{ \lambda \in \R : V_\gamma^*(p,\lambda)  = 0\},\]
+%         \[G_\gamma(p) = \inf \{ \lambda \in \R : V_\gamma_{\star}(p,\lambda)  = 0\},\]
 %         with
 %         \[V^*_\gamma(p,\lambda) = \sup_{\substack{\text{stopping } \\ \text{times} \ \red \tau > 0\black}} \ \bE_{\substack{Y_t \overset{\text{i.i.d}}{\sim} \cB(\mu) \\ \mu \sim p}}\left[\sum_{t=1}^\tau \gamma^{t-1}(Y_t- \lambda)\right].\]
 %     \end{orangeblock}
@@ -2683,7 +2709,7 @@
 %     \vspace{0.3cm}
 
 %     \begin{itemize}
-%         \item[$\rightarrow$] looks like the \blue \klUCB{} index\black, with a \blue different exploration rate\black\dots
+%         \item[$\Longrightarrow$] looks like the \blue \klUCB{} index\black, with a \blue different exploration rate\black\dots
 %     \end{itemize}
 
 % \end{frameO}
@@ -3109,7 +3135,7 @@
 
 
 %     \begin{itemize}
-%         \item[$\rightarrow$] How? Optimality? For which distributions ?
+%         \item[$\Longrightarrow$] How? Optimality? For which distributions ?
 %     \end{itemize}
 
 
@@ -3401,7 +3427,7 @@
         \item (centralized) multiple-actions
               \begin{itemize}
                   \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
-                  \item combinatorial : choose a subset of arms $S \sub \{1,\dots,K\}$ (large space)
+                  \item combinatorial : choose a subset of arms $S \subset \{1,\dots,K\}$ (large space)
               \end{itemize}
         \item non stationary
               \begin{itemize}
@@ -3413,7 +3439,7 @@
         \item \textcolor{blue}{(decentralized) non communicating multi-player bandits}
     \end{itemize}
 
-    \hspace*{1cm}
+    \hspace*{3cm}
     \hfill{}
     \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
 
@@ -3495,7 +3521,7 @@
 %   \[\red \underset{k \in \{1,\dots,K\}}{\text{argmax}} \ \bE_{X\sim\pi_k} [X]\]
 
 %   \begin{itemize}
-%     \item[$\rightarrow$] may be a bad idea\dots
+%     \item[$\Longrightarrow$] may be a bad idea\dots
 %   \end{itemize}
 
 
@@ -3528,7 +3554,7 @@
 
 %   \textbf{Strategies}:
 %   \begin{itemize}
-%     \item static strategy playing a single arm $\rightarrow$ average reward $1/2$
+%     \item static strategy playing a single arm $\Longrightarrow$ average reward $1/2$
 %     \item a much better strategy when $\epsilon_1$ and $\epsilon_2$ are small:
 
 %           switch arm when the current state is 0
@@ -3536,7 +3562,7 @@
 
 
 %   \begin{itemize}
-%     \item[$\rightarrow$] regret with respect to the best static action is no longer (always) the right notion
+%     \item[$\Longrightarrow$] regret with respect to the best static action is no longer (always) the right notion
 %   \end{itemize}
 
 %   \vspace{-0.3cm}
@@ -3712,22 +3738,23 @@
 \begin{frameO}[Piece-wise stationary bandits]
 
     \begin{orangeblock}{Stationary MAB problems}
-        Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:
-        $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
+        Arm $a$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
+        \[ \forall t, r_a(t) \overset{\text{iid}}{\sim} \nu_a = \mathcal{B}(\mu_a). \]
     \end{orangeblock}
 
     \pause
     \begin{alertblock}{Non stationary MAB problems?}
-        Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:
-        $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
+        \alert{(possibly) different distributions} for any time step !
+        \[ \forall t, r_a(t) \overset{\text{iid}}{\sim} \nu_a\alert{(t)} = \mathcal{B}(\mu_a\alert{(t)}). \]
     \end{alertblock}
 
     $\implies$ harder problem!
-    And very hard if $\mu_k(t)$ can change at any step!
+    And very hard if $\mu_a(t)$ can change at any step!
 
     \pause
     \begin{orangeblock}{\textbf{Piece-wise stationary} problems!}
-        $\hookrightarrow$ focus on the easier case when there are at most $Y_T = o(\sqrt{T})$ intervals on which the means are all stationary.
+        $\hookrightarrow$ the litterature usually focuses on the easier case,
+        when there are at most $Y_T = o(\sqrt{T})$ intervals, on which the means are all stationary.
     \end{orangeblock}
 \end{frameO}
 
@@ -3737,7 +3764,7 @@
     There are $Y_T=4$ break-points and $5$ sequences
     between $t=1$ and $t=T=5000$:
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Problem_1.pdf}
+        \includegraphics[width=0.97\textwidth]{Problem_1.pdf}
     \end{center}
 \end{frameO}
 
@@ -3780,7 +3807,7 @@
     \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{break-point detector}
 
     \begin{center}
-        \includegraphics[width=0.85\textwidth]{regret_problem1.png}
+        \includegraphics[width=0.90\textwidth]{regret_problem1.png}
     \end{center}
 
     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
@@ -3877,7 +3904,7 @@
         \textbf{Remarks}:
         \begin{itemize}
             \item number of players $M$ has to be known\\
-                $\rightarrow$ but it is possible to estimate it on the run
+                $\Longrightarrow$ but it is possible to estimate it on the run
             \item does not handle an evolving number of devices\\
                 (entering/leaving the network)
             \item is it a \textit{fair} orthogonalization rule?
@@ -3890,7 +3917,7 @@
 \begin{frameO}[Results on a multi-player MAB problem]
 
     \centering
-    \includegraphics[height=0.75\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
+    \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
     \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
 \end{frameO}
@@ -3934,7 +3961,9 @@
               \end{itemize}
     \end{itemize}
 
-    $\implies$ And you are can learn more about \blue more complex bandit problems \black and \blue Reinforcement Learning\black!
+    \vspace*{2cm}
+
+    $\implies$ And you can learn more about \blue more complex bandit problems \black and \blue Reinforcement Learning\black!
 
 \end{frameO}
 
@@ -3947,6 +3976,8 @@
         \item applications of self-normalized concentration inequalities
         \item Bayesian tools\dots
     \end{itemize}
+
+    \vspace*{2cm}
 
     And we presented many extensions of the single-player stationary MAB model.
 
