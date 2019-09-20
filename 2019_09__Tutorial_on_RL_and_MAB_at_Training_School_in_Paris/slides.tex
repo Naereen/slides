@@ -353,7 +353,7 @@
         \item $K$ radio channels (orthogonal frequency bands)
 
               \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
-        \item In which channel should a radio device send a packet,n based on the quality of its previous communications?
+        \item In which channel should a radio device send a packet, based on the quality of its previous communications?
               \pause
               $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
     \end{itemize}
@@ -907,11 +907,11 @@
     \textbf{Assumption:}
     $\nu_1 =\cN(\mu_1,\sigma^2),\nu_2 = \cN(\mu_2,\sigma^2)$ are \red Gaussian arms\black.
 
-    For $\blue m = \frac{4\sigma^2}{\Delta^2}\ln\left(\frac{T\Delta^2}{4\sigma^2}\right)$,
+    For $\blue m = \frac{4\sigma^2}{\Delta^2}\log\left(\frac{T\Delta^2}{4\sigma^2}\right)$,
 
     \vspace{-0.3cm}
 
-    \[\cR_{\bm\nu}(\texttt{ETC},T) \leq \frac{4\sigma^2}{\Delta}\left[\ln\left(\frac{T\Delta^2}{2}\right) + 1\right] = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
+    \[\cR_{\bm\nu}(\texttt{ETC},T) \leq \frac{4\sigma^2}{\Delta}\left[\log\left(\frac{T\Delta^2}{2}\right) + 1\right] = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
 
     \vspace{-0.4cm}
 
@@ -929,7 +929,7 @@
 
 
 
-\begin{frameO}[Sequential Explore-Then-Commit (\texttt{S-ETC}) (2 Gaussian arms)]
+\begin{frameO}[Sequential Explore-Then-Commit (2 Gaussian arms)]
 
     \vspace{0.3cm}
 
@@ -938,7 +938,7 @@
     \end{itemize}
     \vspace{-0.3cm}
 
-    \[\hspace{-1cm}\blue \tau = \inf \left\{t \in \N : |\widehat{\mu}_1(t) - \widehat{\mu}_2(t) | > \sqrt{\frac{8\sigma^2\ln(T/t)}{t}}\right\}  \]
+    \[\hspace{-1cm}\blue \tau = \inf \left\{t \in \N : |\widehat{\mu}_1(t) - \widehat{\mu}_2(t) | > \sqrt{\frac{8\sigma^2\log(T/t)}{t}}\right\}  \]
 
 
 
@@ -959,7 +959,7 @@
     \vspace{-0.2cm}
 
     \[
-        \cR_{\bm\nu}(\texttt{S-ETC},T)  \leq  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)\black \ + C \sqrt{\ln(T)} = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
+        \cR_{\bm\nu}(\texttt{S-ETC},T)  \leq  \red \frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right)\black \ + C \sqrt{\log(T)} = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
 
     \vspace{-0.3cm}
 
@@ -972,7 +972,7 @@
 
 \begin{frameO}[Numerical illustration]
 
-    \[\text{Two Gaussian arms:} \nu_1 = \cN(1,1) \  \text{and} \ \nu_2 = \cN(1.5,1)\]
+    \[\text{Two Gaussian arms:  } \nu_1 = \cN(1,1) \  \text{and} \ \nu_2 = \cN(1.5,1)\]
 
     \begin{minipage}{0.49\linewidth}
         \centering
@@ -999,7 +999,7 @@
 
     For two-armed Gaussian bandits,
     \[
-        \cR_{\bm\nu}(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
+        \cR_{\bm\nu}(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
 
     \vspace{-0.3cm}
 
@@ -1009,8 +1009,8 @@
 
     \textbf{Observation:} blows up when $\Delta$ tends to zero\dots
     \begin{eqnarray*}
-        \cR_{\bm\nu}(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
-        & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\ln(u^2) , u\right]
+        \cR_{\bm\nu}(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
+        & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\log(u^2) , u\right]
         \leq \red C \sqrt{T}\black.
     \end{eqnarray*}
 
@@ -1053,7 +1053,7 @@
         \alt<3>{\vspace{-0.2cm}}{}
 
         \[
-            \red \mathrm{kl}(\mu,\mu')  \black : =   \alt<3>{\mu\ln \left(\frac{\mu}{\mu'}\right) + (1-\mu) \ln \left(\frac{1-\mu}{1-\mu'}\right) \ \ \ (\text{Bernoulli bandits})}{\alt<2>{\frac{(\mu - \mu')^2}{2\sigma^2} \ \ \ (\text{Gaussian bandits with variance } \sigma^2)}{\text{KL}\left(\nu_\mu,\nu_{\mu'}\right) =\bE_{X \sim \nu_{\mu}}\left[\ln \frac{d\nu_{\mu}}{d\nu_{\mu'}}(X)\right]}}
+            \red \mathrm{kl}(\mu,\mu')  \black : =   \alt<3>{\mu\log \left(\frac{\mu}{\mu'}\right) + (1-\mu) \log \left(\frac{1-\mu}{1-\mu'}\right) \ \ \ (\text{Bernoulli bandits})}{\alt<2>{\frac{(\mu - \mu')^2}{2\sigma^2} \ \ \ (\text{Gaussian bandits with variance } \sigma^2)}{\text{KL}\left(\nu_\mu,\nu_{\mu'}\right) =\bE_{X \sim \nu_{\mu}}\left[\log \frac{d\nu_{\mu}}{d\nu_{\mu'}}(X)\right]}}
         \]
 
 
@@ -1066,7 +1066,7 @@
         \vspace{-0.4cm}
 
         \[
-            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\Longrightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\ln T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}.\color{black}
+            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\log T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}.\color{black}
         \]
 
         \vspace{-0.3cm}
@@ -1082,14 +1082,14 @@
     \begin{itemize}
         \item For two-armed Gaussian bandits, ETC satisfies
               \[
-                  \cR_{\bm\nu}(\mathrm{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\black \ln\left(T\Delta^2\right) = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right),\]
+                  \cR_{\bm\nu}(\mathrm{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\black \log\left(T\Delta^2\right) = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right),\]
               with $\Delta = |\mu_1 - \mu_2|$.
     \end{itemize}
 
     \begin{itemize}
         \item The Lai and Robbins' lower bound yields, for large values of $T$,
               \[
-                  \cR_{\bm\nu}(\cA,T)  \gtrsim  \red \frac{2\sigma^2}{\Delta}\black \ln\left(T\Delta^2\right) = \Omega\left(\frac{1}{\Delta} \log(T)\right),\]
+                  \cR_{\bm\nu}(\cA,T)  \gtrsim  \red \frac{2\sigma^2}{\Delta}\black \log\left(T\Delta^2\right) = \Omega\left(\frac{1}{\Delta} \log(T)\right),\]
               as $\kl(\mu_1,\mu_2) = \frac{(\mu_1 - \mu_2)^2}{2 \sigma^2}$.
     \end{itemize}
 
@@ -1117,7 +1117,7 @@
 %                                                     & =  \bE_{\red \bm\mu\black}\Big[\blue\ind_{\cE}\black \exp\big(-L_t(\bm\mu,\bm\lambda)\big)\Big]\nonumber,
 %     \end{align}
 %     where $L_t(\bm\mu,\bm\lambda)$ denotes the log-likelihood ratio of the observations:
-%     \[L_t(\bm\mu,\bm\lambda) := \ln \frac{\ell(R_1,\dots,R_t ; \bm\mu)}{\ell(R_1,\dots,R_t ; \bm\lambda)}.\]
+%     \[L_t(\bm\mu,\bm\lambda) := \log \frac{\ell(R_1,\dots,R_t ; \bm\mu)}{\ell(R_1,\dots,R_t ; \bm\lambda)}.\]
 
 %     \begin{itemize}
 %         \item \textbf{Idea}: relate the probability of the same event ($\blue \cE$) under two different bandit models ($\red \bm \lambda$ and $\red \bm \mu$).
@@ -1203,78 +1203,78 @@
 %     arm $a$ is optimal under $\bm \lambda =(\mu_1,\dots,\mu_{a-1},\blue\mu_1 + \varepsilon\black,\mu_{a+1},\dots,\mu_K)$
 
 %     \pause
-%     \alt<3>{\[\red \bE_{\bm\mu}[N_a(T)] \gtrsim \frac{\ln(T)}{\kl(\mu_a,\mu_\star + \varepsilon)}\]\vspace{-0.4cm}\begin{center}for large values of $T$                                                                                                                                                                                        \end{center}
+%     \alt<3>{\[\red \bE_{\bm\mu}[N_a(T)] \gtrsim \frac{\log(T)}{\kl(\mu_a,\mu_\star + \varepsilon)}\]\vspace{-0.4cm}\begin{center}for large values of $T$                                                                                                                                                                                        \end{center}
 %     }{
 %     \begin{itemize}
 %         \item[$\Longrightarrow$]
 %               $\sum_{a=1}^K \bE_{\bm \mu}[N_a(T)]\times \kl(\mu_a,\lambda_a) = \red\bE_{\bm \mu}[N_a(T)] \kl(\mu_a,\mu_1+\varepsilon)$ \\
 %         \item[$\Longrightarrow$] Picking  $\blue \cE_T = (N_1(T) > T/2)\black$,
 %     \end{itemize}
-%     \[\red \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE_T),\bP_{\bm \lambda}(\cE_T))\sim \ln(T)\]
+%     \[\red \mathrm{kl}_{\text{Ber}}(\bP_{\bm \mu}(\cE_T),\bP_{\bm \lambda}(\cE_T))\sim \log(T)\]
 %     % \small as $\bP_{\bm \mu}(\cE_T) \sim 1$ and $\bP_{\bm \lambda}(\cE_T) \leq o(T^\alpha)/T$ (uniform efficiency).
 %     }
 
 % \end{frameO}
 
-\begin{frameO}[The Lai and Robbins lower bound]
+% \begin{frameO}[The Lai and Robbins lower bound]
 
-    \vspace{0.2cm}
+%     \vspace{0.2cm}
 
-    \textbf{Context:} a simple \blue parametric bandit model \black $\bm\nu =(\nu_{\mu_1},\dots,\nu_{\mu_K})$, $\mu_a \in \cI$.
+%     \textbf{Context:} a simple \blue parametric bandit model \black $\bm\nu =(\nu_{\mu_1},\dots,\nu_{\mu_K})$, $\mu_a \in \cI$.
 
-    \begin{orangeblock}{Lai and Robbins' lower bound \gray[1985]}
-        For uniformly efficient algorithm,
+%     \begin{orangeblock}{Lai and Robbins' lower bound \gray[1985]}
+%         For uniformly efficient algorithm,
 
-        \vspace{-0.2cm}
+%         \vspace{-0.2cm}
 
-        \[
-            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\Longrightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\ln T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}\color{black}
-        \]
+%         \[
+%             \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\log T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}\color{black}
+%         \]
 
-        \vspace{-0.3cm}
+%         \vspace{-0.3cm}
 
-    \end{orangeblock}
+%     \end{orangeblock}
 
-    \begin{itemize}
-        \item[$\Longrightarrow$] can be extended to cover \blue more general classes of bandit instances \black
-    \end{itemize}
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] can be extended to cover \blue more general classes of bandit instances \black
+%     \end{itemize}
 
-    \begin{orangeblock}{Burnetas and Katehakis' lower bound \gray[1996]}
+%     \begin{orangeblock}{Burnetas and Katehakis' lower bound \gray[1996]}
 
-        For any bandit such that $\nu_a\in\cD_a$.
-        For any {uniformly efficient} strategy knowing $\cD_1,\dots,\cD_K$,
+%         For any bandit such that $\nu_a\in\cD_a$.
+%         For any {uniformly efficient} strategy knowing $\cD_1,\dots,\cD_K$,
 
-        \vspace{-4mm}
-        \[\red
-            \forall a: \mu_a<\mu_\star\quad
-            \liminf_{T\to\infty}\frac{\bE[N_{a}(T)]}{\ln T} \geq \frac{1}{\cK_{a}(\nu_a,\mu_\star)},\]
-        where $\cK_{a}(\nu_a,\mu_\star)= \inf \{\KL(\nu_a,\nu) : \nu\in\cD_a,\bE_{X \sim \nu}[X]>\mu_\star\}.$
+%         \vspace{-4mm}
+%         \[\red
+%             \forall a: \mu_a<\mu_\star\quad
+%             \liminf_{T\to\infty}\frac{\bE[N_{a}(T)]}{\log T} \geq \frac{1}{\cK_{a}(\nu_a,\mu_\star)},\]
+%         where $\cK_{a}(\nu_a,\mu_\star)= \inf \{\KL(\nu_a,\nu) : \nu\in\cD_a,\bE_{X \sim \nu}[X]>\mu_\star\}.$
 
-    \end{orangeblock}
-
-
-\end{frameO}
+%     \end{orangeblock}
 
 
-\begin{frameO}[A distribution-independent lower bound]
-
-    \begin{orangeblock}{Theorem \gray[Cesa-Bianchi and Lugosi, 06][Bubeck and Cesa-Bianchi, 12]}
-        Fix $T\in \N$. For every bandit algorithm $\cA$, there exists a stochastic bandit model $\nu$ with rewards supported in $[0,1]$ such that
-        \[\cR_{\bm\nu}(\cA,T) \geq \frac{1}{20}\red \sqrt{KT}\black\]
-    \end{orangeblock}
-
-    \begin{itemize}
-        \item worst-case model (Bernoulli):
-              \[\left\{\begin{array}{ccl}
-                      \nu_a     & = & \cB(1/2) \ \ \text{for all} \ \ a\neq a_{\star} \\
-                      \nu_{a_{\star}} & = & \cB(1/2+\varepsilon)
-                  \end{array}\right.\]
-
-              with $\varepsilon \simeq \sqrt{K/T}$.
-    \end{itemize}
+% \end{frameO}
 
 
-\end{frameO}
+% \begin{frameO}[A distribution-independent lower bound]
+
+%     \begin{orangeblock}{Theorem \gray[Cesa-Bianchi and Lugosi, 06][Bubeck and Cesa-Bianchi, 12]}
+%         Fix $T\in \N$. For every bandit algorithm $\cA$, there exists a stochastic bandit model $\nu$ with rewards supported in $[0,1]$ such that
+%         \[\cR_{\bm\nu}(\cA,T) \geq \frac{1}{20}\red \sqrt{KT}\black\]
+%     \end{orangeblock}
+
+%     \begin{itemize}
+%         \item worst-case model (Bernoulli):
+%               \[\left\{\begin{array}{ccl}
+%                       \nu_a     & = & \cB(1/2) \ \ \text{for all} \ \ a\neq a_{\star} \\
+%                       \nu_{a_{\star}} & = & \cB(1/2+\varepsilon)
+%                   \end{array}\right.\]
+
+%               with $\varepsilon \simeq \sqrt{K/T}$.
+%     \end{itemize}
+
+
+% \end{frameO}
 
 
 %
@@ -1360,7 +1360,7 @@
     \end{orangeblock}
 
     \begin{orangeblock}{Theorem \gray [Auer et al. 02]\black}
-        If $\red 0 < d \leq \Delta_{\min}$, $\cR_{\bm\nu}\left(\varepsilon_t\texttt{-greedy},T\right) = \mathcal{O}\left(\frac{1}{d^2} K\ln(T)\right)$.
+        If $\red 0 < d \leq \Delta_{\min}$, $\cR_{\bm\nu}\left(\varepsilon_t\texttt{-greedy},T\right) = \mathcal{O}\left(\frac{1}{d^2} K\log(T)\right)$.
     \end{orangeblock}
 
     \vspace{-0.3cm}
@@ -1431,7 +1431,7 @@
 
     \begin{figure}
         \includegraphics[width=0.55\linewidth]{UCBdot}
-        \caption{Confidence intervals on the means after $t$ rounds, for $K=4$ arms}
+        \caption{Confidence intervals on the means after $t$ rounds}
     \end{figure}
 
     \vspace{-0.8cm}
@@ -1518,7 +1518,7 @@
     \end{itemize}
 
     \begin{orangeblock}{Hoeffding inequality + union bound}
-        \[ \bP\left(\mu_a \leq \red \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\ln(t)}{N_a(t)}} \black \right) \geq 1 - \frac{1}{t^{\frac{\alpha}{2} -1}} \]
+        \[ \bP\left(\mu_a \leq \red \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \geq 1 - \frac{1}{t^{\frac{\alpha}{2} -1}} \]
     \end{orangeblock}
 
     \pause
@@ -1527,8 +1527,8 @@
     \vspace{-0.5cm}
 
     \begin{align*}
-         & \bP\left(\mu_a > \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\ln(t)}{N_a(t)}} \black \right) \leq  \bP\left(\exists s \leq t : \mu_a > \widehat{\mu}_{a,s} + \sigma\sqrt{\frac{\alpha\ln(t)}{s}} \black\right) \\
-         & \leq \sum_{s=1}^t \bP\left(\widehat{\mu}_{a,s} < \mu_a - \sigma\sqrt{\frac{\alpha\ln(t)}{s}}\right) \leq \sum_{s=1}^t \frac{1}{t^{\alpha/2}} = \frac{1}{t^{\alpha/2 - 1}}.
+         & \bP\left(\mu_a > \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \leq  \bP\left(\exists s \leq t : \mu_a > \widehat{\mu}_{a,s} + \sigma\sqrt{\frac{\alpha\log(t)}{s}} \black\right) \\
+         & \leq \sum_{s=1}^t \bP\left(\widehat{\mu}_{a,s} < \mu_a - \sigma\sqrt{\frac{\alpha\log(t)}{s}}\right) \leq \sum_{s=1}^t \frac{1}{t^{\alpha/2}} = \frac{1}{t^{\alpha/2 - 1}}.
     \end{align*}
 
 
@@ -1542,7 +1542,7 @@
 
     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
     where
-    \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\ln(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
+    \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
 
     \begin{itemize}
         \item this form of UCB was first proposed for Gaussian rewards
@@ -1591,7 +1591,7 @@
 
         \vspace{-0.4cm}
 
-        \[\cR_{\bm\nu}(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\ln(T) + \left(1+\frac{\pi^2}{3}\right)\left(\sum_{a=1}^K \Delta_a\right).\]
+        \[\cR_{\bm\nu}(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\log(T) + \left(1+\frac{\pi^2}{3}\right)\left(\sum_{a=1}^K \Delta_a\right).\]
     \end{orangeblock}
 
     % \begin{itemize}
@@ -1603,7 +1603,7 @@
 
         \vspace{-0.8cm}
 
-        \[\bE_{\bm \mu}[N_a(T)] \leq \frac{4\alpha}{(\mu_\star - \mu_a)^2}\ln(T) + C_\alpha.\]
+        \[\bE_{\bm \mu}[N_a(T)] \leq \frac{4\alpha}{(\mu_\star - \mu_a)^2}\log(T) + C_\alpha.\]
     \end{orangeblock}
 
     \vspace{0.2cm}
@@ -1612,7 +1612,7 @@
 
     \vspace{-0.6cm}
 
-    \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\ln(T) + K C_\alpha\black.\]
+    \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\log(T) + K C_\alpha\black.\]
 
 \end{frameO}
 
@@ -1643,7 +1643,7 @@
 %     \end{itemize}
 
 %     \begin{eqnarray*}
-%         \sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1) & \leq & 1 + \sum_{t=1}^{T-1} \bP\left(\widehat{\mu}_1(t) + \sqrt{\frac{\alpha \ln(t)}{N_1(t)}} \leq \mu_1\right) \\
+%         \sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1) & \leq & 1 + \sum_{t=1}^{T-1} \bP\left(\widehat{\mu}_1(t) + \sqrt{\frac{\alpha \log(t)}{N_1(t)}} \leq \mu_1\right) \\
 %         & \leq & 1 + \sum_{t=1}^{T-1} \frac{1}{t^{2\alpha-1}} \\
 %         &\leq& 1+ \zeta(2\alpha -1) :=C_\alpha/2.
 %     \end{eqnarray*}
@@ -1672,15 +1672,15 @@
 
 %     \vspace{-0.9cm}
 
-%     \[\mathrm{LCB}_a(t) = \widehat{\mu}_{a}(t) - \sqrt{\frac{\alpha \ln t}{N_a(t)}}.\]
+%     \[\mathrm{LCB}_a(t) = \widehat{\mu}_{a}(t) - \sqrt{\frac{\alpha \log t}{N_a(t)}}.\]
 
 
 %     \begin{columns}
 %         \begin{column}{5.5cm}
 %             $\blue\mu_1,\mu_a \in \left[\mathrm{LCB}_a(t) ; \UCB_a(t)\right]$
 %             \begin{eqnarray*}
-%                 &\Longrightarrow &(\mu_1 - \mu_a) \leq 2 \sqrt{\frac{\alpha \ln(T)}{N_a(t)}} \\
-%                 & \Longrightarrow & \ N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)
+%                 &\Longrightarrow &(\mu_1 - \mu_a) \leq 2 \sqrt{\frac{\alpha \log(T)}{N_a(t)}} \\
+%                 & \Longrightarrow & \ N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\log(T)
 %             \end{eqnarray*}
 %         \end{column}
 %         \begin{column}{4.5cm}
@@ -1708,8 +1708,8 @@
 %     \begin{eqnarray*}
 %         (B) & \leq &  \sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1, \text{LCB}_a(t) \leq \mu_a) %\\ && \hspace{1.3cm} + \hspace{0.3cm} \sum_{t=0}^{T-1}\bP(\UCB_2(t) \leq \mu_2)
 %         + C_\alpha /2 \\
-%         & \leq &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T)\right)+ C_{\alpha}/2 \\
-%         & \leq & \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T) + C_\alpha/2
+%         & \leq &  \sum_{t=0}^{T-1}\bP\left(A_{t+1}=a, N_a(t) \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\log(T)\right)+ C_{\alpha}/2 \\
+%         & \leq & \frac{4\alpha}{(\mu_1 - \mu_a)^2}\log(T) + C_\alpha/2
 %     \end{eqnarray*}
 
 
@@ -1717,7 +1717,7 @@
 %         \item \textbf{Conclusion}:
 %     \end{itemize}
 
-%     \[\bE[N_a(T) ] \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\ln(T) + C_\alpha.\]
+%     \[\bE[N_a(T) ] \leq \frac{4\alpha}{(\mu_1 - \mu_a)^2}\log(T) + C_\alpha.\]
 
 
 % \end{frameO}
@@ -1731,13 +1731,13 @@
 
 %     \vspace{-0.2cm}
 
-%     \[\UCB_a(t) = \widehat{\mu}_a(t) + \sqrt{\frac{2\sigma^2(\ln(t) + c\ln\ln(t))}{N_a(t)}}\]
+%     \[\UCB_a(t) = \widehat{\mu}_a(t) + \sqrt{\frac{2\sigma^2(\log(t) + c\log\log(t))}{N_a(t)}}\]
 
 %     \vspace{-0.2cm}
 
 %     \begin{orangeblock}{Theorem \color{gray}[Cappé et al.'13]}
 %         For $c \geq 3$, the UCB algorithm associated to the above index satisfy
-%         \[\bE[N_a(T)] \leq \frac{2\sigma^2}{(\mu_\star - \mu_a)^2}\ln(T) + C_{\bm\mu}\sqrt{\ln(T)}.\]
+%         \[\bE[N_a(T)] \leq \frac{2\sigma^2}{(\mu_\star - \mu_a)^2}\log(T) + C_{\bm\mu}\sqrt{\log(T)}.\]
 %     \end{orangeblock}
 
 %     \pause
@@ -1750,7 +1750,7 @@
 
 %                   \vspace{-0.3cm}
 
-%                   \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \neq\red \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\kl(\mu_a,\mu_\star)}\right)\black \ln(T) \]
+%                   \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \neq\red \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\kl(\mu_a,\mu_\star)}\right)\black \log(T) \]
 
 %                   \vspace{-0.3cm}
 
@@ -1764,7 +1764,7 @@
 
 %                       \vspace{-0.3cm}
 
-%                       \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim\blue \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{2\Delta_a}\right)\black \ln(T) \]
+%                       \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim\blue \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{2\Delta_a}\right)\black \log(T) \]
 
 %                       \vspace{-0.3cm}
 
@@ -1776,7 +1776,7 @@
 
 %                       \vspace{-0.3cm}
 
-%                       \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim \blue \left(\sum_{a : \mu_a < \mu_\star} \frac{2\sigma^2}{\Delta_a}\right)\black \ln(T) .\]
+%                       \[\mathcal{R}_{\nu}(\mathrm{UCB},T) \lesssim \blue \left(\sum_{a : \mu_a < \mu_\star} \frac{2\sigma^2}{\Delta_a}\right)\black \log(T) .\]
 
 %                       \vspace{-0.3cm}
 
@@ -1791,13 +1791,13 @@
 
 % \begin{frameO}[The Worst-case Performance of UCB]
 %     \begin{itemize}
-%         \item UCB worst-case regret:  $\mathcal{O}(\blue\sqrt{KT \ln(T)})$
+%         \item UCB worst-case regret:  $\mathcal{O}(\blue\sqrt{KT \log(T)})$
 %     \end{itemize}
 %     \begin{eqnarray*}
 %         \cR_{\bm\nu}(\texttt{UCB},T) & = &\sum_{a=1}^K \textcolor{red}{\Delta_a\sqrt{\bE[N_a(T)]}}\sqrt{\bE[N_a(T)]} \\
-%         &=&\sum_{a=1}^K \mathcal{O}(\red{\sqrt{\ln(T)}}\black)\sqrt{\bE[N_a(T)]}\\
-%         &\leq& K\sqrt{\frac{1}{K} \sum_{a}\bE[N_a(T)]}\mathcal{O}(\sqrt{\ln(T)})\\
-%         &=& \mathcal{O}(\sqrt{KT \ln(T)})
+%         &=&\sum_{a=1}^K \mathcal{O}(\red{\sqrt{\log(T)}}\black)\sqrt{\bE[N_a(T)]}\\
+%         &\leq& K\sqrt{\frac{1}{K} \sum_{a}\bE[N_a(T)]}\mathcal{O}(\sqrt{\log(T)})\\
+%         &=& \mathcal{O}(\sqrt{KT \log(T)})
 %     \end{eqnarray*}
 %     \begin{itemize}
 %         \item[$\Longrightarrow$] not exactly matching the $\blue\Omega(\sqrt{KT})$ lower bound\dots
@@ -1825,14 +1825,14 @@
 % \begin{frameO}[UCB-V]
 
 %     UCB with empirical \red V\black ariance estimates \gray [Audibert et al. 09] \black selects
-%     \[A_{t+1} = \argmax_{a=1,\dots,K} \ \red  \hat\mu_{a}(t) + \sqrt{\frac{2{\widehat{\sigma}_a(t)} \ln t^3}{N_a(t)}} + \frac{7\ln t^3}{3{N_a(t)}}\]
+%     \[A_{t+1} = \argmax_{a=1,\dots,K} \ \red  \hat\mu_{a}(t) + \sqrt{\frac{2{\widehat{\sigma}_a(t)} \log t^3}{N_a(t)}} + \frac{7\log t^3}{3{N_a(t)}}\]
 %     where $\widehat{\sigma}_a(t) =\frac{1}{N_a(t)}\sum_{s=1}^{N_a(t)} \left(Y_{a,s} - \widehat{\mu}_a(t)\right)^2$.
 
 %     \vspace{0.3cm}
 
 %     \alt<2>{\begin{orangeblock}{Theorem \gray[Audibert et al. 09]}
 %             For a bandit instance with bounded rewards, UCB-V satisfies
-%             \[\cR_{\bm\nu}\left(\texttt{UCB-V},T\right) \leq C \blue\left(\sum_{a : \mu_a < \mu_\star}\frac{\sigma_a^2}{\Delta_a}\right)\black\ln(T)\]
+%             \[\cR_{\bm\nu}\left(\texttt{UCB-V},T\right) \leq C \blue\left(\sum_{a : \mu_a < \mu_\star}\frac{\sigma_a^2}{\Delta_a}\right)\black\log(T)\]
 
 %             \vspace{-0.3cm}
 
@@ -1842,7 +1842,7 @@
 %         \begin{alertblock}{Empirical Bernstein Inequality}
 %             Let $X_i\in[0,1]$ be $n$ {independent} r.v. with mean $\mu_i = \bE X_i$ and {variance} $\sigma^2$
 %             \begin{equation*}
-%                 \bP\Big(\frac{1}{n}\sum_{i=1}^n \big(X_i - \mu_i\big)  \geq \sqrt{\frac{2\hat \sigma_n^2\ln(2/\delta)}{n}} + \frac{7\ln(2/\delta)}{3n}\Big) \leq \delta
+%                 \bP\Big(\frac{1}{n}\sum_{i=1}^n \big(X_i - \mu_i\big)  \geq \sqrt{\frac{2\hat \sigma_n^2\log(2/\delta)}{n}} + \frac{7\log(2/\delta)}{3n}\Big) \leq \delta
 %             \end{equation*}
 
 %             \vspace{-0.3cm}
@@ -1868,7 +1868,7 @@
 
 %     \vspace{-0.4cm}
 
-%     \[\cR_{\nu}(\texttt{ISM},T) \leq (1+\varepsilon)\!\!\!\!\!\!\!\!\underbrace{\blue\sum_{a : \mu_a < \mu_\star} \frac{2}{\ln\left(1+ \frac{\Delta_a^2}{\sigma_a^2}\right)}\black}_{\substack{\text{optimal constant}\\\text{(Burnetas and Katehakis lower bound)}}}\!\!\!\!\!\!\!\!\ln(T) + O_\varepsilon(\ln\ln(T)).\]
+%     \[\cR_{\nu}(\texttt{ISM},T) \leq (1+\varepsilon)\!\!\!\!\!\!\!\!\underbrace{\blue\sum_{a : \mu_a < \mu_\star} \frac{2}{\log\left(1+ \frac{\Delta_a^2}{\sigma_a^2}\right)}\black}_{\substack{\text{optimal constant}\\\text{(Burnetas and Katehakis lower bound)}}}\!\!\!\!\!\!\!\!\log(T) + O_\varepsilon(\log\log(T)).\]
 
 %     \begin{itemize}
 %         \item[$\Longrightarrow$] asymptotic optimality beyond Gaussian rewards?
@@ -1877,345 +1877,345 @@
 % \end{frameO}
 
 
-\section{Asymptotically Optimal Algorithms}
-
-\begin{frameTI}
-    \begin{center}
-        \color{white} \Huge \textsc{Asymptotically Optimal}
-
-        \textsc{Algorithms}
-    \end{center}
-    \vspace*{-4pt}
-\end{frameTI}
-
-\begin{frameO}[The idea of \klUCB{}]
-
-    \vspace{0.4cm}
-
-    \textbf{Context:} $\bm\mu=(\nu_1,\dots,\nu_K)$ belong to a \blue one-dimensional exponential family\black:
-    \[\cP_{\eta,\Theta,b}=\{\nu_{\theta}, \theta \in \Theta : \nu_{\theta} \ \text{has density} \ f_{\theta}(x)=\exp(\theta x - b(\theta)) \ w.r.t. \ \eta\}\]
-
-    \vspace{-0.3cm}
-
-    \begin{itemize}
-        \item $\nu_{\theta}$ can be parameterized by its mean $\blue\mu = \dot{b}(\theta)\black$ : $\red \nu^\mu := \nu_{\dot{b}^{-1}(\mu)}\black$
-        \item $\bm\nu \Leftrightarrow \bm\mu = (\mu_1,\dots,\mu_K)$
-    \end{itemize}
-    \textbf{Examples:} \textit{Bernoulli, Gaussian with known variance, Poisson, Exponential}
-    \vspace{0.3cm}
-
-    \textbf{Lai and Robbins lower bound:}
-    \[\liminf_{T\Longrightarrow \infty} \frac{\cR_{\bm\nu}(\cA,T)}{\ln(T)} \geq \sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\red\kl\black(\mu_a,\mu_\star)}.\]
-
-    \textbf{Idea:} algorithms exploiting the KL-divergence associated to that exponential family
-    \[\red \kl(\mu,\mu') = \KL\left(\nu^\mu,\nu^{\mu'}\right)\black.\]
-
-\end{frameO}
-
-\begin{frameO}[The $\mathrm{kl}$-UCB index]
-
-    \begin{orangeblock}{}
-        Fix an exponential family and its divergence function $\kl(\mu,\mu')$.
-        For some parameter $c\geq 0$, use
-        \vspace{-0.5cm}
-        \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\ln(t)+c\ln\ln(t)}{N_a(t)}\right\},
-        \]
-    \end{orangeblock}
-
-    \vspace{-0.5cm}
-
-    \begin{center}
-        \includegraphics[height=4.5cm]{Interval.pdf}
-    \end{center}
-
-    \vspace{-0.4cm}
-
-    {\small
-        \gray [Lai, 1987] \black: first occurence of a kl-UCB index (asymptotic analysis)
-
-        \gray [Garivier and Cappé, 2011] [Cappé, Garivier, Maillard, Munos, Stoltz, 2013] \black : non-asymptotic analysis of kl-UCB for exponential families}
-
-\end{frameO}
-
-\begin{frameO}[Why is it a UCB?]
-
-    \begin{orangeblock}{}
-        Fix an exponential family and its divergence function $\kl(\mu,\mu')$.
-        \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\ln(t)+c\ln\ln(t)}{N_a(t)}\right\},
-        \]
-
-        \vspace{-0.3cm}
-
-        for some parameter $c\geq 0$.
-    \end{orangeblock}
-
-    \alt<3>{\textbf{General case}: follows from
-        \begin{alertblock}{Chernoff inequality for exponential families}
-            $Z_i$ i.i.d. and $Z_1 \sim \nu^{\mu}$. For all $s\geq 1$
-            \[\forall u < \mu, \ \ \bP\left(\frac{Z_1 + \dots + Z_s}{s}  \leq u \right)  \leq e^{-s\times\red\kl\black(u,\mu)}\]
-        \end{alertblock}
-
-        \color{red}\Large\danger\normalsize\black Cannot be used directly in a bandit model as \blue the number of observations from each arm is random\black!
-    }{\alt<2>{\textbf{General case}: follows from
-            \begin{alertblock}{Chernoff inequality for exponential families}
-                $Z_i$ i.i.d. and $Z_1 \sim \nu^{\mu}$. For all $s\geq 1$
-                \[\forall u > \mu, \ \ \bP\left(\frac{Z_1 + \dots + Z_s}{s}  \geq u \right)  \leq e^{-s\times\red\kl\black(u,\mu)}\]
-            \end{alertblock}
-
-            \color{red}\Large\danger\normalsize\black Cannot be used directly in a bandit model as \blue the number of observations from each arm is random\black!
-        }{\textbf{Gaussian bandit}: \[\kl(\mu,\mu') = \frac{(\mu - \mu')^2}{2\sigma^2}\]
-            We recover
-            \[\blue\UCB_a(t) = \widehat{\mu}_a(t) + \sqrt{\frac{2\sigma^2\left(\ln(t) + c \ln\ln(t)\right)}{N_a(t)}}\black\]
-            \begin{itemize}
-                \item[$\Longrightarrow$] upper-confidence bound on $\mu_a$
-            \end{itemize}
-
-        }}
-
-    % \begin{eqnarray*}
-    %  \bP\left(\mu_a > \UCB_{a,s}(\gamma) \right) & = & \bP\left(s\times \kl(\widehat{\mu}_{a,s} , \mu_a) > \gamma)\right) \\
-    %  & = & \bP\left(\widehat{\mu}_{a,s} > x_\gamma\right) \leq e^{-sd(x_\gamma,\mu)} = e^{-\gamma}
-    % \end{eqnarray*}
-    % where $x_\gamma$ is such that $s \times \kl(x_\gamma,\mu) = \gamma$.{\alt<2>{\textbf{General case}: follows from
-
-
-\end{frameO}
-
-
-
-\begin{frameO}[An asymptotically optimal algorithm]
-
-    \vspace{0.3cm}
-
-    \klUCB{} selects $A_{t+1} = \argmax_{a} \UCB_a(t)$ with
-    \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\ln(t)+c\ln\ln(t)}{N_a(t)}\right\}.
-    \]
-
-    \vspace{-0.3cm}
-
-    \begin{orangeblock}{Theorem \gray[Cappé et al, 13]} If $c \geq 3$, for every arm such that $\mu_a < \mu_\star$,
-        \[\bE_{\bm\mu}[N_a(T)] \leq \frac{1}{\red\kl\black(\mu_a,\mu_\star)}\ln(T) + C_{\bm\mu}\sqrt{\ln(T)}.\]
-        \begin{center}
-            \textit{(explicit constant in the paper)}
-        \end{center}
-    \end{orangeblock}
-
-    \begin{itemize}
-        \item \blue asymptotically optimal \black for rewards in a 1-d exponential family:
-    \end{itemize}
-    \[\cR_{\bm\mu}(\mathrm{kl}\text{-UCB},T) \simeq \blue \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\kl(\mu_a,\mu_\star)}\right)\black\ln(T).\]
-
-
-
-\end{frameO}
-
-\begin{frameO}[UCB versus kl-UCB]
-
-    \vspace{0.3cm}
-
-    \[\text{Bernoulli arms } \bm\mu = [0.1 \ 0.05 \ 0.05 \ 0.05 \ 0.02 \ 0.02 \ 0.02 \ 0.01 \ 0.01 \ 0.01]\]
-
-    \vspace{-0.5cm}
-
-    \begin{center}
-        \includegraphics[width=0.7\textwidth]{curves_klUCB}
-    \end{center}
-
-    \vspace{-0.6cm}
-
-    \hfill {\small (Credit: Cappé et al, 13)}
-\end{frameO}
-
-\begin{frameO}[Where do the improvements come from?]
-
-    \begin{orangeblock}{Theorem \gray[Cappé et al, 13]} If $c \geq 3$, for every arm such that $\mu_a < \mu_\star$,
-        \[\bE_{\bm\mu}[N_a(T)] \leq \frac{1}{\kl(\mu_a,\mu_\star)}\ln(T) + C_{\bm\mu}\sqrt{\ln(T)}.\]
-        \hfill{} \textit{(explicit constant in the paper)}
-    \end{orangeblock}
-
-    \begin{itemize}
-        \item[$\Longrightarrow$] follows from  \red two improvements \black in the previous analysis
-    \end{itemize}
-    \alt<3>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \blue \text{ a better concentration result}} + \underbrace{\frac{f(T)}{\kl(\mu_a,\mu_1)} + \mathcal{O}(\sqrt{f(T)})}_{B : \red\text{ a finer upper bound}} \]}
-    {\alt<2>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red\text{ a better concentration result}} + \underbrace{\sum_{s=1}^{T}\bP(s\times \kl(\hat\mu_{a,s} , \mu_1) \leq f(T))}_{B : \red \text{ a finer upper bound}} \]
-        }{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red \text{ a better concentration result}} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1)}_{B : \red \text{ a finer upper bound}} \]}}
-
-    \alt<2->{\hfill$f(T) = \ln(T) + c \ln\ln(T)$}{}
-\end{frameO}
-
-
-% \begin{frameO}[Self-normalized concentration inequalities]
-
-%     \begin{eqnarray*}
-%         \bP(\UCB_1(t) \leq \mu_1) & = & \bP\left( N_1(t)\times \kl^+\!\!\left(\widehat{\mu}_1(t),\mu_1\right) > \ln(t) + c\ln\ln(t)\right) \\
-%         & \leq & \bP\left(\exists s \leq t : s \times \kl^+(\widehat{\mu}_{1,s},\mu_1) > \ln(t) + c\ln\ln(t)\right)
-%     \end{eqnarray*}
-
-%     \alt<3>{\textbf{Second idea:} \red peeling trick \black
-%     \begin{alertblock}{Lemma \gray[Garivier and Cappé, 2011]}
-%         \[\bP\left(\exists s \leq t : s \times \kl^+\left(\widehat{\mu}_{1,s},\mu_1\right) > \gamma \right) \leq e \lceil\gamma \ln(t)\rceil  e^{-\gamma}.\]
-%     \end{alertblock}
-
-%     \vspace{-0.3cm}
-
-%     \begin{eqnarray*}
-%         \bP(\UCB_1(t) \leq \mu_1) & = & \mathcal{O}\left( \frac{\ln^2(t)}{t\ln^c(t)}\right)
-%     \end{eqnarray*}
-
-%     \[\rightsquigarrow \red  \sum_{t=1}^\infty
-%         \bP(\UCB_1(t) \leq \mu_1) < \infty \black \ \ \ \text{for } c \geq 3.\]
-
-
-%     }{
-%     \alt<2>{\textbf{Second idea:} \red peeling trick \black
-
-%     \vspace{0.3cm}
-
-%     Introducing \blue slices $\cI_k = \{t_{k}, \dots,t_{k+1}\}$\black, with $t_k = \lfloor (1+\eta)^{k-1}\rfloor$.
-%     \begin{align*}
-%         \hspace{-0.4cm}\bP(\UCB_1(t) \leq \mu_1) & \!\leq\!\!\sum_{k=1}^{\frac{\ln(t)}{\ln(1+\eta)}} \bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\widehat{\mu}_{1,s},\mu_1\right)\! > \!\ln(t) + c\ln\ln(t)\right)                                                                                             \\
-%                                                  & \leq \!\!  \sum_{k=1}^{\frac{\ln(t)}{\ln(1+\eta)}} \underbrace{\bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\widehat{\mu}_{1,s},\mu_1\right)\! > \!\ln(t_{k}) + c\ln\ln(t_{k})\right)}_{\substack{\text{deviation of } \widehat{\mu}_{1,s} \text{ from its mean} \\\ \blue \text{uniformly over } s\in\cI_k}} \\
-%     \end{align*}
-
-%     \vspace{-1cm}
-
-%     \[\hspace{4cm} \rightsquigarrow \red  \text{maximal inequalities for martingales}\]
-%     }{
-%     \textbf{First idea:} union bound + Chernoff inequality
-%     \begin{eqnarray*}
-%         \bP(\UCB_1(t) \leq \mu_1) & = & \sum_{s=1}^t \bP\left( s\times \kl^+\!\!\left(\widehat{\mu}_{1,s},\mu_1\right) > \ln(t) + c\ln\ln(t)\right) \\
-%         & \leq & \sum_{s=1}^t \frac{1}{t\ln^c(t)} = \frac{1}{\ln(t)^c}
-%     \end{eqnarray*}
-
-%     \[\rightsquigarrow \red  \sum_{t=1}^\infty \bP(\UCB_1(t) < \mu_1) = \infty\]
-%     \begin{itemize}
-%         \item[$\Longrightarrow$] not good enough\dots
-%     \end{itemize}
-
-%     }}
-
-% \end{frameO}
-
-\begin{frameO}[\klUCB{} beyond exponential families]
-
-    \begin{itemize}
-        \item \klUCB{} \blue can be used for arbitrary rewards in $[0,1]$ \black with
-              \begin{itemize}
-                  \item[$\Longrightarrow$] the Gaussian divergence $\kl(x,y) = 2(x-y)^2$ (UCB)
-                  \item[$\Longrightarrow$] the Bernoulli divergence $\kl(x,y) = \KL(\cB(x),\cB(y))$
-              \end{itemize}
-              with the same theoretical guarantees. \hfill \gray[Cappé et al. 13]\black
-
-    \end{itemize}
-
-    \begin{itemize}
-        \item variants of kl-UCB for \blue other types of parametric reward distributions \black
-              \begin{itemize}
-                  \item[$\Longrightarrow$] distribution with a finite support \hfill \gray[Maillard et al. 11][Cappé et al. 13]\black
-
-                  \item[$\Longrightarrow$] exponential family with $d > 1$ parameters \hfill  \gray [Maillard, 17]
-              \end{itemize}
-    \end{itemize}
-
-    \begin{itemize}
-        \item variants that \blue do not exploit parametric assumptions \black that obtain better guarantees for arbitrary rewards
-              \begin{itemize}
-                  \item[$\Longrightarrow$] DMED, IMED \hfill \gray [Honda and Takemura, 10][Honda and Takemura, 16] \black
-                  \item[$\Longrightarrow$] empirical KL-UCB for bounded rewards \hfill \gray[Cappé et al. 13]\black
-              \end{itemize}
-    \end{itemize}
-
-\end{frameO}
-
-
-
-%
-% {\vspace{-0.5cm}
-%
-%  \[\color{gray} \text{[Cappé et al. 13]}\black: \ \ \ \bE_{\bm \mu}[N_k(T)]\leq  \color{blue}\frac{1}{d(\mu_k,\mu_\star)}\color{black}{\ln T} + \mathcal{O}(\sqrt{\ln(T)}).\]}
-
-
-% \section{Worst-case Optimality}
+% \section{Asymptotically Optimal Algorithms}
 
 % \begin{frameTI}
 %     \begin{center}
-%         {\textcolor{white} {\Huge \textsc{Worst-case Optimality} }}
+%         \color{white} \Huge \textsc{Asymptotically Optimal}
+
+%         \textsc{Algorithms}
 %     \end{center}
 %     \vspace*{-4pt}
 % \end{frameTI}
 
+% \begin{frameO}[The idea of \klUCB{}]
 
-% \begin{frameO}[The MOSS algorithm]
+%     \vspace{0.4cm}
 
-%     \vspace{0.3cm}
-
-%     \red M\black inimax \red O\black ptimal \red S\black trategy in the \red S\black tochastic case.
-
-%     \gray [Audibert and Bubeck, 09] \black
-
-%     \vspace{-0.5cm}
-
-%     \[A_{t+1} = \argmax_{a = 1,\dots,K} \ \red \widehat{\mu}_a(t) + \sqrt{\frac{\ln_+\left(\frac{T}{KN_a(t)}\right)}{N_a(t)}}\]
-
-%     \begin{orangeblock}{Theorem \gray [Audibert and Bubeck, 09]}
-%         Let $\nu$ be a bandit instance with bounded rewards.
-%         \begin{enumerate}
-%             \item Letting $\Delta_{\min} = \underset{a : \mu_a < \mu_\star}{\mathrm{min}} (\mu_\star - \mu_a)$,
-
-%                   \vspace{-0.2cm}
-
-%                   \[\cR_{\bm\nu}(\texttt{MOSS},T) \leq \alt<2>{\blue\frac{23K}{\Delta_{\min}}\black}{\frac{23K}{\Delta_{\min}}}\ln\left(\max\left[\frac{110T\red\Delta_{\min}^2\black}{K},10^4\right]\right).\]\alt<2>{\vspace{-0.2cm}}{}
-%             \item It also holds that $\cR_{\bm\nu}(\texttt{MOSS},T) \leq 25\red \sqrt{KT}\black$.
-
-%         \end{enumerate}
-
-
-%     \end{orangeblock}
-
-%     \alt<2>{\begin{itemize}
-%             \item[$\Longrightarrow$] \blue far from optimal \black in a problem-dependent sense
-%         \end{itemize}}{
-%         \begin{itemize}
-%             \item[$\Longrightarrow$] matching the worse-case lower bound in $\Omega(\sqrt{KT})$ !
-%         \end{itemize}}
-
-
-
-% \end{frameO}
-
-% \begin{frameO}[KL-UCB switch]
-
-%     \vspace{0.3cm}
-
-%     \textbf{Idea:} ``switch'' between KL-UCB and MOSS in order to be simultaneously \blue optimal \black in a problem-dependent and worst-case sense.
-
-%     \hfill\gray [Garivier et al., 2018]\black
-
-%     KL-UCB switch is the index policy associated to
-%     \[\red\UCB_a(t) = \left\{\begin{array}{cl}
-%             \UCB_a^{\text{KL}}(t) & \text{if } N_a(t) \leq (T/K)^{1/5},          \\
-%             \UCB_a^{\text{M}}(t)  & \text{if } N_a(t) > (T/K)^{1/5}\alt<2>{.}{,} \\
-%         \end{array}\right.\]
+%     \textbf{Context:} $\bm\mu=(\nu_1,\dots,\nu_K)$ belong to a \blue one-dimensional exponential family\black:
+%     \[\cP_{\eta,\Theta,b}=\{\nu_{\theta}, \theta \in \Theta : \nu_{\theta} \ \text{has density} \ f_{\theta}(x)=\exp(\theta x - b(\theta)) \ w.r.t. \ \eta\}\]
 
 %     \vspace{-0.3cm}
 
-%     \alt<2>{\begin{orangeblock}{Theorem \gray [Garivier et al. 18]}
-%             Fix $\nu$ a bandit instance with bounded rewards.
-%             \begin{enumerate}
-%                 \item For all sub-optimal arm $a$,
-%                       \[\bE_{\nu}[N_a(T)] \leq \blue\frac{\ln(T)}{\kl(\mu_a,\mu_\star)}\black + \mathcal{O}\left(\ln^{2/3}(T)\right)\]
-%                 \item Moreover, $\cR_{\bm\nu}(\text{KL-UCB-Switch},T) \leq 25\blue\sqrt{KT}\black + (K-1)$.
-%             \end{enumerate}
-%         \end{orangeblock}}{where \begin{orangeblock}{}\vspace{-0.3cm}
-%             \begin{eqnarray*}
-%                 \UCB_a^{\text{KL}}(t)& = & \max \left\{ q : N_a(t) \times \kl\left(\widehat{\mu}_a(t), q\right) \leq \ln_+\left(\blue\frac{T}{KN_a(t)}\black\right) \right\}\footnote{$\kl(x,y)=\kl_{\text{Ber}}(x,y)$; \text{can also rely on the non-parameteric KL-UCB index}},\\
-%                 \UCB_a^{\text{M}}(t)& = &\widehat{\mu}_a(t) + \sqrt{\frac{\ln_+\left(\blue\frac{T}{KN_a(t)}\black\right)}{2N_a(t)}}.
-%             \end{eqnarray*}\end{orangeblock}}
+%     \begin{itemize}
+%         \item $\nu_{\theta}$ can be parameterized by its mean $\blue\mu = \dot{b}(\theta)\black$ : $\red \nu^\mu := \nu_{\dot{b}^{-1}(\mu)}\black$
+%         \item $\bm\nu \Leftrightarrow \bm\mu = (\mu_1,\dots,\mu_K)$
+%     \end{itemize}
+%     \textbf{Examples:} \textit{Bernoulli, Gaussian with known variance, Poisson, Exponential}
+%     \vspace{0.3cm}
 
+%     \textbf{Lai and Robbins lower bound:}
+%     \[\liminf_{T\Longrightarrow \infty} \frac{\cR_{\bm\nu}(\cA,T)}{\log(T)} \geq \sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\red\kl\black(\mu_a,\mu_\star)}.\]
+
+%     \textbf{Idea:} algorithms exploiting the KL-divergence associated to that exponential family
+%     \[\red \kl(\mu,\mu') = \KL\left(\nu^\mu,\nu^{\mu'}\right)\black.\]
+
+% \end{frameO}
+
+% \begin{frameO}[The $\mathrm{kl}$-UCB index]
+
+%     \begin{orangeblock}{}
+%         Fix an exponential family and its divergence function $\kl(\mu,\mu')$.
+%         For some parameter $c\geq 0$, use
+%         \vspace{-0.5cm}
+%         \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\log(t)+c\log\log(t)}{N_a(t)}\right\},
+%         \]
+%     \end{orangeblock}
+
+%     \vspace{-0.5cm}
+
+%     \begin{center}
+%         \includegraphics[height=4.5cm]{Interval.pdf}
+%     \end{center}
+
+%     \vspace{-0.4cm}
+
+%     {\small
+%         \gray [Lai, 1987] \black: first occurence of a kl-UCB index (asymptotic analysis)
+
+%         \gray [Garivier and Cappé, 2011] [Cappé, Garivier, Maillard, Munos, Stoltz, 2013] \black : non-asymptotic analysis of kl-UCB for exponential families}
+
+% \end{frameO}
+
+% \begin{frameO}[Why is it a UCB?]
+
+%     \begin{orangeblock}{}
+%         Fix an exponential family and its divergence function $\kl(\mu,\mu')$.
+%         \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\log(t)+c\log\log(t)}{N_a(t)}\right\},
+%         \]
+
+%         \vspace{-0.3cm}
+
+%         for some parameter $c\geq 0$.
+%     \end{orangeblock}
+
+%     \alt<3>{\textbf{General case}: follows from
+%         \begin{alertblock}{Chernoff inequality for exponential families}
+%             $Z_i$ i.i.d. and $Z_1 \sim \nu^{\mu}$. For all $s\geq 1$
+%             \[\forall u < \mu, \ \ \bP\left(\frac{Z_1 + \dots + Z_s}{s}  \leq u \right)  \leq e^{-s\times\red\kl\black(u,\mu)}\]
+%         \end{alertblock}
+
+%         \color{red}\Large\danger\normalsize\black Cannot be used directly in a bandit model as \blue the number of observations from each arm is random\black!
+%     }{\alt<2>{\textbf{General case}: follows from
+%             \begin{alertblock}{Chernoff inequality for exponential families}
+%                 $Z_i$ i.i.d. and $Z_1 \sim \nu^{\mu}$. For all $s\geq 1$
+%                 \[\forall u > \mu, \ \ \bP\left(\frac{Z_1 + \dots + Z_s}{s}  \geq u \right)  \leq e^{-s\times\red\kl\black(u,\mu)}\]
+%             \end{alertblock}
+
+%             \color{red}\Large\danger\normalsize\black Cannot be used directly in a bandit model as \blue the number of observations from each arm is random\black!
+%         }{\textbf{Gaussian bandit}: \[\kl(\mu,\mu') = \frac{(\mu - \mu')^2}{2\sigma^2}\]
+%             We recover
+%             \[\blue\UCB_a(t) = \widehat{\mu}_a(t) + \sqrt{\frac{2\sigma^2\left(\log(t) + c \log\log(t)\right)}{N_a(t)}}\black\]
+%             \begin{itemize}
+%                 \item[$\Longrightarrow$] upper-confidence bound on $\mu_a$
+%             \end{itemize}
+
+%         }}
+
+%     % \begin{eqnarray*}
+%     %  \bP\left(\mu_a > \UCB_{a,s}(\gamma) \right) & = & \bP\left(s\times \kl(\widehat{\mu}_{a,s} , \mu_a) > \gamma)\right) \\
+%     %  & = & \bP\left(\widehat{\mu}_{a,s} > x_\gamma\right) \leq e^{-sd(x_\gamma,\mu)} = e^{-\gamma}
+%     % \end{eqnarray*}
+%     % where $x_\gamma$ is such that $s \times \kl(x_\gamma,\mu) = \gamma$.{\alt<2>{\textbf{General case}: follows from
+
+
+% \end{frameO}
+
+
+
+% \begin{frameO}[An asymptotically optimal algorithm]
+
+%     \vspace{0.3cm}
+
+%     \klUCB{} selects $A_{t+1} = \argmax_{a} \UCB_a(t)$ with
+%     \[\UCB_{a}(t)=\max\left\{q : \red \kl\black\left(\widehat{\mu}_a(t),q\right) \leq \frac{\log(t)+c\log\log(t)}{N_a(t)}\right\}.
+%     \]
+
+%     \vspace{-0.3cm}
+
+%     \begin{orangeblock}{Theorem \gray[Cappé et al, 13]} If $c \geq 3$, for every arm such that $\mu_a < \mu_\star$,
+%         \[\bE_{\bm\mu}[N_a(T)] \leq \frac{1}{\red\kl\black(\mu_a,\mu_\star)}\log(T) + C_{\bm\mu}\sqrt{\log(T)}.\]
+%         \begin{center}
+%             \textit{(explicit constant in the paper)}
+%         \end{center}
+%     \end{orangeblock}
+
+%     \begin{itemize}
+%         \item \blue asymptotically optimal \black for rewards in a 1-d exponential family:
+%     \end{itemize}
+%     \[\cR_{\bm\mu}(\mathrm{kl}\text{-UCB},T) \simeq \blue \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\kl(\mu_a,\mu_\star)}\right)\black\log(T).\]
 
 
 
 % \end{frameO}
+
+% \begin{frameO}[UCB versus kl-UCB]
+
+%     \vspace{0.3cm}
+
+%     \[\text{Bernoulli arms } \bm\mu = [0.1 \ 0.05 \ 0.05 \ 0.05 \ 0.02 \ 0.02 \ 0.02 \ 0.01 \ 0.01 \ 0.01]\]
+
+%     \vspace{-0.5cm}
+
+%     \begin{center}
+%         \includegraphics[width=0.7\textwidth]{curves_klUCB}
+%     \end{center}
+
+%     \vspace{-0.6cm}
+
+%     \hfill {\small (Credit: Cappé et al, 13)}
+% \end{frameO}
+
+% \begin{frameO}[Where do the improvements come from?]
+
+%     \begin{orangeblock}{Theorem \gray[Cappé et al, 13]} If $c \geq 3$, for every arm such that $\mu_a < \mu_\star$,
+%         \[\bE_{\bm\mu}[N_a(T)] \leq \frac{1}{\kl(\mu_a,\mu_\star)}\log(T) + C_{\bm\mu}\sqrt{\log(T)}.\]
+%         \hfill{} \textit{(explicit constant in the paper)}
+%     \end{orangeblock}
+
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] follows from  \red two improvements \black in the previous analysis
+%     \end{itemize}
+%     \alt<3>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \blue \text{ a better concentration result}} + \underbrace{\frac{f(T)}{\kl(\mu_a,\mu_1)} + \mathcal{O}(\sqrt{f(T)})}_{B : \red\text{ a finer upper bound}} \]}
+%     {\alt<2>{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red\text{ a better concentration result}} + \underbrace{\sum_{s=1}^{T}\bP(s\times \kl(\hat\mu_{a,s} , \mu_1) \leq f(T))}_{B : \red \text{ a finer upper bound}} \]
+%         }{\[\bE[N_a(T)] \leq \underbrace{\sum_{t=0}^{T-1}\bP(\UCB_1(t) \leq \mu_1)}_{A : \red \text{ a better concentration result}} + \underbrace{\sum_{t=0}^{T-1}\bP(A_{t+1}=a, \UCB_a(t) > \mu_1)}_{B : \red \text{ a finer upper bound}} \]}}
+
+%     \alt<2->{\hfill$f(T) = \log(T) + c \log\log(T)$}{}
+% \end{frameO}
+
+
+% % \begin{frameO}[Self-normalized concentration inequalities]
+
+% %     \begin{eqnarray*}
+% %         \bP(\UCB_1(t) \leq \mu_1) & = & \bP\left( N_1(t)\times \kl^+\!\!\left(\widehat{\mu}_1(t),\mu_1\right) > \log(t) + c\log\log(t)\right) \\
+% %         & \leq & \bP\left(\exists s \leq t : s \times \kl^+(\widehat{\mu}_{1,s},\mu_1) > \log(t) + c\log\log(t)\right)
+% %     \end{eqnarray*}
+
+% %     \alt<3>{\textbf{Second idea:} \red peeling trick \black
+% %     \begin{alertblock}{Lemma \gray[Garivier and Cappé, 2011]}
+% %         \[\bP\left(\exists s \leq t : s \times \kl^+\left(\widehat{\mu}_{1,s},\mu_1\right) > \gamma \right) \leq e \lceil\gamma \log(t)\rceil  e^{-\gamma}.\]
+% %     \end{alertblock}
+
+% %     \vspace{-0.3cm}
+
+% %     \begin{eqnarray*}
+% %         \bP(\UCB_1(t) \leq \mu_1) & = & \mathcal{O}\left( \frac{\log^2(t)}{t\log^c(t)}\right)
+% %     \end{eqnarray*}
+
+% %     \[\rightsquigarrow \red  \sum_{t=1}^\infty
+% %         \bP(\UCB_1(t) \leq \mu_1) < \infty \black \ \ \ \text{for } c \geq 3.\]
+
+
+% %     }{
+% %     \alt<2>{\textbf{Second idea:} \red peeling trick \black
+
+% %     \vspace{0.3cm}
+
+% %     Introducing \blue slices $\cI_k = \{t_{k}, \dots,t_{k+1}\}$\black, with $t_k = \lfloor (1+\eta)^{k-1}\rfloor$.
+% %     \begin{align*}
+% %         \hspace{-0.4cm}\bP(\UCB_1(t) \leq \mu_1) & \!\leq\!\!\sum_{k=1}^{\frac{\log(t)}{\log(1+\eta)}} \bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\widehat{\mu}_{1,s},\mu_1\right)\! > \!\log(t) + c\log\log(t)\right)                                                                                             \\
+% %                                                  & \leq \!\!  \sum_{k=1}^{\frac{\log(t)}{\log(1+\eta)}} \underbrace{\bP\left( \exists s \in \cI_k , s\times \kl^+\!\!\left(\widehat{\mu}_{1,s},\mu_1\right)\! > \!\log(t_{k}) + c\log\log(t_{k})\right)}_{\substack{\text{deviation of } \widehat{\mu}_{1,s} \text{ from its mean} \\\ \blue \text{uniformly over } s\in\cI_k}} \\
+% %     \end{align*}
+
+% %     \vspace{-1cm}
+
+% %     \[\hspace{4cm} \rightsquigarrow \red  \text{maximal inequalities for martingales}\]
+% %     }{
+% %     \textbf{First idea:} union bound + Chernoff inequality
+% %     \begin{eqnarray*}
+% %         \bP(\UCB_1(t) \leq \mu_1) & = & \sum_{s=1}^t \bP\left( s\times \kl^+\!\!\left(\widehat{\mu}_{1,s},\mu_1\right) > \log(t) + c\log\log(t)\right) \\
+% %         & \leq & \sum_{s=1}^t \frac{1}{t\log^c(t)} = \frac{1}{\log(t)^c}
+% %     \end{eqnarray*}
+
+% %     \[\rightsquigarrow \red  \sum_{t=1}^\infty \bP(\UCB_1(t) < \mu_1) = \infty\]
+% %     \begin{itemize}
+% %         \item[$\Longrightarrow$] not good enough\dots
+% %     \end{itemize}
+
+% %     }}
+
+% % \end{frameO}
+
+% \begin{frameO}[\klUCB{} beyond exponential families]
+
+%     \begin{itemize}
+%         \item \klUCB{} \blue can be used for arbitrary rewards in $[0,1]$ \black with
+%               \begin{itemize}
+%                   \item[$\Longrightarrow$] the Gaussian divergence $\kl(x,y) = 2(x-y)^2$ (UCB)
+%                   \item[$\Longrightarrow$] the Bernoulli divergence $\kl(x,y) = \KL(\cB(x),\cB(y))$
+%               \end{itemize}
+%               with the same theoretical guarantees. \hfill \gray[Cappé et al. 13]\black
+
+%     \end{itemize}
+
+%     \begin{itemize}
+%         \item variants of kl-UCB for \blue other types of parametric reward distributions \black
+%               \begin{itemize}
+%                   \item[$\Longrightarrow$] distribution with a finite support \hfill \gray[Maillard et al. 11][Cappé et al. 13]\black
+
+%                   \item[$\Longrightarrow$] exponential family with $d > 1$ parameters \hfill  \gray [Maillard, 17]
+%               \end{itemize}
+%     \end{itemize}
+
+%     \begin{itemize}
+%         \item variants that \blue do not exploit parametric assumptions \black that obtain better guarantees for arbitrary rewards
+%               \begin{itemize}
+%                   \item[$\Longrightarrow$] DMED, IMED \hfill \gray [Honda and Takemura, 10][Honda and Takemura, 16] \black
+%                   \item[$\Longrightarrow$] empirical KL-UCB for bounded rewards \hfill \gray[Cappé et al. 13]\black
+%               \end{itemize}
+%     \end{itemize}
+
+% \end{frameO}
+
+
+
+% %
+% % {\vspace{-0.5cm}
+% %
+% %  \[\color{gray} \text{[Cappé et al. 13]}\black: \ \ \ \bE_{\bm \mu}[N_k(T)]\leq  \color{blue}\frac{1}{d(\mu_k,\mu_\star)}\color{black}{\log T} + \mathcal{O}(\sqrt{\log(T)}).\]}
+
+
+% % \section{Worst-case Optimality}
+
+% % \begin{frameTI}
+% %     \begin{center}
+% %         {\textcolor{white} {\Huge \textsc{Worst-case Optimality} }}
+% %     \end{center}
+% %     \vspace*{-4pt}
+% % \end{frameTI}
+
+
+% % \begin{frameO}[The MOSS algorithm]
+
+% %     \vspace{0.3cm}
+
+% %     \red M\black inimax \red O\black ptimal \red S\black trategy in the \red S\black tochastic case.
+
+% %     \gray [Audibert and Bubeck, 09] \black
+
+% %     \vspace{-0.5cm}
+
+% %     \[A_{t+1} = \argmax_{a = 1,\dots,K} \ \red \widehat{\mu}_a(t) + \sqrt{\frac{\log_+\left(\frac{T}{KN_a(t)}\right)}{N_a(t)}}\]
+
+% %     \begin{orangeblock}{Theorem \gray [Audibert and Bubeck, 09]}
+% %         Let $\nu$ be a bandit instance with bounded rewards.
+% %         \begin{enumerate}
+% %             \item Letting $\Delta_{\min} = \underset{a : \mu_a < \mu_\star}{\mathrm{min}} (\mu_\star - \mu_a)$,
+
+% %                   \vspace{-0.2cm}
+
+% %                   \[\cR_{\bm\nu}(\texttt{MOSS},T) \leq \alt<2>{\blue\frac{23K}{\Delta_{\min}}\black}{\frac{23K}{\Delta_{\min}}}\log\left(\max\left[\frac{110T\red\Delta_{\min}^2\black}{K},10^4\right]\right).\]\alt<2>{\vspace{-0.2cm}}{}
+% %             \item It also holds that $\cR_{\bm\nu}(\texttt{MOSS},T) \leq 25\red \sqrt{KT}\black$.
+
+% %         \end{enumerate}
+
+
+% %     \end{orangeblock}
+
+% %     \alt<2>{\begin{itemize}
+% %             \item[$\Longrightarrow$] \blue far from optimal \black in a problem-dependent sense
+% %         \end{itemize}}{
+% %         \begin{itemize}
+% %             \item[$\Longrightarrow$] matching the worse-case lower bound in $\Omega(\sqrt{KT})$ !
+% %         \end{itemize}}
+
+
+
+% % \end{frameO}
+
+% % \begin{frameO}[KL-UCB switch]
+
+% %     \vspace{0.3cm}
+
+% %     \textbf{Idea:} ``switch'' between KL-UCB and MOSS in order to be simultaneously \blue optimal \black in a problem-dependent and worst-case sense.
+
+% %     \hfill\gray [Garivier et al., 2018]\black
+
+% %     KL-UCB switch is the index policy associated to
+% %     \[\red\UCB_a(t) = \left\{\begin{array}{cl}
+% %             \UCB_a^{\text{KL}}(t) & \text{if } N_a(t) \leq (T/K)^{1/5},          \\
+% %             \UCB_a^{\text{M}}(t)  & \text{if } N_a(t) > (T/K)^{1/5}\alt<2>{.}{,} \\
+% %         \end{array}\right.\]
+
+% %     \vspace{-0.3cm}
+
+% %     \alt<2>{\begin{orangeblock}{Theorem \gray [Garivier et al. 18]}
+% %             Fix $\nu$ a bandit instance with bounded rewards.
+% %             \begin{enumerate}
+% %                 \item For all sub-optimal arm $a$,
+% %                       \[\bE_{\nu}[N_a(T)] \leq \blue\frac{\log(T)}{\kl(\mu_a,\mu_\star)}\black + \mathcal{O}\left(\log^{2/3}(T)\right)\]
+% %                 \item Moreover, $\cR_{\bm\nu}(\text{KL-UCB-Switch},T) \leq 25\blue\sqrt{KT}\black + (K-1)$.
+% %             \end{enumerate}
+% %         \end{orangeblock}}{where \begin{orangeblock}{}\vspace{-0.3cm}
+% %             \begin{eqnarray*}
+% %                 \UCB_a^{\text{KL}}(t)& = & \max \left\{ q : N_a(t) \times \kl\left(\widehat{\mu}_a(t), q\right) \leq \log_+\left(\blue\frac{T}{KN_a(t)}\black\right) \right\}\footnote{$\kl(x,y)=\kl_{\text{Ber}}(x,y)$; \text{can also rely on the non-parameteric KL-UCB index}},\\
+% %                 \UCB_a^{\text{M}}(t)& = &\widehat{\mu}_a(t) + \sqrt{\frac{\log_+\left(\blue\frac{T}{KN_a(t)}\black\right)}{2N_a(t)}}.
+% %             \end{eqnarray*}\end{orangeblock}}
+
+
+
+
+% % \end{frameO}
 
 \begin{frameO}[Intermediate Summary]
 
@@ -2443,7 +2443,7 @@
 
     \vspace{-0.5cm}
 
-    $S_a(t) = \sum_{s=1}^t R_s \ind_{(A_s = a)}$ sum of the rewards from arm $a$
+    $S_a(t) = \sum\limits_{s=1}^t R_s \ind_{(A_s = a)}$ sum of the rewards from arm $a$
 
 \end{frameO}
 
@@ -2694,14 +2694,14 @@
 %     \begin{itemize}
 %         \item \color{gray} [Burnetas and Katehakis, 03]\black : when $n$ is large,
 %     \end{itemize}
-%     \[G(\pi_a(t-1),n) \simeq \max \left\{ q :  N_a(t)\times \kl\left(\widehat{\mu}_a(t),q\right) \leq \ln \left(\color{red}\frac{n}{N_a(t)}\color{black}\right)\right\}\]
+%     \[G(\pi_a(t-1),n) \simeq \max \left\{ q :  N_a(t)\times \kl\left(\widehat{\mu}_a(t),q\right) \leq \log \left(\color{red}\frac{n}{N_a(t)}\color{black}\right)\right\}\]
 
 %     \vspace{0.5cm}
 
 %     \begin{itemize}
 %         \item \color{gray} [Lai, 87]\black : the index policy associated to
 %     \end{itemize}
-%     \[I_a(t)=\max \left\{ q : N_a(t) \times \kl\left(\widehat{\mu}_a(t),q\right) \leq \ln\left(\color{red}\frac{T}{N_a(t)}\color{black}\right)\right\}\]
+%     \[I_a(t)=\max \left\{ q : N_a(t) \times \kl\left(\widehat{\mu}_a(t),q\right) \leq \log\left(\color{red}\frac{T}{N_a(t)}\color{black}\right)\right\}\]
 %     \begin{itemize}
 %         \item[] is a good approximation of the Bayesian solution for large $T$.
 %     \end{itemize}
@@ -2745,7 +2745,7 @@
     \begin{orangeblock}{}
         The \textbf{Bayes-UCB algorithm} chooses at time $t$
         \[
-            \color{red}A_{t+1} = \argmax_{a = 1,\dots,K} \  Q\left(1-\frac{1}{t(\ln t )^c}, \pi_a(t)\right) \color{black}
+            \color{red}A_{t+1} = \argmax_{a = 1,\dots,K} \  Q\left(1-\frac{1}{t(\log t )^c}, \pi_a(t)\right) \color{black}
         \]
         where $Q(\alpha,\pi)$ is the quantile of order $\alpha$ of the distribution $\pi$.
     \end{orangeblock}
@@ -2795,97 +2795,96 @@
 
         Let $\varepsilon > 0$. The Bayes-UCB algorithm using a uniform prior over the arms and parameter $c  \geq 5$ satisfies
         \vspace{-0.3cm}
-        \[\mathbb{E}_{\bm\mu}[N_a(T)]\leq \frac{1+\varepsilon}{\kl(\mu_a,\mu_\star)}\ln(T) + o_{\varepsilon,c}\left(\ln(T)\right).\]
+        \[\mathbb{E}_{\bm\mu}[N_a(T)]\leq \frac{1+\varepsilon}{\kl(\mu_a,\mu_\star)}\log(T) + o_{\varepsilon,c}\left(\log(T)\right).\]
         %\begin{align*}
-        % &  \bE[N_a(T)] \leq \frac{1+\varepsilon}{d(\mu_a,\mu_1)}\ln(T) +
-        % \sqrt{\ln T + 5\ln\ln T} \sqrt{\frac{2\pi(1+\varepsilon)^3d'(\mu_a,\mu_1)^2}{d(\mu_a,\mu_1)^3}} \\
+        % &  \bE[N_a(T)] \leq \frac{1+\varepsilon}{d(\mu_a,\mu_1)}\log(T) +
+        % \sqrt{\log T + 5\log\log T} \sqrt{\frac{2\pi(1+\varepsilon)^3d'(\mu_a,\mu_1)^2}{d(\mu_a,\mu_1)^3}} \\
         %& \ \ \ \ \ \ \ \ \ + \left(\frac{1+\varepsilon}{d(\mu_a,\mu_1)} +
-        %\frac{2e+3}{1-\mu_1}\right)\ln \ln T + 27 +  2(1+\varepsilon)^2 \left(\frac{d'(\mu_a,\mu_1)}{d(\mu_a,\mu_1)}\right)^2.
+        %\frac{2e+3}{1-\mu_1}\right)\log \log T + 27 +  2(1+\varepsilon)^2 \left(\frac{d'(\mu_a,\mu_1)}{d(\mu_a,\mu_1)}\right)^2.
         %\end{align*}
     \end{orangeblock}
 
 \end{frameO}
 
 
-\begin{frameO}[Links with \klUCB]
+% \begin{frameO}[Links with \klUCB]
 
-    \begin{alertblock}{Lemma \gray [K. et al., 12]}
-        The index $q_a(t)$ used by Bayes-UCB satisfies \[\red\tilde{u}_a(t) \leq q_a(t) \leq u_a(t)\]
+%     \begin{alertblock}{Lemma \gray [K. et al., 12]}
+%         The index $q_a(t)$ used by Bayes-UCB satisfies \[\red\tilde{u}_a(t) \leq q_a(t) \leq u_a(t)\]
 
-        \vspace{-0.7cm}
+%         \vspace{-0.7cm}
 
-        where
-        \begin{eqnarray*}
-            u_a(t)\! & = &\!\! \max \left\{ q  : \kl \left(\frac{S_a(t)}{N_a(t)},q\right) \leq \frac{\ln(t) +c\ln(\ln(t))}{N_a(t)}\right\} \\
-            \tilde{u}_a(t) \!& = &\!\! \max\left\{ q : \kl\left(\frac{S_a(t)}{N_a(t)+1},q\right) \leq \frac{\ln\left(\color{red}\frac{t}{N_a(t)+2}\color{black}\right) + c\ln(\ln(t))}{(N_a(t)+1)}\right\}
-        \end{eqnarray*}
-    \end{alertblock}
+%         where
+%         \begin{eqnarray*}
+%             u_a(t)\! & = &\!\! \max \left\{ q  : \kl \left(\frac{S_a(t)}{N_a(t)},q\right) \leq \frac{\log(t) +c\log(\log(t))}{N_a(t)}\right\} \\
+%             \tilde{u}_a(t) \!& = &\!\! \max\left\{ q : \kl\left(\frac{S_a(t)}{N_a(t)+1},q\right) \leq \frac{\log\left(\color{red}\frac{t}{N_a(t)+2}\color{black}\right) + c\log(\log(t))}{(N_a(t)+1)}\right\}
+%         \end{eqnarray*}
+%     \end{alertblock}
 
-    \textbf{Proof}: rely on the \blue Beta-Binomial trick \black:
-    \[F_{\text{Beta}(a,b)}(x) = 1 - F_{\text{Bin}(a+b - a , x)}(a-1)\]
+%     \textbf{Proof}: rely on the \blue Beta-Binomial trick \black:
+%     \[F_{\text{Beta}(a,b)}(x) = 1 - F_{\text{Bin}(a+b - a , x)}(a-1)\]
 
-    \hfill\gray [Agrawal and Goyal, 12]
-\end{frameO}
+%     \hfill\gray [Agrawal and Goyal, 12]
+% \end{frameO}
 
-\begin{frameO}[Beyond Bernoulli bandits]
+% \begin{frameO}[Beyond Bernoulli bandits]
 
-    \begin{itemize}
-        \item For \red one-dimensional exponential families \black, Bayes-UCB rewrites
-              \[
-                  A_{t+1} = \underset{a}{\text{argmax}} \  Q\left(1-\frac{1}{t(\ln t )^c}, \pi_{a,N_a(t),\widehat{\mu}_a(t)}\right)
-              \]
-    \end{itemize}
+%     \begin{itemize}
+%         \item For \red one-dimensional exponential families \black, Bayes-UCB rewrites
+%               \[
+%                   A_{t+1} = \underset{a}{\text{argmax}} \  Q\left(1-\frac{1}{t(\log t )^c}, \pi_{a,N_a(t),\widehat{\mu}_a(t)}\right)
+%               \]
+%     \end{itemize}
 
-    \textbf{Extra assumption:} there exists $\mu^-,\mu^+$ such that for all $a$,
-    $ \blue\mu_a \in [\mu^-, \mu^+]\black$
-
-
-    \begin{orangeblock}{Theorem \gray [K. 17]}
-        Let $\overline{\mu}_a(t) = (\widehat{\mu}_a(t) \vee \mu^-)\wedge \mu^+$. The index policy
-
-        \vspace{-0.3cm}
-
-        \[
-            A_{t+1} = \underset{a}{\text{argmax}} \   Q\left(1-\frac{1}{t(\ln t )^c}, \pi_{a,N_a(t),\blue\overline{\mu}_a(t)\black}\right)
-        \]
-
-        with parameter $c\geq 7$ is such that, for all $\varepsilon>0$,
-
-        \vspace{-0.3cm}
-
-        \[\red\bE_{\bm \mu}[N_a(T)] \leq \frac{1+\varepsilon}{\kl(\mu_a,\mu_\star)}\ln(T) + \mathcal{O}_{\varepsilon}(\sqrt{\ln(T)})\black.\]
-
-        \vspace{-0.3cm}
-
-    \end{orangeblock}
+%     \textbf{Extra assumption:} there exists $\mu^-,\mu^+$ such that for all $a$,
+%     $ \blue\mu_a \in [\mu^-, \mu^+]\black$
 
 
-\end{frameO}
+%     \begin{orangeblock}{Theorem \gray [K. 17]}
+%         Let $\overline{\mu}_a(t) = (\widehat{\mu}_a(t) \vee \mu^-)\wedge \mu^+$. The index policy
 
-\begin{frameO}[An interesting by-product]
+%         \vspace{-0.3cm}
 
-    \vspace{0.3cm}
+%         \[
+%             A_{t+1} = \underset{a}{\text{argmax}} \   Q\left(1-\frac{1}{t(\log t )^c}, \pi_{a,N_a(t),\blue\overline{\mu}_a(t)\black}\right)
+%         \]
 
-    \begin{itemize}
-        \item Tools from the analysis of Bayes-UCB can be used to analyze two variants of \klUCB{}
-    \end{itemize}
+%         with parameter $c\geq 7$ is such that, for all $\varepsilon>0$,
 
-    \begin{orangeblock}{\klUCB-H$^+$}
-        \[u_a^{H,+}(t)=\max\left\{q :  N_a(t)\times \kl\left(\widehat{\mu}_a(t),q\right) \leq \ln\left(\blue\frac{T\ln^c T}{N_a(t)}\black\right)\right\}\]
-    \end{orangeblock}
+%         \vspace{-0.3cm}
 
-    \begin{orangeblock}{\klUCB$^+$}
-        \[u_a^{+}(t)=\max\left\{q  :  N_a(t) \times \kl\left(\widehat{\mu}_a(t),q\right) \leq \ln\left(\blue\frac{t\ln^c t}{N_a(t)}\black\right)\right\}\]
-    \end{orangeblock}
+%         \[\red\bE_{\bm \mu}[N_a(T)] \leq \frac{1+\varepsilon}{\kl(\mu_a,\mu_\star)}\log(T) + \mathcal{O}_{\varepsilon}(\sqrt{\log(T)})\black.\]
 
-    \vspace{0.2cm}
+%         \vspace{-0.3cm}
 
-    The index policy associated to $u_a^{H,+}(t)$ and $u_a^{+}(t)$ satisfy, for all $\varepsilon>0$,
-    \[\red\bE_{\bm\mu}[N_a(T)] \leq \frac{1+\varepsilon}{\kl(\mu_a,\mu_\star)}\ln(T) + \mathcal{O}_{\varepsilon}(\sqrt{\ln(T)})\black.\]
+%     \end{orangeblock}
 
 
+% \end{frameO}
 
-\end{frameO}
+% \begin{frameO}[An interesting by-product]
+
+%     \vspace{0.3cm}
+
+%     \begin{itemize}
+%         \item Tools from the analysis of Bayes-UCB can be used to analyze two variants of \klUCB{}
+%     \end{itemize}
+
+%     \begin{orangeblock}{\klUCB-H$^+$}
+%         \[u_a^{H,+}(t)=\max\left\{q :  N_a(t)\times \kl\left(\widehat{\mu}_a(t),q\right) \leq \log\left(\blue\frac{T\log^c T}{N_a(t)}\black\right)\right\}\]
+%     \end{orangeblock}
+
+%     \begin{orangeblock}{\klUCB$^+$}
+%         \[u_a^{+}(t)=\max\left\{q  :  N_a(t) \times \kl\left(\widehat{\mu}_a(t),q\right) \leq \log\left(\blue\frac{t\log^c t}{N_a(t)}\black\right)\right\}\]
+%     \end{orangeblock}
+
+%     \vspace{0.2cm}
+
+%     The index policy associated to $u_a^{H,+}(t)$ and $u_a^{+}(t)$ satisfy, for all $\varepsilon>0$,
+%     \[\red\bE_{\bm\mu}[N_a(T)] \leq \frac{1+\varepsilon}{\kl(\mu_a,\mu_\star)}\log(T) + \mathcal{O}_{\varepsilon}(\sqrt{\log(T)})\black.\]
+
+% \end{frameO}
+
 
 \begin{frame}[c]
     \begin{changemargin}{-0.5cm}{-0.5cm}
@@ -2976,7 +2975,7 @@
     \vspace{0.3cm}
 
     \begin{orangeblock}{Problem-dependent regret}
-        \[\forall \varepsilon>0, \ \ \bE_{\bm\mu}[N_a(T)] \leq \frac{\color{red}1+\varepsilon\color{black}}{\color{red}\kl(\mu_a,\mu_\star)\color{black}}\ln(T) + o_{\mu,\varepsilon}(\ln(T)).\]
+        \[\forall \varepsilon>0, \ \ \bE_{\bm\mu}[N_a(T)] \leq \frac{\color{red}1+\varepsilon\color{black}}{\color{red}\kl(\mu_a,\mu_\star)\color{black}}\log(T) + o_{\mu,\varepsilon}(\log(T)).\]
 
         \vspace{-0.3cm}
     \end{orangeblock}
@@ -2996,7 +2995,7 @@
 
         \vspace{-0.3cm}
 
-        \[\cR_{\bm\mu}(\texttt{TS},T) =O \left(\sqrt{KT\ln(T)}\right).\]
+        \[\cR_{\bm\mu}(\texttt{TS},T) =O \left(\sqrt{KT\log(T)}\right).\]
 
         \vspace{-0.4cm}
 
@@ -3355,7 +3354,7 @@
 %     \begin{orangeblock}{Theorem \gray[Baransi et al. 14]}
 %         If $\exists \alpha \in(0,1), c>0$ such that $\alpha(M,1) \leq c\alpha^M$, then
 %         \[
-%             \cR_{\nu}(\texttt{BESA},T) \leq \frac{11\ln(T)}{\mu_\star-\mu_a} + C_{\nu} + \mathcal{O}(1)\,.
+%             \cR_{\nu}(\texttt{BESA},T) \leq \frac{11\log(T)}{\mu_\star-\mu_a} + C_{\nu} + \mathcal{O}(1)\,.
 %         \]
 %     \end{orangeblock}
 %     %
@@ -4008,7 +4007,7 @@
 
 \begin{frameO}[Where to know more? \hfill{} ($2/3$)]
 
-    Reach out by email if you have questions
+    Reach me (or Émilie Kaufmann) out by email, if you have questions
 
     \vspace{1cm}
 
