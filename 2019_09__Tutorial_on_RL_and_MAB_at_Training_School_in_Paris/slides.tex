@@ -395,7 +395,7 @@
         \item bandits showcase the important \red exploration/exploitation dilemma \black
         \item \red bandit tools \black are useful for RL
 
-              (UCRL, bandit-based MCTS for planning in games...)
+              (UCRL, bandit-based MCTS for planning in games\dots)
 
         \item a \red rich literature \black to tackle many specific applications
 
@@ -674,7 +674,7 @@
         A strategy with small regret should:
         \begin{itemize}
             \item select not too often arms for which $\Delta_a > 0$ (sub-optimal arms)
-            \item ... which requires to try all arms to estimate the values of the $\Delta_a$'s
+            \item \dots which requires to try all arms to estimate the values of the $\Delta_a$'s
         \end{itemize}
 
         \vspace{0.5cm}
@@ -979,7 +979,7 @@
         \item[$\rightarrow$] \alert{problem-dependent logarithmic} regret bound $\cR_\nu(\text{algo}, T) = \mathcal{O}(\log(T))$.
     \end{itemize}
 
-    \textbf{Observation:} blows up when $\Delta$ tends to zero...
+    \textbf{Observation:} blows up when $\Delta$ tends to zero\dots
     \begin{eqnarray*}
         \cR_\nu(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\ln\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
         & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\ln(u^2) , u\right] \\
@@ -1252,7 +1252,7 @@
 %
 % \begin{frameO}[Some driving questions in the bandit literature]
 %
-% Since the work of Lai and Robbins, some focus has been put on finding algorithms...
+% Since the work of Lai and Robbins, some focus has been put on finding algorithms\dots
 %
 % \vspace{0.3cm}
 %
@@ -1772,7 +1772,7 @@
         &=& \mathcal{O}(\sqrt{KT \ln(T)})
     \end{eqnarray*}
     \begin{itemize}
-        \item[$\rightarrow$] not exactly matching the $\blue\Omega(\sqrt{KT})$ lower bound...
+        \item[$\rightarrow$] not exactly matching the $\blue\Omega(\sqrt{KT})$ lower bound\dots
         but close!
     \end{itemize}
 
@@ -2062,7 +2062,7 @@
 
 %     \[\rightsquigarrow \red  \sum_{t=1}^\infty \bP(\UCB_1(t) < \mu_1) = \infty\]
 %     \begin{itemize}
-%         \item[$\rightarrow$] not good enough...
+%         \item[$\rightarrow$] not good enough\dots
 %     \end{itemize}
 
 %     }}
@@ -2252,7 +2252,7 @@
                 \item[1995] Agrawal, UCB algorithms
                 \item[1995] Katehakis and Robbins, a UCB algorithm for Gaussian bandits
                 \item[2002] Auer et al: UCB1 with finite-time regret bound
-                \item[2009] UCB-V, MOSS...
+                \item[2009] UCB-V, MOSS\dots
                 \item[]
                 \item[2011,13] Cappé et al: finite-time regret bound for \klUCB{}
                 \item[]
@@ -2276,7 +2276,7 @@
                 \item[1995] Agrawal, UCB algorithms
                 \item[1995] Katehakis and Robbins, a UCB algorithm for Gaussian bandits
                 \item[2002] Auer et al: UCB1 with finite-time regret bound
-                \item[2009] UCB-V, MOSS...
+                \item[2009] UCB-V, MOSS\dots
                 \item[2010] \blue Thompson Sampling is re-discovered \black
                 \item[2011,13] Cappé et al: finite-time regret bound for \klUCB{}
                 \item[2012,13] \blue Thompson Sampling is asymptotically optimal\black
@@ -2314,7 +2314,7 @@
 
     \vspace{0.2cm}
 
-    % Y is the sequence of successive rewards obtained from arm a...
+    % Y is the sequence of successive rewards obtained from arm a\dots
 
     \begin{itemize}
         \item The regret can be computed in each case % giving two measures of performance
@@ -2655,7 +2655,7 @@
 
 %     \begin{itemize}
 %         \item good performance in terms of frequentist regret as well
-%         \item ... with logarithmic regret \color{gray} [Lattimore, 2016]
+%         \item \dots with logarithmic regret \color{gray} [Lattimore, 2016]
 %     \end{itemize}
 
 
@@ -2682,7 +2682,7 @@
 %     \vspace{0.3cm}
 
 %     \begin{itemize}
-%         \item[$\rightarrow$] looks like the \blue \klUCB{} index\black, with a \blue different exploration rate\black...
+%         \item[$\rightarrow$] looks like the \blue \klUCB{} index\black, with a \blue different exploration rate\black\dots
 %     \end{itemize}
 
 % \end{frameO}
@@ -2711,8 +2711,8 @@
     \vspace{0.3cm}
 
     \begin{itemize}
-        \item $\Pi_0=(\pi_1(0),\dots,\pi_K(0))$ be a prior distribution over $(\mu_1,...,\mu_K)$
-        \item $\Pi_t=(\pi_1(t),\dots, \pi_K(t))$ be the posterior distribution over the means $(\mu_1,...,\mu_K)$ after $t$ observations
+        \item $\Pi_0=(\pi_1(0),\dots,\pi_K(0))$ be a prior distribution over $(\mu_1,\dots,\mu_K)$
+        \item $\Pi_t=(\pi_1(t),\dots, \pi_K(t))$ be the posterior distribution over the means $(\mu_1,\dots,\mu_K)$ after $t$ observations
     \end{itemize}
 
     \begin{orangeblock}{}
@@ -3101,8 +3101,8 @@
 %         \begin{itemize}
 %             \item Competitive regret against state-of-the-art for various $\cD$.
 %             \item Same algorithm for all $\cD$.
-%             \item Not relying on upper confidence bounds, not Bayesian...
-%             \item ...and extremely simple to implement.
+%             \item Not relying on upper confidence bounds, not Bayesian\dots
+%             \item \dots and extremely simple to implement.
 %         \end{itemize}
 %     \end{orangeblock}
 
@@ -3339,7 +3339,7 @@
 %         \end{itemize}
 %     \end{redblock}
 
-%     \textbf{Future work:} understand when BESA fails, and whether it can be asymptotically optimal in some cases...
+%     \textbf{Future work:} understand when BESA fails, and whether it can be asymptotically optimal in some cases\dots
 % \end{frameO}
 
 
@@ -3376,55 +3376,98 @@
 \end{frameTI}
 
 
-\subsection{Remove stationary hypothesis: non-stationary bandits}
+\begin{frame}[c]
+    \begin{changemargin}{-0.5cm}{-0.5cm}
+        \begin{center}
+            \vspace{-0.3in}
+            \textbf{\huge Other Bandit Models}
+            \vspace{1.5cm}
 
-\begin{frameO}[Remove stationary hypothesis: non-stationary bandits]
+            \Large \textbf{Many different extensions}	\\[0.5cm]
+            % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
+            \textcolor{darkgray}{\textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }}
+            \textcolor{darkgray}{	\textbf{\Large Multi-player bandits}	\\[0.5cm]			}
+        \end{center}
+    \end{changemargin}
+\end{frame}
 
-    FIXME
+\begin{frameO}[Many other bandits models and problems (1/2)]
 
-\end{frameO}
+  Most famous extensions:
 
-
-\subsection{Take more than one action at a time: combinatorial bandits}
-
-\begin{frameO}[Take more than one action at a time: combinatorial bandits]
-
-    FIXME
-
-\end{frameO}
-
-
-\begin{frameO}[TS for \emph{structured} stochastic bandits ?]
-
-  \begin{itemize}
-    \item Arms are edges on a graph
-    \item $\mathcal{M}$ is a set of possible configurations (subsets of edges)
-    \item The agent chooses $m_t \in \mathcal{M}$ at time $t$ and observe a realization of all arms in $\mathcal{M}$
-          %\item Goal: discover the best configuration $m^*\in\mathcal{M}$
+  \begin{itemize}[<+->]
+    \setlength\itemsep{1em}
+    \item (centralized) multiple-actions
+      \begin{itemize}
+        \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
+        \item combinatorial : choose a subset of arms $S \sub \{1,\dots,K\}$ (large space)
+      \end{itemize}
+    \item non stationary
+      \begin{itemize}
+        \item \textcolor{blue}{piece-wise stationary / abruptly changing}
+        \item slowly-varying
+        \item adversarial\dots
+      \end{itemize}
+    \item (decentralized) collaborative/communicating bandits over a graph
+    \item \textcolor{blue}{(decentralized) non communicating multi-player bandits}
   \end{itemize}
 
+  \hspace*{1cm}
+  \hfill{}
+  \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
 
-  \begin{center}
-    \includegraphics[height=3cm]{assignements}
-  \end{center}
+\end{frameO}
 
-  \textbf{Example}: find a matching between users and channels
+\begin{frameO}[Many other bandits models and problems (2/2)]
 
+  And many more extensions\dots
 
-  \hfill \color{gray} Lelarge et al., \emph{Spectrum Bandit Optimization}, ITW 2013
+  \begin{itemize}%[<+->]
+    \setlength\itemsep{0.8em}
+    \item non stochastic, Markov models rested/restless
+    \item best arm identification (vs reward maximization)
+    \begin{itemize}
+      \item fixed budget setting
+      \item fixed confidence setting
+      \item PAC (probably approximately correct) algorithms
+    \end{itemize}
+    \item bandits with (differential) privacy constraints
+    \item for some applications (content recommendation)
+    \begin{itemize}
+      \item contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)
+      \item cascading bandits
+      \item delayed feedback bandits
+    \end{itemize}
+    \item structured bandits (low-rank, many-armed, Lipschitz etc)
+    \item $\mathcal{X}$-armed, continuous-armed bandits
+  \end{itemize}
 
 \end{frameO}
 
 
-\subsection{More than one player at a time: multi-player bandits}
+% \begin{frameO}[\emph{Structured/combinatorial} stochastic bandits]
 
-\begin{frameO}[More than one player at a time: multi-player bandits]
+%   \begin{itemize}
+%     \item Arms are edges on a graph
+%     \item $\mathcal{M}$ is a set of possible configurations (subsets of edges)
+%     \item The agent chooses $m_t \in \mathcal{M}$ at time $t$ \\
+%       and then observes a realization of all arms in $\mathcal{M}$
+%     \item Goal: discover the best configuration $m^*\in\mathcal{M}$
+%   \end{itemize}
 
-    FIXME
 
-\end{frameO}
+%   \begin{center}
+%     \includegraphics[height=3cm]{assignements}
+%   \end{center}
 
-\section{Beyond the stochastic MAB}
+%   \textbf{Example}: find a matching between users and channels/antennas
+%   (centralized decision-making like in Wi-Fi).
+
+%   \hfill \color{gray} [Lelarge et al., 13]
+
+% \end{frameO}
+
+
 
 
 % \subsection{Relaxing the i.i.d. assumption}
@@ -3451,7 +3494,7 @@
 %   \[\red \underset{k \in \{1,\dots,K\}}{\text{argmax}} \ \bE_{X\sim\pi_k} [X]\]
 
 %   \begin{itemize}
-%     \item[$\rightarrow$] may be a bad idea...
+%     \item[$\rightarrow$] may be a bad idea\dots
 %   \end{itemize}
 
 
@@ -3591,7 +3634,7 @@
 
 % \begin{frame}{The EXP3 strategy}
 
-%   We don't have access to the $(x_{k,t})$ for all $k$...
+%   We don't have access to the $(x_{k,t})$ for all $k$\dots
 
 %   \[\red \widehat{x}_{k,t} = \frac{x_{k,t}}{\widehat{p}_{k,t}}\ind_{(A_t=k)}\]
 
@@ -3647,18 +3690,126 @@
 % \end{frame}
 
 
+\begin{frame}[c]
+  \begin{changemargin}{-0.5cm}{-0.5cm}
+      \begin{center}
+          \vspace{-0.3in}
+          \textbf{\huge Other Bandit Models}
+          \vspace{1.5cm}
+
+          \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
+          % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
+          \textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }
+          \textcolor{darkgray}{	\textbf{\Large Multi-player bandits}	\\[0.5cm]			}
+      \end{center}
+  \end{changemargin}
+\end{frame}
+
+
+\subsection{Piece-wise stationary bandits}
+
+\begin{frameO}[Piece-wise stationary bandits]
+
+  \begin{orangeblock}{Stationary MAB problems}
+    Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step:
+    $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\mu_k)$.
+  \end{orangeblock}
+
+  \pause
+  \begin{alertblock}{Non stationary MAB problems?}
+    Arm $k$ gives rewards sampled a \alert{(possibly) different distributions} for any time step:
+    $\forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)})$.
+  \end{alertblock}
+
+  $\implies$ harder problem!
+  And very hard if $\mu_k(t)$ can change at any step!
+
+  \pause
+  \begin{orangeblock}{\textbf{Piece-wise stationary} problems!}
+    $\hookrightarrow$ focus on the easier case when there are at most $Y_T = o(\sqrt{T})$ intervals on which the means are all stationary.
+  \end{orangeblock}
+\end{frameO}
+
+\begin{frameO}[Example of a piece-wise stationary MAB problem]
+  We plots the means \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
+  of $K=3$ arms.
+  There are $Y_T=4$ break-points and $5$ sequences
+  between $t=1$ and $t=T=5000$:
+  \begin{center}
+    \includegraphics[width=0.95\textwidth]{Problem_1.pdf}
+  \end{center}
+\end{frameO}
+
+\begin{frameO}[Regret for piece-wise stationary bandits]
+
+  The ``oracle'' algorithm plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$
+  (which changes between the $Y_T \geq 1$ stationary sequences)
+  %
+  \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+
+  \pause
+  \vspace*{10pt}
+
+  \begin{orangeblock}{Typical regimes for piece-wise stationary bandits}
+    \begin{itemize}
+    \item
+    The lower-bound is
+    $\cR(\cA,T) \geq \Omega(\sqrt{K T Y_T})$
+
+    \item
+    Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
+      \begin{itemize}\tightlist
+        \item
+        $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T Y_T \log(T)})$
+        if $T$ and $Y_T$ are known
+        \item
+        $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{Y_T} \sqrt{T \log(T)})$
+        if $T$ and \textcolor{orange}{$Y_T$ are unknown}
+      \end{itemize}
+    \item
+      $\hookrightarrow$ our algorithm GLR + klUCB is state-of-the-art!\\
+      \hfill{} \gray [Besson and Kaufmann, 19] \texttt{arXiv:1902.01575}
+    \end{itemize}
+  \end{orangeblock}
+
+\end{frameO}
+
+\begin{frameO}[Results on problem 1]
+  \centering
+  \includegraphics[width=0.90\textwidth]{regret_problem1.png}
+
+  $\implies$ BGLR achieves the best performance among non-oracle algorithms !
+\end{frameO}
+
+
+\begin{frame}[c]
+  \begin{changemargin}{-0.5cm}{-0.5cm}
+      \begin{center}
+          \vspace{-0.3in}
+          \textbf{\huge Other Bandit Models}
+          \vspace{1.5cm}
+
+          \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
+          % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
+          \textcolor{darkgray}{\textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }}
+          \textbf{\Large Multi-player bandits}	\\[0.5cm]
+      \end{center}
+  \end{changemargin}
+\end{frame}
+
+
 \subsection{Bandits for multiple devices}
 
-\begin{frame}{Multi-players bandits: setup}
+\begin{frameO}[Multi-players bandits: setup]
 
-  \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($M \leq K$)
+  \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($2 \leq M \leq K$)
+  % with \textbf{no communication} between them
 
   \vspace{0.3cm}
 
-  At round $t$,
+  At round $t$:
   \begin{itemize}
-    \item player $m$ selects $A_{m,t}$
-    \item player $m$ \textit{observes} $X_{A_{m,t},t}$
+    \item player $m$ selects $A_{m,t}$ ; then \textit{observes} $X_{A_{m,t},t}$
     \item and receives the reward
   \end{itemize}
 
@@ -3666,67 +3817,65 @@
 
   \[\red X_{m,t} = \left\{ \begin{array}{cl}
       X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
-      0             & \text{else}                                  \\\end{array}\right.\]
+      0             & \text{else (= collision)}
+    \end{array}\right.\]
 
   \vspace{-0.3cm}
 
   \textbf{Goal:}
 
   \begin{itemize}
-    \item maximize $\sum_{m=1}^M \sum_{t=1}^T X_{m,t}$
-    \item ... \orange without communication \black between players
+    \item maximize centralized rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T X_{m,t}$
+    \item \dots \orange without communication \black between players
+    \item trade off : exploration / exploitation / \alert{and collisions !}
   \end{itemize}
 
   \underline{\orange Cognitive radio}: (OSA) sensing, attempt of transmission if no PU, possible collisions with other SUs
+  \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
 
+\end{frameO}
 
-
-\end{frame}
-
-
-
-\begin{frame}{Multi-players bandits: algorithms}
+\begin{frameO}[Multi-players bandits: algorithms]
 
   \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
 
   \vspace{0.2cm}
 
-    FIXME talk about MCTopM and not rhoRand !
+    % FIXME talk about MCTopM and not rhoRand !
 
-  \textbf{Example:} \orange UCB1 + $\rho^{\text{rand}}$\black. At round $t$ each player
-  \begin{itemize}
-    \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
-    \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
-    \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
-  \end{itemize}
+  \alt<2>{
+    \textbf{Example:} \orange UCB1 + $\rho^{\text{rand}}$\black. At round $t$ each player
+    \begin{itemize}
+      \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
+      \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
+      \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
+      \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]
+    \end{itemize}
+  }{
+    \textbf{Example:} \orange klUCB + MC-Top-M rule\black. At round $t$ each player
+    \begin{itemize}
+      \item more complicated behavior
+      \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
+      \item order optimal, not asymptotically optimal
+      \item lower bound is probably $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
+      \item \textbf{Recent references}: \color{gray} [Besson and Kaufmann, 18] [Boursier et al, 19]
+    \end{itemize}
+  }
 
   \vspace{0.2cm}
 
 
-  \alt<2>{\textbf{Remarks}:
-
+  \textbf{Remarks}:
     \begin{itemize}
       \item $M$ has to be known $\rightarrow $ try to estimate it
       \item does not handle an evolving number of devices
       \item is it a \textit{fair} orthogonalization rule?
       \item any index policy may be used in place of UCB1
     \end{itemize}
-  }{
-    \textbf{Early references}:
 
+\end{frameO}
 
-    \begin{itemize}
-      \item[] \color{gray}Liu and Zhao, \emph{Distributed Learning in Multi-Armed Bandit with
-              Multiple Players},  IEEE Trans. S. P., 2010
-      \item[] \color{gray}Anandkumar et al., \emph{Distributed Algorithms for Learning and
-              Cognitive Medium Access with Logarithmic Regret}, IEEE Journal on Selected Areas in Communications, 2011
-    \end{itemize}}
-
-\end{frame}
-
-
-
-\begin{frame}{Multi-players bandits: algorithms}
+\begin{frameO}[Multi-players bandits: algorithms]
 
   \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
 
@@ -3753,60 +3902,6 @@
   \begin{itemize}
     \item[$\rightarrow$] \orange How does it perform in practice?
   \end{itemize}
-
-\end{frame}
-
-
-\subsection{Extension: contextual bandits}
-
-\begin{frameO}[Extension: contextual bandits]
-
-    FIXME
-
-\end{frameO}
-
-
-\subsection{Non discrete actions: continuous-armed bandits}
-
-\begin{frameO}[Non discrete actions: continuous-armed bandits]
-
-    FIXME
-
-\end{frameO}
-
-
-\subsection{Extension: delayed feedback bandits}
-
-\begin{frameO}[Extension: delayed feedback bandits]
-
-    FIXME
-
-\end{frameO}
-
-
-\subsection{Extension: cascading bandits}
-
-\begin{frameO}[Extension: cascading bandits]
-
-    FIXME
-
-\end{frameO}
-
-
-\subsection{Extension: structured bandits (low-rank etc)}
-
-\begin{frameO}[Extension: structured bandits (low-rank etc)]
-
-    FIXME
-
-\end{frameO}
-
-
-\subsection{Extension: bandits with states, (rested/restless) Markov models}
-
-\begin{frameO}[Extension: bandits with states, (rested/restless) Markov models]
-
-    FIXME
 
 \end{frameO}
 
