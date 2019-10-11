@@ -39,7 +39,8 @@
 \newcommand{\black}{\color{black}}
 \newcommand{\gray}{\color{gray}}
 
-\definecolor{blackblue}{RGB}{19,19,59}     % rgb(48,48,150)
+\definecolor{lightgray}{RGB}{200,200,200}  % rgb(200,200,200)
+\definecolor{blackblue}{RGB}{19,19,59}     % rgb(19,19,59)
 \definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
 \definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
 \definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
@@ -234,7 +235,7 @@
 
 \begin{frameO}[Who am I ?]
 
-    Hi, I'm Lilian Besson
+    Hi, I'm Lilian
 
     \begin{itemize}
         \item finishing my PhD in telecommunication and machine learning
@@ -281,7 +282,7 @@
 
             \item
             % $\hookrightarrow$
-            \alert{can the devices learn on their own to communicate more efficiently?}
+            \alert{Can the devices learn on their own to communicate more efficiently?}
         \end{itemize}
     \end{orangeblock}
 
@@ -297,7 +298,7 @@
             in a \emph{simple}, \emph{efficient}, \emph{automatic} and \emph{decentralized} way?
 
             \item
-            $\hookrightarrow$ \alert{can the devices learn on their own to communicate more efficiently?}
+            \alert{Can the devices learn on their own to communicate more efficiently?}
         \end{itemize}
     \end{orangeblock}
 
@@ -330,16 +331,32 @@
 \end{frameO}
 
 
+\section{Outline of this talk}
+
+\begin{frameTI}
+    \begin{center}
+        \color{white} \Huge \textsc{Outline of this talk}
+
+        % \vspace{0.2cm}
+
+        % \huge \textsc{and first strategies}
+
+    \end{center}
+    \vspace*{-4pt}
+\end{frameTI}
+
+
 \begin{frameO}[Main contributions presented today]
 
     \large
 
     \begin{itemize}
+        \setlength\itemsep{10pt}
         \item a simple model of IoT network, with decentralized learning embedded in the autonomous IoT devices,
         \item numerical simulations proving the quality of the proposed solution,
         \item a realistic implementation on radio hardware,
         % \item my Python library SMPyBandits.
-        \item mathematical development in a simplified model: multi-player bandit,
+        \item proofs in a simplified model: multi-player bandit,
         \item and an extension beyond the stationary hypothesis.
     \end{itemize}
 
@@ -361,6 +378,73 @@
         \item[Ch.7)] \textcolor{blue}{Piece-Wise Stationary Bandits}
         % \item[Ch.8)] General Conclusion and Perspectives
     \end{enumerate}
+
+\end{frameO}
+
+
+\begin{frameO}[Organization of the thesis: a reading map]
+    
+    \begin{figure}[h!]
+        \centering
+        \resizebox{0.95\textwidth}{!}{
+        \begin{tikzpicture}[>=latex',line join=bevel,scale=2.25]
+            %
+            \node[align=center] (introduction) at (0,3.25) [rectangle,draw,fill=blue!15] {\textbf{Chapter~1}\\Introduction};
+            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=red!15] {\textbf{Chapter~2}\\The Stochastic\\Multi-Armed Bandit models};
+            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10] {\textbf{Chapter~3}\\SMPyBandits: simulation\\library for MAB};
+            \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10] {\textbf{Chapter~4}\\Online selection\\of the best algorithm};
+            \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!10] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
+            \node[align=center] (chapter5) at (0,1) [rectangle,draw,fill=green!15] {\textbf{Chapter~6}\\Multi-players\\Multi-Armed Bandits};
+            \node[align=center] (chapter6) at (2.5,1) [rectangle,draw,fill=green!20] {\textbf{Chapter~7}\\Piece-Wise Stationary\\Multi-Armed Bandits};
+            \node[align=center] (conclusion) at (0,-0.25) [rectangle,draw,fill=blue!20] {\textbf{Chapter~8}\\General Conclusion};
+            % \node[align=center] (appendix) at (2.5,-0.25) [rectangle,draw,fill=yellow!10] {Appendix};
+            %
+            \draw [color=black,thick,->] (introduction) to (chapter2);
+            \draw [color=black,thick,<->] (chapter2) to (chapter3);
+            \draw [color=black,thick,<->] (chapter2) to (chapter25);
+            \draw [color=black,thick,->] (chapter2) to (chapter4);
+            \draw [color=black,thick,->] (chapter2) to (chapter5);
+            \draw [color=black,densely dotted,<->]   (chapter4) to (chapter5);
+            % \draw [color=black,densely dotted,->] -| (chapter3) to (chapter25);
+            % \draw [color=black,densely dotted,->] -| (chapter25) to (chapter6);
+            \draw [color=black,densely dotted,<->]   (chapter5) to (chapter6);
+            \draw [color=black,thick,->] (chapter2) to (chapter6);
+            \draw [color=black,thick,->] (chapter4) to (conclusion);
+            \draw [color=black,thick,->] (chapter5) to (conclusion);
+            \draw [color=black,thick,->] (chapter6) to (conclusion);
+            % \draw [color=black,thick,->] (conclusion) to (appendix);
+            %
+        \end{tikzpicture}
+        }
+        % \caption[Organization of the thesis: a reading map.]{A reading map of the thesis. Any top-down path containing Chapter~\ref{chapter:1}, Chapter~\ref{chapter:2}, at least one of the three Chapters~\ref{chapter:4}, \ref{chapter:5} and \ref{chapter:6}, and the Conclusion is a self contained way to read this thesis.}
+        \label{fig:1:organization}
+    \end{figure}
+\end{frameO}
+
+
+\begin{frameO}[Outline of this talk]
+
+    \begin{itemize}
+        \setlength\itemsep{0.6em}
+        \item Multi-armed Bandit
+        \begin{itemize}
+            \item Performance measure (regret) and first strategies
+            \item Best possible regret? Lower bounds
+            \item Upper Confidence Bounds (UCB) Algorithms
+        \end{itemize}
+        \item Selfish MAB learning in our model of IoT network
+        \begin{itemize}
+            \item reference strategies
+            \item selfish applications of UCB algorithms
+            \item intractable model in theory\dots
+        \end{itemize}
+        \item Many extensions of the stationary single-player bandit models
+        \begin{itemize}
+            \item multi-player bandits in stationary settings
+            \item single-player bandits in piece-wise stationary settings
+        \end{itemize}
+        \item Conclusion and perspectives
+    \end{itemize}
 
 \end{frameO}
 
@@ -474,18 +558,6 @@
 
     \vspace{0.3cm}
 
-    \textbf{Opportunistic Spectrum Access}
-    \begin{itemize}
-        \item $K$ radio channels (orthogonal frequency bands)
-
-              \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
-        \item In which channel should a radio device send a packet, based on the quality of its previous communications?
-    \end{itemize}
-
-    \vspace{0.1cm}
-
-    \pause
-
     \textbf{Communications in presence of a central controller}
     \begin{itemize}
         \item $K$ assignments from $n$ users to $m$ antennas ($\rightsquigarrow$ \emph{combinatorial} bandit)
@@ -494,46 +566,16 @@
         \item How to select the next \emph{matching} based on the throughput observed in previous communications?
     \end{itemize}
 
-\end{frameO}
+    \vspace{0.1cm}
 
+    \pause
 
-\section{Outline of this talk}
-
-\begin{frameTI}
-    \begin{center}
-        \color{white} \Huge \textsc{Outline of this talk}
-
-        % \vspace{0.2cm}
-
-        % \huge \textsc{and first strategies}
-
-    \end{center}
-    \vspace*{-4pt}
-\end{frameTI}
-
-
-\begin{frameO}[Outline of this talk]
-
+    \textbf{Opportunistic Spectrum Access}
     \begin{itemize}
-        \setlength\itemsep{0.6em}
-        \item Multi-armed Bandit
-        \begin{itemize}
-            \item Performance measure (regret) and first strategies
-            \item Best possible regret? Lower bounds
-            \item Upper Confidence Bounds (UCB) Algorithms
-        \end{itemize}
-        \item Selfish MAB learning in our model of IoT network
-        \begin{itemize}
-            \item reference strategies
-            \item selfish applications of UCB algorithms
-            \item intractable model in theory\dots
-        \end{itemize}
-        \item Many extensions of the stationary single-player bandit models
-        \begin{itemize}
-            \item multi-player bandits in stationary settings
-            \item single-player bandits in piece-wise stationary settings
-        \end{itemize}
-        \item Conclusion and perspectives
+        \item $K$ radio channels (orthogonal frequency bands)
+
+              \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
+        \item In which channel should a radio device send a packet, based on the quality of its previous communications?
     \end{itemize}
 
 \end{frameO}
@@ -759,7 +801,7 @@
 
     \begin{orangeblock}{What regret rate can we achieve?}
         \begin{itemize}
-            \item[$\Longrightarrow$] consistency: \black $\cR_{\bm\nu}(\cA,T) / T \Longrightarrow 0$ (when $T\to\infty$)
+            \item[$\Longrightarrow$] consistency \black $\cR_{\bm\nu}(\cA,T) / T \Longrightarrow 0$ (when $T\to\infty$)
             \item[$\Longrightarrow$] can we be more precise?
         \end{itemize}
     \end{orangeblock}
@@ -3468,6 +3510,31 @@
 % \end{frameO}
 
 
+\section{Selfish MAB learning in IoT Netwokrs}
+
+\begin{frameTI}
+    \begin{center}
+        {\textcolor{white} {\Huge \textsc{Selfish MAB learning in IoT Netwokrs} }}
+    \end{center}
+    % \vspace*{-4pt}
+
+    \vfill{}
+    \small{\textcolor{lightgray}{Ref: Bonnefoi et al, CROWNCOM 2017, best paper award.}}
+\end{frameTI}
+
+% TODO
+\input{crowncom2017.tex}
+
+
+\begin{frameO}[Slides from IEEE WCNC 2019 demo ICT 2018]
+    TODO
+
+    \begin{center}
+        \movie{\includegraphics[width=0.9\textwidth]{screenshotDemoYouTube.png}}{videos/Multi-Armed_bandit_Learning_in_Iot_Networks_MALIN_-_Demo_at_ICT_2018.mkv}
+    \end{center}
+\end{frameO}
+
+
 \section{Other Bandit Models}
 
 \begin{frameTI}
@@ -4029,7 +4096,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Where to know more? \hfill{} ($1/3$)]
+\begin{frameO}[Where to know more: about bandits \hfill{} ($1/3$)]
 
     Check out the
 
@@ -4051,7 +4118,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Where to know more? \hfill{} ($2/3$)]
+\begin{frameO}[Where to know more: about our work? \hfill{} ($2/3$)]
 
     Reach me (or Christophe Moy or Émilie Kaufmann) out by email, if you have questions
 
@@ -4079,7 +4146,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Where to know more? \hfill{} ($3/3$)]
+\begin{frameO}[Where to know more: in practice \hfill{} ($3/3$)]
 
     Experiment with bandits by yourself!
 
@@ -4140,6 +4207,7 @@
 
 \end{frameO}
 
+
 \begin{frameO}[Climatic crisis ?]
 
     \begin{center}
@@ -4152,7 +4220,6 @@
     \end{center}
 
 \end{frameO}
-
 
 \begin{frameO}[Let's talk about actions against the climatic crisis !]
 
@@ -4174,6 +4241,13 @@
 \end{frameO}
 
 
+\begin{frameTI}
+    \begin{center}
+        \color{white} \Huge \textsc{References and publications}
+
+    \end{center}
+    \vspace*{-4pt}
+\end{frameTI}
 
 \begin{frameO}[Main references]
 
@@ -4202,6 +4276,205 @@
 
     \end{itemize}
 
+\end{frameO}
+
+
+\begin{frame}[c]
+    \begin{changemargin}{-0.5cm}{-0.5cm}
+        \begin{center}
+            \vspace{-0.3in}
+            \textbf{\huge List of publications}
+            \vspace{1.5cm}
+        \end{center}
+    \end{changemargin}
+\end{frame}
+
+
+\begin{frameO}[International conferences with proceedings ($1/2)$]
+
+    {\footnotesize
+
+    \begin{itemize}
+    \item
+        \emph{Decentralized Spectrum Learning for IoT Wireless Networks Collision Mitigation},\\
+        by Christophe Moy \& \textbf{Lilian Besson}.\\
+        1st International ISIoT workshop,
+        % \footnote{~See \href{https://sites.google.com/view/ISIoT2019}{\texttt{sites.google.com/view/ISIoT2019}}},
+        at \emph{Conference on Distributed Computing in Sensor Systems},
+        % \footnote{~IEEE DCOSS 2019, see \href{http://2019.dcoss.org}{\texttt{2019.dcoss.org}}},
+        Santorini, Greece, May $2019$.\\
+        % \href{https://HAL.Inria.fr/hal-02144465}{\texttt{HAL.Inria.fr/hal-02144465}}.
+        See Chapter~5.
+        % \cite{MoyBesson2019}
+
+        % \emph{$\hookrightarrow$ Note that we are already working on an extended version that will be submitted to a journal on Machine Learning for Wireless Communications, in July $2019$.}
+
+    \item
+        \emph{Upper-Confidence Bound for Channel Selection in LPWA Networks with Retransmissions},\\
+        by Rémi Bonnefoi, \textbf{Lilian Besson}, Julio Manco-Vasquez \& Christophe Moy.\\
+        1st International MOTIoN workshop,
+        % \footnote{~MOTIoN 2019, see \href{https://sites.google.com/view/wcncworkshop-motion2019}{\texttt{sites.google.com/view/wcncworkshop-motion2019}}},
+        at \emph{IEEE WCNC}, Marrakech, Morocco, April $2019$.\\
+        % \href{https://HAL.Inria.fr/hal-02049824}{\texttt{HAL.Inria.fr/hal-02049824}}.
+        See Section~5.4.
+        % \cite{Bonnefoi2019WCNC}
+
+    \item
+        \emph{GNU Radio Implementation of MALIN: ``Multi-Armed bandits Learning for Internet-of-things Networks''},\\
+        by \textbf{Lilian Besson}, Rémi Bonnefoi \& Christophe Moy.\\
+        \emph{Wireless Communication and Networks Conference},
+        % \footnote{~IEEE WCNC 2019, see \href{http://wcnc2019.ieee-wcnc.org}{\texttt{wcnc2019.ieee-wcnc.org}}},
+        Marrakech, Morocco, April $2019$,\\
+        % \href{https://HAL.Inria.fr/hal-02006825}{\texttt{HAL.Inria.fr/hal-02006825}}.
+        See Section~5.3.
+        % \cite{Besson2019WCNC}
+
+    \end{itemize}
+
+    For more details, see :
+    \href{https://cv.archives-ouvertes.fr/lilian-besson/}{\texttt{CV.Archives-Ouvertes.fr/lilian-besson}}.
+    }
+\end{frameO}
+
+
+\begin{frameO}[International conferences with proceedings ($2/2)$]
+
+    {\footnotesize
+
+    \begin{itemize}
+    \item
+        \emph{Multi-Player Bandits Revisited},\\
+        by \textbf{Lilian Besson} \& Émilie Kaufmann.\\
+        \emph{Algorithmic Learning Theory},
+        % \footnote{~ALT 2018, see \href{http://www.cs.cornell.edu/conferences/alt2018}{\texttt{www.cs.cornell.edu/conferences/alt2018}}},
+        Lanzarote, Spain, April $2018$,\\
+        % \href{https://HAL.Inria.fr/hal-01629733}{\texttt{HAL.Inria.fr/hal-01629733}}.
+        See Chapter~6.
+        % \cite{Besson2018ALT}
+
+    \item
+        \emph{Aggregation of Multi-Armed Bandits learning algorithms for Opportunistic Spectrum Access},\\
+        by \textbf{Lilian Besson}, Émilie Kaufmann \& Christophe Moy.\\
+        \emph{Wireless Communication and Networks Conference},
+        % \footnote{~IEEE WCNC 2018, see \href{http://wcnc2018.ieee-wcnc.org}{\texttt{wcnc2018.ieee-wcnc.org}}},
+        Barcelona, Spain, April $2018$,\\
+        % \href{https://HAL.Inria.fr/hal-01705292}{\texttt{HAL.Inria.fr/hal-01705292}}.
+        See Chapter~4.
+        % \cite{Besson2018WCNC}
+
+    \item
+        \emph{Multi-Armed Bandit Learning in IoT Networks and non-stationary settings},\\
+        by Rémi Bonnefoi, \textbf{L.Besson}, C.Moy, É.Kaufmann \& Jacques Palicot.\\
+        \emph{Conference on Cognitive Radio Oriented Wireless Networks},
+        % \footnote{~CROWNCOM 2017, see \href{http://crowncom.org/2017}{\texttt{crowncom.org/2017}}},
+        Lisboa, Portugal, September $2017$,
+        % \href{https://HAL.Inria.fr/hal-01575419}{\texttt{HAL.Inria.fr/hal-01575419}},
+        \textbf{Best Paper Award}.\\
+        See Section~5.2.
+        % \cite{Bonnefoi17}
+
+    \end{itemize}
+    }
+\end{frameO}
+
+
+\begin{frameO}[Demonstrations in international conferences]
+
+{\footnotesize
+
+    \begin{itemize}
+
+    \item
+        \emph{MALIN: ``Multi-Arm bandit Learning for Iot Networks'' with GRC: A TestBed Implementation and Demonstration that Learning Helps},\\
+        by \textbf{Lilian Besson}, Rémi Bonnefoi, Christophe Moy.\\
+        Demonstration presented in \emph{International Conference on Communication},
+        % \footnote{~ICT 2018, see \href{http://ict-2018.org/demos}{\texttt{ict-2018.org/demos}}},
+        Saint-Malo, France in June $2018$.\\
+        See \href{https://YouTu.be/HospLNQhcMk}{\textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}} for a $6$-minutes presentation video.\\
+        See Section~5.3.
+        % \cite{Besson2018ICT}
+
+    \end{itemize}
+    }
+\end{frameO}
+
+
+\begin{frameO}[French language conferences with proceedings]
+
+{\footnotesize
+
+    \begin{itemize}
+    \item
+        \emph{Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires} (in French),\\
+        by \textbf{Lilian Besson} \& Émilie Kaufmann,\\
+        GRETSI 2019,
+        % \footnote{~GRETSI 2019, see \href{http://GRETSI.fr/colloque2019}{\texttt{GRETSI.fr/colloque2019}}},
+        August $2019$,\\
+        % \href{https://HAL.Inria.fr/hal-02006471}{\texttt{HAL.Inria.fr/hal-02006471}}.\\
+        See Chapter~7.
+        % \cite{Besson2019Gretsi}
+
+    \end{itemize}
+    }
+\end{frameO}
+
+
+\begin{frameO}[Submitted works\dots]
+
+{\footnotesize
+
+    \begin{itemize}
+
+    \item
+        \emph{Decentralized Spectrum Learning for Radio Collision Mitigation in Ultra-Dense IoT Networks: LoRaWAN Case Study and Measurements},\\
+        by Christophe Moy, \textbf{Lilian Besson}, Guillaume Delbarre \& Laurent Toutain,
+        July $2019$.\\
+        See Chapter~5.\\
+        Submitted for a special volume of \href{https://annalsoftelecommunications.wp.imt.fr/}{the Annals of Telecommunications} journal, on ``Machine Learning for Intelligent Wireless Communications and Networking''.
+        % Preprint at \href{https://HAL.Inria.fr/hal-XXX}{\texttt{HAL.Inria.fr/hal-XXX}}.
+        % \cite{MoyBesson2019Annales}
+
+        % \emph{$\hookrightarrow$ Note that we are already working on an extended version that will be submitted to a journal on Machine Learning and Statistical Learning, in autumn $2019$.}
+
+    \item
+        \emph{The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits},\\
+        by \textbf{Lilian Besson} \& Émilie Kaufmann,
+        October $2019$.\\
+        See Chapter~7.\\
+        Submitted for \href{https://www.aistats.org/}{AISTATS 2020}.
+        Preprint at \href{https://HAL.Inria.fr/hal-02006471}{\texttt{HAL.Inria.fr/hal-02006471}}.
+        % \cite{Besson2019GLRT}
+
+    \end{itemize}
+    }
+\end{frameO}
+
+
+\begin{frameO}[In progress works waiting for a new submission\dots]
+
+{\footnotesize
+
+    \begin{itemize}
+
+    \item
+        \emph{SMPyBandits: an Open-Source Research Framework for Single and Multi-Players Multi-Arms Bandits (MAB) Algorithms in Python},\\
+        by \textbf{Lilian Besson}\\
+        Active development since October $2016$,
+        \href{https://HAL.Inria.fr/hal-01840022}{\texttt{HAL.Inria.fr/hal-01840022}}.\\
+        It currently consists in about $45000$ lines of code, hosted on \href{https://GitHub.com/SMPyBandits}{\texttt{GitHub.com/SMPyBandits}},
+        and a complete documentation accessible on \href{https://SMPyBandits.rtfd.io}{\texttt{SMPyBandits.rtfd.io}} or \href{https://SMPyBandits.GitHub.io}{\texttt{SMPyBandits.GitHub.io}}.\\
+        See Chapter~3.
+        % \cite{SMPyBanditsJMLR,SMPyBandits}
+
+    \item
+        \emph{What Doubling-Trick Can and Can't Do for Multi-Armed Bandits},\\
+        by \textbf{Lilian Besson} \& Émilie Kaufmann,
+        September $2018$.\\
+        Preprint at \href{https://HAL.Inria.fr/hal-01736357}{\texttt{HAL.Inria.fr/hal-01736357}}.
+        % \cite{Besson2018DoublingTricks}
+
+    \end{itemize}
+    }
 \end{frameO}
 
 
