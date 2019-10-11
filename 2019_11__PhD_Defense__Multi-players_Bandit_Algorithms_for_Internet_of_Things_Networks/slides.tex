@@ -213,7 +213,8 @@
         \\
         {\large
         Seminar of the SCEE team\\
-        CentraleSupélec, campus de Rennes
+        at CentraleSupélec, campus de Rennes\\
+        Thursday $17$th of October, $2019$
         }
         }}
     \end{textblock*}
@@ -279,7 +280,8 @@
             in a \emph{simple}, \emph{efficient}, \emph{automatic} and \emph{decentralized} way?
 
             \item
-            $\hookrightarrow$ \alert{can the devices learn on their own to communicate more efficiently?}
+            % $\hookrightarrow$
+            \alert{can the devices learn on their own to communicate more efficiently?}
         \end{itemize}
     \end{orangeblock}
 
@@ -299,49 +301,17 @@
         \end{itemize}
     \end{orangeblock}
 
+    \vspace{10pt}
+
     \begin{block}{Main solutions}
         Yes! \\
         \hspace{5pt} $\hookrightarrow$ By using \emph{Machine Learning} algorithms\dots\\
         \hspace{10pt} $\hookrightarrow$ of the \emph{Reinforcement Learning} family\dots\\
         \hspace{15pt} $\hookrightarrow$ we focussed on \alert{Multi-Armed Bandit} algorithms\\
-        \hspace{25pt} and we showed they are well suited for these problems!
+        \hspace{30pt} and we showed they are well suited for these problems!
     \end{block}
 
 \end{frameO}
-
-
-\begin{frameO}[Main contributions presented today]
-
-    \large
-
-    \begin{itemize}
-        \item a model of IoT network with decentralized learning embedded in the devices,
-        \item numerical simulations proving the quality of the proposed solution,
-        \item mathematical development in a simplified model: multi-player bandit,
-        \item extending beyond the stationary hypothesis,
-        \item my Python library SMPyBandits.
-    \end{itemize}
-
-\end{frameO}
-
-
-\begin{frameO}[Chapters of my thesis addressed today]
-
-    \large
-
-    \begin{enumerate}
-        % \item[Ch.1)] Introduction
-        \item[Ch.2)] \textcolor{blue}{Stochastic Multi-Armed Bandits}
-        \item[Ch.3)] \textcolor{gray}{SMPyBandits: an exhaustive Python library to simulate MAB problems}
-        \item[Ch.4)] \textcolor{gray}{Expert aggregation for online MAB algorithms selection}
-        \item[Ch.5)] \textcolor{blue}{Improving Spectrum Usage of IoT Networks with Selfish MAB Learning}
-        \item[Ch.6)] \textcolor{blue}{Multi-Players Multi-Armed Bandits}
-        \item[Ch.7)] \textcolor{blue}{Piece-Wise Stationary Bandits}
-        % \item[Ch.8)] General Conclusion and Perspectives
-    \end{enumerate}
-
-\end{frameO}
-
 
 
 \begin{frameO}[What is a \emph{bandit}?]
@@ -357,6 +327,41 @@
             \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
         \end{tiny}
     \end{center}
+\end{frameO}
+
+
+\begin{frameO}[Main contributions presented today]
+
+    \large
+
+    \begin{itemize}
+        \item a simple model of IoT network, with decentralized learning embedded in the autonomous IoT devices,
+        \item numerical simulations proving the quality of the proposed solution,
+        \item a realistic implementation on radio hardware,
+        % \item my Python library SMPyBandits.
+        \item mathematical development in a simplified model: multi-player bandit,
+        \item and an extension beyond the stationary hypothesis.
+    \end{itemize}
+
+\end{frameO}
+
+
+\begin{frameO}[Chapters of my thesis addressed today]
+
+    \large
+
+    \begin{enumerate}[leftmargin=50pt]
+        \setlength\itemsep{10pt}
+        % \item[Ch.1)] Introduction
+        \item[Ch.2)] \textcolor{blue}{Stochastic Multi-Armed Bandits}
+        \item[Ch.3)] \textcolor{gray}{SMPyBandits: an exhaustive Python library to simulate MAB problems}
+        \item[Ch.4)] \textcolor{gray}{Expert aggregation for online MAB algorithms selection}
+        \item[Ch.5)] \textcolor{blue}{Improving Spectrum Usage of IoT Networks with Selfish MAB Learning}
+        \item[Ch.6)] \textcolor{blue}{Multi-Players Multi-Armed Bandits}
+        \item[Ch.7)] \textcolor{blue}{Piece-Wise Stationary Bandits}
+        % \item[Ch.8)] General Conclusion and Perspectives
+    \end{enumerate}
+
 \end{frameO}
 
 
@@ -492,23 +497,43 @@
 \end{frameO}
 
 
-\begin{frameO}[Outline of this talk]
+\section{Outline of this talk}
 
-    FIXME
+\begin{frameTI}
+    \begin{center}
+        \color{white} \Huge \textsc{Outline of this talk}
+
+        % \vspace{0.2cm}
+
+        % \huge \textsc{and first strategies}
+
+    \end{center}
+    \vspace*{-4pt}
+\end{frameTI}
+
+
+\begin{frameO}[Outline of this talk]
 
     \begin{itemize}
         \setlength\itemsep{0.6em}
-              % \item Why Bandits?
         \item Multi-armed Bandit
-        \item Performance measure (regret) and first strategies
-        \item Best possible regret? Lower bounds
-        \item Mixing Exploration and Exploitation
-        \item The Optimism Principle and Upper Confidence Bounds (UCB) Algorithms
-        % \item Asymptotically Optimal Algorithms
-        % \item Worst-case Optimality
-        % \item A Bayesian Look at the Multi-Armed Bandit Model
+        \begin{itemize}
+            \item Performance measure (regret) and first strategies
+            \item Best possible regret? Lower bounds
+            \item Upper Confidence Bounds (UCB) Algorithms
+        \end{itemize}
+        \item Selfish MAB learning in our model of IoT network
+        \begin{itemize}
+            \item reference strategies
+            \item selfish applications of UCB algorithms
+            \item intractable model in theory\dots
+        \end{itemize}
         \item Many extensions of the stationary single-player bandit models
-        \item Summary
+        \begin{itemize}
+            \item multi-player bandits in stationary settings
+            \item single-player bandits in piece-wise stationary settings
+        \end{itemize}
+        \item Conclusion and perspectives
     \end{itemize}
 
 \end{frameO}
@@ -586,78 +611,78 @@
 
 \end{frameO}
 
-\begin{frameO}[Clinical trials]
+% \begin{frameO}[Clinical trials]
 
-    \textbf{Historical motivation} \color{gray}[Thompson 1933]\color{black}
+%     \textbf{Historical motivation} \color{gray}[Thompson 1933]\color{black}
 
-    \begin{center}
-        \includegraphics[width=0.12\linewidth]{medoc1.jpg}
-        \hspace{0.3cm}
-        \includegraphics[width=0.12\linewidth]{medoc4.jpg}
-        \hspace{0.3cm}
-        \includegraphics[width=0.12\linewidth]{medoc3.jpg}
-        \hspace{0.5cm}
-        \includegraphics[width=0.12\linewidth]{medoc2.jpg}
-        \hspace{0.5cm}
-        \includegraphics[width=0.12\linewidth]{medoc5.jpg}
-        \hspace{0.3cm}
-    \end{center}
-    \vspace{-0.8cm}
+%     \begin{center}
+%         \includegraphics[width=0.12\linewidth]{medoc1.jpg}
+%         \hspace{0.3cm}
+%         \includegraphics[width=0.12\linewidth]{medoc4.jpg}
+%         \hspace{0.3cm}
+%         \includegraphics[width=0.12\linewidth]{medoc3.jpg}
+%         \hspace{0.5cm}
+%         \includegraphics[width=0.12\linewidth]{medoc2.jpg}
+%         \hspace{0.5cm}
+%         \includegraphics[width=0.12\linewidth]{medoc5.jpg}
+%         \hspace{0.3cm}
+%     \end{center}
+%     \vspace{-0.8cm}
 
-    \hspace{-0.3cm}\[ \cB(\mu_1) \hspace{0.9cm} \cB(\mu_2) \hspace{0.9cm} \cB(\mu_3) \hspace{0.8cm} \cB(\mu_4) \hspace{0.9cm} \cB(\mu_5)\]
+%     \hspace{-0.3cm}\[ \cB(\mu_1) \hspace{0.9cm} \cB(\mu_2) \hspace{0.9cm} \cB(\mu_3) \hspace{0.8cm} \cB(\mu_4) \hspace{0.9cm} \cB(\mu_5)\]
 
-    For the $t$-th patient in a clinical study,
+%     For the $t$-th patient in a clinical study,
 
-    \begin{itemize}
-        \item chooses a \blue treatment $A_t$\black
-        \item observes a (Bernoulli) \blue response $R_t \in \{0,1\} : \bP(R_t = 1 | A_t = a) = \mu_{a}$\black
-    \end{itemize}
+%     \begin{itemize}
+%         \item chooses a \blue treatment $A_t$\black
+%         \item observes a (Bernoulli) \blue response $R_t \in \{0,1\} : \bP(R_t = 1 | A_t = a) = \mu_{a}$\black
+%     \end{itemize}
 
-    \vspace{0.3cm}
-
-
-    \textbf{Goal:} maximize the expected number of patients healed.
-
-\end{frameO}
+%     \vspace{0.3cm}
 
 
+%     \textbf{Goal:} maximize the expected number of patients healed.
 
-\begin{frameO}[Online content optimization]
-
-    \textbf{Modern motivation} ($\$\$\$\$$) \gray [Li et al, 2010] \black
-
-    (recommender systems, online advertisement, etc)
+% \end{frameO}
 
 
-    \begin{center}
-        \includegraphics[height=0.15\textheight]{film1.jpg}
-        \hspace{0.6cm}
-        \includegraphics[height=0.15\textheight]{film2.jpg}
-        \hspace{0.6cm}
-        \includegraphics[height=0.15\textheight]{film3.jpg}
-        \hspace{0.6cm}
-        \includegraphics[height=0.15\textheight]{film4.jpg}
-        \hspace{0.6cm}
-        \includegraphics[height=0.15\textheight]{film5.jpg}
-        \hspace{0.6cm}
-    \end{center}
 
-    \vspace{-0.8cm}
+% \begin{frameO}[Online content optimization]
 
-    \hspace{-0.2cm}\[ \nu_1 \hspace{1.4cm} \nu_2 \hspace{1.4cm} \nu_3 \hspace{1.4cm} \nu_4 \hspace{1.4cm} \nu_5\]
+%     \textbf{Modern motivation} ($\$\$\$\$$) \gray [Li et al, 2010] \black
 
-    For the $t$-th visitor of a website,
-    \begin{itemize}
-        \item recommend a  \blue movie $A_t$\black
-        \item observe a \blue rating $R_t \sim \nu_{A_t}$\black \ (e.g. $R_t \in \{1,\dots,5\}$)
-    \end{itemize}
-
-    \vspace{0.3cm}
-
-    \textbf{Goal:} maximize the sum of ratings.
+%     (recommender systems, online advertisement, etc)
 
 
-\end{frameO}
+%     \begin{center}
+%         \includegraphics[height=0.15\textheight]{film1.jpg}
+%         \hspace{0.6cm}
+%         \includegraphics[height=0.15\textheight]{film2.jpg}
+%         \hspace{0.6cm}
+%         \includegraphics[height=0.15\textheight]{film3.jpg}
+%         \hspace{0.6cm}
+%         \includegraphics[height=0.15\textheight]{film4.jpg}
+%         \hspace{0.6cm}
+%         \includegraphics[height=0.15\textheight]{film5.jpg}
+%         \hspace{0.6cm}
+%     \end{center}
+
+%     \vspace{-0.8cm}
+
+%     \hspace{-0.2cm}\[ \nu_1 \hspace{1.4cm} \nu_2 \hspace{1.4cm} \nu_3 \hspace{1.4cm} \nu_4 \hspace{1.4cm} \nu_5\]
+
+%     For the $t$-th visitor of a website,
+%     \begin{itemize}
+%         \item recommend a  \blue movie $A_t$\black
+%         \item observe a \blue rating $R_t \sim \nu_{A_t}$\black \ (e.g. $R_t \in \{1,\dots,5\}$)
+%     \end{itemize}
+
+%     \vspace{0.3cm}
+
+%     \textbf{Goal:} maximize the sum of ratings.
+
+% \end{frameO}
+
 
 \begin{frameO}[Cognitive radios]
 
@@ -693,8 +718,6 @@
     \vspace{0.2cm}
 
     \textbf{Goal:} Maximize the overall quality of communications.
-
-    $\hookrightarrow$ \alert{see the next talk at 4pm !}
 
 \end{frameO}
 
@@ -755,33 +778,19 @@
     \end{orangeblock}
     \pause
 
-    \alt<3>{
+    \vspace{0.6cm}
 
-        \vspace{0.6cm}
+    A strategy with small regret should:
+    \begin{itemize}
+        \item select not too often arms for which $\Delta_a > 0$ (sub-optimal arms)
+        \item \dots which requires to try all arms to estimate the values of the $\Delta_a$
+    \end{itemize}
 
-        A strategy with small regret should:
-        \begin{itemize}
-            \item select not too often arms for which $\Delta_a > 0$ (sub-optimal arms)
-            \item \dots which requires to try all arms to estimate the values of the $\Delta_a$
-        \end{itemize}
+    \vspace{0.5cm}
 
-        \vspace{0.5cm}
-
-        \begin{center}
-            \red $\Longrightarrow$ Exploration / Exploitation trade-off !
-        \end{center}
-
-    }
-    {
-        \textbf{Proof.}
-
-        \vspace{-1cm}
-
-        \begin{eqnarray*}
-            \cR_{\bm\nu}(\cA,T) & = & \mu_\star T - \bE \! \left[\sum_{t=1}^T X_{A_t,t}\right] = \mu_\star T - \bE \! \left[\sum_{t=1}^T \mu_{A_t} \right]\\
-            & = & \bE\left[\sum_{t=1}^T (\mu_\star - \mu_{A_t})\right] \\
-            &= & \sum_{a =1}^K \underbrace{(\mu_\star- \mu_a)}_{\Delta_a} \, \bE \biggl[ \underbrace{\sum_{t=1}^T\ind(A_t=a)}_{N_a(T)} \biggr]\,.
-        \end{eqnarray*}}
+    \begin{center}
+        \red $\Longrightarrow$ Exploration / Exploitation trade-off !
+    \end{center}
 
 \end{frameO}
 
@@ -824,264 +833,264 @@
 \end{frameO}
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
+% \begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
-    \alt<3>{\vspace{0.3cm}}{}
+%     \alt<3>{\vspace{0.3cm}}{}
 
-    \begin{orangeblock}{}
-        Given $ m \in \{ 1, \dots, T/K\}$,
-        \begin{itemize}
-            \item draw each arm $m$ times
-            \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
-            \item keep playing this arm until round $T$
+%     \begin{orangeblock}{}
+%         Given $ m \in \{ 1, \dots, T/K\}$,
+%         \begin{itemize}
+%             \item draw each arm $m$ times
+%             \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
+%             \item keep playing this arm until round $T$
 
-                  \vspace{-0.4cm}
+%                   \vspace{-0.4cm}
 
-                  \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
-        \end{itemize}
-        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
-    \end{orangeblock}
-    \pause
+%                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
+%         \end{itemize}
+%         \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+%     \end{orangeblock}
+%     \pause
 
-    \vspace{0.2cm}
+%     \vspace{0.2cm}
 
 
-    \underline{Analysis for $K=2$ arms}. If $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
+%     \underline{Analysis for $K=2$ arms}. If $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
 
-    \vspace{-0.5cm}
+%     \vspace{-0.5cm}
 
-    \begin{eqnarray*}\mathcal{R}_{\bm\nu}(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
-        & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
-        & \leq &\Delta m + (\Delta T) \times \alt<3>{\red \bP\left(\widehat{\mu}_{2,m} \geq \widehat{\mu}_{1,m}\right)}{\bP\left(\widehat{\mu}_{2,m} \geq \widehat{\mu}_{1,m}\right)}
-    \end{eqnarray*}
+%     \begin{eqnarray*}\mathcal{R}_{\bm\nu}(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
+%         & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
+%         & \leq &\Delta m + (\Delta T) \times \alt<3>{\red \bP\left(\widehat{\mu}_{2,m} \geq \widehat{\mu}_{1,m}\right)}{\bP\left(\widehat{\mu}_{2,m} \geq \widehat{\mu}_{1,m}\right)}
+%     \end{eqnarray*}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
-    $a$
+%     $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
+%     $a$
 
-    \alt<3>{\hfill{} \red $\Longrightarrow$ requires a concentration inequality}{}
-\end{frameO}
+%     \alt<3>{\hfill{} \red $\Longrightarrow$ requires a concentration inequality}{}
+% \end{frameO}
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
+% \begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
-    \vspace{0.3cm}
-    \begin{orangeblock}{}
-        Given $ m \in \{ 1, \dots, T/K\}$,
-        \begin{itemize}
-            \item draw each arm $m$ times
-            \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
-            \item keep playing this arm until round $T$
+%     \vspace{0.3cm}
+%     \begin{orangeblock}{}
+%         Given $ m \in \{ 1, \dots, T/K\}$,
+%         \begin{itemize}
+%             \item draw each arm $m$ times
+%             \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
+%             \item keep playing this arm until round $T$
 
-                  \vspace{-0.4cm}
+%                   \vspace{-0.4cm}
 
-                  \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
-        \end{itemize}
-        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
-    \end{orangeblock}
-    \vspace{0.2cm}
+%                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
+%         \end{itemize}
+%         \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+%     \end{orangeblock}
+%     \vspace{0.2cm}
 
 
-    \underline{Analysis for two arms}. $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
+%     \underline{Analysis for two arms}. $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
 
-    \textbf{Assumption 1:} $\nu_1,\nu_2$ are \red bounded in $[0,1]$\black.
+%     \textbf{Assumption 1:} $\nu_1,\nu_2$ are \red bounded in $[0,1]$\black.
 
-    \vspace{-0.7cm}
+%     \vspace{-0.7cm}
 
-    \begin{eqnarray*}\mathcal{R}_{\bm\nu}(T) & = & \Delta \bE[N_2(T)] \\
-        & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
-        & \leq &\Delta {m} + (\Delta T) \times \exp(- {m\Delta^2}/{2})
-    \end{eqnarray*}
+%     \begin{eqnarray*}\mathcal{R}_{\bm\nu}(T) & = & \Delta \bE[N_2(T)] \\
+%         & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
+%         & \leq &\Delta {m} + (\Delta T) \times \exp(- {m\Delta^2}/{2})
+%     \end{eqnarray*}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
-    $a$
+%     $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
+%     $a$
 
-    \hfill{} $\Longrightarrow$ \red Hoeffding's inequality
-\end{frameO}
+%     \hfill{} $\Longrightarrow$ \red Hoeffding's inequality
+% \end{frameO}
 
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
+% \begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
-    \vspace{0.3cm}
-    \begin{orangeblock}{}
-        Given $ m \in \{ 1, \dots, T/K\}$,
-        \begin{itemize}
-            \item draw each arm $m$ times
-            \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
-            \item keep playing this arm until round $T$
+%     \vspace{0.3cm}
+%     \begin{orangeblock}{}
+%         Given $ m \in \{ 1, \dots, T/K\}$,
+%         \begin{itemize}
+%             \item draw each arm $m$ times
+%             \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
+%             \item keep playing this arm until round $T$
 
-                  \vspace{-0.4cm}
+%                   \vspace{-0.4cm}
 
-                  \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
-        \end{itemize}
-        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
-    \end{orangeblock}
-    \vspace{0.2cm}
+%                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
+%         \end{itemize}
+%         \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+%     \end{orangeblock}
+%     \vspace{0.2cm}
 
 
-    \underline{Analysis for two arms}. $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
+%     \underline{Analysis for two arms}. $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
 
-    \textbf{Assumption 2:} $\nu_1 =\cN(\mu_1,\sigma^2),\nu_2 = \cN(\mu_2,\sigma^2)$ are \red Gaussian arms\black.
+%     \textbf{Assumption 2:} $\nu_1 =\cN(\mu_1,\sigma^2),\nu_2 = \cN(\mu_2,\sigma^2)$ are \red Gaussian arms\black.
 
-    \vspace{-0.7cm}
+%     \vspace{-0.7cm}
 
-    \begin{eqnarray*}\mathcal{R}_{\bm\nu}(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
-        & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
-        & \leq &\Delta \alt<2>{\blue m\black}{m} + (\Delta T) \times \exp(- {\alt<2>{\blue m \black}{m}\Delta^2}/{4\sigma^2})
-    \end{eqnarray*}
+%     \begin{eqnarray*}\mathcal{R}_{\bm\nu}(\texttt{ETC},T) & = & \Delta \bE[N_2(T)] \\
+%         & = & \Delta \bE\left[ m + (T - Km)\ind\left(\widehat{a} = 2\right)\right] \\
+%         & \leq &\Delta \alt<2>{\blue m\black}{m} + (\Delta T) \times \exp(- {\alt<2>{\blue m \black}{m}\Delta^2}/{4\sigma^2})
+%     \end{eqnarray*}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
-    $a$
+%     $\widehat{\mu}_{a,m}$: empirical mean of the first $m$ observations from arm
+%     $a$
 
-    \hfill{} $\Longrightarrow$ \red Gaussian tail inequality
-\end{frameO}
+%     \hfill{} $\Longrightarrow$ \red Gaussian tail inequality
+% \end{frameO}
 
 
-\begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
+% \begin{frameO}[A better idea: Explore-Then-Commit (\texttt{ETC})]
 
-    \vspace{0.3cm}
-    \begin{orangeblock}{}
-        Given $ m \in \{ 1, \dots, T/K\}$,
-        \begin{itemize}
-            \item draw each arm $m$ times
-            \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
-            \item keep playing this arm until round $T$
+%     \vspace{0.3cm}
+%     \begin{orangeblock}{}
+%         Given $ m \in \{ 1, \dots, T/K\}$,
+%         \begin{itemize}
+%             \item draw each arm $m$ times
+%             \item compute the empirical best arm $\widehat{a} = \text{argmax}_{a} \ \widehat{\mu}_a(Km)$
+%             \item keep playing this arm until round $T$
 
-                  \vspace{-0.4cm}
+%                   \vspace{-0.4cm}
 
-                  \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
-        \end{itemize}
-        \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
-    \end{orangeblock}
-    \vspace{0.2cm}
+%                   \[A_{t+1} = \widehat{a} \ \ \text{for} \ t \geq Km\]
+%         \end{itemize}
+%         \color{red}$\Longrightarrow$ EXPLORATION followed by EXPLOITATION\color{black}
+%     \end{orangeblock}
+%     \vspace{0.2cm}
 
 
-    \underline{Analysis for two arms}. $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
+%     \underline{Analysis for two arms}. $\mu_1 > \mu_2$,  $\textcolor{blue}{\Delta := \mu_1 - \mu_2}$.
 
-    \textbf{Assumption:}
-    $\nu_1 =\cN(\mu_1,\sigma^2),\nu_2 = \cN(\mu_2,\sigma^2)$ are \red Gaussian arms\black.
+%     \textbf{Assumption:}
+%     $\nu_1 =\cN(\mu_1,\sigma^2),\nu_2 = \cN(\mu_2,\sigma^2)$ are \red Gaussian arms\black.
 
-    For $\blue m = \frac{4\sigma^2}{\Delta^2}\log\left(\frac{T\Delta^2}{4\sigma^2}\right)$,
+%     For $\blue m = \frac{4\sigma^2}{\Delta^2}\log\left(\frac{T\Delta^2}{4\sigma^2}\right)$,
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \[\cR_{\bm\nu}(\texttt{ETC},T) \leq \frac{4\sigma^2}{\Delta}\left[\log\left(\frac{T\Delta^2}{2}\right) + 1\right] = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
+%     \[\cR_{\bm\nu}(\texttt{ETC},T) \leq \frac{4\sigma^2}{\Delta}\left[\log\left(\frac{T\Delta^2}{2}\right) + 1\right] = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
 
-    \vspace{-0.4cm}
+%     \vspace{-0.4cm}
 
-    \pause
+%     \pause
 
-    \begin{itemize}
-        \item[$\bm +$] logarithmic regret!
-        \item[$\bm -$] requires the knowledge of $T$ ($\simeq$ OKAY) \red and $\Delta$ \black (NOT OKAY)
-    \end{itemize}
+%     \begin{itemize}
+%         \item[$\bm +$] logarithmic regret!
+%         \item[$\bm -$] requires the knowledge of $T$ ($\simeq$ OKAY) \red and $\Delta$ \black (NOT OKAY)
+%     \end{itemize}
 
 
-\end{frameO}
+% \end{frameO}
 
 
 
 
 
-\begin{frameO}[Sequential Explore-Then-Commit (2 Gaussian arms)]
+% \begin{frameO}[Sequential Explore-Then-Commit (2 Gaussian arms)]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \begin{itemize}
-        \item  explore uniformly until the \blue random time \black
-    \end{itemize}
-    \vspace{-0.3cm}
+%     \begin{itemize}
+%         \item  explore uniformly until the \blue random time \black
+%     \end{itemize}
+%     \vspace{-0.3cm}
 
-    \[\hspace{-1cm}\blue \tau = \inf \left\{t \in \N : |\widehat{\mu}_1(t) - \widehat{\mu}_2(t) | > \sqrt{\frac{8\sigma^2\log(T/t)}{t}}\right\}  \]
+%     \[\hspace{-1cm}\blue \tau = \inf \left\{t \in \N : |\widehat{\mu}_1(t) - \widehat{\mu}_2(t) | > \sqrt{\frac{8\sigma^2\log(T/t)}{t}}\right\}  \]
 
 
 
-    \vspace{-0.9cm}
+%     \vspace{-0.9cm}
 
-    \begin{center}
-        \includegraphics[width=0.5\linewidth]{figGaussianElimination}
-    \end{center}
+%     \begin{center}
+%         \includegraphics[width=0.5\linewidth]{figGaussianElimination}
+%     \end{center}
 
 
-    \vspace{-0.6cm}
+%     \vspace{-0.6cm}
 
 
-    \begin{itemize}
-        \item $\blue \widehat{a}_\tau = \argmax{}_{a} \ \widehat{\mu}_a(\tau)$ and $(A_{t+1} = \widehat{a}_\tau)$ for $t \in \{\tau+1, \dots, T\}$
-    \end{itemize}
+%     \begin{itemize}
+%         \item $\blue \widehat{a}_\tau = \argmax{}_{a} \ \widehat{\mu}_a(\tau)$ and $(A_{t+1} = \widehat{a}_\tau)$ for $t \in \{\tau+1, \dots, T\}$
+%     \end{itemize}
 
-    \vspace{-0.2cm}
+%     \vspace{-0.2cm}
 
-    \[
-        \cR_{\bm\nu}(\texttt{S-ETC},T)  \leq  \red \frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right)\black \ + C \sqrt{\log(T)} = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
+%     \[
+%         \cR_{\bm\nu}(\texttt{S-ETC},T)  \leq  \red \frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right)\black \ + C \sqrt{\log(T)} = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right).\]
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \begin{itemize}
-        \item[$\Longrightarrow$] same regret rate, without knowing $\Delta$ \gray [Garivier et al. 2016]
-    \end{itemize}
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] same regret rate, without knowing $\Delta$ \gray [Garivier et al. 2016]
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
-\begin{frameO}[Numerical illustration]
+% \begin{frameO}[Numerical illustration]
 
-    \[\text{Two Gaussian arms:  } \nu_1 = \cN(1,1) \  \text{and} \ \nu_2 = \cN(1.5,1)\]
+%     \[\text{Two Gaussian arms:  } \nu_1 = \cN(1,1) \  \text{and} \ \nu_2 = \cN(1.5,1)\]
 
-    \begin{minipage}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\textwidth]{3algos}
-    \end{minipage}
-    \begin{minipage}{0.49\linewidth}
-        \centering
-        \includegraphics[width=\textwidth]{1algos}
-    \end{minipage}
-    \begin{center}
-        Expected regret estimated over $N=500$ runs for Sequential-ETC versus our two naive baselines.
+%     \begin{minipage}{0.49\linewidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{3algos}
+%     \end{minipage}
+%     \begin{minipage}{0.49\linewidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{1algos}
+%     \end{minipage}
+%     \begin{center}
+%         Expected regret estimated over $N=500$ runs for Sequential-ETC versus our two naive baselines.
 
-        {\small (dashed lines: empirical 0.05\% and 0.95\% quantiles of the regret) }
-    \end{center}
+%         {\small (dashed lines: empirical 0.05\% and 0.95\% quantiles of the regret) }
+%     \end{center}
 
 
 
-\end{frameO}
+% \end{frameO}
 
 
-\begin{frameO}[Is this a good regret rate?]
+% \begin{frameO}[Is this a good regret rate?]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    For two-armed Gaussian bandits,
-    \[
-        \cR_{\bm\nu}(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
+%     For two-armed Gaussian bandits,
+%     \[
+%         \cR_{\bm\nu}(\texttt{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right)  = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right)\black.\]
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \begin{itemize}
-        \item[$\Longrightarrow$] \alert{problem-dependent logarithmic} regret bound $\cR_{\bm\nu}(\text{algo}, T) = \mathcal{O}(\log(T))$.
-    \end{itemize}
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] \alert{problem-dependent logarithmic} regret bound $\cR_{\bm\nu}(\text{algo}, T) = \mathcal{O}(\log(T))$.
+%     \end{itemize}
 
-    \textbf{Observation:} blows up when $\Delta$ tends to zero\dots
-    \begin{eqnarray*}
-        \cR_{\bm\nu}(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
-        & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\log(u^2) , u\right]
-        \leq \red C \sqrt{T}\black.
-    \end{eqnarray*}
+%     \textbf{Observation:} blows up when $\Delta$ tends to zero\dots
+%     \begin{eqnarray*}
+%         \cR_{\bm\nu}(\texttt{ETC},T)  &\lesssim& \min \left[\frac{4\sigma^2}{\Delta}\log\left(T\Delta^2\right) , \blue\Delta T\black\right] \\
+%         & \leq & \sqrt{T} \min_{u > 0} \left[\frac{4\sigma^2}{u}\log(u^2) , u\right]
+%         \leq \red C \sqrt{T}\black.
+%     \end{eqnarray*}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \begin{itemize}
-        \item[$\Longrightarrow$] \alert{problem-independent square-root} regret bound $\cR_{\bm\nu}(\text{algo}, T) = \mathcal{O}(\sqrt{T})$.
-    \end{itemize}
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] \alert{problem-independent square-root} regret bound $\cR_{\bm\nu}(\text{algo}, T) = \mathcal{O}(\sqrt{T})$.
+%     \end{itemize}
 
 
-\end{frameO}
+% \end{frameO}
 
 
 \section{Best possible regret? Lower bounds}
@@ -1135,30 +1144,30 @@
 
 \end{frameO}
 
-\begin{frameO}[Some room for better algorithms?]
+% \begin{frameO}[Some room for better algorithms?]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \begin{itemize}
-        \item For two-armed Gaussian bandits, ETC satisfies
-              \[
-                  \cR_{\bm\nu}(\mathrm{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\black \log\left(T\Delta^2\right) = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right),\]
-              with $\Delta = |\mu_1 - \mu_2|$.
-    \end{itemize}
+%     \begin{itemize}
+%         \item For two-armed Gaussian bandits, ETC satisfies
+%               \[
+%                   \cR_{\bm\nu}(\mathrm{ETC},T)  \lesssim  \red \frac{4\sigma^2}{\Delta}\black \log\left(T\Delta^2\right) = \mathcal{O}\left(\frac{1}{\Delta} \log(T)\right),\]
+%               with $\Delta = |\mu_1 - \mu_2|$.
+%     \end{itemize}
 
-    \begin{itemize}
-        \item The Lai and Robbins' lower bound yields, for large values of $T$,
-              \[
-                  \cR_{\bm\nu}(\cA,T)  \gtrsim  \red \frac{2\sigma^2}{\Delta}\black \log\left(T\Delta^2\right) = \Omega\left(\frac{1}{\Delta} \log(T)\right),\]
-              as $\kl(\mu_1,\mu_2) = \frac{(\mu_1 - \mu_2)^2}{2 \sigma^2}$.
-    \end{itemize}
+%     \begin{itemize}
+%         \item The Lai and Robbins' lower bound yields, for large values of $T$,
+%               \[
+%                   \cR_{\bm\nu}(\cA,T)  \gtrsim  \red \frac{2\sigma^2}{\Delta}\black \log\left(T\Delta^2\right) = \Omega\left(\frac{1}{\Delta} \log(T)\right),\]
+%               as $\kl(\mu_1,\mu_2) = \frac{(\mu_1 - \mu_2)^2}{2 \sigma^2}$.
+%     \end{itemize}
 
-    \begin{itemize}
-        \item[$\Longrightarrow$] Explore-Then-Commit is \alert{not} \blue asymptotically optimal\black.
-    \end{itemize}
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] Explore-Then-Commit is \alert{not} \blue asymptotically optimal\black.
+%     \end{itemize}
 
 
-\end{frameO}
+% \end{frameO}
 
 
 % \begin{frameO}[Behind the lower bound: a change of distribution]
@@ -1357,81 +1366,81 @@
 % \end{frameO}
 
 
-\section{Mixing Exploration and Exploitation}
+% \section{Mixing Exploration and Exploitation}
 
-\begin{frameTI}
-    \begin{center}
-        \textcolor{white}{\Huge \textsc{Mixing Exploration and}}
+% \begin{frameTI}
+%     \begin{center}
+%         \textcolor{white}{\Huge \textsc{Mixing Exploration and}}
 
-        \vspace{0.2cm}
+%         \vspace{0.2cm}
 
-        \textcolor{white}{\Huge\textsc{Exploitation}}
-        %\vspace{0.5cm}
+%         \textcolor{white}{\Huge\textsc{Exploitation}}
+%         %\vspace{0.5cm}
 
-        %{\textcolor{white} {\huge \textsc{Lower Bounds} }}
-    \end{center}
-    \vspace*{-4pt}
-\end{frameTI}
+%         %{\textcolor{white} {\huge \textsc{Lower Bounds} }}
+%     \end{center}
+%     \vspace*{-4pt}
+% \end{frameTI}
 
-\begin{frameO}[A simple strategy: $\varepsilon$\texttt{-greedy}]
+% \begin{frameO}[A simple strategy: $\varepsilon$\texttt{-greedy}]
 
-    The $\varepsilon$\texttt{-greedy} rule \color{gray} [Sutton and Barton, 98] \black is the simplest way to alternate exploration and exploitation.
+%     The $\varepsilon$\texttt{-greedy} rule \color{gray} [Sutton and Barton, 98] \black is the simplest way to alternate exploration and exploitation.
 
-    \begin{orangeblock}{$\varepsilon$\texttt{-greedy} strategy}
-        At round $t$,
-        \begin{itemize}
-            \item with probability $\varepsilon$
-                  \[A_t \sim \cU(\{1,\dots,K\})\]
-            \item with probability $1-\varepsilon$
-                  \[A_t = \argmax_{a = 1,\dots,K} \ \widehat{\mu}_a(t).\]
-        \end{itemize}
-    \end{orangeblock}
+%     \begin{orangeblock}{$\varepsilon$\texttt{-greedy} strategy}
+%         At round $t$,
+%         \begin{itemize}
+%             \item with probability $\varepsilon$
+%                   \[A_t \sim \cU(\{1,\dots,K\})\]
+%             \item with probability $1-\varepsilon$
+%                   \[A_t = \argmax_{a = 1,\dots,K} \ \widehat{\mu}_a(t).\]
+%         \end{itemize}
+%     \end{orangeblock}
 
-    \begin{itemize}
-        \item[$\Longrightarrow$] \underline{Linear regret}: $\cR_{\bm\nu}\left(\varepsilon\texttt{-greedy},T\right) \geq \varepsilon\frac{K - 1}{K}\Delta_{\min} T$.
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] \underline{Linear regret}: $\cR_{\bm\nu}\left(\varepsilon\texttt{-greedy},T\right) \geq \varepsilon\frac{K - 1}{K}\Delta_{\min} T$.
 
-              \vspace{0.2cm}
+%               \vspace{0.2cm}
 
-              \red$\Delta_{\min} = \underset{a : \mu_a < \mu_\star}{\min} \Delta_a$.
+%               \red$\Delta_{\min} = \underset{a : \mu_a < \mu_\star}{\min} \Delta_a$.
 
-    \end{itemize}
+%     \end{itemize}
 
-\end{frameO}
-
-
-\begin{frameO}[A simple strategy: $\varepsilon$\texttt{-greedy}]
-
-    A simple fix: make $\varepsilon$ decreasing!
-
-    \begin{orangeblock}{$\varepsilon_t$-greedy strategy}
-        At round $t$,
-        \begin{itemize}
-            \item with probability $\blue\varepsilon_t :=\min \left(1, \frac{K}{d^2t}\right)$ \hfill{} probability $\searrow$ with $t$
-                  \[A_t \sim \cU(\{1,\dots,K\})\]
-
-                  \vspace{-0.4cm}
-
-            \item with probability $1-\varepsilon_t$
-
-                  \vspace{-0.4cm}
-
-                  \[A_t = \argmax_{a = 1,\dots,K} \ \widehat{\mu}_a(t-1).\]
-        \end{itemize}
-    \end{orangeblock}
-
-    \begin{orangeblock}{Theorem \gray [Auer et al. 02]\black}
-        If $\red 0 < d \leq \Delta_{\min}$, $\cR_{\bm\nu}\left(\varepsilon_t\texttt{-greedy},T\right) = \mathcal{O}\left(\frac{1}{d^2} K\log(T)\right)$.
-    \end{orangeblock}
-
-    \vspace{-0.3cm}
-
-    \begin{itemize}
-        \item[$\Longrightarrow$] requires the knowledge of a lower bound on $\Delta_{\min}$.
-    \end{itemize}
+% \end{frameO}
 
 
+% \begin{frameO}[A simple strategy: $\varepsilon$\texttt{-greedy}]
 
-\end{frameO}
+%     A simple fix: make $\varepsilon$ decreasing!
+
+%     \begin{orangeblock}{$\varepsilon_t$-greedy strategy}
+%         At round $t$,
+%         \begin{itemize}
+%             \item with probability $\blue\varepsilon_t :=\min \left(1, \frac{K}{d^2t}\right)$ \hfill{} probability $\searrow$ with $t$
+%                   \[A_t \sim \cU(\{1,\dots,K\})\]
+
+%                   \vspace{-0.4cm}
+
+%             \item with probability $1-\varepsilon_t$
+
+%                   \vspace{-0.4cm}
+
+%                   \[A_t = \argmax_{a = 1,\dots,K} \ \widehat{\mu}_a(t-1).\]
+%         \end{itemize}
+%     \end{orangeblock}
+
+%     \begin{orangeblock}{Theorem \gray [Auer et al. 02]\black}
+%         If $\red 0 < d \leq \Delta_{\min}$, $\cR_{\bm\nu}\left(\varepsilon_t\texttt{-greedy},T\right) = \mathcal{O}\left(\frac{1}{d^2} K\log(T)\right)$.
+%     \end{orangeblock}
+
+%     \vspace{-0.3cm}
+
+%     \begin{itemize}
+%         \item[$\Longrightarrow$] requires the knowledge of a lower bound on $\Delta_{\min}$.
+%     \end{itemize}
+
+
+
+% \end{frameO}
 
 
 \section{The Optimism Principle and Upper Confidence Bounds Algorithms}
@@ -1447,127 +1456,128 @@
 \end{frameTI}
 
 
-\begin{frameO}[The optimism principle]
+% \begin{frameO}[The optimism principle]
 
-    \vspace{0.3cm}
+%     \vspace{0.3cm}
 
-    \textbf{Step 1:} construct a set of statistically plausible models
+%     \textbf{Step 1:} construct a set of statistically plausible models
 
-    \begin{itemize}
-        \item For each arm $a$, build a confidence interval $\cI_a(t)$ on the mean $\mu_a$ :
-              \color{red}
-              \[ \cI_a(t) = [\mathrm{LCB}_a(t), \mathrm{UCB}_a(t)] \] \color{black}
-    \end{itemize}
+%     \begin{itemize}
+%         \item For each arm $a$, build a confidence interval $\cI_a(t)$ on the mean $\mu_a$ :
+%               \color{red}
+%               \[ \cI_a(t) = [\mathrm{LCB}_a(t), \mathrm{UCB}_a(t)] \] \color{black}
+%     \end{itemize}
 
-    \vspace{-0.8cm}
+%     \vspace{-0.8cm}
 
-    \begin{center}
-        $\mathrm{LCB}$ = \blue L\black ower \blue C\black onfidence \blue B\black ound
+%     \begin{center}
+%         $\mathrm{LCB}$ = \blue L\black ower \blue C\black onfidence \blue B\black ound
 
-        $\mathrm{UCB}$ = \blue U\black pper \blue C\black onfidence \blue B\black ound
-    \end{center}
+%         $\mathrm{UCB}$ = \blue U\black pper \blue C\black onfidence \blue B\black ound
+%     \end{center}
 
-    \begin{figure}
-        \includegraphics[width=0.55\linewidth]{UCB}
-        \caption{Confidence intervals on the means after $t$ rounds}
-    \end{figure}
+%     \begin{figure}
+%         \includegraphics[width=0.55\linewidth]{UCB}
+%         \caption{Confidence intervals on the means after $t$ rounds}
+%     \end{figure}
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[The optimism principle]
+% \begin{frameO}[The optimism principle]
 
-    \vspace{0.2cm}
+%     \vspace{0.2cm}
 
-    \textbf{Step 2}: act as if the best possible model were the true model
+%     \textbf{Step 2}: act as if the best possible model were the true model
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \begin{center}
-        \textit{
-            (\textcolor{blue}{``optimism in face of uncertainty''})}
-    \end{center}
+%     \begin{center}
+%         \textit{
+%             (\textcolor{blue}{``optimism in face of uncertainty''})}
+%     \end{center}
 
-    \vspace{-0.3cm}
+%     \vspace{-0.3cm}
 
-    \begin{figure}
-        \includegraphics[width=0.55\linewidth]{UCBdot}
-        \caption{Confidence intervals on the means after $t$ rounds}
-    \end{figure}
+%     \begin{figure}
+%         \includegraphics[width=0.55\linewidth]{UCBdot}
+%         \caption{Confidence intervals on the means after $t$ rounds}
+%     \end{figure}
 
-    \vspace{-0.8cm}
+%     \vspace{-0.8cm}
 
-    \[\text{Optimistic bandit model} =\argmax_{\bm\mu \in \cC(t)}  \max_{a = 1,\dots,K} \ \mu_a\]
+%     \[\text{Optimistic bandit model} =\argmax_{\bm\mu \in \cC(t)}  \max_{a = 1,\dots,K} \ \mu_a\]
 
-    \vspace{-0.2cm}
+%     \vspace{-0.2cm}
 
-    \begin{itemize}
-        \item That is, select
-    \end{itemize}
+%     \begin{itemize}
+%         \item That is, select
+%     \end{itemize}
 
-    \vspace{-0.4cm}
+%     \vspace{-0.4cm}
 
-    \color{red}
+%     \color{red}
 
-    \[ A_{t+1} = \underset{a=1,\dots,K}{\argmax} \ \mathrm{UCB}_a(t)\black. \]
+%     \[ A_{t+1} = \underset{a=1,\dots,K}{\argmax} \ \mathrm{UCB}_a(t)\black. \]
 
-\end{frameO}
+% \end{frameO}
 
-\subsection{Building Confidence Intervals}
+% \subsection{Building Confidence Intervals}
 
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Optimistic Algorithms}
-            \vspace{1.5cm}
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Optimistic Algorithms}
+%             \vspace{1.5cm}
 
-            {\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
-            % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
-        \end{center}
-    \end{changemargin}
-\end{frame}
-
-
-\begin{frameO}[How to build confidence intervals?]
-
-    \begin{orangeblock}{}
-        We need $\mathrm{UCB}_a(t)$ such that
-        \[\red\bP\left(\mu_a \leq \mathrm{UCB}_a(t)\right)\gtrsim 1 - 1/t\black.\]
-
-        \vspace{-0.5cm}
-
-    \end{orangeblock}
-
-    \vspace{-0.2cm}
-
-    \hfill{} $\Longrightarrow$ tool: \blue concentration inequalities\black
-
-    \textbf{Example:} rewards are \red $\sigma^2$ sub-Gaussian\black
-
-    \vspace{-0.3cm}
-
-    \begin{equation}\bE[Z] = \mu \ \ \text{and} \ \ \ \bE\left[e^{\lambda(Z-\mu)}\right] \leq e^{\lambda^2\sigma^2 / 2}.\label{SG}\end{equation}
-
-    \vspace{-0.3cm}
-
-    \begin{alertblock}{Hoeffding inequality}
-        $Z_i$ i.i.d. satisfying \eqref{SG}. For all (\textbf{fixed}) $s\geq 1$
-        \[\alt<2->{\bP\left(\frac{Z_1 + \dots + Z_s}{s}  \leq \mu - x \right)  \leq e^{-sx^2 / (2\sigma^2)}}{\bP\left(\frac{Z_1 + \dots + Z_s}{s}  \geq \mu + x \right)  \leq e^{- s x^2 / (2\sigma^2)}}\]
-    \end{alertblock}
-
-    \alt<3>{\color{red}\Large\danger\normalsize\black Cannot be used directly in a bandit model as \blue the number of observations $s$ from each arm is random\black!}{\vspace{-0.3cm}
-
-        \begin{itemize}
-            \item $\nu_a$ bounded in $[0,1]$: $1/4$ sub-Gaussian
-            \item $\nu_a = \cN(\mu_a,\sigma^2)$: $\sigma^2$ sub-Gaussian
-        \end{itemize}
-    }
+%             {\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
+%             \textcolor{darkgray}{\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
+%             % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
 
 
-\end{frameO}
+% \begin{frameO}[How to build confidence intervals?]
 
-\begin{frameO}[How to build confidence intervals?]
+%     \begin{orangeblock}{}
+%         We need $\mathrm{UCB}_a(t)$ such that
+%         \[\red\bP\left(\mu_a \leq \mathrm{UCB}_a(t)\right)\gtrsim 1 - 1/t\black.\]
+
+%         \vspace{-0.5cm}
+
+%     \end{orangeblock}
+
+%     \vspace{-0.2cm}
+
+%     \hfill{} $\Longrightarrow$ tool: \blue concentration inequalities\black
+
+%     \textbf{Example:} rewards are \red $\sigma^2$ sub-Gaussian\black
+
+%     \vspace{-0.3cm}
+
+%     \begin{equation}\bE[Z] = \mu \ \ \text{and} \ \ \ \bE\left[e^{\lambda(Z-\mu)}\right] \leq e^{\lambda^2\sigma^2 / 2}.\label{SG}\end{equation}
+
+%     \vspace{-0.3cm}
+
+%     \begin{alertblock}{Hoeffding inequality}
+%         $Z_i$ i.i.d. satisfying \eqref{SG}. For all (\textbf{fixed}) $s\geq 1$
+%         \[\alt<2->{\bP\left(\frac{Z_1 + \dots + Z_s}{s}  \leq \mu - x \right)  \leq e^{-sx^2 / (2\sigma^2)}}{\bP\left(\frac{Z_1 + \dots + Z_s}{s}  \geq \mu + x \right)  \leq e^{- s x^2 / (2\sigma^2)}}\]
+%     \end{alertblock}
+
+%     \alt<3>{\color{red}\Large\danger\normalsize\black Cannot be used directly in a bandit model as \blue the number of observations $s$ from each arm is random\black!}{\vspace{-0.3cm}
+
+%         \begin{itemize}
+%             \item $\nu_a$ bounded in $[0,1]$: $1/4$ sub-Gaussian
+%             \item $\nu_a = \cN(\mu_a,\sigma^2)$: $\sigma^2$ sub-Gaussian
+%         \end{itemize}
+%     }
+
+
+% \end{frameO}
+
+
+\begin{frameO}[A first UCB algorithm]
 
     \vspace{0.3cm}
 
@@ -1580,42 +1590,46 @@
     \begin{orangeblock}{Hoeffding inequality + union bound}
         \[ \bP\left(\mu_a \leq \red \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \geq 1 - \frac{1}{t^{\frac{\alpha}{2} -1}} \]
     \end{orangeblock}
-
-    \pause
-    \textbf{Proof.}
-
-    \vspace{-0.5cm}
-
-    \begin{align*}
-         & \bP\left(\mu_a > \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \leq  \bP\left(\exists s \leq t : \mu_a > \widehat{\mu}_{a,s} + \sigma\sqrt{\frac{\alpha\log(t)}{s}} \black\right) \\
-         & \leq \sum_{s=1}^t \bP\left(\widehat{\mu}_{a,s} < \mu_a - \sigma\sqrt{\frac{\alpha\log(t)}{s}}\right) \leq \sum_{s=1}^t \frac{1}{t^{\alpha/2}} = \frac{1}{t^{\alpha/2 - 1}}.
-    \end{align*}
-
-
-
-\end{frameO}
-
-
-\begin{frameO}[A first UCB algorithm]
-
+    
     \vspace{0.4cm}
 
     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
     where
     \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
 
-    \begin{itemize}
-        \item this form of UCB was first proposed for Gaussian rewards
+    % \pause
+    % \textbf{Proof.}
 
-              \gray [Katehakis and Robbins, 95]\black
-        \item popularized by \color{gray}[Auer et al. 02] \color{black} for bounded rewards:\\
-              \red UCB1, for $\alpha=2$\black
-              \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
+    % \vspace{-0.5cm}
 
-        \item the analysis was UCB($\alpha$) was further refined to hold for $\alpha > 1/2$ in that case \gray [Bubeck, 11, Cappé et al. 13] \black
-    \end{itemize}
+    % \begin{align*}
+    %      & \bP\left(\mu_a > \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \leq  \bP\left(\exists s \leq t : \mu_a > \widehat{\mu}_{a,s} + \sigma\sqrt{\frac{\alpha\log(t)}{s}} \black\right) \\
+    %      & \leq \sum_{s=1}^t \bP\left(\widehat{\mu}_{a,s} < \mu_a - \sigma\sqrt{\frac{\alpha\log(t)}{s}}\right) \leq \sum_{s=1}^t \frac{1}{t^{\alpha/2}} = \frac{1}{t^{\alpha/2 - 1}}.
+    % \end{align*}
+
 
 \end{frameO}
+
+
+% \begin{frameO}[A first UCB algorithm]
+
+%     \vspace{0.4cm}
+
+%     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
+%     where
+%     \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
+
+%     \begin{itemize}
+%         \item this form of UCB was first proposed for Gaussian rewards
+
+%               \gray [Katehakis and Robbins, 95]\black
+%         \item popularized by \color{gray}[Auer et al. 02] \color{black} for bounded rewards:\\
+%               \red UCB1, for $\alpha=2$\black
+
+%         \item the analysis was UCB($\alpha$) was further refined to hold for $\alpha > 1/2$ in that case \gray [Bubeck, 11, Cappé et al. 13] \black
+%     \end{itemize}
+
+% \end{frameO}
 
 \begin{frameO}[A UCB algorithm in action \hfill{} (movie)]
 
@@ -1627,19 +1641,19 @@
 
 \subsection{Analysis of UCB($\alpha$)}
 
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Optimistic Algorithms}
-            \vspace{1.5cm}
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Optimistic Algorithms}
+%             \vspace{1.5cm}
 
-            \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
-            {\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
-            % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
-        \end{center}
-    \end{changemargin}
-\end{frame}
+%             \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
+%             {\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
+%             % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
 
 
 \begin{frameO}[Regret of UCB($\alpha$) for bounded rewards]
@@ -1654,25 +1668,27 @@
         \[\cR_{\bm\nu}(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\log(T) + \left(1+\frac{\pi^2}{3}\right)\left(\sum_{a=1}^K \Delta_a\right).\]
     \end{orangeblock}
 
+    FIXME talk about kl-UCB: just one block saying it works similarly but it is smarter?
+
     % \begin{itemize}
     %     \item[$\Longrightarrow$] what we will prove today
     % \end{itemize}
 
 
-    \begin{orangeblock}{Theorem} For every $\alpha>1$ and every sub-optimal arm $a$, there exists a constant $C_\alpha>0$ such that
+    % \begin{orangeblock}{Theorem} For every $\alpha>1$ and every sub-optimal arm $a$, there exists a constant $C_\alpha>0$ such that
 
-        \vspace{-0.8cm}
+    %     \vspace{-0.8cm}
 
-        \[\bE_{\bm \mu}[N_a(T)] \leq \frac{4\alpha}{(\mu_\star - \mu_a)^2}\log(T) + C_\alpha.\]
-    \end{orangeblock}
+    %     \[\bE_{\bm \mu}[N_a(T)] \leq \frac{4\alpha}{(\mu_\star - \mu_a)^2}\log(T) + C_\alpha.\]
+    % \end{orangeblock}
 
-    \vspace{0.2cm}
+    % \vspace{0.2cm}
 
-    It follows that
+    % It follows that
 
-    \vspace{-0.6cm}
+    % \vspace{-0.6cm}
 
-    \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\log(T) + K C_\alpha\black.\]
+    % \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\log(T) + K C_\alpha\black.\]
 
 \end{frameO}
 
@@ -2277,26 +2293,26 @@
 
 % % \end{frameO}
 
-\begin{frameO}[Intermediate Summary]
+% \begin{frameO}[Intermediate Summary]
 
-    \begin{itemize}
-        \item Several ways to solve the exploration/exploitation trade-off
-              \begin{itemize}
-                  \item Explore-Then-Commit
-                  \item $\varepsilon$\texttt{-greedy}
-                  \item \red Upper Confidence Bound algorithms \black
-              \end{itemize}
-    \end{itemize}
+%     \begin{itemize}
+%         \item Several ways to solve the exploration/exploitation trade-off
+%               \begin{itemize}
+%                   \item Explore-Then-Commit
+%                   \item $\varepsilon$\texttt{-greedy}
+%                   \item \red Upper Confidence Bound algorithms \black
+%               \end{itemize}
+%     \end{itemize}
 
-    \begin{itemize}
-        \item Good \alert{concentration inequalities} are crucial to build good UCB algorithms!
-    \end{itemize}
+%     \begin{itemize}
+%         \item Good \alert{concentration inequalities} are crucial to build good UCB algorithms!
+%     \end{itemize}
 
-    \begin{itemize}
-        \item Performance lower bounds motivate the design of (optimal) algorithms
-    \end{itemize}
+%     \begin{itemize}
+%         \item Performance lower bounds motivate the design of (optimal) algorithms
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
 % \section{A Bayesian Look at the Multi-Armed Bandit Model}
@@ -3470,9 +3486,8 @@
             \vspace{1.5cm}
 
             \Large \textbf{Many different extensions}	\\[0.5cm]
-            % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-            \textcolor{darkgray}{\textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }}
-            \textcolor{darkgray}{	\textbf{\Large Multi-player bandits}	\\[0.5cm]			}
+            \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
+            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}\\[0.5cm] }
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -3785,8 +3800,116 @@
 
             \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-            \textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }
-            \textcolor{darkgray}{	\textbf{\Large Multi-player bandits}	\\[0.5cm]			}
+            \textbf{\Large Multi-player bandits}\\[0.5cm]
+            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}\\[0.5cm]}
+        \end{center}
+    \end{changemargin}
+\end{frame}
+
+
+\subsection{Bandits for multiple devices}
+
+\begin{frameO}[Multi-players bandits: setup]
+
+    \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($2 \leq M \leq K$)
+    % with \textbf{no communication} between them
+
+    \vspace{0.3cm}
+
+    At round $t$:
+    \begin{itemize}
+        \item player $m$ selects $A_{m,t}$ ; then \textit{observes} $X_{A_{m,t},t}$
+        \item and receives the reward
+    \end{itemize}
+
+    \vspace{-0.2cm}
+
+    \[\red X_{m,t} = \left\{ \begin{array}{cl}
+            X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
+            0             & \text{else (= collision)}
+        \end{array}\right.\]
+
+    \vspace{-0.3cm}
+
+    \textbf{Goal:}
+
+    \begin{itemize}
+        \item maximize centralized rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T X_{m,t}$
+        \item \dots \orange without communication \black between players
+        \item trade off : exploration / exploitation / \alert{and collisions !}
+    \end{itemize}
+
+    \underline{\orange Cognitive radio}: (OSA) sensing, attempt of transmission if no PU, possible collisions with other SUs
+
+\end{frameO}
+
+\begin{frameO}[Multi-players bandits: algorithms]
+
+    \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
+
+    \vspace{0.2cm}
+
+    \only<1>{
+        \begin{orangeblock}{\textbf{Example:} UCB1 + $\rho^{\text{rand}}$. At round $t$ each player}
+            \begin{itemize}
+                \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
+                \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
+                \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
+                \item any index policy may be used in place of UCB1
+                \item \alert{their proof was wrong\dots}
+                \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]\black
+            \end{itemize}
+        \end{orangeblock}
+    }
+
+    \only<2->{
+        \begin{orangeblock}{\textbf{Example:} our algorithm \textcolor{blue}{klUCB index + MC-TopM rule}}
+            \begin{itemize}
+                \only<2>{
+                \item more complicated behavior (musical chair game)
+                \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
+                \item lower bound is $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
+                \item order optimal, not asymptotically optimal
+                }
+                \item \textbf{Recent references}: \color{gray} [Besson and Kaufmann, 18] [Boursier et al, 19]
+            \end{itemize}
+        \end{orangeblock}
+    }
+
+    \only<3>{
+        \textbf{Remarks}:
+        \begin{itemize}
+            \item number of players $M$ has to be known\\
+                $\Longrightarrow$ but it is possible to estimate it on the run
+            \item does not handle an evolving number of devices\\
+                (entering/leaving the network)
+            \item is it a \textit{fair} orthogonalization rule?
+            \item could players use the collision indicators to communicate? (yes!)
+        \end{itemize}
+    }
+
+\end{frameO}
+
+\begin{frameO}[Results on a multi-player MAB problem]
+
+    \centering
+    \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
+    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
+
+\end{frameO}
+
+
+\begin{frame}[c]
+    \begin{changemargin}{-0.5cm}{-0.5cm}
+        \begin{center}
+            \vspace{-0.3in}
+            \textbf{\huge Other Bandit Models}
+            \vspace{1.5cm}
+
+            \textcolor{darkgray}{\Large \textbf{Many different extensions}\\[0.5cm]}
+            % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
+            \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
+            \textbf{\Large Piece-wise stationary bandits}\\[0.5cm]
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -3870,115 +3993,6 @@
     \end{center}
 
     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
-\end{frameO}
-
-
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Other Bandit Models}
-            \vspace{1.5cm}
-
-            \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
-            % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-            \textcolor{darkgray}{\textbf{{\Large Piece-wise stationary bandits}\\[0.5cm] }}
-            \textbf{\Large Multi-player bandits}	\\[0.5cm]
-        \end{center}
-    \end{changemargin}
-\end{frame}
-
-
-\subsection{Bandits for multiple devices}
-
-\begin{frameO}[Multi-players bandits: setup]
-
-    \orange $M$ players \black playing \textit{the same} $K$-armed bandit \ \ ($2 \leq M \leq K$)
-    % with \textbf{no communication} between them
-
-    \vspace{0.3cm}
-
-    At round $t$:
-    \begin{itemize}
-        \item player $m$ selects $A_{m,t}$ ; then \textit{observes} $X_{A_{m,t},t}$
-        \item and receives the reward
-    \end{itemize}
-
-    \vspace{-0.2cm}
-
-    \[\red X_{m,t} = \left\{ \begin{array}{cl}
-            X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
-            0             & \text{else (= collision)}
-        \end{array}\right.\]
-
-    \vspace{-0.3cm}
-
-    \textbf{Goal:}
-
-    \begin{itemize}
-        \item maximize centralized rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T X_{m,t}$
-        \item \dots \orange without communication \black between players
-        \item trade off : exploration / exploitation / \alert{and collisions !}
-    \end{itemize}
-
-    \underline{\orange Cognitive radio}: (OSA) sensing, attempt of transmission if no PU, possible collisions with other SUs
-    \hfill{} $\hookrightarrow$ \textcolor{blue}{see the next talk at 4pm !}
-
-\end{frameO}
-
-\begin{frameO}[Multi-players bandits: algorithms]
-
-    \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
-
-    \vspace{0.2cm}
-
-    \only<1>{
-        \begin{orangeblock}{\textbf{Example:} UCB1 + $\rho^{\text{rand}}$. At round $t$ each player}
-            \begin{itemize}
-                \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
-                \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
-                \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
-                \item any index policy may be used in place of UCB1
-                \item \alert{their proof was wrong\dots}
-                \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]\black
-            \end{itemize}
-        \end{orangeblock}
-    }
-
-    \only<2->{
-        \begin{orangeblock}{\textbf{Example:} our algorithm \textcolor{blue}{klUCB index + MC-TopM rule}}
-            \begin{itemize}
-                \only<2>{
-                \item more complicated behavior (musical chair game)
-                \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M^2} \log(T))$ regret upper bound
-                \item lower bound is $\cR(\cA, T) = \Omega(M \frac{1}{\Delta_M^2} \log(T))$
-                \item order optimal, not asymptotically optimal
-                }
-                \item \textbf{Recent references}: \color{gray} [Besson and Kaufmann, 18] [Boursier et al, 19]
-            \end{itemize}
-        \end{orangeblock}
-    }
-
-    \only<3>{
-        \textbf{Remarks}:
-        \begin{itemize}
-            \item number of players $M$ has to be known\\
-                $\Longrightarrow$ but it is possible to estimate it on the run
-            \item does not handle an evolving number of devices\\
-                (entering/leaving the network)
-            \item is it a \textit{fair} orthogonalization rule?
-            \item could players use the collision indicators to communicate? (yes!)
-        \end{itemize}
-    }
-
-\end{frameO}
-
-\begin{frameO}[Results on a multi-player MAB problem]
-
-    \centering
-    \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
-
 \end{frameO}
 
 
