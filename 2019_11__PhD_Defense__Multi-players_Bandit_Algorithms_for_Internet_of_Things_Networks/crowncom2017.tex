@@ -13,7 +13,7 @@
 
     % \pause
 
-    \begin{block}{Goal}
+    \begin{orangeblock}{Goal}
 
         \begin{itemize}\tightlist
             \item
@@ -22,11 +22,11 @@
                   \textbf{Without} centralized supervision!
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
     % \pause
 
-    \begin{orangeblock}{How?}
+    \begin{alertblock}{How?}
 
         \begin{itemize}\tightlist
             \item
@@ -34,7 +34,7 @@
                   frequency they should talk!
         \end{itemize}
 
-    \end{orangeblock}
+    \end{alertblock}
 
 \end{frameO}
 
@@ -76,7 +76,7 @@
 
 \begin{frameO}[Hypotheses ($1/2$)]
 
-    \begin{block}{Emission model}
+    \begin{orangeblock}{Emission model}
 
         \begin{itemize}\tightlist
             \item
@@ -86,9 +86,9 @@
                   \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
-    \begin{block}{Background traffic}
+    \begin{orangeblock}{Background traffic}
 
         \begin{itemize}\tightlist
             \item
@@ -97,7 +97,7 @@
                   Their repartition is fixed in time.
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
     \begin{quote}
         \(\implies\) Background traffic, bothering the dynamic devices!
@@ -107,7 +107,7 @@
 
 \begin{frameO}[Hypotheses ($2/2$)]
 
-    \begin{block}{Dynamic radio reconfiguration}
+    \begin{orangeblock}{Dynamic radio reconfiguration}
 
         \begin{itemize}\tightlist
             \item
@@ -118,9 +118,9 @@
                   algorithm.
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
-    \begin{block}{Problem}
+    \begin{orangeblock}{Problem}
 
         \begin{itemize}\tightlist
             \item
@@ -132,7 +132,7 @@
                   \textbf{decentralized} and used \textbf{independently} by each device.
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
 \end{frameO}
 
@@ -210,19 +210,19 @@
 
 \begin{frameO}[Optimal centralized strategy]
 
-    \begin{block}{But unrealistic}
+    \begin{orangeblock}{But unrealistic}
 
         But \textbf{not achievable in practice}: there is no oracle and no centralized supervision!
 
-    \end{block}
+    \end{orangeblock}
 
-    \begin{block}{Let see \emph{realistic decentralized approaches}}
+    \begin{orangeblock}{Let see \emph{realistic decentralized approaches}}
 
         \(\hookrightarrow\) Machine Learning ? \newline
         \hspace*{15pt}\(\hookrightarrow\) Reinforcement Learning ? \newline
         \hspace*{30pt} \(\hookrightarrow\) \emph{Multi-Armed Bandit} !
 
-    \end{block}
+    \end{orangeblock}
 
 \end{frameO}
 
@@ -253,13 +253,13 @@
 
     % \pause
 
-    \begin{block}{Reinforcement Learning interpretation}
+    \begin{orangeblock}{Reinforcement Learning interpretation}
 
         Maximize transmission rate \(\equiv\) \textbf{maximize cumulated
             rewards}
         \[\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.\]
 
-    \end{block}
+    \end{orangeblock}
 
 \end{frameO}
 
@@ -305,7 +305,7 @@
 
 \begin{frameO}[Experimental setting]
 
-    \begin{block}{Simulation parameters}
+    \begin{orangeblock}{Simulation parameters}
 
         \begin{itemize}
             \tightlist
@@ -325,9 +325,9 @@
                   repartition.
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
-    \begin{block}{What do we show}
+    \begin{orangeblock}{What do we show}
 
         \begin{itemize}
             \tightlist
@@ -340,7 +340,7 @@
                   Thompson sampling is even more efficient than UCB.
         \end{itemize}
 
-    \end{block}
+    \end{orangeblock}
 
 \end{frameO}
 

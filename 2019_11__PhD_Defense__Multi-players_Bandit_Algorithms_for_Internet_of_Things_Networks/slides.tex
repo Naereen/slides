@@ -263,14 +263,14 @@
 
 \begin{frameO}[What did I study during my PhD ? ($1/2$)]
 
-    \begin{block}{Telecommunications technology\dots}
+    \begin{alertblock}{Telecommunications technology\dots}
         \hspace{5pt} $\hookrightarrow$ wireless networks\dots\\
         \hspace{10pt} $\hookrightarrow$ networks with decentralized access\dots\\
         \hspace{15pt} $\hookrightarrow$ SOME/MANY wireless devices access a wireless network\\
         \hspace{30pt} served from ONE access point, in an unlicensed standard:\\
         \hspace{30pt} the base station is NOT affecting devices to radio resources\dots\\
         \hspace{35pt} $\hookrightarrow$ we focus on the case of \emph{Internet of Things} networks
-    \end{block}
+    \end{alertblock}
 
     \pause
 
@@ -304,13 +304,13 @@
 
     \vspace{10pt}
 
-    \begin{block}{Main solutions}
+    \begin{alertblock}{Main solutions}
         Yes! \\
         \hspace{5pt} $\hookrightarrow$ By using \emph{Machine Learning} algorithms\dots\\
         \hspace{10pt} $\hookrightarrow$ of the \emph{Reinforcement Learning} family\dots\\
         \hspace{15pt} $\hookrightarrow$ we focussed on \alert{Multi-Armed Bandit} algorithms\\
         \hspace{30pt} and we showed they are well suited for these problems!
-    \end{block}
+    \end{alertblock}
 
 \end{frameO}
 
@@ -383,7 +383,7 @@
 
 
 \begin{frameO}[Organization of the thesis: a reading map]
-    
+
     \begin{figure}[h!]
         \centering
         \resizebox{0.95\textwidth}{!}{
@@ -391,8 +391,8 @@
             %
             \node[align=center] (introduction) at (0,3.25) [rectangle,draw,fill=blue!15] {\textbf{Chapter~1}\\Introduction};
             \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=red!15] {\textbf{Chapter~2}\\The Stochastic\\Multi-Armed Bandit models};
-            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10] {\textbf{Chapter~3}\\SMPyBandits: simulation\\library for MAB};
-            \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10] {\textbf{Chapter~4}\\Online selection\\of the best algorithm};
+            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
+            \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~4\\Online selection\\of the best algorithm};
             \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!10] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
             \node[align=center] (chapter5) at (0,1) [rectangle,draw,fill=green!15] {\textbf{Chapter~6}\\Multi-players\\Multi-Armed Bandits};
             \node[align=center] (chapter6) at (2.5,1) [rectangle,draw,fill=green!20] {\textbf{Chapter~7}\\Piece-Wise Stationary\\Multi-Armed Bandits};
@@ -1632,7 +1632,7 @@
     \begin{orangeblock}{Hoeffding inequality + union bound}
         \[ \bP\left(\mu_a \leq \red \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \geq 1 - \frac{1}{t^{\frac{\alpha}{2} -1}} \]
     \end{orangeblock}
-    
+
     \vspace{0.4cm}
 
     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
