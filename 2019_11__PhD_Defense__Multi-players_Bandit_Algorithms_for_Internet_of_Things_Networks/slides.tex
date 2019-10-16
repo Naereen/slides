@@ -674,6 +674,7 @@
     \pause
 
     \textbf{Opportunistic Spectrum Access (OSA)}
+    \begin{itemize}
         \item $K$ radio channels (orthogonal frequency bands)
 
               \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
@@ -1041,15 +1042,15 @@
     \vspace*{10pt}
 
     \begin{colorblock}{For multi-player bandit}
-        Same lower-bound for a problem-dependent constant $C$
+        Same lower-bound, with a problem-dependent constant $C$
         \[ R_T = \Omega(C M K \log(T)) \]
     \end{colorblock}
 
     \vspace*{10pt}
 
     \begin{colorblock}{For piece-wise stationary bandit}
-        Larger lower-bound
-        \[ R_T = \Omega(\sqrt{K \Upsilon_T T}) \]
+        Larger lower-bound, with a problem-dependent constant $C$
+        \[ R_T = \Omega(C \sqrt{K \Upsilon_T T}) \]
     \end{colorblock}
 
     \textcolor{gray}{(see later)}
@@ -1196,23 +1197,22 @@
 \end{frameO}
 
 
-\section{Selfish MAB learning in IoT Netwokrs}
+\section{Selfish MAB learning in IoT Networks}
 
 \begin{frameTI}
     \begin{center}
-        {\textcolor{white} {\Huge \textsc{Selfish MAB learning in IoT Netwokrs} }}
+        {\textcolor{white} {\Huge \textsc{Selfish MAB learning in IoT Networks} }}
     \end{center}
     % \vspace*{-4pt}
-
-    \vfill{}
-    \small{\textcolor{lightgray}{Ref: Chapter 4 of my thesis, and [Bonnefoi et al, 2017].}}
+    % \vfill{}
+    % \small{\textcolor{lightgray}{Ref: Chapter 4 of my thesis, and [Bonnefoi et al, 2017].}}
 \end{frameTI}
 
 % TODO
 \input{crowncom2017.tex}
 
 
-\begin{frameO}[We implemented this with real hardware demo ICT 2018]
+\begin{frameO}[We implemented this with real hardware]
     TODO
 
     \begin{center}
@@ -1225,7 +1225,7 @@
 
 \begin{frameTI}
     \begin{center}
-        {\textcolor{white} {\Huge \textsc{GOther Bandit Models} }}
+        {\textcolor{white} {\Huge \textsc{Other Bandit Models} }}
     \end{center}
     \vspace*{-4pt}
 \end{frameTI}

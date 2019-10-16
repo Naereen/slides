@@ -48,7 +48,7 @@
 
     \begin{itemize}\tightlist
         \item
-              Discrete time \(t\geq1\) and \(N_c\) radio channels (\emph{e.g.}, 10)
+              Discrete time \(t\geq1\) and \(K\) radio channels (\emph{e.g.}, 10)
               \hfill{} (\emph{known})
     \end{itemize}
 
@@ -63,9 +63,9 @@
               \(D\) \textbf{dynamic} devices try to access the network
               \emph{independently}
         \item
-              \(S=S_1+\dots+S_{N_c}\) \textbf{static} devices occupy the network :
+              \(S=S_1+\dots+S_{K}\) \textbf{static} devices occupy the network :
               \newline
-              \(S_1,\dots,S_{N_c}\) in each channel \hfill{} (\emph{unknown}).
+              \(S_1,\dots,S_{K}\) in each channel \hfill{} (\emph{unknown}).
     \end{itemize}
 
 \end{frameO}
@@ -90,7 +90,7 @@
 
     \vspace*{20pt}
 
-    \begin{lightcolorblock}{Background traffic}
+    \begin{lightblock}{Background traffic}
 
         \begin{itemize}\tightlist
             \item
@@ -99,13 +99,8 @@
                   Their repartition is fixed in time.
         \end{itemize}
 
-    \end{lightcolorblock}
-
-    \vspace*{20pt}
-
-    \begin{quote}
-        \(\implies\) Background traffic, bothering the dynamic devices!
-    \end{quote}
+        \(\implies\) This ambiant traffic bothers the dynamic devices!
+    \end{lightblock}
 
 \end{frameO}
 
@@ -124,7 +119,9 @@
 
     \end{colorblock}
 
-    \begin{lightcolorblock}{Problem}
+    \vspace*{20pt}
+
+    \begin{lightblock}{Problem}
 
         \begin{itemize}\tightlist
             \item
@@ -136,7 +133,7 @@
                   \textbf{decentralized} and used \textbf{independently} by each device.
         \end{itemize}
 
-    \end{lightcolorblock}
+    \end{lightblock}
 
 \end{frameO}
 
@@ -151,7 +148,7 @@
     \begin{itemize}\tightlist
         \item
               \textbf{Uniformly random access}: dynamic devices choose uniformly
-              their channel in the pull of \(N_c\) channels.
+              their channel in the pull of \(K\) channels.
         \item
               Natural strategy, dead simple to implement.
     \end{itemize}
@@ -165,7 +162,7 @@
     \end{itemize}
 
     \begin{small} \begin{align*}
-            \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{N_c} \underbrace{(1 - p / N_c)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_i}}_{\text{No static device}} \times\; \frac{1}{N_c}.
+            \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{K} \underbrace{(1 - p / K)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_i}}_{\text{No static device}} \times\; \frac{1}{K}.
         \end{align*} \end{small}
 
     % \pause
@@ -192,22 +189,22 @@
               \vspace*{-10pt}
 
               \begin{small} \begin{align*}
-                      \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{N_c} \underbrace{(1 - p)^{D_i - 1}}_{\;\;D_i - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_i}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_i / D }_{\;\;\text{Sent in channel}\; i}.
+                      \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{K} \underbrace{(1 - p)^{D_i - 1}}_{\;\;D_i - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_i}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_i / D }_{\;\;\text{Sent in channel}\; i}.
                   \end{align*} \end{small}
         \item
               The oracle has to solve this \textbf{optimization problem}:
               \vspace*{-5pt}
 
               \begin{small} \begin{equation*} \begin{cases}
-                          \underset{D_1,\dots,D_{N_c}}{\arg\max}\;\;\; & \sum_{i=1}^{N_c} D_i (1 - p)^{S_i + D_i -1}                                             \\
-                          \text{such that}\;\;\;                       & \sum_{i=1}^{N_c} D_i = D \; \text{and} \; D_i \geq 0, \; \; \forall 1 \leq i \leq N_c .
+                          \underset{D_1,\dots,D_{K}}{\arg\max}\;\;\; & \sum_{i=1}^{K} D_i (1 - p)^{S_i + D_i -1}                                             \\
+                          \text{such that}\;\;\;                       & \sum_{i=1}^{K} D_i = D \; \text{and} \; D_i \geq 0, \; \; \forall 1 \leq i \leq K .
                       \end{cases} \end{equation*} \end{small}
         \item
               We solved this quasi-convex optimization problem with \emph{Lagrange
                   multipliers}, only numerically.
         \item
               \(\implies\) Very good performance, maximizing the transmission rate
-              of all the \(D\) dynamic devices
+              of all the \(D\) dynamic devices.
     \end{itemize}
 
 \end{frameO}
@@ -252,7 +249,7 @@
               it transmits following a Bernoulli process \newline
               (probability \(p\) of transmitting at each time step \(\tau\)),
         \item
-              chooses a channel \(A(\tau) \in \{1,\dots,N_c\}\),
+              chooses a channel \(A(\tau) \in \{1,\dots,K\}\),
         \item
               if \texttt{Ack} (no collision) \hspace*{10pt} \(\implies\) reward
               \(r_{A(\tau)} = 1\),
@@ -285,25 +282,36 @@
         \def\labelenumi{\arabic{enumi}.}
         \tightlist
         \item
-              For the first \(N_c\) steps (\(\tau=1,\dots,N_c\)), try each channel
+              For the first \(K\) steps (\(\tau=1,\dots,K\)), try each channel
               \emph{once}.
         \item
-              Then for the next steps \(t \geq N_c\) :
+              Then for the next steps \(t \geq K\) :
 
               \begin{itemize}
                   \tightlist
                   \item
                         Compute the index
-                        \(g_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}_{\text{Upper Confidence Bound}}\)
+                        \(\mathrm{UCB}_k(\tau) := \underbrace{\frac{X_k(\tau)}{N_k(\tau)}}_{\text{Mean}\; \widehat{\mu_k}(\tau)} + \underbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}_{\text{Upper Confidence Bound}}\)
                   \item
                         Choose channel
-                        \(A(\tau) = \mathop{\arg\max}\limits_{k} \; g_k(\tau)\),
+                        \(A(\tau) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k(\tau)\),
                   \item
                         Update \(T_k(\tau+1)\) and \(X_k(\tau+1)\).
               \end{itemize}
     \end{enumerate}
 
-    \vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}}
+    \begin{colorblock}{Random activation?}
+        \begin{itemize}
+            \item
+            The times $\tau$ are \textbf{not} the global time indexes $t$
+            \item
+            each object transmits only with probability $p$ at each time $t$
+            \item
+            (following its Bernoulli activation pattern)
+        \end{itemize}
+    \end{colorblock}
+
+    % \vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}}
 
 \end{frameO}
 
@@ -320,18 +328,18 @@
         \begin{itemize}
             \tightlist
             \item
-                  \(N_c = 10\) channels,
+                  \(K = 10\) channels,
             \item
                   \(S + D = 10000\) devices in total,
             \item
                   \(p = 10^{-3}\) probability of emission,
             \item
-                  \(\text{horizon} = 10^5\) time slots (\(\simeq 100\) messages \(/\)
+                  \(\text{horizon} = T = 10^5\) total time slots (in average \(\simeq 100\) messages \(/\)
                   device),
             \item
                   The proportion of dynamic devices \(D/(S+D)\) varies,
             \item
-                  Various settings for \((S_1,\dots,S_{N_c})\) static devices
+                  Various settings for \((S_1,\dots,S_{K})\) static devices
                   repartition.
         \end{itemize}
 
