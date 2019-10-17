@@ -1399,7 +1399,23 @@
 
 \end{frameO}
 
-\begin{frameO}[Results on a multi-player MAB problem]
+\begin{frameO}[Results on a multi-player MAB problem ($1/3$)]
+
+    \centering
+    \includegraphics[height=0.80\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
+    \caption{\footnotesize{For $K=M$ objects, our strategy (MC-TopM) achieves \textbf{constant} regret!}}
+
+\end{frameO}
+
+\begin{frameO}[Results on a multi-player MAB problem ($2/3$)]
+
+    \centering
+    \includegraphics[height=0.80\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
+    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform previous state-of-the-art and $\rho^{\text{rand}}$.}}
+
+\end{frameO}
+
+\begin{frameO}[Results on a multi-player MAB problem ($3/3$)]
 
     \centering
     \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
@@ -1504,6 +1520,42 @@
     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 \end{frameO}
 
+\begin{frameO}[More results ($1/3$)]
+
+    \begin{center}
+        \includegraphics[width=0.99\textwidth]{regret_problem2.png}
+    \end{center}
+
+    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+\end{frameO}
+
+\begin{frameO}[More results ($2/3$)]
+
+    \begin{center}
+        \includegraphics[width=0.99\textwidth]{regret_problem3.png}
+    \end{center}
+
+    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+\end{frameO}
+
+\begin{frameO}[More results ($3/3$)]
+
+    \begin{center}
+        \includegraphics[width=0.99\textwidth]{regret_problem4.png}
+    \end{center}
+
+    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+\end{frameO}
+
+% \begin{frameO}[More results ($4/4$)]
+
+%     \begin{center}
+%         \includegraphics[width=0.99\textwidth]{regret_problem5.png}
+%     \end{center}
+
+%     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+% \end{frameO}
+
 
 % \section{Numerical simulations with SMPyBandits}
 
@@ -1533,7 +1585,40 @@
 
 \begin{frameO}[Summary \hfill{} ($1/2$)]
 
-    FIXME
+    \begin{colorblock}{What we showed}
+
+        \large
+
+        \begin{itemize}
+            \setlength\itemsep{10pt}
+            \item a simple model of IoT network, with decentralized learning embedded in the autonomous IoT devices,
+            \item numerical simulations proving the quality of the proposed solution,
+            \item a realistic implementation on radio hardware,
+            % \item my Python library SMPyBandits.
+            \item theoretical results and proofs in a simplified model: multi-player bandits,
+            \item and an extension beyond the stationary hypothesis.
+        \end{itemize}
+
+    \end{colorblock}
+
+\end{frameO}
+
+
+\begin{frameO}[Perspectives \hfill{} ($1/2$)]
+
+    \begin{colorblock}{What is next ?}
+
+        \large
+
+        \begin{itemize}
+            \setlength\itemsep{10pt}
+            \item unify the multi-player and non-stationary bandit models\\
+                $\hookrightarrow$ in progress
+            \item test in real-world environment
+            \item try to also let the devices learn \emph{when} to transmit, not only \emph{where/how} to transmit
+        \end{itemize}
+
+    \end{colorblock}
 
 \end{frameO}
 
