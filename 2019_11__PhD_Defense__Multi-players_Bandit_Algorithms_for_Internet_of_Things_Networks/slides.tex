@@ -441,7 +441,7 @@
         \item numerical simulations proving the quality of the proposed solution,
         \item a realistic implementation on radio hardware,
         % \item my Python library SMPyBandits.
-        \item theoretical results and proofs in a simplified model: multi-player bandits,
+        \item theoretical results in a simplified model: multi-player bandits,
         \item and an extension beyond the stationary hypothesis.
     \end{itemize}
 
@@ -1212,11 +1212,16 @@
 \input{crowncom2017.tex}
 
 
-\begin{frameO}[We implemented this with real hardware]
-    TODO
-
+\begin{frameO}[We implemented this with real hardware ($1/2$)]
     \begin{center}
-        \movie{\includegraphics[width=0.9\textwidth]{screenshotDemoYouTube.png}}{videos/Multi-Armed_bandit_Learning_in_Iot_Networks_MALIN_-_Demo_at_ICT_2018.mkv}
+        \movie{\includegraphics[width=0.9\textwidth]{screenshotDemoYouTube.png}}{videos/Partie1.mp4}
+    \end{center}
+\end{frameO}
+
+
+\begin{frameO}[We implemented this with real hardware ($2/2$)]
+    \begin{center}
+        \movie{\includegraphics[width=0.9\textwidth]{screenshotDemoYouTube.png}}{videos/Partie2.mp4}
     \end{center}
 \end{frameO}
 
@@ -1583,42 +1588,55 @@
 \end{frameTI}
 
 
-\begin{frameO}[Summary \hfill{} ($1/2$)]
+\begin{frameO}[Conclusion: summary \hfill{} ($1/2$)]
 
     \begin{colorblock}{What we showed}
 
         \large
 
         \begin{itemize}
-            \setlength\itemsep{10pt}
+            \setlength\itemsep{5pt}
             \item a simple model of IoT network, with decentralized learning embedded in the autonomous IoT devices,
             \item numerical simulations proving the quality of the proposed solution,
             \item a realistic implementation on radio hardware,
             % \item my Python library SMPyBandits.
-            \item theoretical results and proofs in a simplified model: multi-player bandits,
+            \item theoretical results in a simplified model: multi-player bandits,
             \item and an extension beyond the stationary hypothesis.
         \end{itemize}
 
     \end{colorblock}
 
+    \begin{darkblock}{Didn't have time to talk about\dots}
+        \begin{itemize}
+            \setlength\itemsep{5pt}
+            \item my Python library SMPyBandits (Chapter 3),
+            \item aggregation of bandit algorithms (Chapter 4),
+            \item and details about our theoretical results and proofs (Chapters 6 and 7).
+        \end{itemize}
+    \end{darkblock}
+
 \end{frameO}
 
 
-\begin{frameO}[Perspectives \hfill{} ($1/2$)]
+\begin{frameO}[Conclusion: perspectives \hfill{} ($2/2$)]
 
-    \begin{colorblock}{What is next ?}
-
-        \large
+    \begin{lightblock}{What could be done with another year(s) ?}
 
         \begin{itemize}
-            \setlength\itemsep{10pt}
+            \setlength\itemsep{5pt}
+            \item extend my Python library SMPyBandits to cover many other bandit models?
             \item unify the multi-player and non-stationary bandit models\\
-                $\hookrightarrow$ in progress
-            \item test in real-world environment
-            \item try to also let the devices learn \emph{when} to transmit, not only \emph{where/how} to transmit
+                $\hookrightarrow$ in progress, already a paper doing it, we can do better with our tools
+            \item test the whole framework and our proposed algorithms in real-world environment\\
+                $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy
+            \vspace*{10pt}
+            \item the ``Graal'' goal:
+                try to also let the devices learn \emph{when} to transmit, not only \emph{where/how} to transmit\dots\\
+                \alert{Much harder!} search space is VERY LARGE
+            \vspace*{10pt}
+            \item try more to study the selfish model for large $M$ nb of devices and small $p$ activation probabilities\dots?
         \end{itemize}
-
-    \end{colorblock}
+    \end{lightblock}
 
 \end{frameO}
 
