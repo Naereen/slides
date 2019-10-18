@@ -1075,12 +1075,12 @@
 
     \end{colorblock}
     \begin{colorblock}{Theorem \hfill{} \textcolor{gray}{[Lai and Robbins, 1985]}}
-        For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=o(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
+        For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=\mathcal{o}(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
 
         \vspace{-0.4cm}
 
         \[
-            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\log T}\geq \frac{1}{\kl(\mu_a,\mu_\star)}.\color{black}
+            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\log T}\geq \frac{1}{\mathrm{kl}(\mu_a,\mu_\star)}.\color{black}
         \]
 
         \vspace{-0.3cm}
@@ -1237,7 +1237,7 @@
 
         \vspace{-0.4cm}
 
-        \[\cR_{\bm\nu}(\texttt{kl-UCB},T) \leq \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\texttt{kl}(\mu_a, \mu_\star)}\right)\log(T) + o(\log(T)).\]
+        \[\cR_{\bm\nu}(\texttt{kl-UCB},T) \leq \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\texttt{kl}(\mu_a, \mu_\star)}\right)\log(T) + \mathcal{o}(\log(T)).\]
     \end{colorblock}
 
 
@@ -1541,7 +1541,7 @@
                 (entering/leaving the network)
             \item is it a \textit{fair} orthogonalization rule? (yes!)
             \item could players use the collision indicators to communicate? (yes!)\\
-                $\implies$ \textbf{SIC-MMAB} strategy matches the centralized multiple-play lower-bound,
+                $\implies$ \textbf{\textsc{Sic-MMAB}} strategy matches the centralized multiple-play lower-bound,
                 by using collision indicators to build a communication protocol between devices (\emph{in another feedback model})
                 \textcolor{gray}{[Boursier et al, 19]}
         \end{itemize}
@@ -1569,7 +1569,7 @@
 
     \centering
     \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform SIC-MMAB and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
+    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform \textsc{Sic-MMAB} and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
 \end{frameO}
 
@@ -1581,8 +1581,16 @@
     \begin{tabular}{l | c | c | c | c}
         \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
         \hline
-        UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $O(\sum\limits_{k=1}^{K} \frac{1}{\Delta_k^2} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & none \\
-        kl-UCB etc & \textcolor{gray}{[Garivier et al. 2013]} & $O(\sum\limits_{k=1}^{K} \frac{\Delta_k}{\kl(\mu_k,\mu^*)} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & none \\
+        Centralized multiple-play UCB & \textcolor{gray}{[Anantharam et al. 1987]} & $\mathcal{O}( \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ (but other model) \\
+        \hline
+        $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[Anandkumar et al. 2011]} & $\mathcal{O}(\log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ \\
+        MEGA & \textcolor{gray}{[Avner \& Mannor, 2015]} & $\mathcal{O}(T^{3/4})$ & {\Large \textcolor{orange}{$\star$}} & 4 parameters, impossible to tune \\
+        Musical-Chair & \textcolor{gray}{[Rosenski et al. 2015]} & $\mathcal{O}(\log(T))$ & {\Large \textcolor{orange}{$\star$}} & $T_0$ impossible to tune \\
+        Selfish UCB & \textcolor{gray}{[Bonnefoi et al. 2017]} & $\mathcal{O}(T)$ BAD in some cases & {\Large \textcolor{orange}{$\star$}} & none \\
+        \hline
+        \textcolor{blue}{MCTopM klUCB} & \textcolor{gray}{[Besson \& Kaufmann, 2018]} & $\mathcal{O}( M^2 \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ \\
+        \hline
+        \textsc{Sic-MMAB} & \textcolor{gray}{[Boursier et al. 2019]} & $\mathcal{O}( \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & none
     \end{tabular}
 
 \end{frame}
@@ -1625,7 +1633,7 @@
     \pause
     \begin{colorblock}{\textbf{Piece-wise stationary} problems!}
         $\hookrightarrow$ the literature usually focuses on the easier case,
-        when there are at most $\Upsilon_T = o(\sqrt{T})$ intervals, on which the means are all stationary.
+        when there are at most $\Upsilon_T = \mathcal{o}(\sqrt{T})$ intervals, on which the means are all stationary.
     \end{colorblock}
 \end{frameO}
 
@@ -1720,8 +1728,20 @@
     \begin{tabular}{l | c | c | c | c}
         \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
         \hline
-        UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $O(\sum\limits_{k=1}^{K} \frac{1}{\Delta_k^2} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & none \\
-        kl-UCB etc & \textcolor{gray}{[Garivier et al. 2013]} & $O(\sum\limits_{k=1}^{K} \frac{\Delta_k}{\kl(\mu_k,\mu^*)} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & none \\
+        Oracle-Restart UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & unrealistic oracle \\
+        Naive UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(T)$ in worst case & {\Large \textcolor{orange}{$\star$}} & none \\
+        \hline
+        Discounted UCB etc & \textcolor{gray}{[Garivier et al. 2009]} & $\mathcal{O}(C \sqrt{T \Upsilon_T} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $\gamma$ needs $\Upsilon_T$ \\
+        Sliding-Window UCB etc & \textcolor{gray}{[Garivier et al. 2009]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & $w$ needs $\Upsilon_T$ \\
+        \hline
+        Exp3.S & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
+        \hline
+        CUSUM-UCB & \textcolor{gray}{[Liu et al. 2018]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & needs $\Upsilon_T$ and $\delta < \Delta_{\text{change}}$ \\
+        M-UCB & \textcolor{gray}{[Cao et al. 2019]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & needs $\Upsilon_T$ and $\delta < \Delta_{\text{change}}$ \\
+        \textcolor{blue}{GLRT + kl-UCB} & \textcolor{gray}{[Besson et al. 2019]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & needs $\Upsilon_T$ \\
+        \hline
+        AdSwitch & \textcolor{gray}{[Auer et al. 2019]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & none \\
+        Ada-ILTCB+ & \textcolor{gray}{[Chen et al. 2019]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star\star$}} & none
     \end{tabular}
 
 \end{frame}
