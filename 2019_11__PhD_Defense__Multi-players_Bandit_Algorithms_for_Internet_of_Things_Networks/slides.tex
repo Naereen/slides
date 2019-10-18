@@ -54,6 +54,7 @@
 \definecolor{lightgray}{RGB}{200,200,200}  % rgb(200,200,200)
 \definecolor{blackblue}{RGB}{19,19,59}     % rgb(19,19,59)
 \definecolor{bleu}{RGB}{0,0,204}           % rgb(0,0,204)
+\definecolor{lightblue}{RGB}{50,50,204}    % rgb(50,50,204)
 \definecolor{deeppurple}{RGB}{102,0,204}   % rgb(102,0,204)
 \definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
 \definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
@@ -1343,23 +1344,23 @@
         \setlength\itemsep{1em}
         \item (centralized) multiple-actions
               \begin{itemize}
-                  \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
+                  \item \textcolor{orange}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
                   \item combinatorial : choose a subset of arms $S \subset \{1,\dots,K\}$ (large space)
               \end{itemize}
         \item non stationary
               \begin{itemize}
-                  \item \textcolor{blue}{piece-wise stationary / abruptly changing}
+                  \item \textcolor{orange}{piece-wise stationary / abruptly changing}
                   \item slowly-varying, rotting\dots
                   \item adversarial\dots
               \end{itemize}
         \item (decentralized) collaborative/communicating bandits over a graph
-        \item \textcolor{blue}{(decentralized) non communicating multi-player bandits}
+        \item \textcolor{orange}{(decentralized) non communicating multi-player bandits}
     \end{itemize}
 
     % \hspace*{5cm}
     \vfill{}
     \hfill{}
-    \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
+    \textcolor{orange}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
 
 \end{frameO}
 
@@ -1572,6 +1573,20 @@
 
 \end{frameO}
 
+\begin{frame}[shrink=30]
+    \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art multi-player algorithms}
+
+    \vspace*{2cm}
+
+    \begin{tabular}{l | c | c | c | c}
+        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
+        \hline
+        UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $O(\sum\limits_{k=1}^{K} \frac{1}{\Delta_k^2} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & none \\
+        kl-UCB etc & \textcolor{gray}{[Garivier et al. 2013]} & $O(\sum\limits_{k=1}^{K} \frac{\Delta_k}{\kl(\mu_k,\mu^*)} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & none \\
+    \end{tabular}
+
+\end{frame}
+
 
 \begin{frame}[c]
     \begin{changemargin}{-0.5cm}{-0.5cm}
@@ -1697,6 +1712,20 @@
     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 \end{frameO}
 
+\begin{frame}[shrink=30]
+    \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
+
+    \vspace*{2cm}
+
+    \begin{tabular}{l | c | c | c | c}
+        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
+        \hline
+        UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $O(\sum\limits_{k=1}^{K} \frac{1}{\Delta_k^2} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & none \\
+        kl-UCB etc & \textcolor{gray}{[Garivier et al. 2013]} & $O(\sum\limits_{k=1}^{K} \frac{\Delta_k}{\kl(\mu_k,\mu^*)} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & none \\
+    \end{tabular}
+
+\end{frame}
+
 % \begin{frameO}[More results ($4/4$)]
 
 %     \begin{center}
@@ -1706,21 +1735,21 @@
 %     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 % \end{frameO}
 
-\begin{frameO}[Other piece-wise stationary bandit models]
-    Our change-point detection GLR is useful for other bandit models
+% \begin{frameO}[Other piece-wise stationary bandit models]
+%     Our change-point detection GLR is useful for other bandit models
 
-    \only<1>{
-        \begin{center}
-            \includegraphics[width=0.90\textwidth]{GLRTest_for_PieceWise-Stationary_Combinatorial_Bandits.png}
-        \end{center}
-    }
+%     \only<1>{
+%         \begin{center}
+%             \includegraphics[width=0.90\textwidth]{GLRTest_for_PieceWise-Stationary_Combinatorial_Bandits.png}
+%         \end{center}
+%     }
 
-    \only<2>{
-        \begin{center}
-            \includegraphics[width=0.90\textwidth]{GLRTest_for_PieceWise-Stationary_Cascading_Bandits.png}
-        \end{center}
-    }
-\end{frameO}
+%     \only<2>{
+%         \begin{center}
+%             \includegraphics[width=0.90\textwidth]{GLRTest_for_PieceWise-Stationary_Cascading_Bandits.png}
+%         \end{center}
+%     }
+% \end{frameO}
 
 
 % \section{Numerical simulations with SMPyBandits}
@@ -1882,7 +1911,7 @@
 
 \end{frameO}
 
-\begin{frameO}[$\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}]
+\begin{frameO}[$\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{lightblue}{\texttt{SMPyBandits.GitHub.io}}}]
 
     \begin{center}
         \includegraphics[height=0.85\textheight]{overview_documentation_1}
@@ -2002,6 +2031,41 @@
             \vspace{1.5cm}
         \end{center}
     \end{changemargin}
+\end{frame}
+
+
+\begin{frame}[shrink=22]
+    \mytitle{centralesupelecdark}{centralesupelec}{List of publications}
+
+    \vspace*{2cm}
+
+    \textcolor{orange}{International conferences with proceedings:}
+    \begin{itemize}
+        \item ``\emph{MAB Learning in IoT Networks}'', Bonnefoi, \textbf{Besson} et al, CROWNCOM \textcolor{blue}{2017}
+
+        \item ``\emph{MALIN with GRC \dots}'', Bonnefoi, \textbf{Besson}, Moy, demo at ICT \textcolor{blue}{2018}
+        \item ``\emph{Aggregation of MAB for OSA}'', \textbf{Besson}, Kaufmman, Moy, IEEE WCNC \textcolor{blue}{2018}
+        \item ``\emph{Multi-Player Bandits Revisited}'', Bonnefoi \& Kaufmann, ALT \textcolor{blue}{2018}
+
+        \item ``\emph{UCB \dots LPWAN w/ Retransmissions}'', Bonnefoi, \textbf{Besson} et al, IEEE WCNC \textcolor{blue}{2019}
+        \item ``\emph{GNU Radio Implementation of MALIN \dots}'', \textbf{Besson} et al, IEEE WCNC \textcolor{blue}{2019}
+        \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy \& \textbf{Besson}, ISIoT \textcolor{blue}{2019}
+        \item ``\emph{Analyse non asymptotique \dots}'', \textbf{Besson} \& Kaufmann, GRETSI \textcolor{blue}{2019}
+    \end{itemize}
+
+    \textcolor{orange}{Preprints:}
+    \begin{itemize}
+        \item ``\emph{Doubling-Trick \dots}'' \textbf{Besson} \& Kaufmann, \texttt{hal-01736357} \& \texttt{arXiv:1803.06971}, \textcolor{blue}{2018}
+        % \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann, \texttt{hal-0\textcolor{blue}{2006471} }\texttt{arXiv:1902.01575}, \textcolor{blue}{2019}
+        \item ``\emph{SMPyBandits \dots}'', \textbf{Besson}, \texttt{hal-01840022} \& \texttt{arXiv:1902.01575}, \textcolor{blue}{2018}
+    \end{itemize}
+
+    \textcolor{orange}{Submitted:}
+    \begin{itemize}
+        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson}, Kaufmann et al., submitted to AISTATS, \textcolor{blue}{October 2019}
+        \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy, \textbf{Besson} et al, submitted to Annals of Telecommunications, \textcolor{blue}{July 2019}
+    \end{itemize}
+
 \end{frame}
 
 
@@ -2193,120 +2257,120 @@
 \end{frameO}
 
 
-\begin{frameO}[References ($1/6$)]
+% \begin{frameO}[References ($1/6$)]
 
-    TODO: update! remove a lot of references on bandits, and add on radio
-    TODO: add work of Wassim, Navik, Christophe, etc.
-    TODO: add a slide listing my publications?
+%     TODO: update! remove a lot of references on bandits, and add on radio
+%     TODO: add work of Wassim, Navik, Christophe, etc.
+%     TODO: add a slide listing my publications?
 
-    {\footnotesize
+%     {\footnotesize
 
-        \begin{itemize}
-            \item W.R. Thompson (1933). On the likelihood that one unknown probability exceeds another in view of the evidence of two samples. Biometrika.
-            \item H. Robbins (1952). Some aspects of the sequential design of experiments. \emph{Bulletin of the American Mathematical Society}.
-            \item Bradt, R., Johnson, S., and Karlin, S. (1956). On sequential designs for maximizing the sum of n observations. \emph{Annals of Mathematical Statistics}.
-            \item R. Bellman (1956). A problem in the sequential design of experiments. \emph{The indian journal of statistics}.
-            \item Gittins, J. (1979). Bandit processes and dynamic allocation indices. \emph{Journal of the Royal Statistical Society}.
-            \item Berry, D. and Fristedt, B. Bandit Problems (1985). Sequential allocation of experiments. \emph{Chapman and Hall}.
-            \item Lai, T. and Robbins, H. (1985). Asymptotically efficient adaptive allocation rules. \emph{Advances in Applied Mathematics}.
-            \item Lai, T. (1987). Adaptive treatment allocation and the multi-armed bandit problem. \emph{Annals of Statistics}.
-        \end{itemize}
-    }
+%         \begin{itemize}
+%             \item W.R. Thompson (1933). On the likelihood that one unknown probability exceeds another in view of the evidence of two samples. Biometrika.
+%             \item H. Robbins (1952). Some aspects of the sequential design of experiments. \emph{Bulletin of the American Mathematical Society}.
+%             \item Bradt, R., Johnson, S., and Karlin, S. (1956). On sequential designs for maximizing the sum of n observations. \emph{Annals of Mathematical Statistics}.
+%             \item R. Bellman (1956). A problem in the sequential design of experiments. \emph{The indian journal of statistics}.
+%             \item Gittins, J. (1979). Bandit processes and dynamic allocation indices. \emph{Journal of the Royal Statistical Society}.
+%             \item Berry, D. and Fristedt, B. Bandit Problems (1985). Sequential allocation of experiments. \emph{Chapman and Hall}.
+%             \item Lai, T. and Robbins, H. (1985). Asymptotically efficient adaptive allocation rules. \emph{Advances in Applied Mathematics}.
+%             \item Lai, T. (1987). Adaptive treatment allocation and the multi-armed bandit problem. \emph{Annals of Statistics}.
+%         \end{itemize}
+%     }
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[References ($2/6$)]
+% \begin{frameO}[References ($2/6$)]
 
-    {\footnotesize
+%     {\footnotesize
 
-        \begin{itemize}
-            \item Agrawal, R. (1995). Sample mean based index policies with $\mathcal{O}(\log n)$ regret for the multi-armed bandit problem. \emph{Advances in Applied Probability}.
-            \item Katehakis, M. and Robbins, H. (1995). Sequential choice from several populations. \emph{Proceedings of the National Academy of Science}.
-            \item Burnetas, A. and Katehakis, M. (1996). Optimal adaptive policies for sequential allocation problems. \emph{Advances in Applied Mathematics}.
-            \item Auer, P., Cesa-Bianchi, N., and Fischer, P. (2002). Finite-time analysis of the multiarmed bandit problem. \emph{Machine Learning}.
-            \item Auer, P., Cesa-Bianchi, N., Freund, Y., and Schapire, R. (2002). The nonstochastic multiarmed bandit problem. \emph{SIAM Journal of Computing}.
-            \item Burnetas, A. and Katehakis, M. (2003). Asymptotic Bayes Analysis
-                  for the finite horizon one armed bandit problem. \emph{Probability in the Engineering and Informational Sciences}.
-            \item Cesa-Bianchi, N. and Lugosi, G. (2006). Prediction, Learning and
-                  Games. \emph{Cambridge University Press}.
-            \item Audibert, J-Y., Munos, R. and Szepesvari, C. (2009). Exploration-exploitation trade-off using varianceestimates in multi-armed bandits. \emph{Theoretical Computer Science}.
-        \end{itemize}
-    }
+%         \begin{itemize}
+%             \item Agrawal, R. (1995). Sample mean based index policies with $\mathcal{O}(\log n)$ regret for the multi-armed bandit problem. \emph{Advances in Applied Probability}.
+%             \item Katehakis, M. and Robbins, H. (1995). Sequential choice from several populations. \emph{Proceedings of the National Academy of Science}.
+%             \item Burnetas, A. and Katehakis, M. (1996). Optimal adaptive policies for sequential allocation problems. \emph{Advances in Applied Mathematics}.
+%             \item Auer, P., Cesa-Bianchi, N., and Fischer, P. (2002). Finite-time analysis of the multiarmed bandit problem. \emph{Machine Learning}.
+%             \item Auer, P., Cesa-Bianchi, N., Freund, Y., and Schapire, R. (2002). The nonstochastic multiarmed bandit problem. \emph{SIAM Journal of Computing}.
+%             \item Burnetas, A. and Katehakis, M. (2003). Asymptotic Bayes Analysis
+%                   for the finite horizon one armed bandit problem. \emph{Probability in the Engineering and Informational Sciences}.
+%             \item Cesa-Bianchi, N. and Lugosi, G. (2006). Prediction, Learning and
+%                   Games. \emph{Cambridge University Press}.
+%             \item Audibert, J-Y., Munos, R. and Szepesvari, C. (2009). Exploration-exploitation trade-off using varianceestimates in multi-armed bandits. \emph{Theoretical Computer Science}.
+%         \end{itemize}
+%     }
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[References ($3/6$)]
+% \begin{frameO}[References ($3/6$)]
 
-    {\footnotesize
+%     {\footnotesize
 
-        \begin{itemize}
-            \item Audibert, J.-Y. and Bubeck, S. (2010). Regret Bounds and Minimax Policies under Partial Monitoring. \emph{Journal of Machine Learning Research}.
-            \item Li, L., Chu, W., Langford, J. and Shapire, R. (2010). A Contextual-Bandit Approach to Personalized News Article Recommendation. \emph{WWW}.
-            \item Honda, J. and Takemura, A. (2010). An Asymptotically Optimal Bandit
-                  Algorithm for Bounded Support Models. \emph{COLT}.
-            \item Bubeck, S. (2010). Jeux de bandits et fondation du clustering. PhD thesis, Université de Lille 1.
-            \item A. Anandkumar, N. Michael, A. K. Tang, and S. Agrawal (2011). Distributed algorithms for learning and cognitive medium access with logarithmic regret. \emph{IEEE Journal on Selected Areas in Communications}
-            \item Garivier, A. and Cappé, O. (2011). The KL-UCB algorithm for bounded stochastic bandits and beyond. \emph{COLT}.
-            \item Maillard, O.-A., Munos, R., and Stoltz, G. (2011). A Finite-Time Analysis of Multi-armed Bandits Problems with Kullback-Leibler Divergences. \emph{COLT}.
-            \item Chapelle, O. and Li, L. (2011). An empirical evaluation of Thompson Sampling. \emph{NIPS}.
-        \end{itemize}
-    }
+%         \begin{itemize}
+%             \item Audibert, J.-Y. and Bubeck, S. (2010). Regret Bounds and Minimax Policies under Partial Monitoring. \emph{Journal of Machine Learning Research}.
+%             \item Li, L., Chu, W., Langford, J. and Shapire, R. (2010). A Contextual-Bandit Approach to Personalized News Article Recommendation. \emph{WWW}.
+%             \item Honda, J. and Takemura, A. (2010). An Asymptotically Optimal Bandit
+%                   Algorithm for Bounded Support Models. \emph{COLT}.
+%             \item Bubeck, S. (2010). Jeux de bandits et fondation du clustering. PhD thesis, Université de Lille 1.
+%             \item A. Anandkumar, N. Michael, A. K. Tang, and S. Agrawal (2011). Distributed algorithms for learning and cognitive medium access with logarithmic regret. \emph{IEEE Journal on Selected Areas in Communications}
+%             \item Garivier, A. and Cappé, O. (2011). The KL-UCB algorithm for bounded stochastic bandits and beyond. \emph{COLT}.
+%             \item Maillard, O.-A., Munos, R., and Stoltz, G. (2011). A Finite-Time Analysis of Multi-armed Bandits Problems with Kullback-Leibler Divergences. \emph{COLT}.
+%             \item Chapelle, O. and Li, L. (2011). An empirical evaluation of Thompson Sampling. \emph{NIPS}.
+%         \end{itemize}
+%     }
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[References ($4/6$)]
+% \begin{frameO}[References ($4/6$)]
 
-    {
-        \footnotesize
+%     {
+%         \footnotesize
 
-        \begin{itemize}
-            \item {E. Kaufmann}, O. Cappé, A. Garivier (2012). On Bayesian Upper Confidence Bounds for Bandits Problems. \emph{AISTATS}.
-            \item Agrawal, S. and Goyal, N. (2012). Analysis of Thompson Sampling for the multi-armed bandit problem. \emph{COLT}.
-            \item E. Kaufmann, N. Korda, R. Munos (2012), {Thompson Sampling~: an Asymptotically Optimal Finite-Time Analysis}. \emph{Algorithmic Learning Theory}.
-            \item Bubeck, S. and Cesa-Bianchi, N. (2012). Regret analysis of stochastic and nonstochastic multi-armed bandit problems. \emph{Fondations and Trends in Machine Learning}.
-            \item Agrawal, S. and Goyal, N. (2013). Further Optimal Regret Bounds for Thompson Sampling. \emph{AISTATS}.
-            \item O. Cappé, A. Garivier, O-A. Maillard, R. Munos, and G. Stoltz (2013). Kullback-Leibler upper confidence bounds for optimal sequential allocation. \emph{Annals of Statistics}.
-            \item Korda, N., Kaufmann, E., and Munos, R. (2013). Thompson Sampling for 1-dimensional Exponential family bandits. \emph{NIPS}.
-        \end{itemize}
-    }
+%         \begin{itemize}
+%             \item {E. Kaufmann}, O. Cappé, A. Garivier (2012). On Bayesian Upper Confidence Bounds for Bandits Problems. \emph{AISTATS}.
+%             \item Agrawal, S. and Goyal, N. (2012). Analysis of Thompson Sampling for the multi-armed bandit problem. \emph{COLT}.
+%             \item E. Kaufmann, N. Korda, R. Munos (2012), {Thompson Sampling~: an Asymptotically Optimal Finite-Time Analysis}. \emph{Algorithmic Learning Theory}.
+%             \item Bubeck, S. and Cesa-Bianchi, N. (2012). Regret analysis of stochastic and nonstochastic multi-armed bandit problems. \emph{Fondations and Trends in Machine Learning}.
+%             \item Agrawal, S. and Goyal, N. (2013). Further Optimal Regret Bounds for Thompson Sampling. \emph{AISTATS}.
+%             \item O. Cappé, A. Garivier, O-A. Maillard, R. Munos, and G. Stoltz (2013). Kullback-Leibler upper confidence bounds for optimal sequential allocation. \emph{Annals of Statistics}.
+%             \item Korda, N., Kaufmann, E., and Munos, R. (2013). Thompson Sampling for 1-dimensional Exponential family bandits. \emph{NIPS}.
+%         \end{itemize}
+%     }
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[References ($5/6$)]
+% \begin{frameO}[References ($5/6$)]
 
-    {\footnotesize
+%     {\footnotesize
 
-        \begin{itemize}
-            \item Honda, J. and Takemura, A. (2014). Optimality of Thompson Sampling for Gaussian Bandits depends on priors. \emph{AISTATS}.
-            \item Baransi, Maillard, Mannor (2014). Sub-sampling for multi-armed bandits. \emph{ECML}.
-            \item Honda, J. and Takemura, A. (2015). Non-asymptotic analysis of a new bandit algorithm for semi-bounded rewards. \emph{JMLR}.
-            \item Kaufmann, E., Capp\'e O. and Garivier, A. (2016). On the complexity of best arm identification in multi-armed bandit problems. \emph{JMLR}
-            \item Lattimore, T. (2016). Regret Analysis of the Finite-Horizon Gittins Index Strategy for Multi-Armed Bandits. \emph{COLT}.
-            \item Garivier, A., Kaufmann, E. and Lattimore, T. (2016). On Explore-Then-Commit strategies. \emph{NIPS}.
-            \item E.Kaufmann (2017), On Bayesian index policies for sequential resource allocation. \emph{Annals of Statistics}.
-            \item Agrawal, S. and Goyal, N. (2017). Near-Optimal Regret Bounds for Thompson Sampling. \emph{Journal of ACM}.
-        \end{itemize}
+%         \begin{itemize}
+%             \item Honda, J. and Takemura, A. (2014). Optimality of Thompson Sampling for Gaussian Bandits depends on priors. \emph{AISTATS}.
+%             \item Baransi, Maillard, Mannor (2014). Sub-sampling for multi-armed bandits. \emph{ECML}.
+%             \item Honda, J. and Takemura, A. (2015). Non-asymptotic analysis of a new bandit algorithm for semi-bounded rewards. \emph{JMLR}.
+%             \item Kaufmann, E., Capp\'e O. and Garivier, A. (2016). On the complexity of best arm identification in multi-armed bandit problems. \emph{JMLR}
+%             \item Lattimore, T. (2016). Regret Analysis of the Finite-Horizon Gittins Index Strategy for Multi-Armed Bandits. \emph{COLT}.
+%             \item Garivier, A., Kaufmann, E. and Lattimore, T. (2016). On Explore-Then-Commit strategies. \emph{NIPS}.
+%             \item E.Kaufmann (2017), On Bayesian index policies for sequential resource allocation. \emph{Annals of Statistics}.
+%             \item Agrawal, S. and Goyal, N. (2017). Near-Optimal Regret Bounds for Thompson Sampling. \emph{Journal of ACM}.
+%         \end{itemize}
 
-    }
+%     }
 
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[References ($6/6$)]
+% \begin{frameO}[References ($6/6$)]
 
-    {\footnotesize
-        \begin{itemize}
-            \item Maillard, O-A (2017). Boundary Crossing for General Exponential Families. \emph{Algorithmic Learning Theory}.
-            \item Besson, L., Kaufmann E. (2018). Multi-Player Bandits Revisited. \emph{Algorithmic Learning Theory}.
-            \item Cowan, W., Honda, J. and Katehakis, M.N. (2018). Normal Bandits of Unknown Means and Variances. \emph{JMLR}.
-            \item Garivier,A. and Ménard, P. and Stoltz, G. (2018). Explore first, exploite next: the true shape of regret in bandit problems, \emph{Mathematics of Operations Research}
-            \item Garivier, A. and Hadiji, H. and Ménard, P. and Stoltz, G. (2018).
-                  KL-UCB-switch: optimal regret bounds for stochastic bandits from both a distribution-dependent and a distribution-free viewpoints. \emph{arXiv: 1805.05071}.
-            \item Besson, L., Kaufmann E. (2019). The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits. \emph{Algorithmic Learning Theory}. \emph{arXiv: 1902.01575}.
-        \end{itemize}
-    }
+%     {\footnotesize
+%         \begin{itemize}
+%             \item Maillard, O-A (2017). Boundary Crossing for General Exponential Families. \emph{Algorithmic Learning Theory}.
+%             \item Besson, L., Kaufmann E. (2018). Multi-Player Bandits Revisited. \emph{Algorithmic Learning Theory}.
+%             \item Cowan, W., Honda, J. and Katehakis, M.N. (2018). Normal Bandits of Unknown Means and Variances. \emph{JMLR}.
+%             \item Garivier,A. and Ménard, P. and Stoltz, G. (2018). Explore first, exploite next: the true shape of regret in bandit problems, \emph{Mathematics of Operations Research}
+%             \item Garivier, A. and Hadiji, H. and Ménard, P. and Stoltz, G. (2018).
+%                   KL-UCB-switch: optimal regret bounds for stochastic bandits from both a distribution-dependent and a distribution-free viewpoints. \emph{arXiv: 1805.05071}.
+%             \item Besson, L., Kaufmann E. (2019). The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits. \emph{Algorithmic Learning Theory}. \emph{arXiv: 1902.01575}.
+%         \end{itemize}
+%     }
 
-\end{frameO}
+% \end{frameO}
 
 
 \end{document}
