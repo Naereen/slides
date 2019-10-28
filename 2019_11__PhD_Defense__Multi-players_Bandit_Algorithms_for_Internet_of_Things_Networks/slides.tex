@@ -1279,8 +1279,9 @@
         {\textcolor{white} {\Huge \textsc{Selfish Multi-Armed Bandit Learning in Internet-of-Things Networks} }}
     \end{center}
     % \vspace*{-4pt}
-    % \vfill{}
-    % \small{\textcolor{lightgray}{Ref: Chapter 4 of my thesis, and [Bonnefoi et al, 2017].}}
+    \vfill{}
+    \small{\textcolor{lightgray}{Ref: Chapter 5.3 of my thesis, and [Bonnefoi, Besson et al, 2017].}}
+    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.3}}
 \end{frameTI}
 
 \input{crowncom2017.tex}
@@ -1292,7 +1293,7 @@
     as a proof-of-concept in a ``toy'' IoT network.
 
     \begin{center}
-        \movie{\includegraphics[width=0.75\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
+        \movie{\includegraphics[width=0.7\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
     {\tiny \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
 \end{frameO}
@@ -1319,19 +1320,17 @@
         % \tightlist
         \item
             \textcolor{orange}{\textbf{Only works empirically}!}
-            \\
-            Theoretically, we showed counter examples where the \textbf{Selfish} approach can fail, for the smallest case $D = 2$ devices, $p=1$ in $K=3$ channels
         \item
-            $p \times (D + S)$ devices in $K$ channels in average\\
-            $\implies$ $p \ll \frac{K}{(D + S)}$ gives best performance
+            Only with a stationary hypothesis on the background traffic\dots
         \item
-            Only works empirically with a stationary hypothesis on the background traffic\dots
+            in average at least $p \times D$ dynamic devices, using $K$ channels\\
+            $\implies$ $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
         \item
-            \textbf{Intractable model} in theory, mainly due to too much randomness (activations, collisions, selections\dots)
+            \textbf{Intractable model} in theory
     \end{itemize}
 
     \vfill{}
-    We can study two other more specific models, in two directions
+    \textcolor{orange}{We can study theoretically two more specific models, in two directions}
     \begin{itemize}
         \item multi-player bandits: devices are always activated ($p=1$, $D = M \leq \frac{K}{p} = K$)
         \item non-stationary bandits
@@ -1433,7 +1432,9 @@
 
             \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-            \textbf{\Large Multi-player bandits}\\[0.5cm]
+            \textbf{\Large Multi-player bandits}
+            \hfill{}\small{\textcolor{gray}{Ref: Chapter 6 of my thesis, and [Besson \& Kaufmann, 2018].}}
+            \\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}\\[0.5cm]}
         \end{center}
     \end{changemargin}
@@ -1582,7 +1583,8 @@
 
 \end{frameO}
 
-\begin{frameO}[Results on a multi-player MAB problem ($1/3$)]
+% \begin{frameO}[Results on a multi-player MAB problem ($1/3$)]
+\begin{frameO}[Results on a multi-player MAB problem]
 
     \centering
     \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
@@ -1590,28 +1592,28 @@
 
 \end{frameO}
 
-\begin{frameO}[Results on a multi-player MAB problem ($2/3$)]
+% \begin{frameO}[Results on a multi-player MAB problem ($2/3$)]
 
-    \centering
-    \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform $\rho^{\text{rand}}$ and other previous state-of-the-art.}}
+%     \centering
+%     \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
+%     \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform $\rho^{\text{rand}}$ and other previous state-of-the-art.}}
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[Results on a multi-player MAB problem ($3/3$)]
+% \begin{frameO}[Results on a multi-player MAB problem ($3/3$)]
 
-    \centering
-    \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform \textsc{Sic-MMAB} and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
+%     \centering
+%     \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
+%     \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform \textsc{Sic-MMAB} and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
-\end{frameO}
+% \end{frameO}
 
 \begin{frame}[shrink=50]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art multi-player algorithms}
 
     \vspace*{2cm}
 
-    \begin{tabular}{l | c | c | c | c}
+    \begin{tabular}{c | c | c | c | c}
         \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
         \hline
         Centralized multiple-play UCB & \textcolor{gray}{[Anantharam et al. 1987]} & $\mathcal{O}( \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ (but other model) \\
@@ -1640,6 +1642,7 @@
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
             \textbf{\Large Piece-wise stationary bandits}\\[0.5cm]
+            \hfill{}\small{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson \& Kaufmann, 2019].}}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1726,39 +1729,39 @@
     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 \end{frameO}
 
-\begin{frameO}[More results ($1/3$)]
+% \begin{frameO}[More results ($1/3$)]
 
-    \begin{center}
-        \includegraphics[width=0.99\textwidth]{regret_problem2.png}
-    \end{center}
+%     \begin{center}
+%         \includegraphics[width=0.99\textwidth]{regret_problem2.png}
+%     \end{center}
 
-    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
-\end{frameO}
+%     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+% \end{frameO}
 
-\begin{frameO}[More results ($2/3$)]
+% \begin{frameO}[More results ($2/3$)]
 
-    \begin{center}
-        \includegraphics[width=0.99\textwidth]{regret_problem3.png}
-    \end{center}
+%     \begin{center}
+%         \includegraphics[width=0.99\textwidth]{regret_problem3.png}
+%     \end{center}
 
-    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
-\end{frameO}
+%     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+% \end{frameO}
 
-\begin{frameO}[More results ($3/3$)]
+% \begin{frameO}[More results ($3/3$)]
 
-    \begin{center}
-        \includegraphics[width=0.99\textwidth]{regret_problem4.png}
-    \end{center}
+%     \begin{center}
+%         \includegraphics[width=0.99\textwidth]{regret_problem4.png}
+%     \end{center}
 
-    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
-\end{frameO}
+%     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+% \end{frameO}
 
-\begin{frame}[shrink=50]
+\begin{frame}[shrink=40]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
     \vspace*{2cm}
 
-    \begin{tabular}{l | c | c | c | c}
+    \begin{tabular}{c | c | c | c | c}
         \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
         \hline
         Oracle-Restart UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & unrealistic oracle \\
@@ -1844,8 +1847,11 @@
             \item numerical simulations proving the quality of the proposed solution,
             \item a realistic implementation on radio hardware,
             % \item my Python library SMPyBandits.
-            \item theoretical results in a simplified model: multi-player bandits,
-            \item and an extension beyond the stationary hypothesis.
+            \item theoretical results in two simplified models:
+            \begin{itemize}
+                \item multi-player bandits,
+                \item and an extension beyond the stationary hypothesis.
+            \end{itemize}
         \end{itemize}
     % \end{colorblock}
 
@@ -1860,7 +1866,7 @@
             \setlength\itemsep{10pt}
             \item my Python library SMPyBandits (Ch. 3),
             \item aggregation of bandit algorithms (Ch. 4),
-            \item and details about our theoretical results and proofs (Ch. 6 \& 7),
+            \item and details about our algorithms, their theoretical results and proofs (Ch. 6 \& 7),
             \item our work on the doubling trick (to make an algorithm $\cA$ anytime and keep its regret bounds).
         \end{itemize}
     % \end{darkblock}
