@@ -124,11 +124,9 @@
         \begin{itemize}
             % \tightlist
             \item
-                  Each \textbf{dynamic device decides the channel to use to send every
-                      packet}.
+                Each \textbf{dynamic device decides} the channel to use to send every packet.
             \item
-                  It has memory and computational capacity to implement a basic decision
-                  algorithm.
+                It has memory and computational capacity to implement a basic decision algorithm.
         \end{itemize}
 
     \end{colorblock}
@@ -483,26 +481,26 @@
 \end{frameO}
 
 
-\begin{frameO}[\emph{Negative} conclusion from experiments ($2/2$)]
+% \begin{frameO}[\emph{Negative} conclusion from experiments ($2/2$)]
 
-    \begin{lightblock}{But what are the limitations?}
+%     \begin{lightblock}{But what are the limitations?}
 
-        \begin{itemize}
-            \setlength\itemsep{5pt}
-                  % \tightlist
-            \item
-                \textcolor{orange}{\textbf{Only works empirically}!}
-                \\
-                and theoretically, we showed it can fail work for smallest case $D = 2$ devices, $p=1$ in $K=3$ channels
-            \item
-                $p \times (D + S)$ devices in $K$ channels in average
-                $\implies$ $p \ll \frac{K}{(D + S)}$ gives best performance
-            \item
-                Only works empirically with a stationary hypothesis on the background traffic\dots
-            \item
-                \textbf{Intractable model} in theory, too much randomness (activations, collisions, selections\dots)
-        \end{itemize}
+%         \begin{itemize}
+%             \setlength\itemsep{5pt}
+%                   % \tightlist
+%             \item
+%                 \textcolor{orange}{\textbf{Only works empirically}!}
+%                 \\
+%                 Theoretically, we showed counter examples where the \textbf{Selfish} approach can fail, for the smallest case $D = 2$ devices, $p=1$ in $K=3$ channels
+%             \item
+%                 $p \times (D + S)$ devices in $K$ channels in average\\
+%                 $\implies$ $p \ll \frac{K}{(D + S)}$ gives best performance
+%             \item
+%                 Only works empirically with a stationary hypothesis on the background traffic\dots
+%             \item
+%                 \textbf{Intractable model} in theory, mainly due to too much randomness (activations, collisions, selections\dots)
+%         \end{itemize}
 
-    \end{lightblock}
+%     \end{lightblock}
 
-\end{frameO}
+% \end{frameO}

@@ -502,7 +502,7 @@
         \begin{tikzpicture}[>=latex',line join=bevel,scale=2.25]
             %
             \node[align=center] (introduction) at (0,3.25) [rectangle,draw,fill=blue!15] {\textbf{Chapter~1}\\Introduction};
-            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=red!15] {\textbf{Chapter~2}\\The Stochastic\\Multi-Armed Bandit models};
+            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=gray!10,text=gray] {\textbf{Chapter~2}\\The Stochastic\\Multi-Armed Bandit models};
             \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
             \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~4\\Online selection\\of the best algorithm};
             \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!10] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
@@ -539,13 +539,13 @@
     \begin{itemize}
         \setlength\itemsep{0.6em}
         \item \textcolor{gray}{Spectrum issues in wireless networks}
-        \item Multi-armed Bandit
-        \begin{itemize}
-            \item \textcolor{gray}{applying bandit to Opportunistic Spectrum Access (OSA)}
-            \item \textcolor{gray}{performance measure (regret) and first strategies}
-            \item \textcolor{gray}{best possible regret? Lower bounds}
-            \item \textcolor{gray}{upper Confidence Bounds (UCB) Algorithms}
-        \end{itemize}
+        \item \textcolor{gray}{Multi-armed Bandit}
+        % \begin{itemize}
+        %     \item \textcolor{gray}{applying bandit to Opportunistic Spectrum Access (OSA)}
+        %     \item \textcolor{gray}{performance measure (regret) and first strategies}
+        %     \item \textcolor{gray}{best possible regret? Lower bounds}
+        %     \item \textcolor{gray}{upper Confidence Bounds (UCB) Algorithms}
+        % \end{itemize}
         \item Selfish MAB learning in our model of IoT network
         \begin{itemize}
             \item \textcolor{gray}{reference strategies}
@@ -1292,7 +1292,7 @@
     as a proof-of-concept in a ``toy'' IoT network.
 
     \begin{center}
-        \movie{\includegraphics[width=0.6\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
+        \movie{\includegraphics[width=0.75\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
     {\tiny \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
 \end{frameO}
@@ -1309,6 +1309,34 @@
     \begin{center}
         \movie{\includegraphics[width=0.9\textwidth]{screenshotDemoYouTube_Partie2.png}}{videos/Partie2.mp4}
     \end{center}
+\end{frameO}
+
+
+\begin{frameO}[Conclusion from part I : Selfish MAB learning for IoT]
+
+    \begin{itemize}
+        \setlength\itemsep{5pt}
+        % \tightlist
+        \item
+            \textcolor{orange}{\textbf{Only works empirically}!}
+            \\
+            Theoretically, we showed counter examples where the \textbf{Selfish} approach can fail, for the smallest case $D = 2$ devices, $p=1$ in $K=3$ channels
+        \item
+            $p \times (D + S)$ devices in $K$ channels in average\\
+            $\implies$ $p \ll \frac{K}{(D + S)}$ gives best performance
+        \item
+            Only works empirically with a stationary hypothesis on the background traffic\dots
+        \item
+            \textbf{Intractable model} in theory, mainly due to too much randomness (activations, collisions, selections\dots)
+    \end{itemize}
+
+    \vfill{}
+    We can study two other more specific models, in two directions
+    \begin{itemize}
+        \item multi-player bandits: devices are always activated ($p=1$, $D = M \leq \frac{K}{p} = K$)
+        \item non-stationary bandits
+    \end{itemize}
+
 \end{frameO}
 
 
