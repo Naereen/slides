@@ -355,7 +355,7 @@
     \end{itemize}
     $\implies$ Almost all frequencies are registered and their usages are limited!
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{United_States_Frequency_Allocations_Chart_2016_The_Radio_Spectrum_3}
+        \includegraphics[width=0.65\textwidth]{United_States_Frequency_Allocations_Chart_2016_The_Radio_Spectrum_3}
     \end{center}
     \hfill{}
     {\tiny \textcolor{gray}{United States of North America, Department of Commerce, \textcopyright{} 2016}}
@@ -371,6 +371,7 @@
     {\tiny \textcolor{gray}{Lilian Besson, screenshot from my FreeBox control interface, \textcopyright{} 2019}}
 
     \vspace*{10pt}
+    \hfill{}
     \textbf{What if we could dynamically use the (most) empty channels?}
 \end{frameO}
 
@@ -474,23 +475,23 @@
 % \end{frameO}
 
 
-\begin{frameO}[Chapters of my thesis addressed today]
+% \begin{frameO}[Chapters of my thesis addressed today]
 
-    \large
+%     \large
 
-    \begin{enumerate}[leftmargin=50pt]
-        \setlength\itemsep{10pt}
-        % \item[Ch.1)] Introduction
-        \item[Ch.2)] \textcolor{blue}{Stochastic Multi-Armed Bandits}
-        \item[\textcolor{gray}{Ch.3)}] \textcolor{gray}{SMPyBandits: an exhaustive Python library to simulate MAB problems}
-        \item[\textcolor{gray}{Ch.4)}] \textcolor{gray}{Expert aggregation for online MAB algorithms selection}
-        \item[Ch.5)] \textcolor{blue}{Improving Spectrum Usage of IoT Networks with Selfish MAB Learning}
-        \item[Ch.6)] \textcolor{blue}{Multi-Players Multi-Armed Bandits}
-        \item[Ch.7)] \textcolor{blue}{Piece-Wise Stationary Bandits}
-        % \item[Ch.8)] General Conclusion and Perspectives
-    \end{enumerate}
+%     \begin{enumerate}[leftmargin=50pt]
+%         \setlength\itemsep{10pt}
+%         % \item[Ch.1)] Introduction
+%         \item[Ch.2)] \textcolor{blue}{Stochastic Multi-Armed Bandits}
+%         \item[\textcolor{gray}{Ch.3)}] \textcolor{gray}{SMPyBandits: an exhaustive Python library to simulate MAB problems}
+%         \item[\textcolor{gray}{Ch.4)}] \textcolor{gray}{Expert aggregation for online MAB algorithms selection}
+%         \item[Ch.5)] \textcolor{blue}{Improving Spectrum Usage of IoT Networks with Selfish MAB Learning}
+%         \item[Ch.6)] \textcolor{blue}{Multi-Players Multi-Armed Bandits}
+%         \item[Ch.7)] \textcolor{blue}{Piece-Wise Stationary Bandits}
+%         % \item[Ch.8)] General Conclusion and Perspectives
+%     \end{enumerate}
 
-\end{frameO}
+% \end{frameO}
 
 
 \begin{frameO}[Organization of the thesis: our reading map for today]
@@ -563,708 +564,708 @@
 
 
 
-\section{Introduction to Multi-Armed Bandits}
+% \section{Introduction to Multi-Armed Bandits}
 
-\begin{frameTI}
-    \begin{center}
-        {\textcolor{white} {\Huge \textsc{Introduction to Multi-Armed Bandits} }}
-    \end{center}
-    \vspace*{-4pt}
-\end{frameTI}
-
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Introduction to Multi-Armed Bandits}
-            \vspace{1.5cm}
-
-            \textbf{\Large Why Bandits?}\\[0.5cm]
-            \textcolor{darkgray}{\textbf{\Large Performance measure}\\[0.5cm] }
-            \textcolor{darkgray}{\textbf{\Large Best possible regret?}\\[0.5cm] }
-            \textcolor{darkgray}{\textbf{\Large The optimism principle}\\[0.5cm] }
-        \end{center}
-    \end{changemargin}
-\end{frame}
-
-
-
-\begin{frameO}[Hum, what is a \emph{bandit}?]
-    \begin{center}
-        It's an old name for a casino machine!
-    \end{center}
-
-    \begin{center}
-        \includegraphics[height=6cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
-
-        \begin{tiny}
-            \textcolor{gray}{
-                \textcopyright{} Dargaud,
-                \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
-            }
-        \end{tiny}
-    \end{center}
-\end{frameO}
-
-
-\begin{frameO}[Make money in a casino?]
-    \begin{center}
-        \includegraphics[height=3cm]{MABpieuvre}
-    \end{center}
-    \begin{center}
-        A (single) \blue agent \black facing (multiple) \red arms \black in a Multi-Armed Bandit.
-    \end{center}
-
-    \pause
-    \begin{center}
-        \Huge NO!
-    \end{center}
-\end{frameO}
-
-\begin{frameO}[Sequential resource allocation]
-    \textbf{Clinical trials}
-    \begin{itemize}
-        \item $K$ treatments for a given symptom (with unknown effect)
-
-              \includegraphics[width=0.12\linewidth]{medoc1.jpg}
-              \hspace{0.05cm}
-              \includegraphics[width=0.12\linewidth]{medoc4.jpg}
-              \hspace{0.05cm}
-              \includegraphics[width=0.12\linewidth]{medoc3.jpg}
-              \hspace{0.05cm}
-              \includegraphics[width=0.12\linewidth]{medoc2.jpg}
-              \hspace{0.05cm}
-              \includegraphics[width=0.12\linewidth]{medoc5.jpg}
-              \hspace{0.05cm}
-              \includegraphics[width=0.12\linewidth]{medoc6.jpg}
-              \hspace{0.05cm}
-
-        \item What treatment should be allocated to the next patient, based on responses observed on previous patients?
-    \end{itemize}
-
-    \vspace{0.2cm}
-
-    \pause
-
-    \textbf{Online advertisement}
-    \begin{itemize}
-        \item $K$ adds that can be displayed
-              \vspace{0.1cm}
-
-              \includegraphics[height=0.15\paperheight]{ad6.jpg}
-              \hspace{0.1cm}
-              \includegraphics[height=0.15\paperheight]{ad2.jpg}
-              \hspace{0.1cm}
-              \includegraphics[height=0.15\paperheight]{ad4.jpg}
-              \hspace{0.1cm}
-              \includegraphics[height=0.15\paperheight]{ad5.jpg}
-              \hspace{0.05cm}
-
-        \item Which add should be displayed for a user, based on the previous clicks of previous (similar) users?
-    \end{itemize}
-
-\end{frameO}
-
-
-
-% \begin{frameO}[Dynamic allocation of computational resources]
-
-%     \vspace{0.4cm}
-
-%     \textbf{Numerical experiments} (bandits for ``black-box'' optimization)
-
-%     \vspace{-0.3cm}
-
+% \begin{frameTI}
 %     \begin{center}
-%         \includegraphics[height=2.5cm]{GP}
+%         {\textcolor{white} {\Huge \textsc{Introduction to Multi-Armed Bandits} }}
 %     \end{center}
-
-%     \vspace{-0.3cm}
-
-%     \begin{itemize}
-%         \item where to evaluate a costly function in order to find its maximum?
-%     \end{itemize}
-
-%     \pause
-
-%     \textbf{Artificial intelligence for games}
-
-%     \begin{center}
-%         \includegraphics[height=2.2cm]{MCTSWiki}
-%     \end{center}
-
-%     \vspace{-0.5cm}
-
-%     \begin{itemize}
-%         \item where to choose the next evaluation to perform in order to find the best move to play next?
-%     \end{itemize}
-
-% \end{frameO}
-
-
-\begin{frameO}[Dynamic channel selection]
-
-    \vspace{0.3cm}
-
-    \textbf{Communications in presence of a central controller}
-    \begin{itemize}
-        \item $K$ assignments from $n$ users to $m$ antennas ($\rightsquigarrow$ \emph{combinatorial} bandit)
-
-              \hspace{2.5cm}\includegraphics[height=0.2\paperheight]{assignements}
-        \item How to select the next \emph{matching} based on the throughput observed in previous communications?
-    \end{itemize}
-
-    \vspace{0.1cm}
-
-    \pause
-
-    \textbf{Opportunistic Spectrum Access (OSA)}
-    \begin{itemize}
-        \item $K$ radio channels (orthogonal frequency bands)
-
-              \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
-        \item In which channel should a radio device send a packet, based on the quality of its previous communications?
-    \end{itemize}
-
-\end{frameO}
-
-
-%%% TITLE SLIDE FOR PART I
-
-
-% standard slides for Part I
-
-\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/PageTabInverse_CentraleSupelec}}
-
-\setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
-    {\textcolor{white}{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
-    \raisebox{2.5ex}
-    {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
-
-\subsection{Multi-armed Bandit}
-
-\begin{frameO}[\alt<2>{The \blue Stochastic \color{white} Multi-Armed Bandit Setup}{The Multi-Armed Bandit Setup}]
-
-    \alt<2>{\vspace{0.4cm}}{}
-
-    \begin{center}
-        $K$ \textbf{arms} $\Leftrightarrow$ $K$ \alt<2>{\blue probability distributions \black : $\nu_a$ has mean $\blue\mu_a$}{rewards streams $(X_{a,t})_{t\in\N}$}
-    \end{center}
-
-    \begin{center}
-        \includegraphics[height=0.15\textheight]{slot1.jpg}
-        \hspace{0.4cm}
-        \includegraphics[height=0.15\textheight]{slot2.jpg}
-        \hspace{0.4cm}
-        \includegraphics[height=0.15\textheight]{slot3.jpg}
-        \hspace{0.4cm}
-        \includegraphics[height=0.15\textheight]{slot4.jpg}
-        \hspace{0.5cm}
-        \includegraphics[height=0.15\textheight]{slot5.jpg}
-        \hspace{0.4cm}
-    \end{center}
-
-    \vspace{-0.8cm}
-
-    \[ \alt<2>{\blue\nu_1}{} \hspace{1.4cm} \alt<2>{\blue\nu_2}{} \hspace{1.4cm} \alt<2>{\blue\nu_3}{} \hspace{1.4cm} \alt<2>{\blue\nu_4}{} \hspace{1.4cm} \alt<2>{\blue\nu_5}{}\]
-
-    \alt<2>{\vspace{-0.4cm}}{}
-
-    At round $t$, an agent:
-    \begin{itemize}
-        \item chooses an  arm $A_t$
-        \item receives a reward \alt<2>{$R_t = X_{A_t,t}\blue \overset{\text{iid}}{\sim} \nu_{A_t}$ (i.i.d. from a distribution)}{$R_t = X_{A_t,t}$ (from the environment)}
-    \end{itemize}
-
-    \vspace{0.2cm}
-
-    \red Sequential \black sampling strategy (\textbf{bandit algorithm}):
-    $\red A_{t+1} = F_t (A_1,R_1,\dots,A_{t},R_{t})\black$.
-
-    \textbf{Goal:} Maximize sum of rewards \alt<2>{$\blue \bE\black\left[\sum\limits_{t=1}^T R_t\right]$}{$\sum\limits_{t=1}^T R_t$}.
-
-
-\end{frameO}
-
-\begin{frameO}[Discover bandits by playing this online demo!]
-
-    \begin{center}
-        \includegraphics[width=0.75\textwidth]{example_of_a_5_arm_bandit_problem.png}
-    \end{center}
-
-    % \begin{small}
-    $\hookrightarrow$ Interactive demo on this web-page
-    \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
-    % Ref: [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
-    % on \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
-    % \end{small}
-
-\end{frameO}
-
-% \begin{frameO}[Clinical trials]
-
-%     \textbf{Historical motivation} \color{gray}[Thompson 1933]\color{black}
-
-%     \begin{center}
-%         \includegraphics[width=0.12\linewidth]{medoc1.jpg}
-%         \hspace{0.3cm}
-%         \includegraphics[width=0.12\linewidth]{medoc4.jpg}
-%         \hspace{0.3cm}
-%         \includegraphics[width=0.12\linewidth]{medoc3.jpg}
-%         \hspace{0.5cm}
-%         \includegraphics[width=0.12\linewidth]{medoc2.jpg}
-%         \hspace{0.5cm}
-%         \includegraphics[width=0.12\linewidth]{medoc5.jpg}
-%         \hspace{0.3cm}
-%     \end{center}
-%     \vspace{-0.8cm}
-
-%     \hspace{-0.3cm}\[ \cB(\mu_1) \hspace{0.9cm} \cB(\mu_2) \hspace{0.9cm} \cB(\mu_3) \hspace{0.8cm} \cB(\mu_4) \hspace{0.9cm} \cB(\mu_5)\]
-
-%     For the $t$-th patient in a clinical study,
-
-%     \begin{itemize}
-%         \item chooses a \blue treatment $A_t$\black
-%         \item observes a (Bernoulli) \blue response $R_t \in \{0,1\} : \bP(R_t = 1 | A_t = a) = \mu_{a}$\black
-%     \end{itemize}
-
-%     \vspace{0.3cm}
-
-
-%     \textbf{Goal:} maximize the expected number of patients healed.
-
-% \end{frameO}
-
-
-
-% \begin{frameO}[Online content optimization]
-
-%     \textbf{Modern motivation} ($\$\$\$\$$) \gray [Li et al, 2010] \black
-
-%     (recommender systems, online advertisement, etc)
-
-
-%     \begin{center}
-%         \includegraphics[height=0.15\textheight]{film1.jpg}
-%         \hspace{0.6cm}
-%         \includegraphics[height=0.15\textheight]{film2.jpg}
-%         \hspace{0.6cm}
-%         \includegraphics[height=0.15\textheight]{film3.jpg}
-%         \hspace{0.6cm}
-%         \includegraphics[height=0.15\textheight]{film4.jpg}
-%         \hspace{0.6cm}
-%         \includegraphics[height=0.15\textheight]{film5.jpg}
-%         \hspace{0.6cm}
-%     \end{center}
-
-%     \vspace{-0.8cm}
-
-%     \hspace{-0.2cm}\[ \nu_1 \hspace{1.4cm} \nu_2 \hspace{1.4cm} \nu_3 \hspace{1.4cm} \nu_4 \hspace{1.4cm} \nu_5\]
-
-%     For the $t$-th visitor of a website,
-%     \begin{itemize}
-%         \item recommend a  \blue movie $A_t$\black
-%         \item observe a \blue rating $R_t \sim \nu_{A_t}$\black \ (e.g. $R_t \in \{1,\dots,5\}$)
-%     \end{itemize}
-
-%     \vspace{0.3cm}
-
-%     \textbf{Goal:} maximize the sum of ratings.
-
-% \end{frameO}
-
-
-\begin{frameO}[Application to Cognitive Radios: OSA]
-
-    \textbf{Opportunistic Spectrum Access}
-    \textcolor{gray}{
-        % [Zhao et al. 2010]
-        % [Anandkumar et al. 2011]
-        [Jouini, Moy et al. 2010]
-    }
-
-    \begin{center}
-
-        \emph{streams indicating channel quality}
-
-        \vspace{0.3cm}
-
-        \begin{tabular}{|c||c|c|c|c|c|c|c|}
-            \hline
-            Channel $1$ & \cellcolor{blue!25}$X_{1,1}$ & $X_{1,2}$                    & \dots & $X_{1,t}$                    & \dots & $X_{1,T}$                    & $\sim \nu_1$ \\
-            \hline
-            Channel $2$ & $X_{2,1}$                    & \cellcolor{blue!25}$X_{2,2}$ & \dots & $X_{2,t}$                    & \dots & \cellcolor{blue!25}$X_{2,T}$ & $\sim \nu_2$ \\
-            \hline
-            \dots       & \dots                        & \dots                        & \dots & \dots                        & \dots & \dots                        & \dots        \\
-            \hline
-            Channel $K$ & $X_{K,1}$                    & $X_{K,2}$                    & \dots & \cellcolor{blue!25}$X_{K,t}$ & \dots & $X_{K,T}$                    & $\sim \nu_K$ \\
-            \hline
-        \end{tabular}
-    \end{center}
-
-    \vspace{0.2cm}
-
-    At round $t$, the device:
-    \begin{itemize}
-        \item selects \blue{a channel} $A_t \in \{1,\dots,K\}$\black
-        \item observes the \blue quality of its communication  $R_t = X_{A_t,t} \in [0,1]$\black
-        \begin{itemize}
-            \item $R_T \in\{0,1\}$ binary reward: success/failure of message transmission
-            \item $R_T \in[0,1]$ continuous reward: e.g., received power,  etc
-        \end{itemize}
-    \end{itemize}
-
-    \vspace{0.2cm}
-
-    \textbf{Goal:} Maximize the overall quality of communications.
-
-\end{frameO}
-
-
-
-\subsection{Performance measure and first strategies}
-
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Introduction to Multi-Armed Bandits}
-            \vspace{1.5cm}
-
-            \textcolor{darkgray}{\textbf{\Large Why Bandits?}\\[0.5cm]}
-            \textbf{\Large Performance measure and first strategies}\\[0.5cm]
-            \textcolor{darkgray}{\textbf{\Large Best possible regret?}\\[0.5cm] }
-            \textcolor{darkgray}{\textbf{\Large The optimism principle}\\[0.5cm] }
-        \end{center}
-    \end{changemargin}
-\end{frame}
-
-
-\begin{frameO}[Regret of a bandit algorithm]
-
-    \bigskip
-
-    \textbf{Bandit instance:} $\bm\nu = (\nu_1,\nu_2, \dots,\nu_K)$, mean of arm $a$: $\mu_a = \bE_{X \sim \nu_a}[X]$.
-
-    \[\red\mu_\star = \max_{a \in \{1,\dots,K\}} \mu_a \ \ \text{and} \ \ \ a_\star = \argmax_{a \in \{1,\dots,K\}} \mu_a.\]
-    \[\begin{array}{ccl}\text{Maximizing rewards} & \Leftrightarrow & \text{selecting } a_\star \text{ as much as possible }         \\
-                                           & \Leftrightarrow & \text{minimizing the \blue regret } \gray \text{[Robbins, 52]}
-        \end{array}\]
-
-    \vspace{-0.4cm}
-
-    \begin{eqnarray*}
-        \blue \cR_{\bm\nu}(\cA,T) \eqdef \black\underbrace{\blue T \mu_\star}_{\substack{\text{sum of rewards of}\\ \text{an oracle strategy} \\ \text{always selecting } a_\star}} \blue- \black\underbrace{\blue\bE\left[\sum_{t=1}^{T}R_{t}\right]}_{\substack{\text{sum of rewards of}\\\text{the strategy} \cA}}
-    \end{eqnarray*}
-
-    \vspace{-0.4cm}
-    \pause
-
-    \begin{colorblock}{What regret rate can we achieve?}
-        \begin{itemize}
-            \item[$\Longrightarrow$] consistency \black $\cR_{\bm\nu}(\cA,T) / T \Longrightarrow 0$ (when $T\to\infty$)
-            \item[$\Longrightarrow$] can we be more precise?
-        \end{itemize}
-    \end{colorblock}
-\end{frameO}
-
-\begin{frameO}[Regret decomposition]
-
-    \vspace{0.6cm}
-
-    $N_a(t)$ : number of selections of arm $a$ in the first $t$ rounds
-
-    $\Delta_a \eqdef \mu_\star -\mu_a$ : sub-optimality gap of arm $a$
-
-    \begin{colorblock}{Regret decomposition}
-        \[\alert<1>{ \cR_{\bm\nu}(\cA,T) = \sum_{a=1}^K \Delta_a \bE\left[N_a(T)\right] }.\]
-    \end{colorblock}
-    \pause
-
-    \vspace{0.6cm}
-
-    A strategy with small regret should:
-    \begin{itemize}
-        \item select not too often arms for which $\Delta_a > 0$ (sub-optimal arms)
-        \item \dots which requires to try all arms to estimate the values of the $\Delta_a$
-    \end{itemize}
-
-    \vspace{0.5cm}
-
-    \begin{center}
-        \red $\Longrightarrow$ Exploration / Exploitation trade-off !
-    \end{center}
-
-\end{frameO}
-
-
-\begin{frameO}[Two naive strategies]
-
-    \vspace{0.4cm}
-
-    \begin{itemize}
-        \item \textbf{Idea 1 :}
-              \hfill{} \color{red}$\Longrightarrow$ EXPLORATION \color{black}
-              \begin{colorblock}{}Draw each arm $T/K$ times\end{colorblock}
-    \end{itemize}
-
-    \vspace{-0.3cm}
-
-    \[\hookrightarrow \cR_{\bm\nu}(\cA,T) = \left(\frac{1}{K}\sum_{a : \mu_a > \mu_\star} \Delta_a\right) T = \alert{\Omega(T)} \]
-
-    \pause
-
-    \begin{itemize}
-        \item \textbf{Idea 2 :} Always trust the empirical best arm
-              \hfill{} \color{red}$\Longrightarrow$ EXPLOITATION \color{black}
-    \end{itemize}
-    \begin{colorblock}{}
-        $A_{t+1}=\underset{a \in \{1,\dots,K\}}{\text{argmax}} \ \blue \widehat{\mu}_a(t)$
-        using estimates of the unknown means $\mu_a$
-
-        \[\blue \widehat{\mu}_a(t) =\frac{1}{N_a(t)}\sum_{s=1}^t X_{a,s} \ind_{(A_s=a)}\]
-    \end{colorblock}
-
-    \vspace{-0.3cm}
-
-    \[\hspace{1.5cm} \hookrightarrow \cR_{\bm\nu}(\cA,T) \geq  (1-\mu_1)\times \mu_2 \times (\mu_1 - \mu_2) T  = \alert{\Omega(T)} \]
-    \begin{center}\vspace{-0.2cm}
-        \hspace{1.5cm}(with $K=2$ Bernoulli arms of means $\mu_1 \neq \mu_2$)
-    \end{center}
-
-
-\end{frameO}
-
-
-
-\subsection{Best possible regret? Lower bounds}
-
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Introduction to Multi-Armed Bandits}
-            \vspace{1.5cm}
-
-            \textcolor{darkgray}{\textbf{\Large Why Bandits?}\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Performance measure and first strategies}\\[0.5cm]}
-            \textbf{\Large Best possible regret? Lower bounds}\\[0.5cm]
-            \textcolor{darkgray}{\textbf{\Large The optimism principle}\\[0.5cm] }
-        \end{center}
-    \end{changemargin}
-\end{frame}
-
-
-\begin{frameO}[The Lai and Robbins lower bound]
-
-    \vspace{0.3cm}
-
-    \textbf{Context:} a \blue parametric bandit model \black where each arm is parameterized by its mean $\bm\nu =(\nu_{\mu_1},\dots,\nu_{\mu_K})$, $\mu_a \in \cI$.
-    \[ \text{distributions } \bm\nu \ \ \Leftrightarrow \ \ \bm\mu = (\mu_1,\dots,\mu_K) \text{ means} \]
-
-
-    \textbf{Key tool:} \blue Kullback-Leibler divergence\black.
-
-    \begin{colorblock}{Kullback-Leibler divergence}
-
-        \alt<3>{\vspace{-0.2cm}}{}
-
-        \[
-            \red \mathrm{kl}(\mu,\mu')  \black : =   \alt<3>{\mu\log \left(\frac{\mu}{\mu'}\right) + (1-\mu) \log \left(\frac{1-\mu}{1-\mu'}\right) \ \ \ (\text{Bernoulli bandits})}{\alt<2>{\frac{(\mu - \mu')^2}{2\sigma^2} \ \ \ (\text{Gaussian bandits with variance } \sigma^2)}{\text{KL}\left(\nu_\mu,\nu_{\mu'}\right) =\bE_{X \sim \nu_{\mu}}\left[\log \frac{d\nu_{\mu}}{d\nu_{\mu'}}(X)\right]}}
-        \]
-
-
-        \vspace{-0.3cm}
-
-    \end{colorblock}
-    \begin{colorblock}{Theorem \hfill{} \textcolor{gray}{[Lai and Robbins, 1985]}}
-        For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=\mathcal{o}(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
-
-        \vspace{-0.4cm}
-
-        \[
-            \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\log T}\geq \frac{1}{\mathrm{kl}(\mu_a,\mu_\star)}.\color{black}
-        \]
-
-        \vspace{-0.3cm}
-
-    \end{colorblock}
-
-\end{frameO}
-
-
-\begin{frameO}[Other asymptotic lower bounds]
-
-    Such asymptotic lower bound can be generalized to extensions of the stationary single-player MAB model
-    $ \cR(\cA, T) \geq \Omega(C_{\text{problem}} K \log(T)) $.
-
-    \vspace*{2pt}
-
-    \begin{colorblock}{For \textbf{multi-player bandits} \hfill{} (with $2 \leq M \leq K$ players)}
-        Same lower-bound, with a problem-dependent constant $C'_{\text{problem}}$
-        \[ \cR(\cA, T) \geq \Omega(C'_{\text{problem}} M K \log(T)). \]
-    \end{colorblock}
-
-    \vspace*{2pt}
-
-    \begin{colorblock}{For \textbf{piece-wise stationary bandits} \hfill{} (with $\Upsilon_T$ stationary intervals)}
-        Larger lower-bound, with a problem-dependent constant $C''_{\text{problem}}$
-        \[ \cR(\cA, T) \geq \Omega(C''_{\text{problem}} \sqrt{K \Upsilon_T T}). \]
-    \end{colorblock}
-
-    \textcolor{gray}{(our proposed algorithms are asymptotically matching the lower-bounds)}
-
-\end{frameO}
-
-
-
-\subsection{The Optimism Principle and Upper Confidence Bounds Algorithms}
-
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Introduction to Multi-Armed Bandits}
-            \vspace{1.5cm}
-
-            \textcolor{darkgray}{\textbf{\Large Why Bandits?}\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Performance measure and first strategies}\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Best possible regret? Lower bounds}\\[0.5cm]}
-            \textbf{\Large The optimism principle:\\
-                Upper Confidence Bounds Algorithms}\\[0.5cm]
-        \end{center}
-    \end{changemargin}
-\end{frame}
-
-
-\begin{frameO}[A first UCB algorithm]
-
-    \vspace{0.3cm}
-
-    \begin{itemize}
-        \item $N_a(t) = \sum_{s=1}^t\ind_{(A_s = a)}$ number of selections of $a$ after $t$ rounds
-        \item $\hat \mu_{a,s} = \frac{1}{s}\sum_{k=1}^s Y_{a,k}$ average of the first $s$ observations from arm $a$
-        \item $\widehat{\mu}_a(t) = \widehat{\mu}_{a,N_a(t)}$ empirical estimate of $\mu_a$ after $t$ rounds
-    \end{itemize}
-
-    \vspace{0.3cm}
-
-    UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
-    where
-    \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
-
-    \vspace{0.3cm}
-
-    \begin{colorblock}{Hoeffding inequality + union bound \hfill{} \textcolor{gray}{[Auer et al. 2002]}}
-        \[ \bP\left(\mu_a \leq \red \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \geq 1 - \frac{1}{t^{\frac{\alpha}{2} -1}} \]
-    \end{colorblock}
-
-    % \pause
-    % \textbf{Proof.}
-
-    % \vspace{-0.5cm}
-
-    % \begin{align*}
-    %      & \bP\left(\mu_a > \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \leq  \bP\left(\exists s \leq t : \mu_a > \widehat{\mu}_{a,s} + \sigma\sqrt{\frac{\alpha\log(t)}{s}} \black\right) \\
-    %      & \leq \sum_{s=1}^t \bP\left(\widehat{\mu}_{a,s} < \mu_a - \sigma\sqrt{\frac{\alpha\log(t)}{s}}\right) \leq \sum_{s=1}^t \frac{1}{t^{\alpha/2}} = \frac{1}{t^{\alpha/2 - 1}}.
-    % \end{align*}
-
-
-\end{frameO}
-
-
-% \begin{frameO}[A first UCB algorithm]
-
-%     \vspace{0.4cm}
-
-%     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
-%     where
-%     \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
-
-%     \begin{itemize}
-%         \item this form of UCB was first proposed for Gaussian rewards
-
-%               \gray [Katehakis and Robbins, 95]\black
-%         \item popularized by \color{gray}[Auer et al. 02] \color{black} for bounded rewards:\\
-%               \red UCB1, for $\alpha=2$\black
-
-%         \item the analysis was UCB($\alpha$) was further refined to hold for $\alpha > 1/2$ in that case \gray [Bubeck, 11, Cappé et al. 13] \black
-%     \end{itemize}
-
-% \end{frameO}
-
-\begin{frameO}[A UCB algorithm in action \textcolor{gray}{[Kaufmann, 2014]} \hfill{} (movie)]
-
-    \begin{center}
-        \movie{\includegraphics[width=0.9\textwidth]{KLUCB.pdf}}{KLUCB.avi}
-    \end{center}
-\end{frameO}
-
-
-% \subsection{Analysis of UCB($\alpha$)}
+%     \vspace*{-4pt}
+% \end{frameTI}
 
 % \begin{frame}[c]
 %     \begin{changemargin}{-0.5cm}{-0.5cm}
 %         \begin{center}
 %             \vspace{-0.3in}
-%             \textbf{\huge Optimistic Algorithms}
+%             \textbf{\huge Introduction to Multi-Armed Bandits}
 %             \vspace{1.5cm}
 
-%             \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
-%             {\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
-%             % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+%             \textbf{\Large Why Bandits?}\\[0.5cm]
+%             \textcolor{darkgray}{\textbf{\Large Performance measure}\\[0.5cm] }
+%             \textcolor{darkgray}{\textbf{\Large Best possible regret?}\\[0.5cm] }
+%             \textcolor{darkgray}{\textbf{\Large The optimism principle}\\[0.5cm] }
 %         \end{center}
 %     \end{changemargin}
 % \end{frame}
 
 
-\begin{frameO}[Regret of UCB($\alpha$) for bounded rewards]
 
-    \vspace{0.3cm}
+% \begin{frameO}[Hum, what is a \emph{bandit}?]
+%     \begin{center}
+%         It's an old name for a casino machine!
+%     \end{center}
 
-    \begin{colorblock}{Theorem \hfill{} \gray[Auer et al, 02]\black}
-        UCB($\alpha$) with parameter $\alpha=2$ satisfies
+%     \begin{center}
+%         \includegraphics[height=7cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
 
-        \vspace{-0.4cm}
-
-        \[\cR_{\bm\nu}(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\log(T) + (1+\frac{\pi^2}{3})\left(\sum_{a=1}^K \Delta_a\right).\]
-    \end{colorblock}
-
-    \vspace{1cm}
-
-    In some of our works, we use an extension of UCB called kl-UCB.
-
-    % FIXME talk about kl-UCB: just one block saying it works similarly but it is smarter?
-    \begin{colorblock}{Theorem \hfill{} \gray[Garivier et al, 2013]\black}
-        For bounded rewards, kl-UCB satisfies $\cR_{\bm\nu}(\texttt{kl-UCB},T) = \mathcal{O}(K C \log(T))$:
-
-        \vspace{-0.4cm}
-
-        \[\cR_{\bm\nu}(\texttt{kl-UCB},T) \leq \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\texttt{kl}(\mu_a, \mu_\star)}\right)\log(T) + \mathcal{o}(\log(T)).\]
-    \end{colorblock}
+%         \begin{tiny}
+%             \textcolor{gray}{
+%                 \textcopyright{} Dargaud,
+%                 \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
+%             }
+%         \end{tiny}
+%     \end{center}
+% \end{frameO}
 
 
-    % \begin{itemize}
-    %     \item[$\Longrightarrow$] what we will prove today
-    % \end{itemize}
+% \begin{frameO}[Make money in a casino?]
+%     \begin{center}
+%         \includegraphics[height=3cm]{MABpieuvre}
+%     \end{center}
+%     \begin{center}
+%         A (single) \blue agent \black facing (multiple) \red arms \black in a Multi-Armed Bandit.
+%     \end{center}
+
+%     \pause
+%     \begin{center}
+%         \Huge NO!
+%     \end{center}
+% \end{frameO}
+
+% \begin{frameO}[Sequential resource allocation]
+%     \textbf{Clinical trials}
+%     \begin{itemize}
+%         \item $K$ treatments for a given symptom (with unknown effect)
+
+%               \includegraphics[width=0.12\linewidth]{medoc1.jpg}
+%               \hspace{0.05cm}
+%               \includegraphics[width=0.12\linewidth]{medoc4.jpg}
+%               \hspace{0.05cm}
+%               \includegraphics[width=0.12\linewidth]{medoc3.jpg}
+%               \hspace{0.05cm}
+%               \includegraphics[width=0.12\linewidth]{medoc2.jpg}
+%               \hspace{0.05cm}
+%               \includegraphics[width=0.12\linewidth]{medoc5.jpg}
+%               \hspace{0.05cm}
+%               \includegraphics[width=0.12\linewidth]{medoc6.jpg}
+%               \hspace{0.05cm}
+
+%         \item What treatment should be allocated to the next patient, based on responses observed on previous patients?
+%     \end{itemize}
+
+%     \vspace{0.2cm}
+
+%     \pause
+
+%     \textbf{Online advertisement}
+%     \begin{itemize}
+%         \item $K$ adds that can be displayed
+%               \vspace{0.1cm}
+
+%               \includegraphics[height=0.15\paperheight]{ad6.jpg}
+%               \hspace{0.1cm}
+%               \includegraphics[height=0.15\paperheight]{ad2.jpg}
+%               \hspace{0.1cm}
+%               \includegraphics[height=0.15\paperheight]{ad4.jpg}
+%               \hspace{0.1cm}
+%               \includegraphics[height=0.15\paperheight]{ad5.jpg}
+%               \hspace{0.05cm}
+
+%         \item Which add should be displayed for a user, based on the previous clicks of previous (similar) users?
+%     \end{itemize}
+
+% \end{frameO}
 
 
-    % \begin{colorblock}{Theorem} For every $\alpha>1$ and every sub-optimal arm $a$, there exists a constant $C_\alpha>0$ such that
 
-    %     \vspace{-0.8cm}
+% % \begin{frameO}[Dynamic allocation of computational resources]
 
-    %     \[\bE_{\bm \mu}[N_a(T)] \leq \frac{4\alpha}{(\mu_\star - \mu_a)^2}\log(T) + C_\alpha.\]
-    % \end{colorblock}
+% %     \vspace{0.4cm}
 
-    % \vspace{0.2cm}
+% %     \textbf{Numerical experiments} (bandits for ``black-box'' optimization)
 
-    % It follows that
+% %     \vspace{-0.3cm}
 
-    % \vspace{-0.6cm}
+% %     \begin{center}
+% %         \includegraphics[height=2.5cm]{GP}
+% %     \end{center}
 
-    % \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\log(T) + K C_\alpha\black.\]
+% %     \vspace{-0.3cm}
 
-\end{frameO}
+% %     \begin{itemize}
+% %         \item where to evaluate a costly function in order to find its maximum?
+% %     \end{itemize}
+
+% %     \pause
+
+% %     \textbf{Artificial intelligence for games}
+
+% %     \begin{center}
+% %         \includegraphics[height=2.2cm]{MCTSWiki}
+% %     \end{center}
+
+% %     \vspace{-0.5cm}
+
+% %     \begin{itemize}
+% %         \item where to choose the next evaluation to perform in order to find the best move to play next?
+% %     \end{itemize}
+
+% % \end{frameO}
+
+
+% \begin{frameO}[Dynamic channel selection]
+
+%     \vspace{0.3cm}
+
+%     \textbf{Communications in presence of a central controller}
+%     \begin{itemize}
+%         \item $K$ assignments from $n$ users to $m$ antennas ($\rightsquigarrow$ \emph{combinatorial} bandit)
+
+%               \hspace{2.5cm}\includegraphics[height=0.2\paperheight]{assignements}
+%         \item How to select the next \emph{matching} based on the throughput observed in previous communications?
+%     \end{itemize}
+
+%     \vspace{0.1cm}
+
+%     \pause
+
+%     \textbf{Opportunistic Spectrum Access (OSA)}
+%     \begin{itemize}
+%         \item $K$ radio channels (orthogonal frequency bands)
+
+%               \hspace{0.4cm}\includegraphics[height=0.17\paperheight]{spectrum}
+%         \item In which channel should a radio device send a packet, based on the quality of its previous communications?
+%     \end{itemize}
+
+% \end{frameO}
+
+
+% %%% TITLE SLIDE FOR PART I
+
+
+% % standard slides for Part I
+
+% \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/PageTabInverse_CentraleSupelec}}
+
+% \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
+%     {\textcolor{white}{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
+%     \raisebox{2.5ex}
+%     {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+
+% \subsection{Multi-armed Bandit}
+
+% \begin{frameO}[\alt<2>{The \blue Stochastic \color{white} Multi-Armed Bandit Setup}{The Multi-Armed Bandit Setup}]
+
+%     \alt<2>{\vspace{0.4cm}}{}
+
+%     \begin{center}
+%         $K$ \textbf{arms} $\Leftrightarrow$ $K$ \alt<2>{\blue probability distributions \black : $\nu_a$ has mean $\blue\mu_a$}{rewards streams $(X_{a,t})_{t\in\N}$}
+%     \end{center}
+
+%     \begin{center}
+%         \includegraphics[height=0.15\textheight]{slot1.jpg}
+%         \hspace{0.4cm}
+%         \includegraphics[height=0.15\textheight]{slot2.jpg}
+%         \hspace{0.4cm}
+%         \includegraphics[height=0.15\textheight]{slot3.jpg}
+%         \hspace{0.4cm}
+%         \includegraphics[height=0.15\textheight]{slot4.jpg}
+%         \hspace{0.5cm}
+%         \includegraphics[height=0.15\textheight]{slot5.jpg}
+%         \hspace{0.4cm}
+%     \end{center}
+
+%     \vspace{-0.8cm}
+
+%     \[ \alt<2>{\blue\nu_1}{} \hspace{1.4cm} \alt<2>{\blue\nu_2}{} \hspace{1.4cm} \alt<2>{\blue\nu_3}{} \hspace{1.4cm} \alt<2>{\blue\nu_4}{} \hspace{1.4cm} \alt<2>{\blue\nu_5}{}\]
+
+%     \alt<2>{\vspace{-0.4cm}}{}
+
+%     At round $t$, an agent:
+%     \begin{itemize}
+%         \item chooses an  arm $A_t$
+%         \item receives a reward \alt<2>{$R_t = X_{A_t,t}\blue \overset{\text{iid}}{\sim} \nu_{A_t}$ (i.i.d. from a distribution)}{$R_t = X_{A_t,t}$ (from the environment)}
+%     \end{itemize}
+
+%     \vspace{0.2cm}
+
+%     \red Sequential \black sampling strategy (\textbf{bandit algorithm}):
+%     $\red A_{t+1} = F_t (A_1,R_1,\dots,A_{t},R_{t})\black$.
+
+%     \textbf{Goal:} Maximize sum of rewards \alt<2>{$\blue \bE\black\left[\sum\limits_{t=1}^T R_t\right]$}{$\sum\limits_{t=1}^T R_t$}.
+
+
+% \end{frameO}
+
+% \begin{frameO}[Discover bandits by playing this online demo!]
+
+%     \begin{center}
+%         \includegraphics[width=0.75\textwidth]{example_of_a_5_arm_bandit_problem.png}
+%     \end{center}
+
+%     % \begin{small}
+%     $\hookrightarrow$ Interactive demo on this web-page
+%     \href{https://perso.crans.org/besson/phd/MAB_interactive_demo/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/MAB\_interactive\_demo/}}}
+%     % Ref: [Bandits Algorithms, Lattimore \& Szepesv{\'a}ri, 2019],
+%     % on \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}
+%     % \end{small}
+
+% \end{frameO}
+
+% % \begin{frameO}[Clinical trials]
+
+% %     \textbf{Historical motivation} \color{gray}[Thompson 1933]\color{black}
+
+% %     \begin{center}
+% %         \includegraphics[width=0.12\linewidth]{medoc1.jpg}
+% %         \hspace{0.3cm}
+% %         \includegraphics[width=0.12\linewidth]{medoc4.jpg}
+% %         \hspace{0.3cm}
+% %         \includegraphics[width=0.12\linewidth]{medoc3.jpg}
+% %         \hspace{0.5cm}
+% %         \includegraphics[width=0.12\linewidth]{medoc2.jpg}
+% %         \hspace{0.5cm}
+% %         \includegraphics[width=0.12\linewidth]{medoc5.jpg}
+% %         \hspace{0.3cm}
+% %     \end{center}
+% %     \vspace{-0.8cm}
+
+% %     \hspace{-0.3cm}\[ \cB(\mu_1) \hspace{0.9cm} \cB(\mu_2) \hspace{0.9cm} \cB(\mu_3) \hspace{0.8cm} \cB(\mu_4) \hspace{0.9cm} \cB(\mu_5)\]
+
+% %     For the $t$-th patient in a clinical study,
+
+% %     \begin{itemize}
+% %         \item chooses a \blue treatment $A_t$\black
+% %         \item observes a (Bernoulli) \blue response $R_t \in \{0,1\} : \bP(R_t = 1 | A_t = a) = \mu_{a}$\black
+% %     \end{itemize}
+
+% %     \vspace{0.3cm}
+
+
+% %     \textbf{Goal:} maximize the expected number of patients healed.
+
+% % \end{frameO}
+
+
+
+% % \begin{frameO}[Online content optimization]
+
+% %     \textbf{Modern motivation} ($\$\$\$\$$) \gray [Li et al, 2010] \black
+
+% %     (recommender systems, online advertisement, etc)
+
+
+% %     \begin{center}
+% %         \includegraphics[height=0.15\textheight]{film1.jpg}
+% %         \hspace{0.6cm}
+% %         \includegraphics[height=0.15\textheight]{film2.jpg}
+% %         \hspace{0.6cm}
+% %         \includegraphics[height=0.15\textheight]{film3.jpg}
+% %         \hspace{0.6cm}
+% %         \includegraphics[height=0.15\textheight]{film4.jpg}
+% %         \hspace{0.6cm}
+% %         \includegraphics[height=0.15\textheight]{film5.jpg}
+% %         \hspace{0.6cm}
+% %     \end{center}
+
+% %     \vspace{-0.8cm}
+
+% %     \hspace{-0.2cm}\[ \nu_1 \hspace{1.4cm} \nu_2 \hspace{1.4cm} \nu_3 \hspace{1.4cm} \nu_4 \hspace{1.4cm} \nu_5\]
+
+% %     For the $t$-th visitor of a website,
+% %     \begin{itemize}
+% %         \item recommend a  \blue movie $A_t$\black
+% %         \item observe a \blue rating $R_t \sim \nu_{A_t}$\black \ (e.g. $R_t \in \{1,\dots,5\}$)
+% %     \end{itemize}
+
+% %     \vspace{0.3cm}
+
+% %     \textbf{Goal:} maximize the sum of ratings.
+
+% % \end{frameO}
+
+
+% \begin{frameO}[Application to Cognitive Radios: OSA]
+
+%     \textbf{Opportunistic Spectrum Access}
+%     \textcolor{gray}{
+%         % [Zhao et al. 2010]
+%         % [Anandkumar et al. 2011]
+%         [Jouini, Moy et al. 2010]
+%     }
+
+%     \begin{center}
+
+%         \emph{streams indicating channel quality}
+
+%         \vspace{0.3cm}
+
+%         \begin{tabular}{|c||c|c|c|c|c|c|c|}
+%             \hline
+%             Channel $1$ & \cellcolor{blue!25}$X_{1,1}$ & $X_{1,2}$                    & \dots & $X_{1,t}$                    & \dots & $X_{1,T}$                    & $\sim \nu_1$ \\
+%             \hline
+%             Channel $2$ & $X_{2,1}$                    & \cellcolor{blue!25}$X_{2,2}$ & \dots & $X_{2,t}$                    & \dots & \cellcolor{blue!25}$X_{2,T}$ & $\sim \nu_2$ \\
+%             \hline
+%             \dots       & \dots                        & \dots                        & \dots & \dots                        & \dots & \dots                        & \dots        \\
+%             \hline
+%             Channel $K$ & $X_{K,1}$                    & $X_{K,2}$                    & \dots & \cellcolor{blue!25}$X_{K,t}$ & \dots & $X_{K,T}$                    & $\sim \nu_K$ \\
+%             \hline
+%         \end{tabular}
+%     \end{center}
+
+%     \vspace{0.2cm}
+
+%     At round $t$, the device:
+%     \begin{itemize}
+%         \item selects \blue{a channel} $A_t \in \{1,\dots,K\}$\black
+%         \item observes the \blue quality of its communication  $R_t = X_{A_t,t} \in [0,1]$\black
+%         \begin{itemize}
+%             \item $R_T \in\{0,1\}$ binary reward: success/failure of message transmission
+%             \item $R_T \in[0,1]$ continuous reward: e.g., received power,  etc
+%         \end{itemize}
+%     \end{itemize}
+
+%     \vspace{0.2cm}
+
+%     \textbf{Goal:} Maximize the overall quality of communications.
+
+% \end{frameO}
+
+
+
+% \subsection{Performance measure and first strategies}
+
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Introduction to Multi-Armed Bandits}
+%             \vspace{1.5cm}
+
+%             \textcolor{darkgray}{\textbf{\Large Why Bandits?}\\[0.5cm]}
+%             \textbf{\Large Performance measure and first strategies}\\[0.5cm]
+%             \textcolor{darkgray}{\textbf{\Large Best possible regret?}\\[0.5cm] }
+%             \textcolor{darkgray}{\textbf{\Large The optimism principle}\\[0.5cm] }
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
+
+
+% \begin{frameO}[Regret of a bandit algorithm]
+
+%     \bigskip
+
+%     \textbf{Bandit instance:} $\bm\nu = (\nu_1,\nu_2, \dots,\nu_K)$, mean of arm $a$: $\mu_a = \bE_{X \sim \nu_a}[X]$.
+
+%     \[\red\mu_\star = \max_{a \in \{1,\dots,K\}} \mu_a \ \ \text{and} \ \ \ a_\star = \argmax_{a \in \{1,\dots,K\}} \mu_a.\]
+%     \[\begin{array}{ccl}\text{Maximizing rewards} & \Leftrightarrow & \text{selecting } a_\star \text{ as much as possible }         \\
+%                                            & \Leftrightarrow & \text{minimizing the \blue regret } \gray \text{[Robbins, 52]}
+%         \end{array}\]
+
+%     \vspace{-0.4cm}
+
+%     \begin{eqnarray*}
+%         \blue \cR_{\bm\nu}(\cA,T) \eqdef \black\underbrace{\blue T \mu_\star}_{\substack{\text{sum of rewards of}\\ \text{an oracle strategy} \\ \text{always selecting } a_\star}} \blue- \black\underbrace{\blue\bE\left[\sum_{t=1}^{T}R_{t}\right]}_{\substack{\text{sum of rewards of}\\\text{the strategy} \cA}}
+%     \end{eqnarray*}
+
+%     \vspace{-0.4cm}
+%     \pause
+
+%     \begin{colorblock}{What regret rate can we achieve?}
+%         \begin{itemize}
+%             \item[$\Longrightarrow$] consistency \black $\cR_{\bm\nu}(\cA,T) / T \Longrightarrow 0$ (when $T\to\infty$)
+%             \item[$\Longrightarrow$] can we be more precise?
+%         \end{itemize}
+%     \end{colorblock}
+% \end{frameO}
+
+% \begin{frameO}[Regret decomposition]
+
+%     \vspace{0.6cm}
+
+%     $N_a(t)$ : number of selections of arm $a$ in the first $t$ rounds
+
+%     $\Delta_a \eqdef \mu_\star -\mu_a$ : sub-optimality gap of arm $a$
+
+%     \begin{colorblock}{Regret decomposition}
+%         \[\alert<1>{ \cR_{\bm\nu}(\cA,T) = \sum_{a=1}^K \Delta_a \bE\left[N_a(T)\right] }.\]
+%     \end{colorblock}
+%     \pause
+
+%     \vspace{0.6cm}
+
+%     A strategy with small regret should:
+%     \begin{itemize}
+%         \item select not too often arms for which $\Delta_a > 0$ (sub-optimal arms)
+%         \item \dots which requires to try all arms to estimate the values of the $\Delta_a$
+%     \end{itemize}
+
+%     \vspace{0.5cm}
+
+%     \begin{center}
+%         \red $\Longrightarrow$ Exploration / Exploitation trade-off !
+%     \end{center}
+
+% \end{frameO}
+
+
+% \begin{frameO}[Two naive strategies]
+
+%     \vspace{0.4cm}
+
+%     \begin{itemize}
+%         \item \textbf{Idea 1 :}
+%               \hfill{} \color{red}$\Longrightarrow$ EXPLORATION \color{black}
+%               \begin{colorblock}{}Draw each arm $T/K$ times\end{colorblock}
+%     \end{itemize}
+
+%     \vspace{-0.3cm}
+
+%     \[\hookrightarrow \cR_{\bm\nu}(\cA,T) = \left(\frac{1}{K}\sum_{a : \mu_a > \mu_\star} \Delta_a\right) T = \alert{\Omega(T)} \]
+
+%     \pause
+
+%     \begin{itemize}
+%         \item \textbf{Idea 2 :} Always trust the empirical best arm
+%               \hfill{} \color{red}$\Longrightarrow$ EXPLOITATION \color{black}
+%     \end{itemize}
+%     \begin{colorblock}{}
+%         $A_{t+1}=\underset{a \in \{1,\dots,K\}}{\text{argmax}} \ \blue \widehat{\mu}_a(t)$
+%         using estimates of the unknown means $\mu_a$
+
+%         \[\blue \widehat{\mu}_a(t) =\frac{1}{N_a(t)}\sum_{s=1}^t X_{a,s} \ind_{(A_s=a)}\]
+%     \end{colorblock}
+
+%     \vspace{-0.3cm}
+
+%     \[\hspace{1.5cm} \hookrightarrow \cR_{\bm\nu}(\cA,T) \geq  (1-\mu_1)\times \mu_2 \times (\mu_1 - \mu_2) T  = \alert{\Omega(T)} \]
+%     \begin{center}\vspace{-0.2cm}
+%         \hspace{1.5cm}(with $K=2$ Bernoulli arms of means $\mu_1 \neq \mu_2$)
+%     \end{center}
+
+
+% \end{frameO}
+
+
+
+% \subsection{Best possible regret? Lower bounds}
+
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Introduction to Multi-Armed Bandits}
+%             \vspace{1.5cm}
+
+%             \textcolor{darkgray}{\textbf{\Large Why Bandits?}\\[0.5cm]}
+%             \textcolor{darkgray}{\textbf{\Large Performance measure and first strategies}\\[0.5cm]}
+%             \textbf{\Large Best possible regret? Lower bounds}\\[0.5cm]
+%             \textcolor{darkgray}{\textbf{\Large The optimism principle}\\[0.5cm] }
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
+
+
+% \begin{frameO}[The Lai and Robbins lower bound]
+
+%     \vspace{0.3cm}
+
+%     \textbf{Context:} a \blue parametric bandit model \black where each arm is parameterized by its mean $\bm\nu =(\nu_{\mu_1},\dots,\nu_{\mu_K})$, $\mu_a \in \cI$.
+%     \[ \text{distributions } \bm\nu \ \ \Leftrightarrow \ \ \bm\mu = (\mu_1,\dots,\mu_K) \text{ means} \]
+
+
+%     \textbf{Key tool:} \blue Kullback-Leibler divergence\black.
+
+%     \begin{colorblock}{Kullback-Leibler divergence}
+
+%         \alt<3>{\vspace{-0.2cm}}{}
+
+%         \[
+%             \red \mathrm{kl}(\mu,\mu')  \black : =   \alt<3>{\mu\log \left(\frac{\mu}{\mu'}\right) + (1-\mu) \log \left(\frac{1-\mu}{1-\mu'}\right) \ \ \ (\text{Bernoulli bandits})}{\alt<2>{\frac{(\mu - \mu')^2}{2\sigma^2} \ \ \ (\text{Gaussian bandits with variance } \sigma^2)}{\text{KL}\left(\nu_\mu,\nu_{\mu'}\right) =\bE_{X \sim \nu_{\mu}}\left[\log \frac{d\nu_{\mu}}{d\nu_{\mu'}}(X)\right]}}
+%         \]
+
+
+%         \vspace{-0.3cm}
+
+%     \end{colorblock}
+%     \begin{colorblock}{Theorem \hfill{} \textcolor{gray}{[Lai and Robbins, 1985]}}
+%         For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=\mathcal{o}(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
+
+%         \vspace{-0.4cm}
+
+%         \[
+%             \color{red}\mu_a<\mu_\star \Longrightarrow \liminf_{T\rightarrow\infty}\frac{\bE_{\bm \mu}[N_{a}(T)]}{\log T}\geq \frac{1}{\mathrm{kl}(\mu_a,\mu_\star)}.\color{black}
+%         \]
+
+%         \vspace{-0.3cm}
+
+%     \end{colorblock}
+
+% \end{frameO}
+
+
+% \begin{frameO}[Other asymptotic lower bounds]
+
+%     Such asymptotic lower bound can be generalized to extensions of the stationary single-player MAB model
+%     $ \cR(\cA, T) \geq \Omega(C_{\text{problem}} K \log(T)) $.
+
+%     \vspace*{2pt}
+
+%     \begin{lightblock}{For \textbf{multi-player bandits} \hfill{} (with $2 \leq M \leq K$ players)}
+%         Same lower-bound, with a problem-dependent constant $C'_{\text{problem}}$
+%         \[ \cR(\cA, T) \geq \Omega(C'_{\text{problem}} M K \log(T)). \]
+%     \end{lightblock}
+
+%     \vspace*{2pt}
+
+%     \begin{lightblock}{For \textbf{piece-wise stationary bandits} \hfill{} (with $\Upsilon_T$ stationary intervals)}
+%         Larger lower-bound, with a problem-dependent constant $C''_{\text{problem}}$
+%         \[ \cR(\cA, T) \geq \Omega(C''_{\text{problem}} \sqrt{K \Upsilon_T T}). \]
+%     \end{lightblock}
+
+%     \textcolor{gray}{(our proposed algorithms are asymptotically matching the lower-bounds)}
+
+% \end{frameO}
+
+
+
+% \subsection{The Optimism Principle and Upper Confidence Bounds Algorithms}
+
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Introduction to Multi-Armed Bandits}
+%             \vspace{1.5cm}
+
+%             \textcolor{darkgray}{\textbf{\Large Why Bandits?}\\[0.5cm]}
+%             \textcolor{darkgray}{\textbf{\Large Performance measure and first strategies}\\[0.5cm]}
+%             \textcolor{darkgray}{\textbf{\Large Best possible regret? Lower bounds}\\[0.5cm]}
+%             \textbf{\Large The optimism principle:\\
+%                 Upper Confidence Bounds Algorithms}\\[0.5cm]
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
+
+
+% \begin{frameO}[A first UCB algorithm]
+
+%     \vspace{0.3cm}
+
+%     \begin{itemize}
+%         \item $N_a(t) = \sum_{s=1}^t\ind_{(A_s = a)}$ number of selections of $a$ after $t$ rounds
+%         \item $\hat \mu_{a,s} = \frac{1}{s}\sum_{k=1}^s Y_{a,k}$ average of the first $s$ observations from arm $a$
+%         \item $\widehat{\mu}_a(t) = \widehat{\mu}_{a,N_a(t)}$ empirical estimate of $\mu_a$ after $t$ rounds
+%     \end{itemize}
+
+%     \vspace{0.3cm}
+
+%     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
+%     where
+%     \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
+
+%     \vspace{0.3cm}
+
+%     \begin{colorblock}{Hoeffding inequality + union bound \hfill{} \textcolor{gray}{[Auer et al. 2002]}}
+%         \[ \bP\left(\mu_a \leq \red \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \geq 1 - \frac{1}{t^{\frac{\alpha}{2} -1}} \]
+%     \end{colorblock}
+
+%     % \pause
+%     % \textbf{Proof.}
+
+%     % \vspace{-0.5cm}
+
+%     % \begin{align*}
+%     %      & \bP\left(\mu_a > \widehat{\mu}_a(t) + \sigma\sqrt{\frac{\alpha\log(t)}{N_a(t)}} \black \right) \leq  \bP\left(\exists s \leq t : \mu_a > \widehat{\mu}_{a,s} + \sigma\sqrt{\frac{\alpha\log(t)}{s}} \black\right) \\
+%     %      & \leq \sum_{s=1}^t \bP\left(\widehat{\mu}_{a,s} < \mu_a - \sigma\sqrt{\frac{\alpha\log(t)}{s}}\right) \leq \sum_{s=1}^t \frac{1}{t^{\alpha/2}} = \frac{1}{t^{\alpha/2 - 1}}.
+%     % \end{align*}
+
+
+% \end{frameO}
+
+
+% % \begin{frameO}[A first UCB algorithm]
+
+% %     \vspace{0.4cm}
+
+% %     UCB($\alpha$) selects  $A_{t+1} = \argmax_a \ \mathrm{UCB}_a(t)$
+% %     where
+% %     \[\blue \mathrm{UCB}_a(t) =\black \underbrace{\blue \widehat{\mu}_{a}(t)}_{\text{exploitation term}} + \underbrace{\blue\sqrt{\frac{\alpha\log(t)}{N_a(t)}}}_{\text{exploration bonus}}.\]
+
+% %     \begin{itemize}
+% %         \item this form of UCB was first proposed for Gaussian rewards
+
+% %               \gray [Katehakis and Robbins, 95]\black
+% %         \item popularized by \color{gray}[Auer et al. 02] \color{black} for bounded rewards:\\
+% %               \red UCB1, for $\alpha=2$\black
+
+% %         \item the analysis was UCB($\alpha$) was further refined to hold for $\alpha > 1/2$ in that case \gray [Bubeck, 11, Cappé et al. 13] \black
+% %     \end{itemize}
+
+% % \end{frameO}
+
+% \begin{frameO}[A UCB algorithm in action \textcolor{gray}{[Kaufmann, 2014]} \hfill{} (movie)]
+
+%     \begin{center}
+%         \movie{\includegraphics[width=0.9\textwidth]{KLUCB.pdf}}{KLUCB.avi}
+%     \end{center}
+% \end{frameO}
+
+
+% % \subsection{Analysis of UCB($\alpha$)}
+
+% % \begin{frame}[c]
+% %     \begin{changemargin}{-0.5cm}{-0.5cm}
+% %         \begin{center}
+% %             \vspace{-0.3in}
+% %             \textbf{\huge Optimistic Algorithms}
+% %             \vspace{1.5cm}
+
+% %             \textcolor{darkgray}{\textbf{\Large Building Confidence Intervals}	\\[0.5cm]}
+% %             {\textbf{\Large Analysis of UCB($\alpha$)}\\[0.5cm]		}
+% %             % \textcolor{darkgray}{\textbf{\Large Other UCB algorithms}\\[0.5cm]}
+% %         \end{center}
+% %     \end{changemargin}
+% % \end{frame}
+
+
+% \begin{frameO}[Regret of UCB($\alpha$) for bounded rewards]
+
+%     \vspace{0.3cm}
+
+%     \begin{colorblock}{Theorem \hfill{} \gray[Auer et al, 02]\black}
+%         UCB($\alpha$) with parameter $\alpha=2$ satisfies
+
+%         \vspace{-0.4cm}
+
+%         \[\cR_{\bm\nu}(\texttt{UCB1},T) \leq 8 \left(\sum_{a : \mu_a < \mu_\star} \frac{1}{\Delta_a}\right)\log(T) + (1+\frac{\pi^2}{3})\left(\sum_{a=1}^K \Delta_a\right).\]
+%     \end{colorblock}
+
+%     \vspace{1cm}
+
+%     In some of our works, we use an extension of UCB called kl-UCB.
+
+%     % FIXME talk about kl-UCB: just one block saying it works similarly but it is smarter?
+%     \begin{colorblock}{Theorem \hfill{} \gray[Garivier et al, 2013]\black}
+%         For bounded rewards, kl-UCB satisfies $\cR_{\bm\nu}(\texttt{kl-UCB},T) = \mathcal{O}(K C \log(T))$:
+
+%         \vspace{-0.4cm}
+
+%         \[\cR_{\bm\nu}(\texttt{kl-UCB},T) \leq \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\texttt{kl}(\mu_a, \mu_\star)}\right)\log(T) + \mathcal{o}(\log(T)).\]
+%     \end{colorblock}
+
+
+%     % \begin{itemize}
+%     %     \item[$\Longrightarrow$] what we will prove today
+%     % \end{itemize}
+
+
+%     % \begin{colorblock}{Theorem} For every $\alpha>1$ and every sub-optimal arm $a$, there exists a constant $C_\alpha>0$ such that
+
+%     %     \vspace{-0.8cm}
+
+%     %     \[\bE_{\bm \mu}[N_a(T)] \leq \frac{4\alpha}{(\mu_\star - \mu_a)^2}\log(T) + C_\alpha.\]
+%     % \end{colorblock}
+
+%     % \vspace{0.2cm}
+
+%     % It follows that
+
+%     % \vspace{-0.6cm}
+
+%     % \[\cR_{\bm\nu}(\mathrm{UCB}(\alpha),T) \leq 4\alpha\blue\left(\sum_{a : \mu_a < \mu_\star}\frac{1}{\Delta_a}\right)\black\log(T) + K C_\alpha\black.\]
+
+% \end{frameO}
 
 
 \section{Selfish MAB learning in IoT Networks}
@@ -1348,7 +1349,7 @@
         \item (centralized) multiple-actions
               \begin{itemize}
                   \item \textcolor{orange}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
-                  \item combinatorial : choose a subset of arms $S \subset \{1,\dots,K\}$ (large space)
+                  \item combinatorial : choose a subset of arms $S \subseteq \{1,\dots,K\}$ (large space)
               \end{itemize}
         \item non stationary
               \begin{itemize}
@@ -1369,23 +1370,23 @@
 
 \begin{frameO}[Many other bandits models and problems (2/2)]
 
-    And many more extensions\dots
+    \textcolor{gray}{And many more extensions\dots}
 
     \begin{itemize}%[<+->]
         \setlength\itemsep{0.8em}
         \item non stochastic, Markov models rested/restless
         \item best arm identification (vs reward maximization)
               \begin{itemize}
-                  \item fixed budget setting
-                  \item fixed confidence setting
-                  \item PAC (probably approximately correct) algorithms
+                  \item \textcolor{gray}{fixed budget setting}
+                  \item \textcolor{gray}{fixed confidence setting}
+                  \item \textcolor{gray}{PAC (probably approximately correct) algorithms}
               \end{itemize}
         \item bandits with (differential) privacy constraints
         \item for some applications (content recommendation)
               \begin{itemize}
-                  \item contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)
-                  \item cascading bandits
-                  \item delayed feedback bandits
+                  \item \textcolor{gray}{contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)}
+                  \item \textcolor{gray}{cascading bandits}
+                  \item \textcolor{gray}{delayed feedback bandits}
               \end{itemize}
         \item structured bandits (low-rank, many-armed, Lipschitz etc)
         \item $\mathcal{X}$-armed, continuous-armed bandits
@@ -1415,7 +1416,8 @@
 
 \begin{frameO}[Multi-players bandits: setup]
 
-    \orange $M$ players \black playing \textit{the same} $K$-armed bandit
+    \orange $M$ players \black playing \textit{the same} $K$-armed bandit\\
+    they are all activated at each time step, ie. $p=1$
     \hfill{} ($2 \leq M \leq K$)
     % with \textbf{no communication} between them
 
@@ -1431,7 +1433,7 @@
 
     \[\red X_{m,t} = \left\{ \begin{array}{cl}
             X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
-            0             & \text{else (= collision)}
+            0             & \text{else (= COLLISION)}
         \end{array}\right.\]
 
     \vspace{-0.3cm}
