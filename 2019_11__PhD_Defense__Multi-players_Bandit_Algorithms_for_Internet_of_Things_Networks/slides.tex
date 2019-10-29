@@ -1079,7 +1079,7 @@
 
 %     \end{colorblock}
 %     \begin{colorblock}{Theorem \hfill{} \textcolor{gray}{[Lai and Robbins, 1985]}}
-%         For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=\mathcal{o}(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
+%         For uniformly efficient algorithms ($\cR_{\bm\mu}(\cA,T)=o(T^\alpha)$ for all $\alpha\in (0,1)$ and $\bm \mu \in \cI^K$),
 
 %         \vspace{-0.4cm}
 
@@ -1241,7 +1241,7 @@
 
 %         \vspace{-0.4cm}
 
-%         \[\cR_{\bm\nu}(\texttt{kl-UCB},T) \leq \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\texttt{kl}(\mu_a, \mu_\star)}\right)\log(T) + \mathcal{o}(\log(T)).\]
+%         \[\cR_{\bm\nu}(\texttt{kl-UCB},T) \leq \left(\sum_{a : \mu_a < \mu_\star} \frac{\Delta_a}{\texttt{kl}(\mu_a, \mu_\star)}\right)\log(T) + os(\log(T)).\]
 %     \end{colorblock}
 
 
@@ -1332,14 +1332,16 @@
     \vfill{}
     \textcolor{orange}{We can study theoretically two more specific models, in two directions}
     \begin{itemize}
-        \item multi-player bandits: devices are always activated ($p=1$, $D = M \leq \frac{K}{p} = K$)
+        \item multi-player bandits: devices are always activated\\
+            $p=1$ $\implies$ $D = M \leq \frac{K}{p} = K$)
         \item non-stationary bandits
     \end{itemize}
+    Both are tractable models!
 
 \end{frameO}
 
 
-\section{Extensions with Bandit Models}
+\section{Extensions with other Bandit Models}
 
 \begin{frameTI}
     \begin{center}
@@ -1347,7 +1349,7 @@
     \end{center}
     \vspace*{10pt}
     \begin{center}
-        {\textcolor{white} {\Huge \textsc{Extensions with Bandit Models} }}
+        {\textcolor{white} {\Huge \textsc{Extensions with other Bandit Models} }}
     \end{center}
     \vspace*{-4pt}
 \end{frameTI}
@@ -1357,12 +1359,12 @@
     \begin{changemargin}{-0.5cm}{-0.5cm}
         \begin{center}
             \vspace{-0.3in}
-            \textbf{\huge Extensions with Bandit Models}
+            \textbf{\huge Extensions with other Bandit Models}
             \vspace{1.5cm}
 
             \Large \textbf{Many different extensions}	\\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}\\[0.5cm] }
+            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1432,10 +1434,11 @@
 
             \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
-            \textbf{\Large Multi-player bandits}
-            \hfill{}\small{\textcolor{gray}{Ref: Chapter 6 of my thesis, and [Besson \& Kaufmann, 2018].}}
+            \textbf{\Large Multi-player bandits}\\
+            % \hfill{}
+            \tiny{\textcolor{gray}{Ref: Chapter 6 of my thesis, and [Besson \& Kaufmann, 2018].}}
             \\[0.5cm]
-            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}\\[0.5cm]}
+            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1641,8 +1644,9 @@
             \textcolor{darkgray}{\Large \textbf{Many different extensions}\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
-            \textbf{\Large Piece-wise stationary bandits}\\[0.5cm]
-            \hfill{}\small{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson \& Kaufmann, 2019].}}
+            \textbf{\Large Piece-wise stationary bandits}\\
+            % \hfill{}
+            \tiny{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson \& Kaufmann, 2019].}}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1669,7 +1673,7 @@
     \pause
     \begin{colorblock}{\textbf{Piece-wise stationary} problems!}
         $\hookrightarrow$ the literature usually focuses on the easier case,
-        when there are at most $\Upsilon_T = \mathcal{o}(\sqrt{T})$ intervals, on which the means are all stationary.
+        when there are at most $\Upsilon_T = o(\sqrt{T})$ intervals, on which the means are all stationary.
     \end{colorblock}
 \end{frameO}
 
@@ -1685,7 +1689,7 @@
 
 \begin{frameO}[Regret for piece-wise stationary bandits]
 
-    The ``oracle'' algorithm plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$
+    The ``oracle'' plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$\\
     (which changes between the $\Upsilon_T \geq 1$ stationary sequences)
     %
     \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
@@ -1712,7 +1716,7 @@
                   \end{itemize}
             \item
                   $\hookrightarrow$ our algorithm \textcolor{blue}{klUCB index + BGLR detector} is state-of-the-art!\\
-                  \hfill{} \gray [Besson and Kaufmann, 19] \texttt{arXiv:1902.01575}
+                  \hfill{} \gray [Besson \& Kaufmann, 2019] \texttt{arXiv:1902.01575}
         \end{itemize}
     \end{colorblock}
 
@@ -1889,7 +1893,8 @@
                 $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy
             \vspace*{10pt}
             \item the ``Graal'' goal:
-                try to also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots\\
+                try to also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots
+                \hfill{}
                 \alert{Much harder!} search space is VERY LARGE!
             \vspace*{10pt}
             \item try more to study the ``selfish model'', for large $M$ nb of devices and small $p$ activation probabilities\dots?
