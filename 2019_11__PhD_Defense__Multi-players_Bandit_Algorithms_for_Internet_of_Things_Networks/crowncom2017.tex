@@ -107,7 +107,7 @@
         \begin{itemize}
             % \tightlist
             \item
-                  Each static device uses only one channel.
+                  Each static device uses only one channel
             \item
                   Their repartition is fixed in time \hfill{} $\implies$ \alert{stationary} hypothesis!
         \end{itemize}
@@ -154,9 +154,9 @@
 
 \subsection{Baseline algorithms}
 
-\subsubsection{A naive strategy : uniformly random access}
+\subsubsection{$1)$ A naive strategy : uniformly random access}
 
-\begin{frameO}[A naive strategy : uniformly random access]
+\begin{frameO}[$1)$ A naive strategy : uniformly random access]
 
     \begin{itemize}
         % \tightlist
@@ -177,7 +177,7 @@
     \end{itemize}
 
     \begin{small} \begin{align*}
-            \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{K} \underbrace{(1 - p / K)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_i}}_{\text{No static device}} \times\; \frac{1}{K}.
+            \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p / K)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_k}}_{\text{No static device}} \times\; \frac{1}{K}.
         \end{align*} \end{small}
 
     \pause
@@ -194,9 +194,9 @@
 
 
 
-\subsubsection{Optimal centralized strategy}
+\subsubsection{$2)$ Optimal centralized strategy}
 
-\begin{frameO}[Optimal centralized strategy]
+\begin{frameO}[$2)$ Optimal centralized strategy]
 
     \begin{itemize}
         % \tightlist
@@ -206,7 +206,7 @@
               \vspace*{-10pt}
 
               \begin{small} \begin{align*}
-                      \mathbb{P}(\text{success}|\text{sent}) = \sum_{i=1}^{K} \underbrace{(1 - p)^{D_i - 1}}_{\;\;D_i - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_i}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_i / D }_{\;\;\text{Sent in channel}\; i}.
+                      \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p)^{D_k - 1}}_{\;\;D_k - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_k}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_k / D }_{\;\;\text{Sent in channel}\; i}.
                   \end{align*} \end{small}
               \pause
         \item
@@ -214,8 +214,8 @@
               \vspace*{-5pt}
 
               \begin{small} \begin{equation*} \begin{cases}
-                          \underset{D_1,\dots,D_{K}}{\arg\max}\;\;\; & \sum_{i=1}^{K} D_i (1 - p)^{S_i + D_i -1}                                           \\
-                          \text{such that}\;\;\;                     & \sum_{i=1}^{K} D_i = D \; \text{and} \; D_i \geq 0, \; \; \forall 1 \leq i \leq K .
+                          \underset{D_1,\dots,D_{K}}{\arg\max}\;\;\; & \sum\limits_{k=1}^{K} D_k (1 - p)^{S_k + D_k -1}                                           \\
+                          \text{such that}\;\;\;                     & \sum\limits_{k=1}^{K} D_k = D \; \text{and} \; D_k \geq 0, \; \; \forall 1 \leq k \leq K .
                       \end{cases} \end{equation*} \end{small}
         \item
               We solved this quasi-convex optimization problem with \emph{Lagrange
@@ -228,7 +228,7 @@
 
 \end{frameO}
 
-\begin{frameO}[Optimal centralized strategy]
+\begin{frameO}[$2)$ Optimal centralized strategy]
 
     \begin{colorblock}{But unrealistic}
 
@@ -262,7 +262,7 @@
     \end{center}
 
     \begin{center}
-        \includegraphics[height=7cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
+        \includegraphics[height=6.5cm]{Lucky_Luke__Le_Bandit_Manchot.jpg}
 
         \begin{tiny}
             \textcolor{gray}{
@@ -279,31 +279,30 @@
 
 \subsubsection{Multi-Armed Bandit formulation}
 
-\begin{frameO}[Multi-Armed Bandit formulation]
+\begin{frameO}[$3)$ Multi-Armed Bandit formulation]
 
     A dynamic device tries to collect \emph{rewards} when transmitting :
 
     \begin{itemize}
         % \tightlist
         \item
-              it transmits following a Bernoulli process \newline
-              (probability \(p\) of transmitting at each time step \(t\)),
+            it transmits following a random Bernoulli process \newline
+            (of probability \(p\) of transmitting at each time step \(t\)),
         \item
-              chooses a channel \(A(\tau) \in \{1,\dots,K\}\),
+            it chooses a channel \(A(\tau) \in \{1,\dots,K\}\),
         \item
-              if \texttt{Ack} (no collision) \hspace*{10pt} \(\implies\) reward
-              \(r_{A(\tau)} = 1\),
+            if \texttt{Ack} (no collision) \hspace*{2pt} \(\implies\) reward
+            \(r_{A(\tau)} = 1\) \hfill{} (successful transm.!)
         \item
-              if collision (no \texttt{Ack}) \hspace*{10pt} \(\implies\) reward
-              \(r_{A(\tau)} = 0\).
+            if collision (no \texttt{Ack}) \hspace*{2pt} \(\implies\) reward
+            \(r_{A(\tau)} = 0\) \hfill{} (failed transmission!)
     \end{itemize}
 
     % \pause
 
     \begin{colorblock}{Reinforcement Learning interpretation}
 
-        Maximize transmission rate \(\equiv\) \textbf{maximize cumulated
-            rewards}
+        Maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
         \[\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.\]
 
     \end{colorblock}
@@ -312,7 +311,7 @@
 
 \subsubsection{Upper Confidence Bound algorithm : UCB}
 
-\begin{frameO}[Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
+\begin{frameO}[$3)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
 
     \only<1>{
         A dynamic device keeps \(\tau\) number of sent packets, \(N_k(\tau)\)
