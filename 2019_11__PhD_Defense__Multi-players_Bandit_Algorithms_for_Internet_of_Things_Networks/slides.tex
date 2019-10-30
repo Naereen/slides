@@ -1630,7 +1630,7 @@
 
 % \end{frameO}
 
-\begin{frame}[shrink=25]
+\begin{frame}[shrink=20]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art multi-player algorithms}
 
     \vspace*{2cm}
@@ -1671,13 +1671,13 @@
 
     \begin{small}
         \textbf{References:}
-            [1] : \textcolor{gray}{[Anantharam et al. 1987]}
-            [2] : \textcolor{gray}{[Anandkumar et al. 2011]}
-            [3] : \textcolor{gray}{[Avner \& Mannor, 2015]}
-            [4] : \textcolor{gray}{[Rosenski et al. 2015]}
-            [5] : \textcolor{gray}{[Bonnefoi et al. 2017]}
-            [6] : \textcolor{gray}{[Besson \& Kaufmann, 2018]}
-            [7] : \textcolor{gray}{[Boursier et al. 2019]}
+            [1] \textcolor{gray}{[Anantharam et al. 1987]}
+            [2] \textcolor{gray}{[Anandkumar et al. 2011]}
+            [3] \textcolor{gray}{[Avner \& Mannor, 2015]}
+            [4] \textcolor{gray}{[Rosenski et al. 2015]}
+            [5] \textcolor{gray}{[Bonnefoi et al. 2017]}
+            [6] \textcolor{gray}{[Besson \& Kaufmann, 2018]}
+            [7] \textcolor{gray}{[Boursier et al. 2019]}
     \end{small}
 
 \end{frame}
@@ -1817,19 +1817,19 @@
     \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
         \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
+        Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
         Naive UCB & [1] & \textcolor{red}{$\mathcal{O}(T)$} in worst case& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
         \hline
         Discounted UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         Sliding-Window UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        Exp3.S & [3] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
+        Exp3.S & [3] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
         \hline
         CUSUM-UCB & [4] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})})$ & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€€€}}& needs $\Upsilon_T$ and $\delta$ \\
         \hline
         M-UCB & [5] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & needs $\Upsilon_T$ and $\delta$ \\
         \hline
-        \textbf{\textcolor{blue}{GLRT + kl-UCB}} & [6] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
+        \textbf{\textcolor{blue}{GLRT + kl-UCB}} & [6] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
         \hline
         AdSwitch & [7] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
         \hline
@@ -1839,7 +1839,7 @@
 
     \vspace*{15pt}
 
-    With $\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
+    With $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
     optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T} + o(\sqrt{T \Upsilon_T})$.\\
     %
     And $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
@@ -1849,17 +1849,17 @@
 
     \begin{small}
         \textbf{References:}
-            [1] : \textcolor{gray}{[Auer et al. 2002]}
-            % [2] : \textcolor{gray}{[Auer et al. 2002]}
-            [2] : \textcolor{gray}{[Garivier et al. 2009]}
-            % [4] : \textcolor{gray}{[Garivier et al. 2009]}
-            [3] : \textcolor{gray}{[Auer et al. 2002]}
-            [4] : \textcolor{gray}{[Liu et al. 2018]}\\
+            [1] \textcolor{gray}{[Auer et al. 2002]}
+            % [2] \textcolor{gray}{[Auer et al. 2002]}
+            [2] \textcolor{gray}{[Garivier et al. 2009]}
+            % [4] \textcolor{gray}{[Garivier et al. 2009]}
+            [3] \textcolor{gray}{[Auer et al. 2002]}
+            [4] \textcolor{gray}{[Liu et al. 2018]}\\
             \hspace{20pt}
-            [5] : \textcolor{gray}{[Cao et al. 2019]}
-            [6] : \textcolor{gray}{[Besson et al. 2019]}
-            [7] : \textcolor{gray}{[Auer et al. 2019]}
-            [8] : \textcolor{gray}{[Chen et al. 2019]}
+            [5] \textcolor{gray}{[Cao et al. 2019]}
+            [6] \textcolor{gray}{[Besson et al. 2019]}
+            [7] \textcolor{gray}{[Auer et al. 2019]}
+            [8] \textcolor{gray}{[Chen et al. 2019]}
     \end{small}
 
 \end{frame}
