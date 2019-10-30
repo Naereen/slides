@@ -7,7 +7,10 @@
 \usepackage{environ}
 \usepackage{multimedia} % videos in beamer
 \usepackage{lmodern}
+\usepackage{textcomp}
 \usepackage{fourier-orns} % danger
+% \usepackage{fourier}  % for €
+% \usepackage[utopia]{mathdesign} % for €
 \usepackage{amsmath,amsfonts,amssymb} % Maths.
 \usepackage{array}
 \usepackage{algorithm}
@@ -1281,8 +1284,8 @@
     \end{center}
     % \vspace*{-4pt}
     \vfill{}
-    \small{\textcolor{lightgray}{Ref: Chapter 5.3 of my thesis, and [Bonnefoi, Besson et al, 2017].}}
-    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.3}}
+    \small{\textcolor{lightgray}{Ref: Chapter 5.2 of my thesis, and [Bonnefoi, Besson et al, 2017].}}
+    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
 \end{frameTI}
 
 \input{crowncom2017.tex}
@@ -1483,46 +1486,60 @@
 
 \end{frameO}
 
-\begin{frameO}[Multi-players bandits for Cognitive Radios]
+\begin{frameO}[M-P bandits for Cognitive Radios: previous model]
 
-    \begin{colorblock}{Listen before talk}
+    \begin{colorblock}{``Listen before talk''
+        \hfill{} {\tiny \textcolor{gray}{[Zhao et al. 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
+    }
         \begin{itemize}
             \item
             \underline{\orange Opportunistic Spectrum Access}: (OSA)
-            \hfill{}
-            {\tiny \textcolor{gray}{[Zhao et al. 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
 
             \item
-            Sensing, attempt of transmission if no PU, possible collisions with other SUs.
+            First do sensing, attempt of transmission if no Primary User (PU), possible collisions with other Secondary Users (SU).
 
             \item
-            Feedback model: observe first $X_{A_{m,t}, t}$, transmit if $X_{A_{m,t}, t} = 1$ then observe $X_{m,t}$.
+            Feedback model:
+            \begin{itemize}
+                \item
+                observe first $X_{A_{m,t}, t}$,
+                \item
+                if $X_{A_{m,t}, t} = 1$, transmit and then observe the joint $X_{m,t}$,
+                \item
+                else don't transmit and don't observe a reward.
+            \end{itemize}
         \end{itemize}
     \end{colorblock}
 
-    \begin{colorblock}{Talk and maybe collide}
+\end{frameO}
+
+\begin{frameO}[M-P bandits for Cognitive Radios: our models]
+
+    \begin{colorblock}{``Talk and maybe collide''
+        \hfill{} \textcolor{gray}{[Besson \& Kaufmann, ALT 2018]}
+    }
         \begin{itemize}
             \item
             \underline{\orange Internet of Things}: (IoT)
-            \hfill{}
-            {\tiny \textcolor{gray}{[Besson \& Kaufmann, ALT 2018]}}
 
             \item
-            no sensing, transmit and wait for an acknowledgment before next message.
+            Do not do any sensing, just transmit, and wait for an acknowledgment before any next message.
 
             \item
-            Feedback model: observe only $X_{m, t}$.\\
-            If $\neq 0$, no collision, but if $= 0$, what happened? collision or zero reward?
+            Feedback model: observe only the joint information $X_{m, t}$.\\
+            No collision if $\neq 0$, but cannot know if collision or zero reward if $= 0$?
+
+            \item
+            \textcolor{gray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
         \end{itemize}
     \end{colorblock}
 
-    FIXME finish this slide!
-
-    \begin{colorblock}{Observe collision then talk?}
+    \begin{colorblock}{Observe collision then talk?
+        \hfill{} \textcolor{gray}{[Boursier et al, 2019]}
+    }
         \begin{itemize}
             \item
             A third model, studied by a paper following our work
-            \textcolor{gray}{[Boursier et al, 2019]}
 
             \item
             First check if collision, then receive reward
@@ -1565,30 +1582,31 @@
                     ($\equiv$ as easy as centralized multiple-play bandits)
                 \item our algorithm is order optimal, not asymptotically optimal
                 }
-                \item \textbf{Recent references}: \color{gray} [Besson \& Kaufmann, ALT 2018] [Boursier et al, 19]
+                \item \textbf{Our paper from ALT 2018}: \color{gray} [Besson \& Kaufmann, 2018]
             \end{itemize}
         \end{colorblock}
     }
 
     \only<3>{
-        \textbf{Remarks}:
+        \textbf{Questions?}
         \begin{itemize}
-            \item the number of players $M$ has to be known\\
-                $\Longrightarrow$ but it is possible to estimate it on the run
-            \item does not handle an evolving number of devices\\
+            \item The number of players $M$ has to be known\\
+                $\Longrightarrow$ but it is possible to estimate it quickly, on the run
+            \item Our algorithm does not handle an evolving number of devices\\
                 (entering/leaving the network)
-            \item is it a \textit{fair} orthogonalization rule? (yes!)
-            \item could players use the collision indicators to communicate? (yes!)\\
-                $\implies$ \textbf{\textsc{Sic-MMAB}} strategy matches the centralized multiple-play lower-bound,
-                by using collision indicators to build a communication protocol between devices (\emph{in another feedback model})
-                \textcolor{gray}{[Boursier et al, 19]}
+            \item Is it a \textit{fair} orthogonalization rule? (yes!)
+            \vspace*{10pt}
+            \item Could players use the collision indicators to communicate? (yes!)\\
         \end{itemize}
+        $\hookrightarrow$ \textbf{\textsc{Sic-MMAB}} strategy matches the centralized multiple-play lower-bound,
+        by using collision indicators to build a communication protocol between devices (\emph{in another feedback model})
+        \textcolor{gray}{[Boursier et al, 19]}
     }
 
 \end{frameO}
 
-% \begin{frameO}[Results on a multi-player MAB problem ($1/3$)]
-\begin{frameO}[Results on a multi-player MAB problem]
+% \begin{frameO}[Results on a multi-player MAB problem]
+\begin{frameO}[Results on a multi-player MAB problem ($1/2$)]
 
     \centering
     \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
@@ -1596,13 +1614,13 @@
 
 \end{frameO}
 
-% \begin{frameO}[Results on a multi-player MAB problem ($2/3$)]
+\begin{frameO}[Results on a multi-player MAB problem ($2/2$)]
 
-%     \centering
-%     \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-%     \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform $\rho^{\text{rand}}$ and other previous state-of-the-art.}}
+    \centering
+    \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
+    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform $\rho^{\text{rand}}$ and other previous state-of-the-art.}}
 
-% \end{frameO}
+\end{frameO}
 
 % \begin{frameO}[Results on a multi-player MAB problem ($3/3$)]
 
@@ -1612,25 +1630,55 @@
 
 % \end{frameO}
 
-\begin{frame}[shrink=50]
+\begin{frame}[shrink=25]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art multi-player algorithms}
 
     \vspace*{2cm}
 
-    \begin{tabular}{c | c | c | c | c}
-        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
-        \hline
-        Centralized multiple-play UCB & \textcolor{gray}{[Anantharam et al. 1987]} & $\mathcal{O}( \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ (but other model) \\
-        \hline
-        $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[Anandkumar et al. 2011]} & $\mathcal{O}(\log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ \\
-        MEGA & \textcolor{gray}{[Avner \& Mannor, 2015]} & $\mathcal{O}(T^{3/4})$ & {\Large \textcolor{orange}{$\star$}} & 4 parameters, impossible to tune \\
-        Musical-Chair & \textcolor{gray}{[Rosenski et al. 2015]} & $\mathcal{O}(\log(T))$ & {\Large \textcolor{orange}{$\star$}} & $T_0$ impossible to tune \\
-        Selfish UCB & \textcolor{gray}{[Bonnefoi et al. 2017]} & $\mathcal{O}(T)$ BAD in some cases & {\Large \textcolor{orange}{$\star$}} & none \\
-        \hline
-        \textcolor{blue}{MCTopM klUCB} & \textcolor{gray}{[Besson \& Kaufmann, 2018]} & $\mathcal{O}( M^2 \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $M$ \\
-        \hline
-        \textsc{Sic-MMAB} & \textcolor{gray}{[Boursier et al. 2019]} & $\mathcal{O}( \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & none
-    \end{tabular}
+    \begin{center}
+        \begin{tabular}{ m{3cm} | c | m{3cm} | c | c | m{3cm} }
+            \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
+            \hline
+            Centralized multiple-play klUCB & [1] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\Large \textcolor{orange}{€}} & $M$ \textcolor{red}{in another model} \\
+            % \vspace*{3pt}
+            \hline
+            % \vspace*{3pt}
+            $\rho^{\text{rand}}$ UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\Large \textcolor{orange}{€}} & just $M$ \\
+            \hline
+            MEGA & [3] & $\mathcal{O}(\textcolor{red}{T^{3/4}})$ & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & 4 parameters, \emph{impossible to tune} \\
+            \hline
+            Musical-Chair & [4] & $\mathcal{O}({2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\Large \textcolor{orange}{€}} & 1 parameter $T_0$ \emph{hard to tune} \\
+            \hline
+            Selfish UCB & [5] & $\mathcal{O}(\textcolor{red}{T})$ in some case & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & \textbf{none} \\
+            % \vspace*{3pt}
+            \hline
+            % \vspace*{3pt}
+            \textcolor{blue}{\textbf{MCTopM klUCB}} & [6] & $\mathcal{O}( M^2 \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\Large \textcolor{orange}{€€}} & just $M$ \\
+            \hline
+            \textsc{Sic-MMAB} & [7] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\Large \textcolor{orange}{€€€}} & \textbf{none}
+        \end{tabular}
+    \end{center}
+
+
+    \vspace*{10pt}
+
+    With $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$,
+    optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T))$.\\
+    %
+    And $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C_{M,\mu}}}$ a much larger constant.
+
+    \vspace*{10pt}
+
+    \begin{small}
+        \textbf{References:}
+            [1] : \textcolor{gray}{[Anantharam et al. 1987]}
+            [2] : \textcolor{gray}{[Anandkumar et al. 2011]}
+            [3] : \textcolor{gray}{[Avner \& Mannor, 2015]}
+            [4] : \textcolor{gray}{[Rosenski et al. 2015]}
+            [5] : \textcolor{gray}{[Bonnefoi et al. 2017]}
+            [6] : \textcolor{gray}{[Besson \& Kaufmann, 2018]}
+            [7] : \textcolor{gray}{[Boursier et al. 2019]}
+    \end{small}
 
 \end{frame}
 
@@ -1761,29 +1809,58 @@
 %     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 % \end{frameO}
 
-\begin{frame}[shrink=40]
+\begin{frame}[shrink=30]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
     \vspace*{2cm}
 
-    \begin{tabular}{c | c | c | c | c}
-        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound} $\cR(\cA, T)$ & \textbf{Complexity} & \textbf{Parameters} \\
+    \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
+        \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & unrealistic oracle \\
-        Naive UCB etc & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(T)$ in worst case & {\Large \textcolor{orange}{$\star$}} & none \\
+        Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
+        Naive UCB & [1] & $\mathcal{O}(T)$ in worst case& {\Large \textcolor{orange}{$\star$}}  & {\Large \textcolor{orange}{€}} & \textbf{none} \\
         \hline
-        Discounted UCB etc & \textcolor{gray}{[Garivier et al. 2009]} & $\mathcal{O}(C \sqrt{T \Upsilon_T} \log(T))$ & {\Large \textcolor{orange}{$\star$}} & $\gamma$ needs $\Upsilon_T$ \\
-        Sliding-Window UCB etc & \textcolor{gray}{[Garivier et al. 2009]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & $w$ needs $\Upsilon_T$ \\
+        Discounted UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \log(T))$& {\Large \textcolor{orange}{$\star$}}  & {\Large \textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Sliding-Window UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\Large \textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        Exp3.S & \textcolor{gray}{[Auer et al. 2002]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
+        Exp3.S & [3] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
         \hline
-        CUSUM-UCB & \textcolor{gray}{[Liu et al. 2018]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & needs $\Upsilon_T$ and $\delta < \Delta_{\text{change}}$ \\
-        M-UCB & \textcolor{gray}{[Cao et al. 2019]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & needs $\Upsilon_T$ and $\delta < \Delta_{\text{change}}$ \\
-        \textcolor{blue}{GLRT + kl-UCB} & \textcolor{gray}{[Besson et al. 2019]} & $\mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & needs $\Upsilon_T$ \\
+        CUSUM-UCB & [4] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}}  & {\Large \textcolor{orange}{€€€}}& needs $\Upsilon_T$ and $\delta$ \\
         \hline
-        AdSwitch & \textcolor{gray}{[Auer et al. 2019]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & none \\
-        Ada-ILTCB+ & \textcolor{gray}{[Chen et al. 2019]} & $\mathcal{O}(C \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star\star$}} & none
+        M-UCB & [5] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & {\Large \textcolor{orange}{€€}} & needs $\Upsilon_T$ and $\delta$ \\
+        \hline
+        \textcolor{blue}{GLRT + kl-UCB} & [6] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\Large \textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
+        \hline
+        AdSwitch & [7] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\Large \textcolor{orange}{€€€€}} & \textbf{none} \\
+        \hline
+        Ada-ILTCB+ & [8] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{?}} & {\Large \textcolor{orange}{€€€€€}} & \textbf{none}
     \end{tabular}
+
+
+    \vspace*{15pt}
+
+    With $\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
+    optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T} + o(\sqrt{T \Upsilon_T})$.\\
+    %
+    And $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
+    and $\delta$ is a lower-bound on $\Delta_{\text{change}}$ the problem difficulty.
+
+    \vspace*{15pt}
+
+    \begin{small}
+        \textbf{References:}
+            [1] : \textcolor{gray}{[Auer et al. 2002]}
+            % [2] : \textcolor{gray}{[Auer et al. 2002]}
+            [2] : \textcolor{gray}{[Garivier et al. 2009]}
+            % [4] : \textcolor{gray}{[Garivier et al. 2009]}
+            [3] : \textcolor{gray}{[Auer et al. 2002]}
+            [4] : \textcolor{gray}{[Liu et al. 2018]}\\
+            \hspace{20pt}
+            [5] : \textcolor{gray}{[Cao et al. 2019]}
+            [6] : \textcolor{gray}{[Besson et al. 2019]}
+            [7] : \textcolor{gray}{[Auer et al. 2019]}
+            [8] : \textcolor{gray}{[Chen et al. 2019]}
+    \end{small}
 
 \end{frame}
 
@@ -2421,7 +2498,7 @@
 
 % \end{frameO}
 
-% \begin{frameO}[References ($6/6$)]
+% \begin{frameO}[    ($6/6$)]
 
 %     {\footnotesize
 %         \begin{itemize}
