@@ -1639,23 +1639,23 @@
         \begin{tabular}{ m{3cm} | c | m{3cm} | c | c | m{3cm} }
             \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
             \hline
-            Centralized multiple-play klUCB & [1] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\Large \textcolor{orange}{€}} & $M$ \textcolor{red}{in another model} \\
+            Centralized multiple-play klUCB & [1] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€}} & $M$ \textcolor{red}{in another model} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            $\rho^{\text{rand}}$ UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\Large \textcolor{orange}{€}} & just $M$ \\
+            $\rho^{\text{rand}}$ UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & just $M$ \\
             \hline
-            MEGA & [3] & $\mathcal{O}(\textcolor{red}{T^{3/4}})$ & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & 4 parameters, \emph{impossible to tune} \\
+            MEGA & [3] & $\mathcal{O}(\textcolor{red}{T^{3/4}})$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & 4 parameters, \emph{impossible to tune} \\
             \hline
-            Musical-Chair & [4] & $\mathcal{O}({2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\Large \textcolor{orange}{€}} & 1 parameter $T_0$ \emph{hard to tune} \\
+            Musical-Chair & [4] & $\mathcal{O}({2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & 1 parameter $T_0$ \emph{hard to tune} \\
             \hline
-            Selfish UCB & [5] & $\mathcal{O}(\textcolor{red}{T})$ in some case & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & \textbf{none} \\
+            Selfish UCB & [5] & $\mathcal{O}(\textcolor{red}{T})$ in some case & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{blue}{\textbf{MCTopM klUCB}} & [6] & $\mathcal{O}( M^2 \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\Large \textcolor{orange}{€€}} & just $M$ \\
+            \textcolor{blue}{\textbf{MCTopM klUCB}} & [6] & $\mathcal{O}( M^2 \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
             \hline
-            \textsc{Sic-MMAB} & [7] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\Large \textcolor{orange}{€€€}} & \textbf{none}
+            \textsc{Sic-MMAB} & [7] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€€}} & \textbf{none}
         \end{tabular}
     \end{center}
 
@@ -1809,7 +1809,7 @@
 %     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 % \end{frameO}
 
-\begin{frame}[shrink=30]
+\begin{frame}[shrink=25]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
     \vspace*{2cm}
@@ -1817,23 +1817,23 @@
     \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
         \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
-        Naive UCB & [1] & $\mathcal{O}(T)$ in worst case& {\Large \textcolor{orange}{$\star$}}  & {\Large \textcolor{orange}{€}} & \textbf{none} \\
+        Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
+        Naive UCB & [1] & \textcolor{red}{$\mathcal{O}(T)$} in worst case& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
         \hline
-        Discounted UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \log(T))$& {\Large \textcolor{orange}{$\star$}}  & {\Large \textcolor{orange}{€}} & needs $\Upsilon_T$ \\
-        Sliding-Window UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\Large \textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Discounted UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Sliding-Window UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        Exp3.S & [3] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & {\Large \textcolor{orange}{€}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
+        Exp3.S & [3] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
         \hline
-        CUSUM-UCB & [4] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}}  & {\Large \textcolor{orange}{€€€}}& needs $\Upsilon_T$ and $\delta$ \\
+        CUSUM-UCB & [4] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})})$ & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€€€}}& needs $\Upsilon_T$ and $\delta$ \\
         \hline
-        M-UCB & [5] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & {\Large \textcolor{orange}{€€}} & needs $\Upsilon_T$ and $\delta$ \\
+        M-UCB & [5] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & needs $\Upsilon_T$ and $\delta$ \\
         \hline
-        \textcolor{blue}{GLRT + kl-UCB} & [6] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\Large \textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
+        \textbf{\textcolor{blue}{GLRT + kl-UCB}} & [6] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
         \hline
-        AdSwitch & [7] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\Large \textcolor{orange}{€€€€}} & \textbf{none} \\
+        AdSwitch & [7] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
         \hline
-        Ada-ILTCB+ & [8] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{?}} & {\Large \textcolor{orange}{€€€€€}} & \textbf{none}
+        Ada-ILTCB+ & [8] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & \textbf{none}
     \end{tabular}
 
 
