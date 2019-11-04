@@ -11,6 +11,7 @@
 \usepackage{fourier-orns} % danger
 % \usepackage{fourier}  % for €
 % \usepackage[utopia]{mathdesign} % for €
+% \usepackage{MnSymbol} % https://www.ctan.org/pkg/mnsymbol
 \usepackage{amsmath,amsfonts,amssymb} % Maths.
 \usepackage{array}
 \usepackage{algorithm}
@@ -543,7 +544,7 @@
 \begin{frameO}[Outline of this talk]
 
     \begin{itemize}
-        \setlength\itemsep{0.6em}
+        \setlength\itemsep{1em}
         \item \textcolor{gray}{Spectrum issues in wireless networks}
         \item \textcolor{gray}{\sout{Multi-armed Bandit}}
         % \begin{itemize}
@@ -1282,7 +1283,7 @@
     \end{center}
     \vspace*{10pt}
     \begin{center}
-        {\textcolor{white} {\Huge \textsc{Selfish Multi-Armed Bandit Learning in Internet-of-Things Networks} }}
+        {\textcolor{white} {\Huge \textsc{Selfish MAB Learning in IoT Networks} }}
     \end{center}
     % \vspace*{-4pt}
     \vfill{}\hfill{}
@@ -1301,7 +1302,7 @@
     \begin{center}
         \movie{\includegraphics[width=0.7\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
-    {\tiny \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
+    {\footnotesize \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
 \end{frameO}
 
 
@@ -1359,9 +1360,10 @@
         {\textcolor{white} {\Huge \textsc{Extensions with other Bandit Models} }}
     \end{center}
     % \vspace*{-4pt}
-    \vfill{}\hfill{}
+    \vfill{}
     \small{\textcolor{lightgray}{Ref: Chapters 6 and 7 of my thesis\newline
-    and [Besson \& Kaufmann, 2018] and [Besson \& Kaufmann, 2019].}}
+    and [Besson \& Kaufmann, 2018]
+    and [Besson \& Kaufmann, 2019].}}
     % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
 \end{frameTI}
 
@@ -1496,7 +1498,7 @@
 \begin{frameO}[M-P bandits for Cognitive Radios: previous model]
 
     \begin{colorblock}{``Listen before talk''
-        \hfill{} {\tiny \textcolor{gray}{[Zhao et al. 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
+        \hfill{} {\tiny \textcolor{lightgray}{[Zhao et al. 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
     }
         \begin{itemize}
             \item
@@ -1523,7 +1525,7 @@
 \begin{frameO}[M-P bandits for Cognitive Radios: our models]
 
     \begin{colorblock}{``Talk and maybe collide''
-        \hfill{} \textcolor{gray}{[Besson \& Kaufmann, ALT 2018]}
+        \hfill{} \textcolor{lightgray}{[Besson \& Kaufmann, ALT 2018]}
     }
         \begin{itemize}
             \item
@@ -1537,12 +1539,12 @@
             No collision if $\neq 0$, but cannot know if collision or zero reward if $= 0$?
 
             \item
-            \textcolor{gray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
+            \textcolor{lightgray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
         \end{itemize}
     \end{colorblock}
 
     \begin{colorblock}{``Observe collision then talk?''
-        \hfill{} \textcolor{gray}{[Boursier et al, 2019]}
+        \hfill{} \textcolor{lightgray}{[Boursier et al, 2019]}
     }
         \begin{itemize}
             \item
@@ -1580,7 +1582,7 @@
     }
 
     \only<2->{
-        \begin{colorblock}{\textbf{Our algorithm:} klUCB index + MC-TopM rule}
+        \begin{colorblock}{\textbf{Our algorithm:} klUCB index + MCTopM rule}
             \begin{itemize}
                 \only<2>{
                 \item same idea, but don't use ranks, just fix on one of the $M$ best arms
@@ -1618,7 +1620,7 @@
 
     \centering
     \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-    \caption{\footnotesize{For $K=M$ objects, our strategy (MC-TopM) achieves \textbf{constant} regret!}}
+    \caption{\footnotesize{For $K=M$ objects, our strategy (MCTopM) achieves \textbf{constant} regret!}}
 
 \end{frameO}
 
@@ -1626,7 +1628,7 @@
 
     \centering
     \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-    \caption{\small{For example for $M=6$ objects, our strategy (MC-TopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}}
+    \caption{\small{For example for $M=6$ objects, our strategy (MCTopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}}
 
 \end{frameO}
 
@@ -1634,7 +1636,7 @@
 
 %     \centering
 %     \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_6747959631471381163.pdf}
-%     \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform \textsc{Sic-MMAB} and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
+%     \caption{\footnotesize{For $M=6$ objects, our strategy (MCTopM) largely outperform \textsc{Sic-MMAB} and $\rho^{\text{rand}}$. \textcolor{cyan}{MCTopM + klUCB} achieves the best performance (among decentralized algorithms) !}}
 
 % \end{frameO}
 
@@ -1834,22 +1836,23 @@
         & \textbf{Parameters} \\
         \hline
         Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
-        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} in worst case & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
+        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
         \hline
         Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Discounted TS & \textcolor{gray}{[3]} & \emph{not yet proved} & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€}} & {\footnotesize how to tune $\gamma$ ?} \\
+        Exp3.S & \textcolor{gray}{[4]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        CUSUM-UCB & \textcolor{gray}{[4]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T / \Upsilon_T)}$ & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $\Upsilon_T$ and $\delta$} \\
+        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T / \Upsilon_T)}$ & {\Large \textcolor{orange}{$\star\star\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $\Upsilon_T$ and $\delta_{\min}$} \\
         % \hline
-        M-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & {\footnotesize needs $\Upsilon_T$ and $\delta$} \\
+        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & {\footnotesize needs $\Upsilon_T$ and $\delta_{\min}$} \\
         \hline
-        \textbf{\textcolor{blue}{GLRT + kl-UCB}} & \textcolor{gray}{[6]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
+        \textbf{\textcolor{blue}{BGLR + kl-UCB}} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
         \hline
-        AdSwitch & \textcolor{gray}{[7]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
+        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
         % \hline
-        Ada-ILTCB+ & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & \textbf{none}
+        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & \textbf{none}
     \end{tabular}
 
 
@@ -1860,7 +1863,7 @@
     with $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
     %
     and $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
-    and $\delta < \Delta_{\text{change}}$ the problem difficulty.
+    and $\delta_{\min} < \Delta_{\text{change}}$ lower-bounds the problem difficulty.
 
     \vspace*{15pt}
 
@@ -1870,13 +1873,14 @@
             % [2] \textcolor{gray}{[Auer et al. 02]}
             [2] \textcolor{gray}{[Garivier et al. 09]}
             % [4] \textcolor{gray}{[Garivier et al. 09]}
-            [3] \textcolor{gray}{[Auer et al. 02]}
-            [4] \textcolor{gray}{[Liu et al. 18]}\\
-            \hspace{20pt}
-            [5] \textcolor{gray}{[Cao et al. 19]}
-            [6] \textcolor{gray}{[Besson et al. 19]}
-            [7] \textcolor{gray}{[Auer et al. 19]}
-            [8] \textcolor{gray}{[Chen et al. 19]}
+            [3] \textcolor{gray}{[Raj et al. 17]}
+            [4] \textcolor{gray}{[Auer et al. 02]}\\
+            \hspace{10pt}
+            [5] \textcolor{gray}{[Liu et al. 18]}
+            [6] \textcolor{gray}{[Cao et al. 19]}
+            [7] \textcolor{gray}{[Besson et al. 19]}
+            [8] \textcolor{gray}{[Auer et al. 19]}
+            [9] \textcolor{gray}{[Chen et al. 19]}
     \end{small}
 
 \end{frame}
