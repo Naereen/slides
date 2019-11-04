@@ -1654,9 +1654,9 @@
             % \vspace*{3pt}
             $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $M^3 \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize just $M$ } \\
             \hline
-            MEGA & \textcolor{gray}{[3]} & $\textcolor{red}{T^{3/4}}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 4 parameters, \emph{impossible to tune} } \\
+            \textsc{MEGA} & \textcolor{gray}{[3]} & $\textcolor{red}{T^{3/4}}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 4 par., \emph{impossible to tune} } \\
             \hline
-            Musical-Chair & \textcolor{gray}{[4]} & ${2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize 1 parameter $T_0$ \newline \emph{hard to tune} } \\
+            Musical Chair & \textcolor{gray}{[4]} & ${2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize 1 parameter $T_0$ \newline \emph{hard to tune} } \\
             \hline
             Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none} \\
             % \vspace*{3pt}
@@ -1670,8 +1670,8 @@
         \end{tabular}
     \end{center}
 
-    % \vspace*{10pt}
-    \vfill{}
+    \vspace*{10pt}
+    % \vfill{}
 
     Optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T))$,
     with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$,
@@ -1823,57 +1823,58 @@
 \begin{frame}[shrink=25]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
-    \vspace*{1cm}
+    \vspace*{1.5cm}
 
-    \begin{tabular}{ m{3.5cm} | c | c | m{1.5cm} | m{1.5cm} | m{3cm} }
-        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret}
-        & \textbf{Efficiency} \newline \textcolor{gray}{($\star\star\star\star$ is better)}
-        & \textbf{Cost} \newline \textcolor{gray}{(€ is better)}
+    \begin{tabular}{ m{3.5cm} | c | m{3.3cm} | m{2cm} | m{1.5cm} | m{3cm} }
+        \textbf{Algorithm} & \textcolor{gray}{Paper} & \textbf{Regret bound}
+        & \textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star\star\star\star$ is better}}
+        & \textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}
         & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
-        Naive UCB & [1] & \textcolor{red}{$\mathcal{O}(T)$} in worst case& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
+        Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
+        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} in worst case & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
         \hline
-        Discounted UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
-        Sliding-Window UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        Exp3.S & [3] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & $(\varepsilon_t)_t$ needs $\Upsilon_T$ \\
+        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        CUSUM-UCB & [4] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})})$ & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€€€}}& needs $\Upsilon_T$ and $\delta$ \\
+        CUSUM-UCB & \textcolor{gray}{[4]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T / \Upsilon_T)}$ & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $\Upsilon_T$ and $\delta$} \\
+        % \hline
+        M-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & {\footnotesize needs $\Upsilon_T$ and $\delta$} \\
         \hline
-        M-UCB & [5] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & needs $\Upsilon_T$ and $\delta$ \\
+        \textbf{\textcolor{blue}{GLRT + kl-UCB}} & \textcolor{gray}{[6]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
         \hline
-        \textbf{\textcolor{blue}{GLRT + kl-UCB}} & [6] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
-        \hline
-        AdSwitch & [7] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
-        \hline
-        Ada-ILTCB+ & [8] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)})$ & {\Large \textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & \textbf{none}
+        AdSwitch & \textcolor{gray}{[7]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
+        % \hline
+        Ada-ILTCB+ & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & \textbf{none}
     \end{tabular}
 
 
-    \vspace*{15pt}
+    \vspace*{25pt}
+    \vfill{}
 
     Optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T} + o(\sqrt{T \Upsilon_T})$,
     with $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
     %
     and $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
-    and $\delta$ is a lower-bound on $\Delta_{\text{change}}$ the problem difficulty.
+    and $\delta < \Delta_{\text{change}}$ the problem difficulty.
 
     \vspace*{15pt}
 
     \begin{small}
         \textbf{References:}
             [1] \textcolor{gray}{[Auer et al. 2002]}
-            % [2] \textcolor{gray}{[Auer et al. 2002]}
-            [2] \textcolor{gray}{[Garivier et al. 2009]}
-            % [4] \textcolor{gray}{[Garivier et al. 2009]}
-            [3] \textcolor{gray}{[Auer et al. 2002]}
-            [4] \textcolor{gray}{[Liu et al. 2018]}\\
+            % [2] \textcolor{gray}{[Auer et al. 02]}
+            [2] \textcolor{gray}{[Garivier et al. 09]}
+            % [4] \textcolor{gray}{[Garivier et al. 09]}
+            [3] \textcolor{gray}{[Auer et al. 02]}
+            [4] \textcolor{gray}{[Liu et al. 18]}\\
             \hspace{20pt}
-            [5] \textcolor{gray}{[Cao et al. 2019]}
-            [6] \textcolor{gray}{[Besson et al. 2019]}
-            [7] \textcolor{gray}{[Auer et al. 2019]}
-            [8] \textcolor{gray}{[Chen et al. 2019]}
+            [5] \textcolor{gray}{[Cao et al. 19]}
+            [6] \textcolor{gray}{[Besson et al. 19]}
+            [7] \textcolor{gray}{[Auer et al. 19]}
+            [8] \textcolor{gray}{[Chen et al. 19]}
     \end{small}
 
 \end{frame}
@@ -1986,7 +1987,7 @@
             \vspace*{10pt}
             \item the ``Graal'' goal:
                 try to also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots
-                \hfill{}
+                % \hfill{}
                 \alert{Much harder!} search space is VERY LARGE!
             \vspace*{10pt}
             \item try more to study the ``selfish model'', for large $M$ nb of devices and small $p$ activation probabilities\dots?
@@ -2108,37 +2109,38 @@
 \end{frameO}
 
 
-\begin{frameO}[Climatic crisis ?]
+% % FIXME remettre pour la vraie soutenance ?
+% \begin{frameO}[Climatic crisis ?]
 
-    \begin{center}
-        \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+%     \begin{center}
+%         \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
 
-        \begin{tiny}
-            \textcopyright{} Jeph Jacques, 2015,
-            \href{https://QuestionableContent.net/view.php?comic=3074}{\textcolor{blue}{\texttt{QuestionableContent.net/view.php?comic=3074}}}
-        \end{tiny}
-    \end{center}
+%         \begin{tiny}
+%             \textcopyright{} Jeph Jacques, 2015,
+%             \href{https://QuestionableContent.net/view.php?comic=3074}{\textcolor{blue}{\texttt{QuestionableContent.net/view.php?comic=3074}}}
+%         \end{tiny}
+%     \end{center}
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[Let's talk about actions against the climatic crisis !]
+% \begin{frameO}[Let's talk about actions against the climatic crisis !]
 
-    \begin{center}
-        \includegraphics[height=0.28\textheight]{../common/TalkAboutGlobalWarmingNow.png}
-    \end{center}
+%     \begin{center}
+%         \includegraphics[height=0.28\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+%     \end{center}
 
-    \begin{alertblock}{We are \emph{scientists}\ldots}
-        Goals: \alert{inform ourselves, think, find, communicate}!
-        \begin{itemize}
-            \item \alert{Inform ourselves} of the \alert{causes} and \alert{consequences} of climatic crisis,
-            \item \alert{Think} of all the problems, at political, local and individual scales,
-            \item \alert{Find} simple solutions !\\
-                  $\implies$ Aim at sobriety: transports, tourism, clothing, housing, technologies, food, computations, fighting smoking, etc.
-            \item \alert{Communicate} our awareness, and our actions !
-        \end{itemize}
-    \end{alertblock}
+%     \begin{alertblock}{We are \emph{scientists}\ldots}
+%         Goals: \alert{inform ourselves, think, find, communicate}!
+%         \begin{itemize}
+%             \item \alert{Inform ourselves} of the \alert{causes} and \alert{consequences} of climatic crisis,
+%             \item \alert{Think} of all the problems, at political, local and individual scales,
+%             \item \alert{Find} simple solutions !\\
+%                   $\implies$ Aim at sobriety: transports, tourism, clothing, housing, technologies, food, computations, fighting smoking, etc.
+%             \item \alert{Communicate} our awareness, and our actions !
+%         \end{itemize}
+%     \end{alertblock}
 
-\end{frameO}
+% \end{frameO}
 
 
 \begin{frameTI}
@@ -2187,39 +2189,48 @@
             \vspace{1.5cm}
         \end{center}
     \end{changemargin}
+    \vspace*{10pt}
+    \vfill{}
+    \small{Cf.: \textcolor{blue}{\texttt{CV.archives-ouvertes.fr/lilian-besson}}}
 \end{frame}
 
 
-\begin{frame}[shrink=22]
+\begin{frame}[shrink=17]
     \mytitle{centralesupelecdark}{centralesupelec}{List of publications}
 
-    \vspace*{2cm}
+    \vspace*{1.25cm}
 
-    \textcolor{orange}{International conferences with proceedings:}
+    \textcolor{orange}{\textbf{International conferences with proceedings:}}
     \begin{itemize}
-        \item ``\emph{MAB Learning in IoT Networks}'', Bonnefoi, \textbf{Besson} et al, CROWNCOM \textcolor{blue}{2017}
+        \item ``\emph{MAB Learning in IoT Networks}'', Bonnefoi, \textbf{Besson} et al, \textcolor{orange}{CROWNCOM} \textcolor{blue}{2017}
 
-        \item ``\emph{MALIN with GRC \dots}'', Bonnefoi, \textbf{Besson}, Moy, demo at ICT \textcolor{blue}{2018}
-        \item ``\emph{Aggregation of MAB for OSA}'', \textbf{Besson}, Kaufmman, Moy, IEEE WCNC \textcolor{blue}{2018}
-        \item ``\emph{Multi-Player Bandits Revisited}'', Bonnefoi \& Kaufmann, ALT \textcolor{blue}{2018}
+        \item ``\emph{MALIN with GRC \dots}'', Bonnefoi, \textbf{Besson}, Moy, \textcolor{orange}{demo at ICT} \textcolor{blue}{2018}
+        \item ``\emph{Aggregation of MAB for OSA}'', \textbf{Besson}, Kaufmman, Moy, \textcolor{orange}{IEEE WCNC} \textcolor{blue}{2018}
+        \item ``\emph{Multi-Player Bandits Revisited}'', \textbf{Besson} \& Kaufmann, \textcolor{orange}{ALT} \textcolor{blue}{2018}
 
-        \item ``\emph{UCB \dots LPWAN w/ Retransmissions}'', Bonnefoi, \textbf{Besson} et al, IEEE WCNC \textcolor{blue}{2019}
-        \item ``\emph{GNU Radio Implementation of MALIN \dots}'', \textbf{Besson} et al, IEEE WCNC \textcolor{blue}{2019}
-        \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy \& \textbf{Besson}, ISIoT \textcolor{blue}{2019}
-        \item ``\emph{Analyse non asymptotique \dots}'', \textbf{Besson} \& Kaufmann, GRETSI \textcolor{blue}{2019}
+        \item ``\emph{UCB \dots LPWAN w/ Retransmissions}'', Bonnefoi, \textbf{Besson} et al, \textcolor{orange}{IEEE WCNC} \textcolor{blue}{2019}
+        \item ``\emph{GNU Radio Implementation of MALIN \dots}'', \textbf{Besson} et al, \textcolor{orange}{IEEE WCNC} \textcolor{blue}{2019}
+        \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy \& \textbf{Besson}, \textcolor{orange}{ISIoT} \textcolor{blue}{2019}
+        \item ``\emph{Analyse non asymptotique \dots}'', \textbf{Besson} \& Kaufmann, \textcolor{orange}{GRETSI} \textcolor{blue}{2019}
     \end{itemize}
 
-    \textcolor{orange}{Preprints:}
+    \vspace*{0.50cm}
+
+    \textcolor{darkgreen}{\textbf{Preprints:}}
     \begin{itemize}
-        \item ``\emph{Doubling-Trick \dots}'' \textbf{Besson} \& Kaufmann, \texttt{hal-01736357} \& \texttt{arXiv:1803.06971}, \textcolor{blue}{2018}
+        \item ``\emph{Doubling-Trick \dots}'' \textbf{Besson} \& Kaufmann, \textcolor{darkgreen}{\texttt{arXiv:1803.06971}}, \textcolor{blue}{2018}
+        % \texttt{hal-01736357} \& 
         % \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann, \texttt{hal-0\textcolor{blue}{2006471} }\texttt{arXiv:1902.01575}, \textcolor{blue}{2019}
-        \item ``\emph{SMPyBandits \dots}'', \textbf{Besson}, \texttt{hal-01840022} \& \texttt{arXiv:1902.01575}, \textcolor{blue}{2018}
     \end{itemize}
 
-    \textcolor{orange}{Submitted:}
+    \vspace*{0.50cm}
+
+    \textcolor{darkred}{\textbf{Submitted:}}
     \begin{itemize}
-        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson}, Kaufmann et al., submitted to AISTATS, \textcolor{blue}{October 2019}
-        \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy, \textbf{Besson} et al, submitted to Annals of Telecommunications, \textcolor{blue}{July 2019}
+        \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy, \textbf{Besson} et al, for \textcolor{darkred}{Annals of Telecommunications}, \textcolor{blue}{July 2019}
+        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann, for \textcolor{darkred}{AISTATS}, \textcolor{blue}{October 2019}
+        \item ``\emph{SMPyBandits \dots}'', \textbf{Besson}, for \textcolor{darkred}{JMLR MLOSS}, \textcolor{blue}{October 2019}
+        % \texttt{hal-01840022} \& \texttt{arXiv:1902.01575}, 
     \end{itemize}
 
 \end{frame}
@@ -2235,7 +2246,7 @@
         by Christophe Moy \& \textbf{Lilian Besson}.\\
         1st International ISIoT workshop,
         % \footnote{~See \href{https://sites.google.com/view/ISIoT2019}{\texttt{sites.google.com/view/ISIoT2019}}},
-        at \emph{Conference on Distributed Computing in Sensor Systems},
+        at \textcolor{orange}{\emph{Conference on Distributed Computing in Sensor Systems}},
         % \footnote{~IEEE DCOSS 2019, see \href{http://2019.dcoss.org}{\texttt{2019.dcoss.org}}},
         Santorini, Greece, May $2019$.\\
         % \href{https://HAL.Inria.fr/hal-02144465}{\texttt{HAL.Inria.fr/hal-02144465}}.
@@ -2249,7 +2260,7 @@
         by Rémi Bonnefoi, \textbf{Lilian Besson}, Julio Manco-Vasquez \& Christophe Moy.\\
         1st International MOTIoN workshop,
         % \footnote{~MOTIoN 2019, see \href{https://sites.google.com/view/wcncworkshop-motion2019}{\texttt{sites.google.com/view/wcncworkshop-motion2019}}},
-        at \emph{IEEE WCNC}, Marrakech, Morocco, April $2019$.\\
+        at \textcolor{orange}{\emph{IEEE WCNC}}, Marrakech, Morocco, April $2019$.\\
         % \href{https://HAL.Inria.fr/hal-02049824}{\texttt{HAL.Inria.fr/hal-02049824}}.
         \emph{See Section~5.4.}
         % \cite{Bonnefoi2019WCNC}
@@ -2280,7 +2291,7 @@
     \item
         \emph{Multi-Player Bandits Revisited},\\
         by \textbf{Lilian Besson} \& Émilie Kaufmann.\\
-        \emph{Algorithmic Learning Theory},
+        \textcolor{orange}{\emph{Algorithmic Learning Theory}},
         % \footnote{~ALT 2018, see \href{http://www.cs.cornell.edu/conferences/alt2018}{\texttt{www.cs.cornell.edu/conferences/alt2018}}},
         Lanzarote, Spain, April $2018$,\\
         % \href{https://HAL.Inria.fr/hal-01629733}{\texttt{HAL.Inria.fr/hal-01629733}}.
@@ -2290,7 +2301,7 @@
     \item
         \emph{Aggregation of Multi-Armed Bandits learning algorithms for Opportunistic Spectrum Access},\\
         by \textbf{Lilian Besson}, Émilie Kaufmann \& Christophe Moy.\\
-        \emph{Wireless Communication and Networks Conference},
+        \textcolor{orange}{\emph{Wireless Communication and Networks Conference}},
         % \footnote{~IEEE WCNC 2018, see \href{http://wcnc2018.ieee-wcnc.org}{\texttt{wcnc2018.ieee-wcnc.org}}},
         Barcelona, Spain, April $2018$,\\
         % \href{https://HAL.Inria.fr/hal-01705292}{\texttt{HAL.Inria.fr/hal-01705292}}.
@@ -2300,7 +2311,7 @@
     \item
         \emph{Multi-Armed Bandit Learning in IoT Networks and non-stationary settings},\\
         by Rémi Bonnefoi, \textbf{L.Besson}, C.Moy, É.Kaufmann \& Jacques Palicot.\\
-        \emph{Conference on Cognitive Radio Oriented Wireless Networks},
+        \textcolor{orange}{\emph{Conference on Cognitive Radio Oriented Wireless Networks}},
         % \footnote{~CROWNCOM 2017, see \href{http://crowncom.org/2017}{\texttt{crowncom.org/2017}}},
         Lisboa, Portugal, September $2017$,
         % \href{https://HAL.Inria.fr/hal-01575419}{\texttt{HAL.Inria.fr/hal-01575419}},
@@ -2322,7 +2333,7 @@
     \item
         \emph{MALIN: ``Multi-Arm bandit Learning for Iot Networks'' with GRC: A TestBed Implementation and Demonstration that Learning Helps},\\
         by \textbf{Lilian Besson}, Rémi Bonnefoi, Christophe Moy.\\
-        Demonstration presented in \emph{International Conference on Communication},
+        Demonstration presented in \textcolor{orange}{\emph{International Conference on Communication}},
         % \footnote{~ICT 2018, see \href{http://ict-2018.org/demos}{\texttt{ict-2018.org/demos}}},
         Saint-Malo, France in June $2018$.\\
         See \href{https://YouTu.be/HospLNQhcMk}{\textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}} for a $6$-minutes presentation video.\\
@@ -2342,7 +2353,7 @@
     \item
         \emph{Analyse non asymptotique d'un test séquentiel de détection de ruptures et application aux bandits non stationnaires} (in French),\\
         by \textbf{Lilian Besson} \& Émilie Kaufmann,\\
-        GRETSI 2019,
+        \textcolor{orange}{\emph{GRETSI}} 2019,
         % \footnote{~GRETSI 2019, see \href{http://GRETSI.fr/colloque2019}{\texttt{GRETSI.fr/colloque2019}}},
         August $2019$,\\
         % \href{https://HAL.Inria.fr/hal-02006471}{\texttt{HAL.Inria.fr/hal-02006471}}.\\
@@ -2364,7 +2375,7 @@
         \emph{Decentralized Spectrum Learning for Radio Collision Mitigation in Ultra-Dense IoT Networks: LoRaWAN Case Study and Measurements},\\
         by Christophe Moy, \textbf{Lilian Besson}, Guillaume Delbarre \& Laurent Toutain,
         July $2019$.\\
-        Submitted for a special volume of \href{https://annalsoftelecommunications.wp.imt.fr/}{the Annals of Telecommunications} journal, on ``Machine Learning for Intelligent Wireless Communications and Networking''.\\
+        Submitted for a special volume of \textcolor{darkred}{\href{https://annalsoftelecommunications.wp.imt.fr/}{the Annals of Telecommunications}} journal, on ``Machine Learning for Intelligent Wireless Communications and Networking''.\\
         \emph{See Chapter~5.}
         % Preprint at \href{https://HAL.Inria.fr/hal-XXX}{\texttt{HAL.Inria.fr/hal-XXX}}.
         % \cite{MoyBesson2019Annales}
@@ -2375,7 +2386,7 @@
         \emph{The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits},\\
         by \textbf{Lilian Besson} \& Émilie Kaufmann,
         October $2019$.\\
-        Submitted for \href{https://www.aistats.org/}{AISTATS 2020}.
+        Submitted for \textcolor{darkred}{\href{https://www.aistats.org/}{AISTATS 2020}}.
         Preprint at \href{https://HAL.Inria.fr/hal-02006471}{\texttt{HAL.Inria.fr/hal-02006471}}.\\
         \emph{See Chapter~7.}
         % \cite{Besson2019GLRT}
@@ -2398,6 +2409,7 @@
         \href{https://HAL.Inria.fr/hal-01840022}{\texttt{HAL.Inria.fr/hal-01840022}}.\\
         It currently consists in about $45000$ lines of code, hosted on \href{https://GitHub.com/SMPyBandits}{\texttt{GitHub.com/SMPyBandits}},
         and a complete documentation accessible on \href{https://SMPyBandits.rtfd.io}{\texttt{SMPyBandits.rtfd.io}} or \href{https://SMPyBandits.GitHub.io}{\texttt{SMPyBandits.GitHub.io}}.\\
+        Submitted for \textcolor{darkred}{\href{https://jmlr.org/mloss/}{JMLR MLOSS}}.\\
         \emph{See Chapter~3.}
         % \cite{SMPyBanditsJMLR,SMPyBandits}
 
