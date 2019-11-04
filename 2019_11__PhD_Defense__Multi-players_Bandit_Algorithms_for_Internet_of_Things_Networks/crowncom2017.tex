@@ -65,7 +65,7 @@
         \centering
         \includegraphics[height=0.35\textheight]{protocol.eps}\\
         {\small Chosen protocol : \textcolor{blue}{uplink messages $\nearrow$} followed by \textcolor{darkgreen}{\emph{acknowledgements} $\swarrow$}.}\\
-        \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.3}}
+        \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
     \end{figure}
 
     \begin{itemize}
@@ -112,7 +112,7 @@
                   Their repartition is fixed in time \hfill{} $\implies$ \alert{stationary} hypothesis!
         \end{itemize}
 
-        \(\implies\) This ambiant traffic \emph{perturbs} the dynamic devices!
+        \(\implies\) This ambiant traffic \emph{is disturbing} the dynamic devices!
     \end{lightblock}
 
 \end{frameO}
@@ -223,7 +223,7 @@
     \end{itemize}
 
     \vfill{}
-    \(\implies\) Very good performance, maximizing the transmission rate
+    \(\implies\) It will have very good performance, as it maximizes the transmission rate
     of all the \(D\) dynamic devices.
 
 \end{frameO}
@@ -256,7 +256,7 @@
 
 
 
-\begin{frameO}[Hum, what is a \emph{bandit}?]
+\begin{frameO}[Hum, what is a (one-armed )\emph{bandit}?]
     \begin{center}
         It's an old name for a casino machine!
     \end{center}
@@ -279,7 +279,7 @@
 
 \subsubsection{Multi-Armed Bandit formulation}
 
-\begin{frameO}[$3)$ Multi-Armed Bandit formulation]
+\begin{frameO}[$3)$ \emph{Multi-Armed Bandit} formulation]
 
     A dynamic device tries to collect \emph{rewards} when transmitting :
 
@@ -298,7 +298,7 @@
             \(r_{A(\tau)} = 0\) \hfill{} (failed transmission!)
     \end{itemize}
 
-    % \pause
+    \vfill{}
 
     \begin{colorblock}{Reinforcement Learning interpretation}
 
@@ -346,7 +346,7 @@
                         Update \(N_k(\tau+1)\) and \(X_k(\tau+1)\),
                 }
                   \item
-                        Wait for next message. \hfill{} (mean waiting time $\simeq 1/p$)
+                        Wait for next message\dots \hfill{} (mean waiting time $\simeq 1/p$)
               \end{itemize}
     \end{enumerate}
 
@@ -359,9 +359,8 @@
                   each object transmits only with probability $p$ at each time $t$
             \item
                   following its Bernoulli activation pattern
-            \item
-                  \alert{$\implies$ the random activations make the model intractable in theory!}
         \end{itemize}
+        \alert{$\implies$ the random activations make the model intractable in theory!}
     \end{colorblock}
     }
 
@@ -415,7 +414,7 @@
 
         % \caption{
             $10\%$ of dynamic devices. Gives $7\%$ of gain.\\
-            {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.3}}
+            {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
         % }
     \end{figure}
 
@@ -432,7 +431,9 @@
         \includegraphics[height=0.74\textheight]{30intelligent.eps}
 
         % \caption{
-            $30\%$ of dynamic devices. Gives $3\%$ of gain but not much is possible.
+            \begin{small}
+                $30\%$ of dynamic devices. Gives $3\%$ of gain but not much is possible here.
+            \end{small}
         % }
     \end{figure}
 
