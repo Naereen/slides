@@ -1358,8 +1358,8 @@
     \end{center}
     % \vspace*{-4pt}
     \vfill{}
-    \small{\textcolor{lightgray}{Ref: Chapters 6 and 7 of my thesis\\
-    [Besson \& Kaufmann, 2018] and  [Besson \& Kaufmann, 2019].}}
+    \small{\textcolor{lightgray}{Ref: Chapters 6 and 7 of my thesis\newline
+    and [Besson \& Kaufmann, 2018] and [Besson \& Kaufmann, 2019].}}
     % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
 \end{frameTI}
 
@@ -1539,7 +1539,7 @@
         \end{itemize}
     \end{colorblock}
 
-    \begin{colorblock}{Observe collision then talk?
+    \begin{colorblock}{``Observe collision then talk?''
         \hfill{} \textcolor{gray}{[Boursier et al, 2019]}
     }
         \begin{itemize}
@@ -1564,7 +1564,7 @@
     }
 
     \only<1>{
-        \begin{colorblock}{\textbf{Old idea:} UCB1 + $\rho^{\text{rand}}$. At round $t$ each player $m\in\{1,\dots,M\}$}
+        \begin{colorblock}{Old idea: UCB1 + $\rho^{\text{rand}}$. At round $t$ each player $m\in\{1,\dots,M\}$}
             \begin{itemize}
                 \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
                 \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
@@ -1581,6 +1581,7 @@
         \begin{colorblock}{\textbf{Our algorithm:} klUCB index + MC-TopM rule}
             \begin{itemize}
                 \only<2>{
+                \item same idea, but don't use ranks, just fix on one of the $M$ best arms
                 \item more complicated behavior (musical chair game)
                 \item we obtain a $\cR(\cA, T) = \mathcal{O}(M^3 \frac{1}{\Delta_M} \log(T))$ regret upper bound
                 \item lower bound is $\cR(\cA, T) \geq \Omega(M \frac{1}{\Delta_M} \log(T))$\\
@@ -1592,7 +1593,7 @@
         \end{colorblock}
     }
 
-    \only<3>{
+    \only<3->{
         \textbf{Questions?}
         \begin{itemize}
             \item The number of players $M$ has to be known\\
@@ -1602,10 +1603,10 @@
             \item Is it a \textit{fair} orthogonalization rule? (yes!)
             \vspace*{10pt}
             \item Could players use the collision indicators to communicate? (yes!)\\
-        \end{itemize}
-        $\hookrightarrow$ \textbf{\textsc{Sic-MMAB}} strategy matches the centralized multiple-play lower-bound,
-        by using collision indicators to build a communication protocol between devices (\emph{in another feedback model})
-        \textcolor{gray}{[Boursier et al, 19]}
+            \end{itemize}
+            $\hookrightarrow$ \textbf{\textsc{Sic-MMAB}} strategy matches the centralized multiple-play lower-bound,
+            by using collision indicators to build a communication protocol between devices (\emph{in another feedback model})
+            \textcolor{gray}{[Boursier et al, 19]}
     }
 
 \end{frameO}
@@ -1623,7 +1624,7 @@
 
     \centering
     \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-    \caption{\footnotesize{For $M=6$ objects, our strategy (MC-TopM) largely outperform $\rho^{\text{rand}}$ and other previous state-of-the-art.}}
+    \caption{\small{For example for $M=6$ objects, our strategy (MC-TopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}}
 
 \end{frameO}
 
@@ -1638,51 +1639,56 @@
 \begin{frame}[shrink=20]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art multi-player algorithms}
 
-    \vspace*{2cm}
+    \vspace*{0.5cm}
 
     \begin{center}
-        \begin{tabular}{ m{3cm} | c | m{3cm} | c | c | m{3cm} }
-            \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
+        \begin{tabular}{ m{2.7cm} | c | m{2.7cm} | m{2cm} | m{1.5cm} | m{3cm} }
+            \textbf{Algorithm} & \textcolor{gray}{Paper} & \textbf{Regret bound}
+            & \textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star\star\star\star$ is better}}
+            & \textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}
+            & \textbf{Parameters} \\
             \hline
-            Centralized multiple-play klUCB & [1] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€}} & $M$ \textcolor{red}{in another model} \\
+            Centralized multiple-play klUCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize $M$ \textcolor{red}{in another model} } \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            $\rho^{\text{rand}}$ UCB & [2] & $\mathcal{O}(\textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & just $M$ \\
+            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $M^3 \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize just $M$ } \\
             \hline
-            MEGA & [3] & $\mathcal{O}(\textcolor{red}{T^{3/4}})$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & 4 parameters, \emph{impossible to tune} \\
+            MEGA & \textcolor{gray}{[3]} & $\textcolor{red}{T^{3/4}}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 4 parameters, \emph{impossible to tune} } \\
             \hline
-            Musical-Chair & [4] & $\mathcal{O}({2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T))$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & 1 parameter $T_0$ \emph{hard to tune} \\
+            Musical-Chair & \textcolor{gray}{[4]} & ${2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize 1 parameter $T_0$ \newline \emph{hard to tune} } \\
             \hline
-            Selfish UCB & [5] & $\mathcal{O}(\textcolor{red}{T})$ in some case & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none} \\
+            Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{blue}{\textbf{MCTopM klUCB}} & [6] & $\mathcal{O}( M^2 \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
+            \textcolor{blue}{\small \textbf{MCTopM klUCB}} & \textcolor{gray}{[6]} & $M^2 \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
             \hline
-            \textsc{Sic-MMAB} & [7] & $\mathcal{O}( \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T))$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€€}} & \textbf{none}
+            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€€}} & \textbf{none}
+            % \\
+            %  & & & \textcolor{gray}{($\star\star\star\star$ is better)} & \textcolor{gray}{(€ is better)} &
         \end{tabular}
     \end{center}
 
+    % \vspace*{10pt}
+    \vfill{}
 
-    \vspace*{10pt}
-
-    With $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$,
-    optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T))$.\\
+    Optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T))$,
+    with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$,
     %
-    And $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C_{M,\mu}}}$ a much larger constant.
+    and $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C_{M,\mu}}}$ are much larger constants.
 
     \vspace*{10pt}
 
     \begin{small}
-        \textbf{References:}
+        \textbf{Ref:}
             [1] \textcolor{gray}{[Anantharam et al. 1987]}
             [2] \textcolor{gray}{[Anandkumar et al. 2011]}
-            [3] \textcolor{gray}{[Avner \& Mannor, 2015]}
-            [4] \textcolor{gray}{[Rosenski et al. 2015]}
-            [5] \textcolor{gray}{[Bonnefoi et al. 2017]}
-            [6] \textcolor{gray}{[Besson \& Kaufmann, 2018]}
-            [7] \textcolor{gray}{[Boursier et al. 2019]}
+            [3] \textcolor{gray}{[Avner \& Mannor, 15]}
+            [4] \textcolor{gray}{[Rosenski et al. 15]}
+            [5] \textcolor{gray}{[Bonnefoi et al. 17]}
+            [6] \textcolor{gray}{[Besson \& Kaufmann, 18]}
+            [7] \textcolor{gray}{[Boursier et al. 19]}
     \end{small}
 
 \end{frame}
@@ -1817,10 +1823,13 @@
 \begin{frame}[shrink=25]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
-    \vspace*{2cm}
+    \vspace*{1cm}
 
-    \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
-        \textbf{Algorithm} & \textbf{Paper} & $\cR(\cA, T)$ & \textbf{Efficiency} & \textbf{Cost} & \textbf{Parameters} \\
+    \begin{tabular}{ m{3.5cm} | c | c | m{1.5cm} | m{1.5cm} | m{3cm} }
+        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret}
+        & \textbf{Efficiency} \newline \textcolor{gray}{($\star\star\star\star$ is better)}
+        & \textbf{Cost} \newline \textcolor{gray}{(€ is better)}
+        & \textbf{Parameters} \\
         \hline
         Oracle-Restart UCB & [1] & $\mathcal{O}(\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T))$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
         Naive UCB & [1] & \textcolor{red}{$\mathcal{O}(T)$} in worst case& {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
@@ -1844,10 +1853,10 @@
 
     \vspace*{15pt}
 
-    With $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
-    optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T} + o(\sqrt{T \Upsilon_T})$.\\
+    Optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T} + o(\sqrt{T \Upsilon_T})$,
+    with $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
     %
-    And $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
+    and $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
     and $\delta$ is a lower-bound on $\Delta_{\text{change}}$ the problem difficulty.
 
     \vspace*{15pt}
