@@ -1835,14 +1835,14 @@
         & \textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}
         & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textcolor{red}{unrealistic oracle} \\
+        Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{unrealistic oracle}} \\
         Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
         \hline
         Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
         \hline
-        Discounted TS & \textcolor{gray}{[3]} & \emph{not yet proved} & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€}} & {\footnotesize how to tune $\gamma$ ?} \\
-        Exp3.S & \textcolor{gray}{[4]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Discounted TS & \textcolor{gray}{[4]} & \emph{not yet proved} & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€}} & {\footnotesize how to tune $\gamma$ ?} \\
         \hline
         CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T / \Upsilon_T)}$ & {\Large \textcolor{orange}{$\star\star\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $\Upsilon_T$ and $\delta_{\min}$} \\
         % \hline
@@ -1870,11 +1870,9 @@
     \begin{small}
         \textbf{Papers:}
             [1] \textcolor{gray}{[Auer et al. 2002]}
-            % [2] \textcolor{gray}{[Auer et al. 02]}
             [2] \textcolor{gray}{[Garivier et al. 09]}
-            % [4] \textcolor{gray}{[Garivier et al. 09]}
-            [3] \textcolor{gray}{[Raj et al. 17]}
-            [4] \textcolor{gray}{[Auer et al. 02]}\\
+            [3] \textcolor{gray}{[Auer et al. 02]}
+            [5] \textcolor{gray}{[Raj et al. 17]}\\
             \hspace{10pt}
             [5] \textcolor{gray}{[Liu et al. 18]}
             [6] \textcolor{gray}{[Cao et al. 19]}
