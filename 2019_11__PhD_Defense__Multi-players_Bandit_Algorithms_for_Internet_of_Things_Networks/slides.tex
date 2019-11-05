@@ -1646,31 +1646,31 @@
     \vspace*{0.5cm}
 
     \begin{center}
-        \begin{tabular}{ m{2.7cm} | c | m{2.7cm} | m{2cm} | m{1.5cm} | m{3cm} }
-            \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound}
-            & \textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star\star\star\star$ is better}}
-            & \textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}
+        \begin{tabular}{ m{2.7cm} | c | c | c | c | m{3cm} }
+            \textbf{Algorithm} & \textbf{Ref} & \textbf{Regret bound}
+            & \parbox[c]{2cm}{\textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star$$\star$$\star$$\star$ is better}}}
+            & \parbox[c]{1.5cm}{\textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}}
             & \textbf{Parameters} \\
             \hline
-            Centralized multiple-play klUCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize $M$ \textcolor{red}{in another model} } \\
+            Centralized multiple-play klUCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€}} & {just $M$ but \newline \textcolor{red}{in another model} } \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $M^3 \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize just $M$ } \\
+            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $\textcolor{red}{M^3 \mathbf{C}_2} \log(T)$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€}} & just $M$ \\
             \hline
-            \textsc{MEGA} & \textcolor{gray}{[3]} & $\textcolor{red}{T^{3/4}}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 4 params, \emph{impossible to tune} } \\
+            \textsc{MEGA} & \textcolor{gray}{[3]} & $\mathbf{C}_3 \textcolor{red}{T^{3/4}}$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 4 params, \newline \textcolor{red}{\emph{impossible to tune}} } \\
             \hline
-            Musical Chair & \textcolor{gray}{[4]} & ${2M \choose M} \textcolor{red}{\mathbf{C}'} \log(T)$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€}} & {\footnotesize 1 parameter $T_0$ \newline \emph{very hard to tune} } \\
+            Musical Chair & \textcolor{gray}{[4]} & $\textcolor{red}{{2M \choose M} \mathbf{C}_4} \log(T)$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 1 parameter $T_0$ \newline \textcolor{red}{\emph{hard to tune}} } \\
             \hline
-            Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none} \\
+            Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none!} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{blue}{\small \textbf{MCTopM klUCB}} & \textcolor{gray}{[6]} & $M^2 \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
+            \textcolor{blue}{\small \textbf{MCTopM klUCB}} & \textcolor{gray}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
             \hline
-            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\Large \textcolor{orange}{$\star\star\star$}} & {\textcolor{orange}{€€€}} & \textbf{none}
+            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & \textbf{none!}
             % \\
-            %  & & & \textcolor{gray}{($\star\star\star\star$ is better)} & \textcolor{gray}{(€ is better)} &
+            %  & & & \textcolor{gray}{($\star$$\star$$\star$$\star$ is better)} & \textcolor{gray}{(€ is better)} &
         \end{tabular}
     \end{center}
 
@@ -1680,7 +1680,7 @@
     Optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T))$,
     with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$,
     %
-    and $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C_{M,\mu}}}$ are much larger constants.
+    and $\textcolor{red}{\mathbf{C}_i} \gg \textcolor{blue}{\mathbf{C_{M,\mu}}}$ are much larger constants.
 
     \vspace*{10pt}
 
@@ -1688,7 +1688,7 @@
         \textbf{Papers:}
             [1] \textcolor{gray}{[Anantharam et al. 1987]}
             [2] \textcolor{gray}{[Anandkumar et al. 2011]}
-            [3] \textcolor{gray}{[Avner \& Mannor, 15]}\\
+            [3] \textcolor{gray}{[Avner \& Mannor, 15]}\newline
             [4] \textcolor{gray}{[Rosenski et al. 15]}
             [5] \textcolor{gray}{[Bonnefoi et al. 17]}
             [6] \textcolor{gray}{[Besson \& Kaufmann, 18]}
@@ -1829,40 +1829,40 @@
 
     \vspace*{1.5cm}
 
-    \begin{tabular}{ m{3.5cm} | c | m{3.3cm} | m{2cm} | m{1.5cm} | m{3cm} }
-        \textbf{Algorithm} & \textbf{Paper} & \textbf{Regret bound}
-        & \textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star\star\star\star$ is better}}
-        & \textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}
+    \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
+        \textbf{Algorithm} & \textbf{Ref} & \textbf{Regret bound}
+        & \parbox[c]{2cm}{\textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star$$\star$$\star$$\star$ is better}}}
+        & \parbox[c]{1.5cm}{\textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}}
         & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{unrealistic oracle}} \\
-        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none} \\
+        Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{unrealistic oracle}} \\
+        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none!} \\
         \hline
-        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
-        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $T$, $\Upsilon_T$ \\
+        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $T$, $\Upsilon_T$ \\
         \hline
-        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
-        Discounted TS & \textcolor{gray}{[4]} & \emph{not yet proved} & {\Large \textcolor{orange}{$\star\star$}}  & {\textcolor{orange}{€}} & {\footnotesize how to tune $\gamma$ ?} \\
+        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Discounted TS & \textcolor{gray}{[4]} & \emph{not yet proven} & {\textcolor{orange}{$\star$$\star$}}  & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{how to tune $\gamma$ ?}} \\
         \hline
-        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T / \Upsilon_T)}$ & {\Large \textcolor{orange}{$\star\star\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $\Upsilon_T$ and $\delta_{\min}$} \\
+        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}_5} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})}$ & {\textcolor{orange}{$\star$$\star$$\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
         % \hline
-        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star$}} & {\textcolor{orange}{€€}} & {\footnotesize needs $\Upsilon_T$ and $\delta_{\min}$} \\
+        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}_6} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€€}} & {\footnotesize needs $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
         \hline
-        \textbf{\textcolor{blue}{BGLR + kl-UCB}} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€}} & needs $\Upsilon_T$ \\
+        \textbf{\textcolor{blue}{BGLR + kl-UCB}} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & needs $T$, $\Upsilon_T$ \\
         \hline
-        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\Large \textcolor{orange}{$\star\star\star\star$}} & {\textcolor{orange}{€€€€}} & \textbf{none} \\
+        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€€}} & just $T$ \\
         % \hline
-        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & \textbf{none}
+        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}_9} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & just $T$
     \end{tabular}
 
 
     \vspace*{25pt}
     \vfill{}
 
-    Optimal \textbf{regret bound} is $\cR(\cA, T) \leq \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} \sqrt{T \Upsilon_T} + o(\sqrt{T \Upsilon_T})$,
-    with $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$,
+    Optimal minimax \textbf{regret bound} is $\cR(\cA, T) = \mathcal{O}(\sqrt{K T \Upsilon_T})$,
+    and $\textcolor{blue}{\mathbf{C}} = \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}} = \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2})$.
     %
-    and $\textcolor{red}{\mathbf{C}'} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
+    $\textcolor{red}{\mathbf{C}_i} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
     and $\delta_{\min} < \Delta_{\text{change}}$ lower-bounds the problem difficulty.
 
     \vspace*{15pt}
@@ -1872,7 +1872,7 @@
             [1] \textcolor{gray}{[Auer et al. 2002]}
             [2] \textcolor{gray}{[Garivier et al. 09]}
             [3] \textcolor{gray}{[Auer et al. 02]}
-            [5] \textcolor{gray}{[Raj et al. 17]}\\
+            [5] \textcolor{gray}{[Raj et al. 17]}\newline
             \hspace{10pt}
             [5] \textcolor{gray}{[Liu et al. 18]}
             [6] \textcolor{gray}{[Cao et al. 19]}
