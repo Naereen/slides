@@ -1539,7 +1539,7 @@
             No collision if $\neq 0$, but cannot know if collision or zero reward if $= 0$?
 
             \item
-            \textcolor{lightgray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
+            \textcolor{gray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
         \end{itemize}
     \end{colorblock}
 
@@ -1618,17 +1618,21 @@
 % \begin{frameO}[Results on a multi-player MAB problem]
 \begin{frameO}[Results on a multi-player MAB problem ($1/2$)]
 
-    \centering
-    \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-    \caption{\footnotesize{For $K=M$ objects, our strategy (MCTopM) achieves \textbf{constant} regret!}}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
+        \caption{\footnotesize{For $K=M$ objects, our strategy (MCTopM) achieves \textbf{constant} regret!}}
+    \end{figure}
 
 \end{frameO}
 
 \begin{frameO}[Results on a multi-player MAB problem ($2/2$)]
 
-    \centering
-    \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-    \caption{\small{For example for $M=6$ objects, our strategy (MCTopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
+        \caption{\small{For example for $M=6$ objects, our strategy (MCTopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}}
+    \end{figure}
 
 \end{frameO}
 
@@ -1943,7 +1947,7 @@
 
     % \begin{colorblock}{What we showed}
         \large
-        \begin{itemize}
+        \begin{itemize}[<+->]
             \setlength\itemsep{10pt}
             \item a simple model of IoT network, with decentralized learning embedded in the autonomous IoT devices,
             \item numerical simulations proving the quality of the proposed solution,
@@ -1964,12 +1968,12 @@
 
     % \begin{darkblock}{Didn't have time to talk about\dots}
         \large
-        \begin{itemize}
+        \begin{itemize}[<+->]
             \setlength\itemsep{10pt}
             \item my Python library SMPyBandits (Ch. 3),
             \item aggregation of bandit algorithms (Ch. 4),
             \item and details about our algorithms, their theoretical results and proofs (Ch. 6 \& 7),
-            \item our work on the doubling trick (to make an algorithm $\cA$ anytime and keep its regret bounds).
+            \item our work on the ``doubling trick'' (to make an algorithm $\cA$ anytime and keep its regret bounds).
         \end{itemize}
     % \end{darkblock}
 
@@ -1981,7 +1985,7 @@
     % \begin{lightblock}{What could be done with another year(s) ?}
 
         % \large
-        \begin{itemize}
+        \begin{itemize}[<+->]
             \setlength\itemsep{2pt}
             \item Extend my Python library SMPyBandits to cover many other bandit models?
                 (cascading, delay feedback, combinatorial, contextual etc)
