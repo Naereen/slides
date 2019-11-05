@@ -1643,7 +1643,7 @@
 \begin{frame}[shrink=20]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art multi-player algorithms}
 
-    \vspace*{0.5cm}
+    \vspace*{1cm}
 
     \begin{center}
         \begin{tabular}{ m{2.7cm} | c | c | c | c | m{3cm} }
@@ -1761,26 +1761,27 @@
     \pause
     \vspace*{10pt}
 
-    \begin{colorblock}{Typical regimes for piece-wise stationary bandits}
+    \begin{colorblock}{Typical regime for piece-wise stationary bandits}
         \begin{itemize}
-            \item
-                  The lower-bound is
-                  $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
+            \item ``Oracle restart'' UCB obtains
+                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \Upsilon_T \log(T))$
 
+            \item The (minimax) lower-bound is
+                $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
             \item
-                  Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
-                  \begin{itemize}
-                    % \tightlist
-                      \item
-                            $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
-                            if $T$ and $\Upsilon_T$ are known
-                      \item
-                            $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
-                            if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
-                  \end{itemize}
+                Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
+                \begin{itemize}
+                % \tightlist
+                    \item
+                        $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+                        if $T$ and $\Upsilon_T$ are known
+                    \item
+                        $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
+                        if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
+                \end{itemize}
             \item
-                  $\hookrightarrow$ our algorithm \textcolor{blue}{klUCB index + BGLR detector} is state-of-the-art!\\
-                  \hfill{} \gray [Besson \& Kaufmann, 2019] \texttt{arXiv:1902.01575}
+                $\hookrightarrow$ our algorithm \textcolor{blue}{klUCB index + BGLR detector} is state-of-the-art!\\
+                \hfill{} \gray [Besson \& Kaufmann, 2019] \texttt{arXiv:1902.01575}
         \end{itemize}
     \end{colorblock}
 
@@ -1788,10 +1789,10 @@
 
 \begin{frameO}[Results on a piece-wise stationary MAB problem]
 
-    \textbf{Idea:} combine a good \textit{bandit algorithm} with a \emph{break-point detector}
+    % \textbf{Idea:} combine a good \textit{bandit algorithm} with a \emph{break-point detector}
 
     \begin{center}
-        \includegraphics[width=0.90\textwidth]{regret_problem1.png}
+        \includegraphics[width=1.05\textwidth]{regret_problem1.png}
     \end{center}
 
     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
@@ -1824,7 +1825,7 @@
 %     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 % \end{frameO}
 
-\begin{frame}[shrink=25]
+\begin{frame}[shrink=20]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
     \vspace*{1.5cm}
