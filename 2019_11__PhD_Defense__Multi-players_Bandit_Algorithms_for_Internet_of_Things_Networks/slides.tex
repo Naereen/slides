@@ -1386,7 +1386,7 @@
 
     Most famous extensions:
 
-    \begin{itemize}[<+->]
+    \begin{itemize}%[<+->]
         \setlength\itemsep{1em}
         \item (centralized) multiple-actions
               \begin{itemize}
@@ -1666,7 +1666,7 @@
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{blue}{\small \textbf{MCTopM klUCB}} & \textcolor{gray}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
+            \textcolor{blue}{\small \textbf{MCTopM klUCB}} & \textcolor{blue}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
             \hline
             \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & \textbf{none!}
             % \\
@@ -1691,7 +1691,7 @@
             [3] \textcolor{gray}{[Avner \& Mannor, 15]}\newline
             [4] \textcolor{gray}{[Rosenski et al. 15]}
             [5] \textcolor{gray}{[Bonnefoi et al. 17]}
-            [6] \textcolor{gray}{[Besson \& Kaufmann, 18]}
+            [6] \textcolor{blue}{[Besson \& Kaufmann, 18]}
             [7] \textcolor{gray}{[Boursier et al. 19]}
     \end{small}
 
@@ -1794,8 +1794,8 @@
     \begin{center}
         \includegraphics[width=1.05\textwidth]{regret_problem1.png}
     \end{center}
-
-    \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+    \vspace*{-15pt}
+    $\hookrightarrow$ \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 \end{frameO}
 
 % \begin{frameO}[More results ($1/3$)]
@@ -1825,7 +1825,7 @@
 %     \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 % \end{frameO}
 
-\begin{frame}[shrink=20]
+\begin{frame}[shrink=23]
     \mytitle{centralesupelecdark}{centralesupelec}{State-of-the-art piece-wise stationary algorithms}
 
     \vspace*{1.5cm}
@@ -1839,17 +1839,17 @@
         Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{unrealistic oracle}} \\
         Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none!} \\
         \hline
-        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $T$, $\Upsilon_T$ \\
-        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & needs $T$, $\Upsilon_T$ \\
+        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & $T$ and $\Upsilon_T$ \\
+        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & $T$ and $\Upsilon_T$ \\
         \hline
-        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & needs $\Upsilon_T$ \\
+        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & $\Upsilon_T$ \\
         Discounted TS & \textcolor{gray}{[4]} & \emph{not yet proven} & {\textcolor{orange}{$\star$$\star$}}  & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{how to tune $\gamma$ ?}} \\
         \hline
-        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}_5} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})}$ & {\textcolor{orange}{$\star$$\star$$\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize needs $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
+        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}_5} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})}$ & {\textcolor{orange}{$\star$$\star$$\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
         % \hline
-        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}_6} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€€}} & {\footnotesize needs $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
+        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}_6} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€€}} & {\footnotesize $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
         \hline
-        \textbf{\textcolor{blue}{BGLR + kl-UCB}} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & needs $T$, $\Upsilon_T$ \\
+        \textbf{\textcolor{blue}{BGLR + kl-UCB}} & \textcolor{blue}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & $T$ and $\Upsilon_T$ \\
         \hline
         AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€€}} & just $T$ \\
         % \hline
@@ -1877,7 +1877,7 @@
             \hspace{10pt}
             [5] \textcolor{gray}{[Liu et al. 18]}
             [6] \textcolor{gray}{[Cao et al. 19]}
-            [7] \textcolor{gray}{[Besson et al. 19]}
+            [7] \textcolor{blue}{[Besson et al. 19]}
             [8] \textcolor{gray}{[Auer et al. 19]}
             [9] \textcolor{gray}{[Chen et al. 19]}
     \end{small}
