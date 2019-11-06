@@ -235,6 +235,14 @@
 \newcommand{\Fontify}{}
 \fi
 
+\newcommand{\snail}{\includegraphics[height=0.30cm]{snail_1f40c.png}}
+\newcommand{\tgvsmall}{\includegraphics[height=0.23cm]{high-speed-train_1f684.png}}
+\newcommand{\tgv}{\includegraphics[height=0.32cm]{high-speed-train_1f684.png}}
+\newcommand{\slotmachine}{\includegraphics[height=0.33cm]{slot-machine_1f3b0.png}}
+% \newcommand{\etoile}{\includegraphics[height=0.23cm]{party-popper_1f389.png}}
+\newcommand{\etoilenorm}{$\star$}
+\newcommand{\etoile}{\Large{$\star$}}
+
 % Prevent slide breaks in the middle of a paragraph:
 \widowpenalties 1 10000
 \raggedbottom
@@ -284,7 +292,7 @@
     Hi, I'm Lilian\dots
 
     \begin{itemize}
-        \item finishing my PhD, in telecommunication and machine learning
+        \item finishing my PhD, in Telecommunications and Machine Learning
         \item under supervision of Prof. Christophe Moy\\
             at SCEE team, IETR \& CentraleSupélec in Rennes (France)
         \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille\\
@@ -416,7 +424,7 @@
     \end{center}
     % \hfill{}
     % \vspace*{-30pt}
-    % {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
+    % {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5}}
 
 \end{frameO}
 
@@ -557,9 +565,9 @@
         \begin{itemize}
             \item \textcolor{gray}{reference strategies}
             \item \textcolor{gray}{selfish applications of UCB algorithms}
-            \item \textcolor{gray}{intractable model in theory\dots}
+            \item \textcolor{gray}{\emph{intractable} model in theory\dots}
         \end{itemize}
-        \item Two extensions of the stationary single-player bandit models
+        \item \emph{Two tractable models}, extending the stationary single-player bandit model
         \begin{itemize}
             \item \textcolor{gray}{multi-player bandits in stationary settings}
             \item \textcolor{gray}{single-player bandits in piece-wise stationary settings}
@@ -1287,8 +1295,8 @@
     \end{center}
     % \vspace*{-4pt}
     \vfill{}\hfill{}
-    \small{\textcolor{lightgray}{Ref: Chapter 5.2 of my thesis, and [Bonnefoi, Besson et al, 2017].}}
-    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
+    \small{\textcolor{lightgray}{Ref: Chapter 5 of my thesis, and [Bonnefoi, Besson et al, 2017].}}
+    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5}}
 \end{frameTI}
 
 \input{crowncom2017.tex}
@@ -1364,7 +1372,7 @@
     \small{\textcolor{lightgray}{Ref: Chapters 6 and 7 of my thesis\newline
     and [Besson \& Kaufmann, 2018]
     and [Besson \& Kaufmann, 2019].}}
-    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
+    % \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5}}
 \end{frameTI}
 
 
@@ -1470,7 +1478,7 @@
 
     At round $t$:
     \begin{itemize}
-        \item player $m$ selects $A_{m,t}$ ; then \textit{observes} $X_{A_{m,t},t}$
+        \item player $m$ selects arm $A_{m,t}$ \slotmachine{} ; then \textit{observes} $X_{A_{m,t},t}$
         \item and receives the reward
     \end{itemize}
 
@@ -1552,7 +1560,7 @@
 
             \item
             First check if collision, then receive reward
-            \alert{(unrealistic from cognitive radio)}
+            {\small \alert{(unrealistic from cognitive radio)}}
         \end{itemize}
     \end{colorblock}
 
@@ -1652,29 +1660,29 @@
     \begin{center}
         \begin{tabular}{ m{2.7cm} | c | c | c | c | m{3cm} }
             \textbf{Algorithm} & \textbf{Ref} & \textbf{Regret bound}
-            & \parbox[c]{2cm}{\textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star$$\star$$\star$$\star$ is better}}}
-            & \parbox[c]{1.5cm}{\textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}}
+            & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{gray}{\etoilenorm{} is worst}}}
+            & \parbox[c]{1.5cm}{\textbf{Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
             & \textbf{Parameters} \\
             \hline
-            Centralized multiple-play klUCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€}} & {just $M$ but \newline \textcolor{red}{in another model} } \\
+            \textcolor{deeppurple}{Centralized multiple-play klUCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & {just $M$ but \newline \textcolor{deeppurple}{in another model!} } \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $\textcolor{red}{M^3 \mathbf{C}_2} \log(T)$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€}} & just $M$ \\
+            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $\textcolor{red}{M^3 \mathbf{C}_2} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & just $M$ \\
             \hline
-            \textsc{MEGA} & \textcolor{gray}{[3]} & $\mathbf{C}_3 \textcolor{red}{T^{3/4}}$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 4 params, \newline \textcolor{red}{\emph{impossible to tune}} } \\
+            \textsc{MEGA} & \textcolor{gray}{[3]} & $\mathbf{C}_3 \textcolor{red}{T^{3/4}}$ & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize 4 params, \newline \textcolor{red}{\emph{impossible to tune}} } \\
             \hline
-            Musical Chair & \textcolor{gray}{[4]} & $\textcolor{red}{{2M \choose M} \mathbf{C}_4} \log(T)$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€}} & {\footnotesize 1 parameter $T_0$ \newline \textcolor{red}{\emph{hard to tune}} } \\
+            Musical Chair & \textcolor{gray}{[4]} & $\textcolor{red}{{2M \choose M} \mathbf{C}_4} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize 1 parameter $T_0$ \newline \textcolor{red}{\emph{hard to tune}} } \\
             \hline
-            Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & \textbf{none!} \\
+            Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{blue}{\small \textbf{MCTopM klUCB}} & \textcolor{blue}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€}} & just $M$ \\
+            \textcolor{orange}{\small \textbf{MCTopM klUCB}} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & just $M$ \\
             \hline
-            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & \textbf{none!}
+            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}}} & \textbf{none!}
             % \\
-            %  & & & \textcolor{gray}{($\star$$\star$$\star$$\star$ is better)} & \textcolor{gray}{(€ is better)} &
+            %  & & & \textcolor{gray}{(\etoile{}\etoile{}\etoile{}\etoile{} is better)} & \textcolor{gray}{(\tgv{}\tgv{}\tgv{}\tgv{}\tgv{} is better)} &
         \end{tabular}
     \end{center}
 
@@ -1693,9 +1701,10 @@
             [1] \textcolor{gray}{[Anantharam et al. 1987]}
             [2] \textcolor{gray}{[Anandkumar et al. 2011]}
             [3] \textcolor{gray}{[Avner \& Mannor, 15]}\newline
+            \hspace*{10pt}
             [4] \textcolor{gray}{[Rosenski et al. 15]}
             [5] \textcolor{gray}{[Bonnefoi et al. 17]}
-            [6] \textcolor{blue}{[Besson \& Kaufmann, 18]}
+            [6] \textcolor{orange}{[Besson \& Kaufmann, 18]}
             [7] \textcolor{gray}{[Boursier et al. 19]}
     \end{small}
 
@@ -1836,32 +1845,33 @@
 
     \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
         \textbf{Algorithm} & \textbf{Ref} & \textbf{Regret bound}
-        & \parbox[c]{2cm}{\textbf{Efficiency} \newline {\footnotesize \textcolor{gray}{$\star$$\star$$\star$$\star$ is better}}}
-        & \parbox[c]{1.5cm}{\textbf{Cost} \newline {\footnotesize \textcolor{gray}{€ is better}}}
+        & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{gray}{\etoilenorm{} is worst}}}
+        & \parbox[c]{1.5cm}{\textbf{Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
         & \textbf{Parameters} \\
         \hline
-        Oracle-Restart UCB & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{unrealistic oracle}} \\
-        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & \textbf{none!} \\
+        Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\textcolor{orange}{\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
         \hline
-        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & $T$ and $\Upsilon_T$ \\
-        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}}  & {\textcolor{orange}{€}} & $T$ and $\Upsilon_T$ \\
+        \textcolor{deeppurple}{Oracle-Restart UCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize the break-points \newline  \textcolor{deeppurple}{unrealistic oracle!}} \\
         \hline
-        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$}} & {\textcolor{orange}{€}} & $\Upsilon_T$ \\
-        Discounted TS & \textcolor{gray}{[4]} & \emph{not yet proven} & {\textcolor{orange}{$\star$$\star$}}  & {\textcolor{orange}{€}} & {\footnotesize \textcolor{red}{how to tune $\gamma$ ?}} \\
+        Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\textcolor{orange}{\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & $T$ and $\Upsilon_T$ \\
+        Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & $T$ and $\Upsilon_T$ \\
         \hline
-        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}_5} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})}$ & {\textcolor{orange}{$\star$$\star$$\star$}}  & {\textcolor{orange}{€€€}}& {\footnotesize $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
+        Exp3.S & \textcolor{gray}{[3]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & $\Upsilon_T$ \\
+        Discounted TS & \textcolor{gray}{[4]} & \emph{not yet proven} & {\textcolor{orange}{\etoile{}\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize \textcolor{red}{how to tune $\gamma$ ?}} \\
+        \hline
+        CUSUM-UCB & \textcolor{gray}{[5]} & $\textcolor{red}{\mathbf{C}_5} \sqrt{T \Upsilon_T \log(\frac{T}{\Upsilon_T})}$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}}}& {\footnotesize $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
         % \hline
-        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}_6} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$}} & {\textcolor{orange}{€€}} & {\footnotesize $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
+        M-UCB & \textcolor{gray}{[6]} & $\textcolor{red}{\mathbf{C}_6} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}}} & {\footnotesize $T$, $\Upsilon_T$ \textcolor{red}{and $\delta_{\min}$}} \\
         \hline
-        \textbf{\textcolor{blue}{BGLR + kl-UCB}} & \textcolor{blue}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€}} & $T$ and $\Upsilon_T$ \\
+        \textbf{\textcolor{orange}{BGLR + kl-UCB}} & \textcolor{orange}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & $T$ and $\Upsilon_T$ \\
         \hline
-        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{$\star$$\star$$\star$$\star$}} & {\textcolor{orange}{€€€€}} & just $T$ \\
+        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & just $T$ \\
         % \hline
-        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}_9} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{€€€€€}} & just $T$
+        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}_9} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{\tgv{}}} & just $T$
     \end{tabular}
 
 
-    \vspace*{25pt}
+    \vspace*{15pt}
     \vfill{}
 
     Optimal minimax \textbf{regret bound} is $\cR(\cA, T) = \mathcal{O}(\sqrt{K T \Upsilon_T})$,
@@ -1870,18 +1880,19 @@
     $\textcolor{red}{\mathbf{C}_i} \gg \textcolor{blue}{\mathbf{C}_{\Upsilon_T,\mu}}$ are much larger constants,
     and $\delta_{\min} < \Delta_{\text{change}}$ lower-bounds the problem difficulty.
 
-    \vspace*{15pt}
+    \vspace*{10pt}
 
     \begin{small}
         \textbf{Papers:}
             [1] \textcolor{gray}{[Auer et al. 2002]}
             [2] \textcolor{gray}{[Garivier et al. 09]}
             [3] \textcolor{gray}{[Auer et al. 02]}
-            [5] \textcolor{gray}{[Raj et al. 17]}\newline
-            \hspace{10pt}
+            [5] \textcolor{gray}{[Raj et al. 17]}
+            \newline
+            \hspace*{10pt}
             [5] \textcolor{gray}{[Liu et al. 18]}
             [6] \textcolor{gray}{[Cao et al. 19]}
-            [7] \textcolor{blue}{[Besson et al. 19]}
+            [7] \textcolor{orange}{[Besson et al. 19]}
             [8] \textcolor{gray}{[Auer et al. 19]}
             [9] \textcolor{gray}{[Chen et al. 19]}
     \end{small}
@@ -1955,8 +1966,8 @@
             % \item my Python library SMPyBandits.
             \item theoretical results in two simplified models:
             \begin{itemize}
-                \item multi-player bandits,
-                \item and an extension beyond the stationary hypothesis.
+                \item for multi-player bandits with $M \leq K$ players,
+                \item for piece-wise stationary bandits.
             \end{itemize}
         \end{itemize}
     % \end{colorblock}
@@ -1970,9 +1981,9 @@
         \large
         \begin{itemize}[<+->]
             \setlength\itemsep{10pt}
-            \item my Python library SMPyBandits (Ch. 3),
-            \item aggregation of bandit algorithms (Ch. 4),
-            \item and details about our algorithms, their theoretical results and proofs (Ch. 6 \& 7),
+            \item my Python library \textcolor{blue}{SMPyBandits} (Chapter 3),
+            \item our proposed algorithm for aggregating bandit algorithms (Chapter 4),
+            \item details about our algorithms, their precise theoretical results and proofs (Chapters 6 \& 7),
             \item our work on the ``doubling trick'' (to make an algorithm $\cA$ anytime and keep its regret bounds).
         \end{itemize}
     % \end{darkblock}
@@ -1987,17 +1998,17 @@
         % \large
         \begin{itemize}[<+->]
             \setlength\itemsep{2pt}
-            \item Extend my Python library SMPyBandits to cover many other bandit models?
+            \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
                 (cascading, delay feedback, combinatorial, contextual etc)
-            \item unify the multi-player and non-stationary bandit models\\
-                $\hookrightarrow$ in progress: already one paper (arXiv 2019), we can probably do better with our tools!
+            \item unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
+                {\small $\hookrightarrow$ in progress: already one paper (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
             \item test our idea and our proposed algorithms in real-world environments\\
-                $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy
+                {\small $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
             \item the ``Graal'' goal:
-                try to also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots
+                {\small try to also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots
                 % \hfill{}
-                \alert{Much harder!} search space is VERY LARGE!
+                \alert{Much harder!} search space is VERY LARGE!}
             \vspace*{10pt}
             \item try more to study the ``selfish model'', for large $M$ nb of devices and small $p$ activation probabilities\dots?
         \end{itemize}
@@ -2030,7 +2041,7 @@
 
 \begin{frameO}[Where to know more: about our work? \hfill{} ($2/3$)]
 
-    Reach me (or Christophe Moy or Émilie Kaufmann) out by email, if you have questions
+    Reach me (or Christophe or Émilie) out by email, if you have questions
 
     \vspace{15pt}
 
@@ -2043,9 +2054,9 @@
 
     \vspace{15pt}
 
-    \href{https://moychristophe.wordpress.com/}{\textcolor{orange}{\texttt{Christophe.Moy @ Univ-Rennes1.fr}}}
+    \href{https://moychristophe.wordpress.com/}{\textcolor{centralesupelec}{\texttt{Christophe.Moy @ Univ-Rennes1.fr}}}
 
-    $\hookrightarrow$ \href{https://moychristophe.wordpress.com/}{{\textcolor{orange}{\texttt{moychristophe.wordpress.com}}}}
+    $\hookrightarrow$ \href{https://moychristophe.wordpress.com/}{{\textcolor{centralesupelec}{\texttt{moychristophe.wordpress.com}}}}
 
     \vspace{15pt}
 

@@ -66,7 +66,7 @@
         \includegraphics[height=0.35\textheight]{protocol.eps}\\
         
         {\small Chosen protocol : \textcolor{blue}{uplink messages {\Large $\nearrow$}} followed by \textcolor{darkgreen}{\emph{acknowledgements} {\Large $\searrow$}}.}\\
-        \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
+        \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Sec.5.2}}
     \end{figure}
 
     \begin{itemize}
@@ -290,7 +290,8 @@
             it transmits following a random Bernoulli process \newline
             (of probability \(p\) of transmitting at each time step \(t\)),
         \item
-            it chooses a channel \(A(\tau) \in \{1,\dots,K\}\),
+            it chooses a channel \(A(\tau) \in \{1,\dots,K\}\)
+            \hfill{} ($=$ arm \slotmachine)
         \item
             if \texttt{Ack} (no collision) \hspace*{2pt} \(\implies\) reward
             \(r_{A(\tau)} = 1\) \hfill{} (successful transm.!)
@@ -415,7 +416,7 @@
 
         % \caption{
             $10\%$ of dynamic devices. Gives $7\%$ of gain.\\
-            {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Ch.5.2}}
+            {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Sec.5.2}}
         % }
     \end{figure}
 
