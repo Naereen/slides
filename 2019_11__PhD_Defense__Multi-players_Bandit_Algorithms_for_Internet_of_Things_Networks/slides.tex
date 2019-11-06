@@ -33,6 +33,7 @@
 
 \usepackage{layout}
 \usepackage{xcolor,colortbl}
+\usepackage{appendixnumberbeamer}
 
 \useoutertheme{infolines}
 
@@ -236,10 +237,11 @@
 \newcommand{\Fontify}{}
 \fi
 
+\newcommand{\thinkingface}{\includegraphics[height=0.38cm]{thinking-face_1f914.png}}
 \newcommand{\snail}{\includegraphics[height=0.30cm]{snail_1f40c.png}}
 \newcommand{\tgvsmall}{\includegraphics[height=0.23cm]{high-speed-train_1f684.png}}
-\newcommand{\tgv}{\includegraphics[height=0.32cm]{high-speed-train_1f684.png}}
-\newcommand{\slotmachine}{\includegraphics[height=0.33cm]{slot-machine_1f3b0.png}}
+\newcommand{\tgv}{\includegraphics[height=0.34cm]{high-speed-train_1f684.png}}
+\newcommand{\slotmachine}{\includegraphics[height=0.38cm]{slot-machine_1f3b0.png}}
 % \newcommand{\etoile}{\includegraphics[height=0.23cm]{party-popper_1f389.png}}
 \newcommand{\etoilenorm}{$\star$}
 \newcommand{\etoile}{\Large{$\star$}}
@@ -388,6 +390,7 @@
 
     \vspace*{10pt}
     \hfill{}
+    \thinkingface{}
     \textbf{What if we could dynamically use the (most) empty channels?}
 \end{frameO}
 
@@ -1311,7 +1314,8 @@
     \begin{center}
         \movie{\includegraphics[width=0.7\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
-    {\footnotesize \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
+    \hfill{}
+    {\footnotesize Ref: \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
 \end{frameO}
 
 
@@ -1349,7 +1353,7 @@
     \textcolor{orange}{We can study theoretically two more specific models, in two directions}
     \begin{itemize}
         \item multi-player bandits: devices are always activated\\
-            $p=1$ $\implies$ $D = M \leq \frac{K}{p} = K$)
+            ie. $p=1$ $\implies$ $D = M \leq \frac{K}{p} = K$
         \item non-stationary bandits
     \end{itemize}
     \hfill{}
@@ -1560,8 +1564,8 @@
             A third model, studied by a paper following our work
 
             \item
-            First check if collision, then receive reward
-            {\small \alert{(unrealistic from cognitive radio)}}
+            First check if collision, then receive reward\newline
+            \alert{(unrealistic from cognitive radio)}
         \end{itemize}
     \end{colorblock}
 
@@ -1660,28 +1664,28 @@
 
     \begin{center}
         \begin{tabular}{ m{2.7cm} | c | c | c | c | m{3cm} }
-            \textbf{Algorithm} & \textbf{Ref} & \textbf{Regret bound}
-            & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{gray}{\etoilenorm{} is worst}}}
+            \textbf{Algorithm} & \textbf{Ref.} & \textbf{Regret bound}
+            & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{orange}{\etoilenorm{}} \textcolor{gray}{is worst}}}
             & \parbox[c]{1.5cm}{\textbf{Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
             & \textbf{Parameters} \\
             \hline
-            \textcolor{deeppurple}{Centralized multiple-play klUCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & {just $M$ but \newline \textcolor{deeppurple}{in another model!} } \\
+            \textcolor{deeppurple}{Centralized multiple-play klUCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {just $M$ but \newline \textcolor{deeppurple}{in another model!} } \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $\textcolor{red}{M^3 \mathbf{C}_2} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & just $M$ \\
+            $\rho^{\text{rand}}$ UCB & \textcolor{gray}{[2]} & $\textcolor{red}{M^3 \mathbf{C}_2} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
             \hline
-            \textsc{MEGA} & \textcolor{gray}{[3]} & $\mathbf{C}_3 \textcolor{red}{T^{3/4}}$ & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize 4 params, \newline \textcolor{red}{\emph{impossible to tune}} } \\
+            \textsc{MEGA} & \textcolor{gray}{[3]} & $\mathbf{C}_3 \textcolor{red}{T^{3/4}}$ & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {\footnotesize 4 params, \newline \textcolor{red}{\emph{impossible to tune}} } \\
             \hline
-            Musical Chair & \textcolor{gray}{[4]} & $\textcolor{red}{{2M \choose M} \mathbf{C}_4} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize 1 parameter $T_0$ \newline \textcolor{red}{\emph{hard to tune}} } \\
+            Musical Chair & \textcolor{gray}{[4]} & $\textcolor{red}{{2M \choose M} \mathbf{C}_4} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {\footnotesize 1 parameter $T_0$ \newline \textcolor{red}{\emph{hard to tune}} } \\
             \hline
-            Selfish UCB & \textcolor{gray}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
+            \textcolor{orange}{Selfish UCB} & \textcolor{orange}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{orange}{\small \textbf{MCTopM klUCB}} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & just $M$ \\
+            \textcolor{orange}{\small \textbf{MCTopM klUCB}} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
             \hline
-            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}}} & \textbf{none!}
+            \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!}
             % \\
             %  & & & \textcolor{gray}{(\etoile{}\etoile{}\etoile{}\etoile{} is better)} & \textcolor{gray}{(\tgv{}\tgv{}\tgv{}\tgv{}\tgv{} is better)} &
         \end{tabular}
@@ -1704,7 +1708,7 @@
             [3] \textcolor{gray}{[Avner \& Mannor, 15]}\newline
             \hspace*{10pt}
             [4] \textcolor{gray}{[Rosenski et al. 15]}
-            [5] \textcolor{gray}{[Bonnefoi et al. 17]}
+            [5] \textcolor{orange}{[Bonnefoi et al. 17]}
             [6] \textcolor{orange}{[Besson \& Kaufmann, 18]}
             [7] \textcolor{gray}{[Boursier et al. 19]}
     \end{small}
@@ -1845,14 +1849,14 @@
     \vspace*{1.5cm}
 
     \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
-        \textbf{Algorithm} & \textbf{Ref} & \textbf{Regret bound}
-        & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{gray}{\etoilenorm{} is worst}}}
+        \textbf{Algorithm} & \textbf{Ref.} & \textbf{Regret bound}
+        & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{orange}{\etoilenorm{}} \textcolor{gray}{is worst}}}
         & \parbox[c]{1.5cm}{\textbf{Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
         & \textbf{Parameters} \\
         \hline
         Naive UCB & \textcolor{gray}{[1]} & \textcolor{red}{$T$} \emph{in worst case} & {\textcolor{orange}{\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
         \hline
-        \textcolor{deeppurple}{Oracle-Restart UCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize the break-points \newline  \textcolor{deeppurple}{unrealistic oracle!}} \\
+        \textcolor{deeppurple}{Oracle-Restart UCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C}} \Upsilon_T \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}\tgv{}}} & {\footnotesize the break-points \newline  \textcolor{deeppurple}{(unrealistic oracle!)}} \\
         \hline
         Discounted UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2} \sqrt{T \Upsilon_T} \textcolor{red}{\log(T)}$ & {\textcolor{orange}{\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & $T$ and $\Upsilon_T$ \\
         Sliding-Window UCB & \textcolor{gray}{[2]} & $\textcolor{red}{\mathbf{C}_2'} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}}}  & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}\tgv{}}} & $T$ and $\Upsilon_T$ \\
@@ -2059,6 +2063,51 @@
 \end{frameO}
 
 
+\begin{frameO}[Conclusion]
+
+    \begin{center}
+        \begin{huge}
+            \textbf{Thanks for your attention!}
+        \end{huge}
+    \end{center}
+
+    \vspace*{10pt}
+
+    \begin{center}
+        \begin{huge}
+            Questions \& Discussion?
+        \end{huge}
+    \end{center}
+
+    % \vspace*{10pt}
+    % \pause
+
+    % % FIXME pour la soutenance
+    % \begin{center}
+    %     \begin{huge}
+    %         % FIXME pour la fausse soutenance à Lille
+    %         \textcolor{darkgreen}{On se retrouve à 14h pour le pot (cafet Inria bât. A) !}
+    %         % FIXME pour la vraie soutenance à Rennes
+    %         \textcolor{darkgreen}{On se retrouve à 14h pour le pot (cafet 1er étage) !}
+    %     \end{huge}
+    % \end{center}
+
+\end{frameO}
+
+
+% FIXME?
+\appendix{}
+
+
+\begin{frameTI}
+    \begin{center}
+        \color{white} \Huge \textsc{References and publications}
+
+    \end{center}
+    \vspace*{-4pt}
+\end{frameTI}
+
+
 \begin{frameO}[Where to know more: about bandits \hfill{} ($1/3$)]
 
     Check out the
@@ -2139,34 +2188,32 @@
 \end{frameO}
 
 
-\begin{frameO}[Conclusion]
+\begin{frameO}[Main references]
 
-    \begin{center}
-        \begin{huge}
-            \textbf{Thanks for your attention!}
-        \end{huge}
-    \end{center}
+    \begin{itemize}
+        \item My PhD thesis (Lilian Besson)\\
+              \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{``Multi-players Bandit Algorithms for Internet of Things Networks''}}\\
+              $\hookrightarrow$ Online at \href{https://perso.crans.org/besson/phd/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/}}}\\
+              $\hookrightarrow$ Open-source at \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{\texttt{GitHub.com/Naereen/phd-thesis/}}}
 
-    \vspace*{10pt}
+              \vspace*{10pt}
 
-    \begin{center}
-        \begin{huge}
-            Questions \& Discussion?
-        \end{huge}
-    \end{center}
+        \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
+              $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
 
-    % \vspace*{10pt}
-    % \pause
+              \vspace*{10pt}
 
-    % % FIXME pour la soutenance
-    % \begin{center}
-    %     \begin{huge}
-    %         % FIXME pour la fausse soutenance à Lille
-    %         \textcolor{darkgreen}{On se retrouve à 14h pour le pot (cafet Inria bât. A) !}
-    %         % FIXME pour la vraie soutenance à Rennes
-    %         \textcolor{darkgreen}{On se retrouve à 14h pour le pot (cafet 1er étage) !}
-    %     \end{huge}
-    % \end{center}
+        \item \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{``The Bandit Book''}},
+              by Tor Lattimore and Csaba Szepesvari\\
+              $\hookrightarrow$ \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
+
+              \vspace*{10pt}
+
+        \item \href{https://arxiv.org/abs/1904.07272}{\textcolor{blue}{``Introduction to Multi-Armed Bandits''}},
+              by Alex Slivkins\\
+              $\hookrightarrow$ \href{https://arxiv.org/abs/1904.07272}{{\textcolor{blue}{\texttt{arXiv.org/abs/1904.07272}}}}
+
+    \end{itemize}
 
 \end{frameO}
 
@@ -2203,44 +2250,6 @@
 %     \end{alertblock}
 
 % \end{frameO}
-
-
-\begin{frameTI}
-    \begin{center}
-        \color{white} \Huge \textsc{References and publications}
-
-    \end{center}
-    \vspace*{-4pt}
-\end{frameTI}
-
-\begin{frameO}[Main references]
-
-    \begin{itemize}
-        \item My PhD thesis (Lilian Besson)\\
-              \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{``Multi-players Bandit Algorithms for Internet of Things Networks''}}\\
-              $\hookrightarrow$ Online at \href{https://perso.crans.org/besson/phd/}{\textcolor{blue}{\texttt{perso.crans.org/besson/phd/}}}\\
-              $\hookrightarrow$ Open-source at \href{https://github.com/Naereen/phd-thesis/}{\textcolor{blue}{\texttt{GitHub.com/Naereen/phd-thesis/}}}
-
-              \vspace*{10pt}
-
-        \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
-              $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
-
-              \vspace*{10pt}
-
-        \item \href{https://tor-lattimore.com/downloads/book/book.pdf}{\textcolor{blue}{``The Bandit Book''}},
-              by Tor Lattimore and Csaba Szepesvari\\
-              $\hookrightarrow$ \href{https://tor-lattimore.com/downloads/book/book.pdf}{{\textcolor{blue}{\texttt{tor-lattimore.com/downloads/book/book.pdf}}}}
-
-              \vspace*{10pt}
-
-        \item \href{https://arxiv.org/abs/1904.07272}{\textcolor{blue}{``Introduction to Multi-Armed Bandits''}},
-              by Alex Slivkins\\
-              $\hookrightarrow$ \href{https://arxiv.org/abs/1904.07272}{{\textcolor{blue}{\texttt{arXiv.org/abs/1904.07272}}}}
-
-    \end{itemize}
-
-\end{frameO}
 
 
 \begin{frame}[c]
