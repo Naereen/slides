@@ -174,8 +174,9 @@
     \begin{itemize}
         % \tightlist
         \item
-              Simple analysis, in term of \textbf{successful transmission
-                  probability} (for every message from dynamic devices) :
+            Simple analysis, in term of \textbf{successful transmission
+            probability}\newline
+            (for every message from dynamic devices) :
     \end{itemize}
 
     \begin{small} \begin{align*}
@@ -316,7 +317,7 @@
 
 \begin{frameO}[$3)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
 
-    \only<1>{
+    \only<1-2>{
         A dynamic device keeps \(\tau\) number of sent packets, \(N_k(\tau)\)
         selections of channel \(k\), \(X_k(\tau)\) successful transmission in
         channel \(k\).
@@ -326,11 +327,12 @@
         \def\labelenumi{\arabic{enumi}.}
 
         % \tightlist
-        \only<1>{
+        \only<1-2>{
             \item
               For the first \(K\) activations (\(\tau=1,\dots,K\)), try each channel
               \emph{once}.
         }
+        \pause
         \item
               Then for the next steps \(t\) :
 
@@ -338,7 +340,7 @@
                   % \tightlist
                   \item
                         With probability $p$, the device is active ($\tau := \tau + 1$)
-                \only<1>{
+                \only<1-2>{
                   \item
                         Compute the index
                         \(\mathrm{UCB}_k(\tau) := \overbrace{\frac{X_k(\tau)}{N_k(\tau)}}^{\text{Mean}\; \widehat{\mu_k}(\tau)} + \overbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}^{\text{Upper Confidence Bound}}\)
@@ -348,12 +350,15 @@
                   \item
                         Update \(N_k(\tau+1)\) and \(X_k(\tau+1)\),
                 }
+                \only<3>{
+                    \item \dots{}
+                }
                   \item
                         Wait for next message\dots \hfill{} (mean waiting time $\simeq 1/p$)
               \end{itemize}
     \end{enumerate}
 
-    \only<2>{
+    \only<3>{
     \begin{colorblock}{Random activation?}
         \begin{itemize}
             \item
@@ -363,7 +368,7 @@
             \item
                   following its Bernoulli activation pattern
         \end{itemize}
-        \alert{$\implies$ the random activations make the model intractable in theory!}
+        \alert{$\implies$ all the random activations make the model intractable in theory!}
     \end{colorblock}
     }
 

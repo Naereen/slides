@@ -521,7 +521,7 @@
         \begin{tikzpicture}[>=latex',line join=bevel,scale=2.25]
             %
             \node[align=center] (introduction) at (0,3.25) [rectangle,draw,fill=blue!15] {\textbf{Chapter~1}\\Introduction};
-            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=gray!10,text=gray] {\textbf{Chapter~2}\\The Stochastic\\Multi-Armed Bandit models};
+            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~2\\The Stochastic\\Multi-Armed Bandit models};
             \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
             \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~4\\Online selection\\of the best algorithm};
             \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!10] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
@@ -558,7 +558,7 @@
     \begin{itemize}
         \setlength\itemsep{1em}
         \item \textcolor{gray}{Spectrum issues in wireless networks}
-        \item \textcolor{gray}{\sout{Multi-armed Bandit}}
+        \item \textcolor{gray}{\sout{The Stochastic Multi-Armed Bandit models}}
         % \begin{itemize}
         %     \item \textcolor{gray}{applying bandit to Opportunistic Spectrum Access (OSA)}
         %     \item \textcolor{gray}{performance measure (regret) and first strategies}
@@ -569,9 +569,11 @@
         \begin{itemize}
             \item \textcolor{gray}{reference strategies}
             \item \textcolor{gray}{selfish applications of UCB algorithms}
+            \item \textcolor{gray}{numerical simulations and illustrations}
+            \item \textcolor{gray}{realistic implementation on real radio hardware}
             \item \textcolor{gray}{\emph{intractable} model in theory\dots}
         \end{itemize}
-        \item \emph{Two tractable models}, extending the stationary single-player bandit model
+        \item \emph{Two tractable models}, extending the classical bandit model
         \begin{itemize}
             \item \textcolor{gray}{multi-player bandits in stationary settings}
             \item \textcolor{gray}{single-player bandits in piece-wise stationary settings}
@@ -1963,17 +1965,27 @@
 
     % \begin{colorblock}{What we showed}
         \large
+        \textbf{Part I:}
         \begin{itemize}[<+->]
-            \setlength\itemsep{10pt}
-            \item a simple model of IoT network, with decentralized learning embedded in the autonomous IoT devices,
-            \item numerical simulations proving the quality of the proposed solution,
-            \item a realistic implementation on radio hardware,
+            \setlength\itemsep{6pt}
+            \item A simple model of IoT network, where autonomous IoT devices can embed decentralized learning (``selfish MAB learning''),
+            \item numerical simulations proving the quality of our solution,
+            \item a realistic implementation on radio hardware.
             % \item my Python library SMPyBandits.
-            \item theoretical results in two simplified models:
+            % \vspace*{10pt}
+        \end{itemize}
+
+        % \pause
+        \vspace*{10pt}
+        \textbf{Part II:}
+        \begin{itemize}[<+->]
+            \setlength\itemsep{6pt}
+        \item Theoretical results in two simplified models:
             \begin{itemize}
-                \item for multi-player bandits with $M \leq K$ players,
-                \item for piece-wise stationary bandits.
+                \item for multi-player bandits, with $M \leq K$ players,
+                \item for piece-wise stationary bandits, with $\Upsilon_T = o(T)$ break-points,
             \end{itemize}
+            \item and comparisons of both numerical and theoretical results, showing our proposed algorithms achieve state-of-the-art performance.
         \end{itemize}
     % \end{colorblock}
 
@@ -2047,16 +2059,16 @@
             \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
                 (cascading, delay feedback, combinatorial, contextual etc)
             \item unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
-                {\small $\hookrightarrow$ in progress: already one paper (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
+                \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
             \item test our idea and our proposed algorithms in real-world environments\\
-                {\small $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy}
+                \textcolor{gray}{\small $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
-            \item the ``Graal'' goal:
-                {\small try to also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots
+            \item study the ``Graal'' goal:
+                {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
                 % \hfill{}
                 \alert{Much harder!} search space is VERY LARGE!}
             \vspace*{10pt}
-            \item try more to study the ``selfish model'', for large $M$ nb of devices and small $p$ activation probabilities\dots?
+            \item try to study the ``selfish model'' from other perspectives (game theory\dots{}?), for large $M$ nb of devices and small $p$ activation probabilities\dots?
         \end{itemize}
     % \end{lightblock}
 
