@@ -126,9 +126,10 @@
         \begin{itemize}
             % \tightlist
             \item
-                Each \textbf{dynamic device decides} the channel to use to send every packet.
+                \textbf{Dynamic device decide} the channel to use to send their packets.
             \item
-                It has memory and computational capacity to implement a basic decision algorithm.
+                They all have memory and computational capacity to implement a basic decision algorithm.
+                % on a small CPU embedded on the devices.
         \end{itemize}
 
     \end{colorblock}
@@ -144,7 +145,7 @@
                   received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
                       Making Problem}.
             \item
-                  \emph{Solution ?} \textbf{Multi-Armed Bandit algorithms},
+                  \emph{A possible solution ?} \textbf{Multi-Armed Bandit algorithms},
                   \textbf{decentralized} and used \textbf{independently} by each device.
         \end{itemize}
 
@@ -307,7 +308,7 @@
     \begin{colorblock}{Reinforcement Learning interpretation}
 
         Maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
-        \[\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{horizon}} r_{A(\tau)}.\]
+        \[\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}.\]
 
     \end{colorblock}
 
@@ -358,6 +359,9 @@
               \end{itemize}
     \end{enumerate}
 
+    \only<1-2>{
+        \hfill{}\textcolor{gray}{Ref: [Auer et al, 2002], [Lattimore and Szepesvári, 2019]}
+    }
     \only<3>{
     \begin{colorblock}{Random activation?}
         \begin{itemize}
@@ -368,7 +372,10 @@
             \item
                   following its Bernoulli activation pattern
         \end{itemize}
-        \alert{$\implies$ all the random activations make the model intractable in theory!}
+        \vspace*{10pt}
+        {\large
+            \alert{$\implies$ these random activations make the model intractable in theory!}
+        }
     \end{colorblock}
     }
 
