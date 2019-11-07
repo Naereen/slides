@@ -1,15 +1,15 @@
 \begin{frameO}[We want]
 
-    A \emph{lot} of IoT devices want to access to a gateway (base station).
+    A \emph{lot} of IoT devices want to access to \emph{one} gateway (base station).
 
     \begin{itemize}
         % \tightlist
         \item
-              Insert them in a \textbf{crowded wireless network}.
+              Insert them in an already \textbf{crowded wireless network}.
         \item
               With a protocol \textbf{slotted in time and frequency}.
         \item
-              Each device has a \textbf{low duty cycle} (a few messages per day).
+              Each device has a \textbf{low duty cycle} (e.g., few messages per day).
     \end{itemize}
 
     \pause
@@ -73,10 +73,10 @@
     \begin{itemize}
         % \tightlist
         \item
-              \(D\) \textbf{dynamic} devices try to access the network
+              \includegraphics[height=0.37cm]{dynamic-devices.png} \(D\) \textbf{dynamic} devices trying to access the network
               \emph{independently}
         \item
-              \(S=S_1+\dots+S_{K}\) \textbf{static} devices occupy the network :
+              \includegraphics[height=0.37cm]{static-devices.png} \(S=S_1+\dots+S_{K}\) \textbf{static} devices occupying the network :
               \newline
               \(S_1,\dots,S_{K}\) in each channel \hfill{} (\emph{unknown}).
     \end{itemize}
@@ -109,7 +109,7 @@
         \begin{itemize}
             % \tightlist
             \item
-                  Each static device uses only one channel
+                  \includegraphics[height=0.37cm]{static-devices.png} Each static device uses only one channel
             \item
                   Their repartition is fixed in time \hfill{} $\implies$ \alert{stationary} hypothesis!
         \end{itemize}
@@ -400,10 +400,9 @@
                   Horizon \(T = 10^5\) total time slots (avg. \(\simeq 100\) messages \(/\)
                   device),
             \item
-                  The proportion of dynamic devices \(D/(S+D)\) varies,
+                  The proportion of \includegraphics[height=0.37cm]{dynamic-devices.png} dynamic devices \(D/(S+D)\) varies,
             \item
-                  Various settings for \((S_1,\dots,S_{K})\) static devices
-                  repartition.
+                  Various settings for \includegraphics[height=0.37cm]{static-devices.png}  \((S_1,\dots,S_{K})\) static devices repartition.
         \end{itemize}
 
     \end{colorblock}
