@@ -900,7 +900,7 @@
 
 %     \textbf{Opportunistic Spectrum Access}
 %     \textcolor{gray}{
-%         % [Zhao et al. 2010]
+%         % [Liu \& Zhao, 2010]
 %         % [Anandkumar et al. 2011]
 %         [Jouini, Moy et al. 2010]
 %     }
@@ -1345,26 +1345,26 @@
         \item
             Only with a stationary hypothesis on the background traffic\dots
         \item
-            in average at least $p \times D$ dynamic devices, using $K$ channels\\
-            $\implies$ $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
+            In average at least $p \times D$ dynamic devices, using $K$ channels\\
+            $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
         \item
-            \textbf{Intractable model} in theory
+            Random activation times make the model \textbf{intractable} in theory
     \end{itemize}
 
     \vfill{}
     \textcolor{orange}{We can study theoretically two more specific models, in two directions}
     \begin{itemize}
-        \item multi-player bandits: devices are always activated\\
+        \item \textbf{multi-player bandits}: devices are always activated\\
             ie. $p=1$ $\implies$ $D = M \leq \frac{K}{p} = K$
-        \item non-stationary bandits
+        \item \textbf{non-stationary bandits}
     \end{itemize}
     \hfill{}
-    $\implies$ Both are tractable models!
+    $\implies$ Both are \textbf{tractable models} !
 
 \end{frameO}
 
 
-\section{Extensions with other Bandit Models}
+\section{Theoretical analysis of two relaxed models}
 
 \begin{frameTI}
     \begin{center}
@@ -1372,7 +1372,7 @@
     \end{center}
     \vspace*{10pt}
     \begin{center}
-        {\textcolor{white} {\Huge \textsc{Extensions with other Bandit Models} }}
+        {\textcolor{white} {\Huge \textsc{Theoretical analysis of two relaxed models} }}
     \end{center}
     % \vspace*{-4pt}
     \vfill{}
@@ -1387,7 +1387,7 @@
     \begin{changemargin}{-0.5cm}{-0.5cm}
         \begin{center}
             \vspace{-0.3in}
-            \textbf{\huge Extensions with other Bandit Models}
+            \textbf{\huge Theoretical analysis of two relaxed models}
             \vspace{1.5cm}
 
             \Large \textbf{Many different extensions}	\\[0.5cm]
@@ -1438,15 +1438,16 @@
                   \item \textcolor{gray}{fixed confidence setting}
                   \item \textcolor{gray}{PAC (probably approximately correct) algorithms}
               \end{itemize}
-        \item bandits with (differential) privacy constraints
-        \item for some applications (content recommendation)
+        \item for some applications (content recommendation etc)
               \begin{itemize}
                   \item \textcolor{gray}{contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)}
                   \item \textcolor{gray}{cascading bandits}
                   \item \textcolor{gray}{delayed feedback bandits}
+                  \item \textcolor{gray}{bandits with (differential) privacy constraints}
               \end{itemize}
         \item structured bandits (low-rank, many-armed, Lipschitz etc)
         \item $\mathcal{X}$-armed, continuous-armed bandits
+        \item \textcolor{gray}{and many more}
     \end{itemize}
 
 \end{frameO}
@@ -1457,14 +1458,14 @@
     \begin{changemargin}{-0.5cm}{-0.5cm}
         \begin{center}
             \vspace{-0.3in}
-            \textbf{\huge Other Bandit Models}
+            \textbf{\huge Theoretical analysis of two relaxed models}
             \vspace{1.5cm}
 
             \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
             \textbf{\Large Multi-player bandits}\\
             % \hfill{}
-            \tiny{\textcolor{gray}{Ref: Chapter 6 of my thesis, and [Besson \& Kaufmann, 2018].}}
+            \small{\textcolor{gray}{Ref: Chapter 6 of my thesis, and [Besson \& Kaufmann, 2018].}}
             \\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}}
         \end{center}
@@ -1485,14 +1486,14 @@
 
     At round $t$:
     \begin{itemize}
-        \item player $m$ selects arm $A_{m,t}$ \slotmachine{} ; then \textit{observes} $X_{A_{m,t},t}$
+        \item player $m$ selects arm $A_{m,t}$ \slotmachine{} ; then \textit{observes} $r_{A_{m,t},t}$
         \item and receives the reward
     \end{itemize}
 
     \vspace{-0.2cm}
 
-    \[\red X_{m,t} = \left\{ \begin{array}{cl}
-            X_{A_{m,t},t} & \text{if no other player chose the same arm} \\
+    \[\red r_{m,t} = \left\{ \begin{array}{cl}
+            r_{A_{m,t},t} & \text{if no other player chose the same arm} \\
             0             & \text{else (= COLLISION)}
         \end{array}\right.\]
 
@@ -1501,7 +1502,7 @@
     \textbf{Goal:}
 
     \begin{itemize}
-        \item maximize centralized rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T X_{m,t}$
+        \item maximize centralized (sum) rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T r_{m,t}$
         \item \dots \orange without communication \black between players
         \item trade off : exploration / exploitation / \alert{and collisions !}
     \end{itemize}
@@ -1513,11 +1514,11 @@
 \begin{frameO}[M-P bandits for Cognitive Radios: previous model]
 
     \begin{colorblock}{``Listen before talk''
-        \hfill{} {\tiny \textcolor{lightgray}{[Zhao et al. 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
+        \hfill{} {\tiny \textcolor{lightgray}{[Liu \& Zhao, 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
     }
         \begin{itemize}
             \item
-            \underline{\orange Opportunistic Spectrum Access}: (OSA)
+            Good model for \underline{\orange Opportunistic Spectrum Access} (OSA)
 
             \item
             First do sensing, attempt of transmission if no Primary User (PU), possible collisions with other Secondary Users (SU).
@@ -1526,9 +1527,9 @@
             Feedback model:
             \begin{itemize}
                 \item
-                observe first $X_{A_{m,t}, t}$,
+                observe first $r_{A_{m,t}, t}$,
                 \item
-                if $X_{A_{m,t}, t} = 1$, transmit and then observe the joint $X_{m,t}$,
+                if $r_{A_{m,t}, t} = 1$, transmit and then observe the joint $r_{m,t}$,
                 \item
                 else don't transmit and don't observe a reward.
             \end{itemize}
@@ -1544,19 +1545,21 @@
     }
         \begin{itemize}
             \item
-            \underline{\orange Internet of Things}: (IoT)
+            Good model for \underline{\orange Internet of Things} (IoT)
 
             \item
             Do not do any sensing, just transmit, and wait for an acknowledgment before any next message.
 
             \item
-            Feedback model: observe only the joint information $X_{m, t}$.\\
+            Feedback model: observe only the joint information $r_{m, t}$.\\
             No collision if $\neq 0$, but cannot know if collision or zero reward if $= 0$?
 
             \item
             \textcolor{gray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
         \end{itemize}
     \end{colorblock}
+
+    \pause
 
     \begin{colorblock}{``Observe collision then talk?''
         \hfill{} \textcolor{lightgray}{[Boursier et al, 2019]}
@@ -1577,21 +1580,23 @@
 \begin{frameO}[Multi-players bandits: algorithms]
 
     \only<1-2>{
-        \textbf{Idea:} combine a good \textit{bandit algorithm} with an \emph{orthogonalization strategy} (collision avoidance protocol)
+        \textbf{Idea:} combine a good \textit{bandit algorithm} (usually index policy)\newline
+        with an \emph{orthogonalization strategy} (collision avoidance protocol)
 
         \vspace{0.2cm}
     }
 
     \only<1>{
-        \begin{colorblock}{Old idea: UCB1 + $\rho^{\text{rand}}$. At round $t$ each player $m\in\{1,\dots,M\}$}
+        \begin{colorblock}{Old idea: UCB1 index + $\rho^{\text{rand}}$ rule}
             \begin{itemize}
+                \item At round $t$, each player $m\in\{1,\dots,M\}$
                 \item has a stored rank $R_{m,t} \in \{1,\dots,M\}$
                 \item selects the arm that has \red the $R_{m,t}$-largest UCB\black
                 \item if a collision occurs, draws a new rank $R_{m,t+1} \sim \cU(\{1,\dots,M\})$
-                \item any index policy may be used in place of UCB1
+                \item (any index policy may be used in place of UCB1)
                 \item nice $\cR(\cA, T) = \mathcal{O}(M^2 K \log(T))$ regret bound\dots\\
                     but \alert{their proof was wrong!}
-                \item \textbf{Early references}: \color{gray} [Liu and Zhao, 10] [Anandkumar et al., 11]\black
+                \item \textbf{Early references}: \color{gray} [Liu \& Zhao, 10] [Anandkumar et al., 11]\black
             \end{itemize}
         \end{colorblock}
     }
@@ -1619,7 +1624,7 @@
                 $\Longrightarrow$ but it is possible to estimate it quickly, on the run
             \item Our algorithm does not handle an evolving number of devices\\
                 (entering/leaving the network)
-            \item Is it a \textit{fair} orthogonalization rule? (yes!)
+            \item Is it a \textit{fair} orthogonalization rule? (yes! in average)
             \vspace*{10pt}
             \item Could players use the collision indicators to communicate? (yes!)\\
             \end{itemize}
@@ -1636,7 +1641,7 @@
     \begin{figure}
         \centering
         \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-        \caption{\footnotesize{For $K=M$ objects, our strategy (MCTopM) achieves \textbf{constant} regret!}}
+        \footnotesize{For $K=M$ objects, our strategy (MCTopM) achieves \textbf{constant} regret!}
     \end{figure}
 
 \end{frameO}
@@ -1646,7 +1651,7 @@
     \begin{figure}
         \centering
         \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-        \caption{\small{For example for $M=6$ objects, our strategy (MCTopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}}
+        \small{For example for $M=6$ objects, our strategy (MCTopM) largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}
     \end{figure}
 
 \end{frameO}
@@ -1722,7 +1727,7 @@
     \begin{changemargin}{-0.5cm}{-0.5cm}
         \begin{center}
             \vspace{-0.3in}
-            \textbf{\huge Other Bandit Models}
+            \textbf{\huge Theoretical analysis of two relaxed models}
             \vspace{1.5cm}
 
             \textcolor{darkgray}{\Large \textbf{Many different extensions}\\[0.5cm]}
@@ -1730,7 +1735,7 @@
             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
             \textbf{\Large Piece-wise stationary bandits}\\
             % \hfill{}
-            \tiny{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson \& Kaufmann, 2019].}}
+            \small{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson \& Kaufmann, 2019].}}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1741,18 +1746,18 @@
 \begin{frameO}[Piece-wise stationary bandits]
 
     \begin{colorblock}{Stationary MAB problems}
-        Arm $a$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
-        \[ \forall t, r_a(t) \overset{\text{iid}}{\sim} \nu_a = \mathcal{B}(\textcolor{blue}{\mu_a}). \]
+        Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
+        \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\textcolor{blue}{\mu_k}). \]
     \end{colorblock}
 
     \pause
     \begin{alertblock}{Non stationary MAB problems?}
         \alert{(possibly) different distributions} for any time step !
-        \[ \forall t, r_a(t) \overset{\text{iid}}{\sim} \nu_a\alert{(t)} = \mathcal{B}(\mu_a\alert{(t)}). \]
+        \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)}). \]
     \end{alertblock}
 
     $\implies$ harder problem!
-    And very hard if $\mu_a(t)$ can change at any step!
+    And very hard if $\mu_k(t)$ can change at any step!
 
     \pause
     \begin{colorblock}{\textbf{Piece-wise stationary} problems!}
@@ -1975,12 +1980,12 @@
             % \vspace*{10pt}
         \end{itemize}
 
-        % \pause
         \vspace*{10pt}
+        \pause
         \textbf{Part II:}
         \begin{itemize}[<+->]
             \setlength\itemsep{6pt}
-        \item Theoretical results in two simplified models:
+        \item Theoretical results in two simplified (tractable) models:
             \begin{itemize}
                 \item for multi-player bandits, with $M \leq K$ players,
                 \item for piece-wise stationary bandits, with $\Upsilon_T = o(T)$ break-points,
@@ -2059,16 +2064,19 @@
             \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
                 (cascading, delay feedback, combinatorial, contextual etc)
             \item unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
-                \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
-            \item test our idea and our proposed algorithms in real-world environments\\
+                \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper from last year (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
+            \item test our idea and proposed algorithms in real-world IoT environments\\
                 \textcolor{gray}{\small $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
-            \item study the ``Graal'' goal:
+            \item study the ``Graal'' goal :
                 {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
                 % \hfill{}
                 \alert{Much harder!} search space is VERY LARGE!}
             \vspace*{10pt}
-            \item try to study the ``selfish model'' from other perspectives (game theory\dots{}?), for large $M$ nb of devices and small $p$ activation probabilities\dots?
+            \item
+            try to study the ``selfish model'' from other perspectives,
+            % (game theory\dots{}?),
+            for large $M$ nb of devices and small $p$ activation probabilities\dots?
         \end{itemize}
     % \end{lightblock}
 
@@ -2083,7 +2091,7 @@
         \end{huge}
     \end{center}
 
-    \vspace*{10pt}
+    \vspace*{25pt}
 
     \begin{center}
         \begin{huge}

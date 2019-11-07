@@ -73,12 +73,11 @@
     \begin{itemize}
         % \tightlist
         \item
-              \includegraphics[height=0.37cm]{dynamic-devices.png} \(D\) \textbf{dynamic} devices trying to access the network
-              \emph{independently}
+              \(D\) \textbf{dynamic} devices \includegraphics[height=0.37cm]{dynamic-devices.png} trying to access the network \emph{independently}
         \item
-              \includegraphics[height=0.37cm]{static-devices.png} \(S=S_1+\dots+S_{K}\) \textbf{static} devices occupying the network :
+              \(S=S_1+\dots+S_{K}\) \textbf{static} devices \includegraphics[height=0.37cm]{static-devices.png} occupying the network :
               \newline
-              \(S_1,\dots,S_{K}\) in each channel \hfill{} (\emph{unknown}).
+              \(S_1,\dots,S_{K}\) in each channel \(\{1,\dots,K\}\) \hfill{} (\emph{unknown}).
     \end{itemize}
 
 \end{frameO}
@@ -104,17 +103,18 @@
 
     \vspace*{20pt}
 
-    \begin{lightblock}{Background ambiant traffic}
+    \begin{lightblock}{Background \textbf{stationary} ambiant traffic}
 
         \begin{itemize}
             % \tightlist
             \item
-                  \includegraphics[height=0.37cm]{static-devices.png} Each static device uses only one channel
+                  Each static device \includegraphics[height=0.37cm]{static-devices.png} uses only one channel
             \item
-                  Their repartition is fixed in time \hfill{} $\implies$ \alert{stationary} hypothesis!
+                  Their repartition is fixed in time
+                  % \hfill{} $\implies$ \alert{stationary} hypothesis!
         \end{itemize}
 
-        \(\implies\) This ambiant traffic \emph{is disturbing} the dynamic devices!
+        \(\implies\) This (stationary) ambiant traffic \emph{is disturbing} the dynamic devices!
     \end{lightblock}
 
 \end{frameO}
@@ -303,14 +303,17 @@
             \(r_{A(\tau)} = 0\) \hfill{} (failed transmission!)
     \end{itemize}
 
-    \vfill{}
+    \pause
 
     \begin{colorblock}{Reinforcement Learning interpretation}
-
-        Maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
-        \[\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}.\]
-
+        Maximize transmission rate \(\equiv\) \textbf{max cumulated rewards}
+        \(\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}.\)
     \end{colorblock}
+
+    \begin{lightblock}{It is not a \emph{stochastic} Multi-Armed Bandit problem}
+        But the \textbf{environment is not stochastic or stationary}\newline
+        (if only one device is activated, \(\mathbb{E}(r_k(\tau) = p S_k)\) in average)
+    \end{lightblock}
 
 \end{frameO}
 
@@ -363,18 +366,17 @@
         \hfill{}\textcolor{gray}{Ref: [Auer et al, 2002], [Lattimore and Szepesvári, 2019]}
     }
     \only<3>{
-    \begin{colorblock}{Random activation?}
+    \begin{colorblock}{Random activation times $\tau$ ?}
         \begin{itemize}
             \item
                   The times $\tau$ are \textbf{not} the global time indexes $t$
             \item
-                  each object transmits only with probability $p$ at each time $t$
-            \item
-                  following its Bernoulli activation pattern
+                  each object transmits only with probability $p$ at each time $t$\newline
+                  (following its Bernoulli activation pattern)
         \end{itemize}
         \vspace*{10pt}
         {\large
-            \alert{$\implies$ these random activations make the model intractable in theory!}
+            \alert{$\implies$ these random activations make the model \textbf{intractable} in theory!}
         }
     \end{colorblock}
     }
@@ -400,16 +402,16 @@
             \item
                   \(K = 10\) channels,
             \item
-                  \(S + D = 10000\) devices in total,
+                  \(S + D = 10000\) devices \includegraphics[height=0.37cm]{dynamic-devices.png} + \includegraphics[height=0.37cm]{static-devices.png} in total,
             \item
                   \(p = 10^{-3}\) probability of emission,
             \item
                   Horizon \(T = 10^5\) total time slots (avg. \(\simeq 100\) messages \(/\)
                   device),
             \item
-                  The proportion of \includegraphics[height=0.37cm]{dynamic-devices.png} dynamic devices \(D/(S+D)\) varies,
+                  The proportion of dynamic devices \(D/(S+D)\) \includegraphics[height=0.37cm]{dynamic-devices.png} varies,
             \item
-                  Various settings for \includegraphics[height=0.37cm]{static-devices.png}  \((S_1,\dots,S_{K})\) static devices repartition.
+                  Various settings for \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png} repartition.
         \end{itemize}
 
     \end{colorblock}
@@ -427,7 +429,7 @@
         \includegraphics[height=0.74\textheight]{10intelligent.eps}
 
         % \caption{
-            $10\%$ of dynamic devices. Gives $7\%$ of gain.\\
+            $10\%$ of dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}. Gives $7\%$ of gain.\\
             {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Sec.5.2}}
         % }
     \end{figure}
@@ -446,7 +448,7 @@
 
         % \caption{
             \begin{small}
-                $30\%$ of dynamic devices. Gives $3\%$ of gain but not much is possible here.
+                $30\%$ of dynamic devices \includegraphics[height=0.33cm]{dynamic-devices.png}. Gives $3\%$ of gain but not much is possible here.
             \end{small}
         % }
     \end{figure}
@@ -463,7 +465,7 @@
         \includegraphics[height=0.70\textheight]{perf_learning.eps}
 
         % \caption{
-            \emph{Almost optimal}, for any proportion of dynamic devices, \emph{after a short learning time}. Up-to $16\%$ gain over the naive approach!
+            \emph{Almost optimal}, for any proportion of dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}, \emph{after a short learning time}. Up-to $16\%$ gain over the naive approach!
         % }
     \end{figure}
 
@@ -486,7 +488,7 @@
                   Thompson sampling is more efficient than UCB
                   (as always)
             \item
-                  The dynamic devices can learn to communicate more efficiently,\\
+                  The dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} can learn to communicate more efficiently,\\
                   in any network configuration (we tried a lot more!)
         \end{itemize}
 
