@@ -295,24 +295,28 @@
         \item
             it chooses a channel \(A(\tau) \in \{1,\dots,K\}\)
             \hfill{} ($=$ arm \slotmachine)
+        \begin{itemize}
         \item
             if \texttt{Ack} (no collision) \hspace*{2pt} \(\implies\) reward
             \(r_{A(\tau)} = 1\) \hfill{} (successful transm.!)
         \item
             if collision (no \texttt{Ack}) \hspace*{2pt} \(\implies\) reward
             \(r_{A(\tau)} = 0\) \hfill{} (failed transmission!)
-    \end{itemize}
+        \end{itemize}
 
     \pause
 
-    \begin{colorblock}{Reinforcement Learning interpretation}
-        Maximize transmission rate \(\equiv\) \textbf{max cumulated rewards}
-        \(\max_{\text{algorithm}\;A} \;\; \sum_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}.\)
-    \end{colorblock}
+    %\begin{colorblock}
+    \item {Reinforcement Learning interpretation} :
+        maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
+        \(\equiv \max_{A} \;\; \sum\limits_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}\).
+    %\end{colorblock}
+
+    \end{itemize}
 
     \begin{lightblock}{It is not a \emph{stochastic} Multi-Armed Bandit problem}
         But the \textbf{environment is not stochastic or stationary}\newline
-        (if only one device is activated, \(\mathbb{E}(r_k(\tau) = p S_k)\) in average)
+        {\small (if only one device is activated at a time: average reward \(\mathbb{E}[r_k(\tau)] = p S_k\))}
     \end{lightblock}
 
 \end{frameO}
@@ -376,7 +380,7 @@
         \end{itemize}
         \vspace*{10pt}
         {\large
-            \alert{$\implies$ these random activations make the model \textbf{intractable} in theory!}
+            \alert{$\implies$ these random activations make the model \textbf{intractable} !}
         }
     \end{colorblock}
     }
@@ -400,16 +404,30 @@
                   % 
                   % \tightlist
             \item
-                  \(K = 10\) channels,
+                  \(K = 10\) channels \slotmachine,
             \item
-                  \(S + D = 10000\) devices \includegraphics[height=0.37cm]{dynamic-devices.png} + \includegraphics[height=0.37cm]{static-devices.png} in total,
+                  \(S\) \includegraphics[height=0.37cm]{static-devices.png}
+                  \(+\)
+                  \(D\) \includegraphics[height=0.37cm]{dynamic-devices.png}
+                  \(= 10000\) devices
+                  in total,
             \item
                   \(p = 10^{-3}\) probability of emission,
             \item
                   Horizon \(T = 10^5\) total time slots (avg. \(\simeq 100\) messages \(/\)
                   device),
             \item
-                  The proportion of dynamic devices \(D/(S+D)\) \includegraphics[height=0.37cm]{dynamic-devices.png} varies,
+                  The proportion of dynamic devices
+                  \(D\)
+                  \includegraphics[height=0.37cm]{dynamic-devices.png}
+                  \(/\)
+                  \((S\)
+                  \includegraphics[height=0.37cm]{static-devices.png}
+                  \(+\)
+                  \(D\)
+                  \includegraphics[height=0.37cm]{dynamic-devices.png}
+                  \()\)
+                  varies,
             \item
                   Various settings for \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png} repartition.
         \end{itemize}
@@ -430,7 +448,7 @@
 
         % \caption{
             $10\%$ of dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}. Gives $7\%$ of gain.\\
-            {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Sec.5.2}}
+            {\small \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Sec.5.2}}
         % }
     \end{figure}
 
@@ -481,15 +499,15 @@
                   % \tightlist
             \item
                   After a short learning time, MAB algorithms are almost as efficient as
-                  the oracle solution
+                  the oracle solution,
             \item
-                  Never worse than the naive solution, even at first iterations
+                  Never worse than the naive solution, even at first iterations,
             \item
                   Thompson sampling is more efficient than UCB
-                  (as always)
+                  (as always),
             \item
                   The dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} can learn to communicate more efficiently,\\
-                  in any network configuration (we tried a lot more!)
+                  in any network configuration (we tried a lot more!).
         \end{itemize}
 
     \end{colorblock}
