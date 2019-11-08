@@ -15,7 +15,7 @@ pandoctex:
 
 pandocpdf:
 	latexmk -xelatex -gg -pdf slides.tex
-	-rm -vf slides.toc slides.snm slides.out slides.nav slides.aux slides.log slides.vrb
+	-rm -vf slides.toc slides.snm slides.out slides.nav slides.aux slides.log slides.vrb slides.fls slides.fdb_latexmk
 
 open:
 	xdg-open slides.pdf &
@@ -29,7 +29,7 @@ pandoctex169:
 
 pandocpdf169:
 	latexmk -xelatex -gg -pdf slides_169.tex
-	-rm -vf slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb
+	-rm -vf slides_169.toc slides_169.snm slides_169.out slides_169.nav slides_169.aux slides_169.log slides_169.vrb slides_169.fls slides_169.fdb_latexmk
 
 open169:
 	xdg-open slides_169.pdf &

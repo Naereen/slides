@@ -1,6 +1,7 @@
 \begin{frameO}[We want]
 
-    A \emph{lot} of IoT devices want to access to \emph{one} gateway (base station).
+    A \emph{lot} of IoT devices want to access to \emph{one} gateway.
+    % (base station).
 
     \begin{itemize}
         % \tightlist
@@ -9,7 +10,7 @@
         \item
               With a protocol \textbf{slotted in time and frequency}.
         \item
-              Each device has a \textbf{low duty cycle} (e.g., few messages per day).
+              Each device has a \textbf{low duty cycle}, e.g., few messages per day.
     \end{itemize}
 
     \pause
@@ -40,7 +41,7 @@
             \begin{itemize}
                 % \tightlist
                 \item Use \textbf{learning algorithms}\newline
-                devices will learn on which frequency they should talk!
+                $\implies$ can devices learn on which frequency they should talk ?
             \end{itemize}
         \end{alertblock}
     }
@@ -51,9 +52,9 @@
 
 \subsection{Model and hypotheses}
 
-\subsubsection{Model}
+\subsubsection{A new model for IoT networks}
 
-\begin{frameO}[Model]
+\begin{frameO}[A new model for IoT networks]
 
     \begin{itemize}
         % \tightlist
@@ -93,16 +94,16 @@
         \begin{itemize}
             % \tightlist
             \item
-                  Each device has the same \emph{low} emission probability: \\
-                  each step, each device sends a packet with probability \(p\).
-                  \\
-                  \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
+                Each device has the same \emph{low} emission probability: \\
+                each step, each device sends a packet with probability \(p\).
+                %   \\
+                %   \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
         \end{itemize}
 
     \end{colorblock}
 
-    \vspace*{20pt}
-
+    \vspace*{5pt}
+    \pause
     \begin{lightblock}{Background \textbf{stationary} ambiant traffic}
 
         \begin{itemize}
@@ -117,10 +118,8 @@
         \(\implies\) This (stationary) ambiant traffic \emph{is disturbing} the dynamic devices!
     \end{lightblock}
 
-\end{frameO}
-
-\begin{frameO}[Hypotheses ($2/2$)]
-
+    \vspace*{5pt}
+    \pause
     \begin{colorblock}{Dynamic radio reconfiguration}
 
         \begin{itemize}
@@ -134,21 +133,20 @@
 
     \end{colorblock}
 
+\end{frameO}
+
+\begin{frameO}[Problem]
+
+    \begin{lightblock}{Goal}
+        \emph{minimize packet loss ratio} (\(=\) number of
+        received \texttt{Ack}) in a \emph{finite-space discrete-time Decision Making Problem}.
+    \end{lightblock}
+
     \vspace*{20pt}
 
-    \begin{lightblock}{Problem}
-
-        \begin{itemize}
-            % \tightlist
-            \item
-                  \emph{Goal} : \emph{maximize packet loss ratio} (\(=\) number of
-                  received \texttt{Ack}) in a \emph{finite-space discrete-time Decision
-                      Making Problem}.
-            \item
-                  \emph{A possible solution ?} \textbf{Multi-Armed Bandit algorithms},
-                  \textbf{decentralized} and used \textbf{independently} by each device.
-        \end{itemize}
-
+    \begin{lightblock}{A possible solution ?}
+        \textbf{Multi-Armed Bandit algorithms},
+        \textbf{decentralized} and used \textbf{independently} by each device.
     \end{lightblock}
 
 \end{frameO}
@@ -157,50 +155,50 @@
 
 \subsection{Baseline algorithms}
 
-\subsubsection{$1)$ A naive strategy : uniformly random access}
+% \subsubsection{$1)$ A naive strategy : uniformly random access}
 
-\begin{frameO}[$1)$ A naive strategy : uniformly random access]
+% \begin{frameO}[$1)$ A naive strategy : uniformly random access]
 
-    \begin{itemize}
-        % \tightlist
-        \item
-              \textbf{Uniformly random access}: dynamic devices choose uniformly
-              their channel in the pull of \(K\) channels.
-        \item
-              Natural strategy, dead simple to implement.
-    \end{itemize}
+%     \begin{itemize}
+%         % \tightlist
+%         \item
+%               \textbf{Uniformly random access}: dynamic devices choose uniformly
+%               their channel in the pull of \(K\) channels.
+%         \item
+%               Natural strategy, dead simple to implement.
+%     \end{itemize}
 
-    \pause
+%     \pause
 
-    \begin{itemize}
-        % \tightlist
-        \item
-            Simple analysis, in term of \textbf{successful transmission
-            probability}\newline
-            (for every message from dynamic devices) :
-    \end{itemize}
+%     \begin{itemize}
+%         % \tightlist
+%         \item
+%             Simple analysis, in term of \textbf{successful transmission
+%             probability}\newline
+%             (for every message from dynamic devices) :
+%     \end{itemize}
 
-    \begin{small} \begin{align*}
-            \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p / K)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_k}}_{\text{No static device}} \times\; \frac{1}{K}.
-        \end{align*} \end{small}
+%     \begin{small} \begin{align*}
+%             \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p / K)^{D-1}}_{\text{No other dynamic device}} \times \underbrace{(1-p)^{S_k}}_{\text{No static device}} \times\; \frac{1}{K}.
+%         \end{align*} \end{small}
 
-    \pause
+%     \pause
 
-    \begin{itemize}
-        % \tightlist
-        \item
-              Works fine only if all channels are similarly occupied,\newline
-              but \textbf{it cannot learn} to exploit the best (more free)
-              channels.
-    \end{itemize}
+%     \begin{itemize}
+%         % \tightlist
+%         \item
+%               Works fine only if all channels are similarly occupied,\newline
+%               but \textbf{it cannot learn} to exploit the best (more free)
+%               channels.
+%     \end{itemize}
 
-\end{frameO}
+% \end{frameO}
 
 
 
-\subsubsection{$2)$ Optimal centralized strategy}
+\subsubsection{$1)$ Optimal centralized strategy}
 
-\begin{frameO}[$2)$ Optimal centralized strategy]
+\begin{frameO}[$1)$ Optimal centralized strategy]
 
     \begin{itemize}
         % \tightlist
@@ -232,7 +230,7 @@
 
 \end{frameO}
 
-\begin{frameO}[$2)$ Optimal centralized strategy]
+\begin{frameO}[$1)$ Optimal centralized strategy]
 
     \begin{colorblock}{But unrealistic}
 
@@ -283,7 +281,33 @@
 
 \subsubsection{Multi-Armed Bandit formulation}
 
-\begin{frameO}[$3)$ \emph{Multi-Armed Bandit} formulation]
+\begin{frameO}[\emph{Multi-Armed Bandit} formulation]
+
+    A player tries to collect \emph{rewards} when playing a $K$-armed \slotmachine{} bandit game.
+
+    \begin{lightblock}{}
+        At each time step $t\in\{1,\dots,T\}$
+        \begin{itemize}
+            % \tightlist
+            \item
+                player chooses an \emph{arm} \slotmachine{} \(A(t) \in \{1,\dots,K\}\)
+            \item
+                the arm generates an i.i.d. \emph{reward} $r_{A(t)}(t) \sim \nu_{A(t)}$, e.g., from a Bernoulli $\nu_{k} = \mathcal{B}(\mu_k)$,
+            \item
+                player observes the reward $r_{A(t)}(t)$
+        \end{itemize}
+    \end{lightblock}
+
+    \pause
+
+    \begin{colorblock}{Goal ?}
+        Maximize the sum reward (\textbf{Reinforcement Learning}) or its expectation
+        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\, \text{or} \,\, max_{A} \;\; \sum\limits_{t=1}^{T} \mathbb{E}[r_{A(t)}].\]
+    \end{colorblock}
+
+\end{frameO}
+
+\begin{frameO}[$2)$ Pseudo \emph{MAB} formulation of our IoT problem]
 
     A dynamic device tries to collect \emph{rewards} when transmitting :
 
@@ -304,31 +328,30 @@
             \(r_{A(\tau)} = 0\) \hfill{} (failed transmission!)
         \end{itemize}
 
-    \pause
-
-    %\begin{colorblock}
-    \item {Reinforcement Learning interpretation} :
-        maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
-        \(\equiv \max_{A} \;\; \sum\limits_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}\).
-    %\end{colorblock}
-
     \end{itemize}
 
+    \pause
+
+    \begin{colorblock}{Goal}
+        Maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
+        \(\equiv \max_{A} \;\; \sum\limits_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}\).
+    \end{colorblock}
+
     \begin{lightblock}{It is not a \emph{stochastic} Multi-Armed Bandit problem}
-        But the \textbf{environment is not stochastic or stationary}\newline
-        {\small (if only one device is activated at a time: average reward \(\mathbb{E}[r_k(\tau)] = p S_k\))}
+        \textcolor{orange}{It looks like a MAB}
+        but the \textbf{environment is not stochastic or stationary}
+        % \newline
+        % {\small (if only one device is activated at a time: average reward \(\mathbb{E}[r_k(\tau)] = p S_k\))}
     \end{lightblock}
 
 \end{frameO}
 
 \subsubsection{Upper Confidence Bound algorithm : UCB}
 
-\begin{frameO}[$3)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
+\begin{frameO}[$2)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
 
     \only<1-2>{
-        A dynamic device keeps \(\tau\) number of sent packets, \(N_k(\tau)\)
-        selections of channel \(k\), \(X_k(\tau)\) successful transmission in
-        channel \(k\).
+        A dynamic device keeps \(\tau\) number of sent packets
     }
 
     \begin{enumerate}
@@ -347,27 +370,37 @@
               \begin{itemize}
                   % \tightlist
                   \item
-                        With probability $p$, the device is active ($\tau := \tau + 1$)
+                        \textcolor{orange}{With probability $p$, the device is active ($\tau := \tau + 1$)}
                 \only<1-2>{
                   \item
                         Compute the index
-                        \(\mathrm{UCB}_k(\tau) := \overbrace{\frac{X_k(\tau)}{N_k(\tau)}}^{\text{Mean}\; \widehat{\mu_k}(\tau)} + \overbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}^{\text{Upper Confidence Bound}}\)
+                        \(\mathrm{UCB}_k(\tau) := \overbrace{\frac{X_k(\tau)}{N_k(\tau)}}^{\text{Mean}\; \widehat{\mu_k}(\tau)} + \overbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}^{\text{Confidence Bonus}}\)
                   \item
                         Choose channel
                         \(A(\tau) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k(\tau)\),
+                  \item  Observe reward $r_{A(\tau)}(\tau)$ from arm $A(\tau)$
+                  \begin{itemize}
                   \item
-                        Update \(N_k(\tau+1)\) and \(X_k(\tau+1)\),
+                        Update \(N_k(\tau+1)\) nb selections of channel \(k\):\newline
+                        \(N_{A(\tau)}(\tau+1) = N_{A(\tau)}(\tau) + 1\) else
+                        \(N_k(\tau+1) = N_k(\tau)\)
+                    \item
+                        Update \(X_k(\tau)\) nb of successful transmissions:\newline
+                        \(X_{A(\tau)}(\tau+1) = X_{A(\tau)}(\tau) + r_{A(\tau)}(\tau)\) else
+                        \(X_k(\tau+1) = X_k(\tau)\)
+                  \end{itemize}
                 }
                 \only<3>{
-                    \item \dots{}
+                    \item play UCB algorithm\dots{}
                 }
                   \item
-                        Wait for next message\dots \hfill{} (mean waiting time $\simeq 1/p$)
+                        \textcolor{orange}{Wait for next message\dots \hfill{} (mean waiting time $\simeq 1/p$)}
               \end{itemize}
     \end{enumerate}
 
     \only<1-2>{
-        \hfill{}\textcolor{gray}{Ref: [Auer et al, 2002], [Lattimore and Szepesvári, 2019]}
+        \hfill{}
+        {\small \textcolor{gray}{Ref: [Auer et al, 2002]}}
     }
     \only<3>{
     \begin{colorblock}{Random activation times $\tau$ ?}
@@ -429,7 +462,7 @@
                   \()\)
                   varies,
             \item
-                  Various settings for \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png} repartition.
+                  We consider various settings for \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png} repartition.
         \end{itemize}
 
     \end{colorblock}
@@ -456,22 +489,22 @@
 
 
 
-\subsubsection{First result: $30\%$}
+% \subsubsection{Second result: $30\%$}
 
-\begin{frameO}[\(30\%\) of dynamic devices]
+% \begin{frameO}[\(30\%\) of dynamic devices]
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[height=0.74\textheight]{30intelligent.eps}
+%     \begin{figure}[h!]
+%         \centering
+%         \includegraphics[height=0.74\textheight]{30intelligent.eps}
 
-        % \caption{
-            \begin{small}
-                $30\%$ of dynamic devices \includegraphics[height=0.33cm]{dynamic-devices.png}. Gives $3\%$ of gain but not much is possible here.
-            \end{small}
-        % }
-    \end{figure}
+%         % \caption{
+%             \begin{small}
+%                 $30\%$ of dynamic devices \includegraphics[height=0.33cm]{dynamic-devices.png}. Gives $3\%$ of gain but not much is possible here.
+%             \end{small}
+%         % }
+%     \end{figure}
 
-\end{frameO}
+% \end{frameO}
 
 
 \subsubsection{Growing proportion of devices dynamic devices}
@@ -490,29 +523,29 @@
 \end{frameO}
 
 
-\begin{frameO}[\emph{Positive} conclusion from experiments ($1/2$)]
+% \begin{frameO}[\emph{Positive} conclusion from experiments ($1/2$)]
 
-    \begin{colorblock}{What do we show}
+%     \begin{colorblock}{What do we show}
 
-        \begin{itemize}
-            \setlength\itemsep{10pt}
-                  % \tightlist
-            \item
-                  After a short learning time, MAB algorithms are almost as efficient as
-                  the oracle solution,
-            \item
-                  Never worse than the naive solution, even at first iterations,
-            \item
-                  Thompson sampling is more efficient than UCB
-                  (as always),
-            \item
-                  The dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} can learn to communicate more efficiently,\\
-                  in any network configuration (we tried a lot more!).
-        \end{itemize}
+%         \begin{itemize}
+%             \setlength\itemsep{10pt}
+%                   % \tightlist
+%             \item
+%                   After a short learning time, MAB algorithms are almost as efficient as
+%                   the oracle solution,
+%             \item
+%                   Never worse than the naive solution, even at first iterations,
+%             \item
+%                   Thompson sampling is more efficient than UCB
+%                   (as always),
+%             \item
+%                   The dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} can learn to communicate more efficiently,\\
+%                   in any network configuration (we tried a lot more!).
+%         \end{itemize}
 
-    \end{colorblock}
+%     \end{colorblock}
 
-\end{frameO}
+% \end{frameO}
 
 
 % \begin{frameO}[\emph{Negative} conclusion from experiments ($2/2$)]
