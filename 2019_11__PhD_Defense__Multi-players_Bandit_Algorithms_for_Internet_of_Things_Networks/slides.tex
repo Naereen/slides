@@ -238,6 +238,7 @@
 \fi
 
 \newcommand{\thinkingface}{\includegraphics[height=0.38cm]{thinking-face_1f914.png}}
+\newcommand{\thinkingfacelarge}{\includegraphics[height=0.44cm]{thinking-face_1f914.png}}
 \newcommand{\snail}{\includegraphics[height=0.30cm]{snail_1f40c.png}}
 \newcommand{\tgvsmall}{\includegraphics[height=0.23cm]{high-speed-train_1f684.png}}
 \newcommand{\tgv}{\includegraphics[height=0.34cm]{high-speed-train_1f684.png}}
@@ -1819,7 +1820,7 @@
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{orange}{MC-Top-$M$ klUCB} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
+            \textcolor{orange}{MCTopM klUCB} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
             \hline
             \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $(\textcolor{blue}{\mathbf{C_{M,\mu}}} \textcolor{red}{+ MK}) \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!} \\
             \textsc{DPE} & \textcolor{gray}{[8]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{?}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!}
@@ -1919,7 +1920,7 @@
     \begin{colorblock}{Typical regime for piece-wise stationary bandits}
         \begin{itemize}
             \item ``Oracle restart'' UCB obtains
-                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \Upsilon_T \log(T))$
+                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$
 
             \item The (minimax) lower-bound is
                 $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
@@ -1928,18 +1929,56 @@
                 \begin{itemize}
                 % \tightlist
                     \item
-                        $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+                        $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \sqrt{T \Upsilon_T \log(T)})$
                         if $T$ and $\Upsilon_T$ are known
                     \item
-                        $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
+                        $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
                         if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
                 \end{itemize}
-            \item
-                $\hookrightarrow$ our algorithm \textcolor{blue}{klUCB index + BGLR detector} is state-of-the-art!\\
-                \hfill{} \gray [Besson \& Kaufmann, 2019]
-                % \texttt{arXiv:1902.01575}
         \end{itemize}
     \end{colorblock}
+
+\end{frameO}
+
+\begin{frameO}[Our proposed algorithm \textcolor{blue}{klUCB index + BGLR detector}]
+
+    \begin{alertblock}{}
+        Our algorithm is the new state-of-the-art!
+
+        Inspired by CUSUM-UCB
+        \textcolor{gray}{[Liu et al. 18]}
+        and M-UCB
+        \textcolor{gray}{[Cao et al. 19]}
+    \end{alertblock}
+
+    \begin{colorblock}<1>{Three parts of the algorithm \hfill{} \gray [Besson \& Kaufmann, 2019]}
+        \begin{itemize}
+            \item A classical bandit index policy: \textbf{klUCB}\newline
+                which gets \emph{restarted} after a change-point is detected
+            \item A change-point detection algorithm:
+            the \textbf{Generalized Likelihood Ratio Test} for sub-Bernoulli observations (BGLR),
+            we can bound
+            \begin{itemize}
+                \item its false alarm probability (if enough samples between two restart)
+                \item its detection delay (under some hypotheses of ``easy enough'' problems)
+            \end{itemize}
+            \item Forced exploration of parameter $\alpha$ (tuned with knowledge of $\Upsilon_T$)
+        \end{itemize}
+    \end{colorblock}
+
+    \begin{lightblock}<2>{Theoretical guarantees}
+        Our algorithm $\cA$ obtains
+        \begin{itemize}
+        % \tightlist
+            \item
+                $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
+                if $T$ and $\Upsilon_T$ are known
+            \item
+                $\cR(\cA,T) \leq \mathcal{O}(K \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
+                if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
+        \end{itemize}
+        with precise constants in the $\mathcal{O}(\dots)$ depending on the problem difficulty\dots
+    \end{lightblock}
 
 \end{frameO}
 
@@ -2027,17 +2066,17 @@
 
     \begin{small}
         \textbf{Papers:}
-            [1] \textcolor{gray}{[Auer et al. 2002]}
-            [2] \textcolor{gray}{[Garivier et al. 09]}
-            [3] \textcolor{gray}{[Auer et al. 02]}
-            [5] \textcolor{gray}{[Raj et al. 17]}
+            [1] \textcolor{gray}{Auer et al. 2002}
+            [2] \textcolor{gray}{Garivier et al. 09}
+            [3] \textcolor{gray}{Auer et al. 02}
+            [5] \textcolor{gray}{Raj et al. 17}
             \newline
             \hspace*{10pt}
-            [5] \textcolor{gray}{[Liu et al. 18]}
-            [6] \textcolor{gray}{[Cao et al. 19]}
-            [7] \textcolor{orange}{[Besson et al. 19]}
-            [8] \textcolor{gray}{[Auer et al. 19]}
-            [9] \textcolor{gray}{[Chen et al. 19]}
+            [5] \textcolor{gray}{Liu et al. 18}
+            [6] \textcolor{gray}{Cao et al. 19}
+            [7] \textcolor{orange}{Besson et al. 19}
+            [8] \textcolor{gray}{Auer et al. 19}
+            [9] \textcolor{gray}{Chen et al. 19}
     \end{small}
 
 \end{frame}
@@ -2116,7 +2155,7 @@
         \textbf{Part II:}
         \begin{itemize}[<+->]
             \setlength\itemsep{6pt}
-        \item Theoretical results in two simplified (tractable) models:
+        \item New algorithms and regret bounds, in two simplified models:
             \begin{itemize}
                 \item for \textcolor{orange}{multi-player bandits}, with $M \leq K$ players,
                 \item for \textcolor{orange}{piece-wise stationary bandits}, with $\Upsilon_T = o(T)$ break-points,
@@ -2193,22 +2232,23 @@
         % \large
         \begin{itemize}[<+->]
             \setlength\itemsep{2pt}
-            \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
-                (cascading, delay feedback, combinatorial, contextual etc)
             \item unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
                 \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper from last year (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
-            \item test our idea and proposed algorithms in real-world IoT environments\\
-                \textcolor{gray}{\small $\hookrightarrow$ was started in summer $2019$ with an intern working with Christophe Moy}
+            \item validate our contributions in real-world IoT environments\\
+                \textcolor{gray}{\small $\hookrightarrow$ started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
             \item study the ``Graal'' goal :
                 {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
                 % \hfill{}
                 \alert{Much harder!} search space is VERY LARGE!}
             \vspace*{10pt}
-            \item
-            try to study the ``selfish model'' from other perspectives,
-            % (game theory\dots{}?),
-            for large $M$ nb of devices and small $p$ activation probabilities\dots?
+            % \item
+            % try to study the ``selfish model'' from other perspectives,
+            % % (game theory\dots{}?),
+            % for large $M$ nb of devices and small $p$ activation probabilities\dots?
+            \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
+            (cascading, delay feedback, combinatorial, contextual etc)\newline
+                \hfill{} {\small $\hookrightarrow$ you can contribute on \href{https://GitHub.com/SMPyBandits/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits/SMPyBandits}}}}
         \end{itemize}
     % \end{lightblock}
 
@@ -2227,7 +2267,7 @@
 
     \begin{center}
         \begin{huge}
-            Questions \& Discussion?
+            \thinkingfacelarge{} Questions \& Discussion
         \end{huge}
     \end{center}
 
