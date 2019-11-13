@@ -11,7 +11,7 @@
             With a protocol \textbf{slotted in time and frequency}
         \item
             Each device has a \textbf{low duty cycle} \hfill{}
-            \textcolor{gray}{ex : few messages per day}
+            \textcolor{gray}{ex: few messages per day}
     \end{itemize}
 
     \pause
@@ -68,7 +68,7 @@
         \centering
         \includegraphics[height=0.35\textheight]{protocol.eps}\\
         
-        {\small Chosen protocol : \textcolor{blue}{uplink messages {\large $\nearrow$}} followed by \textcolor{darkgreen}{\emph{acknowledgements} {\large $\searrow$}}.}\\
+        {\small Chosen protocol: \textcolor{blue}{uplink messages {\large $\nearrow$}} followed by \textcolor{darkgreen}{\emph{acknowledgements} {\large $\searrow$}}.}\\
         \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 2017], Sec.5.2}}
     \end{figure}
 
@@ -77,7 +77,7 @@
         \item
               \(D\) \textbf{dynamic} devices \includegraphics[height=0.37cm]{dynamic-devices.png} trying to access the network \emph{independently}
         \item
-              \(S=S_1+\dots+S_{K}\) \textbf{static} devices \includegraphics[height=0.37cm]{static-devices.png} occupying the network :
+              \(S=S_1+\dots+S_{K}\) \textbf{static} devices \includegraphics[height=0.37cm]{static-devices.png} occupying the network:
               \newline
               \(S_1,\dots,S_{K}\) in each channel \(\{1,\dots,K\}\) \hfill{} (\emph{unknown})
     \end{itemize}
@@ -145,7 +145,7 @@
 
     \vspace*{20pt}
 
-    \begin{lightblock}{A possible solution ?}
+    \begin{lightblock}{A possible solution}
         \begin{itemize}
             \item \textbf{decentralized Multi-Armed Bandit} algorithms
             \item used \textbf{independently by each device}
@@ -158,9 +158,9 @@
 
 \subsection{Baseline algorithms}
 
-% \subsubsection{$1)$ A naive strategy : uniformly random access}
+% \subsubsection{$1)$ A naive strategy: uniformly random access}
 
-% \begin{frameO}[$1)$ A naive strategy : uniformly random access]
+% \begin{frameO}[$1)$ A naive strategy: uniformly random access]
 
 %     \begin{itemize}
 %         % \tightlist
@@ -178,7 +178,7 @@
 %         \item
 %             Simple analysis, in term of \textbf{successful transmission
 %             probability}\newline
-%             (for every message from dynamic devices) :
+%             (for every message from dynamic devices):
 %     \end{itemize}
 
 %     \begin{small} \begin{align*}
@@ -223,8 +223,8 @@
                           \text{such that}\;\;\;                     & \sum\limits_{k=1}^{K} D_k = D \; \text{and} \; D_k \geq 0, \; \; \forall 1 \leq k \leq K .
                       \end{cases} \end{equation*} \end{small}
         \item
-              We solved this quasi-convex optimization problem with \emph{Lagrange
-                  multipliers}, only numerically.
+              Contribution: we solved this quasi-convex optimization problem with \emph{Lagrange
+                  multipliers} (only numerically).
     \end{itemize}
 
     \vfill{}
@@ -277,7 +277,7 @@
 
 
 
-\subsection{Multi-Armed Bandit algorithm : UCB}
+\subsection{Multi-Armed Bandit algorithm: UCB}
 
 \subsubsection{Multi-Armed Bandit formulation}
 
@@ -301,7 +301,7 @@
 
     \pause
 
-    \begin{colorblock}{Goal ?}
+    \begin{colorblock}{Goal}
         Maximize the sum reward (\textbf{Reinforcement Learning}) or its expectation
         \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \sum\limits_{t=1}^{T} \mathbb{E}[r_{A(t)}].\]
     \end{colorblock}
@@ -310,7 +310,7 @@
 
 \begin{frameO}[$2)$ Pseudo \emph{MAB} formulation of our IoT problem]
 
-    A dynamic device tries to collect \emph{rewards} when transmitting :
+    A dynamic device tries to collect \emph{rewards} when transmitting:
 
     \begin{itemize}
         % \tightlist
@@ -347,7 +347,7 @@
 
 \end{frameO}
 
-\subsubsection{Upper Confidence Bound algorithm : UCB}
+\subsubsection{Upper Confidence Bound algorithm: UCB}
 
 \begin{frameO}[$2)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
 
@@ -366,7 +366,7 @@
         }
         \pause
         \item
-              Then for the next steps \(t\) :
+              Then for the next steps \(t\):
 
               \begin{itemize}
                   % \tightlist
@@ -406,7 +406,7 @@
         {\small \textcolor{gray}{Ref: [Auer et al, 2002]}}
     }
     \only<3>{
-    \begin{colorblock}{Random activation times $\tau$ ?}
+    \begin{colorblock}{Random activation times $\tau$?}
         \begin{itemize}
             \item
                   The times $\tau$ are \textbf{not} the global time indexes $t$

@@ -295,7 +295,7 @@
     {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 
-\begin{frameO}[Who am I ?]
+\begin{frameO}[Who am I?]
 
     Hi, I'm Lilian\dots
 
@@ -303,17 +303,20 @@
         \item finishing my PhD, in Telecommunications and Machine Learning
         \item under supervision of Prof. Christophe Moy\\
             at SCEE team, IETR \& CentraleSupélec in Rennes (France)
-        \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille\\
+        \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille
         % \hfill{} \emph{Thanks to her for some of the slides material!}
+        \item \textcolor{orange}{and I'm joining the PANAMA team in December!}
     \end{itemize}
 
     \vspace*{5pt}
 
-    \begin{itemize}
-        \item Email : \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ CentraleSupelec.fr \& Inria.fr}}}
+    \begin{small}
+        \begin{itemize}
+            \item Email: \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ CentraleSupelec.fr \& Inria.fr}}}
 
-        \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{blue}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}}
-    \end{itemize}
+            \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{blue}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}}
+        \end{itemize}
+    \end{small}
 
     \vfill{}
     % XXX manual inclusion of logos
@@ -1463,8 +1466,8 @@
         \setlength\itemsep{1em}
         \item (centralized) multiple-actions
               \begin{itemize}
-                  \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
-                  \item combinatorial : choose a subset of arms $S \subseteq \{1,\dots,K\}$ (large space)
+                  \item \textcolor{blue}{multiple choice}: choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
+                  \item combinatorial: choose a subset of arms $S \subseteq \{1,\dots,K\}$ (large space)
               \end{itemize}
         \item non-stationary
               \begin{itemize}
@@ -1498,7 +1501,7 @@
               \end{itemize}
         \item for some applications (content recommendation etc)
               \begin{itemize}
-                  \item \textcolor{gray}{contextual bandits : observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)}
+                  \item \textcolor{gray}{contextual bandits: observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)}
                   \item \textcolor{gray}{cascading bandits}
                   \item \textcolor{gray}{delayed feedback bandits}
                   \item \textcolor{gray}{bandits with (differential) privacy constraints}
@@ -1792,10 +1795,10 @@
     Two simple ideas:
     \hfill{} {\small inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
     \begin{itemize}
-        \item always pick $\color{red} A^m(t) \in \hat{M}^{m}(t-1)$
+        \item always pick an arm estimated as ``good'' \hfill{} $\color{red} A^m(t) \in \hat{M}^{m}(t-1)$
         \item try not to switch arm too often
     \end{itemize}
-    \[\orange s^m(t) = \left\{ \text{player } m \text{ is ``fixed'' at the end of round } t \right\}\]
+    \[\orange \sigma^m(t) := \left\{ \text{player } m \text{ is ``fixed'' at the end of round } t \right\}\]
 
     \vspace{-0.3cm}
 
@@ -1803,17 +1806,17 @@
 
     \begin{colorblock}{MC-Top-M}
     \begin{itemize}
-     \item if $A^m(t-1) \notin  \hat{M}^{m}(t-1)$, \\ set $\orange s^m(t) = \mathrm{False}$ and \color{orange}carefully select a new arm in $\hat M^m(t-1)$\color{black}.
-     \item else if $\overline{s^m(t-1)}\cap C^m(t-1)$, pick a new arm at random
+     \item if $A^m(t-1) \notin  \hat{M}^{m}(t-1)$, \\ set $\orange \sigma^m(t) = \mathrm{False}$ and \color{orange}carefully select a new arm in $\hat M^m(t-1)$\color{black}.
+     \item else if $\overline{\sigma^m(t-1)}\cap C^m(t-1)$, pick a new arm at random
 
      \vspace{-0.2cm}
 
-      \[A^m(t) \sim \mathcal{U} (\hat{M}^m(t-1)) \ \ \text{and} \ \ s^m(t) = \mathrm{False} \]
+      \[A^m(t) \sim \mathcal{U} (\hat{M}^m(t-1)) \ \ \text{and} \ \ \sigma^m(t) = \mathrm{False} \]
      \item else, draw the previous arm, and fix on it
 
      \vspace{-0.2cm}
 
-      \[A^m(t) =A^m(t-1) \ \ \text{and} \ \ \orange s^m(t) = \mathrm{True}\]
+      \[A^m(t) =A^m(t-1) \ \ \text{and} \ \ \orange \sigma^m(t) = \mathrm{True}\]
     \end{itemize}
 
     \vspace{-0.6cm}
@@ -1828,7 +1831,7 @@
     \begin{figure}
         \centering
         \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-        \footnotesize{For $K=M$ objects, our strategy MC-Top-$M$ achieves \textbf{constant} regret!\newline MC-Top-$M$ orthogonalization procedure is efficient!}
+        \footnotesize{For $K=M$ objects, \textcolor{lightgold}{our strategy MC-Top-$M$} achieves \textbf{constant} regret!\newline \textcolor{lightgold}{MC-Top-$M$} orthogonalization procedure is efficient!}
     \end{figure}
 
 \end{frameO}
@@ -1836,9 +1839,10 @@
 \begin{frameO}[Results on a multi-player MAB problem ($2/2$)]
 
     \begin{figure}
-        \centering
-        \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-        \small{For example for $M=6$ objects, our strategy MC-Top-$M$ largely outperforms $\rho^{\text{rand}}$ and other previous state-of-the-art policies (not included).}
+        % \centering
+        % \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
+        \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_8200873569864822246.pdf}
+        \small{For example for $M=6$ objects, \textcolor{lightgold}{our strategy MC-Top-$M$} largely outperforms \textcolor{lightblue}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included). ({\small log-log scale})}
     \end{figure}
 
 \end{frameO}
@@ -1976,11 +1980,11 @@
 
     \begin{colorblock}{Typical regime for piece-wise stationary bandits}
         \begin{itemize}
-            \item ``Oracle restart'' UCB obtains
+            \item ``Oracle restart'' kl-UCB obtains
                 $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
                 when knowing the locations of $\Upsilon_T$ break-points
 
-            \item The (minimax) lower-bound is
+            \item The (minimax) \emph{worst-case lower-bound} is
                 $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
                 % on a ``bad'' problem
             % \item
@@ -2012,7 +2016,7 @@
     \vspace*{15pt}
 
     \only<1>{
-    \begin{colorblock}{Three parts of the algorithm \hfill{} \gray [Besson \& Kaufmann, 2019]}
+    \begin{colorblock}{Three components of our algorithm \hfill{} \gray [Besson \& Kaufmann, 2019]}
         \begin{itemize}
             \item A classical bandit index policy: \textbf{klUCB}\newline
                 which gets \emph{restarted} after a change-point is detected
@@ -2040,7 +2044,7 @@
                 $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
                 if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
         \end{itemize}
-        {\small with finite time and more precise results in the thesis\dots}
+        % {\small with finite time and more precise results in the thesis\dots}
     \end{lightblock}
     }
 
@@ -2054,7 +2058,7 @@
         \includegraphics[width=1.05\textwidth]{regret_problem1.png}
     \end{center}
     \vspace*{-15pt}
-    $\hookrightarrow$ \textcolor{blue}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+    $\hookrightarrow$ \textcolor{deeppurple}{klUCB + BGLR} achieves the best performance (among non-oracle)!
 \end{frameO}
 
 % \begin{frameO}[More results ($1/3$)]
@@ -2111,7 +2115,7 @@
         \hline
         \textbf{\textcolor{orange}{BGLR + kl-UCB}} & \textcolor{orange}{[7]} & $\textcolor{blue}{\mathbf{C}} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & $T$ and $\Upsilon_T$ \\
         \hline
-        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & just $T$ \\
+        AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & just $T$ \\
         % \hline
         Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}_9} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{\tgv{}}} & just $T$
     \end{tabular}
@@ -2289,7 +2293,7 @@
 \end{frame}
 
 
-\begin{frameO}[What could be done with another year(s) ? \hfill{} ($4/4$)]
+\begin{frameO}[Perspectives \hfill{} ($4/4$)]
 
     % \begin{lightblock}{What could be done with another year(s) ?}
 
@@ -2301,7 +2305,7 @@
             \item validate our contributions in real-world IoT environments\\
                 \textcolor{gray}{\small $\hookrightarrow$ started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
-            \item study the ``Graal'' goal :
+            \item study the ``Graal'' goal:
                 {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
                 % \hfill{}
                 \alert{Much harder!} search space is VERY LARGE!}
@@ -2530,7 +2534,7 @@
     \end{itemize}
 
     \hfill{}
-    For more details, see :
+    For more details, see:
     \textcolor{blue}{\href{https://cv.archives-ouvertes.fr/lilian-besson/}{\texttt{CV.Archives-Ouvertes.fr/lilian-besson}}}.
     }
 \end{frameO}
@@ -2679,7 +2683,7 @@
 
 
 % FIXME terminer ces slides backup
-\begin{frameO}[Backup slides to answer predicatable questions ?]
+\begin{frameO}[Backup slides to answer predicatable questions?]
 
     \begin{itemize}
         \item Add pseudo code of MCTopM + klUCB
