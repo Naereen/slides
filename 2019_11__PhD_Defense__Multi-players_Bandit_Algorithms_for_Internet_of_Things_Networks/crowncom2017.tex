@@ -1,16 +1,17 @@
 \begin{frameO}[We want]
 
-    A \emph{lot} of IoT devices want to access to \emph{one} gateway.
+    A \emph{lot} of IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png} want to access to \emph{one} gateway
     % (base station).
 
     \begin{itemize}
         % \tightlist
         \item
-              Insert them in an already \textbf{crowded wireless network}.
+            Insert them in an already \textbf{crowded wireless network}
         \item
-              With a protocol \textbf{slotted in time and frequency}.
+            With a protocol \textbf{slotted in time and frequency}
         \item
-              Each device has a \textbf{low duty cycle}, e.g., few messages per day.
+            Each device has a \textbf{low duty cycle} \hfill{}
+            \textcolor{gray}{ex : few messages per day}
     \end{itemize}
 
     \pause
@@ -24,27 +25,27 @@
         % \end{figure}
     }
 
-    \only<3>{
-        % \pause
+    % \only<3>{
+    %     % \pause
 
-        \begin{colorblock}{Goal}
-            \begin{itemize}
-                % \tightlist
-                \item Maintain a \textbf{good Quality of Service}.
-                \item \textbf{Without} centralized supervision!
-            \end{itemize}
-        \end{colorblock}
+    %     \begin{colorblock}{Goal}
+    %         \begin{itemize}
+    %             % \tightlist
+    %             \item Maintain a \textbf{good Quality of Service}.
+    %             \item \textbf{Without} centralized supervision!
+    %         \end{itemize}
+    %     \end{colorblock}
 
-        % \pause
+    %     % \pause
 
-        \begin{alertblock}{How?}
-            \begin{itemize}
-                % \tightlist
-                \item Use \textbf{learning algorithms}\newline
-                $\implies$ can devices learn on which frequency they should talk ?
-            \end{itemize}
-        \end{alertblock}
-    }
+    %     \begin{alertblock}{How?}
+    %         \begin{itemize}
+    %             % \tightlist
+    %             \item Use \textbf{learning algorithms}\newline
+    %             $\implies$ can devices learn on which frequency they should talk ?
+    %         \end{itemize}
+    %     \end{alertblock}
+    % }
 
 \end{frameO}
 
@@ -78,7 +79,7 @@
         \item
               \(S=S_1+\dots+S_{K}\) \textbf{static} devices \includegraphics[height=0.37cm]{static-devices.png} occupying the network :
               \newline
-              \(S_1,\dots,S_{K}\) in each channel \(\{1,\dots,K\}\) \hfill{} (\emph{unknown}).
+              \(S_1,\dots,S_{K}\) in each channel \(\{1,\dots,K\}\) \hfill{} (\emph{unknown})
     \end{itemize}
 
 \end{frameO}
@@ -89,22 +90,22 @@
 
 \begin{frameO}[Hypotheses ($1/2$)]
 
-    \begin{colorblock}{Emission model for static and dynamic devices}
+    \begin{lightblock}{Emission model for static and dynamic devices}
 
         \begin{itemize}
             % \tightlist
             \item
                 Each device has the same \emph{low} emission probability: \\
-                each step, each device sends a packet with probability \(p\).
+                each step, each device sends a packet with probability \(p\)
                 %   \\
                 %   \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
         \end{itemize}
 
-    \end{colorblock}
+    \end{lightblock}
 
     \vspace*{5pt}
     \pause
-    \begin{lightblock}{Background \textbf{stationary} ambiant traffic}
+    \begin{colorblock}{Background \textbf{stationary} ambiant traffic}
 
         \begin{itemize}
             % \tightlist
@@ -116,7 +117,7 @@
         \end{itemize}
 
         \(\implies\) This (stationary) ambiant traffic \emph{is disturbing} the dynamic devices!
-    \end{lightblock}
+    \end{colorblock}
 
     \vspace*{5pt}
     \pause
@@ -125,9 +126,9 @@
         \begin{itemize}
             % \tightlist
             \item
-                \textbf{Dynamic device decide} the channel to use to send their packets.
+                \textbf{Dynamic device decide} the channel to use to send their packets
             \item
-                They all have memory and computational capacity to implement a basic decision algorithm.
+                They all have memory and computational capacity to implement small decision algorithms
                 % on a small CPU embedded on the devices.
         \end{itemize}
 
@@ -138,15 +139,17 @@
 \begin{frameO}[Problem]
 
     \begin{lightblock}{Goal}
-        \emph{minimize packet loss ratio} (\(=\) number of
-        received \texttt{Ack}) in a \emph{finite-space discrete-time Decision Making Problem}.
+        \emph{minimize packet loss ratio} (max \(=\) number of received \texttt{Ack})\\
+        in a \emph{finite-space discrete-time Decision Making Problem}
     \end{lightblock}
 
     \vspace*{20pt}
 
     \begin{lightblock}{A possible solution ?}
-        \textbf{Multi-Armed Bandit algorithms},
-        \textbf{decentralized} and used \textbf{independently} by each device.
+        \begin{itemize}
+            \item \textbf{decentralized Multi-Armed Bandit} algorithms
+            \item used \textbf{independently by each device}
+        \end{itemize}
     \end{lightblock}
 
 \end{frameO}
@@ -196,15 +199,15 @@
 
 
 
-\subsubsection{$1)$ Optimal centralized strategy}
+\subsubsection{$1)$ \emph{Oracle} centralized strategy}
 
-\begin{frameO}[$1)$ Optimal centralized strategy]
+\begin{frameO}[$1)$ \emph{Oracle} centralized strategy]
 
     \begin{itemize}
         % \tightlist
         \item
-              If an oracle can decide to affect \(D_i\) dynamic devices to channel
-              \(i\), the \textbf{successful transmission probability} is:
+              If an oracle can affect \(D_k\) dynamic devices to channel
+              \(k\), the \textbf{successful transmission probability} of the entire network is:
               \vspace*{-10pt}
 
               \begin{small} \begin{align*}
@@ -230,27 +233,24 @@
 
 \end{frameO}
 
-\begin{frameO}[$1)$ Optimal centralized strategy]
+\begin{frameO}[$1)$ \emph{Oracle} centralized strategy]
 
     \begin{colorblock}{But unrealistic}
-
-        But \textbf{not achievable in practice}:
+        But \textbf{not achievable in practice}!
         \begin{itemize}
             % \item
             % there is no oracle
-            \item
-                  \alert{because there is no centralized supervision!}
+            \item \alert{because there is no centralized supervision!}
         \end{itemize}
-
     \end{colorblock}
 
     \vspace*{30pt}
 
     \begin{colorblock}{Let see \emph{realistic decentralized approaches}}
 
-        \(\hookrightarrow\) Machine Learning ? \newline
-        \hspace*{15pt}\(\hookrightarrow\) Reinforcement Learning ? \newline
-        \hspace*{30pt} \(\hookrightarrow\) \emph{Multi-Armed Bandit} !
+        \(\hookrightarrow\) Machine Learning \newline
+        \hspace*{15pt}\(\hookrightarrow\) Reinforcement Learning \newline
+        \hspace*{30pt} \(\hookrightarrow\) \emph{Multi-Armed Bandit}
 
     \end{colorblock}
 
@@ -281,7 +281,7 @@
 
 \subsubsection{Multi-Armed Bandit formulation}
 
-\begin{frameO}[\emph{Multi-Armed Bandit} formulation]
+\begin{frameO}[Stochastic \emph{Multi-Armed Bandit} formulation]
 
     A player tries to collect \emph{rewards} when playing a $K$-armed \slotmachine{} bandit game.
 
@@ -292,7 +292,8 @@
             \item
                 player chooses an \emph{arm} \slotmachine{} \(A(t) \in \{1,\dots,K\}\)
             \item
-                the arm generates an i.i.d. \emph{reward} $r_{A(t)}(t) \sim \nu_{A(t)}$, e.g., from a Bernoulli $\nu_{k} = \mathcal{B}(\mu_k)$,
+                the arm generates an i.i.d. \emph{reward} $r_{A(t)}(t) \sim \nu_{A(t)}$\\
+                Ex: from a Bernoulli distribution $\nu_{k} = \mathcal{B}(\mu_k)$,
             \item
                 player observes the reward $r_{A(t)}(t)$
         \end{itemize}
@@ -302,7 +303,7 @@
 
     \begin{colorblock}{Goal ?}
         Maximize the sum reward (\textbf{Reinforcement Learning}) or its expectation
-        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\, \text{or} \,\, max_{A} \;\; \sum\limits_{t=1}^{T} \mathbb{E}[r_{A(t)}].\]
+        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \sum\limits_{t=1}^{T} \mathbb{E}[r_{A(t)}].\]
     \end{colorblock}
 
 \end{frameO}
@@ -381,17 +382,19 @@
                   \item  Observe reward $r_{A(\tau)}(\tau)$ from arm $A(\tau)$
                   \begin{itemize}
                   \item
-                        Update \(N_k(\tau+1)\) nb selections of channel \(k\):\newline
-                        \(N_{A(\tau)}(\tau+1) = N_{A(\tau)}(\tau) + 1\) else
-                        \(N_k(\tau+1) = N_k(\tau)\)
+                        Update \(N_k(\tau+1)\) nb selections of channel \(k\)
+                        % \newline
+                        % \(N_{A(\tau)}(\tau+1) = N_{A(\tau)}(\tau) + 1\) else
+                        % \(N_k(\tau+1) = N_k(\tau)\)
                     \item
-                        Update \(X_k(\tau)\) nb of successful transmissions:\newline
-                        \(X_{A(\tau)}(\tau+1) = X_{A(\tau)}(\tau) + r_{A(\tau)}(\tau)\) else
-                        \(X_k(\tau+1) = X_k(\tau)\)
+                        Update \(X_k(\tau)\) nb of successful transmissions
+                        % \newline
+                        % \(X_{A(\tau)}(\tau+1) = X_{A(\tau)}(\tau) + r_{A(\tau)}(\tau)\) else
+                        % \(X_k(\tau+1) = X_k(\tau)\)
                   \end{itemize}
                 }
                 \only<3>{
-                    \item play UCB algorithm\dots{}
+                    \item Play UCB algorithm\dots{}
                 }
                   \item
                         \textcolor{orange}{Wait for next message\dots \hfill{} (mean waiting time $\simeq 1/p$)}
@@ -413,7 +416,7 @@
         \end{itemize}
         \vspace*{10pt}
         {\large
-            \alert{$\implies$ these random activations make the model \textbf{intractable} !}
+            \alert{$\implies$ these random activations make the model \textbf{hard to analyze} !}
         }
     \end{colorblock}
     }
@@ -444,11 +447,13 @@
                   \(D\) \includegraphics[height=0.37cm]{dynamic-devices.png}
                   \(= 10000\) devices
                   in total,
+            \pause
             \item
                   \(p = 10^{-3}\) probability of emission,
             \item
                   Horizon \(T = 10^5\) total time slots (avg. \(\simeq 100\) messages \(/\)
                   device),
+            \pause
             \item
                   The proportion of dynamic devices
                   \(D\)

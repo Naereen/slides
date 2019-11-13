@@ -267,9 +267,13 @@
         % at \textbf{CentraleSupélec}, campus de Rennes\\
         % Thursday $17$th of October, $2019$
         %
-        Seminar of the \textbf{SequeL team}\\
-        at \textbf{INRIA} Lille Nord Europe\\
-        Friday $8$th of November, $2019$
+        % Seminar of the \textbf{SequeL team}\\
+        % at \textbf{INRIA} Lille Nord Europe\\
+        % Friday $8$th of November, $2019$
+        %
+        Seminar of the \textbf{PANAMA team}\\
+        at \textbf{INRIA} Rennes Bretagne Atlantique\\
+        Wednesday $13$th of November, $2019$
         % %
         % \textbf{PhD defense}\\
         % at \textbf{CentraleSupélec}, campus de Rennes\\
@@ -381,10 +385,10 @@
 \end{frameO}
 
 
-\begin{frameO}[But\dots world-wide non homogeneous frequency usage]
+\begin{frameO}[But\dots world-wide non-homogeneous frequency usage]
     But\dots almost everywhere and at anytime in the world, some radio channels are not used! (in any standard)
     \begin{center}
-        \includegraphics[width=0.80\textwidth]{scan_WiFi^maison}
+        \includegraphics[width=0.80\textwidth]{scan_WiFi_maison}
     \end{center}
     \hfill{}
     {\tiny \textcolor{gray}{Lilian Besson, screenshot from my FreeBox control interface, \textcopyright{} 2019}}
@@ -396,7 +400,8 @@
 \end{frameO}
 
 
-\begin{frameO}[What did I study during my PhD ? ($1/2$)]
+% \begin{frameO}[What did I study during my PhD ? ($1/2$)]
+\begin{frameO}[Setting]
 
     % \begin{darkblock}{Telecommunications technology\dots}
     %     \hspace{5pt} $\hookrightarrow$ wireless networks\dots\\
@@ -434,8 +439,44 @@
 \end{frameO}
 
 
+\begin{frameO}[Internet of Things]
 
-\begin{frameO}[What did I study during my PhD ? ($2/2$)]
+    % Test !
+
+    \begin{columns}%[onlytextwidth]
+        \begin{column}{0.65\textwidth}
+            \begin{colorblock}{Main hypotheses}
+                % \small
+                \begin{itemize}
+                    \item decentralized: \textcolor{orange}{devices initiate transmission},
+                    \item can be in unlicensed radio bands,
+                    \item \textcolor{orange}{massive number of devices},
+                    \item long range,
+                    \item ultra-low power devices,
+                    \item \textcolor{orange}{low duty cycle},
+                    \item \textcolor{orange}{low data rate}.
+                \end{itemize}
+            \end{colorblock}
+        \end{column}
+        % ...
+        \begin{column}{0.34\textwidth}
+            % Test !
+            \vspace*{10pt}
+            % % \begin{center}
+                \includegraphics[width=1.00\linewidth]{Screenshot_from_what_is_the_Internet_of_Things_video.jpg}
+            % % \end{center}
+        \end{column}
+    \end{columns}
+
+    \vfill{}
+    {\tiny \textcolor{gray}{From \texttt{YouTu.be/QSIPNhOiMoE} and
+        \texttt{IBM.com/blogs/internet-of-things/what-is-the-iot}
+    }}
+
+\end{frameO}
+
+
+\begin{frameO}[Main questions]
 
     \begin{colorblock}{Main questions\dots?}
         \begin{itemize}
@@ -463,11 +504,11 @@
 \end{frameO}
 
 
-\section{Outline of this talk}
+\section{Outline of this presentation}
 
 \begin{frameTI}
     \begin{center}
-        \color{white} \Huge \textsc{Outline of this talk}
+        \color{white} \Huge \textsc{Outline of this presentation}
 
         % \vspace{0.2cm}
 
@@ -554,7 +595,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Outline of this talk]
+\begin{frameO}[Outline of this presentation]
 
     \begin{itemize}
         \setlength\itemsep{1em}
@@ -566,15 +607,15 @@
         %     \item \textcolor{gray}{best possible regret? Lower bounds}
         %     \item \textcolor{gray}{upper Confidence Bounds (UCB) Algorithms}
         % \end{itemize}
-        \item Selfish MAB learning in a new model of IoT network
-        \begin{itemize}
-            % \item \textcolor{gray}{reference strategies}
-            \item \textcolor{gray}{selfish applications of MAB algorithms}
-            \item \textcolor{gray}{numerical simulations and illustrations}
-            \item \textcolor{gray}{realistic implementation on real radio hardware}
-            \item \textcolor{gray}{\emph{intractable} model in theory\dots}
-        \end{itemize}
-        \item \emph{Two tractable models}, extending the classical bandit model
+        \item \textbf{Part I.} Selfish MAB learning in a new model of IoT network
+        % \begin{itemize}
+        %     % \item \textcolor{gray}{reference strategies}
+        %     \item \textcolor{gray}{selfish applications of MAB algorithms}
+        %     \item \textcolor{gray}{numerical simulations and illustrations}
+        %     \item \textcolor{gray}{realistic implementation on real radio hardware}
+        %     \item \textcolor{gray}{\emph{intractable} model in theory\dots}
+        % \end{itemize}
+        \item \textbf{Part II.} \emph{Two tractable models}, extending the classical bandit model
         \begin{itemize}
             \item \textcolor{gray}{multi-player bandits in stationary settings}
             \item \textcolor{gray}{single-player bandits in piece-wise stationary settings}
@@ -1326,14 +1367,16 @@
 
 \begin{frameO}[Using USRP board to simulate IoT objects ($2/3$)]
     \begin{center}
-        \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie1.png}}{videos/Partie1.mp4}
+        % \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie1.png}}{videos/Partie1.mp4}
+        \movie{\includegraphics[height=0.90\textheight]{our-demo}}{videos/Partie1.mp4}
     \end{center}
 \end{frameO}
 
 
 \begin{frameO}[GNU Radio for the UI of the demo ($3/3$)]
     \begin{center}
-        \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie2.png}}{videos/Partie2.mp4}
+        % \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie2.png}}{videos/Partie2.mp4}
+        \movie{\includegraphics[width=1.05\textwidth]{UI}}{videos/Partie2.mp4}
     \end{center}
 \end{frameO}
 
@@ -1347,25 +1390,25 @@
         \item
             \textcolor{orange}{\textbf{It works very well empirically}!}
         \item
-            In expectation, there are $p \times D$ dynamic devices using $K$ channels\\
-            $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
-        \item
-            We assume a stationary hypothesis on the background traffic\dots
-        \item
-            Random activation times make the model \textbf{intractable} in theory\dots
+            But \alert{random activation times} make the model \textbf{hard to analyze}\dots
+        \item \underline{Hyp 1:} in expectation, there are $p \times D$ dynamic devices using $K$ channels
+            \hfill{} $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
+        \item \underline{Hyp 2:} we assumed a stationary background traffic\dots
     \end{itemize}
 
+    \pause
     \begin{alertblock}{}
-        \textbf{Goal} : obtain theoretical result for our proposed model of IoT networks,
+        \textbf{Goal}: obtain theoretical result for our proposed model of IoT networks,
         and guarantees about the observed behavior of \emph{Selfish MAB learning}.
     \end{alertblock}
 
+    \pause
     \begin{colorblock}{}
         \textcolor{orange}{We can study theoretically two more specific models, in two directions}
         \begin{itemize}
-            \item \textbf{multi-player bandits}: devices are always activated\\
+            \item \underline{Model 1:} \textbf{multi-player bandits}: devices \includegraphics[height=0.37cm]{dynamic-devices.png} are always activated\\
                 ie. $p=1$ in their random activation process $\implies$ $D = M \leq \frac{K}{p} = K$
-            \item \textbf{non-stationary bandits}
+            \item \underline{Model 2:} \textbf{non-stationary bandits}
         \end{itemize}
         \hfill{}
         $\implies$ Both are \textbf{tractable models} !
@@ -1423,14 +1466,14 @@
                   \item \textcolor{blue}{multiple choice} : choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
                   \item combinatorial : choose a subset of arms $S \subseteq \{1,\dots,K\}$ (large space)
               \end{itemize}
-        \item non stationary
+        \item non-stationary
               \begin{itemize}
                   \item \textcolor{blue}{piece-wise stationary / abruptly changing}
                   \item slowly-varying, rotting\dots
                   \item adversarial\dots
               \end{itemize}
         \item (decentralized) collaborative/communicating bandits over a graph
-        \item \textcolor{blue}{(decentralized) non communicating multi-player bandits}
+        \item \textcolor{blue}{(decentralized) non-communicating multi-player bandits}
     \end{itemize}
 
     % \hspace*{5cm}
@@ -1446,7 +1489,7 @@
 
     \begin{itemize}%[<+->]
         \setlength\itemsep{0.6em}
-        \item \textcolor{blue}{non stochastic, Markov models rested/restless}
+        \item \textcolor{blue}{non-stochastic, Markov models rested/restless}
         \item best arm identification (vs reward maximization)
               \begin{itemize}
                   \item \textcolor{gray}{fixed budget setting}
@@ -1513,7 +1556,7 @@
     \vspace{-0.2cm}
 
     \[\red r_{m,t} = \left\{ \begin{array}{cl}
-            r_{A^m_{t},t} & \text{if no other player chose the same arm} \\
+            s_{A^m_{t},t} & \text{if no other player chose the same arm} \\
             0             & \text{else (= COLLISION)}
         \end{array}\right.\]
 
@@ -1536,7 +1579,7 @@
 
     Different observation models: players observe $s_{A^m_{t},t}$ and/or $r_{m,t}$
 
-    \begin{darkblock}{``Listen before talk''
+    \begin{darkblock}{\# 1: ``Listen before talk''
         \hfill{} {\tiny \textcolor{lightgray}{[Liu \& Zhao, 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
     }
         \begin{itemize}
@@ -1547,7 +1590,7 @@
             First do sensing, attempt of transmission if no Primary User (PU), possible collisions with other Secondary Users (SU).
 
             \item
-            Feedback model:
+            \emph{Feedback model:}
             \begin{itemize}
                 \item
                 observe first $s_{A^m_{t},t}$,
@@ -1563,7 +1606,7 @@
 
 \begin{frameO}[M-P bandits for Cognitive Radios: proposed models]
 
-    \begin{colorblock}{``Talk and maybe collide''
+    \begin{colorblock}{\# 1: ``Talk and maybe collide''
         \hfill{} \textcolor{lightgray}{[Besson \& Kaufmann, ALT 2018]}
     }
         \begin{itemize}
@@ -1574,8 +1617,15 @@
             Do not do any sensing, just transmit, and wait for an acknowledgment before any next message.
 
             \item
-            \emph{Feedback model:} observe only the joint information $r_{m, t}$.\\
-            No collision if $\neq 0$, but cannot know if collision or zero reward if $= 0$
+            \emph{Feedback model:}
+            \begin{itemize}
+                \item
+                observe only the joint information $r_{m, t}$,
+                \item
+                no collision if $r_{m, t} \neq 0$,
+                \item
+                but cannot distinguish between collision or zero reward if $r_{m, t} = 0$.
+            \end{itemize}
 
             % \item
             % \textcolor{gray}{We studied an extension with retransmissions in [Bonnefoi et al, WCNC 2019], Ch.5.4.}
@@ -1584,16 +1634,23 @@
 
     \pause
 
-    \begin{lightblock}{``Observe collision then talk?''
-        \hfill{} \textcolor{lightgray}{[Boursier et al, 2019]}
+    \begin{lightblock}{\# 1: ``Observe collision then talk?''
+        \hfill{} {\tiny \textcolor{lightgray}{[Besson \& Kaufmann, ALT 2018], [Boursier et al, 2019]}}
     }
         \begin{itemize}
             \item
-            A third ``hybrid'' model, studied by 4 papers following our work
+            A third ``hybrid'' model
+            {\small studied by 4 papers in 2019, following our work}
 
             \item
-            \emph{Feedback model:} First check if collision, then receive reward $r_{m, t}$\newline
-            \alert{(less realistic for cognitive radio applications)}
+            \emph{Feedback model:}
+            \begin{itemize}
+                \item
+                first check if collision,
+                \item
+                then if not collision, receive joint reward $r_{m, t}$.
+                % \alert{(less realistic for cognitive radio applications)}
+            \end{itemize}
         \end{itemize}
     \end{lightblock}
 
@@ -1659,18 +1716,18 @@
 % \end{frameO}
 
 
-\begin{frameO}[Regret in the homogeneous case]
+\begin{frameO}[Regret for multi-player bandits ($M$ players for $K$ arms)]
 
     \only<2-2>{\vspace{-0.2cm}}
 
-     Arms sorted by decreasing utility: $\mu_1 \geq \mu_2 \geq \dots \geq \mu_K$
+     \underline{Hypothesis:} arms sorted by decreasing mean: $\mu_1 \geq \mu_2 \geq \dots \geq \mu_K$
       $$R_{\bm\mu}(\cA,T)
       :=
       \underbrace{\left(\sum_{k=1}^{M}{\mu_k}\right) T}_{\text{oracle total reward}} - {\bE_{\bm\mu}^{\cA}}\left[\sum_{t=1}^T\sum_{m=1}^M r_{m,t} \right]$$
 
     \vspace{-0.3cm}
 
-    \begin{colorblock}{Regret decomposition}
+    \begin{colorblock}{Regret decomposition (if all players $M$ follow $\cA$)}
 
     \alt<2>{\vspace{0.2cm}
     \[R_{\bm\mu}(\cA,T) \leq C  \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + D\sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right].\]
@@ -1733,7 +1790,7 @@
 \begin{frameO}[The MC-Top-M algorithm]
 
     Two simple ideas:
-    {\small $\hookrightarrow$ inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
+    \hfill{} {\small inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
     \begin{itemize}
         \item always pick $\color{red} A^m(t) \in \hat{M}^{m}(t-1)$
         \item try not to switch arm too often
@@ -1840,15 +1897,15 @@
     \vspace*{5pt}
     \begin{small}
         \textbf{Papers:}
-            [1] \textcolor{gray}{Anantharam, 87}
-            [2] \textcolor{gray}{Anandkumar, 11}
-            [3] \textcolor{gray}{Avner, 15}
-            [4] \textcolor{gray}{Rosenski, 15}
+            [1] \textcolor{gray}{Anantharam et al, 1987}
+            [2] \textcolor{gray}{Anandkumar et al, 2011}
+            [3] \textcolor{gray}{Avner et al, 15}
+            [4] \textcolor{gray}{Rosenski et al, 15}
             \newline\hspace*{10pt}
-            [5] \textcolor{orange}{Bonnefoi et al. 17}
+            [5] \textcolor{orange}{Bonnefoi et al 17}
             [6] \textcolor{orange}{Besson \& Kaufmann, 18}
-            [7] \textcolor{gray}{Boursier et al. 19}
-            [8] \textcolor{gray}{Proutière, 19}
+            [7] \textcolor{gray}{Boursier et al 19}
+            [8] \textcolor{gray}{Proutière et al, 19}
     \end{small}
 
 \end{frame}
@@ -1920,35 +1977,36 @@
     \begin{colorblock}{Typical regime for piece-wise stationary bandits}
         \begin{itemize}
             \item ``Oracle restart'' UCB obtains
-                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$
+                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
+                when knowing the locations of $\Upsilon_T$ break-points
 
             \item The (minimax) lower-bound is
                 $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
-            \item
-                Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
-                \begin{itemize}
-                % \tightlist
-                    \item
-                        $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \sqrt{T \Upsilon_T \log(T)})$
-                        if $T$ and $\Upsilon_T$ are known
-                    \item
-                        $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
-                        if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
-                \end{itemize}
+                % on a ``bad'' problem
+            % \item
+            %     Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
+            %     \begin{itemize}
+            %     % \tightlist
+            %         \item
+            %             $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \sqrt{T \Upsilon_T \log(T)})$
+            %             if $T$ and $\Upsilon_T$ are known
+            %         \item
+            %             $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
+            %             if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
+            %     \end{itemize}
         \end{itemize}
     \end{colorblock}
 
 \end{frameO}
 
-\begin{frameO}[Our proposed algorithm klUCB index + BGLR detector]
+\begin{frameO}[Our new algorithm: klUCB index + BGLR detector]
 
     \begin{alertblock}{}
-        Our algorithm is the new state-of-the-art!
-
-        Inspired by CUSUM-UCB
-        \textcolor{gray}{[Liu et al. 18]}
+        Our algorithm is inspired by CUSUM-UCB
+        \textcolor{gray}{[Liu et al, 2018]}
         and M-UCB
-        \textcolor{gray}{[Cao et al. 19]}
+        \textcolor{gray}{[Cao et al, 19]},
+        and new analysis of the GLR test \textcolor{gray}{[Maillard, 19]}
     \end{alertblock}
 
     \vspace*{15pt}
@@ -1982,7 +2040,7 @@
                 $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
                 if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
         \end{itemize}
-        {\small with precise constants in the $\mathcal{O}(\dots)$ depending on the problem difficulty\dots}
+        {\small with finite time and more precise results in the thesis\dots}
     \end{lightblock}
     }
 
@@ -2033,7 +2091,7 @@
 
     \begin{tabular}{ m{3.5cm} | c | c | c | c | m{3cm} }
         \textbf{Algorithm} & \textbf{Ref.} & \textbf{Regret bound}
-        & \parbox[c]{2cm}{\textbf{Regret} \newline {\footnotesize \textcolor{orange}{\etoilenorm{}} \textcolor{gray}{is worst}}}
+        & \parbox[c]{2cm}{\textbf{Performance} \newline {\footnotesize \textcolor{orange}{\etoilenorm{}} \textcolor{gray}{is worst}}}
         & \parbox[c]{1.5cm}{\textbf{Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
         & \textbf{Parameters} \\
         \hline
@@ -2223,7 +2281,7 @@
     \textcolor{darkred}{\textbf{3 Submitted works:}}
     \begin{itemize}
         \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy, \textbf{Besson} et al, for \textcolor{darkred}{Annals of Telecommunications}, \textcolor{blue}{July 2019}
-        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann, for \textcolor{darkred}{AISTATS}, \textcolor{blue}{October 2019}
+        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann \& Maillard, for \textcolor{darkred}{AISTATS}, \textcolor{blue}{October 2019}
         \item ``\emph{SMPyBandits \dots}'', \textbf{Besson}, for \textcolor{darkred}{JMLR MLOSS}, \textcolor{blue}{October 2019}
         % \texttt{hal-01840022} \& \texttt{arXiv:1902.01575},
     \end{itemize}
@@ -2579,7 +2637,7 @@
 
     \item
         \emph{The Generalized Likelihood Ratio Test meets klUCB: an Improved Algorithm for Piece-Wise Non-Stationary Bandits},\\
-        by \textbf{Lilian Besson} \& Émilie Kaufmann,
+        by \textbf{Lilian Besson} \& Émilie Kaufmann \& Odalric-Ambrym Maillard,
         \textcolor{blue}{October $2019$}.\\
         Submitted for \textcolor{darkred}{\href{https://www.aistats.org/}{AISTATS 2020}}.
         Preprint at \href{https://HAL.Inria.fr/hal-02006471}{\texttt{HAL.Inria.fr/hal-02006471}}.\\
