@@ -448,7 +448,7 @@
 
     \begin{columns}%[onlytextwidth]
         \begin{column}{0.65\textwidth}
-            \begin{colorblock}{Main hypotheses}
+            \begin{colorblock}{Main constraints}
                 % \small
                 \begin{itemize}
                     \item decentralized: \textcolor{orange}{devices initiate transmission},
@@ -472,6 +472,7 @@
     \end{columns}
 
     \vfill{}
+    \hfill{}
     {\tiny \textcolor{gray}{From \texttt{YouTu.be/QSIPNhOiMoE} and
         \texttt{IBM.com/blogs/internet-of-things/what-is-the-iot}
     }}
@@ -484,7 +485,7 @@
     \begin{colorblock}{Main questions\dots?}
         \begin{itemize}
             \item
-            Can the devices optimize their access to the radio resources\\
+            Can the IoT devices optimize their access to the radio resources\\
             in a \textbf{\alert{simple}}, \textbf{\alert{efficient}}, \textbf{\alert{automatic}} and \textbf{\alert{decentralized}} way?\\
             \textcolor{gray}{In a given location, and a given time, for a given radio standard\dots}
 
@@ -1379,7 +1380,7 @@
 \begin{frameO}[GNU Radio for the UI of the demo ($3/3$)]
     \begin{center}
         % \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie2.png}}{videos/Partie2.mp4}
-        \movie{\includegraphics[width=1.05\textwidth]{UI}}{videos/Partie2.mp4}
+        \movie{\includegraphics[width=1.01\textwidth]{UI}}{videos/Partie2.mp4}
     \end{center}
 \end{frameO}
 
@@ -1411,10 +1412,10 @@
         \begin{itemize}
             \item \underline{Model 1:} \textbf{multi-player bandits}: devices \includegraphics[height=0.37cm]{dynamic-devices.png} are always activated\\
                 ie. $p=1$ in their random activation process $\implies$ $D = M \leq \frac{K}{p} = K$
-            \item \underline{Model 2:} \textbf{non-stationary bandits}
+            \item \underline{Model 2:} \textbf{non-stationary bandits} (for one device)
         \end{itemize}
         \hfill{}
-        $\implies$ Both are \textbf{tractable models} !
+        $\implies$ Both are \textbf{tractable problems} !
     \end{colorblock}
 
 \end{frameO}
@@ -1609,7 +1610,7 @@
 
 \begin{frameO}[M-P bandits for Cognitive Radios: proposed models]
 
-    \begin{colorblock}{\# 1: ``Talk and maybe collide''
+    \begin{colorblock}{\# 2: ``Talk and maybe collide''
         \hfill{} \textcolor{lightgray}{[Besson \& Kaufmann, ALT 2018]}
     }
         \begin{itemize}
@@ -1637,7 +1638,7 @@
 
     \pause
 
-    \begin{lightblock}{\# 1: ``Observe collision then talk?''
+    \begin{lightblock}{\# 3: ``Observe collision then talk?''
         \hfill{} {\tiny \textcolor{lightgray}{[Besson \& Kaufmann, ALT 2018], [Boursier et al, 2019]}}
     }
         \begin{itemize}
@@ -1779,13 +1780,13 @@
     \[\bluelight\hat{M}^m(t) := \left\{ \text{arms with } M \text{ largest } \UCB^m_k(t)\right\}\]
      \end{itemize}
 
-    \vspace{-0.3cm}
+    % \vspace{-0.3cm}
 
-    \underline{Other UCB-based algorithms}:
-
-    \vspace{0.2cm}
-
-    TDFS \color{gray} [Lui and Zhao 2010]\black, Rho-Rand \color{gray} [Anandkumar et al. 2011] \black
+    \hfill{}
+    \begin{small}
+        \underline{Other UCB-based algorithms}:\\
+        TDFS \color{gray} [Lui and Zhao 2010]\black, Rho-Rand \color{gray} [Anandkumar et al. 2011] \black
+    \end{small}
 
 
 \end{frameO}
@@ -1822,6 +1823,46 @@
     \vspace{-0.6cm}
 
     \end{colorblock}
+
+\end{frameO}
+
+
+\begin{frameO}[Theoretical results]
+
+    \vspace{0.2cm}
+    MC-Top-$M$ with $\kl$-based confidence intervals \hfill{} \textcolor{gray}{[Cappé et al. 13]}
+    \vspace{-0.3cm}
+    \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
+    where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln \frac{x}{y} + (1-x)\ln \frac{1-x}{1-y}$.
+
+    \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections}}
+    \only<1>{
+        For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
+        \vspace{-0.3cm}
+        \[
+            \bE[N_k^m(T)] \leq \alt<2>{\purple\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}\bluedark}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
+        \]
+        \vspace{-0.2cm}
+    }
+    \end{darkblock}
+
+    \begin{colorblock}{Control of the \textcolor{orange}{collisions}}
+    \only<1>{
+        \[
+            \bE\left[\sum_{k=1}^K \cC_k(T)\right]
+            \leq M^2 \left(\sum_{a,b : \mu_a < \mu_b} \frac{2 M + 1}{\kl(\mu_a,\mu_b)} \right) \ln(T) + \mathcal{O}(\ln T).
+        \]
+    }
+    \end{colorblock}
+
+    \only<2>{
+    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!}}
+        \[
+            R_{\bm\mu}(\cA,T) = \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
+        \]
+        with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$.
+    \end{lightblock}
+    }
 
 \end{frameO}
 
@@ -1864,7 +1905,7 @@
         \begin{tabular}{ m{2.7cm} | c | c | c | c | m{3cm} }
             \textbf{Algorithm} & \textbf{Ref.} & \textbf{Regret bound}
             & \parbox[c]{2cm}{\textbf{\small Performance} \newline {\footnotesize \textcolor{orange}{\etoilenorm{}} \textcolor{gray}{is worst}}}
-            & \parbox[c]{1.5cm}{\textbf{\small Complexity} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
+            & \parbox[c]{1.5cm}{\textbf{\small Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
             & \textbf{Parameters} \\
             \hline
             \textcolor{deeppurple}{\small Centralized multi-play klUCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {just $M$ but \newline \textcolor{deeppurple}{in another model!} } \\
@@ -2058,7 +2099,7 @@
         \includegraphics[width=1.05\textwidth]{regret_problem1.png}
     \end{center}
     \vspace*{-15pt}
-    $\hookrightarrow$ \textcolor{deeppurple}{klUCB + BGLR} achieves the best performance (among non-oracle)!
+    $\hookrightarrow$ \textcolor{deeppurple}{klUCB + BGLR ($\star$)} achieves the best performance (among non-oracle)!
 \end{frameO}
 
 % \begin{frameO}[More results ($1/3$)]
@@ -2204,7 +2245,7 @@
 \end{frameTI}
 
 
-\begin{frameO}[Conclusion: what we showed \hfill{} ($1/4$)]
+\begin{frameO}[Conclusion: contributions \hfill{} ($1/4$)]
 
     % \begin{colorblock}{What we showed}
         \large
@@ -2285,7 +2326,7 @@
     \textcolor{darkred}{\textbf{3 Submitted works:}}
     \begin{itemize}
         \item ``\emph{Decentralized Spectrum Learning \dots}'', Moy, \textbf{Besson} et al, for \textcolor{darkred}{Annals of Telecommunications}, \textcolor{blue}{July 2019}
-        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann \& Maillard, for \textcolor{darkred}{AISTATS}, \textcolor{blue}{October 2019}
+        \item ``\emph{GLRT meets klUCB \dots}'', \textbf{Besson} \& Kaufmann \& Maillard, for \textcolor{darkred}{AISTATS}, \textcolor{blue}{Oct.2019}
         \item ``\emph{SMPyBandits \dots}'', \textbf{Besson}, for \textcolor{darkred}{JMLR MLOSS}, \textcolor{blue}{October 2019}
         % \texttt{hal-01840022} \& \texttt{arXiv:1902.01575},
     \end{itemize}
@@ -2316,7 +2357,7 @@
             % for large $M$ nb of devices and small $p$ activation probabilities\dots?
             \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
             (cascading, delay feedback, combinatorial, contextual etc)\newline
-                \hfill{} {\small $\hookrightarrow$ you can contribute on \href{https://GitHub.com/SMPyBandits/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits/SMPyBandits}}}}
+                \hfill{} {\small $\hookrightarrow$ anyone can contribute on \href{https://GitHub.com/SMPyBandits/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits/SMPyBandits}}}}
         \end{itemize}
     % \end{lightblock}
 
