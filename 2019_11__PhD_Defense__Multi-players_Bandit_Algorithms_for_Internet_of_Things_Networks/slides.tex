@@ -260,13 +260,52 @@
 
 \begin{document}
 
-\begin{frameTTnobottom}
+% \begin{frameTTnobottom}
 
-    \begin{textblock*}{12cm}(13mm,50mm)
-        {\textcolor{white} {
-        {\huge \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}}
-        \\
-        \vspace*{10pt}% XXX ?
+%     \begin{textblock*}{12cm}(13mm,50mm)
+%         {\textcolor{white} {
+%         {\huge \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}}
+%         \\
+%         \vspace*{10pt}% XXX ?
+%         {\large
+%         % Seminar of the \textbf{SCEE team}\\
+%         % at \textbf{CentraleSupélec}, campus de Rennes\\
+%         % Thursday $17$th of October, $2019$
+%         %
+%         % Seminar of the \textbf{SequeL team}\\
+%         % at \textbf{INRIA} Lille Nord Europe\\
+%         % Friday $8$th of November, $2019$
+%         %
+%         % Seminar of the \textbf{PANAMA team}\\
+%         % at \textbf{INRIA} Rennes Bretagne Atlantique\\
+%         % Wednesday $13$th of November, $2019$
+%         %
+%         \textbf{PhD defense}\\
+%         at \textbf{CentraleSupélec}, campus de Rennes\\
+%         Wednesday $20$th of November, $2019$
+%         }
+%         }}
+%     \end{textblock*}
+
+%     \vspace*{-4pt}
+% \end{frameTTnobottom}
+
+%%% presentation for standard frames
+
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/PageTabInverse_CentraleSupelec}}
+
+\setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
+    {\textcolor{white}{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
+    \raisebox{2.5ex}
+    {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+
+
+\begin{frameO}[Welcome to my PhD defense]
+
+    % Hi, I'm Lilian\dots
+
+        {\huge Title: \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}}
+
         {\large
         % Seminar of the \textbf{SCEE team}\\
         % at \textbf{CentraleSupélec}, campus de Rennes\\
@@ -284,29 +323,10 @@
         at \textbf{CentraleSupélec}, campus de Rennes\\
         Wednesday $20$th of November, $2019$
         }
-        }}
-    \end{textblock*}
-
-    \vspace*{-4pt}
-\end{frameTTnobottom}
-
-%%% presentation for standard frames
-
-\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/PageTabInverse_CentraleSupelec}}
-
-\setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
-    {\textcolor{white}{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
-    \raisebox{2.5ex}
-    {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
-
-
-\begin{frameO}[Introduction]
-
-    % Hi, I'm Lilian\dots
 
     \begin{itemize}
-        \item Defense for my PhD in Telecommunications and Machine Learning
-        \item under supervision of Prof. Christophe Moy\\
+        % \item Defense for my PhD in Telecommunications and Machine Learning
+        \item PhD (2016-19) under supervision of Prof. Christophe Moy\\
             at SCEE team, IETR \& CentraleSupélec in Rennes (France)
         \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille
         % \hfill{} \emph{Thanks to her for some of the slides material!}
@@ -435,7 +455,7 @@
         \hspace{30pt} served from \textbf{\alert{one} access point}, in an unlicensed standard:\\
         \hspace{30pt} the base station is \textbf{\alert{not}} affecting devices to radio resources\dots
 
-        \hspace{35pt} $\hookrightarrow$ we focus on the case of \textbf{\alert{Internet of Things}} networks (IoT) in unlicensed bands.
+        We focus on the case of \textbf{\alert{Internet of Things}} networks (IoT) in unlicensed bands.
     \end{darkblock}
 
     \pause
@@ -496,7 +516,7 @@
     \begin{colorblock}{Main questions\dots?}
         \begin{itemize}
             \item
-            Can the IoT devices optimize their access to the radio resources\\
+            Can the IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png} optimize their access to the radio resources\\
             in a \textbf{\alert{simple}}, \textbf{\alert{efficient}}, \textbf{\alert{automatic}} and \textbf{\alert{decentralized}} way?\\
             \textcolor{gray}{In a given location, and a given time, for a given radio standard\dots}
 
@@ -505,7 +525,7 @@
         \end{itemize}
     \end{colorblock}
 
-    \vspace{10pt}
+    \vspace{5pt}
     \pause
 
     \begin{colorblock}{Main goals}
@@ -517,7 +537,7 @@
         \end{itemize}
     \end{colorblock}
 
-    \vspace{10pt}
+    \vspace{5pt}
     \pause
 
     \begin{lightblock}{\textbf{Main solutions !}}
@@ -591,8 +611,8 @@
         \begin{tikzpicture}[>=latex',line join=bevel,scale=2.25]
             %
             \node[align=center] (introduction) at (0,3.25) [rectangle,draw,fill=blue!15] {\textbf{Chapter~1}\\Introduction};
-            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~2\\The Stochastic\\Multi-Armed Bandit models};
-            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=green!15] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
+            \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=green!15] {Chapter~2\\The Stochastic\\Multi-Armed Bandit models};
+            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
             \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~4\\Online selection\\of the best algorithm};
             \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!25] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
             \node[align=center] (chapter5) at (0,1) [rectangle,draw,fill=green!25] {\textbf{Chapter~6}\\Multi-players\\Multi-Armed Bandits};
@@ -644,7 +664,7 @@
         %     \item \textcolor{gray}{realistic implementation on real radio hardware}
         %     \item \textcolor{gray}{\emph{intractable} model in theory\dots}
         % \end{itemize}
-        \item \textbf{Part II.} \emph{Two tractable models}, extending the classical bandit model
+        \item \textbf{Part II.} \emph{Two tractable problems} extending the classical bandit
         \begin{itemize}
             \item \textcolor{gray}{multi-player bandits in stationary settings}
             \item \textcolor{gray}{single-player bandits in piece-wise stationary settings}
@@ -2820,23 +2840,85 @@
 
 
 % FIXME terminer ces slides backup
-\begin{frameO}[Backup slides to answer predicatable questions?]
+% \begin{frameO}[Backup slides to answer predicatable questions?]
 
-    \begin{itemize}
-        \item Add pseudo code of MCTopM + klUCB
-        \item Add exact regret bound of MCTopM + klUCB
-        \item Add drawing explaining the proof of regret bound of MCTopM + klUCB
-    \end{itemize}
+%     \begin{itemize}
+%         \item Add pseudo code of MCTopM + klUCB
+%         \item Add exact regret bound of MCTopM + klUCB
+%         \item Add drawing explaining the proof of regret bound of MCTopM + klUCB
+%     \end{itemize}
 
-    \begin{itemize}
-        \item Add pseudo code of GLRT + klUCB
-        \item Add exact regret bound of GLRT + klUCB
-    \end{itemize}
+%     \begin{itemize}
+%         \item Add pseudo code of GLRT + klUCB
+%         \item Add exact regret bound of GLRT + klUCB
+%     \end{itemize}
 
+% \end{frameO}
+
+
+\begin{frameO}[Our algorithm Rand-Top-$M$]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__algo_RandTopM.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Our algorithm MC-Top-$M$]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__algo_MCTopM.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Lemma: bad selections for MC-Top-$M$ with kl-UCB]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_MCTopM_bad_selections.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Lemma: collisions for MC-Top-$M$ with kl-UCB]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_MCTopM_collisions.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Theoreom: regret for MC-Top-$M$ with kl-UCB]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_MCTopM_regret.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Our algorigthm GLRT and kl-UCB]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__algo_GLRT_klUCB.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Theorem: regret bound for GLRT + kl-UCB (global)]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_GLR_regret.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Corollary: regret bounds for GLRT + kl-UCB (global)]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__cor_GLR_regret.png}
+    \end{center}
 \end{frameO}
 
 
-% % FIXME remettre pour la vraie soutenance ?
+\begin{frameO}[Theorem: regret bound for GLRT + kl-UCB (local)]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_GLRlocal_regret.png}
+    \end{center}
+\end{frameO}
+
+\begin{frameO}[Corollary: regret bounds for GLRT + kl-UCB (local)]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{Backup_Slides__cor_GLRlocal_regret.png}
+    \end{center}
+\end{frameO}
+
+
+% % FIXME rmettre pour la vraie soutenance ?
 % \begin{frameO}[Climatic crisis ?]
 
 %     \begin{center}
