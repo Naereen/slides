@@ -85,17 +85,32 @@
 \end{frameO}
 
 
+\begin{frameO}[Protocol: \textcolor{blue}{uplink messages {\large $\nearrow$}} followed by \textcolor{darkgreen}{\emph{acknowledgements} {\large $\searrow$}}]
+
+    \begin{center}
+        \only<1>{
+            \includegraphics[width=0.90\textwidth]{Protocol_successful_transmission.png}
+            \underline{1st case}: Successful transmission if no collision on \textcolor{blue}{uplink messages {\large $\nearrow$}} !
+        }
+        \only<1>{
+            \includegraphics[width=0.90\textwidth]{Protocol_failed_transmission.png}
+            \underline{2nd case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}
+        }
+    \end{center}
+
+\end{frameO}
+
 
 \subsubsection{Hypotheses}
 
-\begin{frameO}[Hypotheses ($1/2$)]
+\begin{frameO}[Our model of IoT devices \hfill{} \textcolor{gray}{[Bonnefoi, 2017]}]
 
     \begin{lightblock}{Emission model for static and dynamic devices}
 
         \begin{itemize}
             % \tightlist
             \item
-                Each device has the same \emph{low} emission probability: \\
+                Each device \includegraphics[height=0.37cm]{dynamic-devices.png} / \includegraphics[height=0.37cm]{static-devices.png}  has the same \emph{low} emission probability: \\
                 each step, each device sends a packet with probability \(p\)
                 %   \\
                 %   \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
@@ -116,7 +131,7 @@
                   % \hfill{} $\implies$ \alert{stationary} hypothesis!
         \end{itemize}
 
-        \(\implies\) This (stationary) ambiant traffic \emph{is disturbing} the dynamic devices!
+        \(\implies\) This (stationary) ambiant traffic \emph{is disturbing} the dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}
     \end{colorblock}
 
     \vspace*{5pt}
@@ -126,7 +141,7 @@
         \begin{itemize}
             % \tightlist
             \item
-                \textbf{Dynamic device decide} the channel to use to send their packets
+                \textbf{Dynamic device decide} \includegraphics[height=0.37cm]{dynamic-devices.png}  the channel to use to send their packets
             \item
                 They all have memory and computational capacity to implement small decision algorithms
                 % on a small CPU embedded on the devices.
@@ -135,6 +150,7 @@
     \end{colorblock}
 
 \end{frameO}
+
 
 \begin{frameO}[Problem]
 
@@ -145,11 +161,12 @@
 
     \vspace*{20pt}
 
+    \begin{lightblock}{Baseline (naive solution)}
+        Purely random (uniform) spectrum access for each of the $D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} .
+    \end{lightblock}
+
     \begin{lightblock}{A possible solution}
-        \begin{itemize}
-            \item \textbf{decentralized Multi-Armed Bandit} algorithms
-            \item used \textbf{independently by each device}
-        \end{itemize}
+        Embed a \textbf{decentralized Multi-Armed Bandit} algorithm, running \textbf{independently on each dynamic device} \includegraphics[height=0.37cm]{dynamic-devices.png}
     \end{lightblock}
 
 \end{frameO}
@@ -201,17 +218,17 @@
 
 \subsubsection{$1)$ \emph{Oracle} centralized strategy}
 
-\begin{frameO}[$1)$ \emph{Oracle} centralized strategy]
+\begin{frameO}[$1)$ \emph{Oracle} centralized strategy \hfill{} \textcolor{gray}{[Bonnefoi, 2017]}]
 
     \begin{itemize}
         % \tightlist
         \item
-              If an oracle can affect \(D_k\) dynamic devices to channel
-              \(k\), the \textbf{successful transmission probability} of the entire network is:
+              If an oracle can affect \(D_k\) dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}  to channel
+              \(k\) \slotmachine{}, the \textbf{successful transmission probability} of the entire network is
               \vspace*{-10pt}
 
               \begin{small} \begin{align*}
-                      \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p)^{D_k - 1}}_{\;\;D_k - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_k}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_k / D }_{\;\;\text{Sent in channel}\; k}.
+                      \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p)^{D_k - 1}}_{\;\;D_k - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_k}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_k / D }_{\;\;\text{Sent in channel}\; k}
                   \end{align*} \end{small}
               \pause
         \item
@@ -223,13 +240,15 @@
                           \text{such that}\;\;\;                     & \sum\limits_{k=1}^{K} D_k = D \; \text{and} \; D_k \geq 0, \; \; \forall 1 \leq k \leq K .
                       \end{cases} \end{equation*} \end{small}
         \item
-              Contribution: we solved this quasi-convex optimization problem with \emph{Lagrange
+              \textcolor{orange}{Contribution}: we solved this quasi-convex optimization problem with \emph{Lagrange
                   multipliers} (only numerically).
     \end{itemize}
 
     \vfill{}
-    \(\implies\) It will have very good performance, as it maximizes the transmission rate
-    of all the \(D\) dynamic devices.
+    \begin{colorblock}{}
+        \(\implies\) It will have very good performance, as it maximizes the transmission rate of all the \(D\) dynamic devices
+        \includegraphics[height=0.37cm]{dynamic-devices.png}
+    \end{colorblock}
 
 \end{frameO}
 
@@ -260,7 +279,7 @@
 
 \begin{frameO}[Hum, what is a (one-armed )\emph{bandit}?]
     \begin{center}
-        It's an old name for a casino machine!
+        It's an old name for a casino machine \slotmachine{} !
     \end{center}
 
     \begin{center}
@@ -293,7 +312,7 @@
                 player chooses an \emph{arm} \slotmachine{} \(A(t) \in \{1,\dots,K\}\)
             \item
                 the arm generates an i.i.d. \emph{reward} $r_{A(t)}(t) \sim \nu_{A(t)}$\\
-                Ex: from a Bernoulli distribution $\nu_{k} = \mathcal{B}(\mu_k)$,
+                \textcolor{gray}{Ex: from a Bernoulli distribution $\nu_{k} = \mathcal{B}(\mu_k)$}
             \item
                 player observes the reward $r_{A(t)}(t)$
         \end{itemize}
@@ -302,15 +321,18 @@
     \pause
 
     \begin{colorblock}{Goal}
-        Maximize the sum reward (\textbf{Reinforcement Learning}) or its expectation
-        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \sum\limits_{t=1}^{T} \mathbb{E}[r_{A(t)}].\]
+        Maximize the sum reward (\textbf{Reinforcement Learning}) or \textcolor{orange}{its expectation}
+        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \textcolor{orange}{ \mathbb{E}[\sum\limits_{t=1}^{T} r_{A(t)}] }.\]
     \end{colorblock}
+
+    \vfill{}
+    \hfill{} {\tiny \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}
 
 \end{frameO}
 
 \begin{frameO}[$2)$ Pseudo \emph{MAB} formulation of our IoT problem]
 
-    A dynamic device tries to collect \emph{rewards} when transmitting:
+    A dynamic device \includegraphics[height=0.37cm]{dynamic-devices.png}  tries to collect \emph{rewards} when transmitting:
 
     \begin{itemize}
         % \tightlist
@@ -335,7 +357,7 @@
 
     \begin{colorblock}{Goal}
         Maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
-        \(\equiv \max_{A} \;\; \sum\limits_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}\).
+        % \(\equiv \max_{A} \;\; \sum\limits_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}\).
     \end{colorblock}
 
     \begin{lightblock}{It is not a \emph{stochastic} Multi-Armed Bandit problem}
@@ -406,6 +428,9 @@
         {\small \textcolor{gray}{Ref: [Auer et al, 2002]}}
     }
     \only<3>{
+    \begin{colorblock}{Multiple devices}
+        The collisions are not stochastic!
+    \end{colorblock}
     \begin{colorblock}{Random activation times $\tau$?}
         \begin{itemize}
             \item
@@ -414,11 +439,11 @@
                   each object transmits only with probability $p$ at each time $t$\newline
                   (following its Bernoulli activation pattern)
         \end{itemize}
-        \vspace*{10pt}
-        {\large
-            \alert{$\implies$ these random activations make the model \textbf{hard to analyze} !}
-        }
     \end{colorblock}
+    \vspace*{10pt}
+        {\large
+            \alert{$\implies$ these two problems make the model \textbf{hard to analyze} !}
+        }
     }
 
     % \vfill{}\hfill{}\tiny{\textcolor{gray}{References: [Lai \& Robbins, 1985], [Auer et al, 2002], [Bubeck \& Cesa-Bianchi, 2012]}}
@@ -431,12 +456,12 @@
 
 \subsubsection{Experiment setting}
 
-\begin{frameO}[Experimental setting]
+\begin{frameO}[Experimental setting: simulation parameters]
 
-    \begin{colorblock}{Simulation parameters}
+    % \begin{colorblock}{}
 
         \begin{itemize}
-            \setlength\itemsep{10pt}
+            % \setlength\itemsep{10pt}
                   % 
                   % \tightlist
             \item
@@ -451,11 +476,11 @@
             \item
                   \(p = 10^{-3}\) probability of emission,
             \item
-                  Horizon \(T = 10^5\) total time slots (avg. \(\simeq 100\) messages \(/\)
-                  device),
+                  Horizon \(T = 10^5\) total time slots
+                  (\textcolor{orange}{avg. \(\simeq 100\) messages \(/\) device}),
             \pause
             \item
-                  The proportion of dynamic devices
+                  We change the proportion of dynamic devices
                   \(D\)
                   \includegraphics[height=0.37cm]{dynamic-devices.png}
                   \(/\)
@@ -464,13 +489,16 @@
                   \(+\)
                   \(D\)
                   \includegraphics[height=0.37cm]{dynamic-devices.png}
-                  \()\)
-                  varies,
+                  \()\),
             \item
-                  We consider various settings for \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png} repartition.
+                  For one example of repartition of \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png}
         \end{itemize}
+        \vspace*{-10pt}
+        \begin{center}
+            \includegraphics[height=3.5cm]{Repartition_of_static_devices.png}
+        \end{center}
 
-    \end{colorblock}
+    % \end{colorblock}
 
 \end{frameO}
 

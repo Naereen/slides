@@ -300,28 +300,28 @@
     {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 
-\begin{frameO}[Who am I?]
+\begin{frameO}[Introduction]
 
-    Hi, I'm Lilian\dots
+    % Hi, I'm Lilian\dots
 
     \begin{itemize}
-        \item finishing my PhD, in Telecommunications and Machine Learning
+        \item Defense for my PhD in Telecommunications and Machine Learning
         \item under supervision of Prof. Christophe Moy\\
             at SCEE team, IETR \& CentraleSupélec in Rennes (France)
         \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille
         % \hfill{} \emph{Thanks to her for some of the slides material!}
-        \item \textcolor{orange}{and I'm joining the PANAMA team in December!}
+        % \item \textcolor{orange}{and I'm joining the PANAMA team in December!}
     \end{itemize}
 
     \vspace*{5pt}
 
-    \begin{small}
-        \begin{itemize}
-            \item Email: \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ CentraleSupelec.fr \& Inria.fr}}}
+    % \begin{small}
+    %     \begin{itemize}
+    %         \item Email: \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ CentraleSupelec.fr \& Inria.fr}}}
 
-            \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{blue}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}}
-        \end{itemize}
-    \end{small}
+    %         \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{blue}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}}
+    %     \end{itemize}
+    % \end{small}
 
     \vfill{}
     % XXX manual inclusion of logos
@@ -376,30 +376,22 @@
 \end{frameTI}
 
 
-\begin{frameO}[Spectrum scarcity: there are not enough free bands]
+\begin{frameO}[Wireless networks]
     \begin{itemize}
         \item
-        Wireless networks run on different frequencies
+        All spectrum is allocated to different applications
+        % Wireless networks run on different frequencies
         \item
-        most of which are already allocated to a fixed usage
+        But all zones are not always used everywhere
+        % most of which are already allocated to a fixed usage
         % \item
     \end{itemize}
-    $\implies$ Almost all frequencies are registered and their usages are limited!
+    % $\implies$ Almost all frequencies are registered and their usages are limited!
     \begin{center}
         \includegraphics[width=0.65\textwidth]{United_States_Frequency_Allocations_Chart_2016_The_Radio_Spectrum_3}
     \end{center}
     \hfill{}
     {\tiny \textcolor{gray}{United States of North America, Department of Commerce, \textcopyright{} 2016}}
-\end{frameO}
-
-
-\begin{frameO}[But\dots world-wide non-homogeneous frequency usage]
-    But\dots almost everywhere and at anytime in the world, some radio channels are not used! (in any standard)
-    \begin{center}
-        \includegraphics[width=0.80\textwidth]{scan_WiFi_maison}
-    \end{center}
-    \hfill{}
-    {\tiny \textcolor{gray}{Lilian Besson, screenshot from my FreeBox control interface, \textcopyright{} 2019}}
 
     \vspace*{10pt}
     \hfill{}
@@ -408,8 +400,23 @@
 \end{frameO}
 
 
+% \begin{frameO}[But\dots world-wide non-homogeneous frequency usage]
+%     But\dots almost everywhere and at anytime in the world, some radio channels are not used! (in any standard)
+%     \begin{center}
+%         \includegraphics[width=0.80\textwidth]{scan_WiFi_maison}
+%     \end{center}
+%     \hfill{}
+%     {\tiny \textcolor{gray}{Lilian Besson, screenshot from my FreeBox control interface, \textcopyright{} 2019}}
+
+%     \vspace*{10pt}
+%     \hfill{}
+%     \thinkingface{}
+%     \textbf{What if we could dynamically use the (most) empty channels?}
+% \end{frameO}
+
+
 % \begin{frameO}[What did I study during my PhD ? ($1/2$)]
-\begin{frameO}[Setting]
+\begin{frameO}[Target of this study]
 
     % \begin{darkblock}{Telecommunications technology\dots}
     %     \hspace{5pt} $\hookrightarrow$ wireless networks\dots\\
@@ -420,16 +427,15 @@
     %     \hspace{35pt} $\hookrightarrow$ we focus on the case of \emph{Internet of Things} networks
     % \end{darkblock}
 
-    \begin{darkblock}{Telecommunications technology\dots}
-        \hspace{5pt} $\hookrightarrow$ \textbf{\alert{wireless} networks}\dots
-
+    \begin{darkblock}{Wireless networks\dots}
+        % \hspace{5pt} $\hookrightarrow$ \textbf{\alert{wireless} networks}\dots
         \hspace{10pt} $\hookrightarrow$ networks with \textbf{\alert{decentralized} access}\dots
 
-        \hspace{15pt} $\hookrightarrow$ \textbf{\alert{some/many} wireless devices} access a wireless network\\
+        \hspace{15pt} $\hookrightarrow$ \textbf{\alert{many} wireless devices} \includegraphics[height=0.37cm]{dynamic-devices.png}  access a wireless network\\
         \hspace{30pt} served from \textbf{\alert{one} access point}, in an unlicensed standard:\\
         \hspace{30pt} the base station is \textbf{\alert{not}} affecting devices to radio resources\dots
 
-        \hspace{35pt} $\hookrightarrow$ we focus on the case of \textbf{\alert{Internet of Things}} networks (IoT)
+        \hspace{35pt} $\hookrightarrow$ we focus on the case of \textbf{\alert{Internet of Things}} networks (IoT) in unlicensed bands.
     \end{darkblock}
 
     \pause
@@ -502,12 +508,24 @@
     \vspace{10pt}
     \pause
 
+    \begin{colorblock}{Main goals}
+        \begin{itemize}
+            \item
+            Increase the battery life of IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png}
+            \item
+            Fight the spectrum scarcity issue by using the spectrum more efficiently than a static or uniformly random allocation
+        \end{itemize}
+    \end{colorblock}
+
+    \vspace{10pt}
+    \pause
+
     \begin{lightblock}{\textbf{Main solutions !}}
         Yes we can! By letting the radio devices become ``intelligent'' \\
         \hspace{5pt} $\hookrightarrow$ by using \emph{Machine Learning} algorithms\dots\\
         \hspace{10pt} $\hookrightarrow$ of the \emph{Reinforcement Learning} family\dots\\
-        \hspace{15pt} $\hookrightarrow$ we focussed on \textbf{\alert{Multi-Armed Bandit}} algorithms\\
-        \hspace{30pt} and we showed they are well suited for (some of) these problems!
+        \hspace{15pt} $\hookrightarrow$ we focus on \textbf{\alert{Multi-Armed Bandit}} algorithms\\
+        % \hspace{30pt} and we showed they are well suited for (some of) these problems!
     \end{lightblock}
 
 \end{frameO}
@@ -564,7 +582,8 @@
 % \end{frameO}
 
 
-\begin{frameO}[Reading map of my thesis for today]
+% \begin{frameO}[Reading map of my thesis for today]
+\begin{frameO}[Contributions of my thesis highlighted today]
 
     \begin{figure}[h!]
         \centering
@@ -573,11 +592,11 @@
             %
             \node[align=center] (introduction) at (0,3.25) [rectangle,draw,fill=blue!15] {\textbf{Chapter~1}\\Introduction};
             \node[align=center] (chapter2) at (0,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~2\\The Stochastic\\Multi-Armed Bandit models};
-            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
+            \node[align=center] (chapter3) at (-2.5,2.25) [rectangle,draw,fill=green!15] {Chapter~3\\SMPyBandits: simulation\\library for MAB};
             \node[align=center] (chapter25) at (+2.5,2.25) [rectangle,draw,fill=gray!10,text=gray] {Chapter~4\\Online selection\\of the best algorithm};
-            \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!10] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
-            \node[align=center] (chapter5) at (0,1) [rectangle,draw,fill=green!15] {\textbf{Chapter~6}\\Multi-players\\Multi-Armed Bandits};
-            \node[align=center] (chapter6) at (2.5,1) [rectangle,draw,fill=green!20] {\textbf{Chapter~7}\\Piece-Wise Stationary\\Multi-Armed Bandits};
+            \node[align=center] (chapter4) at (-2.5,1) [rectangle,draw,fill=green!25] {\textbf{Chapter~5}\\Two MAB models\\for IoT networks};
+            \node[align=center] (chapter5) at (0,1) [rectangle,draw,fill=green!25] {\textbf{Chapter~6}\\Multi-players\\Multi-Armed Bandits};
+            \node[align=center] (chapter6) at (2.5,1) [rectangle,draw,fill=green!25] {\textbf{Chapter~7}\\Piece-Wise Stationary\\Multi-Armed Bandits};
             \node[align=center] (conclusion) at (0,-0.25) [rectangle,draw,fill=blue!20] {\textbf{Chapter~8}\\General Conclusion};
             % \node[align=center] (appendix) at (2.5,-0.25) [rectangle,draw,fill=yellow!10] {Appendix};
             %
@@ -605,6 +624,7 @@
 
 
 \begin{frameO}[Outline of this presentation]
+    \begin{large}
 
     \begin{itemize}
         \setlength\itemsep{1em}
@@ -631,6 +651,8 @@
         \end{itemize}
         \item Conclusion and perspectives
     \end{itemize}
+
+    \end{large}
 
 \end{frameO}
 
@@ -1370,7 +1392,7 @@
         \movie{\includegraphics[width=0.7\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
     \hfill{}
-    {\footnotesize \textcolor{gray}{Ref: [Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}}
+    {\tiny \textcolor{gray}{Ref: [Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3, \texttt{YouTu.be/HospLNQhcMk}}}
 \end{frameO}
 
 
@@ -1400,9 +1422,9 @@
             \textcolor{orange}{\textbf{It works very well empirically}!}
         \item
             But \alert{random activation times} make the model \textbf{hard to analyze}\dots
-        \item \underline{Hyp 1:} in expectation, there are $p \times D$ dynamic devices using $K$ channels
+        \item \underline{Hyp 1:} in avg. $p \times D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are using $K$ channels \slotmachine{}
             \hfill{} $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
-        \item \underline{Hyp 2:} we assumed a stationary background traffic\dots
+        \item \underline{Hyp 2:} we assumed a stationary background traffic \includegraphics[height=0.37cm]{static-devices.png} \dots
     \end{itemize}
 
     \pause
@@ -1417,7 +1439,7 @@
         \begin{itemize}
             \item \underline{Model 1:} \textbf{multi-player bandits}: devices \includegraphics[height=0.37cm]{dynamic-devices.png} are always activated\\
                 ie. $p=1$ in their random activation process $\implies$ $D = M \leq \frac{K}{p} = K$
-            \item \underline{Model 2:} \textbf{non-stationary bandits} (for one device)
+            \item \underline{Model 2:} \textbf{non-stationary bandits} (for one device \includegraphics[height=0.37cm]{dynamic-devices.png})
         \end{itemize}
         \hfill{}
         $\implies$ Both are \textbf{tractable problems} !
@@ -1448,81 +1470,81 @@
 \end{frameTI}
 
 
-\begin{frame}[c]
-    \begin{changemargin}{-0.5cm}{-0.5cm}
-        \begin{center}
-            \vspace{-0.3in}
-            \textbf{\huge Theoretical analysis of \\two relaxed models}
-            \vspace{1.5cm}
+% \begin{frame}[c]
+%     \begin{changemargin}{-0.5cm}{-0.5cm}
+%         \begin{center}
+%             \vspace{-0.3in}
+%             \textbf{\huge Theoretical analysis of \\two relaxed models}
+%             \vspace{1.5cm}
 
-            \Large \textbf{Many different extensions}\\
-            \small{For your curiousity\dots}
-            \\[0.5cm]
-            \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
-            \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}}
-        \end{center}
-    \end{changemargin}
-\end{frame}
+%             \Large \textbf{Many different extensions}\\
+%             \small{For your curiousity\dots}
+%             \\[0.5cm]
+%             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
+%             \textcolor{darkgray}{\textbf{\Large Piece-wise stationary bandits}}
+%         \end{center}
+%     \end{changemargin}
+% \end{frame}
 
-\begin{frameO}[Many other bandits models and problems (1/2)]
+% \begin{frameO}[Many other bandits models and problems (1/2)]
 
-    Most famous extensions:
+%     Most famous extensions:
 
-    \begin{itemize}%[<+->]
-        \setlength\itemsep{1em}
-        \item (centralized) multiple-actions
-              \begin{itemize}
-                  \item \textcolor{blue}{multiple choice}: choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
-                  \item combinatorial: choose a subset of arms $S \subseteq \{1,\dots,K\}$ (large space)
-              \end{itemize}
-        \item non-stationary
-              \begin{itemize}
-                  \item \textcolor{blue}{piece-wise stationary / abruptly changing}
-                  \item slowly-varying, rotting\dots
-                  \item adversarial\dots
-              \end{itemize}
-        \item (decentralized) collaborative/communicating bandits over a graph
-        \item \textcolor{blue}{(decentralized) non-communicating multi-player bandits}
-    \end{itemize}
+%     \begin{itemize}%[<+->]
+%         \setlength\itemsep{1em}
+%         \item (centralized) multiple-actions
+%               \begin{itemize}
+%                   \item \textcolor{blue}{multiple choice}: choose $m\in\{2,\dots,K-1\}$ arms (fixed size)
+%                   \item combinatorial: choose a subset of arms $S \subseteq \{1,\dots,K\}$ (large space)
+%               \end{itemize}
+%         \item non-stationary
+%               \begin{itemize}
+%                   \item \textcolor{blue}{piece-wise stationary / abruptly changing}
+%                   \item slowly-varying, rotting\dots
+%                   \item adversarial\dots
+%               \end{itemize}
+%         \item (decentralized) collaborative/communicating bandits over a graph
+%         \item \textcolor{blue}{(decentralized) non-communicating multi-player bandits}
+%     \end{itemize}
 
-    % \hspace*{5cm}
-    \vfill{}
-    \hfill{}
-    \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
+%     % \hspace*{5cm}
+%     \vfill{}
+%     \hfill{}
+%     \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
 
-\end{frameO}
+% \end{frameO}
 
-\begin{frameO}[Many other bandits models and problems (2/2)]
+% \begin{frameO}[Many other bandits models and problems (2/2)]
 
-    % \textcolor{gray}{And many more extensions\dots}
+%     % \textcolor{gray}{And many more extensions\dots}
 
-    \begin{itemize}%[<+->]
-        \setlength\itemsep{0.6em}
-        \item \textcolor{blue}{non-stochastic, Markov models rested/restless}
-        \item best arm identification (vs reward maximization)
-              \begin{itemize}
-                  \item \textcolor{gray}{fixed budget setting}
-                  \item \textcolor{gray}{fixed confidence setting}
-                  \item \textcolor{gray}{PAC (probably approximately correct) algorithms}
-              \end{itemize}
-        \item for some applications (content recommendation etc)
-              \begin{itemize}
-                  \item \textcolor{gray}{contextual bandits: observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)}
-                  \item \textcolor{gray}{cascading bandits}
-                  \item \textcolor{gray}{delayed feedback bandits}
-                  \item \textcolor{gray}{bandits with (differential) privacy constraints}
-              \end{itemize}
-        \item structured bandits (\textcolor{blue}{sparse}, low-rank, many-armed, Lipschitz etc)
-        \item $\mathcal{X}$-armed, continuous-armed bandits
-        \item \textcolor{gray}{and many more}
-    \end{itemize}
+%     \begin{itemize}%[<+->]
+%         \setlength\itemsep{0.6em}
+%         \item \textcolor{blue}{non-stochastic, Markov models rested/restless}
+%         \item best arm identification (vs reward maximization)
+%               \begin{itemize}
+%                   \item \textcolor{gray}{fixed budget setting}
+%                   \item \textcolor{gray}{fixed confidence setting}
+%                   \item \textcolor{gray}{PAC (probably approximately correct) algorithms}
+%               \end{itemize}
+%         \item for some applications (content recommendation etc)
+%               \begin{itemize}
+%                   \item \textcolor{gray}{contextual bandits: observe a reward and a \emph{context} ($C_t \in\mathbb{R}^d$)}
+%                   \item \textcolor{gray}{cascading bandits}
+%                   \item \textcolor{gray}{delayed feedback bandits}
+%                   \item \textcolor{gray}{bandits with (differential) privacy constraints}
+%               \end{itemize}
+%         \item structured bandits (\textcolor{blue}{sparse}, low-rank, many-armed, Lipschitz etc)
+%         \item $\mathcal{X}$-armed, continuous-armed bandits
+%         \item \textcolor{gray}{and many more}
+%     \end{itemize}
 
-    % \hspace*{5cm}
-    \vfill{}
-    \hfill{}
-    \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
+%     % \hspace*{5cm}
+%     \vfill{}
+%     \hfill{}
+%     \textcolor{blue}{$\hookrightarrow$ Implemented in our library \textbf{SMPyBandits}!}
 
-\end{frameO}
+% \end{frameO}
 
 
 
@@ -1533,7 +1555,7 @@
             \textbf{\huge Theoretical analysis of\\ two relaxed models}
             \vspace{1.5cm}
 
-            \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
+            % \textcolor{darkgray}{\Large \textbf{Many different extensions}	\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
             \textbf{\Large Multi-player bandits}\\
             \small{\textcolor{gray}{Ref: Chapter 6 of my thesis, and [Besson \& Kaufmann, 2018].}}
@@ -1556,18 +1578,20 @@
 
     \vspace{0.3cm}
 
-    At round $t \in\{1,\dots, T\}$:
-    \begin{itemize}
-        \item player $m$ selects arm $A^m_{t}$ \slotmachine{} ; then \textit{this arm generates} $s_{A^m_{t},t}$
-        \item and the reward is computed as
-    \end{itemize}
+    \begin{lightblock}{}
+        At round $t \in\{1,\dots, T\}$:
+        \begin{itemize}
+            \item player $m$ selects arm $A^m_{t}$ \slotmachine{} ; then \textit{this arm generates} $s_{A^m_{t},t}$
+            \item and the reward is computed as
+        \end{itemize}
 
-    \vspace{-0.2cm}
+        \vspace{-0.2cm}
 
-    \[\red r_{m,t} = \left\{ \begin{array}{cl}
-            s_{A^m_{t},t} & \text{if no other player chose the same arm} \\
-            0             & \text{else (= COLLISION)}
-        \end{array}\right.\]
+        \[\red r_{m,t} = \left\{ \begin{array}{cl}
+                s_{A^m_{t},t} & \text{if no other player chose the same arm} \\
+                0             & \text{else (= COLLISION)}
+            \end{array}\right.\]
+    \end{lightblock}
 
     \pause
     \vspace{-0.3cm}
@@ -1764,7 +1788,7 @@
 
 \end{frameO}
 
-\begin{frameO}[The MC-Top-M algorithm]
+\begin{frameO}[The MC-Top-$M$ algorithm (for the OSA case)]
 
     % \begin{colorblock}{Feedback model}
     %     Agent $m$ observes:
@@ -1789,7 +1813,7 @@
 
     \vspace*{10pt}
 
-    \begin{colorblock}
+    \begin{colorblock}{}
         Two simple ideas:
         \hfill{} {\small inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
         \begin{itemize}
@@ -1797,13 +1821,14 @@
             \item try not to switch arm too often
         \end{itemize}
         \[\orange \sigma^m(t) := \left\{ \text{player } m \text{ is ``fixed'' at the end of round } t \right\}\]
+        \vspace*{-5pt}
     \end{colorblock}
 
     % \vspace{-0.3cm}
 
     \vfill{}
     \begin{small}
-        \underline{Other UCB-based algorithms}:\\
+        \emph{Other UCB-based algorithms}:\\
         TDFS \color{gray} [Lui and Zhao 2010]\black, Rho-Rand \color{gray} [Anandkumar et al. 2011] \black
     \end{small}
 
@@ -1811,33 +1836,33 @@
 \end{frameO}
 
 
-\begin{frameO}[The MC-Top-M algorithm]
+\begin{frameO}[The MC-Top-$M$ algorithm (for the OSA case)]
 
     \begin{figure}[h!]
-        \scalebox{0.65}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
+        \scalebox{0.60}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
         \begin{tikzpicture}[>=latex',line join=bevel,scale=5.5]
             %
             \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
             % \pause
-            \node (notfixed) at (1,0) [draw,rectangle,very thick] {Not fixed, $\overline{s^j(t)}$};
+            \node (notfixed) at (1,0) [draw,rectangle,very thick] {Not fixed, $\overline{\sigma^m(t)}$};
             %
             \draw [color=black,very thick,->] (start) -> (notfixed.20);
             % \pause
-            \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small \textcolor{blue}{$\bold{(2)}$}  $C^j(t), A^j(t) \in \hat{M}^{m}(t)$} (1);
+            \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small \textcolor{blue}{$\bold{(2)}$}  $C^m(t), A^m(t) \in \hat{M}^{m}(t)$} (1);
             % \pause
-            \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small \textcolor{red}{$\bold{(3)}$}  $A^j(t) \notin \hat{M}^{m}(t)$} (1);
+            \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small \textcolor{red}{$\bold{(3)}$}  $A^m(t) \notin \hat{M}^{m}(t)$} (1);
             % \pause
-            \node (fixed) at (0,0) [draw,rectangle,very thick] {Fixed, $s^j(t)$};
-            \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small \textcolor{cyan}{$\bold{(1)}$} $\overline{C^j(t)}, A^j(t) \in \hat{M}^{m}(t)$} (fixed);
+            \node (fixed) at (0,0) [draw,rectangle,very thick] {Fixed, $\sigma^m(t)$};
+            \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small \textcolor{cyan}{$\bold{(1)}$} $\overline{C^m(t)}, A^m(t) \in \hat{M}^{m}(t)$} (fixed);
             % \pause
-            \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small \textcolor{darkgreen}{$\bold{(4)}$} $A^j(t) \in \hat{M}^{m}(t)$} (fixed);
+            \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small \textcolor{darkgreen}{$\bold{(4)}$} $A^m(t) \in \hat{M}^{m}(t)$} (fixed);
             % \pause
-            \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small \textcolor{red}{$\bold{(5)}$}  $A^j(t) \notin \hat{M}^{m}(t)$} (notfixed);
+            \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small \textcolor{red}{$\bold{(5)}$}  $A^m(t) \notin \hat{M}^{m}(t)$} (notfixed);
             %
         \end{tikzpicture}
         \end{minipage}}
         % \caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
-        % Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
+        % Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^m(t+1)$ using information of previous steps.}
         \label{fig:StateMachineAlgorithm_MCTopM}
         \end{figure}
 
@@ -1879,39 +1904,41 @@
 % \end{frameO}
 
 
-\begin{frameO}[Theoretical results]
+\begin{frameO}[Theoretical results for MC-Top-$M$]
 
-    \vspace{0.2cm}
-    MC-Top-$M$ with $\kl$-based confidence intervals \hfill{} \textcolor{gray}{[Cappé et al. 13]}
-    \vspace{-0.3cm}
-    \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
-    {\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
-
-    \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}
     \only<1>{
+        \vspace{0.2cm}
+        MC-Top-$M$ with $\kl$-based confidence intervals \hfill{} \textcolor{gray}{[Cappé et al. 13]}
+        \vspace{-0.3cm}
+        \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
+        {\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
+    }
+
+    \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections}}
+    % \only<1>{
         For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
         \[
-            \bE[N_k^m(T)] \leq \alt<2>{\purple\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}\bluedark}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
+            \bE[\textcolor{orange}{N_k^m(T)}] \leq \alt<2>{\purple\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}\bluedark}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
         \]
         \vspace{-0.2cm}
-    }
+    % }
     \end{darkblock}
 
-    \begin{colorblock}{Control of the \textcolor{orange}{collisions} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}
-    \only<1>{
+    \begin{colorblock}{Control of the \textcolor{orange}{collisions}}
+    % \only<1>{
         \[
-            \bE\left[\sum_{k=1}^K \cC_k(T)\right]
+            \bE\left[\sum_{k=1}^K \textcolor{red}{\cC_k(T)}\right]
             \leq M^2 \left(\sum_{a,b : \mu_a < \mu_b} \frac{2 M + 1}{\kl(\mu_a,\mu_b)} \right) \ln(T) + \mathcal{O}(\ln T).
         \]
-    }
+    % }
     \end{colorblock}
 
     \only<2>{
-    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}
+    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}}
         \begin{align*}
             R_{\bm\mu}(\cA,T)
-            & \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right]
+            & \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right] \\
             &= \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
         \end{align*}
         with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$.
@@ -1926,7 +1953,7 @@
     \begin{figure}
         \centering
         \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-        \footnotesize{For $K=M$ objects, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} achieves \textbf{constant} regret!\newline \textcolor{yellowgreen}{MC-Top-$M$ ($\nabla$)} orthogonalization procedure is efficient!}
+        \footnotesize{For $K=M$ objects, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} achieves \textbf{constant} regret!\newline $\implies$ Our new orthogonalization procedure is very efficient!}
     \end{figure}
 
 \end{frameO}
@@ -1937,7 +1964,7 @@
         % \centering
         % \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
         \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_8200873569864822246.pdf}
-        \small{For example for $M=6$ objects, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} largely outperforms \textcolor{lightblue}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included). ({\small log-log scale})}
+        \small{Ex: for $M=6$ objects, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} largely outperforms \textcolor{lightblue}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included). ({\small log-log scale})}
     \end{figure}
 
 \end{frameO}
@@ -1979,7 +2006,7 @@
             \textcolor{orange}{MCTopM klUCB} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
             \hline
             \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $(\textcolor{blue}{\mathbf{C_{M,\mu}}} \textcolor{red}{+ MK}) \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!} \\
-            \textsc{DPE} & \textcolor{gray}{[8]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{?}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!}
+            \textsc{DPE} & \textcolor{gray}{[8]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{??}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!}
             % \\
             %  & & & \textcolor{gray}{(\etoile{}\etoile{}\etoile{}\etoile{} is better)} & \textcolor{gray}{(\tgv{}\tgv{}\tgv{}\tgv{}\tgv{} is better)} &
         \end{tabular}
@@ -2017,7 +2044,7 @@
             \textbf{\huge Theoretical analysis of\\ two relaxed models}
             \vspace{1.5cm}
 
-            \textcolor{darkgray}{\Large \textbf{Many different extensions}\\[0.5cm]}
+            % \textcolor{darkgray}{\Large \textbf{Many different extensions}\\[0.5cm]}
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
             \textbf{\Large Piece-wise stationary bandits}\\
@@ -2032,7 +2059,7 @@
 \begin{frameO}[Piece-wise stationary bandits]
 
     \begin{blueblock}{Stationary MAB problems}
-        Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
+        Arm $k$ \slotmachine{} gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
         \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\textcolor{blue}{\mu_k}). \]
     \end{blueblock}
 
@@ -2055,7 +2082,7 @@
 
 \begin{frameO}[Example of a piece-wise stationary MAB problem]
     We plots the means \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
-    of $K=3$ arms.
+    of $K=3$ arms \slotmachine{}.
     There are $\Upsilon_T=4$ break-points and $5$ sequences
     between $t=1$ and $t=T=5000$:
     \begin{center}
@@ -2079,7 +2106,9 @@
             \item ``Oracle restart'' kl-UCB obtains
             $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
             when knowing the locations of $\Upsilon_T$ break-points
-            
+
+            \pause
+
             \item The (minimax) \emph{worst-case lower-bound} is
             $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
             % on a ``bad'' problem
@@ -2215,7 +2244,7 @@
         \hline
         AdSwitch & \textcolor{gray}{[8]} & $\textcolor{red}{\mathbf{C}_8} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & just $T$ \\
         % \hline
-        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}_9} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{?}} & {\textcolor{orange}{\tgv{}}} & just $T$
+        Ada-ILTCB$^+$ & \textcolor{gray}{[9]} & $\textcolor{red}{\mathbf{C}_9} \sqrt{T \Upsilon_T \log(T)}$ & {\textcolor{orange}{??}} & {\textcolor{orange}{\tgv{}}} & just $T$
     \end{tabular}
 
 
@@ -2328,7 +2357,11 @@
                 \item for \textcolor{orange}{piece-wise stationary bandits}, with $\Upsilon_T = o(T)$ break-points,
             \end{itemize}
             % \item and comparisons of both numerical and theoretical results, showing our proposed algorithms achieve state-of-the-art performance.
-            \item our proposed algorithms achieve state-of-the-art performance on both numerical and theoretical results.
+            \item our proposed algorithms achieve state-of-the-art performance
+            \begin{itemize}
+                \item on both numerical
+                \item and theoretical results
+            \end{itemize}
         \end{itemize}
     % \end{colorblock}
 
@@ -2363,7 +2396,7 @@
             \item Validate our contributions in real-world IoT environments\\
                 \textcolor{gray}{\small $\hookrightarrow$ started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
-            \item Study the ``Graal'' goal:
+            \item \textcolor{orange}{Study the ``Graal'' goal:}
             \begin{itemize}
                 \item propose a more realistic model for IoT networks (exogenous activation, non stationary traffic, etc)
                 \item propose an efficient decentralized low-cost algorithm
