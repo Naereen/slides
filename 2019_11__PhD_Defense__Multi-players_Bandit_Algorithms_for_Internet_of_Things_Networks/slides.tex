@@ -306,7 +306,7 @@
 
     \begin{itemize}
 
-        \item Title: \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}}
+        \item Title: \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}
 
         \item
         \textbf{PhD defense},
@@ -1430,7 +1430,7 @@
             \textcolor{orange}{\textbf{It works very well empirically}!}
         \item
             But \alert{random activation times} make the model \textbf{hard to analyze}\dots
-        \item \underline{Hyp 1:} in avg. $p \times D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are using $K$ channels \slotmachine{}
+        \item \underline{Hyp 1:} in avg. $p \times D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are using $K$ channels \slotmachine{}\newline
             \hfill{} $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
         \item \underline{Hyp 2:} we assumed a stationary background traffic \includegraphics[height=0.37cm]{static-devices.png} \dots
     \end{itemize}
@@ -1923,23 +1923,23 @@
     }
 
     \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections}}
-    % \only<1>{
+    \only<1>{
         For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
         \[
             \bE[\textcolor{orange}{N_k^m(T)}] \leq \alt<2>{\purple\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}\bluedark}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
         \]
         \vspace{-0.2cm}
-    % }
+    }
     \end{darkblock}
 
     \begin{colorblock}{Control of the \textcolor{orange}{collisions}}
-    % \only<1>{
+    \only<1>{
         \[
             \bE\left[\sum_{k=1}^K \textcolor{red}{\cC_k(T)}\right]
             \leq M^2 \left(\sum_{a,b : \mu_a < \mu_b} \frac{2 M + 1}{\kl(\mu_a,\mu_b)} \right) \ln(T) + \mathcal{O}(\ln T).
         \]
-    % }
+    }
     \end{colorblock}
 
     \only<2>{
@@ -2067,7 +2067,7 @@
 \begin{frameO}[Piece-wise stationary bandits]
 
     \begin{blueblock}{Stationary MAB problems}
-        Arm $k$ \slotmachine{} gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
+        Arm $k$ \slotmachine{} samples rewards from \textcolor{blue}{the same distribution} for any time step
         \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\textcolor{blue}{\mu_k}). \]
     \end{blueblock}
 
@@ -2406,7 +2406,8 @@
             \vspace*{10pt}
             \item \textcolor{orange}{Study the ``Graal'' goal:}
             \begin{itemize}
-                \item propose a more realistic model for IoT networks (exogenous activation, non stationary traffic, etc)
+                \item propose a more realistic model for IoT networks \newline
+                    (exogenous activation, non stationary traffic, etc)
                 \item propose an efficient decentralized low-cost algorithm
                 \item that work empirically \emph{and} has strong theoretical guarantees!
             \end{itemize}
@@ -2828,20 +2829,21 @@
 
 
 % FIXME terminer ces slides backup
-% \begin{frameO}[Backup slides to answer predicatable questions?]
+\begin{frameO}[Backup slides to answer predicatable questions?]
 
-%     \begin{itemize}
-%         \item Add pseudo code of MCTopM + klUCB
-%         \item Add exact regret bound of MCTopM + klUCB
-%         \item Add drawing explaining the proof of regret bound of MCTopM + klUCB
-%     \end{itemize}
+    \begin{itemize}
+        \item pseudo code of Rand-Top-$M$ + klUCB
+        \item pseudo code of MC-Top-$M$ + klUCB
+        \item exact regret bound of MC-Top-$M$ + klUCB
+        % \item drawing explaining the proof of regret bound of MCTopM + klUCB
+    \end{itemize}
 
-%     \begin{itemize}
-%         \item Add pseudo code of GLRT + klUCB
-%         \item Add exact regret bound of GLRT + klUCB
-%     \end{itemize}
+    \begin{itemize}
+        \item pseudo code of GLRT + klUCB
+        \item exact regret bound of GLRT + klUCB
+    \end{itemize}
 
-% \end{frameO}
+\end{frameO}
 
 
 \begin{frameO}[Our algorithm Rand-Top-$M$]
@@ -2858,19 +2860,19 @@
 
 \begin{frameO}[Lemma: bad selections for MC-Top-$M$ with kl-UCB]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_MCTopM_bad_selections.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_MCTopM_bad_selections.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Lemma: collisions for MC-Top-$M$ with kl-UCB]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_MCTopM_collisions.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_MCTopM_collisions.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Theoreom: regret for MC-Top-$M$ with kl-UCB]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_MCTopM_regret.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_MCTopM_regret.png}
     \end{center}
 \end{frameO}
 
@@ -2882,26 +2884,26 @@
 
 \begin{frameO}[Theorem: regret bound for GLRT + kl-UCB (global)]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_GLR_regret.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_GLR_regret.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Corollary: regret bounds for GLRT + kl-UCB (global)]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__cor_GLR_regret.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__cor_GLR_regret.png}
     \end{center}
 \end{frameO}
 
 
 \begin{frameO}[Theorem: regret bound for GLRT + kl-UCB (local)]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__lemma_GLRlocal_regret.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_GLRlocal_regret.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Corollary: regret bounds for GLRT + kl-UCB (local)]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__cor_GLRlocal_regret.png}
+        \includegraphics[width=0.80\textwidth]{Backup_Slides__cor_GLRlocal_regret.png}
     \end{center}
 \end{frameO}
 
