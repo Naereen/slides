@@ -85,15 +85,15 @@
 \end{frameO}
 
 
-\begin{frameO}[Protocol: \textcolor{blue}{uplink messages {\large $\nearrow$}} followed by \textcolor{darkgreen}{\emph{acknowledgements} {\large $\searrow$}}]
+\begin{frameO}[Protocol: decentralized access with Ack mode]
 
     \begin{center}
         \only<1>{
-            \includegraphics[width=0.90\textwidth]{Protocol_successful_transmission.png}
+            \includegraphics[width=0.99\textwidth]{Protocol_successful_transmission.png}
             \underline{1st case}: Successful transmission if no collision on \textcolor{blue}{uplink messages {\large $\nearrow$}} !
         }
         \only<2>{
-            \includegraphics[width=0.90\textwidth]{Protocol_failed_transmission.png}
+            \includegraphics[width=0.99\textwidth]{Protocol_failed_transmission.png}
             \underline{2nd case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}
         }
     \end{center}
@@ -162,11 +162,11 @@
     \vspace*{20pt}
 
     \begin{lightblock}{Baseline (naive solution)}
-        Purely random (uniform) spectrum access for each of the $D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} .
+        Purely random (uniform) spectrum access for the $D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} .
     \end{lightblock}
 
     \begin{lightblock}{A possible solution}
-        Embed a \textbf{decentralized Multi-Armed Bandit} algorithm, running \textbf{independently on each dynamic device} \includegraphics[height=0.37cm]{dynamic-devices.png}
+        Embed a \textbf{decentralized Multi-Armed Bandit} algorithm, running \textbf{independently on each dynamic device} \includegraphics[height=0.37cm]{dynamic-devices.png}.
     \end{lightblock}
 
 \end{frameO}
@@ -225,15 +225,15 @@
         \item
               If an oracle can affect \(D_k\) dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}  to channel
               \(k\) \slotmachine{}, the \textbf{successful transmission probability} of the entire network is
-              \vspace*{-10pt}
-
+              \vspace*{-5pt}
               \begin{small} \begin{align*}
                       \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p)^{D_k - 1}}_{\;\;D_k - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_k}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_k / D }_{\;\;\text{Sent in channel}\; k}
                   \end{align*} \end{small}
+              \vspace*{-10pt}
               \pause
         \item
               The oracle has to solve this \textbf{optimization problem}:
-              \vspace*{-5pt}
+              \vspace*{-10pt}
 
               \begin{small} \begin{equation*} \begin{cases}
                           \underset{D_1,\dots,D_{K}}{\arg\max}\;\;\; & \sum\limits_{k=1}^{K} D_k (1 - p)^{S_k + D_k -1}                                           \\
@@ -244,15 +244,14 @@
                   multipliers} (only numerically).
     \end{itemize}
 
-    \vfill{}
-    \begin{colorblock}{}
-        \(\implies\) It will have very good performance, as it maximizes the transmission rate of all the \(D\) dynamic devices
-        \includegraphics[height=0.37cm]{dynamic-devices.png}
-    \end{colorblock}
-
 \end{frameO}
 
 \begin{frameO}[$1)$ \emph{Oracle} centralized strategy]
+
+    \begin{colorblock}{}
+        \(\implies\) This oracle strategy has very good performance, as it maximizes the transmission rate of all the \(D\) dynamic devices
+        \includegraphics[height=0.37cm]{dynamic-devices.png}
+    \end{colorblock}
 
     \begin{colorblock}{But unrealistic}
         But \textbf{not achievable in practice}!
@@ -322,11 +321,11 @@
 
     \begin{colorblock}{Goal}
         Maximize the sum reward (\textbf{Reinforcement Learning}) or \textcolor{orange}{its expectation}
-        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \textcolor{orange}{ \mathbb{E}[\sum\limits_{t=1}^{T} r_{A(t)}] }.\]
+        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \textcolor{orange}{ \mathbb{E}\left[\sum\limits_{t=1}^{T} r_{A(t)}\right] }.\]
     \end{colorblock}
 
     \vfill{}
-    \hfill{} {\tiny \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}
+    \hfill{} {\tiny \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}}
 
 \end{frameO}
 
@@ -495,7 +494,7 @@
         \end{itemize}
         \vspace*{-10pt}
         \begin{center}
-            \includegraphics[height=3.5cm]{Repartition_of_static_devices.png}
+            \includegraphics[height=4.5cm]{Repartition_of_static_devices.png}
         \end{center}
 
     % \end{colorblock}
