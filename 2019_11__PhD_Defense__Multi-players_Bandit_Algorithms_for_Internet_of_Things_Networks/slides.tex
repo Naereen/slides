@@ -106,6 +106,11 @@
 	\setbeamercolor*{block body}{fg=black,bg=orange!5}
 	\begin{block}#2{#1}}{\end{block}}
 
+\newenvironment<>{blueblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=blue}%
+	\setbeamercolor*{block body}{fg=black,bg=blue!5}
+	\begin{block}#2{#1}}{\end{block}}
+
 \newenvironment<>{redblock}[1]{%
 	\setbeamercolor{block title}{fg=white,bg=red}%
 	\setbeamercolor*{block body}{fg=black,bg=orange!5}
@@ -271,13 +276,13 @@
         % at \textbf{INRIA} Lille Nord Europe\\
         % Friday $8$th of November, $2019$
         %
-        Seminar of the \textbf{PANAMA team}\\
-        at \textbf{INRIA} Rennes Bretagne Atlantique\\
-        Wednesday $13$th of November, $2019$
-        % %
-        % \textbf{PhD defense}\\
-        % at \textbf{CentraleSupélec}, campus de Rennes\\
-        % Wednesday $20$th of November, $2019$
+        % Seminar of the \textbf{PANAMA team}\\
+        % at \textbf{INRIA} Rennes Bretagne Atlantique\\
+        % Wednesday $13$th of November, $2019$
+        %
+        \textbf{PhD defense}\\
+        at \textbf{CentraleSupélec}, campus de Rennes\\
+        Wednesday $20$th of November, $2019$
         }
         }}
     \end{textblock*}
@@ -1439,7 +1444,7 @@
     \vfill{}
     \small{\textcolor{lightgray}{Ref: Chapters 6 and 7 of my thesis\newline
     and [Besson \& Kaufmann, 2018]
-    and [Besson \& Kaufmann, 2019].}}
+    and [Besson et al, 2019].}}
 \end{frameTI}
 
 
@@ -1734,7 +1739,7 @@
     \begin{colorblock}{Regret decomposition (if all players $M$ follow $\cA$)}
 
     \alt<2>{\vspace{0.2cm}
-    \[R_{\bm\mu}(\cA,T) \leq C  \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + D\sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right].\]
+    \[R_{\bm\mu}(\cA,T) \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right].\]
     \vspace{0.2cm}}{\vspace{-0.3cm}
     \begin{align*}
     & R_{\bm\mu}(\cA,T) = {\sum_{k=M+1}^K (\mu_M -  \mu_k) \bE[\textcolor{orange}{N_k(T)}]} \\
@@ -1752,8 +1757,8 @@
         $\hookrightarrow$ with a good orthogonalization procedure
     \end{itemize}}{
     \begin{itemize}
-     \item $N_k(T)$ total number of \textcolor{orange}{selections} of arm $k$
-     \item $\cC_k(T)$ total number of \textcolor{red}{collisions} experienced on arm $k$
+     \item \textcolor{orange}{$N_k(T)$ total number of selections of arm $k$}
+     \item \textcolor{red}{$\cC_k(T)$ total number of collisions experienced on arm $k$}
     \end{itemize}}
 
 
@@ -1761,28 +1766,42 @@
 
 \begin{frameO}[The MC-Top-M algorithm]
 
-    \begin{colorblock}{Feedback model}
-        Agent $m$ observes:
+    % \begin{colorblock}{Feedback model}
+    %     Agent $m$ observes:
+    %     \begin{itemize}
+    %         \item the \orange sensing information \black of the chosen arm, $s_{A^m(t),t}$
+    %         \item his reward $r_{m,t}$\black
+    %     \end{itemize}
+    % \end{colorblock}
+
+    % \pause
+
+    % \vspace{0.2cm}
+
+    \begin{lightblock}{}
+        At round $t$, player $m$ uses his past sensing information to:
         \begin{itemize}
-            \item the \orange sensing information \black of the chosen arm, $s_{A^m(t),t}$
-            \item his reward $r_{m,t}$\black
+            \item compute an Upper Confidence Bound for each mean $\mu_k$, $\UCB^m_k(t)$
+            \item use the UCBs to \bluelight estimate the $M$ best arms
+            \[\bluelight\hat{M}^m(t) := \left\{ \text{arms with } M \text{ largest } \UCB^m_k(t)\right\}\]
         \end{itemize}
+    \end{lightblock}
+
+    \vspace*{10pt}
+
+    \begin{colorblock}
+        Two simple ideas:
+        \hfill{} {\small inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
+        \begin{itemize}
+            \item always pick an arm estimated as ``good'' \hfill{} $\color{red} A^m(t) \in \hat{M}^{m}(t-1)$
+            \item try not to switch arm too often
+        \end{itemize}
+        \[\orange \sigma^m(t) := \left\{ \text{player } m \text{ is ``fixed'' at the end of round } t \right\}\]
     \end{colorblock}
-
-    \pause
-
-    \vspace{0.2cm}
-
-    At round $t$, player $m$ uses his past sensing information to:
-    \begin{itemize}
-     \item compute an Upper Confidence Bound for each mean $\mu_k$, $\UCB^m_k(t)$
-     \item use the UCBs to \bluelight estimate the $M$ best arms
-    \[\bluelight\hat{M}^m(t) := \left\{ \text{arms with } M \text{ largest } \UCB^m_k(t)\right\}\]
-     \end{itemize}
 
     % \vspace{-0.3cm}
 
-    \hfill{}
+    \vfill{}
     \begin{small}
         \underline{Other UCB-based algorithms}:\\
         TDFS \color{gray} [Lui and Zhao 2010]\black, Rho-Rand \color{gray} [Anandkumar et al. 2011] \black
@@ -1791,40 +1810,73 @@
 
 \end{frameO}
 
+
 \begin{frameO}[The MC-Top-M algorithm]
 
-    Two simple ideas:
-    \hfill{} {\small inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
-    \begin{itemize}
-        \item always pick an arm estimated as ``good'' \hfill{} $\color{red} A^m(t) \in \hat{M}^{m}(t-1)$
-        \item try not to switch arm too often
-    \end{itemize}
-    \[\orange \sigma^m(t) := \left\{ \text{player } m \text{ is ``fixed'' at the end of round } t \right\}\]
-
-    \vspace{-0.3cm}
-
-    \pause
-
-    \begin{colorblock}{MC-Top-M}
-    \begin{itemize}
-     \item if $A^m(t-1) \notin  \hat{M}^{m}(t-1)$, \\ set $\orange \sigma^m(t) = \mathrm{False}$ and \color{orange}carefully select a new arm in $\hat M^m(t-1)$\color{black}.
-     \item else if $\overline{\sigma^m(t-1)}\cap C^m(t-1)$, pick a new arm at random
-
-     \vspace{-0.2cm}
-
-      \[A^m(t) \sim \mathcal{U} (\hat{M}^m(t-1)) \ \ \text{and} \ \ \sigma^m(t) = \mathrm{False} \]
-     \item else, draw the previous arm, and fix on it
-
-     \vspace{-0.2cm}
-
-      \[A^m(t) =A^m(t-1) \ \ \text{and} \ \ \orange \sigma^m(t) = \mathrm{True}\]
-    \end{itemize}
-
-    \vspace{-0.6cm}
-
-    \end{colorblock}
+    \begin{figure}[h!]
+        \scalebox{0.65}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
+        \begin{tikzpicture}[>=latex',line join=bevel,scale=5.5]
+            %
+            \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
+            % \pause
+            \node (notfixed) at (1,0) [draw,rectangle,very thick] {Not fixed, $\overline{s^j(t)}$};
+            %
+            \draw [color=black,very thick,->] (start) -> (notfixed.20);
+            % \pause
+            \path [color=blue,very thick,->] (notfixed) edge[loop right] node[right,text width=4cm,text badly centered,black] {\small \textcolor{blue}{$\bold{(2)}$}  $C^j(t), A^j(t) \in \hat{M}^{m}(t)$} (1);
+            % \pause
+            \path [color=red,very thick,->] (notfixed) edge[loop below] node[below,text centered,black] {\small \textcolor{red}{$\bold{(3)}$}  $A^j(t) \notin \hat{M}^{m}(t)$} (1);
+            % \pause
+            \node (fixed) at (0,0) [draw,rectangle,very thick] {Fixed, $s^j(t)$};
+            \draw [color=cyan,very thick,->] (notfixed) to[bend right] node[midway,above,text width=5cm,text centered,black] {\small \textcolor{cyan}{$\bold{(1)}$} $\overline{C^j(t)}, A^j(t) \in \hat{M}^{m}(t)$} (fixed);
+            % \pause
+            \path [color=darkgreen,very thick,->] (fixed) edge[loop left] node[left,text width=2.9cm,text badly centered,black] {\small \textcolor{darkgreen}{$\bold{(4)}$} $A^j(t) \in \hat{M}^{m}(t)$} (fixed);
+            % \pause
+            \draw [color=red,very thick,->] (fixed) to[bend right] node[midway,below,text centered,black] {\small \textcolor{red}{$\bold{(5)}$}  $A^j(t) \notin \hat{M}^{m}(t)$} (notfixed);
+            %
+        \end{tikzpicture}
+        \end{minipage}}
+        % \caption{\small Player $j$ using $\mathrm{MCTopM}$, represented as ``state machine'' with $5$ transitions.
+        % Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^j(t+1)$ using information of previous steps.}
+        \label{fig:StateMachineAlgorithm_MCTopM}
+        \end{figure}
 
 \end{frameO}
+
+% \begin{frameO}[The MC-Top-M algorithm]
+
+%     Two simple ideas:
+%     \hfill{} {\small inspired by Musical Chair \color{gray}[Rosenski et al. 2016] \color{black}}
+%     \begin{itemize}
+%         \item always pick an arm estimated as ``good'' \hfill{} $\color{red} A^m(t) \in \hat{M}^{m}(t-1)$
+%         \item try not to switch arm too often
+%     \end{itemize}
+%     \[\orange \sigma^m(t) := \left\{ \text{player } m \text{ is ``fixed'' at the end of round } t \right\}\]
+
+%     \vspace{-0.3cm}
+
+%     \pause
+
+%     \begin{colorblock}{MC-Top-M}
+%     \begin{itemize}
+%      \item if $A^m(t-1) \notin  \hat{M}^{m}(t-1)$, \\ set $\orange \sigma^m(t) = \mathrm{False}$ and \color{orange}carefully select a new arm in $\hat M^m(t-1)$\color{black}.
+%      \item else if $\overline{\sigma^m(t-1)}\cap C^m(t-1)$, pick a new arm at random
+
+%      \vspace{-0.2cm}
+
+%       \[A^m(t) \sim \mathcal{U} (\hat{M}^m(t-1)) \ \ \text{and} \ \ \sigma^m(t) = \mathrm{False} \]
+%      \item else, draw the previous arm, and fix on it
+
+%      \vspace{-0.2cm}
+
+%       \[A^m(t) =A^m(t-1) \ \ \text{and} \ \ \orange \sigma^m(t) = \mathrm{True}\]
+%     \end{itemize}
+
+%     \vspace{-0.6cm}
+
+%     \end{colorblock}
+
+% \end{frameO}
 
 
 \begin{frameO}[Theoretical results]
@@ -1833,9 +1885,9 @@
     MC-Top-$M$ with $\kl$-based confidence intervals \hfill{} \textcolor{gray}{[Cappé et al. 13]}
     \vspace{-0.3cm}
     \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
-    where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln \frac{x}{y} + (1-x)\ln \frac{1-x}{1-y}$.
+    {\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
 
-    \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections}}
+    \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}
     \only<1>{
         For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
@@ -1846,7 +1898,7 @@
     }
     \end{darkblock}
 
-    \begin{colorblock}{Control of the \textcolor{orange}{collisions}}
+    \begin{colorblock}{Control of the \textcolor{orange}{collisions} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}
     \only<1>{
         \[
             \bE\left[\sum_{k=1}^K \cC_k(T)\right]
@@ -1856,10 +1908,12 @@
     \end{colorblock}
 
     \only<2>{
-    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!}}
-        \[
-            R_{\bm\mu}(\cA,T) = \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
-        \]
+    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}
+        \begin{align*}
+            R_{\bm\mu}(\cA,T)
+            & \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right]
+            &= \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
+        \end{align*}
         with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$.
     \end{lightblock}
     }
@@ -1872,7 +1926,7 @@
     \begin{figure}
         \centering
         \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-        \footnotesize{For $K=M$ objects, \textcolor{lightgold}{our strategy MC-Top-$M$} achieves \textbf{constant} regret!\newline \textcolor{lightgold}{MC-Top-$M$} orthogonalization procedure is efficient!}
+        \footnotesize{For $K=M$ objects, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} achieves \textbf{constant} regret!\newline \textcolor{yellowgreen}{MC-Top-$M$ ($\nabla$)} orthogonalization procedure is efficient!}
     \end{figure}
 
 \end{frameO}
@@ -1883,7 +1937,7 @@
         % \centering
         % \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
         \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_8200873569864822246.pdf}
-        \small{For example for $M=6$ objects, \textcolor{lightgold}{our strategy MC-Top-$M$} largely outperforms \textcolor{lightblue}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included). ({\small log-log scale})}
+        \small{For example for $M=6$ objects, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} largely outperforms \textcolor{lightblue}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included). ({\small log-log scale})}
     \end{figure}
 
 \end{frameO}
@@ -1967,7 +2021,7 @@
             % \textcolor{darkgray}{\Large \textbf{Insights from the Optimal Solution}}	\\[0.5cm]
             \textcolor{darkgray}{\textbf{\Large Multi-player bandits}\\[0.5cm]}
             \textbf{\Large Piece-wise stationary bandits}\\
-            \small{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson \& Kaufmann, 2019].}}
+            \small{\textcolor{gray}{Ref: Chapter 7 of my thesis, and [Besson et al, 2019].}}
         \end{center}
     \end{changemargin}
 \end{frame}
@@ -1977,10 +2031,10 @@
 
 \begin{frameO}[Piece-wise stationary bandits]
 
-    \begin{colorblock}{Stationary MAB problems}
+    \begin{blueblock}{Stationary MAB problems}
         Arm $k$ gives rewards sampled from \textcolor{blue}{the same distribution} for any time step
         \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\textcolor{blue}{\mu_k}). \]
-    \end{colorblock}
+    \end{blueblock}
 
     \pause
     \begin{alertblock}{Non stationary MAB problems?}
@@ -2014,20 +2068,22 @@
     The ``oracle'' plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$\\
     (which changes between the $\Upsilon_T \geq 1$ stationary sequences)
     %
-    \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right) - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+    \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \underbrace{\left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right)}_{\text{oracle total reward}} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
     \pause
     \vspace*{10pt}
 
     \begin{colorblock}{Typical regime for piece-wise stationary bandits}
         \begin{itemize}
+            \item Naive kl-UCB algorithms can obtain $\cR(\cA,T) \leq \mathcal{O}(T)$ in worst-case
             \item ``Oracle restart'' kl-UCB obtains
-                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
-                when knowing the locations of $\Upsilon_T$ break-points
-
+            $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
+            when knowing the locations of $\Upsilon_T$ break-points
+            
             \item The (minimax) \emph{worst-case lower-bound} is
-                $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
-                % on a ``bad'' problem
+            $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
+            % on a ``bad'' problem
+            \item State-of-the-art algorithms $\mathcal{A}$ can obtain $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T})$
             % \item
             %     Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
             %     \begin{itemize}
@@ -2046,48 +2102,49 @@
 
 \begin{frameO}[Our new algorithm: klUCB index + BGLR detector]
 
-    \begin{alertblock}{}
-        Our algorithm is inspired by CUSUM-UCB
-        \textcolor{gray}{[Liu et al, 2018]}
-        and M-UCB
-        \textcolor{gray}{[Cao et al, 19]},
-        and new analysis of the GLR test \textcolor{gray}{[Maillard, 19]}
-    \end{alertblock}
+    % \only<1>{
+    \begin{colorblock}{Three components of our algorithm \hfill{} \textcolor{lightgray}{[Besson et al, 2019]}}
 
-    \vspace*{15pt}
+        \begin{quote}
+        \begin{small}
+            Our algorithm is inspired by CUSUM-UCB
+            \textcolor{gray}{[Liu et al, 2018]}
+            and M-UCB
+            \textcolor{gray}{[Cao et al, 19]},
+            and new analysis of the GLR test \textcolor{gray}{[Maillard, 19]}
+        \end{small}
+        \end{quote}
 
-    \only<1>{
-    \begin{colorblock}{Three components of our algorithm \hfill{} \gray [Besson \& Kaufmann, 2019]}
-        \begin{itemize}
+        \begin{itemize}[<+->]
             \item A classical bandit index policy: \textbf{klUCB}\newline
-                which gets \emph{restarted} after a change-point is detected
-            \item A change-point detection algorithm:
+                which gets \emph{restarted} after \textcolor{orange}{a change-point is detected}
+            \item A \textcolor{orange}{change-point detection algorithm}:
             the \textbf{Generalized Likelihood Ratio Test} for sub-Bernoulli observations (BGLR),
             we can bound
             \begin{itemize}
                 \item its false alarm probability (if enough samples between two restart)
                 \item its detection delay (under some hypotheses of ``easy enough'' problems)
             \end{itemize}
-            \item Forced exploration of parameter $\alpha$ (tuned with knowledge of $\Upsilon_T$)
+            \item Forced exploration of parameter $\alpha\in(0,1)$ (tuned with $\Upsilon_T$)
         \end{itemize}
     \end{colorblock}
-    }
+    % }
 
-    \only<2>{
-    \begin{lightblock}{Theoretical guarantees}
+    \pause
+    % \only<2>{
+    \begin{lightblock}{Regret bound (if $T$ and $\Upsilon_T$ are known)}
         Our algorithm $\cA$ obtains
-        \begin{itemize}
+        % \begin{itemize}
         % \tightlist
-            \item
-                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \sqrt{T \Upsilon_T \log(T)})$
-                if $T$ and $\Upsilon_T$ are known
-            \item
-                $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
-                if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
-        \end{itemize}
+            % \item
+                $\cR(\cA,T) \leq \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)})$
+        %     \item
+        %         $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
+        %         if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
+        % \end{itemize}
         % {\small with finite time and more precise results in the thesis\dots}
     \end{lightblock}
-    }
+    % }
 
 \end{frameO}
 
@@ -2238,19 +2295,20 @@
     \begin{center}
         {\textcolor{white} {\Huge \textsc{Summary} }}
     \end{center}
-    \vspace*{15pt}
-    \begin{center}
-        {\textcolor{white} {\huge \textsc{Thanks for your attention!} }}
-    \end{center}
+    % \vspace*{15pt}
+    % \begin{center}
+    %     {\textcolor{white} {\huge \textsc{Thanks for your attention!} }}
+    % \end{center}
 \end{frameTI}
 
 
-\begin{frameO}[Conclusion: contributions \hfill{} ($1/4$)]
+\begin{frameO}[Contributions \hfill{} ($1/3$)]
 
+    \pause
     % \begin{colorblock}{What we showed}
         \large
         \textbf{Part I:}
-        \begin{itemize}[<+->]
+        \begin{itemize}%[<+->]
             \setlength\itemsep{6pt}
             \item A simple model of IoT network, where autonomous IoT devices can embed decentralized learning (``\textcolor{orange}{selfish MAB learning}''),
             \item numerical simulations proving the quality of our solution,
@@ -2262,7 +2320,7 @@
         \vspace*{10pt}
         \pause
         \textbf{Part II:}
-        \begin{itemize}[<+->]
+        \begin{itemize}%[<+->]
             \setlength\itemsep{6pt}
         \item New algorithms and regret bounds, in two simplified models:
             \begin{itemize}
@@ -2277,24 +2335,59 @@
 \end{frameO}
 
 
-\begin{frameO}[Didn't have time to talk about\dots \hfill{} ($2/4$)]
+% \begin{frameO}[Didn't have time to talk about\dots \hfill{} ($2/4$)]
 
-    % \begin{darkblock}{Didn't have time to talk about\dots}
-        \large
+%     % \begin{darkblock}{Didn't have time to talk about\dots}
+%         \large
+%         \begin{itemize}[<+->]
+%             \setlength\itemsep{10pt}
+%             \item my Python library \textcolor{blue}{SMPyBandits} (Chapter 3),
+%             \item our proposed algorithm for aggregating bandit algorithms (Chapter 4),
+%             \item details about our algorithms, their precise theoretical results and proofs (Chapters 6 \& 7),
+%             \item our work on the ``doubling trick'' (to make an algorithm $\cA$ anytime and keep its regret bounds).
+%         \end{itemize}
+%     % \end{darkblock}
+
+% \end{frameO}
+
+
+\begin{frameO}[Perspectives \hfill{} ($2/3$)]
+
+    % \begin{lightblock}{What could be done with another year(s) ?}
+
+        % \large
         \begin{itemize}[<+->]
-            \setlength\itemsep{10pt}
-            \item my Python library \textcolor{blue}{SMPyBandits} (Chapter 3),
-            \item our proposed algorithm for aggregating bandit algorithms (Chapter 4),
-            \item details about our algorithms, their precise theoretical results and proofs (Chapters 6 \& 7),
-            \item our work on the ``doubling trick'' (to make an algorithm $\cA$ anytime and keep its regret bounds).
+            \setlength\itemsep{2pt}
+            \item Unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
+                \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper from last year (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
+            \item Validate our contributions in real-world IoT environments\\
+                \textcolor{gray}{\small $\hookrightarrow$ started in summer $2019$ with an intern working with Christophe Moy}
+            \vspace*{10pt}
+            \item Study the ``Graal'' goal:
+            \begin{itemize}
+                \item propose a more realistic model for IoT networks (exogenous activation, non stationary traffic, etc)
+                \item propose an efficient decentralized low-cost algorithm
+                \item that work empirically \emph{and} has strong theoretical guarantees!
+            \end{itemize}
+                % {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
+                % % \hfill{}
+                % \alert{Much harder!} search space is VERY LARGE!}
+            \vspace*{10pt}
+            % \item
+            % try to study the ``selfish model'' from other perspectives,
+            % % (game theory\dots{}?),
+            % for large $M$ nb of devices and small $p$ activation probabilities\dots?
+            \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models
+            (cascading, delay feedback, combinatorial, contextual etc)\newline
+                \hfill{} \textcolor{gray}{\small $\hookrightarrow$ it is already online, free and open-source on \href{https://GitHub.com/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits}}}}
         \end{itemize}
-    % \end{darkblock}
+    % \end{lightblock}
 
 \end{frameO}
 
 
 \begin{frame}[shrink=17]
-    \mytitle{centralesupelecdark}{centralesupelec}{List of publications \hfill{} ($3/4$)}
+    \mytitle{centralesupelecdark}{centralesupelec}{List of publications \hfill{} ($3/3$)}
 
     \vspace*{1.25cm}
 
@@ -2332,36 +2425,6 @@
     \end{itemize}
 
 \end{frame}
-
-
-\begin{frameO}[Perspectives \hfill{} ($4/4$)]
-
-    % \begin{lightblock}{What could be done with another year(s) ?}
-
-        % \large
-        \begin{itemize}[<+->]
-            \setlength\itemsep{2pt}
-            \item unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
-                \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper from last year (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
-            \item validate our contributions in real-world IoT environments\\
-                \textcolor{gray}{\small $\hookrightarrow$ started in summer $2019$ with an intern working with Christophe Moy}
-            \vspace*{10pt}
-            \item study the ``Graal'' goal:
-                {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
-                % \hfill{}
-                \alert{Much harder!} search space is VERY LARGE!}
-            \vspace*{10pt}
-            % \item
-            % try to study the ``selfish model'' from other perspectives,
-            % % (game theory\dots{}?),
-            % for large $M$ nb of devices and small $p$ activation probabilities\dots?
-            \item Extend my Python library \textcolor{blue}{SMPyBandits} to cover many other bandit models?
-            (cascading, delay feedback, combinatorial, contextual etc)\newline
-                \hfill{} {\small $\hookrightarrow$ anyone can contribute on \href{https://GitHub.com/SMPyBandits/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits/SMPyBandits}}}}
-        \end{itemize}
-    % \end{lightblock}
-
-\end{frameO}
 
 
 \begin{frameO}[Conclusion]
