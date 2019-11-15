@@ -69,6 +69,7 @@
 \definecolor{lightgold}{RGB}{255,180,0}    % rgb(255,180,0)
 \definecolor{gold}{RGB}{175,100,0}         % rgb(175,100,0)
 \definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
+\definecolor{lightred}{RGB}{255,160,160}      % rgb(255,160,160)
 \definecolor{normalred}{RGB}{204,0,0}      % rgb(204,0,0)
 \definecolor{darkred}{RGB}{174,0,0}        % rgb(174,0,0)
 \definecolor{darkblue}{RGB}{0,0,174}       % rgb(0,0,174)
@@ -258,7 +259,7 @@
 \newcommand{\thinkingface}{\includegraphics[height=0.38cm]{thinking-face_1f914.png}}
 \newcommand{\thinkingfacelarge}{\includegraphics[height=0.44cm]{thinking-face_1f914.png}}
 \newcommand{\snail}{\includegraphics[height=0.30cm]{snail_1f40c.png}}
-\newcommand{\tgvsmall}{\includegraphics[height=0.23cm]{high-speed-train_1f684.png}}
+\newcommand{\tgvsmall}{\includegraphics[height=0.25cm]{high-speed-train_1f684.png}}
 \newcommand{\tgv}{\includegraphics[height=0.34cm]{high-speed-train_1f684.png}}
 \newcommand{\slotmachine}{\includegraphics[height=0.38cm]{slot-machine_1f3b0.png}}
 % \newcommand{\etoile}{\includegraphics[height=0.23cm]{party-popper_1f389.png}}
@@ -300,7 +301,7 @@
                     at SCEE team, IETR \& CentraleSupélec
                     % in Rennes (France)
                     \item
-                    and Dr. Émilie Kaufmann at SequeL team, CNRS \& Inria, in Lille
+                    Dr. Émilie Kaufmann at SequeL team, CNRS \& Inria, in Lille
                 \end{itemize}
         \end{itemize}
     \end{Large}
@@ -311,9 +312,9 @@
     % XXX manual inclusion of logos
     \begin{whiteblock}{}
         % \begin{center}
-            \includegraphics[height=0.20\textheight]{../common/LogoIETR.png}
-            \includegraphics[height=0.22\textheight]{../common/LogoCS.png}
-            \includegraphics[height=0.20\textheight]{../common/LogoInria.jpg}
+            \includegraphics[height=0.19\textheight]{../common/LogoIETR.png}
+            \includegraphics[height=0.23\textheight]{../common/LogoCS.png}
+            \includegraphics[height=0.19\textheight]{../common/LogoInria.jpg}
         % \end{center}
     \end{whiteblock}
 
@@ -522,9 +523,9 @@
     \vfill{}
     % \hfill{}
     {\tiny \textcolor{gray}{
-        Images from \texttt{IBM.com/blogs/internet-of-things/what-is-the-iot}
+        Images from \texttt{http://IBM.com/blogs/internet-of-things/what-is-the-iot}
         % \texttt{YouTu.be/QSIPNhOiMoE} and
-        and \texttt{www.globalsign.com/en/blog/}\\
+        and \texttt{http://www.globalsign.com/en/blog/}\\
         \texttt{connected-cows-and-crop-control}\texttt{-to-drones-the-internet-of-things}\texttt{-is-rapidly-improving-agriculture/}
     }}
 
@@ -575,8 +576,8 @@
             \begin{column}{0.50\textwidth}
                 \begin{small}
                     \begin{itemize}
-                        \item Yes we can! By letting the radio devices \includegraphics[height=0.37cm]{dynamic-devices.png} become ``intelligent''
-                        \item With \alert{\textbf{MAB algorithms}} !
+                        \item Yes we can! By \textcolor{orange}{letting the radio devices \includegraphics[height=0.37cm]{dynamic-devices.png} become ``intelligent''}
+                        \item With \textcolor{darkgreen}{\textbf{MAB algorithms}} !
                     \end{itemize}
                 \end{small}
             \end{column}
@@ -593,11 +594,12 @@
 \section{Outline of this presentation}
 
 \begin{frameTI}
+    \color{white}
     \begin{center}
-        \color{white}
-        \begin{Huge}
-            \textsc{Outline of this presentation}
-        \end{Huge}
+        {\textcolor{white} {\Huge \textsc{Outline of this} }}
+    \end{center}
+    \begin{center}
+        {\textcolor{white} {\Huge \textsc{presentation} }}
     \end{center}
     \vspace*{-4pt}
 \end{frameTI}
@@ -1450,7 +1452,7 @@
     \end{center}
     % \hfill{}
     \begin{small}
-        \textcolor{gray}{Ref: [Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}
+        \textcolor{gray}{[Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}
         \newline
         \textcolor{gray}{Video published on} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
     \end{small}
@@ -1473,7 +1475,7 @@
 \end{frameO}
 
 
-\begin{frameO}[Transition: from practice to theory]
+\begin{frameO}[From practice to theory]
     %  from part I : Selfish MAB learning for IoT
 
     \textcolor{orange}{\textbf{It works very well empirically}!}
@@ -1658,7 +1660,7 @@
         \begin{itemize}
             \item maximize centralized (sum) rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T r_{m,t}$
             \item \dots{} \textcolor{orange}{without (explicit) communication} between players
-            \item trade off: exploration / exploitation / \alert{and collisions !}
+            \item trade-off: exploration / exploitation / \alert{and collisions !}
         \end{itemize}
     \end{colorblock}
 
@@ -1666,7 +1668,7 @@
 
 \end{frameO}
 
-\begin{frameO}[M-P bandits for Cognitive Radios: previous model]
+\begin{frameO}[Multi-Players bandits for Cognitive Radios]
 
     \textcolor{darkblue}{Different observation models}:
     players observe $s_{A^m_{t},t}$ and/or $r_{m,t}$
@@ -1734,7 +1736,7 @@
         \begin{itemize}
             \item
             A third ``hybrid'' model
-            {\small studied by 4 papers in 2019, following our work}
+            {\small studied by several recent papers, following our work}
 
             \item
             \textcolor{darkblue}{\emph{Feedback model:}}
@@ -1900,10 +1902,10 @@
 
     \vfill{}
     \begin{small}
-        Ref: \emph{other UCB-based algorithms}:
+        \emph{Other UCB-based algorithms}:
         TDFS \textcolor{gray}{[Lui and Zhao, 10]},\\
         Rho-Rand \textcolor{gray}{[Anandkumar et al., 11]},
-        Selfish \textcolor{gray}{[Bonnefoi 17]}
+        Selfish \textcolor{gray}{[Bonnefoi, Besson et al., 17]}
     \end{small}
 
 
@@ -1997,13 +1999,13 @@
     \only<1>{
         \vspace{0.2cm}
         MC-Top-$M$ with $\kl$-based confidence intervals
-        \hfill{} \textcolor{gray}{Ref: [Cappé et al. 13]}
+        \hfill{} \textcolor{gray}{[Cappé et al. 13]}
         \vspace{-0.3cm}
         \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
         {\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
     }
 
-    \begin{darkblock}{Control of the \textcolor{orange}{sub-optimal selections}}
+    \begin{colorblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} (state-of-the-art)}
     \only<1>{
         For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
@@ -2017,9 +2019,9 @@
             $\bE[\textcolor{orange}{N_k^m(T)}] \leq \mathcal{O}(\log T)$
         \end{center}
     }
-    \end{darkblock}
+    \end{colorblock}
 
-    \begin{colorblock}{Control of the \textcolor{orange}{collisions}}
+    \begin{lightblock}{Control of the \textcolor{lightred}{collisions} \hfill{} (new result)}
     \only<1>{
         \[
             \bE\left[\sum_{k=1}^K \textcolor{red}{\cC_k(T)}\right]
@@ -2031,10 +2033,10 @@
             $\bE\left[\textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\log T)$
         \end{center}
     }
-    \end{colorblock}
+    \end{lightblock}
 
     \only<2>{
-    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}}
+    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{lightgray}{[Besson \& Kaufmann, 18]}}
         \vspace*{-10pt}
         \begin{align*}
             R_{\bm\mu}(\cA,T)
@@ -2090,7 +2092,7 @@
             & \parbox[c]{1.5cm}{\textbf{\small Speed} \newline {\footnotesize \textcolor{gray}{\tgvsmall{} is worst}}}
             & \textbf{Parameters} \\
             \hline
-            \textcolor{deeppurple}{\small Centralized multi-play klUCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {just $M$ but \newline \textcolor{deeppurple}{in another model!} } \\
+            \textcolor{deeppurple}{\small Centralized multi-play kl-UCB} & \textcolor{gray}{[1]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {just $M$ but \newline \textcolor{deeppurple}{in another model!} } \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
@@ -2104,7 +2106,7 @@
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
-            \textcolor{orange}{MCTopM klUCB} & \textcolor{orange}{[6]} & $\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
+            {\small \textcolor{orange}{MCTop$M$ klUCB}} & \textcolor{orange}{[6]} & {\small $(\textcolor{red}{M} \textcolor{blue}{\mathbf{C_{M,\mu}}} + \textcolor{red}{M^2 \mathbf{C}_6}) \log(T)$} & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & just $M$ \\
             \hline
             \textsc{Sic-MMAB} & \textcolor{gray}{[7]} & $(\textcolor{blue}{\mathbf{C_{M,\mu}}} \textcolor{red}{+ MK}) \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!} \\
             \textsc{DPE} & \textcolor{gray}{[8]} & $\textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T)$ & {\textcolor{orange}{??}} & {\textcolor{orange}{\tgv{}}} & \textbf{none!} but \newline \textcolor{deeppurple}{in another model!}
@@ -2131,7 +2133,7 @@
             \newline\hspace*{10pt}
             [5] \textcolor{orange}{Bonnefoi et al 17}
             [6] \textcolor{orange}{Besson \& Kaufmann, 18}
-            [7] \textcolor{gray}{Boursier et al 19}
+            [7] \textcolor{gray}{Boursier et al, 19}
             [8] \textcolor{gray}{Proutière et al, 19}
     \end{small}
 
@@ -2159,10 +2161,10 @@
 
 \begin{frameO}[Piece-wise stationary bandits]
 
-    \begin{blueblock}{Stationary MAB problems}
-        Arm $k$ \slotmachine{} samples rewards from \textcolor{blue}{the same distribution} for any round
-        \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\textcolor{blue}{\mu_k}). \]
-    \end{blueblock}
+    \begin{orangeblock}{Stationary MAB problems}
+        Arm $k$ \slotmachine{} samples rewards from \textcolor{orange}{the same distribution} for any round
+        \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \textcolor{orange}{\nu_k} = \mathcal{B}(\textcolor{orange}{\mu_k}). \]
+    \end{orangeblock}
 
     \pause
     \begin{alertblock}{Non stationary MAB problems?}
@@ -2171,7 +2173,8 @@
     \end{alertblock}
 
     $\implies$ \alert{harder problem!}
-    And very hard if $\mu_k(t)$ can change at any step!
+    % And very hard if $\mu_k(t)$ can change at any step!
+    And impossible with no extra hypothesis
 
     \pause
     \begin{colorblock}{\textbf{Piece-wise stationary} problems!}
@@ -2193,7 +2196,7 @@
 
 \begin{frameO}[Regret for piece-wise stationary bandits]
 
-    The ``oracle'' plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$\\
+    The ``oracle'' plays the (\alert{unknown}) best arm $k^*(t) = \argmax \mu_k(t)$\\
     (which changes between the $\Upsilon_T \geq 1$ stationary sequences)
     %
     \[ \cR(\cA,T) = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \underbrace{\left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right)}_{\text{oracle total reward}} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
@@ -2203,18 +2206,19 @@
 
     \begin{colorblock}{Typical regimes for piece-wise stationary bandits}
         \begin{itemize}
-            \item Naive kl-UCB algorithms can obtain $\cR(\cA,T) \leq \mathcal{O}(T)$ in worst-case
-            \item ``Oracle restart'' kl-UCB obtains
-            $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
-            when knowing the locations of $\Upsilon_T$ break-points
+            % \item Naive kl-UCB algorithms can obtain $\cR(\cA,T) \leq \mathcal{O}(T)$ in worst-case
+            % \item ``Oracle restart'' kl-UCB obtains
+            % $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{opt}}^2) \Upsilon_T \log(T))$\\
+            % when knowing the locations of $\Upsilon_T$ break-points
 
-            \pause
-            \vspace*{10pt}
+            % \pause
+            % \vspace*{10pt}
 
             \item The (minimax) \emph{worst-case lower-bound} is
             $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
             % on a ``bad'' problem
-            \item State-of-the-art algorithms $\mathcal{A}$ can obtain $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T})$
+            \vspace*{5pt}
+            \item State-of-the-art algorithms $\mathcal{A}$ obtain $\cR(\cA,T) \leq \mathcal{O}(K \sqrt{T \Upsilon_T \log(T)})$
             % \item
             %     Currently, state-of-the-art algorithms $\mathcal{A}$ obtain
             %     \begin{itemize}
@@ -2253,8 +2257,8 @@
             the \textbf{Generalized Likelihood Ratio Test} for sub-Bernoulli observations (BGLR),
             we can bound
             \begin{itemize}
-                \item its false alarm probability (if enough samples between two restart)
-                \item its detection delay (under some hypotheses of ``easy enough'' problems)
+                \item its false alarm probability (if enough samples between two restarts)
+                \item its detection delay (for ``easy enough'' problems)
             \end{itemize}
             \item Forced exploration of parameter $\alpha\in(0,1)$ (tuned with $\Upsilon_T$)
         \end{itemize}
@@ -2263,8 +2267,8 @@
 
     \pause
     % \only<2>{
-    \begin{lightblock}{Regret bound (if $T$ and $\Upsilon_T$ are known)}
-        Our algorithm $\cA$ obtains
+    \begin{lightblock}{Regret bound (if $T$ and $\Upsilon_T$ are both known)}
+        Our algorithm obtains
         % \begin{itemize}
         % \tightlist
             % \item
@@ -2287,7 +2291,9 @@
         \includegraphics[width=1.05\textwidth]{regret_problem1.png}
     \end{center}
     \vspace*{-15pt}
-    $\hookrightarrow$ \textcolor{deeppurple}{kl-UCB + BGLR ($\star$)} achieves the best performance (among non-oracle)!
+    \begin{small}
+        $\hookrightarrow$ \textcolor{deeppurple}{kl-UCB + BGLR ($\star$)} achieves the best performance (among non-oracle)!
+    \end{small}
 \end{frameO}
 
 % \begin{frameO}[More results ($1/3$)]
