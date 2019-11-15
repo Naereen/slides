@@ -1420,20 +1420,24 @@
 \input{crowncom2017.tex}
 
 
-\begin{frameO}[We implemented this with real hardware ($1/3$)]
+\begin{frameO}[We implemented this with real hardware \hfill{} ($1/3$)]
 
     We developed a realistic demonstration using USRP boards and GNU Radio,
     as a proof-of-concept in a ``toy'' IoT network.
 
     \begin{center}
-        \movie{\includegraphics[width=0.7\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
+        \movie{\includegraphics[width=0.65\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
-    \hfill{}
-    {\tiny \textcolor{gray}{Ref: [Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3, \texttt{YouTu.be/HospLNQhcMk}}}
+    % \hfill{}
+    \begin{small}
+        \textcolor{gray}{Ref: [Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}
+        \newline
+        \textcolor{gray}{Video published on:} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
+    \end{small}
 \end{frameO}
 
 
-\begin{frameO}[Using USRP board to simulate IoT objects ($2/3$)]
+\begin{frameO}[Using USRP board to simulate IoT objects \hfill{} ($2/3$)]
     \begin{center}
         % \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie1.png}}{videos/Partie1.mp4}
         \movie{\includegraphics[height=0.90\textheight]{our-demo}}{videos/Partie1.mp4}
@@ -1441,7 +1445,7 @@
 \end{frameO}
 
 
-\begin{frameO}[GNU Radio for the UI of the demo ($3/3$)]
+\begin{frameO}[GNU Radio for the UI of the demo \hfill{} ($3/3$)]
     \begin{center}
         % \movie{\includegraphics[width=0.90\textwidth]{screenshotDemoYouTube_Partie2.png}}{videos/Partie2.mp4}
         \movie{\includegraphics[width=1.01\textwidth]{UI}}{videos/Partie2.mp4}
@@ -1457,11 +1461,12 @@
         % \tightlist
         \item
             \textcolor{orange}{\textbf{It works very well empirically}!}
-        \item
+        % \item
+            \newline
             But \alert{random activation times} make the model \textbf{hard to analyze}\dots
-        \item \underline{Hyp 1:} in avg. $p \times D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are using $K$ channels \slotmachine{}\newline
+        \item \textcolor{darkgreen}{\underline{Hyp 1:}} in avg. $p \times D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are using $K$ channels \slotmachine{}\newline
             \hfill{} $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
-        \item \underline{Hyp 2:} we assumed a stationary background traffic \includegraphics[height=0.37cm]{static-devices.png} \dots
+        \item \textcolor{deeppurple}{\underline{Hyp 2:}} we assumed a stationary background traffic \includegraphics[height=0.37cm]{static-devices.png} \dots
     \end{itemize}
 
     \pause
@@ -1474,9 +1479,9 @@
     \begin{colorblock}{}
         \textcolor{orange}{We can study theoretically two more specific models, in two directions}
         \begin{itemize}
-            \item \underline{Model 1:} \textbf{multi-player bandits}: devices \includegraphics[height=0.37cm]{dynamic-devices.png} are always activated\\
+            \item \textcolor{darkgreen}{\underline{Model 1:}} \textbf{multi-player bandits}: devices \includegraphics[height=0.37cm]{dynamic-devices.png} are always activated\\
                 ie. $p=1$ in their random activation process $\implies$ $D = M \leq \frac{K}{p} = K$
-            \item \underline{Model 2:} \textbf{non-stationary bandits} (for one device \includegraphics[height=0.37cm]{dynamic-devices.png})
+            \item \textcolor{deeppurple}{\underline{Model 2:}} \textbf{non-stationary bandits} (for one device \includegraphics[height=0.37cm]{dynamic-devices.png})
         \end{itemize}
         \hfill{}
         $\implies$ Both are \textbf{tractable problems} !
@@ -1607,10 +1612,10 @@
 
 \begin{frameO}[Multi-players bandits: setup]
 
-    \orange $M \geq 2$ players \black playing \textit{the same} $K$-armed bandit
+    \orange $M \geq 2$ players \black \includegraphics[height=0.37cm]{dynamic-devices.png} playing \textit{the same} $K$-armed bandit
     \hfill{} ($2 \leq M \leq K$)
     \newline
-    they are all activated at each time step, ie. $p=1$
+    they are all activated at each time step, ie. \textcolor{orange}{$p=1$}
     % with \textbf{no communication} between them
 
     \vspace{0.3cm}
@@ -1618,12 +1623,10 @@
     \begin{lightblock}{}
         At round $t \in\{1,\dots, T\}$:
         \begin{itemize}
-            \item player $m$ selects arm $A^m_{t}$ \slotmachine{} ; then \textit{this arm generates} $s_{A^m_{t},t}$
+            \item player $m$ selects arm $A^m_{t}$ \slotmachine{} ; then \textit{this arm generates} $s_{A^m_{t},t} \in \{0,1\}$
             \item and the reward is computed as
         \end{itemize}
-
         \vspace{-0.2cm}
-
         \[\red r_{m,t} = \left\{ \begin{array}{cl}
                 s_{A^m_{t},t} & \text{if no other player chose the same arm} \\
                 0             & \text{else (= COLLISION)}
@@ -1632,8 +1635,8 @@
 
     \pause
     \vspace{-0.3cm}
-    \begin{colorblock}{}
-        \textbf{Goal:}
+    \begin{colorblock}{Goal}
+        % \textbf{Goal:}
         \begin{itemize}
             \item maximize centralized (sum) rewards $\sum\limits_{m=1}^M \sum\limits_{t=1}^T r_{m,t}$
             \item \dots{} \textcolor{orange}{without (explicit) communication} between players
@@ -1647,7 +1650,10 @@
 
 \begin{frameO}[M-P bandits for Cognitive Radios: previous model]
 
-    Different observation models: players observe $s_{A^m_{t},t}$ and/or $r_{m,t}$
+    \textcolor{darkblue}{Different observation models}:
+    players observe $s_{A^m_{t},t}$ and/or $r_{m,t}$
+
+    \vspace*{20pt}
 
     \begin{darkblock}{\# 1: ``Listen before talk''
         \hfill{} {\tiny \textcolor{lightgray}{[Liu \& Zhao, 2010], [Jouini et al. 2010], [Anandkumar et al. 2011]}}
@@ -1660,7 +1666,7 @@
             First do sensing, attempt of transmission if no Primary User (PU), possible collisions with other Secondary Users (SU).
 
             \item
-            \emph{Feedback model:}
+            \textcolor{darkblue}{\emph{Feedback model:}}
             \begin{itemize}
                 \item
                 observe first $s_{A^m_{t},t}$,
@@ -1687,7 +1693,7 @@
             Do not do any sensing, just transmit, and wait for an acknowledgment before any next message.
 
             \item
-            \emph{Feedback model:}
+            \textcolor{darkblue}{\emph{Feedback model:}}
             \begin{itemize}
                 \item
                 observe only the joint information $r_{m, t}$,
@@ -1713,7 +1719,7 @@
             {\small studied by 4 papers in 2019, following our work}
 
             \item
-            \emph{Feedback model:}
+            \textcolor{darkblue}{\emph{Feedback model:}}
             \begin{itemize}
                 \item
                 first check if collision,
@@ -1797,7 +1803,7 @@
 
     \vspace{-0.3cm}
 
-    \begin{colorblock}{Regret decomposition (if all players $M$ follow $\cA$)}
+    \begin{colorblock}{Regret decomposition (if all players $M$ follow $\cA$) \hfill{} {\small \textcolor{gray}{[Besson \& Kaufmann, 18]}}}
 
     \alt<2>{\vspace{0.2cm}
     \[R_{\bm\mu}(\cA,T) \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right].\]
@@ -1876,7 +1882,7 @@
 \begin{frameO}[The MC-Top-$M$ algorithm (for the OSA case)]
 
     \begin{figure}[h!]
-        \scalebox{0.60}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
+        \scalebox{0.63}{\begin{minipage}{1.65\textwidth}  %% https://tex.stackexchange.com/a/366403/
         \begin{tikzpicture}[>=latex',line join=bevel,scale=5.5]
             %
             \node (start) at (1.5,0.30) {$(0)$ Start $t=0$};
@@ -1902,6 +1908,18 @@
         % Taking one of the five transitions means playing one round of Algorithm \MCTopM, to decide $A^m(t+1)$ using information of previous steps.}
         \label{fig:StateMachineAlgorithm_MCTopM}
         \end{figure}
+
+    \begin{small}
+        Sketch of the proof to bound number of collisions
+        \begin{itemize}
+            \item length of sequence of transitions \textcolor{blue}{$(2)$} is constant
+            \item $\mathcal{O}(\log T)$ number of transitions \textcolor{red}{$(3)$} and  \textcolor{red}{$(5)$} by kl-UCB
+
+            \item[$\implies$] player $m$ is fixed, for almost all rounds ($\mathcal{O}(T - \log T)$ times)
+            \item nb of collisions $\leq$ $M \times$ nb of collisions of non fixed players
+            \item[$\implies$] nb of collisions $= \mathcal{O}(\log T)$
+        \end{itemize}
+    \end{small}
 
 \end{frameO}
 
@@ -1945,7 +1963,8 @@
 
     \only<1>{
         \vspace{0.2cm}
-        MC-Top-$M$ with $\kl$-based confidence intervals \hfill{} \textcolor{gray}{[Cappé et al. 13]}
+        MC-Top-$M$ with $\kl$-based confidence intervals
+        \hfill{} \textcolor{gray}{Ref: [Cappé et al. 13]}
         \vspace{-0.3cm}
         \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
         {\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
@@ -1960,6 +1979,11 @@
         \]
         \vspace{-0.2cm}
     }
+    \only<2>{
+        \begin{center}
+            $\bE[\textcolor{orange}{N_k^m(T)}] \leq \mathcal{O}(\log T)$
+        \end{center}
+    }
     \end{darkblock}
 
     \begin{colorblock}{Control of the \textcolor{orange}{collisions}}
@@ -1969,16 +1993,23 @@
             \leq M^2 \left(\sum_{a,b : \mu_a < \mu_b} \frac{2 M + 1}{\kl(\mu_a,\mu_b)} \right) \ln(T) + \mathcal{O}(\ln T).
         \]
     }
+    \only<2>{
+        \begin{center}
+            $\bE\left[\sum\limits_{k=1}^K \textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log T)$
+        \end{center}
+    }
     \end{colorblock}
 
     \only<2>{
     \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{gray}{[Besson \& Kaufmann, 18]}}
+        \vspace*{-10pt}
         \begin{align*}
             R_{\bm\mu}(\cA,T)
             & \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right] \\
             &= \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
         \end{align*}
-        with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$.
+        with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$
+        {\small the same constant as in the centralized multiple-play bandit.}
     \end{lightblock}
     }
 
@@ -2096,17 +2127,17 @@
 \begin{frameO}[Piece-wise stationary bandits]
 
     \begin{blueblock}{Stationary MAB problems}
-        Arm $k$ \slotmachine{} samples rewards from \textcolor{blue}{the same distribution} for any time step
+        Arm $k$ \slotmachine{} samples rewards from \textcolor{blue}{the same distribution} for any round
         \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k = \mathcal{B}(\textcolor{blue}{\mu_k}). \]
     \end{blueblock}
 
     \pause
     \begin{alertblock}{Non stationary MAB problems?}
-        \alert{(possibly) different distributions} for any time step !
+        \alert{(possibly) different distributions} for any round !
         \[ \forall t, r_k(t) \overset{\text{iid}}{\sim} \nu_k\alert{(t)} = \mathcal{B}(\mu_k\alert{(t)}). \]
     \end{alertblock}
 
-    $\implies$ harder problem!
+    $\implies$ \alert{harder problem!}
     And very hard if $\mu_k(t)$ can change at any step!
 
     \pause
@@ -2132,12 +2163,12 @@
     The ``oracle'' plays the (unknown) best arm $k^*(t) = \argmax \mu_k(t)$\\
     (which changes between the $\Upsilon_T \geq 1$ stationary sequences)
     %
-    \[ \alert{ \cR(\cA,T) } = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \underbrace{\left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right)}_{\text{oracle total reward}} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+    \[ \cR(\cA,T) = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \underbrace{\left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right)}_{\text{oracle total reward}} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
 
     \pause
     \vspace*{10pt}
 
-    \begin{colorblock}{Typical regime for piece-wise stationary bandits}
+    \begin{colorblock}{Typical regimes for piece-wise stationary bandits}
         \begin{itemize}
             \item Naive kl-UCB algorithms can obtain $\cR(\cA,T) \leq \mathcal{O}(T)$ in worst-case
             \item ``Oracle restart'' kl-UCB obtains
@@ -2145,6 +2176,7 @@
             when knowing the locations of $\Upsilon_T$ break-points
 
             \pause
+            \vspace*{10pt}
 
             \item The (minimax) \emph{worst-case lower-bound} is
             $\cR(\cA,T) \geq \Omega(\sqrt{K T \Upsilon_T})$
@@ -2370,10 +2402,11 @@
 
 \begin{frameO}[Contributions \hfill{} ($1/3$)]
 
-    \pause
+    % \pause
     % \begin{colorblock}{What we showed}
         \large
         \textbf{Part I:}
+        \uncover<2>{
         \begin{itemize}%[<+->]
             \setlength\itemsep{6pt}
             \item A simple model of IoT network, where autonomous IoT devices can embed decentralized learning (``\textcolor{orange}{selfish MAB learning}''),
@@ -2382,13 +2415,15 @@
             % \item my Python library SMPyBandits.
             % \vspace*{10pt}
         \end{itemize}
+        }
 
         \vspace*{10pt}
-        \pause
+        % \pause
         \textbf{Part II:}
+        \uncover<2>{
         \begin{itemize}%[<+->]
             \setlength\itemsep{6pt}
-        \item New algorithms and regret bounds, in two simplified models:
+            \item New algorithms and regret bounds, in two simplified models:
             \begin{itemize}
                 \item for \textcolor{orange}{multi-player bandits}, with $M \leq K$ players,
                 \item for \textcolor{orange}{piece-wise stationary bandits}, with $\Upsilon_T = o(T)$ break-points,
@@ -2400,6 +2435,7 @@
                 \item and theoretical results
             \end{itemize}
         \end{itemize}
+        }
     % \end{colorblock}
 
 \end{frameO}

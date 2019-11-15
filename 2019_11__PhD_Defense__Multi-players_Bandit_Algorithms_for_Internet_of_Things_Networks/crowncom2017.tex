@@ -308,7 +308,7 @@
     A player tries to collect \emph{rewards} when playing a $K$-armed \slotmachine{} bandit game.
 
     \begin{lightblock}{}
-        At each time step $t\in\{1,\dots,T\}$
+        At each round $t\in\{1,\dots,T\}$
         \begin{itemize}
             % \tightlist
             \item
@@ -329,7 +329,7 @@
     \end{colorblock}
 
     \vfill{}
-    \hfill{} {\small \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}}
+    \hfill{} {\small \textcolor{gray}{Ref: [Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}}
 
 \end{frameO}
 
@@ -341,7 +341,7 @@
         % \tightlist
         \item
             it transmits following a random Bernoulli process \newline
-            (of probability \(p\) of transmitting at each time step \(t\)),
+            (of probability \(p\) of transmitting at each round \(t\)),
         \item
             it chooses a channel \(A(\tau) \in \{1,\dots,K\}\)
             \hfill{} ($=$ arm \slotmachine)
@@ -374,7 +374,8 @@
 
 \subsubsection{Upper Confidence Bound algorithm: UCB}
 
-\begin{frameO}[$2)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
+% \begin{frameO}[$2)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
+\begin{frameO}[$2)$ Upper Confidence Bound algorithm \hfill{} {\small \textcolor{gray}{Ref: [Auer 02]}}]
 
     \only<1-2>{
         A dynamic device keeps \(\tau\) number of sent packets
@@ -401,6 +402,11 @@
                   \item
                         Compute the index
                         \(\mathrm{UCB}_k(\tau) := \overbrace{\frac{X_k(\tau)}{N_k(\tau)}}^{\text{Mean}\; \widehat{\mu_k}(\tau)} + \overbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}^{\text{Confidence Bonus}}\)
+                    \only<1-2>{
+                        \newline
+                        \hfill{}
+                        {\small \textcolor{gray}{Ref: [Auer et al, 2002]}}
+                    }
                   \item
                         Choose channel
                         \(A(\tau) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k(\tau)\),
@@ -420,29 +426,29 @@
                 }
                 \only<3>{
                     \item Play UCB algorithm\dots{}
+                    \hfill{}
+                    {\small \textcolor{gray}{Ref: [Auer et al, 2002]}}
                 }
                   \item
                         \textcolor{orange}{Wait for next message\dots \hfill{} (mean waiting time $\simeq 1/p$)}
               \end{itemize}
     \end{enumerate}
 
-    \only<1-2>{
-        \hfill{}
-        {\small \textcolor{gray}{Ref: [Auer et al, 2002]}}
-    }
     \only<3>{
-    \begin{colorblock}{Multiple devices}
-        The collisions are not stochastic!
-    \end{colorblock}
-    \begin{colorblock}{Random activation times $\tau$?}
+    \begin{alertblock}{Multiple dynamic devices}
+        \begin{itemize}
+            \item The collisions between dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are \textbf{not stochastic}!
+        \end{itemize}
+    \end{alertblock}
+    \begin{alertblock}{Random activation times $\tau$?}
         \begin{itemize}
             \item
-                  The times $\tau$ are \textbf{not} the global time indexes $t$
+                The times $\tau$ are \textbf{not} the global time indexes $t$ !
             \item
-                  each object transmits only with probability $p$ at each time $t$\newline
-                  (following its Bernoulli activation pattern)
+                Each object transmits only with probability $p$ at each time $t$\newline
+                (following its Bernoulli activation pattern)
         \end{itemize}
-    \end{colorblock}
+    \end{alertblock}
     \vspace*{10pt}
         {\large
             \alert{$\implies$ these two problems make the model \textbf{hard to analyze} !}
@@ -494,7 +500,7 @@
                   \includegraphics[height=0.37cm]{dynamic-devices.png}
                   \()\),
             \item
-                  For one example of repartition of \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png}
+                  For one example of repartition of \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png}.
         \end{itemize}
         \vspace*{-10pt}
         \begin{center}
