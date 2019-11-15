@@ -222,7 +222,7 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
 	{{PhD defense -- Lilian Besson -- \emph{``MAB Algorithms for IoT Networks''}}}\hfill
 	\raisebox{2.5ex}
-	{{20 November, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+	{{20 November, 2019 -- \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -329,7 +329,7 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
     {\textcolor{white}{PhD defense -- Lilian Besson -- \emph{``MAB Algorithms for IoT Networks''}}}\hfill
     \raisebox{2.5ex}
-    {\textcolor{white}{20 November, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+    {\textcolor{white}{20 November, 2019 -- \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 
 % \begin{frameO}[Welcome to my PhD defense]
@@ -894,7 +894,7 @@
 % \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
 %     {\textcolor{white}{PhD defense -- Lilian Besson -- \emph{``MAB Algorithms for IoT Networks''}}}\hfill
 %     \raisebox{2.5ex}
-%     {\textcolor{white}{20 November, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+%     {\textcolor{white}{20 November, 2019 -- \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 % \subsection{Multi-armed Bandit}
 
@@ -1452,11 +1452,11 @@
         \movie{\includegraphics[width=0.65\textwidth]{screenshotDemoYouTube.png}}{videos/demoICT2018.mkv}
     \end{center}
     % \hfill{}
-    \begin{small}
+    \begin{tiny}
         \textcolor{gray}{[Bonnefoi et al, ICT 18], [Besson et al, WCNC 19], Ch.5.3}
         \newline
         \textcolor{gray}{Video published on} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
-    \end{small}
+    \end{tiny}
 \end{frameO}
 
 
@@ -1498,14 +1498,15 @@
 
     \pause
     \begin{colorblock}{}
-        \textcolor{orange}{We can study theoretically two more specific models, in two directions}
+        \textcolor{orange}{We can study theoretically two more specific models}
+        % , in two directions
         \begin{itemize}
             \item \textcolor{darkgreen}{\underline{Model 1:}} \textbf{multi-player bandits}: devices \includegraphics[height=0.37cm]{dynamic-devices.png} are always activated\\
                 ie. $p=1$ in their random activation process $\implies$ $D = M \leq \frac{K}{p} = K$
             \item \textcolor{deeppurple}{\underline{Model 2:}} \textbf{non-stationary bandits} (for one device \includegraphics[height=0.37cm]{dynamic-devices.png})
         \end{itemize}
-        \hfill{}
-        $\implies$ Both are \textbf{tractable problems} !
+        % \hfill{}
+        % $\implies$ Both are \textbf{tractable problems} !
     \end{colorblock}
 
 \end{frameO}
@@ -1848,7 +1849,7 @@
 
     \alt<2>{
         \vspace*{15pt}
-        We need to control:
+        A good algorithm has to control both
     \begin{itemize}
      \item the number of \textcolor{orange}{selections of sub-optimal arms}\newline
         $\hookrightarrow$ with a good classical bandit policy: like kl-UCB
@@ -1877,14 +1878,14 @@
 
     % \vspace{0.2cm}
 
-    \begin{lightblock}{}
+    \begin{alertblock}{}
         At round $t$, player $m$ uses his past sensing information to:
         \begin{itemize}
             \item compute an Upper Confidence Bound for each mean $\mu_k$, $\UCB^m_k(t)$
             \item use the UCBs to \bluelight estimate the $M$ best arms
             \[\bluelight\hat{M}^m(t) := \left\{ \text{arms with } M \text{ largest } \UCB^m_k(t)\right\}\]
         \end{itemize}
-    \end{lightblock}
+    \end{alertblock}
 
     \vspace*{10pt}
 
@@ -2187,12 +2188,14 @@
 
 \begin{frameO}[Example of a piece-wise stationary MAB problem]
     We plots the means \textcolor{red}{$\mu_1(t)$}, \textcolor{green}{$\mu_2(t)$}, \textcolor{blue}{$\mu_3(t)$}
-    of $K=3$ arms \slotmachine{}.
+    of $K=3$ arms \slotmachine{}.\\
     There are $\Upsilon_T=4$ break-points and $5$ sequences
-    between $t=1$ and $t=T=5000$:
-    \begin{center}
-        \includegraphics[width=0.97\textwidth]{Problem_1.pdf}
-    \end{center}
+    % between $t=1$ and $t=T=5000$:
+    in $\{1,\dots,T=5000\}$
+    \vspace*{-25pt}
+    % \begin{center}
+        \includegraphics[width=1.05\textwidth]{Problem_1.pdf}
+    % \end{center}
 \end{frameO}
 
 \begin{frameO}[Regret for piece-wise stationary bandits]
@@ -2200,10 +2203,13 @@
     The ``oracle'' plays the (\alert{unknown}) best arm $k^*(t) = \argmax \mu_k(t)$\\
     (which changes between the $\Upsilon_T \geq 1$ stationary sequences)
     %
-    \[ \cR(\cA,T) = \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] = \underbrace{\left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right)}_{\text{oracle total reward}} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right]. \]
+    \begin{align*}
+        \cR(\cA,T) &= \mathbb{E}\left[ \sum\limits_{t=1}^T r_{\alert{k^*(t)}}(t) \right] - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right] \\
+        &= \underbrace{\left(\alert{\sum_{t=1}^T \max_k \mu_k(t)} \right)}_{\text{oracle total reward}} - \sum\limits_{t=1}^T \mathbb{E}\left[ r(t) \right].
+    \end{align*}
 
     \pause
-    \vspace*{10pt}
+    \vspace*{5pt}
 
     \begin{colorblock}{Typical regimes for piece-wise stationary bandits}
         \begin{itemize}
@@ -2273,7 +2279,7 @@
         % \begin{itemize}
         % \tightlist
             % \item
-                $\cR(\cA,T) \leq \mathcal{O}(\frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)})$
+                $\cR(\cA,T) \leq \mathcal{O} \left( \frac{K}{\Delta_{\text{change}}^2} \sqrt{T \Upsilon_T \log(T)} \right)$
         %     \item
         %         $\cR(\cA,T) \leq \mathcal{O}((K / \Delta_{\text{change}}^2) \textcolor{orange}{\Upsilon_T} \sqrt{T \log(T)})$
         %         if $T$ and \textcolor{orange}{$\Upsilon_T$ are unknown}
@@ -2498,7 +2504,7 @@
                 \item propose a more realistic model for IoT networks \newline
                     (exogenous activation, non stationary traffic, etc)
                 \item propose an efficient decentralized low-cost algorithm
-                \item that work empirically \emph{and} has strong theoretical guarantees!
+                \item that works empirically \emph{and} has strong theoretical guarantees!
             \end{itemize}
                 % {\small also let the devices learn \emph{when} to transmit (choose time), not only \emph{where/how} to transmit (choose frequency, etc)\dots{}
                 % % \hfill{}
@@ -2566,11 +2572,12 @@
         \end{huge}
     \end{center}
 
-    \vspace*{25pt}
+    \vspace*{30pt}
 
     \begin{center}
         \begin{huge}
-            \thinkingfacelarge{} Questions \& Discussion
+            \thinkingfacelarge{}
+            \textbf{Questions \& Discussion}
         \end{huge}
     \end{center}
 
