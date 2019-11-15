@@ -664,7 +664,7 @@
     \begin{large}
 
     \begin{itemize}
-        \setlength\itemsep{1em}
+        \setlength\itemsep{2em}
         \item \textcolor{gray}{Spectrum issues in wireless networks}
         % \item \textcolor{gray}{\sout{The Stochastic Multi-Armed Bandit models}}
         % \begin{itemize}
@@ -1432,7 +1432,7 @@
     \begin{small}
         \textcolor{gray}{Ref: [Bonnefoi et al, ICT 2018], [Besson et al, WCNC 2019], Ch.5.3}
         \newline
-        \textcolor{gray}{Video published on:} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
+        \textcolor{gray}{Video published on} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
     \end{small}
 \end{frameO}
 
@@ -1462,8 +1462,8 @@
         \item
             \textcolor{orange}{\textbf{It works very well empirically}!}
         % \item
-            \newline
-            But \alert{random activation times} make the model \textbf{hard to analyze}\dots
+            % \newline
+            But \alert{random activation times} and \alert{collisions due to multiple devices} make the model \textbf{hard to analyze}\dots
         \item \textcolor{darkgreen}{\underline{Hyp 1:}} in avg. $p \times D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are using $K$ channels \slotmachine{}\newline
             \hfill{} $\implies$ so $p \leq \frac{K}{D}$ or $D \leq \frac{K}{p}$ gives best performance
         \item \textcolor{deeppurple}{\underline{Hyp 2:}} we assumed a stationary background traffic \includegraphics[height=0.37cm]{static-devices.png} \dots
@@ -1803,18 +1803,25 @@
 
     \vspace{-0.3cm}
 
-    \begin{colorblock}{Regret decomposition (if all players $M$ follow $\cA$) \hfill{} {\small \textcolor{gray}{[Besson \& Kaufmann, 18]}}}
-
-    \alt<2>{\vspace{0.2cm}
-    \[R_{\bm\mu}(\cA,T) \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right].\]
-    \vspace{0.2cm}}{\vspace{-0.3cm}
-    \begin{align*}
-    & R_{\bm\mu}(\cA,T) = {\sum_{k=M+1}^K (\mu_M -  \mu_k) \bE[\textcolor{orange}{N_k(T)}]} \\
-    &\hspace{1cm}{+ {\sum_{k=1}^M (\mu_k -  \mu_M) \left(T - \bE[\textcolor<1>{orange}{N_k(T)}]\right)} + {\sum_{k=1}^{K} \mu_k \bE[\textcolor{red}{\mathcal{C}_k(T)}]}.}
-    \end{align*}}
+    \begin{colorblock}{Regret decomposition \hfill{} {\small \textcolor{gray}{[Besson \& Kaufmann, 18]}}}
+        %
+        If all $M$ players follow the decentralized algorithm $\cA$
+        %
+        \alt<2>{
+            % \vspace{0.2cm}
+            \[R_{\bm\mu}(\cA,T) \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right].\]
+            % \vspace{0.2cm}
+        }{
+            % \vspace{-0.3cm}
+            \begin{align*}
+                & R_{\bm\mu}(\cA,T) = {\sum_{k=M+1}^K (\mu_M -  \mu_k) \bE[\textcolor{orange}{N_k(T)}]} \\
+                &\hspace{1cm}{+ {\sum_{k=1}^M (\mu_k -  \mu_M) \left(T - \bE[\textcolor<1>{orange}{N_k(T)}]\right)} + {\sum_{k=1}^{K} \mu_k \bE[\textcolor{red}{\mathcal{C}_k(T)}]}.}
+            \end{align*}
+        }
+        \vspace*{-5pt}
     \end{colorblock}
 
-    \only<2-2>{\vspace{0.3cm}}
+    % \only<2-2>{\vspace{0.3cm}}
 
     \alt<2>{We need to control:
     \begin{itemize}
@@ -1910,7 +1917,7 @@
         \end{figure}
 
     \begin{small}
-        Sketch of the proof to bound number of collisions
+    \begin{colorblock}{Sketch of the proof to bound number of collisions}
         \begin{itemize}
             \item length of sequence of transitions \textcolor{blue}{$(2)$} is constant
             \item $\mathcal{O}(\log T)$ number of transitions \textcolor{red}{$(3)$} and  \textcolor{red}{$(5)$} by kl-UCB
@@ -1919,6 +1926,7 @@
             \item nb of collisions $\leq$ $M \times$ nb of collisions of non fixed players
             \item[$\implies$] nb of collisions $= \mathcal{O}(\log T)$
         \end{itemize}
+    \end{colorblock}
     \end{small}
 
 \end{frameO}
@@ -1995,7 +2003,7 @@
     }
     \only<2>{
         \begin{center}
-            $\bE\left[\sum\limits_{k=1}^K \textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log T)$
+            $\bE\left[\textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\log T)$
         \end{center}
     }
     \end{colorblock}
@@ -2228,7 +2236,7 @@
     \end{colorblock}
     % }
 
-    \pause
+    % \pause
     % \only<2>{
     \begin{lightblock}{Regret bound (if $T$ and $\Upsilon_T$ are known)}
         Our algorithm $\cA$ obtains

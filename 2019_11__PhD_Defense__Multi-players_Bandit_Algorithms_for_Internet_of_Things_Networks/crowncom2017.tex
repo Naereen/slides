@@ -90,11 +90,13 @@
     \begin{center}
         \only<1>{
             \includegraphics[width=0.99\textwidth]{Protocol_successful_transmission.png}
-            \underline{1st case}: Successful transmission if no collision on \textcolor{blue}{uplink messages {\large $\nearrow$}} !
+            \vfill{}
+            \underline{$1^\text{st}$ case}: Successful transmission if no collision on \textcolor{blue}{uplink messages {\large $\nearrow$}} !
         }
         \only<2>{
             \includegraphics[width=0.99\textwidth]{Protocol_failed_transmission.png}
-            \underline{2nd case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}\dots
+            \vfill{}
+            \underline{$2^\text{nd}$ case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}\dots
         }
     \end{center}
 
@@ -120,7 +122,7 @@
 
     \vspace*{5pt}
     \pause
-    \begin{colorblock}{\includegraphics[height=0.37cm]{static-devices.png}  Background \textbf{stationary} ambiant traffic}
+    \begin{colorblock}{Background \textbf{stationary} ambiant traffic}
 
         \begin{itemize}
             % \tightlist
@@ -136,7 +138,7 @@
 
     \vspace*{5pt}
     \pause
-    \begin{colorblock}{\includegraphics[height=0.37cm]{dynamic-devices.png}  Dynamic radio reconfiguration}
+    \begin{colorblock}{Dynamic radio reconfiguration}
 
         \begin{itemize}
             % \tightlist
@@ -474,37 +476,37 @@
                   % 
                   % \tightlist
             \item
-                  \(K = 10\) channels \slotmachine,
+                \(K = 10\) channels \slotmachine,
             \item
-                  \(S\) \includegraphics[height=0.37cm]{static-devices.png}
-                  \(+\)
-                  \(D\) \includegraphics[height=0.37cm]{dynamic-devices.png}
-                  \(= 10000\) devices
-                  in total,
+                \(S\) \includegraphics[height=0.37cm]{static-devices.png}
+                \(+\)
+                \(D\) \includegraphics[height=0.37cm]{dynamic-devices.png}
+                \(= 10000\) devices
+                in total,
             \pause
             \item
-                  \(p = 10^{-3}\) probability of emission,
+                \(p = 10^{-3}\) probability of emission,
             \item
-                  Horizon \(T = 10^5\) total time slots
-                  (\textcolor{orange}{avg. \(\simeq 100\) messages \(/\) device}),
+                Horizon \(T = 10^5\) total time slots
+                (\textcolor{orange}{avg. \(\simeq 100\) messages \(/\) device}),
             \pause
             \item
-                  We change the proportion of dynamic devices
-                  \(D\)
-                  \includegraphics[height=0.37cm]{dynamic-devices.png}
-                  \(/\)
-                  \((S\)
-                  \includegraphics[height=0.37cm]{static-devices.png}
-                  \(+\)
-                  \(D\)
-                  \includegraphics[height=0.37cm]{dynamic-devices.png}
-                  \()\),
+                We change the proportion of dynamic devices
+                \(D\)
+                \includegraphics[height=0.37cm]{dynamic-devices.png}
+                \(/\)
+                \((S\)
+                \includegraphics[height=0.37cm]{static-devices.png}
+                \(+\)
+                \(D\)
+                \includegraphics[height=0.37cm]{dynamic-devices.png}
+                \()\),
             \item
-                  For one example of repartition of \((S_1,\dots,S_{K})\) static devices \includegraphics[height=0.37cm]{static-devices.png}.
+                For one example of \textcolor{darkgreen}{repartition of \((S_1,\dots,S_{K})\) static devices} \includegraphics[height=0.37cm]{static-devices.png}.
         \end{itemize}
         \vspace*{-10pt}
         \begin{center}
-            \includegraphics[height=4.5cm]{Repartition_of_static_devices.png}
+            \includegraphics[height=4.3cm]{Repartition_of_static_devices.png}
         \end{center}
 
     % \end{colorblock}
@@ -515,7 +517,7 @@
 
 \subsubsection{First result: $10\%$}
 
-\begin{frameO}[\(10\%\) of dynamic devices]
+\begin{frameO}[One result for \(10\%\) of dynamic devices]
 
     \begin{figure}[h!]
         \centering
@@ -551,14 +553,20 @@
 
 \subsubsection{Growing proportion of devices dynamic devices}
 
-\begin{frameO}[Dependency on \(D/(S+D)\)]
+\begin{frameO}[Growing proportion of devices dynamic devices \(\newarrow D/(S+D)\)]
 
     \begin{figure}[h!]
         \centering
         \includegraphics[height=0.70\textheight]{perf_learning.eps}
 
         % \caption{
-            \emph{Almost optimal}, for any proportion of dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}, \emph{after a short learning time}. Up-to $16\%$ gain over the naive approach!
+            \begin{itemize}
+                \item
+                The MAB selfish learning is \emph{almost optimal}, for any proportion of dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}, \emph{after a short learning time}.
+
+                \item
+                In this example, it gives up-to $16\%$ gain over the naive approach!
+            \end{itemize}
         % }
     \end{figure}
 
