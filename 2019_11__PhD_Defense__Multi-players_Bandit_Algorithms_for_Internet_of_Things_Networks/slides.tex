@@ -2431,8 +2431,8 @@
             % \item and comparisons of both numerical and theoretical results, showing our proposed algorithms achieve state-of-the-art performance.
             \item our proposed algorithms achieve state-of-the-art performance
             \begin{itemize}
-                \item on both numerical
-                \item and theoretical results
+                \item on both numerical,
+                \item and theoretical results.
             \end{itemize}
         \end{itemize}
         }
@@ -2466,7 +2466,7 @@
             \setlength\itemsep{2pt}
             \item Unify the \emph{multi-player} and \emph{non-stationary} bandit models\\
                 \textcolor{gray}{\small $\hookrightarrow$ in progress: already one paper from last year (\texttt{arXiv:1812.05165}), we can probably do a better job with our tools!}
-            \item Validate our contributions in real-world IoT environments\\
+            \item More validation of our contributions in real-world IoT environments\\
                 \textcolor{gray}{\small $\hookrightarrow$ started in summer $2019$ with an intern working with Christophe Moy}
             \vspace*{10pt}
             \item \textcolor{orange}{Study the ``Graal'' goal:}
@@ -2640,7 +2640,7 @@
 
     \vspace{1cm}
 
-    Use our Python library for simulations of MAB problems \textbf{SMPyBandits} \\
+    Use my Python library for simulations of MAB problems \textbf{SMPyBandits} \\
     $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}  \& \href{https://GitHub.com/SMPyBandits/}{\textcolor{blue}{\texttt{GitHub.com/SMPyBandits}}} \\
     \begin{itemize}
         \item Install with \texttt{$\$$ pip install SMPyBandits}
@@ -2669,7 +2669,7 @@
 
               \vspace*{10pt}
 
-        \item Our Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
+        \item My Python library for simulations of MAB problems, \textbf{SMPyBandits}\\
               $\hookrightarrow$ \href{https://smpybandits.github.io/}{\textcolor{blue}{\texttt{SMPyBandits.GitHub.io}}}
 
               \vspace*{10pt}
@@ -2894,75 +2894,83 @@
 
 
 % FIXME terminer ces slides backup
-\begin{frameO}[Backup slides to answer predicatable questions?]
+\begin{frameO}[Backup slides]
 
-    \begin{itemize}
-        \item pseudo code of Rand-Top-$M$ + klUCB
-        \item pseudo code of MC-Top-$M$ + klUCB
-        \item exact regret bound of MC-Top-$M$ + klUCB
-        % \item drawing explaining the proof of regret bound of MCTopM + klUCB
-    \end{itemize}
+    \begin{Large}
+        I included here some extra slides\dots
 
-    \begin{itemize}
-        \item pseudo code of GLRT + klUCB
-        \item exact regret bound of GLRT + klUCB
-    \end{itemize}
+        \vspace*{15pt}
+
+        \begin{itemize}
+            \item pseudo code of Rand-Top-$M$ + klUCB
+            \item pseudo code of MC-Top-$M$ + klUCB
+            \item exact regret bound of MC-Top-$M$ + klUCB
+            % \item drawing explaining the proof of regret bound of MCTopM + klUCB
+        \end{itemize}
+
+        \vspace*{15pt}
+
+        \begin{itemize}
+            \item pseudo code of GLRT + klUCB
+            \item exact regret bound of GLRT + klUCB
+        \end{itemize}
+    \end{Large}
 
 \end{frameO}
 
 
 \begin{frameO}[Our algorithm Rand-Top-$M$]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__algo_RandTopM.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__algo_RandTopM.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Our algorithm MC-Top-$M$]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__algo_MCTopM.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__algo_MCTopM.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Lemma: bad selections for MC-Top-$M$ with kl-UCB]
     \begin{center}
-        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_MCTopM_bad_selections.png}
+        \includegraphics[width=1.04\textwidth]{Backup_Slides__lemma_MCTopM_bad_selections.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Lemma: collisions for MC-Top-$M$ with kl-UCB]
     \begin{center}
-        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_MCTopM_collisions.png}
+        \includegraphics[width=1.04\textwidth]{Backup_Slides__lemma_MCTopM_collisions.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Theoreom: regret for MC-Top-$M$ with kl-UCB]
     \begin{center}
-        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_MCTopM_regret.png}
+        \includegraphics[width=1.04\textwidth]{Backup_Slides__lemma_MCTopM_regret.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Our algorigthm GLRT and kl-UCB]
     \begin{center}
-        \includegraphics[width=0.95\textwidth]{Backup_Slides__algo_GLRT_klUCB.png}
+        \includegraphics[width=0.99\textwidth]{Backup_Slides__algo_GLRT_klUCB.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Theorem: regret bound for GLRT + kl-UCB (global)]
     \begin{center}
-        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_GLR_regret.png}
+        \includegraphics[width=1.04\textwidth]{Backup_Slides__lemma_GLR_regret.png}
     \end{center}
 \end{frameO}
 
 \begin{frameO}[Corollary: regret bounds for GLRT + kl-UCB (global)]
     \begin{center}
-        \includegraphics[width=0.99\textwidth]{Backup_Slides__cor_GLR_regret.png}
+        \includegraphics[width=1.04\textwidth]{Backup_Slides__cor_GLR_regret.png}
     \end{center}
 \end{frameO}
 
 
 \begin{frameO}[Theorem: regret bound for GLRT + kl-UCB (local)]
     \begin{center}
-        \includegraphics[width=0.99\textwidth]{Backup_Slides__lemma_GLRlocal_regret.png}
+        \includegraphics[width=1.04\textwidth]{Backup_Slides__lemma_GLRlocal_regret.png}
     \end{center}
 \end{frameO}
 
@@ -2972,20 +2980,30 @@
     \end{center}
 \end{frameO}
 
+\begin{frameO}[End of backup slides]
+    \begin{center}
+        \begin{LARGE}
+            End of backup slides
+            \vfill{}
+            Thanks for your attention!
+        \end{LARGE}
+    \end{center}
+\end{frameO}
 
-% % FIXME rmettre pour la vraie soutenance ?
-% \begin{frameO}[Climatic crisis ?]
 
-%     \begin{center}
-%         \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
+% % FIXME remettre pour la vraie soutenance ?
+\begin{frameO}[What about the climatic crisis?]
 
-%         \begin{tiny}
-%             \textcopyright{} Jeph Jacques, 2015,
-%             \href{https://QuestionableContent.net/view.php?comic=3074}{\textcolor{blue}{\texttt{QuestionableContent.net/view.php?comic=3074}}}
-%         \end{tiny}
-%     \end{center}
+    \begin{center}
+        \includegraphics[height=0.75\textheight]{../common/TalkAboutGlobalWarmingNow.png}
 
-% \end{frameO}
+        \begin{tiny}
+            \textcopyright{} Jeph Jacques, 2015,
+            \href{https://QuestionableContent.net/view.php?comic=3074}{\textcolor{blue}{\texttt{QuestionableContent.net/view.php?comic=3074}}}
+        \end{tiny}
+    \end{center}
+
+\end{frameO}
 
 % \begin{frameO}[Let's talk about actions against the climatic crisis !]
 
