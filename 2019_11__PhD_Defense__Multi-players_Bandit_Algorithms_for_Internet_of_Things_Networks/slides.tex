@@ -534,7 +534,8 @@
 
 \begin{frameO}[Main questions]
 
-    \begin{darkblock}{Main questions}
+    \begin{darkblock}{}
+        % {Main questions}
         \begin{itemize}
             \item
             Can the IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png} optimize their access to the radio resources\\
@@ -583,7 +584,8 @@
             \end{column}
             % ...
             \begin{column}{0.49\textwidth}
-                \includegraphics[height=2.75cm]{Venn_Diagram_ML_RL_MAB.pdf}
+                \includegraphics[height=2.75cm]{Venn_Diagram_ML_RL_MAB.png}
+                % \includegraphics[height=2.75cm]{Venn_Diagram_ML_RL_MAB.pdf}
             \end{column}
         \end{columns}
     \end{lightblock}
@@ -1454,8 +1456,8 @@
     % \hfill{}
     \begin{tiny}
         \textcolor{gray}{[Bonnefoi et al, ICT 18], [Besson et al, WCNC 19], Ch.5.3}
-        \newline
-        \textcolor{gray}{Video published on} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
+        % \newline
+        \textcolor{gray}{and video published on} \textcolor{blue}{\texttt{YouTu.be/HospLNQhcMk}}
     \end{tiny}
 \end{frameO}
 
@@ -2004,7 +2006,7 @@
         \hfill{} \textcolor{gray}{[Cappé et al. 13]}
         \vspace{-0.3cm}
         \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
-        {\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
+        \textcolor{gray}{\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
     }
 
     \begin{colorblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} (state-of-the-art)}
@@ -2016,11 +2018,11 @@
         \]
         \vspace{-0.2cm}
     }
-    \only<2>{
-        \begin{center}
-            $\bE[\textcolor{orange}{N_k^m(T)}] \leq \mathcal{O}(\log T)$
-        \end{center}
-    }
+    % \only<2>{
+    %     \begin{center}
+    %         $\bE[\textcolor{orange}{N_k^m(T)}] \leq \mathcal{O}(\log T)$
+    %     \end{center}
+    % }
     \end{colorblock}
 
     \begin{lightblock}{Control of the \textcolor{lightred}{collisions} \hfill{} (new result)}
@@ -2030,25 +2032,25 @@
             \leq M^2 \left(\sum_{a,b : \mu_a < \mu_b} \frac{2 M + 1}{\kl(\mu_a,\mu_b)} \right) \ln(T) + \mathcal{O}(\ln T).
         \]
     }
-    \only<2>{
-        \begin{center}
-            $\bE\left[\textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\log T)$
-        \end{center}
-    }
+    % \only<2>{
+    %     \begin{center}
+    %         $\bE\left[\textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\log T)$
+    %     \end{center}
+    % }
     \end{lightblock}
 
-    \only<2>{
-    \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{lightgray}{[Besson \& Kaufmann, 18]}}
-        \vspace*{-10pt}
-        \begin{align*}
-            R_{\bm\mu}(\cA,T)
-            & \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right] \\
-            &= \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
-        \end{align*}
-        with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$
-        {\small the same constant as in the centralized multiple-play bandit.}
-    \end{lightblock}
-    }
+    % \only<2>{
+    % \begin{lightblock}{$\implies$ \textbf{logarithmic regret!} \hfill{} \textcolor{lightgray}{[Besson \& Kaufmann, 18]}}
+    %     \vspace*{-10pt}
+    %     \begin{align*}
+    %         R_{\bm\mu}(\cA,T)
+    %         & \leq \text{cst} \sum_{k=M+1}^K \bE\left[\textcolor{orange}{N_k(T)}\right] + \text{cst'} \sum_{k=1}^M \bE\left[\textcolor{red}{\mathcal{C}_k(T)}\right] \\
+    %         &= \textcolor{red}{M^2} \textcolor{blue}{\mathbf{C_{M,\mu}}} \log(T) + o(\log(T)),
+    %     \end{align*}
+    %     with $\textcolor{blue}{\mathbf{C_{M,\mu}}} = \sum\limits_{k: \mu_k < \mu_{M}^*} \sum\limits_{j=1}^M \frac{\mu_{M}^*}{\mathrm{kl}(\mu_k,\mu_j^*)}$
+    %     {\small the same constant as in the centralized multiple-play bandit.}
+    % \end{lightblock}
+    % }
 
 \end{frameO}
 
