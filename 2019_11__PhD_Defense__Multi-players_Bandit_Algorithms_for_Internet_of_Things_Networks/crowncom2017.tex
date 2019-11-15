@@ -94,7 +94,7 @@
         }
         \only<2>{
             \includegraphics[width=0.99\textwidth]{Protocol_failed_transmission.png}
-            \underline{2nd case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}
+            \underline{2nd case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}\dots
         }
     \end{center}
 
@@ -120,7 +120,7 @@
 
     \vspace*{5pt}
     \pause
-    \begin{colorblock}{Background \textbf{stationary} ambiant traffic}
+    \begin{colorblock}{\includegraphics[height=0.37cm]{static-devices.png}  Background \textbf{stationary} ambiant traffic}
 
         \begin{itemize}
             % \tightlist
@@ -136,7 +136,7 @@
 
     \vspace*{5pt}
     \pause
-    \begin{colorblock}{Dynamic radio reconfiguration}
+    \begin{colorblock}{\includegraphics[height=0.37cm]{dynamic-devices.png}  Dynamic radio reconfiguration}
 
         \begin{itemize}
             % \tightlist
@@ -155,19 +155,23 @@
 \begin{frameO}[Problem]
 
     \begin{lightblock}{Goal}
-        \emph{minimize packet loss ratio} (max \(=\) number of received \texttt{Ack})\\
-        in a \emph{finite-space discrete-time Decision Making Problem}
+        \begin{itemize}
+            \item
+            \emph{minimize packet loss ratio} (max \(=\) number of received \texttt{Ack})\\
+            \item
+            in a \emph{finite-space discrete-time Decision Making Problem}
+        \end{itemize}
     \end{lightblock}
 
     \vspace*{20pt}
 
-    \begin{lightblock}{Baseline (naive solution)}
+    \begin{colorblock}{Baseline (naive solution)}
         Purely random (uniform) spectrum access for the $D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} .
-    \end{lightblock}
+    \end{colorblock}
 
-    \begin{lightblock}{A possible solution}
+    \begin{darkblock}{A possible solution}
         Embed a \textbf{decentralized Multi-Armed Bandit} algorithm, running \textbf{independently on each dynamic device} \includegraphics[height=0.37cm]{dynamic-devices.png}.
-    \end{lightblock}
+    \end{darkblock}
 
 \end{frameO}
 
@@ -218,7 +222,7 @@
 
 \subsubsection{$1)$ \emph{Oracle} centralized strategy}
 
-\begin{frameO}[$1)$ \emph{Oracle} centralized strategy \hfill{} \textcolor{gray}{[Bonnefoi, 2017]}]
+\begin{frameO}[$1)$ \emph{Oracle} centralized strategy \hfill{} {\small \textcolor{gray}{[Bonnefoi \& Besson et al, 2017]}}]
 
     \begin{itemize}
         % \tightlist
@@ -229,16 +233,16 @@
               \begin{small} \begin{align*}
                       \mathbb{P}(\text{success}|\text{sent}) = \sum_{k=1}^{K} \underbrace{(1 - p)^{D_k - 1}}_{\;\;D_k - 1 \;\text{others}\;\;} \times \underbrace{(1 - p)^{S_k}}_{\;\;\text{No static device}\;\;} \times \underbrace{ D_k / D }_{\;\;\text{Sent in channel}\; k}
                   \end{align*} \end{small}
-              \vspace*{-10pt}
+            %   \vspace*{-10pt}
               \pause
         \item
               The oracle has to solve this \textbf{optimization problem}:
-              \vspace*{-10pt}
-
+              \vspace*{-5pt}
               \begin{small} \begin{equation*} \begin{cases}
                           \underset{D_1,\dots,D_{K}}{\arg\max}\;\;\; & \sum\limits_{k=1}^{K} D_k (1 - p)^{S_k + D_k -1}                                           \\
                           \text{such that}\;\;\;                     & \sum\limits_{k=1}^{K} D_k = D \; \text{and} \; D_k \geq 0, \; \; \forall 1 \leq k \leq K .
                       \end{cases} \end{equation*} \end{small}
+        \vspace*{15pt}
         \item
               \textcolor{orange}{Contribution}: we solved this quasi-convex optimization problem with \emph{Lagrange
                   multipliers} (only numerically).
@@ -325,7 +329,7 @@
     \end{colorblock}
 
     \vfill{}
-    \hfill{} {\tiny \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}}
+    \hfill{} {\small \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}}
 
 \end{frameO}
 

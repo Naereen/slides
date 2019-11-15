@@ -131,6 +131,11 @@
 	\setbeamercolor*{block body}{fg=black,bg=centralesupeleclight!5}
 	\begin{block}#2{#1}}{\end{block}}
 
+\newenvironment<>{whiteblock}[1]{%
+	\setbeamercolor{block title}{fg=white,bg=white}%
+	\setbeamercolor*{block body}{fg=black,bg=white}
+	\begin{block}#2{#1}}{\end{block}}
+
 
 %%%%% customize titles
 
@@ -179,7 +184,7 @@
 % frame for (main) titles
 \NewEnviron{frameT}[1][]{
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/PremierePage_CentraleSupelec}}
-\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson - \emph{MAB Algorithms for IoT Networks} \hfill 17 October, 2019}\hspace{2em}\null \vspace*{3pt}}
+\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson - \emph{MAB Algorithms for IoT Networks} \hfill 20 November, 2019}\hspace{2em}\null \vspace*{3pt}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -193,9 +198,17 @@
 \end{frame}
 }
 
+\NewEnviron{frameTTnobottomNoLogo}[1][]{
+\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/background}}
+\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {}\hspace{2em}\null \vspace*{3pt}}
+\begin{frame}{#1}
+\BODY
+\end{frame}
+}
+
 \NewEnviron{frameTT}[1][]{
 \setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth,height=\paperheight]{../templateCS/PremierePage_CentraleSupelec}}
-\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson - \emph{MAB Algorithms for IoT Networks}  \hfill 17 October, 2019}\hspace{2em}\null \vspace*{3pt}}
+\setbeamertemplate{footline}{ \hspace{5em} \textcolor{white} {Lilian Besson - \emph{MAB Algorithms for IoT Networks}  \hfill 20 November, 2019}\hspace{2em}\null \vspace*{3pt}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -208,7 +221,7 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
 	{{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
 	\raisebox{2.5ex}
-	{{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+	{{20 November, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 \begin{frame}{#1}
 \BODY
 \end{frame}
@@ -260,35 +273,50 @@
 
 \begin{document}
 
-% \begin{frameTTnobottom}
+\begin{frameTTnobottomNoLogo}
 
-%     \begin{textblock*}{12cm}(13mm,50mm)
-%         {\textcolor{white} {
-%         {\huge \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}}
-%         \\
-%         \vspace*{10pt}% XXX ?
-%         {\large
-%         % Seminar of the \textbf{SCEE team}\\
-%         % at \textbf{CentraleSupélec}, campus de Rennes\\
-%         % Thursday $17$th of October, $2019$
-%         %
-%         % Seminar of the \textbf{SequeL team}\\
-%         % at \textbf{INRIA} Lille Nord Europe\\
-%         % Friday $8$th of November, $2019$
-%         %
-%         % Seminar of the \textbf{PANAMA team}\\
-%         % at \textbf{INRIA} Rennes Bretagne Atlantique\\
-%         % Wednesday $13$th of November, $2019$
-%         %
-%         \textbf{PhD defense}\\
-%         at \textbf{CentraleSupélec}, campus de Rennes\\
-%         Wednesday $20$th of November, $2019$
-%         }
-%         }}
-%     \end{textblock*}
+    \color{white}
+    \begin{LARGE}
+        \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}
+    \end{LARGE}
 
-%     \vspace*{-4pt}
-% \end{frameTTnobottom}
+    \begin{Large}
+        \begin{itemize}
+            \setlength\itemsep{10pt}
+            \color{white}
+            \item By \textbf{Lilian Besson}
+
+            \item \textbf{PhD defense} at \textbf{CentraleSupélec} (Rennes)
+
+            \item Wednesday $20$th of November, $2019$
+
+            \item \underline{Supervisors}:
+                \begin{itemize}
+                    \color{white}
+                    \item
+                    Prof. Christophe Moy
+                    at SCEE team, IETR \& CentraleSupélec in Rennes (France)
+                    \item
+                    and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille
+                \end{itemize}
+        \end{itemize}
+    \end{Large}
+
+    \vspace*{5pt}
+
+    \vfill{}
+    % XXX manual inclusion of logos
+    \begin{whiteblock}{}
+        % \begin{center}
+            \includegraphics[height=0.20\textheight]{../common/LogoIETR.png}
+            \includegraphics[height=0.22\textheight]{../common/LogoCS.png}
+            \includegraphics[height=0.20\textheight]{../common/LogoInria.jpg}
+        % \end{center}
+    \end{whiteblock}
+
+    \color{black}
+
+\end{frameTTnobottomNoLogo}
 
 %%% presentation for standard frames
 
@@ -297,48 +325,48 @@
 \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
     {\textcolor{white}{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
     \raisebox{2.5ex}
-    {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+    {\textcolor{white}{20 November, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 
-\begin{frameO}[Welcome to my PhD defense]
+% \begin{frameO}[Welcome to my PhD defense]
 
-    % Hi, I'm Lilian\dots
+%     % Hi, I'm Lilian\dots
 
-    \begin{itemize}
+%     \begin{itemize}
 
-        \item Title: \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}
+%         \item Title: \textsc{Multi-players Bandit Algorithms for Internet of Things Networks}
 
-        \item
-        \textbf{PhD defense},
-        at \textbf{CentraleSupélec}, campus de Rennes,
-        Wednesday $20$th of November, $2019$
+%         \item
+%         \textbf{PhD defense},
+%         at \textbf{CentraleSupélec}, campus de Rennes,
+%         Wednesday $20$th of November, $2019$
 
-        % \item Defense for my PhD in Telecommunications and Machine Learning
-        \item PhD (2016-19) under supervision of Prof. Christophe Moy\\
-            at SCEE team, IETR \& CentraleSupélec in Rennes (France)
-        \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille
-        % \hfill{} \emph{Thanks to her for some of the slides material!}
-        % \item \textcolor{orange}{and I'm joining the PANAMA team in December!}
-    \end{itemize}
+%         % \item Defense for my PhD in Telecommunications and Machine Learning
+%         \item PhD (2016-19) under supervision of Prof. Christophe Moy\\
+%             at SCEE team, IETR \& CentraleSupélec in Rennes (France)
+%         \item and Dr. Émilie Kaufmann at SequeL team, in CNRS and Inria in Lille
+%         % \hfill{} \emph{Thanks to her for some of the slides material!}
+%         % \item \textcolor{orange}{and I'm joining the PANAMA team in December!}
+%     \end{itemize}
 
-    \vspace*{5pt}
+%     \vspace*{5pt}
 
-    % \begin{small}
-    %     \begin{itemize}
-    %         \item Email: \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ CentraleSupelec.fr \& Inria.fr}}}
+%     % \begin{small}
+%     %     \begin{itemize}
+%     %         \item Email: \href{https://perso.crans.org/besson/}{\textcolor{darkgreen}{\texttt{Lilian.Besson @ CentraleSupelec.fr \& Inria.fr}}}
 
-    %         \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{blue}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}}
-    %     \end{itemize}
-    % \end{small}
+%     %         \item $\hookrightarrow$ \href{https://perso.crans.org/besson/}{{\textcolor{blue}{\texttt{perso.crans.org/besson/}}}} \& \href{https://GitHub.com/Naereen/}{{\textcolor{blue}{\texttt{GitHub.com/Naereen}}}}
+%     %     \end{itemize}
+%     % \end{small}
 
-    \vfill{}
-    % XXX manual inclusion of logos
-    \begin{center}
-        \includegraphics[height=0.20\textheight]{../common/LogoIETR.png}
-        \includegraphics[height=0.22\textheight]{../common/LogoCS.png}
-        \includegraphics[height=0.20\textheight]{../common/LogoInria.jpg}
-    \end{center}
-\end{frameO}
+%     \vfill{}
+%     % XXX manual inclusion of logos
+%     \begin{center}
+%         \includegraphics[height=0.20\textheight]{../common/LogoIETR.png}
+%         \includegraphics[height=0.22\textheight]{../common/LogoCS.png}
+%         \includegraphics[height=0.20\textheight]{../common/LogoInria.jpg}
+%     \end{center}
+% \end{frameO}
 
 
 % \begin{frameO}[What did I study during my PhD ?]
@@ -392,7 +420,9 @@
         \item
         But all zones are not always used everywhere
         % most of which are already allocated to a fixed usage
-        % \item
+
+        \item[\thinkingface]
+        \textbf{What if we could dynamically use the (most) empty channels?}
     \end{itemize}
     % $\implies$ Almost all frequencies are registered and their usages are limited!
     \begin{center}
@@ -400,11 +430,6 @@
     \end{center}
     \hfill{}
     {\tiny \textcolor{gray}{United States of North America, Department of Commerce, \textcopyright{} 2016}}
-
-    \vspace*{10pt}
-    \hfill{}
-    \thinkingface{}
-    \textbf{What if we could dynamically use the (most) empty channels?}
 \end{frameO}
 
 
@@ -440,7 +465,7 @@
         \hspace{10pt} $\hookrightarrow$ networks with \textbf{\alert{decentralized} access}\dots
 
         \hspace{15pt} $\hookrightarrow$ \textbf{\alert{many} wireless devices} \includegraphics[height=0.37cm]{dynamic-devices.png}  access a wireless network\\
-        \hspace{30pt} served from \textbf{\alert{one} access point}, in an unlicensed standard:\\
+        \hspace{30pt} served from \textbf{\alert{one} access point}\\ % in an unlicensed standard:\\
         \hspace{30pt} the base station is \textbf{\alert{not}} affecting devices to radio resources\dots
 
         We focus on \textbf{\alert{Internet of Things}} networks (IoT) in unlicensed bands.
@@ -461,39 +486,43 @@
 \end{frameO}
 
 
-\begin{frameO}[Internet of Things]
+\begin{frameO}[The ``Internet of Things'']
 
     % Test !
 
     \begin{columns}%[onlytextwidth]
-        \begin{column}{0.65\textwidth}
+        \begin{column}{0.59\textwidth}
             \begin{colorblock}{Main constraints}
-                % \small
+                \small
                 \begin{itemize}
-                    \item decentralized: \textcolor{orange}{devices initiate transmission},
-                    \item can be in unlicensed radio bands,
-                    \item \textcolor{orange}{massive number of devices},
-                    \item long range,
-                    \item ultra-low power devices,
-                    \item \textcolor{orange}{low duty cycle},
-                    \item \textcolor{orange}{low data rate}.
+                    \item decentralized: \textcolor{orange}{devices initiate transmission}
+                    \item can be in unlicensed radio bands
+                    \item \textcolor{orange}{massive number of devices}
+                    \item long range
+                    \item ultra-low power devices
+                    \item \textcolor{orange}{low duty cycle}
+                    \item \textcolor{orange}{low data rate}
                 \end{itemize}
             \end{colorblock}
         \end{column}
         % ...
-        \begin{column}{0.34\textwidth}
+        \begin{column}{0.40\textwidth}
             % Test !
             \vspace*{10pt}
             % % \begin{center}
                 \includegraphics[width=1.00\linewidth]{Screenshot_from_what_is_the_Internet_of_Things_video.jpg}
+                \includegraphics[width=1.00\linewidth]{Connected_cows.jpg}
             % % \end{center}
         \end{column}
     \end{columns}
 
     \vfill{}
-    \hfill{}
-    {\tiny \textcolor{gray}{From \texttt{YouTu.be/QSIPNhOiMoE} and
-        \texttt{IBM.com/blogs/internet-of-things/what-is-the-iot}
+    % \hfill{}
+    {\tiny \textcolor{gray}{
+        Images from \texttt{IBM.com/blogs/internet-of-things/what-is-the-iot}
+        % \texttt{YouTu.be/QSIPNhOiMoE} and
+        and \texttt{www.globalsign.com/en/blog/}\\
+        \texttt{connected-cows-and-crop-control}\texttt{-to-drones-the-internet-of-things}\texttt{-is-rapidly-improving-agriculture/}
     }}
 
 \end{frameO}
@@ -501,7 +530,7 @@
 
 \begin{frameO}[Main questions]
 
-    \begin{colorblock}{Main questions\dots?}
+    \begin{colorblock}{Main questions}
         \begin{itemize}
             \item
             Can the IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png} optimize their access to the radio resources\\
@@ -609,8 +638,8 @@
             % \node[align=center] (appendix) at (2.5,-0.25) [rectangle,draw,fill=yellow!10] {Appendix};
             %
             \draw [color=black,thick,->] (introduction) to (chapter2);
-            % \draw [color=black,thick,<->] (chapter2) to (chapter3);
-            % \draw [color=black,thick,<->] (chapter2) to (chapter25);
+            \draw [color=black,dotted,->] (chapter2) to (chapter3);
+            \draw [color=black,dotted,->] (chapter2) to (chapter25);
             \draw [color=black,thick,->] (chapter2) to (chapter4);
             % \draw [color=black,thick,->] (chapter2) to (chapter5);
             \draw [color=black,thick,->]   (chapter4) to (chapter5);
@@ -842,7 +871,7 @@
 % \setbeamertemplate{footline}{\hspace{2cm} \raisebox{2.5ex}
 %     {\textcolor{white}{Lilian Besson - \emph{MAB Algorithms for IoT Networks}}}\hfill
 %     \raisebox{2.5ex}
-%     {\textcolor{white}{17 October, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
+%     {\textcolor{white}{20 November, 2019 - \insertframenumber / \inserttotalframenumber \hspace{5mm} \null }}}
 
 % \subsection{Multi-armed Bandit}
 
