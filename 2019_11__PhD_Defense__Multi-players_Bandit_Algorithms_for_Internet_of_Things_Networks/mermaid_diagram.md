@@ -8,7 +8,7 @@ sequenceDiagram
     Note right of B: Processing data…
     B->>D: Send downlink Ack. on F1
     rect rgb(18, 155, 0)
-        D-->B: Successful transmission 😃 !
+        Note left of D: Success Rx/Tx 😃 !
     end
 
 sequenceDiagram
@@ -18,5 +18,5 @@ sequenceDiagram
     D-->>B: Collision on uplink packet (Rx)
     Note right of B: No received data!
     rect rgb(255, 100, 50)
-        D-->B: Failed transmission 😭 !
+        Note left of D: Failed Rx 😭 !
     end

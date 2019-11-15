@@ -60,7 +60,7 @@
     \begin{itemize}
         % \tightlist
         \item
-              Discrete time \(t\geq1\) and \(K\) radio channels (\emph{e.g.}, 10)
+              Discrete time \(t\in\mathbb{N}^*\) and \(K\) radio channels (\emph{e.g.}, 10)
               \hfill{} (\emph{known})
     \end{itemize}
 
@@ -85,16 +85,16 @@
 \end{frameO}
 
 
-\begin{frameO}[Protocol: decentralized access with Ack mode]
+\begin{frameO}[Protocol: decentralized access with Ack. mode]
 
     \begin{center}
         \only<1>{
-            \includegraphics[width=0.99\textwidth]{Protocol_successful_transmission.png}
+            \includegraphics[width=0.98\textwidth]{Protocol_successful_transmission.png}
             \vfill{}
             \underline{$1^\text{st}$ case}: Successful transmission if no collision on \textcolor{blue}{uplink messages {\large $\nearrow$}} !
         }
         \only<2>{
-            \includegraphics[width=0.99\textwidth]{Protocol_failed_transmission.png}
+            \includegraphics[width=0.97\textwidth]{Protocol_failed_transmission.png}
             \vfill{}
             \underline{$2^\text{nd}$ case}: Failed transmission if collision on \textcolor{blue}{uplink messages {\large $\nearrow$}}\dots
         }
@@ -107,7 +107,7 @@
 
 \begin{frameO}[Our model of IoT devices \hfill{} \textcolor{gray}{[Bonnefoi, 2017]}]
 
-    \begin{lightblock}{Emission model for static and dynamic devices}
+    \begin{darkblock}{Emission model for IoT devices with \emph{low duty cycle}}
 
         \begin{itemize}
             % \tightlist
@@ -118,7 +118,7 @@
                 %   \hfill{}\small{(this gives a duty cycle proportional to $1/p$)}
         \end{itemize}
 
-    \end{lightblock}
+    \end{darkblock}
 
     \vspace*{5pt}
     \pause
@@ -128,42 +128,43 @@
             % \tightlist
             \item
                   Each static device \includegraphics[height=0.37cm]{static-devices.png} uses only one channel
+                  \hfill{} {\small ($S_k$ devices in channel $k$)}
             \item
                   Their repartition is fixed in time
                   % \hfill{} $\implies$ \alert{stationary} hypothesis!
         \end{itemize}
 
-        \(\implies\) This (stationary) ambiant traffic \emph{is disturbing} the dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}
+        \(\implies\) This surrounding traffic \emph{is disturbing} the dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}
     \end{colorblock}
 
     \vspace*{5pt}
     \pause
-    \begin{colorblock}{Dynamic radio reconfiguration}
+    \begin{lightblock}{Dynamic radio reconfiguration}
 
         \begin{itemize}
             % \tightlist
             \item
-                \textbf{Dynamic device decide} \includegraphics[height=0.37cm]{dynamic-devices.png}  the channel to use to send their packets
+                \textbf{Dynamic device} \includegraphics[height=0.37cm]{dynamic-devices.png}  \textbf{decide} the channel to use to send their packets
             \item
                 They all have memory and computational capacity to implement small decision algorithms
                 % on a small CPU embedded on the devices.
         \end{itemize}
 
-    \end{colorblock}
+    \end{lightblock}
 
 \end{frameO}
 
 
 \begin{frameO}[Problem]
 
-    \begin{lightblock}{Goal}
+    \begin{darkblock}{Goal}
         \begin{itemize}
             \item
             \emph{minimize packet loss ratio} (max \(=\) number of received \texttt{Ack})\\
             \item
             in a \emph{finite-space discrete-time Decision Making Problem}
         \end{itemize}
-    \end{lightblock}
+    \end{darkblock}
 
     \vspace*{20pt}
 
@@ -171,9 +172,9 @@
         Purely random (uniform) spectrum access for the $D$ dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} .
     \end{colorblock}
 
-    \begin{darkblock}{A possible solution}
+    \begin{lightblock}{A possible solution}
         Embed a \textbf{decentralized Multi-Armed Bandit} algorithm, running \textbf{independently on each dynamic device} \includegraphics[height=0.37cm]{dynamic-devices.png}.
-    \end{darkblock}
+    \end{lightblock}
 
 \end{frameO}
 
@@ -255,9 +256,11 @@
 \begin{frameO}[$1)$ \emph{Oracle} centralized strategy]
 
     \begin{colorblock}{}
-        \(\implies\) This oracle strategy has very good performance, as it maximizes the transmission rate of all the \(D\) dynamic devices
+        \(\implies\) This \emph{oracle} strategy has very good performance, as it maximizes the transmission rate of all the \(D\) dynamic devices
         \includegraphics[height=0.37cm]{dynamic-devices.png}
     \end{colorblock}
+
+    \vspace*{15pt}
 
     \begin{colorblock}{But unrealistic}
         But \textbf{not achievable in practice}!
@@ -265,18 +268,19 @@
             % \item
             % there is no oracle
             \item \alert{because there is no centralized supervision!}
+            \item and $(S_1,\dots,S_K)$ are unknown!
         \end{itemize}
     \end{colorblock}
 
-    \vspace*{30pt}
+    \vspace*{15pt}
 
-    \begin{colorblock}{Let see \emph{realistic decentralized approaches}}
+    \begin{lightblock}{Let see \emph{realistic decentralized} approaches}
 
         \(\hookrightarrow\) Machine Learning \newline
         \hspace*{15pt}\(\hookrightarrow\) Reinforcement Learning \newline
         \hspace*{30pt} \(\hookrightarrow\) \emph{Multi-Armed Bandit}
 
-    \end{colorblock}
+    \end{lightblock}
 
 \end{frameO}
 
@@ -394,7 +398,13 @@
         }
         \pause
         \item
-              Then for the next steps \(t\):
+              \only<1-2>{
+                  Then for the next steps \(t\):
+              }
+              \only<3>{
+                  For any dynamic device \includegraphics[height=0.37cm]{dynamic-devices.png},
+                  for any round $t$:
+              }
 
               \begin{itemize}
                   % \tightlist
