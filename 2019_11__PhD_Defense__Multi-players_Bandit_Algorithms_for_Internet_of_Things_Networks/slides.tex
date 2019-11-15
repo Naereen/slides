@@ -2000,24 +2000,24 @@
 
 \begin{frameO}[Theoretical results for MC-Top-$M$]
 
-    \only<1>{
+    % \only<1>{
         \vspace{0.2cm}
         MC-Top-$M$ with $\kl$-based confidence intervals
         \hfill{} \textcolor{gray}{[Cappé et al. 13]}
         \vspace{-0.3cm}
         \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
         \textcolor{gray}{\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
-    }
+    % }
 
     \begin{colorblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} (state-of-the-art)}
-    \only<1>{
+    % \only<1>{
         For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
         \[
             \bE[\textcolor{orange}{N_k^m(T)}] \leq \alt<2>{\purple\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}\bluedark}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
         \]
         \vspace{-0.2cm}
-    }
+    % }
     % \only<2>{
     %     \begin{center}
     %         $\bE[\textcolor{orange}{N_k^m(T)}] \leq \mathcal{O}(\log T)$
@@ -2026,12 +2026,12 @@
     \end{colorblock}
 
     \begin{lightblock}{Control of the \textcolor{lightred}{collisions} \hfill{} (new result)}
-    \only<1>{
+    % \only<1>{
         \[
             \bE\left[\sum_{k=1}^K \textcolor{red}{\cC_k(T)}\right]
             \leq M^2 \left(\sum_{a,b : \mu_a < \mu_b} \frac{2 M + 1}{\kl(\mu_a,\mu_b)} \right) \ln(T) + \mathcal{O}(\ln T).
         \]
-    }
+    % }
     % \only<2>{
     %     \begin{center}
     %         $\bE\left[\textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\log T)$
