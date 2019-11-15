@@ -1,14 +1,15 @@
 \begin{frameO}[We want]
 
-    A \emph{lot} of IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png} want to access to \emph{one} gateway
+    We control A \emph{lot} of IoT devices \includegraphics[height=0.37cm]{dynamic-devices.png}
+    % want to access to \emph{one} gateway
     % (base station).
 
     \begin{itemize}
         % \tightlist
         \item
-            Insert them in an already \textbf{crowded wireless network}
+            We want to insert them in an already \textbf{crowded wireless network}
         \item
-            With a protocol \textbf{slotted in time and frequency}
+            Within a protocol \textbf{slotted in time and frequency}
         \item
             Each device \includegraphics[height=0.37cm]{dynamic-devices.png} / \includegraphics[height=0.37cm]{static-devices.png} has a \textbf{low duty cycle} \hfill{}
             \textcolor{gray}{ex: few messages per day}
@@ -69,7 +70,7 @@
         \includegraphics[height=0.35\textheight]{protocol.eps}\\
         
         {\small Chosen protocol: \textcolor{blue}{uplink messages {\large $\nearrow$}} followed by \textcolor{darkgreen}{\emph{acknowledgements} {\large $\searrow$}}}\\
-        \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 17], Sec.5.2}}
+        \hfill{} {\tiny \textcolor{gray}{[Bonnefoi, Besson et al, 17], Sec.5.2}}
     \end{figure}
 
     \begin{itemize}
@@ -225,7 +226,7 @@
 
 \subsubsection{$1)$ \emph{Oracle} centralized strategy}
 
-\begin{frameO}[$1)$ \emph{Oracle} centralized strategy \hfill{} {\small \textcolor{gray}{[Bonnefoi \& Besson et al, 2017]}}]
+\begin{frameO}[$1)$ \emph{Oracle} centralized strategy \hfill{} {\small \textcolor{lightgray}{[Bonnefoi, Besson et al, 17]}}]
 
     \begin{itemize}
         % \tightlist
@@ -245,11 +246,14 @@
                           \underset{D_1,\dots,D_{K}}{\arg\max}\;\;\; & \sum\limits_{k=1}^{K} D_k (1 - p)^{S_k + D_k -1}                                           \\
                           \text{such that}\;\;\;                     & \sum\limits_{k=1}^{K} D_k = D \; \text{and} \; D_k \geq 0, \; \; \forall 1 \leq k \leq K .
                       \end{cases} \end{equation*} \end{small}
-        \vspace*{15pt}
-        \item
-              \textcolor{orange}{Contribution}: we solved this quasi-convex optimization problem with \emph{Lagrange
-                  multipliers} (only numerically).
+        % \item
     \end{itemize}
+    \vspace*{5pt}
+    \begin{colorblock}{}
+        \textcolor{orange}{Contribution}:
+        a (numerical) solver for this quasi-convex optimization problem, with \emph{Lagrange
+        multipliers}.
+    \end{colorblock}
 
 \end{frameO}
 
@@ -274,7 +278,9 @@
 
     \vspace*{10pt}
 
-    \begin{lightblock}{We propose a \emph{realistic decentralized} approach with bandits}
+    % \begin{lightblock}{
+        \textcolor{orange}{We propose a \emph{realistic decentralized} approach, with bandits!}
+    % }
         \begin{center}
             \includegraphics[height=2.25cm]{Venn_Diagram_ML_RL_MAB.pdf}
         \end{center}
@@ -283,13 +289,13 @@
         % \hspace*{15pt}\(\hookrightarrow\) Reinforcement Learning \newline
         % \hspace*{30pt} \(\hookrightarrow\) \emph{Multi-Armed Bandit}
 
-    \end{lightblock}
+    % \end{lightblock}
 
 \end{frameO}
 
 
 
-\begin{frameO}[Hum, what is a (one-armed )\emph{bandit}?]
+\begin{frameO}[Hum, what is a (one-armed) \emph{bandit}?]
     \begin{center}
         It's an old name for a casino machine \slotmachine{} !
     \end{center}
@@ -299,8 +305,8 @@
 
         \begin{tiny}
             \textcolor{gray}{
-                \textcopyright{} Dargaud,
-                \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}}.
+                \textcopyright{} Dargaud $1981$,
+                \href{https://www.dargaud.com/bd/LUCKY-LUKE/Lucky-Luke/Lucky-Luke-tome-18-Bandit-manchot-Le}{\textcolor{blue}{Lucky Luke tome 18}},.
             }
         \end{tiny}
     \end{center}
@@ -314,7 +320,7 @@
 
 \begin{frameO}[Stochastic \emph{Multi-Armed Bandit} formulation]
 
-    A player tries to collect \emph{rewards} when playing a $K$-armed \slotmachine{} bandit game.
+    A player tries to collect \alert{rewards} when playing a $K$-armed \slotmachine{} bandit game.
 
     \begin{lightblock}{}
         At each round $t\in\{1,\dots,T\}$
@@ -323,7 +329,7 @@
             \item
                 player chooses an \emph{arm} \slotmachine{} \(A(t) \in \{1,\dots,K\}\)
             \item
-                the arm generates an i.i.d. \emph{reward} $r_{A(t)}(t) \sim \nu_{A(t)}$\\
+                the arm generates an i.i.d. \alert{reward} $r_{A(t)}(t) \sim \nu_{A(t)}$\\
                 \textcolor{gray}{Ex: from a Bernoulli distribution $\nu_{k} = \mathcal{B}(\mu_k)$}
             \item
                 player observes the reward $r_{A(t)}(t)$
@@ -332,45 +338,52 @@
 
     \pause
 
-    \begin{colorblock}{Goal}
-        Maximize the sum reward (\textbf{Reinforcement Learning}) or \textcolor{orange}{its expectation}
-        \[\max_{A} \;\; \sum\limits_{t=1}^{T} r_{A(t)} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \textcolor{orange}{ \mathbb{E}\left[\sum\limits_{t=1}^{T} r_{A(t)}\right] }.\]
+    \begin{colorblock}{Goal (Reinforcement Learning)}
+        Maximize the \alert{sum reward} or \textcolor{orange}{its expectation}
+        \[\max_{A} \;\; \sum\limits_{t=1}^{T} \alert{r_{A(t)}} \,\,\,\,\,\, \text{or} \,\,\,\,\,\, max_{A} \;\; \textcolor{orange}{ \mathbb{E}\left[\sum\limits_{t=1}^{T} r_{A(t)}\right] }.\]
     \end{colorblock}
 
     \vfill{}
-    \hfill{} {\small \textcolor{gray}{[Bubeck, 2012], [Lattimore \& Szepesvári, 2019], [Slivkins, 2019]}}
+    \hfill{} {\small \textcolor{gray}{[Bubeck, 12], [Lattimore \& Szepesvári, 19], [Slivkins, 19]}}
 
 \end{frameO}
 
 \begin{frameO}[$2)$ Pseudo \emph{MAB} formulation of our IoT problem]
 
-    A dynamic device \includegraphics[height=0.37cm]{dynamic-devices.png}  tries to collect \emph{rewards} when transmitting:
+    A dynamic device \includegraphics[height=0.37cm]{dynamic-devices.png}  tries to collect \alert{rewards} when transmitting:
 
     \begin{itemize}
         % \tightlist
         \item
             it transmits following a random Bernoulli process \newline
-            (of probability \(p\) of transmitting at each round \(t\)),
+            \textcolor{gray}{(ie. probability \(p\) of transmitting at each round \(t\))}
         \item
             it chooses a channel \(A(\tau) \in \{1,\dots,K\}\)
             \hfill{} ($=$ arm \slotmachine)
         \begin{itemize}
         \item
-            if \texttt{Ack} (no collision) \hspace*{2pt} \(\implies\) reward
-            \(r_{A(\tau)} = 1\) \hfill{} (successful transm.!)
+            if \texttt{Ack} (no collision) \hspace*{2pt} \(\implies\) \alert{reward
+            \(r_{A(\tau)} = 1\)} \hfill{} (successful transm.!)
         \item
-            if collision (no \texttt{Ack}) \hspace*{2pt} \(\implies\) reward
-            \(r_{A(\tau)} = 0\) \hfill{} (failed transmission!)
+            if collision (no \texttt{Ack}) \hspace*{2pt} \(\implies\) \alert{reward
+            \(r_{A(\tau)} = 0\)} \hfill{} (failed transmission!)
         \end{itemize}
 
     \end{itemize}
 
     \pause
 
-    \begin{colorblock}{Goal}
-        Maximize transmission rate \(\equiv\) \textbf{maximize cumulated rewards}
+    \vspace*{15pt}
+
+    \begin{colorblock}{}
+        \vspace*{4pt}
+        \textbf{Goal:}
+        Maximize transmission rate \(\equiv\) \textbf{maximize \alert{cumulated rewards}}
+        \vspace*{4pt}
         % \(\equiv \max_{A} \;\; \sum\limits_{\tau=1}^{\text{nb of transm.}} r_{A(\tau)}\).
     \end{colorblock}
+
+    \vspace*{5pt}
 
     \begin{lightblock}{It is not a \emph{stochastic} Multi-Armed Bandit problem}
         \textcolor{orange}{It looks like a MAB}
@@ -384,7 +397,7 @@
 \subsubsection{Upper Confidence Bound algorithm: UCB}
 
 % \begin{frameO}[$2)$ Upper Confidence Bound algorithm (\(\mathrm{UCB}_1\))]
-\begin{frameO}[$2)$ Upper Confidence Bound algorithm \hfill{} {\small \textcolor{gray}{[Auer et al, 02]}}]
+\begin{frameO}[$2)$ Upper Confidence Bound algorithm \hfill{} {\small \textcolor{lightgray}{[Auer et al, 02]}}]
 
     \only<1-2>{
         A dynamic device keeps \(\tau\) number of sent packets
@@ -417,11 +430,11 @@
                   \item
                         Compute the index
                         \(\mathrm{UCB}_k(\tau) := \overbrace{\frac{X_k(\tau)}{N_k(\tau)}}^{\text{Mean}\; \widehat{\mu_k}(\tau)} + \overbrace{\sqrt{\frac{\log(\tau)}{2 N_k(\tau)}},}^{\text{Confidence Bonus}}\)
-                    \only<1-2>{
-                        \newline
-                        \hfill{}
-                        {\small \textcolor{gray}{[Auer et al, 02]}}
-                    }
+                    % \only<1-2>{
+                    %     \newline
+                    %     \hfill{}
+                    %     {\small \textcolor{gray}{[Auer et al, 02]}}
+                    % }
                   \item
                         Choose channel
                         \(A(\tau) = \mathop{\arg\max}\limits_{k} \; \mathrm{UCB}_k(\tau)\),
@@ -450,23 +463,23 @@
     \end{enumerate}
 
     \only<3>{
-    \begin{alertblock}{Multiple dynamic devices}
+    \begin{alertblock}{Problem 1: multiple dynamic devices}
         \begin{itemize}
             \item The collisions between dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png} are \textbf{not stochastic}!
         \end{itemize}
     \end{alertblock}
-    \begin{alertblock}{Random activation times $\tau$?}
+    \begin{alertblock}{Problem 2: random activation times $\tau$?}
         \begin{itemize}
             \item
-                The times $\tau$ are \textbf{not} the global time indexes $t$ !
+                Devices transmits only with probability $p$ at each time $t$\newline
+                \textcolor{gray}{(following its Bernoulli activation pattern)}
             \item
-                Each object transmits only with probability $p$ at each time $t$\newline
-                (following its Bernoulli activation pattern)
+                The times $\tau$ are \textbf{not} the global time indexes $t$ (synchronized clock) !
         \end{itemize}
     \end{alertblock}
     \vspace*{10pt}
         {\large
-            \alert{$\implies$ these two problems make the model \textbf{hard to analyze} !}
+            \alert{$\implies$ These two problems make the model \textbf{hard to analyze} !}
         }
     }
 
@@ -538,7 +551,7 @@
 
         % \caption{
             $10\%$ of dynamic devices \includegraphics[height=0.37cm]{dynamic-devices.png}. Gives $7\%$ of gain.\\
-            {\small \textcolor{gray}{[Bonnefoi, Besson et al, CROWNCOM 17], Sec.5.2}}
+            {\small \textcolor{gray}{[Bonnefoi, Besson et al, 17], Sec.5.2}}
         % }
     \end{figure}
 
