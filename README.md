@@ -43,7 +43,6 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [April 2019 : "Upper-Confidence Bound for Channel Selection in LPWA Networks with Retransmissions", talk at the MoTION Workshop at IEEE WCNC 2019 conference](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_04__Presentation_IEEE_WCNC__MoTION_Workshop/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02049824).
 - [May 2019 : slides for the oral presentation given to apply for a teaching-and-research position in Computer Science at ENS de Rennes (29-05-2019)](https://perso.crans.org/besson/publis/slides/2019_05__Audition_AGPR__ENS_de_Rennes/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_05__Audition_AGPR__ENS_de_Rennes/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006471).
 - [June 2019 : "The Bernoulli Generalized Likelihood Ratio test (B-GLR) for Non-Stationary Multi-Armed Bandits", talk at the monthly research seminar at the PANAMA team, at IRISA lab in Rennes](https://perso.crans.org/besson/publis/slides/2019_06__About_Bernoulli_GLRTest__Seminar_at_PANAMA_IRISA_Rennes/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_06__About_Bernoulli_GLRTest__Seminar_at_PANAMA_IRISA_Rennes/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006471).
-- [June 2019 : "The Bernoulli Generalized Likelihood Ratio test (B-GLR) for Non-Stationary Multi-Armed Bandits", talk at the monthly research seminar at the PANAMA team, at IRISA lab in Rennes](https://perso.crans.org/besson/publis/slides/2019_06__About_Bernoulli_GLRTest__Seminar_at_PANAMA_IRISA_Rennes/slides.pdf) ([16:9 ?](https://perso.crans.org/besson/publis/slides/2019_06__About_Bernoulli_GLRTest__Seminar_at_PANAMA_IRISA_Rennes/slides_169.pdf)), for [this paper](https://hal.inria.fr/hal-02006471).
 - [August 2019 : "The Bernoulli Generalized Likelihood Ratio test (B-GLR) for Non-Stationary Multi-Armed Bandits", talk at the GRETSI conference, in Lille (in French)](https://perso.crans.org/besson/publis/slides/2019_08__Bernoulli_GLRTest_and_PieceWise-Stationary_Bandits__GRETSI_2019_Lille/slides.pdf), for [this paper](https://hal.inria.fr/hal-02006471).
 - [September 2019 : "Introduction to Multi-Armed Bandits and Reinforcement Learning"](https://perso.crans.org/besson/publis/slides/2019_09__Tutorial_on_RL_and_MAB_at_Training_School_in_Paris/slides.pdf), for [this Training School in Paris](https://sites.google.com/view/mlc-training-school/program).
 - [November 2019 : oral defense of my PhD thesis, "Multi-players Bandit Algorithms for Internet of Things Networks"](https://perso.crans.org/besson/publis/slides/2019_11__PhD_Defense__Multi-players_Bandit_Algorithms_for_Internet_of_Things_Networks/slides.pdf), see also [my PhD thesis](https://github.com/Naereen/phd-thesis/).
@@ -96,12 +95,9 @@ The logos and images are the properties of their respective authors (for instanc
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/slides/graphs/commit-activity)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/Naereen/ama)
 [![Analytics](https://ga-beacon.appspot.com/UA-38514290-17/github.com/Naereen/slides/README.md?pixel)](https://GitHub.com/Naereen/slides/)
-
 [![ForTheBadge uses-badges](http://ForTheBadge.com/images/badges/uses-badges.svg)](http://ForTheBadge.com)
 [![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
-
 [![ForTheBadge uses-html](http://ForTheBadge.com/images/badges/uses-html.svg)](http://ForTheBadge.com)
 [![ForTheBadge uses-css](http://ForTheBadge.com/images/badges/uses-css.svg)](http://ForTheBadge.com)
 [![ForTheBadge uses-js](http://ForTheBadge.com/images/badges/uses-js.svg)](http://ForTheBadge.com)
-
 [![ForTheBadge built-with-science](http://ForTheBadge.com/images/badges/built-with-science.svg)](https://GitHub.com/Naereen/)
