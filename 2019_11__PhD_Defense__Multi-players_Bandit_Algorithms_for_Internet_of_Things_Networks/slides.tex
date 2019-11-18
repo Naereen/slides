@@ -1884,8 +1884,8 @@
         At round $t$, player $m$ uses his past sensing information to:
         \begin{itemize}
             \item compute an Upper Confidence Bound for each mean $\mu_k$, $\UCB^m_k(t)$
-            \item use the UCBs to \bluelight estimate the $M$ best arms
-            \[\bluelight\hat{M}^m(t) := \left\{ \text{arms with } M \text{ largest } \UCB^m_k(t)\right\}\]
+            \item use the UCBs to \alert{estimate the $M$ best arms}
+            \[\alert{\hat{M}^m(t)} := \left\{ \text{arms with } M \text{ largest } \UCB^m_k(t)\right\}\]
         \end{itemize}
     \end{alertblock}
 
@@ -1955,7 +1955,7 @@
             \item[$\implies$] player $m$ is fixed, for almost all rounds ($\mathcal{O}(T - \log T)$ times)
             \item nb of collisions $\leq$ $M \times$ nb of collisions of non fixed players
             \item[$\implies$] nb of collisions $= \mathcal{O}(\log T)$
-            \hfill{} \& $\mathcal{O}(T - \log(T))$ sub-optimal selections \textcolor{darkgreen}{$(4)$}
+            \hfill{} \& $\mathcal{O}(\log(T))$ sub-optimal selections \textcolor{darkgreen}{$(4)$}
         \end{itemize}
     \end{colorblock}
     \end{small}
@@ -2014,7 +2014,7 @@
         For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
         \[
-            \bE[\textcolor{orange}{N_k^m(T)}] \leq \alt<2>{\purple\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}\bluedark}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
+            \bE[\textcolor{orange}{N_k^m(T)}] \leq \alt<2>{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
         \]
         \vspace{-0.2cm}
     % }
