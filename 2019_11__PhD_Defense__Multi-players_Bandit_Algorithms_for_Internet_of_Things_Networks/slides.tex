@@ -45,6 +45,8 @@
 \usepackage{graphicx}
 \graphicspath{{figures/}}
 
+\usepackage{wasysym}  % for \pentagon
+
 \usepackage[absolute,showboxes,overlay]{textpos}
 \TPshowboxesfalse
 \textblockorigin{0mm}{0mm}
@@ -66,6 +68,7 @@
 \definecolor{darkgreen}{RGB}{0,100,0}      % rgb(0,100,0)
 \definecolor{yellowgreen}{RGB}{200,215,0}  % rgb(200,215,0)
 \definecolor{bluegreen}{RGB}{0,185,140}    % rgb(0,185,140)
+\definecolor{bluegreenrhorand}{RGB}{76,191,129}    % rgb(76,191,129)
 \definecolor{lightgold}{RGB}{255,180,0}    % rgb(255,180,0)
 \definecolor{gold}{RGB}{175,100,0}         % rgb(175,100,0)
 \definecolor{strongred}{RGB}{255,0,0}      % rgb(255,0,0)
@@ -2011,7 +2014,8 @@
 
     \begin{colorblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} (state-of-the-art)}
     % \only<1>{
-        For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
+        \begin{small}
+            For all sub-optimal arms $k \in \{M+1,\dots,K\}$,
         \vspace{-0.3cm}
         \[
             \bE[\textcolor{orange}{N_k^m(T)}] \leq \alt<2>{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}{\frac{\ln(T)}{\kl(\mu_k,\mu_{M})}}+ C_{\boldsymbol{\mu}} \sqrt{\ln(T)}.
@@ -2023,9 +2027,17 @@
     %         $\bE[\textcolor{orange}{N_k^m(T)}] \leq \mathcal{O}(\log T)$
     %     \end{center}
     % }
+        \end{small}
     \end{colorblock}
 
+    \uncover<2>{
+        \hfill{}
+        logarithmic regret
+        $\implies$ $R_{\bm\mu}(\cA,T) = \mathcal{O}((\textcolor{red}{M} \textcolor{blue}{\mathbf{C_{M,\mu}}} + \textcolor{red}{M^2 \mathbf{C}_6}) \log(T))$
+    }
+
     \begin{lightblock}{Control of the \textcolor{lightred}{collisions} \hfill{} (new result)}
+        \begin{small}
     % \only<1>{
         \[
             \bE\left[\sum_{k=1}^K \textcolor{red}{\cC_k(T)}\right]
@@ -2037,6 +2049,7 @@
     %         $\bE\left[\textcolor{red}{\cC_k(T)}\right] \leq \mathcal{O}(\log T)$
     %     \end{center}
     % }
+        \end{small}
     \end{lightblock}
 
     % \only<2>{
@@ -2059,8 +2072,9 @@
 
     \begin{figure}
         \centering
-        \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-        \footnotesize{For $K=M$ devices, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} achieves \textbf{constant} regret!\newline $\implies$ Our new orthogonalization procedure is very efficient!}
+        \includegraphics[height=0.78\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
+        % \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_3201141303711964673.pdf}
+        \footnotesize{For $K=M$ devices, \textcolor{blue}{our strategy MC-Top-$M$ ($\pentagon$)} achieves \textbf{constant} regret!\newline $\implies$ Our new orthogonalization procedure is very efficient!}
     \end{figure}
 
 \end{frameO}
@@ -2070,8 +2084,9 @@
     \begin{figure}
         % \centering
         % \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
-        \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_8200873569864822246.pdf}
-        \small{Ex: for $M=6$ devices, \textcolor{yellowgreen}{our strategy MC-Top-$M$ ($\nabla$)} largely outperforms \textcolor{lightblue}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included). ({\small log-log scale})}
+        % \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_8200873569864822246.pdf}
+        \includegraphics[height=0.78\textheight]{MP__K9_M6_T10000_N200__4_algos/all_RegretCentralized____env1-1_3201141303711964673.pdf}
+        \small{Ex: for $M=6$ devices, \textcolor{blue}{our strategy MC-Top-$M$ ($\pentagon$)} largely outperforms \textcolor{bluegreenrhorand}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included).}
     \end{figure}
 
 \end{frameO}
