@@ -468,6 +468,9 @@
     % \end{darkblock}
 
     \begin{darkblock}{Wireless networks\dots}
+
+        We focus on \textbf{\alert{Internet of Things}} networks (IoT) in unlicensed bands.
+
         % \hspace{5pt} $\hookrightarrow$ \textbf{\alert{wireless} networks}\dots
         \hspace{10pt} $\hookrightarrow$ networks with \textbf{\alert{decentralized} access}\dots
 
@@ -475,8 +478,6 @@
         \hspace{30pt} served from \textbf{\alert{one} access point}\\ % in an unlicensed standard:\\
         \hspace{30pt} the base station is \textbf{\alert{not}} affecting devices to radio resources\dots
     \end{darkblock}
-
-    We focus on \textbf{\alert{Internet of Things}} networks (IoT) in unlicensed bands.
 
     \pause
 
@@ -580,7 +581,8 @@
             \begin{column}{0.50\textwidth}
                 \begin{small}
                     \begin{itemize}
-                        \item Yes we can! By \textcolor{orange}{letting the radio devices \includegraphics[height=0.37cm]{dynamic-devices.png} become ``intelligent''}
+                        \item Yes we can!
+                        \item By \textcolor{orange}{letting the radio devices \includegraphics[height=0.37cm]{dynamic-devices.png} become ``intelligent''}
                         \item With \textcolor{darkgreen}{\textbf{MAB algorithms}} !
                     \end{itemize}
                 \end{small}
@@ -2004,12 +2006,14 @@
 \begin{frameO}[Theoretical results for MC-Top-$M$]
 
     % \only<1>{
+        \begin{small}
         \vspace{0.2cm}
         MC-Top-$M$ with $\kl$-based confidence intervals
         \hfill{} \textcolor{gray}{[Cappé et al. 13]}
         \vspace{-0.3cm}
         \[\UCB^m_k(t) = \max \left\{ q : N^m_k(t) \kl \left(\hat{\mu}_k^m(t),q\right) \leq \ln(t) \right\},\]
         \textcolor{gray}{\small where $\kl(x,y) = \KL\left(\cB(x),\cB(y)\right) = x \ln\left(\frac{x}{y}\right) + (1-x)\ln\left(\frac{1-x}{1-y}\right)$.}
+        \end{small}
     % }
 
     \begin{colorblock}{Control of the \textcolor{orange}{sub-optimal selections} \hfill{} (state-of-the-art)}
@@ -2072,9 +2076,10 @@
 
     \begin{figure}
         \centering
-        \includegraphics[height=0.78\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
-        % \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_3201141303711964673.pdf}
-        \footnotesize{For $K=M$ devices, \textcolor{blue}{our strategy MC-Top-$M$ ($\pentagon$)} achieves \textbf{constant} regret!\newline $\implies$ Our new orthogonalization procedure is very efficient!}
+        % \includegraphics[height=0.78\textheight]{MP__K9_M9_T10000_N200__4_algos/all_RegretCentralized____env1-1_2306423191427933958.pdf}
+        % file:///home/lilian/publis/slides/2019_11__PhD_Defense__Multi-players_Bandit_Algorithms_for_Internet_of_Things_Networks/figures/
+        \includegraphics[height=0.75\textheight]{MP__K9_M9_T10000_N200__4_algos/all_CumNbCollisions____env1-1_5888213631268122907.pdf}
+        \footnotesize{For $M=K$, \textcolor{blue}{our strategy MC-Top-$M$ ($\pentagon$)} achieves \textbf{constant} nb of collisions!\newline $\implies$ Our new orthogonalization procedure is very efficient!}
     \end{figure}
 
 \end{frameO}
@@ -2086,7 +2091,7 @@
         % \includegraphics[height=0.75\textheight]{MP__K9_M6_T5000_N500__4_algos/all_RegretCentralized____env1-1_8318947830261751207.pdf}
         % \includegraphics[height=0.80\textheight]{all_RegretCentralized_loglog____env1-1_8200873569864822246.pdf}
         \includegraphics[height=0.78\textheight]{MP__K9_M6_T10000_N200__4_algos/all_RegretCentralized____env1-1_3201141303711964673.pdf}
-        \small{Ex: for $M=6$ devices, \textcolor{blue}{our strategy MC-Top-$M$ ($\pentagon$)} largely outperforms \textcolor{bluegreenrhorand}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included).}
+        \small{For $M=6$ devices, \textcolor{blue}{our strategy MC-Top-$M$ ($\pentagon$)} largely outperforms \textcolor{bluegreenrhorand}{$\rho^{\text{rand}}$} and other previous state-of-the-art policies (not included).}
     \end{figure}
 
 \end{frameO}
@@ -2121,7 +2126,7 @@
             \hline
             Musical Chair & \textcolor{gray}{[4]} & $\textcolor{red}{{2M \choose M} \mathbf{C}_4} \log(T)$ & {\textcolor{orange}{\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}}} & {\footnotesize 1 parameter $T_0$ \newline \textcolor{red}{\emph{hard to tune}} } \\
             \hline
-            \textcolor{orange}{Selfish UCB} & \textcolor{orange}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{\etoile{} $/$ \etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
+            \textcolor{orange}{Selfish UCB} & \textcolor{orange}{[5]} & $\textcolor{red}{T}$ in some case & {\textcolor{orange}{\etoile{} $/$ \etoile{}\etoile{}\etoile{}\etoile{}}} & {\textcolor{orange}{\tgv{}\tgv{}\tgv{}}} & \textbf{none!} \\
             % \vspace*{3pt}
             \hline
             % \vspace*{3pt}
@@ -2312,7 +2317,7 @@
     % \textbf{Idea:} combine a good \textit{bandit algorithm} with a \emph{break-point detector}
 
     \begin{center}
-        \includegraphics[width=1.05\textwidth]{regret_problem1.png}
+        \includegraphics[width=1.09\textwidth]{regret_problem1.png}
     \end{center}
     \vspace*{-15pt}
     \begin{small}
