@@ -1,2 +1,0 @@
-
-- Bayesian regret dans le titre $M = 6$ and $K = 9$ : change figure
