@@ -2,6 +2,7 @@
 marp: true
 size: 4:3
 page_number: true
+paginate: true
 footer: Présentation option D agrég maths @ Univ Rennes 1 - 2020
 ---
 
@@ -46,11 +47,11 @@ Séances de cours pour lesquelles vous devrez être très actifs (préparations 
 
 - 21 leçons : 7 **algo**, 3 **Langages formels**, 4 **logique**, 5 **calculabilité**, 2 **sémantique**,
 
-- Leçon exemple : Joshua Peigner,
+- Leçon exemple : Lilian Besson,
 
-- Encadrement de présentation de leçons : Joshua Peigner, Nathalie Bertrand, Lilian Besson, David Gross-Amblard, Pierre Le Barbenchon, ...
+- Encadrement de présentation de leçons : Sophie Pinchinat, Nathalie Bertrand, Lilian Besson, David Gross-Amblard, Pierre Le Barbenchon, Alan Schmidt...
 
-- Oraux blancs de leçons informatique (2 fois au printemps) : Loïc Hélouët, Nathalie Bertrand, Sophie Pinchinat, ...
+- Oraux blancs de leçons informatique (2 fois au printemps) : Gilles Lesventes, François Schwarzentruber, Nathalie Bertrand, Sophie Pinchinat, ...
 
 ---
 
@@ -60,9 +61,9 @@ Séances de cours pour lesquelles vous devrez être très actifs (préparations 
 
 - TP de rappels en programmation et algorithmique : Lilian Besson (8 séances)
 
-- Modé exemple : Joshua Peigner,
+- Modé exemple : Lilian Besson,
 
-- Encadrement de présentations de modélisation : Lilian Besson, Nathalie Bertrand, Joshua Peigner (11 séances)
+- Encadrement de présentations de modélisation : Lilian Besson, Nathalie Bertrand (11 séances)
 
 - Oraux blancs de modélisation (2 fois au printemps) : Amélie Stainer, Julien Grange, ...
 
