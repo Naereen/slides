@@ -1,0 +1,111 @@
+/*!
+ * Marp / Marpit Naereen2 theme.
+ * Custom CSS for slides written in Markdown with Marp new version (2021)
+ *
+ * @theme Naereen2
+ * @author Lilian Besson (Naereen)
+ * @webpage https://github.com/Naereen/slides/
+ * @license MIT (https://lbesson.mit-license.org/)
+ *
+ * @auto-scaling true
+ * @size 4:3 960px 720px
+*/
+
+@import 'default';
+/* @import-theme 'default'; */
+
+section {
+    background: white;
+    color: black;
+
+    /* Use the Palatino font for text */
+    font-family: "Palatino", "Palatino Linotype", "Palatino LT STD", "TeX Gyre Pagella", "Book Antiqua", Georgia, serif;
+    font-size: 1.45rem;
+}
+
+/*  How to add total # pages with paginate:true #271 */
+/* https://github.com/marp-team/marpit/issues/271#issuecomment-753320519 */
+/* Add "Page" prefix and total page number */
+section::after {
+    content: '§ ' attr(data-marpit-pagination) '/' attr(data-marpit-pagination-total);
+    font-weight: bold;
+}
+
+/* DONE: small hack to left/right/center images */
+/* See https://stackoverflow.com/questions/3912694/using-markdown-how-do-i-center-an-image-and-its-caption */
+img[src*="#center"], img[alt~="center"], img .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img[src*="#right"], img[alt~="right"], img .right {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+img[src*="#left"], img[alt~="left"], img .left {
+    display: block;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+/* DONE: Justify paragraph? It was ugly in some tables... */
+section p {
+    text-align: justify !important;
+    text-align-last: left;
+    text-justify: inter-word;
+}
+
+/* DONE: Align the slide to the top of the page */
+/* https://github.com/marp-team/marpit/issues/153 */
+section > header:first-child + * {
+    margin-top: -28%;
+    position: absolute;
+}
+
+/* TODO */
+/* https://marpit.marp.app/directives?id=class */
+section titre h1, section titre h2 {
+    text-align: center;
+    font-size: 200%;
+}
+
+/* DONE use Hand-Written font for the "thank you" message at the end */
+/* See https://github.com/Naereen/fontify/ */
+/* See https://github.com/Naereen/My-Own-HandWriting-Font */
+@font-face {
+    font-family: "Fontify";
+    src:
+        url("../common/Fontify-Regular.ttf") format("truetype"),
+        url("../common/Fontify-Regular.otf") format("opentype"),
+        url("../common/Fontify-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "FontifyAsbolute";
+    src:
+        url("file:///home/lilian/slides/common/Fontify-Regular.ttf") format("truetype"),
+        url("file:///home/lilian/slides/common/Fontify-Regular.otf") format("opentype"),
+        url("file:///home/lilian/slides/common/Fontify-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: "FontifyWeb";
+    src:
+        url("https://naereen.github.io/slides/common/Fontify-Regular.ttf") format("truetype"),
+        url("https://naereen.github.io/slides/common/Fontify-Regular.otf") format("opentype"),
+        url("https://naereen.github.io/slides/common/Fontify-Regular.woff") format("woff");
+}
+
+.fontify {
+    font-family: "FontifyWeb", "Fontify", "FontifyAsbolute", "Palatino", "Palatino Linotype", "Palatino LT STD", "TeX Gyre Pagella", "Book Antiqua", Georgia, serif;
+    font-size: 200%;
+    letter-spacing: -0.15em;
+    word-spacing: 0.30em;
+    text-align: right;
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}

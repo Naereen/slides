@@ -1,0 +1,21 @@
+# .marprc-html.yml
+# Configuration file for marp-cli, to produce a .html HTML file
+# Documentation: https://github.com/marp-team/marp-cli#options
+#
+# @author Lilian Besson (Naereen)
+# @webpage https://github.com/Naereen/slides/
+# @license MIT (https://lbesson.mit-license.org/)
+#
+allowLocalFiles: true
+bespoke:
+  progress: true
+options:
+  looseYAML: false
+  markdown:
+    breaks: false
+  math: 'mathjax'
+lang: fr
+theme: /home/lilian/publis/slides/common/marp-naereen-new.css
+html: true
+pdf: false
+description: "Slides show using Marp, © Lilian Besson (Naereen), 2021, see <https://github.com/Naereen/slides/>"
