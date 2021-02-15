@@ -3,10 +3,16 @@
 This repository hosts some slides for talks I have gavin, covering various subjects, including code, training, research...
 
 ## About tools
+
 - At first, this repository was only here to host some small experiments, for me to learn how to use [the remark.js slideshow tools](http://remarkjs.com/) correctly;
-- But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:! [My pandoc/beamer template](my.beamer) is working well, I love it.
+- But I discovered that [pandoc](http://pandoc.org/MANUAL.html) can be used to create PDF Beamer slides, written easily in Markdown, and I love it now :heart:! [My pandoc/beamer template](common/my.beamer) is working well, I love it.
 - And I am passionate about open-source, and really fond of Markdown, I am trying to publish here all the slides of the talks I gave recently (from July 2017).
-- I also really like [Marp](https://yhatt.github.io/marp/) (even if it's not updated enough), and [have written this small CSS file to customize it](common/marp-naereen.css) (using [Palatino](https://en.wikipedia.org/wiki/Palatino) & [Fira Code](https://github.com/tonsky/FiraCode/) fonts).
+- (OLD) I also really like [Marp](https://yhatt.github.io/marp/), and [have written this small CSS file to customize it](common/marp-naereen.css) (using [Palatino](https://en.wikipedia.org/wiki/Palatino) & [Fira Code](https://github.com/tonsky/FiraCode/) fonts).
+
+## About tools in 2021
+
+- (NEW) I'm less fan of the new [Marp](https://Marp.app/) app , and [have written this small CSS file to customize it](common/marp-naereen-new.css) (using [Palatino](https://en.wikipedia.org/wiki/Palatino) & [Fira Code](https://github.com/tonsky/FiraCode/) fonts), [as well as bash aliases](https://github.com/Naereen/bin/commit/f58d10dc6eb7057a186e65e3d5b21e3b009b50f9) `marp2pdf` and `marp2html`.
+- (NEW) I LOVE [jupyter notebooks](https://jupyter.org/), and I use the [RISE extension](https://rise.readthedocs.io/en/stable/) regularly to produce slideshows from live Jupyter notebooks (see [RISE on GitHub](https://github.com/damianavila/RISE)). See this example (in French), [presented at a conference in February 2020](https://github.com/Naereen/Tutoriel-notebooks-Jupyter-a-Didapro-8-Lille-fevrier-2020). It uses [reveal.js](https://revealjs.com/), which is honestly better than [remarkjs](http://remarkjs.com) or Marp...
 
 > See also [my SpeakerDesk profile](https://speakerdeck.com/naereen), where I also shared all my previous slides, and I will keep sharing the new ones.
 
@@ -46,6 +52,7 @@ This repository hosts some slides for talks I have gavin, covering various subje
 - [August 2019 : "The Bernoulli Generalized Likelihood Ratio test (B-GLR) for Non-Stationary Multi-Armed Bandits", talk at the GRETSI conference, in Lille (in French)](https://perso.crans.org/besson/publis/slides/2019_08__Bernoulli_GLRTest_and_PieceWise-Stationary_Bandits__GRETSI_2019_Lille/slides.pdf), for [this paper](https://hal.inria.fr/hal-02006471).
 - [September 2019 : "Introduction to Multi-Armed Bandits and Reinforcement Learning"](https://perso.crans.org/besson/publis/slides/2019_09__Tutorial_on_RL_and_MAB_at_Training_School_in_Paris/slides.pdf), for [this Training School in Paris](https://sites.google.com/view/mlc-training-school/program).
 - [November 2019 : oral defense of my PhD thesis, "Multi-players Bandit Algorithms for Internet of Things Networks"](https://perso.crans.org/besson/publis/slides/2019_11__PhD_Defense__Multi-players_Bandit_Algorithms_for_Internet_of_Things_Networks/slides.pdf), see also [my PhD thesis](https://github.com/Naereen/phd-thesis/).
+- [August 2020 : presentation of the Master degree I'm in charge of at ENS Rennes (prépa agrég maths option informatique)](https://perso.crans.org/besson/publis/slides/2020_08__Presentation_option_D_agreg_maths_ENS_Rennes/slides.pdf).
 
 ### :arrow_forward: 2. View the slides on-line as HTML pages ?
 > These versions are experimental and should not be used.
