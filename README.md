@@ -1,6 +1,6 @@
 # Slideshows :notebook: by [Naereen @ GitHub](https://naereen.github.io/)
 
-This repository hosts some slides for talks I have gavin, covering various subjects, including code, training, research...
+This repository hosts some slides for talks I gave in the last years (since 2016), covering various subjects, including programming/code, training and teaching, research (at conferences and my PhD defense)...
 
 ## About tools
 
